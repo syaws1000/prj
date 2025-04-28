@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	h1{color:red;} /* body에 있는 h1 태그의 글자의 색상을 빨강색으로 설정..*/
+	#id01{background-color:brown;} 
+	/*body  태그와 상관없이 속성이 id="id01"인 경우 선택 배경색 brown으로 지정한 것.
+		ex) <h1 id="id01"
+			<tr id="id01"
+		id(identifier:식별하다) : 한페이지에서 하나의 속성을 설정해서 변경할 때,
+			한페이지에서 하나만 설정한다.	
+	*/
+	.cls01{border:1px solid green;}
+	.cls02{color:blue;}
+	/*
+		ex) <h1 class="cls01 cls02"
+			<h2 class="cls01"
+		class : 분류, 계층 :그룹단위로 한 페이지내에서 여러 개를 같은 css 속성을 지정할 때,
+			태그 상관없이 설정. 반대로 하나의 태그에 여러 개의 클래스도 적용이 가능한다.		
+	*/
+/* 
+# 선택자(selector)
+1. html 태그의 모양을 꾸밀 스타일 시트를 선택하는 기능
+	웹페이지의 모든 h3 태그에 color:brown; 스타일을 적용할 때, h3를 선택자로 선택할 때를 말한다.
+	h3{color:brown;}
+	h3 ==> 선택자
+	color ==> 속성(글자색상)
+	brown ==> 속성값
+2. 태그 이름을 선택자로 사용하는 경우
+	여러 개를 한번에 태그이름으로 지정해서 원하는 형식으로 css를 지정할 수 있다.
+	태그1, 태그2, 태그3{속성:속성값}
+3. 기본 선택자 3형제
+	1) 태그명{}
+		p{color:blue;}
+		body에 있는 모든 p태그의 글자색상을 blue로 한다.
+	2) .클래스명{}
+		.cls01{font-size:15px;}
+		body에 있는 모든 태그의 속성이 class="cls01"라고 선언한 것은 글자크기가 15px로 한다.
+		<h1 class="cls01">
+		<p class="cls01">
+		<tr class="cls01">
+		==> 위와 같이 태그의 종류와 상관없이 class 속성에서 속성값이 cls01인 것은 모두 해당한다.
+	3) #아이디명{}
+		#id01{border:1px solid green;}
+		==> <h3 id="id01">
+		body에 있는 태그의 속성이 id이고 속성값이 id01일 경우에 태두리 1px 단일줄(solid) 
+		태두리 색상 green으로 처리한다.
+		일반적으로 id 속성을 하나의 페이지에 하나만 설정할 때, 주로 사용된다.	
+
+*/
+	h3{color:brown;background-color:yellow;}
+	/*ex)  h4로 글자색상으로 노랑색(yellow), 배경색상은(navy) 설정하고  안녕하세요 출력하세요*/
+	h4{color:yellow;background-color:navy;}
+	/* 여러 개의 선택를 통한 속성 설정 */
+	h1, h5, p{color:blue;}
+	/* h2, h6, span의 배경색상(background-color)를 orange 색으로 설정해보세요.*/
+	h2, h6, span{background-color:orange;}
+	
+	</style>
+</head>
+<body>
+	<h1>홍길동</h1>
+	<h2>오길동</h2>
+	<h5>김길동</h5>
+	<h6>마길동</h6>
+	<p><span>회원</span> 가입을 환영합니다.</p>
+
+	<h3>css 선택자와 속성/속성값 설정</h3>
+	<h4>안녕하세요!!</h4>
+	
+</body>
+</html>

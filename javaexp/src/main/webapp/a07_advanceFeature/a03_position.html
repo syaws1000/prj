@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 박스의 배치:position
+1. normal flow
+	1) 웹 페이지에 나타난 순서대로 html 태그 배치
+	2) position 프로퍼티를 이용하며 normal flow 무시 가능
+2. position 프로퍼티를 이용한 배치 방법
+	1) 정적 배치 - position : static(디폴트)
+	2) 상대 배치 - position : relative
+	3) 절대 배치 - position : absolute
+	4) 고정 배치 - position : fixed
+	5) 유동 배치 - float : left, float:right
+3. position 프로퍼터를 사용할 때, 태그의 위치와 크기
+	1) top, bottom, left, right, width, height 프로퍼티로 지정
+		이들 프로퍼티는 배치방법에 따라 다르게 사용한다.
+# 상대 배치 : position : relative
+1. normal flow의 기본 위치에서 left, top, bottom, right 프로퍼티의 값만큼
+	이동한 상대 위치 배치
+	ex) position:relative;
+		right:20px;
+		bottom:20px;
+		
+		position:relative:
+		left:20px;
+		top:20px;
+		
+
+
+*/
+	div{
+		display:inline-block;
+		height:50px;
+		width:50px;
+		border:1px solid lightgray;
+		text-align:center;
+		color:white;
+		background:red;
+		line-height:50px;
+	}
+	.down:hover{
+		position:relative;
+		left:20px;
+		top:20px;
+		background:green;
+	}
+	.up:hover{
+		position:relative;
+		right:20px;
+		bottom:20px;
+		background:blue;
+	}
+	/*
+	.balloon{}  기본 div 선언..
+	.ballon:hover{} 마우스 커서를 위치시켰을 때, 풍선이 위로 올라가게 처리해보세요..배경색상 노랑색 
+	*/
+	.balloon{
+		display:inline-block;
+		height:50px;
+		width:50px;
+		border:1px solid lightgray;
+		text-align:center;
+		color:white;
+		background:red;
+		line-height:50px;	
+	}
+	.balloon:hover{
+		position:relative;
+		bottom:80px;
+		background-color:yellow;
+	}
+</style>
+</head>
+<body>
+	<h2>풍선 띄우기</h2>
+	<div class="balloon">🎈</div>
+	<div class="balloon">🎈</div>
+	<div class="balloon">🎈</div>
+	<div class="balloon">🎈</div>
+
+	<h2>상대배치 relative</h2>
+	<hr>
+	<div class="up"   >T</div>
+	<div class="down" >h</div>
+	<div class="up"   >a</div>
+	<div class="down" >n</div>
+	<div class="up"   >k</div>
+	<div class="down" >s</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2 align="center">온라인 일기쓰기</h2><!-- date title content-->
+<form action="a02_receiveData.jsp">
+<table align="center" width="40%" height="300" border>
+	<col width="30%">
+	<col width="70%">
+	<!-- 
+	col 옵션을 column의 넓이 옵션 설정할 때, 사용된다.
+	width="30%", width="70%" : 테이블 전체 폭을 100%기준으로
+	컬럼을 30%,70%으로 설정한 것을 말한다.
+	
+	<tr>
+		<th></th><td></td>
+	</tr> 
+	한행의 컬럼기준을 2개를 처리..
+	<tr>
+		<th colspan="2"></th>
+	</tr> 
+	 colspan="2" 컬럼 병합 처리..
+	
+	 -->
+	 
+	<tr><th>날짜</th><td><input type="text" name="date"/></td></tr>
+	<tr><th>제목</th><td><input type="text" name="title"/></td></tr>
+	<tr><th>내용</th><td><textarea name="content" cols="30" rows="15"></textarea></td></tr>
+	<tr><th colspan="2"><input type="submit" value="일기등록"/><input type="reset"/></th></tr>
+</table>
+
+</form>
+</body>
+</html>

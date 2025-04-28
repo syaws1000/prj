@@ -1,0 +1,203 @@
+## ✅ 주관식 개념문제 
+
+1. JavaScript에서 `var`로 선언한 변수와 `let`으로 선언한 변수의 스코프 차이를 설명하시오.  
+2. `const`로 선언한 객체의 프로퍼티를 수정할 수 있는 이유를 기술하시오.  
+3. JavaScript에서 호이스팅(hoisting)이 무엇이며, `var`·`let`·`const` 각각에 어떻게 적용되는지 설명하시오.  
+4. 자바의 네 가지 접근 제어자(`public`, `protected`, default, `private`)가 각각 어떤 대상에게 접근을 허용하고 차단하는지 설명하시오.  
+5. 자바에서 캡슐화(encapsulation)가 중요한 이유와, 이를 위해 어떤 코딩 관례를 사용하는지 서술하시오.  
+6. Java의 메서드 오버로딩을 정의하고, 각각 언제 사용하는지 설명하시오.  
+
+---
+
+## 🚀 재미있는 실습문제 
+
+1. **마법 주문 저장소**  
+   - JavaScript의 `let` 변수에 문자열을 추가해서  `<ul><li>`로 document.body에 좋아하는 과일리스트를 출력하세요.
+
+2. **용사와 여권 등록 시스템**  
+   - Java로 `Person` 클래스(이름, 나이, 사는 곳)와 `Passport(여권번호, 이름, 발행일자)` 클래스를 정의하고 
+			pizzaOrder 클래스 customerName: "홍길동", pizzaType: "페퍼로니", size: "Large", extraCheese: true
+				필드, 생성자, get/set메서드를 출력하세요.
+
+3. **해적단 보물 감축기**  
+   - javascript  var, let, const 변수로 해적단의 보물명, 위치, 금화량을 할당하고, 위 3가지를 구분할 수 있는 코드를 만들어 보세요..
+   
+좋아요! 아래는 **주관식 개념문제**에 대한 자세한 풀이와, **재미있는 실습문제** 3가지에 대한 **풀이 코드**입니다.  
+JavaScript와 Java 개념이 통합된 학습 자료로, 학생들이 **이해-구현-적용**까지 이어갈 수 있게 구성했어요 😊
+
+---
+
+## ✅ 주관식 개념문제 풀이
+
+---
+
+**1. `var`와 `let`의 스코프 차이**  
+- `var`: 함수 스코프(function-scoped) → 함수 내부에서만 유효  
+- `let`: 블록 스코프(block-scoped) → `{}` 중괄호 내부에서만 유효  
+📌 예시:
+```javascript
+if (true) {
+    var a = 10;
+    let b = 20;
+}
+console.log(a); // 10
+console.log(b); // 오류 (b is not defined)
+```
+
+---
+
+**2. `const`로 선언한 객체의 프로퍼티 수정이 가능한 이유**  
+- `const`는 변수의 **참조(주소값)**를 고정할 뿐, **객체의 내부 프로퍼티**는 변경 가능함.
+```javascript
+const person = { name: "Tom" };
+person.name = "Jerry";  // 가능
+```
+
+---
+
+**3. 호이스팅(Hoisting)이란?**  
+- 변수 및 함수 선언이 코드 최상단으로 끌어올려지는 현상
+
+| 선언 방식 | 호이스팅 여부 | 초기화 여부 |
+|-----------|---------------|--------------|
+| `var`     | O             | `undefined`로 초기화됨 |
+| `let`     | O             | 초기화 안 됨 (TDZ 발생) |
+| `const`   | O             | 초기화 안 됨 (TDZ 발생) |
+
+```javascript
+console.log(a); // undefined
+var a = 10;
+
+console.log(b); // ReferenceError
+let b = 20;
+```
+
+---
+
+**4. 자바의 접근 제어자 설명**
+
+| 제어자 | 같은 클래스 | 같은 패키지 | 상속받은 클래스 | 외부 클래스 |
+|--------|--------------|---------------|-------------------|-------------|
+| public | O            | O             | O                 | O           |
+| protected | O         | O             | O                 | X           |
+| default (없음) | O     | O             | X                 | X           |
+| private | O           | X             | X                 | X           |
+
+---
+
+**5. 자바의 캡슐화(Encapsulation)와 관례**
+- **중요성**: 내부 데이터 보호, 외부 클래스와의 결합도 낮춤
+- **관례**:
+  - 필드를 `private`으로 선언
+  - `public` getter/setter 메서드를 제공
+```java
+private String name;
+
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+```
+
+---
+
+**6. 자바의 메서드 오버로딩**  
+- 동일한 이름의 메서드를 **매개변수의 개수/타입/순서**가 다르게 정의하는 것
+- 목적: 다양한 입력 처리 가능
+```java
+void greet() { System.out.println("Hello!"); }
+void greet(String name) { System.out.println("Hello, " + name); }
+```
+
+---
+
+## 🚀 재미있는 실습문제 풀이
+
+---
+
+### **1. 마법 주문 저장소 – JavaScript 과일 리스트 출력**
+```html
+<script>
+    let fruitList = ["사과", "바나나", "망고"];
+    let ul = "<ul>";
+    for (let fruit of fruitList) {
+        ul += `<li>${fruit}</li>`;
+    }
+    ul += "</ul>";
+    document.body.innerHTML = ul;
+</script>
+```
+
+---
+
+### **2. 용사와 여권 등록 시스템 – Java 클래스 정의 및 출력**
+```java
+class Person {
+    private String name;
+    private int age;
+    private String location;
+
+    public Person(String name, int age, String location) {
+        this.name = name;
+        this.age = age;
+        this.location = location;
+    }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+}
+
+class Passport {
+    private String passportNumber;
+    private String name;
+    private String issueDate;
+
+    public Passport(String passportNumber, String name, String issueDate) {
+        this.passportNumber = passportNumber;
+        this.name = name;
+        this.issueDate = issueDate;
+    }
+
+    public String getPassportInfo() {
+        return "여권번호: " + passportNumber + ", 이름: " + name + ", 발급일: " + issueDate;
+    }
+}
+```
+
+```java
+class PizzaOrder {
+    String customerName;
+    String pizzaType;
+    String size;
+    boolean extraCheese;
+
+    public PizzaOrder(String customerName, String pizzaType, String size, boolean extraCheese) {
+        this.customerName = customerName;
+        this.pizzaType = pizzaType;
+        this.size = size;
+        this.extraCheese = extraCheese;
+    }
+
+    public void printOrder() {
+        System.out.println("주문자: " + customerName);
+        System.out.println("피자 종류: " + pizzaType);
+        System.out.println("사이즈: " + size);
+        System.out.println("치즈 추가: " + (extraCheese ? "예" : "아니오"));
+    }
+}
+```
+
+---
+
+### **3. 해적단 보물 감축기 – JS 변수 구분 예제**
+```javascript
+var treasureName = "황금나침반";    // 재선언 가능, 함수 스코프
+let location = "해골섬";           // 블록 스코프
+const goldAmount = 9999;          // 변경 불가 (재할당 금지)
+
+console.log("보물명: " + treasureName);
+console.log("위치: " + location);
+console.log("금화량: " + goldAmount);
+```
+
+

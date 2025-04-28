@@ -1,0 +1,170 @@
+## ✅ 객관식 10문제 (문제만)
+
+1. `equals()` 메서드는 어떤 데이터 비교에 사용되나요?  
+   ① 정수 비교 ② 논리 비교 ③ 문자열 비교 ④ 객체 주소 비교
+
+2. 자바에서 `Math.random()`이 생성하는 값의 범위는?  
+   ① 0 ~ 1 ② 0 이상 1 미만 ③ 1 이상 2 미만 ④ -1 ~ 1
+
+3. `"Hello".length()`의 반환 값은 무엇을 의미하나요?  
+   ① 문자열의 바이트 크기 ② 글자 수 ③ 문자의 유니코드 합 ④ 공백 수
+
+4. 배열의 크기를 구하는 올바른 구문은?  
+   ① `array.size()` ② `array.length()` ③ `array.length` ④ `array.count`
+
+5. `Scanner` 객체를 통해 정수를 입력받는 메서드는?  
+   ① `nextLine()` ② `nextInt()` ③ `read()` ④ `parseInt()`
+
+6. `font-size:3em;`은 무엇을 의미하나요?  
+   ① 기본 글꼴 크기의 3배 ② 3픽셀 크기 ③ 고정 크기 ④ 글꼴을 3가지 사용
+
+7. `font-weight: bold;`의 효과는?  
+   ① 글자를 이탤릭체로 ② 글자 색을 진하게 ③ 글자를 굵게 ④ 글자 배경색 추가
+
+8. `transform: rotate(20deg);`의 효과는?  
+   ① 요소 크기를 20배 확대 ② 요소를 20도 회전 ③ 위치를 이동 ④ 흐릿하게 처리
+
+9. `input:focus {}`는 언제 적용되나요?  
+   ① input이 클릭되었을 때 ② input을 작성한 후 ③ 마우스를 올렸을 때 ④ 페이지 로드시
+
+10. `margin-left: 5cm;`의 의미는?  
+    ① 왼쪽 글자를 5단 띄움 ② 왼쪽 여백을 5cm 띄움 ③ 글자 크기 5cm ④ 왼쪽 테두리 5cm
+
+---
+
+## ✅ 주관식 개념 문제 10문제 (문제만)
+
+1. `==` 연산자와 `equals()` 메서드의 차이를 설명하세요.
+
+2. `Math.random()`을 활용하여 1~6 사이의 정수를 만드는 방법을 코드로 작성하세요.
+
+3. 배열과 문자열의 `.length` 차이를 설명하세요.
+
+4. `Scanner` 클래스를 사용하는 절차를 단계별로 설명하세요.
+
+5. `Integer.parseInt()`의 사용 목적과 예시를 작성하세요.
+
+6. `em`, `%`, `px` 단위의 차이점을 예시와 함께 설명하세요.
+
+7. `font-family`와 `font-style`의 차이를 설명하세요.
+
+8. `rotate(15deg)`은 어떤 시각적 효과를 주며, 어떤 상황에서 활용할 수 있을까요?
+
+9. `font` 속성을 한 줄로 사용하는 방법을 설명하고 예시를 작성하세요.
+
+10. `:hover`, `:focus`, `:active` 가상 클래스의 차이를 설명하세요.
+
+---
+
+## ✅ 실습형 이야기 문제 5문제 (문제만)
+
+1. 🧃 **"랜덤 음료 자판기" 만들기**  
+   자바에서 3가지 음료("콜라", "사이다", "주스") 중 하나가 랜덤으로 출력되게 하세요.
+
+2. 🛍️ **"쇼핑 계산기" 만들기**  
+   사용자에게 물건명, 가격, 수량을 입력받고 총 구매 금액을 출력하는 프로그램을 작성하세요.
+
+3. 📚 **"도서관 책장 정렬"**  
+   HTML/CSS로 책 제목 5개를 `<div>`로 나열하고 `:hover` 시 회전(`rotate`) 효과를 주어 책을 기울이게 표현하세요.
+
+4. 🌍 **"여행지 스타일 카드"**  
+   각 나라에 맞는 여백 단위를 사용하여 여행지 카드(`div`)를 CSS로 꾸며보세요.  
+   (한국: 5cm, 일본: 5mm, 미국: 2in)
+
+5. 🚀 **"우주 탐험 소개 페이지"**  
+   "우주 탐험" 제목을 굵은 텍스트, 기울임체, 크기 30px, Arial로 꾸미고, 대체 폰트를 설정하여 디자인하세요.
+
+
+
+
+// ✅ 객관식 10문제 - 정답
+// 1. ③ 문자열 비교
+// 2. ② 0 이상 1 미만
+// 3. ② 글자 수
+// 4. ③ array.length
+// 5. ② nextInt()
+// 6. ① 기본 글꼴 크기의 3배
+// 7. ③ 글자를 굵게
+// 8. ② 요소를 20도 회전
+// 9. ① input이 클릭되었을 때
+//10. ② 왼쪽 여백을 5cm 띄움
+
+// ✅ 주관식 개념 문제 풀이
+
+// 1.
+// == 은 객체의 주소(레퍼런스)를 비교하고,
+// equals()는 객체 내부의 값(내용)을 비교한다.
+// 문자열 비교에는 반드시 equals() 사용해야 함.
+
+// 2.
+// int dice = (int)(Math.random() * 6) + 1; // 1 ~ 6 사이의 정수
+
+// 3.
+// 배열.length : 배열의 길이 (속성)
+// 문자열.length() : 문자열의 길이 (메서드)
+
+// 4.
+// 1) Scanner sc = new Scanner(System.in);
+// 2) int num = sc.nextInt(); // 숫자 입력
+// 3) String str = sc.nextLine(); // 문자열 입력
+
+// 5.
+// 문자열을 숫자로 변환할 때 사용
+// 예: int num = Integer.parseInt("25");
+
+// 6.
+// em : 배수 기준 (상대)
+// % : 백분율 (상대)
+// px : 고정 픽셀 (절대)
+
+// 7.
+// font-family는 폰트 종류 설정
+// font-style은 기울임 등 스타일 설정 (italic, normal 등)
+
+// 8.
+// rotate(15deg)는 요소를 15도 회전시킴 (시계방향)
+// 활용 예: 카드 뒤집기, 책 비틀기 등 시각적 강조
+
+// 9.
+// font: italic bold 20px Arial, sans-serif;
+// (기울임, 굵기, 크기, 폰트 순서)
+
+//10.
+// :hover → 마우스 올릴 때
+// :focus → 입력 포커스될 때
+// :active → 클릭 중일 때
+
+// ✅ 실습형 문제 코드 예시
+
+// 1. 랜덤 음료 자판기
+String[] drinks = {"콜라", "사이다", "주스"};
+int idx = (int)(Math.random()*3);
+System.out.println("랜덤 음료: " + drinks[idx]);
+
+// 2. 쇼핑 계산기
+Scanner sc = new Scanner(System.in);
+System.out.print("물건명:");
+String item = sc.nextLine();
+System.out.print("가격:");
+int price = sc.nextInt();
+System.out.print("수량:");
+int qty = sc.nextInt();
+System.out.println("총금액: " + (price * qty));
+
+// 3. 도서 hover 효과 (HTML/CSS)
+// <style>
+div.book:hover {
+  transform: rotate(10deg);
+  background-color: #f0f0f0;
+}
+// </style>
+// <div class="book">책 제목 1</div>
+
+// 4. 여행지 카드
+// <div style="margin-left:5cm">한국</div>
+// <div style="margin-top:5mm">일본</div>
+// <div style="margin-bottom:2in">미국</div>
+
+// 5. 우주탐험 제목
+// <h1 style="font-style:italic; font-weight:bold; font-size:30px; font-family:Arial, sans-serif;">우주 탐험</h1>
+

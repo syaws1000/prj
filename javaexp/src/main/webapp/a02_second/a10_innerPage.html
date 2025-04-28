@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 하나의 페이지 안에서 특정한 위치로 이동하는 링크 만들기
+1. a 링크를 통해서 특정 외부페이지로 다른 사이트 또는, 현재
+	같은 서버내에 다른 페이지로 이동도 하지만,
+2. 현재페이지내에서 특정 위치로도 이동이 가능하다.
+3. 한페이지내에서 목차가 있고, 해당 목차를 클릭했을 시, 하단에
+	특정한 내용에 대한 설명을 볼 수 있게 처리하는 것을 말한다.
+4. 기본 형식
+	1) 이동할 위치 태그
+		<태그명 id="태그식별자">
+	2) 클릭하여 이동할 a link 설정
+		<a href="#태그아이디">이동할레이블</a>
+		
+ex) a11_innerLink.html
+	java   ==> a link로 클릭시, 하단에 구체적인 설명이 있는 곳으로 이동
+	jsp	
+	spring
+	
+	
+	<h1>java</h2>
+	<p>java관련 gpt 검색 내용...</a> 		
+ -->
+	<h2 id="first">이동 연습(한페이지 내에서)</h2>
+	<a href="#pos01">위치1로 이동</a><br> 
+	<a href="#pos02">위치2로 이동</a><br> 
+	<a href="#pos03">위치3로 이동</a><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h1 id="pos01">위치1</h1>
+	<a href="#first">처음으로 이동</a><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h1 id="pos02">위치2</h1>
+	<a href="#first">처음으로 이동</a><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<h1 id="pos03">위치3</h1>
+	<a href="#first">처음으로 이동</a><br> 
+	 
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- 
+# html5의 문서구조화
+1. 기존 html의 한계 : 웹 문서 구조를 표현하는 태그 없음
+	1) div 태그나 table 태그로 구조화되어 보이게 작성
+	2) html 페이지의 소스를 보면 문서 구조 파악 불가능
+2. 문서 구조화의 이유
+	1) 검색 엔진이 좋아하는 엡 페이지 작성의 필요성 대두
+		- 정보 탐색이 중요해진 시대
+		- 사물인터넷으로 it장치들이 스스로 정보 검색하는 시대
+		- 사용자가 만든 웹 페이지 가치 극대롸 - 탐색이 쉽도록 작성
+	2) 작성하면서도 가독성 증대
+3. 시맨틱 웹(semantic tag web)	
+	1) 웹 문서를 구조화하여 의미 있는 내용 탐색이 용이한 웹
+	2) 기존 태그 p, div, h1,h2 등 태그 사용. 문서의 구조나 의미 전달 어려움
+	3) 시맨틱 태그
+		문서의 고조와 의미를 전달하는 태그
+		header, section, article, main, summary, mark, time
+	4) 구글 검색 엔진 사례
+		웹 페이지에서 시맨틱 태그 검색
+		리뷰, 사람, 제품, 업체, 이벤트, 음악 등 검색 결과 제공
+# 시맨틱 태그의 주요 내용
+1. header
+	1) 페이지나 섹션의 머리말 표현
+	2) 페이지 제목, 페이지를 소개하는 간단한 설명
+2. nav
+	1) 하이퍼링크들을 모아 놓은 특별한 섹션
+	2) 페이지 내 목차를 만드는 용도
+3. section
+	1) 문서의 장(chapter, section) 혹은 절을 구성하는 역할.
+	2) 일반 문서의 여러 장이 있듯이 웹 페이지에 여러 section 가능
+	3) 헤딩 태그(h1~h6)를 사용하여 절 혹 섹션의 주제 기입
+4. article
+	1) 본문과 연관 있지만, 독립적인 콘텍츠를 담는 영역
+	2) 혹은 보조 기사, 블로그 포스트, 댓슬 등 기타 독립적인 내용
+	3) article에 담는 내용이 많은 경우, 여러 section 둘 수 있음
+5. aside
+	1) 본문에서 약간 벗어난 노트나 팁
+	2) 신문, 잡지에서 주요 기사 옆 관련 기사, 삽입 어구로 표현된 논평등
+	3) 페이지의 오른쪽이나 왼뽁에 주로 배치
+6. footer
+	1) 꼬리말 영역, 주로 저자나 저작권 정보, 주소, 연락처, 이메일 등..
+	
+	
+
+ -->
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                	<!--  a href="#아이디명"  : 클릭시 하단에 해당 아이디명으로 속성 id를 설정한 곳으로 이동
+                		  <태그 id="아이디명">
+                		  a href="페이지명" : 해당 페이지로 이동 처리..
+                		  a href="javascript:call();"
+                		  
+                		  function call(){
+                		  	window.open("페이지명","","크기 넓이 옵션");
+                		  	팝업창(윈도우 브라우저 창 로딩)
+                		  }
+                	 -->
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to My Portfolio</h2>
+        <p>This is my personal website where you can find my projects and background.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Learn more about my skills, background, and experiences.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>My Projects</h2>
+        <div class="gallery">
+            <img src="project1.jpg" alt="Project 1">
+            <img src="project2.jpg" alt="Project 2">
+            <img src="project3.jpg" alt="Project 3">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch with me via email or social media.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio</p>
+    </footer>
+</body>
+</html>

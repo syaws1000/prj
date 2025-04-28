@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# iframe에서 사용되는 세부 속성들
+1. 기본형식
+	<iframe src="url" srcdoc="html문서 텍스트"
+		name="윈도우 이름" width="프레임의 폭" height="프레임의 높이">
+2. 속성 상세
+	1) src : 출력되는 웹 페이지의 파일명 또는 url 주소
+	2) srcdoc : 직접 html 태그로 작성된 화면
+	3) name : 프레임의 이름을 지정, 다른 웹 페이지에서 terget 속성값으로 사용
+	4) width : 프레임의 폭, 픽셀의 값 디폴트 300
+	5) width : 프레림의 높이, 픽셀의 값 디폴트 150
+ -->
+<h2>html 코드로 포함되는 iframe</h2>
+<hr>
+<a href="a02_frame01.html" target="frame01">고고 페이지 1[frame01]</a><br> 
+<a href="a03_frame02.html" target="frame01">고고 페이지 2[frame01]</a><br> 
+<a href="a05_frame01.html" target="frame02">고고 페이지 3[frame02]</a><br> 
+<a href="a06_frame02.html" target="frame02">고고 페이지 4[frame02]</a><br>
+<iframe width="49%" height="300" name="frame01"
+	srcdoc = "<h2>첫번째 프레임 초기 화면</h2>"></iframe>
+<iframe width="49%" height="300" name="frame02"
+	srcdoc = "<h2>두번째 프레임 초기 화면</h2>"></iframe>
+	
+<!-- 
+a08_iframeMainMart.html
+	과일가게  : a09_fruit.html  <h2>과일물품판매</h2>
+	식료품가게  : a10_food.html  <h2>식료품판매</h2>
+	공산품가게   : a11_product1.html	  <h2>공산품판매</h2>
+	잡화가게    :  a12_product2.html  <h2>잡화판매</h2>
+	a link로 클릭시, 하단에 아이프레임 내용이 변경되게 처리
+	
+	[아이프레임]
+ -->
+
+ 
+</body>
+</html>

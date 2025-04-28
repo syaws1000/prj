@@ -1,0 +1,269 @@
+### ✅ 객관식 10문제 (문제만)
+
+1. HTML에서 한 페이지 내 특정 위치로 이동하는 링크는 어떤 속성을 통해 지정할까요?  
+   (A) src  
+   (B) id  
+   (C) href="#"  
+   (D) target  
+
+2. `<a>` 태그의 `target="_blank"`는 어떤 기능을 하나요?  
+   (A) 현재 페이지에 표시  
+   (B) 부모 프레임에 표시  
+   (C) 새 창 또는 새 탭에서 열기  
+   (D) 최상위 프레임에서 열기  
+
+3. iframe 태그의 역할은 무엇인가요?  
+   (A) 표를 만드는 태그  
+   (B) 다른 HTML 페이지를 현재 페이지 안에 포함  
+   (C) 이미지 출력 태그  
+   (D) 스타일 지정 태그  
+
+4. iframe의 `name` 속성은 무엇을 위해 사용되나요?  
+   (A) 프레임에 스타일 적용  
+   (B) 프레임 간 링크 연결 시 target으로 사용  
+   (C) 프레임 안에 이미지 삽입  
+   (D) 프레임의 색상 지정  
+
+5. 자바에서 정수를 저장하는 데이터 타입은 무엇인가요?  
+   (A) double  
+   (B) int  
+   (C) String  
+   (D) boolean  
+
+6. 자바에서 `char ch = 'A';` 와 같이 할당할 때 문자 데이터는 어떤 따옴표로 묶어야 하나요?  
+   (A) ""  
+   (B) ''  
+   (C) ``  
+   (D) ()  
+
+7. 다음 중 자바의 boolean 타입 변수는 어떤 값을 가질 수 있나요?  
+   (A) 숫자  
+   (B) 문자열  
+   (C) true 또는 false  
+   (D) 문자  
+
+8. 다음 중 변수명을 지을 때 사용할 수 없는 것은 무엇인가요?  
+   (A) _count  
+   (B) $total  
+   (C) 9age  
+   (D) price1  
+
+9. 아래 보기 중 클래스 이름으로 적절한 것은 무엇인가요?  
+   (A) studentCount  
+   (B) maxValue  
+   (C) Circle  
+   (D) favoriteFood  
+
+10. `int score = 72; boolean isPass = score >= 60;` 이 코드는 무엇을 의미하나요?  
+   (A) 점수가 60 이상이면 false  
+   (B) 점수가 60 이상이면 true  
+   (C) 점수가 60 이하이면 true  
+   (D) 조건 검사를 하지 않는다  
+
+
+---
+
+### ✅ 주관식 5문제 (문제만)
+
+1. HTML에서 특정 위치로 이동하기 위한 앵커 링크를 만드는 방법을 설명하세요.
+
+2. `<iframe>` 태그의 `srcdoc` 속성의 역할을 간단히 설명하세요.
+
+3. 자바에서 문자열 데이터를 저장하는 변수는 어떤 데이터 타입을 사용하나요?
+
+4. 변수 이름을 지을 때 사용할 수 없는 규칙 2가지를 쓰세요.
+
+5. 클래스 이름과 변수 이름을 지을 때 구분해서 사용하는 관례를 설명하세요.
+
+
+---
+
+### ✅ 재미있는 실습 문제 3문제 (문제만)
+
+1. **HTML 실습 문제**:  
+   한 페이지 안에 `#database`, `#css`, `#mybatis`으로 이동하는 목차를 만들고, 각 위치에 제목과 설명을 작성해보세요.
+
+2. **자바 실습 문제**:  
+   키(height)와 몸무게(weight)를 입력하고, BMI(체질량지수)를 계산하여 출력하는 프로그램을 작성해보세요.  
+   (BMI = weight / (height * height) * 10000)
+
+3. **HTML + iframe 실습 문제**:  
+   왼쪽 프레임에는 네이버와 구글 링크, 오른쪽 프레임에는 클릭한 링크 페이지가 열리도록 iframe을 사용하여 만들어보세요.
+
+
+### ✅ 객관식 10문제 정답 및 풀이  
+
+1. **HTML에서 한 페이지 내 특정 위치로 이동하는 링크는 어떤 속성을 통해 지정할까요?**  
+   👉 정답: (C) href="#"  
+   ➡ `href="#아이디"`를 통해 현재 페이지 내 특정 위치로 이동합니다.  
+   
+   <a href="#ck01">링크로 이동</a>
+   
+   <h1 id="ck01">이동한위치</h1>
+
+2. **`<a>` 태그의 `target="_blank"`는 어떤 기능을 하나요?**  
+   👉 정답: (C) 새 창 또는 새 탭에서 열기  
+   ➡ `_blank`는 새로운 탭이나 창에서 링크를 열 때 사용합니다.  
+   
+   <a href="이동할페이지" target="self">현재페이지변환</a>
+   <a href="이동할페이지" target="_blank">새로운탭이나 창으로 출력</a>
+   <a href="이동할페이지" target="페레임이름">내부에 iframe이 변경</a>
+   <iframe name="페레임이름" />   
+
+3. **iframe 태그의 역할은 무엇인가요?**  
+   👉 정답: (B) 다른 HTML 페이지를 현재 페이지 안에 포함  
+   ➡ iframe은 다른 HTML 문서를 삽입하여 보여주는 기능입니다.  
+
+4. **iframe의 `name` 속성은 무엇을 위해 사용되나요?**  
+   👉 정답: (B) 프레임 간 링크 연결 시 target으로 사용  
+   ➡ `name`으로 이름을 정하고, 다른 링크의 `target`으로 지정할 수 있습니다.  
+
+5. **자바에서 정수를 저장하는 데이터 타입은 무엇인가요?**  
+   👉 정답: (B) int  
+   ➡ 정수형 데이터를 저장할 때는 `int` 타입을 사용합니다.  
+
+6. **자바에서 `char ch = 'A';` 와 같이 할당할 때 문자 데이터는 어떤 따옴표로 묶어야 하나요?**  
+   👉 정답: (B) ''  
+   ➡ 문자 하나를 할당할 때는 작은따옴표(`''`)를 사용합니다.  
+
+7. **다음 중 자바의 boolean 타입 변수는 어떤 값을 가질 수 있나요?**  
+   👉 정답: (C) true 또는 false  
+   ➡ boolean 타입은 `true` 또는 `false` 값을 저장합니다.  
+
+8. **다음 중 변수명을 지을 때 사용할 수 없는 것은 무엇인가요?**  
+   👉 정답: (C) 9age  
+   ➡ 변수명은 숫자로 시작할 수 없습니다.  
+
+9. **아래 보기 중 클래스 이름으로 적절한 것은 무엇인가요?**  
+   👉 정답: (C) Circle  
+   ➡ 클래스명은 첫 글자를 대문자로 작성하는 것이 관례입니다.  
+
+10. **`int score = 72; boolean isPass = score >= 60;` 이 코드는 무엇을 의미하나요?**  
+   👉 정답: (B) 점수가 60 이상이면 true  
+   ➡ 조건에 맞으면 `true`, 아니면 `false` 값을 저장합니다.  
+
+
+---
+
+### ✅ 주관식 5문제 정답 및 풀이
+
+1. **HTML에서 특정 위치로 이동하기 위한 앵커 링크를 만드는 방법을 설명하세요.**  
+   ➡ 이동할 위치에 `id="아이디"`를 지정하고,  
+   `<a href="#아이디">링크텍스트</a>` 로 이동합니다.  
+
+2. **`<iframe>` 태그의 `srcdoc` 속성의 역할을 간단히 설명하세요.**  
+   ➡ iframe 안에 직접 작성한 HTML 코드 내용을 삽입하여 표시할 때 사용합니다.  
+
+3. **자바에서 문자열 데이터를 저장하는 변수는 어떤 데이터 타입을 사용하나요?**  
+   ➡ `String` 타입을 사용합니다.  
+
+4. **변수 이름을 지을 때 사용할 수 없는 규칙 2가지를 쓰세요.**  
+   ➡ 숫자로 시작할 수 없음, 예약어(자바 키워드)를 사용할 수 없음  
+
+5. **클래스 이름과 변수 이름을 지을 때 구분해서 사용하는 관례를 설명하세요.**  
+   ➡ 클래스명은 첫 글자를 대문자로 시작하고, 변수명은 소문자로 시작합니다.  
+
+
+---
+
+### ✅ 재미있는 실습 문제 3문제 코드 풀이
+
+---
+
+### 1. **HTML 실습 문제 — 목차와 내부 링크**
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>내부 링크 목차 예제</title>
+</head>
+<body>
+  <h1>목차</h1>
+  <ul>
+    <li><a href="#database">Database</a></li>
+    <li><a href="#css">CSS</a></li>
+    <li><a href="#mybatis">MyBatis</a></li>
+  </ul>
+
+  <hr><br><br>
+
+  <h2 id="database">Database</h2>
+  <p>
+    데이터베이스(Database)는 데이터를 체계적으로 저장하고 관리하는 시스템입니다.<br>
+    대표적으로 MySQL, Oracle, PostgreSQL 등이 있습니다.
+  </p>
+  <a href="#top">목차로 돌아가기</a>
+
+  <br><br><hr><br><br>
+
+  <h2 id="css">CSS</h2>
+  <p>
+    CSS는 Cascading Style Sheets의 약자로, HTML 문서를 꾸미기 위한 스타일 언어입니다.<br>
+    색상, 글꼴, 레이아웃 등을 조정할 수 있습니다.
+  </p>
+  <a href="#top">목차로 돌아가기</a>
+
+  <br><br><hr><br><br>
+
+  <h2 id="mybatis">MyBatis</h2>
+  <p>
+    MyBatis는 자바에서 SQL을 매핑해주는 프레임워크입니다.<br>
+    복잡한 쿼리를 XML이나 어노테이션으로 관리할 수 있습니다.
+  </p>
+  <a href="#top">목차로 돌아가기</a>
+</body>
+</html>
+```
+
+---
+
+### 2. **자바 실습 문제 — BMI 계산기 프로그램**
+
+```java
+public class BmiCalculator {
+    public static void main(String[] args) {
+        double height = 175.0; // cm
+        double weight = 68.0;  // kg
+
+        double bmi = weight / (height * height) * 10000;
+
+        System.out.println("당신의 키 : " + height + "cm");
+        System.out.println("당신의 몸무게 : " + weight + "kg");
+        System.out.println("당신의 BMI 지수는 "+bmi+" 입니다.\n");
+
+    }
+}
+```
+
+---
+
+### 3. **HTML + iframe 실습 문제 — 좌측 메뉴 & 우측 프레임 페이지**
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>iframe 링크 실습</title>
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <h3>사이트 이동</h3>
+      <ul>
+        <li><a href="https://www.naver.com" target="viewFrame">네이버</a></li>
+        <li><a href="https://www.google.com" target="viewFrame">구글</a></li>
+      </ul>
+    </div>
+    <iframe name="viewFrame" srcdoc="<h2>여기에 페이지가 열립니다.</h2>"></iframe>
+  </div>
+</body>
+</html>
+```
+
+
+
+   
+   

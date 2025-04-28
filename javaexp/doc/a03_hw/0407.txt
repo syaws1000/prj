@@ -1,0 +1,302 @@
+
+## ✅ 객관식 문제 30문제 
+
+### 🔹 자바 문법 및 제어문
+
+1. 자바에서 `for` 반복문의 기본 구성 요소가 아닌 것은?  
+   ① 초기화식  
+   ② 조건식  
+   ③ 증감식  
+   #④ 대입식
+   for(초기화식;조건식;증감식){
+   	   반복수행내용
+   }
+   for(int no=1;no<=10;no++){
+   		System.out.println(no);
+   }
+
+2. 자바에서 `switch`문에 사용할 수 없는 데이터 타입은?  
+   ① int  
+   ② String  
+   #③ double  
+   ④ char
+   int chNo = 3;
+   String chStr = "5";
+   char chChar = 'A';
+   switch(chNo){}
+   switch(chStr){}
+   switch(chChar){}
+   ps) boolean도 처리할 수 없다. true/false
+   
+
+3. `break` 키워드가 사용되는 경우는?  
+   ① 프로그램 전체 종료  
+   ② 메서드 탈출  
+   #③ 반복문이나 switch문 종료  
+   ④ 콘솔에 출력
+   
+   for(int cnt=1;cnt<=10;cnt++){
+   	  if(cnt==5){
+   	  	break;  //원래 1~10까지 수행되는 내용을 5에서 중단 처리..
+   	  }
+   }
+   switch(month){
+   	   case 12:
+   	   case 1:
+   	   case 2:
+   	   	   System.out.println("겨울입니다");
+   	   	   break;  // 12, 1, 2 break가 나오기 전에는 계속 아래로 수행
+   	   	   			  break를 만나는 순간 중단..
+   	   case 3:
+   	   case 4:
+   	   case 5:
+   	   		System.out.println("봄입니다");
+   	   		break;
+   	   	 
+   }
+
+4. `continue` 키워드는 어떤 기능을 하나요?  
+   #① 현재 반복을 종료하고 다음 반복 수행  
+   ② 무한 루프 생성  
+   ③ 조건문을 종료  
+   ④ 프로그램 강제 종료 
+   int grade = 3;
+   for(int cnt=1;cnt<=9;cnt++){
+   		if(cnt == 3 || cnt== 5){
+   			continue; // 해당 cnt에서는 하단에 있는 출력 즉, 그 아래 내용을 수행하지 않고,
+   					  // 다음 반복 스텝이 수행된다.
+   		}
+   		System.out.println(grade+" x " + cnt +" = " +(grade*cnt));
+   }
+   3 x 1 = 3
+   3 x 2 = 6
+   3 x 4 = 12
+   3 x 6 = 18
+   3 x 7 = 21
+   3 x 8 = 24
+   3 x 9 = 27
+5. `int[] nums = new int[5];` 으로 선언된 배열의 기본값은?
+	==> {0,0,0,0,0}
+   ① null  
+   #② 0  
+   ③ 빈 문자열  
+   ④ 정의되지 않음
+    double[] nums2 = new double[3]==> {0.0,0.0,0.0}
+    char[] chr = new char[3]==> {'','',''}
+    boolean[] bool = new char[3]==> {false,false,false}
+    String[] str = new String[3]==> {null, null, null}
+    객체형은 아에 값이 heap메모리에 없다는 의미로 null이 처리된다.(주의)
+6. `Scanner sc = new Scanner(System.in);` 에서 `System.in`의 의미는?
+	import java.util.Scanner; // ctrl+shift+o (단축키)
+	sc.nextInt() : 정수값 입력하기
+	sc.nextDouble() : 실수값 입력
+	sc.nextLine() : enter입력전까지 문자열
+	# 주의
+		문자열입력 후, 숫자입력을 반복할 때는(버그가 있기때문) 
+		Integer.parseInt(sc.nextLine());  문자열을 정수형 변환  
+		Double.parseDouble(sc.nextLine());  문자열을 실수형 변환
+   ① 시스템 시간  
+   ② 콘솔 출력  
+   #③ 콘솔 입력  
+   ④ 파일 입력
+
+7. 문자열을 정확하게 비교하기 위한 메서드는?  
+   ① ==   문자열이 객체이므로 주소값을 변경하기에 일반적으로 자바에서는 사용하지 않는다.  
+   ② !=  
+   #③ equals()  입력되는 문자열이나, DB에서 가져와서 비교할 때는 반드시 문자열1.equals(문자열2)로
+   				사용하여야 한다.
+   ④ compareTo()
+
+8. `Math.random()`이 반환하는 값은?  
+   ① 정수  
+   ② 음수  
+   #③ 0.0 이상 1.0 미만의 실수  
+   ④ 문자열
+   정수형 데이터를 임의의 값으로 가져올 때는
+   (int)(Math.random()*경우의수 + 시작수)로 설정하여 가져온다.
+   주사위 숫자(1~6)까지 임의의 수를 가져올 때
+   int dice = (int)(Math.random()*6 + 1);  경우의 수 6가지, 시작 수 1
+  
+
+9. 다음 중 유효한 배열 선언은?  
+   ① int array();  
+   #② int[] arr; 
+      int arr[];
+      arr = new int[]{10,20,30};// 선언된 변수로 할당할때는 new int[] 생략불가.. (주의)
+      int arr2[] = {10,20,30}; // 바로 할당할 때, new int[] 생략가능 
+   ③ array int[];  
+   ④ declare int arr[]
+
+10. 조건이 참일 때만 실행되는 자바 구문은?  
+   #① if
+   	  if(조건){
+   	  	조건이 참일 때만 수행하는 구문.
+   	  }  
+   ② while  
+   ③ for  
+   ④ switch
+
+### 🔹 HTML 기본 구조 및 스타일링
+
+11. HTML에서 웹 문서의 제목을 지정하는 태그는?  
+   ① `<body>`  
+   #② `<title>`  
+   ③ `<head>`  
+   ④ `<meta>`
+   브라우저 상단에 title에 내용을 입력할 때, 사용한다.
+   
+12. 웹 페이지의 실제 내용을 담는 주요 태그는?  
+   ① `<head>`  
+   ② `<meta>`  
+   #③ `<body>`  
+   ④ `<link>`
+   <html>
+   	 <head>
+   	 	<title>상단표현</titl>
+   	 	<style</style>
+   	 	<script></script>
+   	 </head>
+   	 <body>
+   	 	화면에 출력된 내용 처리할 부분..
+   	 </body>
+   </html>
+
+13. `<input type="text">`에서 사용자 입력에 포커스가 갔을 때 스타일을 주고 싶을 때 사용하는 가상 클래스는?  
+   ① :hover     h1:hover{color:blue;}
+   #② :focus    input[type=text]:focus{background:yellow;}  
+   ③ :visited   a:visited{color:green;}  a link에서 방문이후 내용 처리
+   ④ :checked	input[type=radio], input[type=check]
+   				위 요소들에 check가 되었을 때, css 처리
+   				input[type=check]:checked{border:1px solid green;}
+14. CSS에서 줄바꿈 없이 크기 조절이 가능한 박스 배치는?  
+   ① display: block   : 줄바꿈, 넓이 높이 조절 가능
+   #② display: inline-block : 줄바꿈하지 않음, 넓이 높이 조절 조절 
+   ③ display: inline  : 줄바꿈하지 않음, 넓이 높이 조절 불가
+   ④ float: left
+
+15. 다음 중 HTML 요소의 기본 배치 흐름이 아닌 것은?  
+   ① 왼쪽에서 오른쪽  <span>A<span><span>B<span>  
+   ② 위에서 아래  <h1>A</h1><h1>B</h1>
+   #③ 우측에서 좌측  속성으로 css 지정할 때는 가능하지만 일반적이지 않다..  
+   ④ 순서대로 나열 
+
+16. CSS에서 `border-radius: 10px;` 의 효과는?  
+   ① 글자 크기를 둥글게  
+   #② 테두리를 둥글게   모서리 둥글기 정도 처리..  
+   ③ 테두리를 점선으로  
+   ④ 테두리를 두껍게
+
+17. 다음 중 inline 요소가 아닌 것은?  
+   ① `<span>`  
+   ② `<b>`  
+   #③ `<div>` h1~h6 p  등을 block 속성을 가지고 있다.  
+   ④ `<i>`
+
+18. HTML에서 스타일을 외부 파일로 분리할 때 사용하는 태그는?  
+   ① `<style>`  
+   ② `<script>`  
+   #③ `<link>` <link href="comm.css"> 
+   				외부 css 파일을 지정해서 해당 지정된 css가 현재 페이지에 적용..  
+   ④ `<meta>`
+
+19. CSS에서 배경 이미지가 반복되지 않게 하려면?  
+   ① background-repeat: repeat;   설정하지 않더라도 기본 크기에서 이미지가 작으면 반복이 된다.
+   #② background-repeat: no-repeat;  
+   ③ background: center;  
+   ④ repeat: background;
+
+20. `background-position: center center;`의 의미는?
+	전제조건이 해당 요소객체는 배경이미지보다 크때, 상하좌우 여백에 대한 처리..
+		좌우(left, center, right)
+		상하(top, center, bottom)  
+   ① 배경을 상단 정렬  
+   ② 배경을 왼쪽에 위치  
+   #③ 배경을 정중앙에 위치  
+   ④ 배경을 반복
+
+
+### 🔹 CSS Position / z-index / visibility
+
+21. `position: relative;`의 의미는?  
+   ① 브라우저 기준으로 이동  
+   #② 원래 위치 기준으로 이동 : 다른 요소객체들과 상대적 위치를 지정할 때, 주로 사용된다.  
+   ③ 화면에 고정  
+   ④ 문서 하단 기준
+   <div>0</div><div             >6</div><div>7</div><div>8</div>...
+   <div>1</div><div class="div01">2</div><div>3</div><div>4</div>...
+   .div01{
+   	  position:relative;
+   	  left:10px;top:10px;  
+   }
+   왼쪽에 있는 <div>1</div>왼쪽(left)으로부터 10px 떨어지게 하고..
+   위쪽에 있는 <div>6</div>위쪽(top)에서부터 10px 떨어지게 한다.
+   
+    
+
+22. `position: absolute;`가 기준으로 삼는 요소는?  
+   ① 문서 끝  
+   ② 가장 가까운 relative 조상  
+   #③ 항상 브라우저  
+   ④ 다음 형제 요소
+   브라우저의 전체의 화면기준으로 좌우(left,right), 상하(top, bottom)기준으로 처리된다.
+   div{position:absolute;
+   		left:10px;top:10px;}
+   왼쪽 위쪽에 꼭지점 기준으로 10px, 10px 떨어진 위치에 위치를 설정한다..
+   
+   
+
+23. `position: fixed;`를 사용하면 어떤 현상이 발생하나요?  
+   ① 요소가 항상 사라진다  
+   #② 스크롤해도 요소가 고정된다  
+   ③ 요소가 오른쪽으로 이동  
+   ④ 부모 요소 기준으로 고정
+
+24. CSS에서 요소를 겹치게 했을 때 우선순위를 지정하는 속성은?  
+   ① display  
+   ② float  
+   #③ z-index 값이 많을 수록 먼저 보이게 된다.  
+   ④ inline
+
+25. `visibility: hidden;`의 기능은?  
+   ① 요소 제거 및 공간도 제거  
+   #② 요소를 숨기되 공간은 유지   h1:hover{visibility:hidden}  
+   							h1이 초기에 보였다가 마우스 커서를 위치시키면 보이지 않게 처리.. 
+   ③ 요소를 흐릿하게 표시  
+   ④ 요소를 확대함
+   visibility:visible;   보이게 처리하는 옵션 css로는 보이지 않게 하다가 보이게 하는것은 javascript로
+   처리한다.
+   document.querySelector("h1").style.visibility="visible";
+
+26. HTML에서 마우스 클릭 시 적용되는 스타일은 어떤 가상 클래스인가요?  
+   ① :hover  
+   ② :focus  
+   #③ :active  
+   ④ :click
+
+27. `float: right;` 속성이 적용되면 요소는 어디에 배치되나요?  
+   ① 중앙  
+   ② 왼쪽  
+   #③ 오른쪽  
+   ④ 겹쳐짐
+   배치가 기본으로 요소에 위에서 아래로 오른쪽 왼쪽에서 오른쪽으로 처리하는 float속성으로
+   float:left로 하면  왼쪽에서부터 오른쪽으로 반대로 배치가된다.
+
+28. 다음 중 HTML 태그 안에 직접 스타일을 적용한 인라인 스타일 방식은?  
+   ① `<link rel="stylesheet">`   href="com.css" 공통 css파일로 현재 body의 속성 설정.
+   ② `<style>div{color:red}</style>`  head에서 body 요소를 설정할 때.
+   #③ `<div style="color:red;">내용</div>`
+   	  inline : 해당 요소에서 바로 속성:속성값을 설정할 때, 사용된다.  
+   ④ CSS 파일 연결
+
+29. HTML에서 줄바꿈 없이 아이콘, 이미지 등을 가로로 정렬하면서 박스 속성(넓이와 높이, 여백 속성)
+	을 주고 싶을 때 가장 적합한 스타일은?  
+   ① display: block  
+   #② display: inline-block  
+   ③ float: center  
+   ④ position: absolute
+
+30. 다음 중 요소의 앞뒤 순서를 조절할 때 사용하는 CSS 속성은?  
+   ① visibility  
+   ② opacity  
+   #③ z-index  
+   ④ transform

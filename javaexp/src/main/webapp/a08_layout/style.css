@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    /* ul기본인 disc 모양이 없어지게 처리..*/
+    padding: 0;
+}
+
+nav ul li {
+	/* li 줄바꿈 처리되는 내용을 줄바꿈 없이 옆으로 리스트 되게 처리.*/
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none; /* a href 링크된 색상을 글자색상 파랑색에 언더바가 있는 내용을 사라지게 */
+    font-weight: bold;
+}
+
+section {
+    padding: 50px 20px;  /*좌우  상하*/
+    margin: 20px 0;		/*좌우   상하*/
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center; /*글자 중앙 정렬 처리..*/
+    padding: 10px 0;
+}
+#home {
+    background-color: #f4f4f4;
+}
+
+#about {
+    background-color: #e2e2e2;
+}
+
+#gallery {
+    background-color: #d1d1d1;
+}
+
+#contact {
+    background-color: #f4f4f4;
+}
+
+

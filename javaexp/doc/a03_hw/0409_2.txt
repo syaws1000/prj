@@ -1,0 +1,204 @@
+## ✅ 주관식 개념 정리 문제 (5문제)
+
+1. **`overflow: auto` 속성과 `overflow: scroll` 속성의 차이점을 설명하세요.**
+
+2. **`input[type=text]:focus`와 같이 CSS 선택자에서 `:focus`는 어떤 상황에 적용되며, 사용자에게 어떤 시각적 효과를 줄 수 있나요?**
+
+3. **CSS에서 `float: left`를 사용한 경우, `overflow: hidden`을 부모 요소에 함께 적용하는 이유는 무엇인가요?**
+
+4. **Oracle SQL에서 `SELECT ename AS name`처럼 별칭(alias)을 사용하는 이유와 그 장점은 무엇인가요?**
+
+5. **Oracle SQL에서 문자열과 컬럼을 연결할 때 `||` 연산자를 사용하는 이유는 무엇인가요?**
+
+---
+
+## ✅ 재미있는 응용 실습 문제 (5문제)
+
+1. **🧃 음료 주문서 만들기 (HTML/CSS + Form)**  
+   - 사용자가 좋아하는 음료를 입력할 수 있도록 `input[type=text]`을 만들고, 입력 필드에 `focus`했을 때 배경이 연두색으로 변하도록 설정하세요.
+
+2. **📦 상품 카드 정렬하기 (HTML/CSS + float)**  
+   - 상품들을 `<div class="items">`로 구성하고, 각각의 상품을 수평 정렬하여 3개의 상품이 한 줄에 나열되도록 CSS를 작성하세요.
+
+3. **📜 길어지는 소개글 처리 (HTML/CSS + overflow)**  
+   - 고정된 크기의 박스 안에 긴 소개글을 넣고, `overflow: auto`를 사용하여 스크롤로 내용이 보이도록 설정하세요.
+
+4. **🔒 회원가입 입력창 포커스 꾸미기 (HTML/CSS + form)**  
+   - 회원가입 폼에서 비밀번호 입력칸이 `focus` 되었을 때 배경이 노란색으로 바뀌고 테두리가 두꺼운 점선으로 표시되도록 스타일링하세요.
+
+5. **🔍 사원 정보 카드 만들기 (Oracle SQL)**  
+   - `emp` 테이블에서 사원번호, 이름, 급여를 조합해 `"사원번호는 @@이며, 이름은 @@이고, 급여는 @@@입니다."` 형태로 출력되도록 SQL 문을 작성해보세요.
+
+   
+ 좋습니다! 아래는 요청하신 **주관식 개념 정리 문제 5문제**와 **응용 실습 문제 5문제**에 대한 **풀이 및 정답**입니다.
+
+---
+
+## ✅ 주관식 개념 정리 문제 풀이 및 정답
+
+---
+
+### 1. `overflow: auto` 속성과 `overflow: scroll` 속성의 차이점을 설명하세요.
+
+✅ **정답:**
+- `overflow: scroll`은 **항상** 스크롤 바를 표시합니다.  
+- `overflow: auto`는 **내용이 넘칠 경우에만** 자동으로 스크롤 바를 표시합니다.  
+
+**예시:**  
+`overflow: scroll;` → 스크롤이 필요 없어도 바가 생김  
+`overflow: auto;` → 스크롤이 필요할 때만 생김  
+
+---
+
+### 2. `input[type=text]:focus`와 같이 CSS 선택자에서 `:focus`는 어떤 상황에 적용되며, 사용자에게 어떤 시각적 효과를 줄 수 있나요?
+
+✅ **정답:**
+- `:focus`는 사용자가 input 요소에 **클릭하거나 키보드로 접근했을 때** 적용되는 가상 클래스입니다.
+- 사용자에게 입력 중임을 **강조하거나 시각적으로 안내**하기 위한 스타일 효과를 줄 수 있습니다.
+
+---
+
+### 3. CSS에서 `float: left`를 사용한 경우, `overflow: hidden`을 부모 요소에 함께 적용하는 이유는 무엇인가요?
+
+✅ **정답:**
+- 자식 요소가 `float`되면 부모 요소의 높이가 **0으로 무너지는 현상**이 생깁니다.
+- `overflow: hidden`을 사용하면 **부모 요소가 자식의 높이를 감싸면서 정상적으로 확장**되게 만듭니다.
+
+---
+
+### 4. Oracle SQL에서 `SELECT ename AS name`처럼 별칭(alias)을 사용하는 이유와 그 장점은 무엇인가요?
+
+✅ **정답:**
+- 별칭(alias)은 **컬럼명에 새로운 이름을 부여**하는 기능입니다.
+- 복잡한 컬럼명이나 연산 결과에 **쉽게 읽히는 이름을 제공**하여 **가독성 향상**, **출력값의 의미 명확화** 등의 장점이 있습니다.
+
+---
+
+### 5. Oracle SQL에서 문자열과 컬럼을 연결할 때 `||` 연산자를 사용하는 이유는 무엇인가요?
+
+✅ **정답:**
+- `||` 연산자는 문자열과 문자열 또는 문자열과 컬럼 값을 **하나의 문자열로 연결(concatenate)** 할 때 사용됩니다.
+- 문장 조합 또는 사용자에게 메시지를 제공할 때 유용합니다.
+
+**예시:**  
+```sql
+SELECT '사원명: ' || ename FROM emp;
+```
+
+---
+
+## ✅ 응용 실습 문제 풀이 및 예시 코드
+
+---
+
+### 1. 🧃 음료 주문서 만들기 (HTML/CSS)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    input[type="text"]:focus {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <label>좋아하는 음료:</label>
+  <input type="text" placeholder="예: 커피, 주스 등">
+</body>
+</html>
+```
+
+---
+
+### 2. 📦 상품 카드 정렬하기 (HTML/CSS)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .items {
+      width: 33%;
+      float: left;
+      border: 1px solid gray;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .container {
+      overflow: hidden; /* float 해제 */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="items">상품1</div>
+    <div class="items">상품2</div>
+    <div class="items">상품3</div>
+  </div>
+</body>
+</html>
+```
+
+---
+
+### 3. 📜 길어지는 소개글 처리 (HTML/CSS)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .intro {
+      width: 300px;
+      height: 100px;
+      border: 1px solid black;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    안녕하세요! 이 글은 아주아주 길어서 박스 밖으로 튀어나옵니다.  
+    그래서 우리는 overflow 속성을 사용하여 scroll 처리를 하겠습니다.  
+    계속해서 소개글이 이어집니다...
+  </div>
+</body>
+</html>
+```
+
+---
+
+### 4. 🔒 회원가입 입력창 포커스 꾸미기 (HTML/CSS)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    input[type="password"]:focus {
+      background-color: yellow;
+      border: 3px dotted orange;
+    }
+  </style>
+</head>
+<body>
+  <label>비밀번호:</label>
+  <input type="password">
+</body>
+</html>
+```
+
+---
+
+### 5. 🔍 사원 정보 카드 만들기 (Oracle SQL)
+
+```sql
+SELECT 
+  '사원번호는 ' || empno || '이며, 이름은 ' || ename || '이고, 급여는 ' || sal || '입니다.' AS info
+FROM emp;
+```
+
+---
+  

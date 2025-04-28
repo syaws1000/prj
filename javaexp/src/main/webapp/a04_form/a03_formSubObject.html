@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# form 하위 요소들의 기본 코드와 속성
+1. form하위에는 크게 다음과 같은 요소들이 있다.
+	1) input 요소
+		<input 태그로 시작
+		input요소가 가장 많은데 type 속성과 속성값에 따라 나누어진다.
+		<input type="속성값">
+		- text  : 한 줄의 기본 텍스트 입력창 ex) <input type="text"/>
+		- password  : 한 줄의 암호 입력창 ex) <input type="password"/>
+		- checkbox  : 다중선택 모양 check 입력창 ex) <input type="checkbox"/>
+		- radio  : 단일선택 모양 check 입력창 ex) <input type="radio"/>
+		- button  : button 모양 ex) <input type="button"/>
+		- image  : image 모양 ex) <input type="image"/>
+		- month|week|date|time|datetime-local  : 날짜 시간관련 선택 
+		ex) <input type="month"/> <input type="week"/> <input type="date"/> 
+			<input type="time"/> <input type="datetime-local"/>
+		- number|range : 숫자입력|범위 스크롤 처리	ex)  <input type="number"/>  <input type="range"/>
+		- color : 색상선택 ex) <input type="color"/>
+		- email|url|tel|search ex) <input type="email"/> <input type="url"/> <input type="tel"/>
+			 						<input type="search"/>
+		- file : 파일 전송시 ex) <input type="file"/>
+		- submit : 웹 서버로 폼 데이터 전송시 활용 버튼 모양 ex) <input type="submit"/>
+		- reset : 입력된 폼 데이터 초기화 버튼 모양 ex) <input type="reset"/>	 							
+	2) select 요소
+		<select 태그로 시작
+		콤보 선택 모양
+		<select>
+			<option value="전송키">화면에 보일 레이블<option>
+			<option value="전송키">화면에 보일 레이블<option>
+			<option value="전송키">화면에 보일 레이블<option>
+			<option value="전송키">화면에 보일 레이블<option>
+	3) textarea 요소
+		<textarea 태그로 시작
+		다중행 입력 모양(행/열 크기 지정)
+		<textarea cols="열크기" rows="행크기">
+		</textarea>
+
+ -->
+<h2>나의 프로필 입력</h2> 
+<form action="a02_receiveData.jsp">
+이름:<input type="text" name="name" ><br>
+이메일:<input type="email" name="email"><br>
+전화번호:<input type="tel" name="phone"><br>
+자기소개:<br>
+<textarea name="myIntro" rows="4" cols="30"></textarea><br>
+<textarea rows="5" cols="20"></textarea><br>
+<input type="submit" value="제출">
+<input type="reset" value="초기화">
+</form> 
+<!-- 
+a04_mydiary.html
+온라인 일기쓰기
+날짜:[     ] type="text
+제목:[     ]
+내용:
+textarea
+[일기쓰기완료] ==> submit버튼.. ==> a02_receiveData.jsp 전송.
+
+ --> 
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# while문
+1. 주어진 조건이 true인 동안 코드 블록을 반복적으로 실행하는 제어 구조입니다. 조건이 처음부터
+    false인 경우, while문은 한 번도 실행되지 않습니다.
+2. 기본형식:
+    while (조건식) {
+        // 반복 실행할 코드 블록
+    }
+    1) 조건:true 또는 false에 따라 반복 실행 여부 결정. 조건이 true일 때마다 코드 블록 실행
+    2) 코드블록 : 조건이 true일 때 계속해서 반복 실행될 코드입니다
+3. 동작원리
+    1) 조건을 평가합니다.
+    2) 조건이 true이면 코드 블록을 실행합니다.
+    3) 코드 블록이 실행한 후, 다시 조건을 평가합니다.
+    4) 조건이 false가 될 때까지 2~4단계를 반복합니다. 
+*/
+/*
+let no = 1;
+while(no<=3){ // 3이 되기까지
+    alert(no)
+    document.body.innerHTML+=`<h2>카운트:${no}</h2>`
+    no++;
+}
+*/
+//ex) while, count를 활용하여  사과 1개 ~ 사과 3개까지 출력되게 하세요..
+let count = 1
+while(count<=3){
+    // += : 화면에 누적해서 출력할 내용
+    document.body.innerHTML+=`<h2>사과 ${count}개</h2>`
+    count++
+}
+
+</script>
+</html>

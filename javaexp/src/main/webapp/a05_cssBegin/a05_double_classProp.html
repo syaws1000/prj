@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 시작과 끝을 만들어 놓고 삽입하는 형식으로...  */
+	/* 다중 클래스 할당..
+	1. 클래스를 css로 선언한 내용은
+	2. body의 태그 요소에 다중으로 적용이 가능하다.
+		<태그 class="클래스1 클래스2 클래스3"
+	*/
+	.cls01{color:navy;}
+	.cls02{background-color:yellow;}
+	.cls03{font-size:40px;} /* 글자 크기 30px */
+	/* ex) h2를 아래에 5개 선언하고, cls04, cls05, cls06으로 각각 글자색상, 배경색상, 폰트  크기를 지정
+	하여 1개, 2개, 3개 class가 적용되게 처리하세요*/
+	.cls04{color:orange}
+	.cls05{background-color:purple;}
+	.cls06{border:1px solid green;} /*테두리 굵기 형태 색상*/
+	
+</style>
+</head>
+<body>
+	<h2 class="cls04">클래스 적용</h2>
+	<h2 class="cls05">클래스 적용</h2>
+	<h2 class="cls06">클래스 적용</h2>
+	<h2 class="cls04 cls05">클래스 적용</h2>
+	<h2 class="cls04 cls05 cls06">클래스 적용</h2>
+
+	<!-- 삽입하는 습관... -->
+	<h1 class="cls01">여러 클래스적용 연습(cls01)</h1>
+	<h1 class="cls02">여러 클래스적용 연습(cls02)</h1>
+	<h1 class="cls03">여러 클래스적용 연습(cls03)</h1>
+	<h1 class="cls01 cls02">여러 클래스적용 연습(cls01 cls02)</h1>
+	<h1 class="cls01 cls02 cls03">여러 클래스적용 연습(cls01 cls02 cls03)</h1>
+</body>
+</html>

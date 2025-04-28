@@ -1,0 +1,876 @@
+아래는 주어진 자바 학습 내용을 기준으로 단계별 학습 완료 체크리스트입니다:
+
+### 1. **파일 생성과 클래스 만들기**
+   - [ ] 대문자로 시작하는 클래스 작성
+   - [ ] `main()` 메서드 확인
+
+### 2. **데이터 유형1단계**
+   - [ ] 문자열 데이터 `"문자열"` 사용
+   - [ ] 숫자형 데이터(예: 25, 30) 사용
+   - [ ] 문자열과 숫자 데이터 구분
+
+### 3. **명령처리**
+   - [ ] 자바 명령문은 대소문자 구분 및 세미콜론(`;`) 처리 확인
+
+### 4. **화면출력1단계**
+   - [ ] `System.out.println()`으로 기본 출력 구문 확인
+   - [ ] 문자열 출력 (`"안녕하세요"`)
+   - [ ] 숫자 출력 (예: 25, 35)
+   - [ ] 문자열 + 숫자 결합 출력 (`"홍길동" + 25`)
+   - [ ] 연산 처리 후 출력 (`25 + 30`)
+   - [ ] 출력 순서 및 연산 처리 확인 (`"홍길동" + (25 + 30)`)
+   - [ ] `System.out.print()`와 `System.out.println()` 차이 확인
+
+### 5. **문자열 출력시 특수문자 사용 방법**
+   - [ ] `\t`, `\n`, `\\`, `\"` 특수문자 사용
+
+### 6. **변수 선언과 사용**
+   - [ ] 변수 개념 이해
+   - [ ] 변수 선언 및 초기화
+   - [ ] 변수 사용 및 규칙 확인
+   - [ ] 변수명 규칙 (대소문자 구분, 숫자로 시작하지 않음, 예약어 사용 금지 등)
+   - [ ] 변수명 표기법 (스네이크 케이스, 카멜 케이스)
+
+### 7. **연산자**
+   - [ ] 대입 연산자 (`=`) 사용
+   - [ ] 증감 연산자 (`++`, `--`) 사용
+   - [ ] 대입 증감 연산자 (`+=`, `-=` 등) 사용
+   - [ ] 산술 연산자 (`+`, `-`, `*`, `/`) 사용
+   - [ ] 논리 연산자 (`&&`, `||`, `!`) 사용
+   - [ ] 삼항 연산자 (`조건 ? 값1 : 값2`) 사용
+
+### 8. **데이터 유형**
+   - [ ] 기본 데이터 유형: 정수형 (`byte`, `short`, `int`, `long`), 실수형 (`float`, `double`), 참거짓 (`boolean`), 문자형 (`char`)
+   - [ ] 객체형 데이터 유형: 배열, `String`, 사용자 정의 클래스
+   - [ ] 메모리 사용: Stack과 Heap 영역 이해
+
+### 9. **데이터 입력 처리**
+   - [ ] 사용자 입력 처리 (`Scanner` 클래스 사용)
+
+### 10. **조건문**
+   - [ ] `if`, `else if`, `else` 문 사용
+   - [ ] `switch` 문 사용
+
+### 11. **반복문**
+   - [ ] `for`, `while`, `do-while` 반복문 사용
+   - [ ] `break`, `continue` 문 사용
+
+### 12. **클래스형 객체**
+   - [ ] 클래스 정의 및 객체 생성
+   - [ ] 필드, 메서드 선언 및 객체 사용
+   - [ ] 객체 지향 프로그래밍의 기본 개념 이해
+   
+   
+아래는 자바 학습 체크리스트를 완료했는지 확인할 수 있는 실습문제 50문제입니다.
+
+### **1. 파일 생성과 클래스 만들기**
+1. "Hello, World!"를 출력하는 Java 프로그램을 작성하시오.
+2. Java에서 대소문자 구분을 확인할 수 있는 간단한 프로그램을 작성하시오.
+
+### **2. 데이터 유형1단계**
+3. 문자열 `"Java"`를 변수에 저장하고, 이를 출력하는 프로그램을 작성하시오.
+4. 두 개의 숫자 25와 30을 더하고 그 결과를 출력하는 프로그램을 작성하시오.
+5. 문자열과 숫자를 더하여 "홍길동25"와 같은 결과를 출력하시오.
+6. `"홍길동"` + 25 + 30을 출력하는 프로그램을 작성하시오.
+
+### **3. 명령처리**
+7. Java에서 대소문자 구분과 세미콜론(`;`)이 필수적인 이유를 설명하시오.
+8. 대소문자를 구분하여 변수 `myNumber`와 `mynumber`를 각각 선언하고 출력하시오.
+
+### **4. 화면출력1단계**
+9. `System.out.println()`을 사용하여 "안녕하세요"를 출력하시오.
+10. 숫자 25와 35를 각각 줄바꿈하여 출력하시오.
+11. 문자열과 숫자(`"홍길동" + 25`)를 출력하는 프로그램을 작성하시오.
+12. `"홍길동"+(25+30)`을 출력하는 프로그램을 작성하시오.
+13. `System.out.print()`와 `System.out.println()`의 차이를 보여주는 예제를 작성하시오.
+
+### **5. 문자열 출력시 특수문자 사용 방법**
+14. 문자열 안에 탭을 넣어서 "이름\t나이"와 같은 출력을 하시오.
+15. 문자열 안에 새 줄을 넣어서 "안녕하세요\n반갑습니다"를 출력하시오.
+16. 문자열 안에 역슬래시(`\`)를 출력하는 방법을 보여주시오.
+17. 문자열 안에 큰따옴표(`"`)를 포함하여 `"안녕하세요"`를 출력하시오.
+
+### **6. 변수 선언과 사용**
+18. `int`형 변수를 선언하고 값을 100으로 초기화하여 출력하는 프로그램을 작성하시오.
+19. `String`형 변수에 `"Java"`를 저장하고 출력하는 프로그램을 작성하시오.
+20. `int`형 변수 2개를 선언하고 그 합을 출력하는 프로그램을 작성하시오.
+21. 변수명으로 `myAge`, `my_height`를 사용하여 각각 값을 할당하고 출력하시오.
+22. `applePrice`와 `apple_price` 두 변수의 차이를 설명하시오.
+
+### **7. 연산자**
+23. `int`형 변수 2개를 선언하고, 두 변수의 합을 출력하시오.
+24. `int`형 변수에 1을 증가시키는 증감 연산자를 사용하여 값을 출력하시오.
+25. 두 숫자에 대해 덧셈, 뺄셈, 곱셈, 나눗셈을 하는 프로그램을 작성하시오.
+26. `boolean`형 변수 두 개를 선언하고 논리 연산자(`&&`, `||`)를 사용하여 출력하시오.
+27. 조건문을 이용하여 삼항 연산자를 사용하여 "짝수" 또는 "홀수"를 출력하는 프로그램을 작성하시오.
+
+### **8. 데이터 유형**
+28. `int`, `float`, `char` 데이터를 각각 출력하는 프로그램을 작성하시오.
+29. `String` 배열을 선언하고 3개의 문자열을 저장한 후 출력하는 프로그램을 작성하시오.
+30. `double`형 데이터를 선언하고 출력하는 프로그램을 작성하시오.
+31. `boolean`형 변수를 선언하고 `true`와 `false`를 출력하는 프로그램을 작성하시오.
+32. `char`형 변수를 선언하고 알파벳 'A'를 출력하는 프로그램을 작성하시오.
+
+### **9. 데이터 입력 처리**
+33. 사용자로부터 이름을 입력받아 출력하는 프로그램을 작성하시오.
+34. 사용자로부터 두 수를 입력받아 그 합을 출력하는 프로그램을 작성하시오.
+35. `Scanner` 클래스를 사용하여 실수형 숫자를 입력받아 출력하는 프로그램을 작성하시오.
+36. 사용자로부터 입력받은 숫자가 홀수인지 짝수인지 판별하는 프로그램을 작성하시오.
+
+### **10. 조건문**
+37. `if-else` 문을 사용하여 두 수를 비교하고 그 결과를 출력하는 프로그램을 작성하시오.
+38. `switch` 문을 사용하여 월을 입력받고, 해당 월이 몇 번째 분기인지 출력하는 프로그램을 작성하시오.
+39. `if`문을 사용하여 점수가 60 이상이면 "합격", 미만이면 "불합격"을 출력하는 프로그램을 작성하시오.
+40. `else if`를 사용하여 점수에 따라 "A", "B", "C", "D" 학점을 출력하는 프로그램을 작성하시오.
+
+### **11. 반복문**
+41. `for`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오.
+42. `while`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오.
+43. `do-while`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오.
+44. `for`문을 사용하여 1부터 100까지의 합을 구하는 프로그램을 작성하시오.
+45. `while`문을 사용하여 사용자가 "exit"을 입력할 때까지 계속 입력을 받는 프로그램을 작성하시오.
+
+### **12. 클래스형 객체**
+46. `Person` 클래스를 정의하고 `name`과 `age`를 필드로 갖는 객체를 생성하여 출력하는 프로그램을 작성하시오.
+47. `Car` 클래스를 정의하고, `start()` 메서드와 `stop()` 메서드를 호출하는 프로그램을 작성하시오.
+48. `Student` 클래스에서 `getGrade()` 메서드를 정의하고, 성적에 따라 "A", "B", "C" 등을 출력하는 프로그램을 작성하시오.
+49. `Book` 클래스에서 책 제목, 저자, 가격을 출력하는 프로그램을 작성하시오.
+50. `Account` 클래스를 정의하고, 계좌의 잔액을 관리하고 출금 및 입금 기능을 구현하는 프로그램을 작성하시오.
+
+---
+ 아래는 요청하신 **Java 문제**에 대한 **정답 코드**입니다. 각 문제에 대해 간단한 해결 방법과 함께 코드를 작성하였습니다.
+
+---
+
+### **1. 파일 생성과 클래스 만들기**
+#### 1. "Hello, World!"를 출력하는 Java 프로그램
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+#### 2. Java에서 대소문자 구분을 확인할 수 있는 간단한 프로그램
+```java
+public class CaseSensitivity {
+    public static void main(String[] args) {
+        String word1 = "java";
+        String word2 = "Java";
+        
+        if (word1.equals(word2)) {
+            System.out.println("같은 단어입니다.");
+        } else {
+            System.out.println("다른 단어입니다.");
+        }
+    }
+}
+```
+
+---
+
+### **2. 데이터 유형1단계**
+#### 3. 문자열 `"Java"`를 변수에 저장하고, 이를 출력하는 프로그램
+```java
+public class StringExample {
+    public static void main(String[] args) {
+        String str = "Java";
+        System.out.println(str);
+    }
+}
+```
+
+#### 4. 두 개의 숫자 25와 30을 더하고 그 결과를 출력하는 프로그램
+```java
+public class AddNumbers {
+    public static void main(String[] args) {
+        int num1 = 25;
+        int num2 = 30;
+        System.out.println(num1 + num2);
+    }
+}
+```
+
+#### 5. 문자열과 숫자를 더하여 "홍길동25"와 같은 결과를 출력하시오
+```java
+public class ConcatenateString {
+    public static void main(String[] args) {
+        String name = "홍길동";
+        int age = 25;
+        System.out.println(name + age);
+    }
+}
+```
+
+#### 6. `"홍길동"` + 25 + 30을 출력하는 프로그램
+```java
+public class ConcatenateExample {
+    public static void main(String[] args) {
+        System.out.println("홍길동" + 25 + 30);
+    }
+}
+```
+
+---
+
+### **3. 명령처리**
+#### 7. Java에서 대소문자 구분과 세미콜론(`;`)이 필수적인 이유를 설명하시오
+- **대소문자 구분**: Java는 대소문자를 구분하므로, `Variable`과 `variable`은 다른 변수로 취급됩니다.
+- **세미콜론**: 세미콜론은 명령어 끝을 구분하기 위해 필요합니다. Java는 세미콜론을 통해 명령어가 끝났음을 인식합니다.
+
+#### 8. 대소문자를 구분하여 변수 `myNumber`와 `mynumber`를 각각 선언하고 출력하시오
+```java
+public class CaseSensitiveVariables {
+    public static void main(String[] args) {
+        int myNumber = 10;
+        int mynumber = 20;
+        
+        System.out.println("myNumber: " + myNumber);
+        System.out.println("mynumber: " + mynumber);
+    }
+}
+```
+
+---
+
+### **4. 화면출력1단계**
+#### 9. `System.out.println()`을 사용하여 "안녕하세요"를 출력하시오
+```java
+public class Greeting {
+    public static void main(String[] args) {
+        System.out.println("안녕하세요");
+    }
+}
+```
+
+#### 10. 숫자 25와 35를 각각 줄바꿈하여 출력하시오
+```java
+public class Numbers {
+    public static void main(String[] args) {
+        System.out.println(25);
+        System.out.println(35);
+    }
+}
+```
+
+#### 11. 문자열과 숫자(`"홍길동" + 25`)를 출력하는 프로그램
+```java
+public class NameAndNumber {
+    public static void main(String[] args) {
+        System.out.println("홍길동" + 25);
+    }
+}
+```
+
+#### 12. `"홍길동"+(25+30)`을 출력하는 프로그램
+```java
+public class SumInString {
+    public static void main(String[] args) {
+        System.out.println("홍길동" + (25 + 30));
+    }
+}
+```
+
+#### 13. `System.out.print()`와 `System.out.println()`의 차이를 보여주는 예제를 작성하시오
+```java
+public class PrintExample {
+    public static void main(String[] args) {
+        System.out.print("Hello ");
+        System.out.print("World ");
+        System.out.println("!");
+        System.out.println("This is a new line.");
+    }
+}
+```
+
+---
+
+### **5. 문자열 출력시 특수문자 사용 방법**
+#### 14. 문자열 안에 탭을 넣어서 "이름\t나이"와 같은 출력을 하시오
+```java
+public class SpecialCharacters {
+    public static void main(String[] args) {
+        System.out.println("이름\t나이");
+    }
+}
+```
+
+#### 15. 문자열 안에 새 줄을 넣어서 "안녕하세요\n반갑습니다"를 출력하시오
+```java
+public class NewLineExample {
+    public static void main(String[] args) {
+        System.out.println("안녕하세요\n반갑습니다");
+    }
+}
+```
+
+#### 16. 문자열 안에 역슬래시(`\`)를 출력하는 방법을 보여주시오
+```java
+public class BackslashExample {
+    public static void main(String[] args) {
+        System.out.println("백슬래시 \\ 출력");
+    }
+}
+```
+
+#### 17. 문자열 안에 큰따옴표(`"`)를 포함하여 `"안녕하세요"`를 출력하시오
+```java
+public class QuotationExample {
+    public static void main(String[] args) {
+        System.out.println("\"안녕하세요\"");
+    }
+}
+```
+
+---
+
+### **6. 변수 선언과 사용**
+#### 18. `int`형 변수를 선언하고 값을 100으로 초기화하여 출력하는 프로그램
+```java
+public class VariableExample {
+    public static void main(String[] args) {
+        int num = 100;
+        System.out.println(num);
+    }
+}
+```
+
+#### 19. `String`형 변수에 `"Java"`를 저장하고 출력하는 프로그램
+```java
+public class StringVariable {
+    public static void main(String[] args) {
+        String str = "Java";
+        System.out.println(str);
+    }
+}
+```
+
+#### 20. `int`형 변수 2개를 선언하고 그 합을 출력하는 프로그램
+```java
+public class SumVariables {
+    public static void main(String[] args) {
+        int num1 = 10, num2 = 20;
+        System.out.println(num1 + num2);
+    }
+}
+```
+
+#### 21. 변수명으로 `myAge`, `my_height`를 사용하여 각각 값을 할당하고 출력하시오
+```java
+public class AgeAndHeight {
+    public static void main(String[] args) {
+        int myAge = 25;
+        double my_height = 175.5;
+        System.out.println("Age: " + myAge);
+        System.out.println("Height: " + my_height);
+    }
+}
+```
+
+#### 22. `applePrice`와 `apple_price` 두 변수의 차이를 설명하시오
+- `applePrice`와 `apple_price`는 변수명만 다를 뿐입니다. Java는 대소문자를 구분하므로 `applePrice`와 `apple_price`는 별개의 변수입니다. 예를 들어, 하나는 카멜 케이스(`applePrice`), 다른 하나는 스네이크 케이스(`apple_price`)를 사용합니다.
+
+---
+ ### **7. 연산자**
+#### 23. `int`형 변수 2개를 선언하고, 두 변수의 합을 출력하시오
+```java
+public class SumOperator {
+    public static void main(String[] args) {
+        int num1 = 10, num2 = 15;
+        System.out.println(num1 + num2);
+    }
+}
+```
+
+#### 24. `int`형 변수에 1을 증가시키는 증감 연산자를 사용하여 값을 출력하시오
+```java
+public class IncrementOperator {
+    public static void main(String[] args) {
+        int num = 10;
+        num++;
+        System.out.println(num);
+    }
+}
+```
+
+#### 25. 두 숫자에 대해 덧셈, 뺄셈, 곱셈, 나눗셈을 하는 프로그램을 작성하시오
+```java
+public class ArithmeticOperations {
+    public static void main(String[] args) {
+        int num1 = 20, num2 = 10;
+        System.out.println("덧셈: " + (num1 + num2));
+        System.out.println("뺄셈: " + (num1 - num2));
+        System.out.println("곱셈: " + (num1 * num2));
+        System.out.println("나눗셈: " + (num1 / num2));
+    }
+}
+```
+
+#### 26. `boolean`형 변수 두 개를 선언하고 논리 연산자(`&&`, `||`)를 사용하여 출력하시오
+```java
+public class LogicalOperators {
+    public static void main(String[] args) {
+        boolean a = true, b = false;
+        System.out.println("AND 연산자: " + (a && b));  // false
+        System.out.println("OR 연산자: " + (a || b));   // true
+    }
+}
+```
+
+#### 27. 조건문을 이용하여 삼항 연산자를 사용하여 "짝수" 또는 "홀수"를 출력하는 프로그램을 작성하시오
+```java
+public class EvenOdd {
+    public static void main(String[] args) {
+        int num = 25;
+        String result = (num % 2 == 0) ? "짝수" : "홀수";
+        System.out.println(result);
+    }
+}
+```
+
+---
+
+### **8. 데이터 유형**
+#### 28. `int`, `float`, `char` 데이터를 각각 출력하는 프로그램을 작성하시오
+```java
+public class DataTypesExample {
+    public static void main(String[] args) {
+        int num = 10;
+        float f = 3.14f;
+        char c = 'A';
+        
+        System.out.println("int: " + num);
+        System.out.println("float: " + f);
+        System.out.println("char: " + c);
+    }
+}
+```
+
+#### 29. `String` 배열을 선언하고 3개의 문자열을 저장한 후 출력하는 프로그램을 작성하시오
+```java
+public class StringArray {
+    public static void main(String[] args) {
+        String[] words = {"Java", "Python", "C++"};
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+}
+```
+
+#### 30. `double`형 데이터를 선언하고 출력하는 프로그램을 작성하시오
+```java
+public class DoubleExample {
+    public static void main(String[] args) {
+        double pi = 3.14159;
+        System.out.println(pi);
+    }
+}
+```
+
+#### 31. `boolean`형 변수를 선언하고 `true`와 `false`를 출력하는 프로그램을 작성하시오
+```java
+public class BooleanExample {
+    public static void main(String[] args) {
+        boolean isTrue = true;
+        boolean isFalse = false;
+        System.out.println("True: " + isTrue);
+        System.out.println("False: " + isFalse);
+    }
+}
+```
+
+#### 32. `char`형 변수를 선언하고 알파벳 'A'를 출력하는 프로그램을 작성하시오
+```java
+public class CharExample {
+    public static void main(String[] args) {
+        char letter = 'A';
+        System.out.println(letter);
+    }
+}
+```
+
+---
+
+### **9. 데이터 입력 처리**
+#### 33. 사용자로부터 이름을 입력받아 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class NameInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("이름을 입력하세요: ");
+        String name = scanner.nextLine();
+        System.out.println("입력된 이름: " + name);
+        scanner.close();
+    }
+}
+```
+
+#### 34. 사용자로부터 두 수를 입력받아 그 합을 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class SumInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("첫 번째 숫자를 입력하세요: ");
+        int num1 = scanner.nextInt();
+        System.out.print("두 번째 숫자를 입력하세요: ");
+        int num2 = scanner.nextInt();
+        System.out.println("합: " + (num1 + num2));
+        scanner.close();
+    }
+}
+```
+
+#### 35. `Scanner` 클래스를 사용하여 실수형 숫자를 입력받아 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class FloatInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("실수형 숫자를 입력하세요: ");
+        float number = scanner.nextFloat();
+        System.out.println("입력한 실수: " + number);
+        scanner.close();
+    }
+}
+```
+
+#### 36. 사용자로부터 입력받은 숫자가 홀수인지 짝수인지 판별하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class EvenOddChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("숫자를 입력하세요: ");
+        int num = scanner.nextInt();
+        if (num % 2 == 0) {
+            System.out.println(num + "는 짝수입니다.");
+        } else {
+            System.out.println(num + "는 홀수입니다.");
+        }
+        scanner.close();
+    }
+}
+```
+
+---
+
+### **10. 조건문**
+#### 37. `if-else` 문을 사용하여 두 수를 비교하고 그 결과를 출력하는 프로그램을 작성하시오
+```java
+public class CompareNumbers {
+    public static void main(String[] args) {
+        int num1 = 10, num2 = 20;
+        if (num1 > num2) {
+            System.out.println(num1 + "은 " + num2 + "보다 큽니다.");
+        } else {
+            System.out.println(num1 + "은 " + num2 + "보다 작거나 같습니다.");
+        }
+    }
+}
+```
+
+#### 38. `switch` 문을 사용하여 월을 입력받고, 해당 월이 몇 번째 분기인지 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class MonthToQuarter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("월을 입력하세요: ");
+        int month = scanner.nextInt();
+        
+        switch (month) {
+            case 1: case 2: case 3:
+                System.out.println("1분기");
+                break;
+            case 4: case 5: case 6:
+                System.out.println("2분기");
+                break;
+            case 7: case 8: case 9:
+                System.out.println("3분기");
+                break;
+            case 10: case 11: case 12:
+                System.out.println("4분기");
+                break;
+            default:
+                System.out.println("잘못된 월 입력");
+        }
+        
+        scanner.close();
+    }
+}
+```
+
+#### 39. `if`문을 사용하여 점수가 60 이상이면 "합격", 미만이면 "불합격"을 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class PassFail {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("점수를 입력하세요: ");
+        int score = scanner.nextInt();
+        
+        if (score >= 60) {
+            System.out.println("합격");
+        } else {
+            System.out.println("불합격");
+        }
+        
+        scanner.close();
+    }
+}
+```
+
+#### 40. `else if`를 사용하여 점수에 따라 "A", "B", "C", "D" 학점을 출력하는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("점수를 입력하세요: ");
+        int score = scanner.nextInt();
+        
+        if (score >= 90) {
+            System.out.println("A");
+        } else if (score >= 80) {
+            System.out.println("B");
+        } else if (score >= 70) {
+            System.out.println("C");
+        } else if (score >= 60) {
+            System.out.println("D");
+        } else {
+            System.out.println("F");
+        }
+        
+        scanner.close();
+    }
+}
+```
+
+---
+### **11. 반복문**
+#### 41. `for`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오
+```java
+public class ForLoopExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+```
+
+#### 42. `while`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오
+```java
+public class WhileLoopExample {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i <= 10) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+```
+
+#### 43. `do-while`문을 사용하여 1부터 10까지 출력하는 프로그램을 작성하시오
+```java
+public class DoWhileLoopExample {
+    public static void main(String[] args) {
+        int i = 1;
+        do {
+            System.out.println(i);
+            i++;
+        } while (i <= 10);
+    }
+}
+```
+
+#### 44. `for`문을 사용하여 1부터 100까지의 합을 구하는 프로그램을 작성하시오
+```java
+public class SumFrom1To100 {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        System.out.println("1부터 100까지의 합: " + sum);
+    }
+}
+```
+
+#### 45. `while`문을 사용하여 사용자가 "exit"을 입력할 때까지 계속 입력을 받는 프로그램을 작성하시오
+```java
+import java.util.Scanner;
+
+public class ExitLoopExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        
+        do {
+            System.out.print("입력 (exit을 입력하면 종료): ");
+            input = scanner.nextLine();
+        } while (!input.equals("exit"));
+        
+        System.out.println("프로그램을 종료합니다.");
+        scanner.close();
+    }
+}
+```
+
+---
+
+### **12. 클래스형 객체**
+#### 46. `Person` 클래스를 정의하고 `name`과 `age`를 필드로 갖는 객체를 생성하여 출력하는 프로그램을 작성하시오
+```java
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void printInfo() {
+        System.out.println("이름: " + name + ", 나이: " + age);
+    }
+}
+
+public class PersonExample {
+    public static void main(String[] args) {
+        Person person = new Person("홍길동", 25);
+        person.printInfo();
+    }
+}
+```
+
+#### 47. `Car` 클래스를 정의하고, `start()` 메서드와 `stop()` 메서드를 호출하는 프로그램을 작성하시오
+```java
+class Car {
+    void start() {
+        System.out.println("차가 시작되었습니다.");
+    }
+
+    void stop() {
+        System.out.println("차가 멈추었습니다.");
+    }
+}
+
+public class CarExample {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.start();
+        myCar.stop();
+    }
+}
+```
+
+#### 48. `Student` 클래스에서 `getGrade()` 메서드를 정의하고, 성적에 따라 "A", "B", "C" 등을 출력하는 프로그램을 작성하시오
+```java
+class Student {
+    int score;
+
+    Student(int score) {
+        this.score = score;
+    }
+
+    void getGrade() {
+        if (score >= 90) {
+            System.out.println("A");
+        } else if (score >= 80) {
+            System.out.println("B");
+        } else if (score >= 70) {
+            System.out.println("C");
+        } else if (score >= 60) {
+            System.out.println("D");
+        } else {
+            System.out.println("F");
+        }
+    }
+}
+
+public class StudentExample {
+    public static void main(String[] args) {
+        Student student = new Student(85);
+        student.getGrade();
+    }
+}
+```
+
+#### 49. `Book` 클래스에서 책 제목, 저자, 가격을 출력하는 프로그램을 작성하시오
+```java
+class Book {
+    String title;
+    String author;
+    double price;
+
+    Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    void printInfo() {
+        System.out.println("제목: " + title + ", 저자: " + author + ", 가격: " + price);
+    }
+}
+
+public class BookExample {
+    public static void main(String[] args) {
+        Book book = new Book("자바 프로그래밍", "김철수", 25000);
+        book.printInfo();
+    }
+}
+```
+
+#### 50. `Account` 클래스를 정의하고, 계좌의 잔액을 관리하고 출금 및 입금 기능을 구현하는 프로그램을 작성하시오
+```java
+class Account {
+    private double balance;
+
+    Account(double balance) {
+        this.balance = balance;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println(amount + "원이 입금되었습니다. 현재 잔액: " + balance);
+    }
+
+    void withdraw(double amount) {
+        if (amount > balance) {
+            System.out.println("잔액이 부족합니다.");
+        } else {
+            balance -= amount;
+            System.out.println(amount + "원이 출금되었습니다. 현재 잔액: " + balance);
+        }
+    }
+
+    void checkBalance() {
+        System.out.println("현재 잔액: " + balance);
+    }
+}
+
+public class AccountExample {
+    public static void main(String[] args) {
+        Account myAccount = new Account(100000);
+        myAccount.checkBalance();
+        myAccount.deposit(50000);
+        myAccount.withdraw(20000);
+        myAccount.checkBalance();
+    }
+}
+```
+ 

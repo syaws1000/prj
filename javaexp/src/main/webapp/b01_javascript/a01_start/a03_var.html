@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // alt + l + o
+    // 1. 표현식 : 값을 만들어 내는 간단한 코드..
+    //  273, 10 + 20 + 30, '안녕하세요' : 자바스크립트에서는 '',"" 동일하게
+    //  문자열로 처리한다.
+    // 2. 문장 : 표현식이 모여 줄바꿈을 하거나 ;(세미콜론)이 붙으면 문장이된다.
+    var name = '홍길동' // 전역변수와 지역변수 구분하지 않는 선언
+    let age = 25;  // 전역변수와 지역변수 구분하는 선언
+    const PI = 3.14; // 상수로 한번 할당하면 변경하지 않는 선언, 일반적으로 대문자로 
+    // ex) 변수 선언과 출력 연습
+    var name = '신길동'   // js에서는 var 선언시 중복 선언 가능
+    var age1 = 25;
+    var loc = '서울'
+    document.body.innerHTML = "<h2>이름:"+name+"</h2>"
+    // shift + alt + 화살표 아래 : 줄복사
+    document.body.innerHTML += "<h2>나이:"+age1+"</h2>" 
+    document.body.innerHTML += "<h2>사는곳:"+loc+"</h2>"
+
+    let pname = '사과'
+    let price = 3000;
+    document.body.innerHTML += `<h2>과일명: ${pname} </h2>`
+    document.body.innerHTML += `<h2>가격: ${price}
+                                    </h2>`
+    // ex) let으로 변수를  empno, ename, job을 선언하고 할당한후,
+    //    h3로 사원번호:@@, 사원명:@@@, 직책:@@을 출력하세요 (백틱사용)                                
+
+
+
+
+
+
+
+
+</script>
+</html>

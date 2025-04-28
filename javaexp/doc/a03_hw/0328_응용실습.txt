@@ -1,0 +1,185 @@
+
+### ✅ 1. 📅 나의 일일 다이어리 작성 페이지 만들기  
+**내용:**  
+- 날짜 선택 (`<input type="date">`)  
+- 오늘의 기분 색 선택 (`<input type="color">`)  
+- 오늘의 기분 한 줄 요약 (`<input type="text">`)  
+- 하루의 기록 (`<textarea>`)  
+- 전송 버튼 (`<input type="submit">`)  
+**활용 기술:** `form`, `input`, `textarea`, `fieldset`, `label`
+
+---
+
+### ✅ 2. 🛍️ 온라인 쇼핑몰 상품 주문 페이지  
+**내용:**  
+- 상품명, 수량 (`<input type="number">`), 색상 (`<select>`)  
+- 고객명, 이메일, 배송 주소 입력  
+- 결제 수단 선택 (`radio`)  
+- 이용약관 동의 (`checkbox`)  
+- 주문 제출 (`submit`)  
+**활용 기술:** `form`, `select`, `input`, `label`, `fieldset`
+
+---
+
+### ✅ 3. 🎤 이벤트 참여 신청 페이지  
+**내용:**  
+- 참가자 이름, 나이, 전화번호 입력  
+- 참가 분야 선택 (`radio`)  
+- 희망 날짜/시간 (`date`, `time`)  
+- 자기 소개 (`textarea`)  
+- 전송 (`submit`)  
+**활용 기술:** `form`, `fieldset`, `input`, `radio`, `textarea`, `submit`
+
+---
+
+### ✅ 4. 🧭 포트폴리오 소개 페이지  
+**내용:**  
+- 상단 메뉴 (내 소개, 프로젝트, 연락처 등 `a href="#id"`)  
+- 각 섹션에 구체적인 내용  
+- 본문 중 iframe으로 포트폴리오 영상 연결  
+**활용 기술:**  `iframe`, `id`/`href`, `ul`/`li`
+
+---
+
+### ✅ 5. 📋 나의 주간 식단표 만들기  
+**내용:**  
+- 요일별 식단 (`table`)  
+- 각 칸에 아침/점심/저녁 텍스트  
+- 상단에 좋아하는 음식 체크박스  
+- 하단에 평가(`radio`)와 저장 버튼  
+**활용 기술:** `table`, `thead`/`tbody`, `checkbox`, `radio`, `submit`
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML 프로젝트 모음</title>
+</head>
+<body>
+
+<!-- 1. 일일 다이어리 -->
+<section>
+  <h2>📅 나의 일일 다이어리</h2>
+  <form action="#">
+    <fieldset>
+      <legend>오늘의 기록</legend>
+      <label>날짜: <input type="date" name="diaryDate" required></label>
+      <label>기분 색상: <input type="color" name="feelingColor"></label>
+      <label>기분 요약: <input type="text" name="summary" placeholder="한 줄로 요약"></label>
+      <label>하루의 기록:<br><textarea name="content" rows="5" cols="50"></textarea></label>
+      <input type="submit" value="기록 저장">
+    </fieldset>
+  </form>
+</section>
+
+<!-- 2. 쇼핑몰 주문 -->
+<section>
+  <h2>🛍️ 온라인 쇼핑몰 주문서</h2>
+  <form action="#">
+    <fieldset>
+      <legend>상품 정보</legend>
+      <label>상품명: <input type="text" name="product"></label>
+      <label>수량: <input type="number" name="qty" min="1" value="1"></label>
+      <label>색상 선택:
+        <select name="color">
+          <option value="red">빨강</option>
+          <option value="blue">파랑</option>
+          <option value="black">검정</option>
+        </select>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>고객 정보</legend>
+      <label>이름: <input type="text" name="name"></label>
+      <label>이메일: <input type="email" name="email"></label>
+      <label>배송지: <input type="text" name="address"></label>
+    </fieldset>
+    <fieldset>
+      <legend>결제 및 약관</legend>
+      <label><input type="radio" name="payment" value="card"> 카드 결제</label>
+      <label><input type="radio" name="payment" value="bank"> 무통장입금</label>
+      <label><input type="checkbox" name="agree"> 이용약관에 동의합니다.</label>
+      <input type="submit" value="주문하기">
+    </fieldset>
+  </form>
+</section>
+
+<!-- 3. 이벤트 신청 -->
+<section>
+  <h2>🎤 이벤트 참가 신청</h2>
+  <form action="#">
+    <fieldset>
+      <legend>신청자 정보</legend>
+      <label>이름: <input type="text" name="user"></label>
+      <label>나이: <input type="number" name="age"></label>
+      <label>전화번호: <input type="tel" name="phone"></label>
+    </fieldset>
+    <fieldset>
+      <legend>참가 정보</legend>
+      <label><input type="radio" name="category" value="노래"> 노래</label>
+      <label><input type="radio" name="category" value="댄스"> 댄스</label>
+      <label><input type="radio" name="category" value="연기"> 연기</label>
+      <label>희망 날짜: <input type="date" name="date"></label>
+      <label>희망 시간: <input type="time" name="time"></label>
+      <label>자기 소개:<br><textarea name="intro" rows="4" cols="40"></textarea></label>
+      <input type="submit" value="참가 신청">
+    </fieldset>
+  </form>
+</section>
+
+<!-- 4. 포트폴리오 페이지 -->
+<section>
+  <h2>🧭 포트폴리오 소개</h2>
+  <nav>
+    <ul>
+      <li><a href="#about">내 소개</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#contact">연락처</a></li>
+    </ul>
+  </nav>
+  <h3 id="about">내 소개</h3>
+  <p>저는 웹 개발자를 꿈꾸는 OOO입니다.</p>
+  <h3 id="projects">프로젝트</h3>
+  <iframe width="400" height="250" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+  <h3 id="contact">연락처</h3>
+  <p>이메일: example@email.com</p>
+</section>
+
+<!-- 5. 주간 식단표 -->
+<section>
+  <h2>📋 나의 주간 식단표</h2>
+  <form>
+    <fieldset>
+      <legend>좋아하는 음식</legend>
+      <label><input type="checkbox" name="fav" value="김치찌개"> 김치찌개</label>
+      <label><input type="checkbox" name="fav" value="불고기"> 불고기</label>
+      <label><input type="checkbox" name="fav" value="비빔밥"> 비빔밥</label>
+    </fieldset>
+    <table>
+      <thead>
+        <tr><th>요일</th><th>아침</th><th>점심</th><th>저녁</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>월요일</td><td><input type="text" name="mon_b"></td><td><input type="text" name="mon_l"></td><td><input type="text" name="mon_d"></td></tr>
+        <tr><td>화요일</td><td><input type="text" name="tue_b"></td><td><input type="text" name="tue_l"></td><td><input type="text" name="tue_d"></td></tr>
+        <!-- 필요 시 다른 요일 추가 -->
+      </tbody>
+    </table>
+    <fieldset>
+      <legend>이번 주 식단 만족도</legend>
+      <label><input type="radio" name="satis" value="high"> 매우 만족</label>
+      <label><input type="radio" name="satis" value="mid"> 보통</label>
+      <label><input type="radio" name="satis" value="low"> 불만족</label><br>
+      <input type="submit" value="식단 저장">
+    </fieldset>
+  </form>
+</section>
+
+</body>
+</html>
+
+
+

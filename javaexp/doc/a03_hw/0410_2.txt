@@ -1,0 +1,250 @@
+## ✅ 주관식 개념문제 10문제
+
+1. `while`문과 `do-while`문을 비교 설명하고 각각의 사용 예를 서술하세요.  
+2. `Scanner`를 활용하여 문자열과 정수를 입력받는 기본 절차를 설명하세요.  
+3. `break`와 `continue`의 차이점과 사용 예시를 설명하세요.  
+4. 클래스와 객체의 차이를 설명하고, 객체 생성 시 사용하는 기본 문법을 작성하세요.  
+5. 메서드에 매개변수를 사용하는 이유와 예시를 작성하세요.  
+6. 리턴값이 있는 메서드와 없는 메서드를 비교하여 설명하고, 각각의 예를 작성하세요.  
+7. Java에서 문자열 비교 시 `==` 대신 `equals()`를 사용하는 이유를 설명하세요.  
+8. SQL에서 `WHERE`절에 사용하는 `IN`, `BETWEEN`, `IS NULL`의 기능을 각각 설명하세요.  
+9. CSS의 `overflow` 속성에 들어갈 수 있는 값들과 각각의 의미를 서술하세요.  
+10. `float`와 `margin:0 auto`를 활용한 요소 정렬의 차이점과 용도를 설명하세요.
+
+---
+
+## ✅ 재미있는 이야기 응용 실습문제 10문제 (문제만)
+
+1. **🍩 도넛 가게 주문 시스템 (Java)**  
+   - Scanner를 사용해 도넛 이름, 가격, 수량을 입력받고 총 금액을 계산하세요.
+
+2. **🎯 사격 연습 점수 기록기 (Java while)**  
+   - 0점 입력 시 종료되는 while문으로 사용자 점수를 계속 입력받고 출력하세요.
+
+3. **🎲 주사위 돌리기 게임 (Java 함수)**  
+   - 1~6 사이의 숫자를 반환하는 `rollDice()` 함수를 작성하고 세 번 출력하세요.
+
+4. **📦 상품 포장 정보 등록기 (Java 메서드)**  
+   - 상품명, 개수, 포장종류를 매개변수로 받아 출력하는 메서드를 정의하세요.
+
+5. **📚 도서 검색기 (SQL LIKE)**  
+   - EMP 테이블에서 사원명이 'S'로 시작하는 데이터를 검색하는 SQL 문을 작성하세요.
+
+6. **👨‍🍳 셰프의 재료 필터 (SQL IN)**  
+   - EMP 테이블에서 직책이 'CLERK', 'SALESMAN', 'MANAGER'인 사원 정보를 검색하세요.
+
+7. **🚀 우주선 이름 카드 (HTML/CSS)**  
+   - 우주선 이름들을 `div`에 출력하고 float:left로 정렬하세요. 배경색은 각각 다르게 설정.
+
+8. **📜 비밀 메시지 상자 (CSS overflow)**  
+   - 내용이 넘치는 비밀 메시지를 `overflow: hidden`으로 숨기고, 버튼 클릭 시 scroll로 바꾸세요.
+
+9. **🎥 영화관 좌석 필터 (SQL WHERE)**  
+   - 급여가 2000 이상이면서 직책이 'MANAGER'인 사원만 출력하는 SQL문을 작성하세요.
+
+10. **🪑 좌석 배치 중앙 정렬 (HTML/CSS)**  
+   - 중앙정렬을 위해 `margin: 0 auto`, `width: 70%`를 적용한 콘텐츠를 구성해보세요.
+
+   
+
+---
+
+## ✅ 주관식 개념문제 정답 및 해설
+
+1. **`while`과 `do-while` 비교**  
+   - `while`: 조건이 참일 때만 반복 실행  
+   - `do-while`: 조건과 상관없이 **최소 한 번 실행** 후 조건 검사  
+   **예시**  
+   - `while`: 사용자 입력이 "exit"이 아닐 때 계속 입력받기  
+   - `do-while`: 메뉴를 최소 1번은 보여줘야 할 때 사용
+
+---
+
+2. **`Scanner`로 문자열과 정수 입력 절차**  
+   ```java
+   Scanner sc = new Scanner(System.in);  
+   String name = sc.nextLine();     // 문자열  
+   int age = sc.nextInt();          // 정수  
+   ```
+
+---
+
+3. **`break` vs `continue`**  
+   - `break`: 반복문을 즉시 종료  
+   - `continue`: 다음 반복 단계로 넘어감  
+   **예시**  
+   - `break`: 0점 입력되면 점수 입력 종료  
+   - `continue`: 홀수는 건너뛰고 짝수만 출력
+
+---
+
+4. **클래스 vs 객체, 객체 생성 문법**  
+   - 클래스: 객체의 설계도  
+   - 객체: 클래스 기반으로 메모리에 생성된 실체  
+   ```java
+   Car myCar = new Car();
+   ```
+
+---
+
+5. **메서드 매개변수 사용 이유와 예시**  
+   - 입력값을 유동적으로 전달하여 **코드 재사용성과 유연성 증가**  
+   ```java
+   void greet(String name) {
+       System.out.println("Hello, " + name);
+   }
+   ```
+
+---
+
+6. **리턴값 유무 메서드 비교**  
+   - 리턴값 있음: 결과값을 반환하여 재사용 가능  
+     ```java
+     int square(int x) { return x * x; }
+     ```  
+   - 없음(void): 단순 출력, 데이터 변경 등에 사용  
+     ```java
+     void printHello() { System.out.println("Hello"); }
+     ```
+
+---
+
+7. **`equals()` 사용하는 이유**  
+   - `==`은 참조(주소) 비교  
+   - `equals()`는 문자열 **내용 비교**  
+   ```java
+   "hi".equals("hi") // true  
+   ```
+
+---
+
+8. **`Math.random()` 설명과 공식**  
+   - 반환 범위: `0.0 <= x < 1.0`  
+   - 공식:  
+     ```java
+     int n = (int)(Math.random() * 범위) + 시작값;
+     ```
+
+---
+
+9. **`return`의 역할**  
+   - 메서드 실행 결과를 **호출한 쪽에 전달**  
+   - void가 아닌 메서드에서 반드시 사용  
+   - 실행 후 해당 메서드를 즉시 종료시킴
+
+---
+
+10. **여러 매개변수 전달 시 유의점**  
+   - **자료형과 순서** 정확히 맞춰야 함  
+   - 필요한 만큼 매개변수 정의해야 하며, **메서드 오버로딩** 가능성 고려
+
+---
+
+## ✅ 실습형 문제 예시 풀이 (코드 포함)
+
+---
+
+### 1. 🍩 도넛 가게 주문 시스템
+
+```java
+Scanner sc = new Scanner(System.in);
+System.out.print("도넛 이름: ");
+String name = sc.nextLine();
+System.out.print("가격: ");
+int price = sc.nextInt();
+System.out.print("수량: ");
+int qty = sc.nextInt();
+System.out.println("총 금액: " + (price * qty) + "원");
+```
+
+---
+
+### 2. 🎯 사격 연습 점수 기록기
+
+```java
+Scanner sc = new Scanner(System.in);
+int score;
+while (true) {
+    System.out.print("점수 입력 (0 입력 시 종료): ");
+    score = sc.nextInt();
+    if (score == 0) break;
+    System.out.println("입력된 점수: " + score);
+}
+```
+
+---
+
+### 3. 🎲 주사위 함수
+
+```java
+public static int rollDice() {
+    return (int)(Math.random() * 6 + 1);
+}
+// 사용 예
+System.out.println("주사위: " + rollDice());
+```
+
+---
+
+### 4. 📦 상품 포장 메서드
+
+```java
+static void packItem(String name, int qty, String type) {
+    System.out.println("상품명: " + name);
+    System.out.println("수량: " + qty);
+    System.out.println("포장종류: " + type);
+}
+```
+
+---
+
+### 5. 📚 도서 검색 SQL
+
+```sql
+SELECT * FROM EMP WHERE ENAME LIKE 'S%';
+```
+
+---
+
+### 6. 👨‍🍳 재료 필터 SQL
+
+```sql
+SELECT * FROM EMP WHERE JOB IN ('CLERK', 'SALESMAN', 'MANAGER');
+```
+
+---
+
+### 7. 🚀 우주선 카드 정렬
+
+```html
+<div style="float:left; background:red;">🚀 아폴로</div>
+<div style="float:left; background:blue;">🚀 스타쉽</div>
+<div style="float:left; background:green;">🚀 보이저</div>
+```
+
+---
+
+### 8. 📜 비밀 메시지 overflow
+
+```html
+<div id="secret" style="width:100px; height:100px; overflow:hidden;">비밀 메시지 너무 길어요~!</div>
+<button onclick="document.getElementById('secret').style.overflow='scroll';">스크롤로 보기</button>
+```
+
+---
+
+### 9. 🎥 WHERE 필터 SQL
+
+```sql
+SELECT * FROM EMP WHERE SAL >= 2000 AND JOB = 'MANAGER';
+```
+
+---
+
+### 10. 🪑 중앙 정렬 콘텐츠
+
+```html
+<div style="width:70%; margin:0 auto; background:lightgray;">중앙 정렬된 좌석배치</div>
+```
+
+---

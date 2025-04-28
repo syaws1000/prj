@@ -1,0 +1,278 @@
+
+## ✅ [2] **주관식 개념문제 10문제**
+
+1. Oracle SQL에서 `ORDER BY` 절의 역할을 설명하시오.  
+2. `TO_DATE()` 함수의 목적과 사용 예시를 설명하시오.  
+3. Java에서 클래스와 객체의 차이점을 간단히 설명하시오.  
+4. Java에서 생성자의 역할은 무엇인가요?  
+5. Java에서 필드와 지역 변수의 차이를 서술하시오.  
+6. SQL에서 `CREATE TABLE`과 `DROP TABLE`의 차이를 설명하시오.  
+7. Java에서 생성자와 일반 메서드의 차이점을 서술하시오.  
+8. Oracle SQL에서 `SYSDATE`는 어떤 상황에서 사용되나요?  
+9. Java에서 `this` 키워드의 기능과 용도를 설명하시오.  
+10. SQL에서 `DELETE` 명령어를 사용할 때 주의할 점을 설명하시오.
+
+
+## ✅ [Oracle SQL 실습형 문제 – 새롭고 흥미로운 예제]
+
+---
+
+### 🏥 **1. 병원 진료 기록 관리 시스템**
+
+> 병원에서는 환자의 진료 정보를 기록합니다.  
+> 환자 이름, 진료과목, 진료일, 의사 이름, 진료비를 저장하세요.
+
+#### 📌 요구사항
+- `MEDICAL_RECORD` 테이블 생성  
+- 3건 이상 데이터 입력  
+- 2025년 4월 이후에 진료받은 환자만 조회
+
+```sql
+SELECT * 
+FROM LIBRARY_LOAN 
+WHERE RETURN_DUE < TO_DATE('2025-04-20','YYYY-MM-DD');
+```
+
+---
+
+### 📦 **2. 창고 재고 관리 시스템**
+
+> 물류창고에서 보관 중인 물품의 정보를 관리합니다.
+
+#### 📌 요구사항
+- `WAREHOUSE_ITEM` 테이블 생성  
+
+- 식품, 전자기기 등 다양한 물품으로 3건 이상 입력  
+- 수량이 50개 이상인 물품만 조회
+
+
+
+### 🛍️ **3. 할인 이벤트 응모 시스템**
+
+> 쇼핑몰에서는 고객들이 참여한 할인 이벤트 응모내역을 관리합니다.
+
+#### 📌 요구사항
+- `EVENT_ENTRY` 테이블 생성  
+  - `ENTRY_ID` NUMBER  
+  - `CUSTOMER_NAME` VARCHAR2(50)  
+  - `EVENT_NAME` VARCHAR2(100)  
+  - `ENTRY_DATE` DATE  
+  - `ENTRY_CHANNEL` VARCHAR2(30)  
+
+- 3건 이상의 데이터 입력  
+- `ENTRY_CHANNEL`이 `'모바일'`인 데이터만 조회
+
+```sql
+SELECT * 
+FROM EVENT_ENTRY 
+WHERE ENTRY_CHANNEL = '모바일';
+```
+
+---
+
+### 📚 4. **동화책 도서관 등록** (🌟Java)
+
+> 어린이 도서관에 동화책을 등록하려고 합니다.  
+> 책 제목, 작가, 페이지 수, 가격을 필드로 가진 클래스를 정의하고, 등록할 책 2권을 출력하세요.
+
+👉 **요구사항**  
+- `StoryBook` 클래스를 생성하세요.  
+- 생성자를 통해 `"백설공주"`, `"헨젤과 그레텔"` 책을 등록하세요.  
+- 등록된 도서를 출력하세요.
+
+---
+
+
+
+### 🛒 5. **온라인 쇼핑몰 장바구니 관리** (🌟SQL + Java 혼합)
+
+> 장바구니에는 사용자 ID, 상품명, 수량, 단가, 담은 날짜가 기록됩니다.  
+> 자바에서는 해당 상품 정보를 담을 클래스를 사용하여 UI에 표시합니다.
+
+👉 **SQL 파트**  
+- `CART_ITEM` 테이블을 생성하고,  
+- 두 개의 상품(`블루투스 스피커`, `게이밍 마우스`)을 날짜 포함해서 INSERT 하세요.  
+- 단가가 80,000원 이상인 상품을 조회하세요.
+
+👉 **Java 파트**  
+- `CartItem` 클래스를 정의하고,  
+- 두 상품을 객체로 생성하여 출력하세요.
+
+
+좋습니다! 아래는 주신 5개 실습형 문제 중 각 항목에 대한 **Oracle SQL 및 Java 풀이 코드 예시**입니다.  
+SQL은 `CREATE TABLE`, `INSERT`, `SELECT`, Java는 `클래스 선언 → 생성자 → 객체 생성 및 출력`으로 구성되어 있습니다.
+
+---
+
+## ✅ 🏥 1. 병원 진료 기록 관리 시스템 – SQL 풀이
+
+```sql
+-- 테이블 생성
+CREATE TABLE MEDICAL_RECORD (
+  RECORD_ID NUMBER,
+  PATIENT_NAME VARCHAR2(50),
+  DEPT_NAME VARCHAR2(50),
+  DOCTOR_NAME VARCHAR2(50),
+  VISIT_DATE DATE,
+  CHARGE NUMBER
+);
+
+-- 데이터 입력
+INSERT INTO MEDICAL_RECORD VALUES(1, '김민지', '소아과', '조현우', TO_DATE('2025-04-10', 'YYYY-MM-DD'), 30000);
+INSERT INTO MEDICAL_RECORD VALUES(2, '이재훈', '내과', '이은지', TO_DATE('2025-03-25', 'YYYY-MM-DD'), 45000);
+INSERT INTO MEDICAL_RECORD VALUES(3, '박서연', '정형외과', '김성진', TO_DATE('2025-04-15', 'YYYY-MM-DD'), 60000);
+
+COMMIT;
+
+-- 2025년 4월 이후 진료 내역 조회
+SELECT * 
+FROM MEDICAL_RECORD 
+WHERE VISIT_DATE >= TO_DATE('2025-04-01', 'YYYY-MM-DD');
+```
+
+---
+
+## ✅ 📦 2. 창고 재고 관리 시스템 – SQL 풀이
+
+```sql
+-- 테이블 생성
+CREATE TABLE WAREHOUSE_ITEM (
+  ITEM_ID NUMBER,
+  ITEM_NAME VARCHAR2(100),
+  CATEGORY VARCHAR2(50),
+  QUANTITY NUMBER,
+  STOCK_DATE DATE
+);
+
+-- 데이터 입력
+INSERT INTO WAREHOUSE_ITEM VALUES(1, '냉장 햄버거패티', '식품', 80, SYSDATE);
+INSERT INTO WAREHOUSE_ITEM VALUES(2, '무선 마우스', '전자기기', 45, SYSDATE);
+INSERT INTO WAREHOUSE_ITEM VALUES(3, '유기농 사과', '식품', 120, SYSDATE);
+
+COMMIT;
+
+-- 수량이 50개 이상인 물품 조회
+SELECT * 
+FROM WAREHOUSE_ITEM 
+WHERE QUANTITY >= 50;
+```
+
+---
+
+## ✅ 🛍️ 3. 할인 이벤트 응모 시스템 – SQL 풀이
+
+```sql
+-- 테이블 생성
+CREATE TABLE EVENT_ENTRY (
+  ENTRY_ID NUMBER,
+  CUSTOMER_NAME VARCHAR2(50),
+  EVENT_NAME VARCHAR2(100),
+  ENTRY_DATE DATE,
+  ENTRY_CHANNEL VARCHAR2(30)
+);
+
+-- 데이터 입력
+INSERT INTO EVENT_ENTRY VALUES(1, '김지은', '봄맞이 할인 이벤트', TO_DATE('2025-04-01','YYYY-MM-DD'), '모바일');
+INSERT INTO EVENT_ENTRY VALUES(2, '박진수', '신규회원 이벤트', TO_DATE('2025-04-10','YYYY-MM-DD'), '웹사이트');
+INSERT INTO EVENT_ENTRY VALUES(3, '이하늘', '주말특가', TO_DATE('2025-04-14','YYYY-MM-DD'), '모바일');
+
+COMMIT;
+
+-- 모바일 채널 참여자만 조회
+SELECT * 
+FROM EVENT_ENTRY 
+WHERE ENTRY_CHANNEL = '모바일';
+```
+
+---
+
+## ✅ 📚 4. 동화책 도서관 등록 – Java 풀이
+
+```java
+public class StoryBookTest {
+    public static void main(String[] args) {
+        StoryBook b1 = new StoryBook("백설공주", "형제 그림", 120, 8500);
+        StoryBook b2 = new StoryBook("헨젤과 그레텔", "형제 그림", 95, 7900);
+        
+        System.out.println("도서1: " + b1.title + ", " + b1.author + ", " + b1.pages + "쪽, " + b1.price + "원");
+        System.out.println("도서2: " + b2.title + ", " + b2.author + ", " + b2.pages + "쪽, " + b2.price + "원");
+    }
+}
+
+class StoryBook {
+    String title;
+    String author;
+    int pages;
+    int price;
+
+    StoryBook(String title, String author, int pages, int price) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.price = price;
+    }
+}
+```
+
+---
+
+## ✅ 🛒 5. 온라인 쇼핑몰 장바구니 – SQL + Java 혼합 풀이
+
+### 🔹 SQL 파트
+
+```sql
+-- 테이블 생성
+CREATE TABLE CART_ITEM (
+  CART_ID NUMBER,
+  USER_ID NUMBER,
+  PRODUCT_NAME VARCHAR2(100),
+  QUANTITY NUMBER,
+  PRICE_PER_ITEM NUMBER,
+  ADDED_DATE DATE
+);
+
+-- 데이터 입력
+INSERT INTO CART_ITEM VALUES(1, 1001, '블루투스 스피커', 1, 89000, TO_DATE('2025-04-14 09:00', 'YYYY-MM-DD HH24:MI'));
+INSERT INTO CART_ITEM VALUES(2, 1002, '게이밍 마우스', 2, 95000, TO_DATE('2025-04-15 15:30', 'YYYY-MM-DD HH24:MI'));
+
+COMMIT;
+
+-- 단가가 80,000원 이상인 상품 조회
+SELECT * 
+FROM CART_ITEM 
+WHERE PRICE_PER_ITEM >= 80000;
+```
+
+### 🔹 Java 파트
+
+```java
+public class CartItemTest {
+    public static void main(String[] args) {
+        CartItem item1 = new CartItem(1, "블루투스 스피커", 1, 89000);
+        CartItem item2 = new CartItem(2, "게이밍 마우스", 2, 95000);
+
+        item1.printInfo();
+        item2.printInfo();
+    }
+}
+
+class CartItem {
+    int id;
+    String productName;
+    int quantity;
+    int price;
+
+    CartItem(int id, String productName, int quantity, int price) {
+        this.id = id;
+        this.productName = productName;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    void printInfo() {
+        System.out.println("상품명: " + productName + ", 수량: " + quantity + ", 단가: " + price + "원");
+    }
+}
+```
+
+

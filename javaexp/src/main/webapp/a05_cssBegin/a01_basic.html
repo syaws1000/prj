@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		/* 
+		css 주석 : 적용되지 않고 설명내용을 입력한다.
+		
+		# css(Cascading Style Sheet)
+		1. html문서의 색이나 모양 등 외관을 꾸미는 언어
+		2. css로 작성된 코드를 스타일 시트(style sheet)라고 부른다.
+		3. css3의 기능
+			1) 색상과 배경
+			2) 텍스트
+			3) 폰트
+			4) 박스 모델(box model)
+			5) 비주얼 포맷 및 효과
+			6) 리스트
+			7) 테이블
+			8) 사용자 인터페이스
+		# 스타일 시트 구성
+		1. 기본형식
+			선택자{속성1:속성1값;속성2:속성2값;...}
+			ex) span{color:blue;font-size:20px;}
+				span이라는 선택자 즉 태그는 body안에서 글자색상을 blue, 글자크기는 20px로 설정한다.
+			1) 선택자의 종류
+				태그{}
+				#아이디명{}  하나의 페이지에 유일하게 선언되어있는 속성 id
+							<h1 id="id01"
+				.클래스명{}  class 속성으로 여러개 선택할 때..
+							<h2 class="cls01"
+							<tr class="cls01"
+							<li class="cls02"
+			2) 복합선택자 처리
+				태그.클래스{} : 해당 태그중에 클래스가 있는 것
+					h1.cls01{}
+					
+					<h1>				
+					<h1 class="cls01">				
+					<h1>				
+					<h1>			
+				선택자1, 선택자2, 선택자3{속성:속성값}
+					h1, tr, p{font-size:10px;}		
+			3) 계층형 선택자 
+				div li{} div 하위 레벨이 상관없이 li가 있으면 그 li에 대한 속성 설정
+				tr>td{} tr바로밑에 td가 있으면 td에 대한 속성..
+				
+				
+					
+		2. 구성요소
+			선택자(selector) : css3 스타일 시트를 html 페이지에 적용하도록 만든 이름
+			속성(property) : 스타일 속성 이름, 약 200개 정도의 속성이 있음
+			값(value) : 속성의 값을 의미함
+			주석문 : 스타일시트는 설명문으로 ** 사이에 다중/단일로 주석문을 사용한다.
+		3. 특징
+			1) 대소문자 구분이 없음
+			2) style로 head부분에 선언한 것은 현재 페이지에 모두 전역적으로 적용
+				태그 안에 style="속성:속성값" 으로 선언한 것을 해당 태그에서만 적용
+				link 태그나 @import태그를 이용해서 특정한 파일을 통해서 처리한 것을
+				하나의 css파이로 여러 파일에 적용하는 것임
+			3) style 태그는 여러번 작성 가능하고, 하나의 페이지 전에 적용이 된다.
+		*/
+			body{background-color:red;}
+			/* body태그 즉, 전체 화면의 배격색상을 red로 설정한다.*/
+			h3{color:purple;}
+			/* h3의 글자색상은 보라색 */
+			hr{border:5px solid yellowgreen;}
+			/* hr즉 수평선은 굵기는 5px, 선형태는 solid, 색상은 yellowgreen */
+			span{color:yellow;font-size:40px;}
+			/* span태그의 글자는 노랑색, 글자크기는 40px로 설정 */
+			
+			/*
+			a02_basicShow.html
+				h3  오늘도 프로그래밍을 열심히
+				hr
+				p  오늘은 span자바  와   span html 을 공부하였습니다.
+				
+			*/
+		</style>
+				
+	</head>
+	<body>
+		<h3>css 스타일 맛보기</h3>
+		<hr>
+		<p>나는 <span>웹 프로그래밍</span>을 좋아합니다.</p>
+	</body>
+</html>

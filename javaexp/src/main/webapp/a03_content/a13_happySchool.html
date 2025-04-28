@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-menu li a {
+    color: red;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    background-color: #ff6a00;
+    color: white;
+}
+</style>
+</head>
+<body>
+<!-- 
+ex)
+a13_happySchool.html
+	1학년1반  : a14_0101.html  <h2>1학년1반홈페이지</h2>	
+	1학년2반  : a15_0102.html  <h2>1학년2반홈페이지</h2>	
+	1학년3반  : a16_0103.html  <h2>1학년3반홈페이지</h2>
+		
+ -->
+<h2>행복한 학교(각 반별 홈페이지 이동)</h2>
+<ul class="nav-menu">
+	<li><a href="a14_0101.html" target="room01">1학년1반</a>
+	<li><a href="a15_0102.html" target="room01">1학년2반</a>
+	<li><a href="a16_0103.html" target="room01">1학년3반</a>
+</ul> 
+<iframe srcdoc="<body bgColor='yellow'>
+                <h2>메인페이지(반별 홈페이지 이동시 위 링크 클릭!!)</h2>
+                </body>"
+		width="100%" height="300" name="room01"></iframe>
+<h2>페이지 이동 연습</h2>
+<ul class="nav-menu">
+
+	<li><a href="a11_product1.html" target="room02">물건1</a>
+	<li><a href="a12_product2.html" target="room02">물건2</a>
+</ul>
+<iframe srcdoc="<body><h2>메뉴연습</h2></body>"
+	width="100%" height="200" name="room02"></iframe>
+
+</body>
+</html>

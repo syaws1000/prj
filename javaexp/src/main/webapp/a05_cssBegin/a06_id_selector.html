@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 
+# id 선택자
+1. 태그에서 id 속성으로 선언한 선택자이면, css에서는 #아이디명으로 선택자를
+	지정하여 처리한다. id 속성은 class나 태그 선택자와 달리 하나의 페이지에
+	유일하게 식별하여 속성을 지정할 때 사용된다. 물론 호출하면 적용은 되나,
+	id라는 속성을 지정한 이유가 유일성 때문에 적용하기에 이런 부분을 감안하여
+	처리한다.
+2. 기본형식
+	1) style
+		#아이디명{속성:속성값;}
+	2) body
+		<태그 id="아이디명">
+# id선택자와 class 선택자의 비교
+1. id선택자
+	1) id 속성의 목적은 해당 태그를 하나의 페이지에서 유일하게 구분할 때, 사용된다.
+		- 동일한 id 속성이 나오지 않도록 html 파일 작성하는 것이 바람직하다.
+		- 자바스크립트 코드에서 id값을 가진 태그 객체를 찾을 때 문제가 된다.
+	2) 적합한 활용
+		- id 선택자는 여러 태그 중 특정 태그만 css 스타일을 적용할 때 적합하다	
+2. class 선택자
+	1) 적합한 활용
+		- 여러 태그를 하나의 그룹으로 묶어 단체로 동일한 css 스타일을 적용할 때,
+		- class 속성 값이 같은 태그에 모두 css 스타일 적용
+	2) 태그의 종류에 관계없이 class 선택자 활용 가능	
+	
+	
+ex) h2를 안녕하세요를 3개 선언하여 아이디명으로 id04, id05, id06으로 각각 글자색상을 선언하여 적용되게 하고,
+	class로 clsBak01로 배경색상을 설정하여 위 h2에 모두 적용되게 하세요.. 			
+*/
+#id04{color:red;}
+#id05{color:orange;}
+#id06{color:pink;}
+.clsBak01{background-color:purple;}
+
+#list01{background-color:mistyrose;}
+.txtColor{color:yellow;}
+#id01{background-color:red;}
+#id02{background-color:green;}
+#id03{background-color:blue;}
+</style>
+</head>
+<body>
+	<h2 id="id04" class="clsBak01">안녕하세요</h2>
+	<h2 id="id05" class="clsBak01">안녕하세요</h2>
+	<h2 id="id06" class="clsBak01">안녕하세요</h2>
+	<h3 id="id01" class="txtColor">아이디 속성 설정1</h3>
+	<h3 id="id02" class="txtColor">아이디 속성 설정2</h3>
+	<h3 id="id03" class="txtColor">아이디 속성 설정3</h3>
+	<h2>아이디 속성</h2>
+	<ul id="list01">
+		<li>html5</li>
+		<li>css3</li>
+		<li>javascript</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 테이블 레이아웃
+1. html의 table 요소에 적용하는 css의 구성요소로 적용하는 방식과 비슷하게 처리하는 것을 말한다.
+	html에서 table이 없어도 테이블 구조를 만들 수 있는 유용한 방법으로 테이블 모양으로 레이아웃을
+	css로만 구성할 때 사용된다.
+2. table과 비교하여 속성 설정 내용
+	1) table 태그			css 테이블 레이아웃 
+		<table>			display:table
+		<tr>			display:table-row
+		<td>			display:table-cell
+		<caption>		display:table-caption
+3. 그외 속성
+	table-layout : 열 너비 자동/고정 결정 auto, fixed
+	border-collapse   : 테두리 병합 여부 collapse, separate
+	vertical-align : 셀 내 수직 정렬	
+*/
+.table{
+	display:table;
+	border-collapse:collapse;
+	width:100%;
+	margin-bottom:20px;
+}
+.row{
+	display:table-row;
+}
+.cell{
+	display:table-cell;
+	border:1px solid #999;
+	padding:10px;
+	text-align:center;
+	vertical-align:middle; /*상하 정렬을 중앙에*/
+	background-color:#f9f9f9;
+}
+.header{
+	font-weight:bold;
+	background-color:#ffe4b5;
+}
+.tabRecord{
+	display:table;
+	border-collapse:collapse;
+	width:100%;
+}
+.trRecord{
+	display:table-row;
+	width:20%; /*cell간의 간격을 동일하게 처리..*/
+}
+.tdRecord{
+	display:table-cell;
+	text-align:center;
+	vertical-align: middle;
+	background-color:#f9f9f9;
+	border:1px solid #ddd;
+	color:#333;
+}
+.thRecord{
+	font-weight:bold;
+	background-color:#0078d7;
+	color:white;
+}
+
+</style>
+</head>
+<body>
+<div class="table">
+	<div class="row header">
+		<div class="cell">번호</div>
+		<div class="cell">이름</div>
+		<div class="cell">메뉴</div>
+	</div>
+	<div class="row">
+		<div class="cell">1</div>
+		<div class="cell">김도시</div>
+		<div class="cell">돈까스 도시락</div>
+
+	</div>
+	<div class="row">
+		<div class="cell">2</div>
+		<div class="cell">이반찬</div>
+		<div class="cell">치킨마요 덮밥</div>
+
+	</div>
+</div>
+<h2>학생 성적표</h2>
+<!-- 
+ex) 번호   이름     국어   영어    수학
+.tabRecord
+.trRecord
+.tdRecord
+.thRecord
+-->
+
+  	<div class="tabRecord">
+        <div class="trRecord thRecord">
+            <div class="tdRecord">번호</div>
+            <div class="tdRecord">이름</div>
+            <div class="tdRecord">국어</div>
+            <div class="tdRecord">영어</div>
+            <div class="tdRecord">수학</div>
+        </div>
+        <div class="trRecord">
+            <div class="tdRecord">1</div>
+            <div class="tdRecord">홍길동</div>
+            <div class="tdRecord">70</div>
+            <div class="tdRecord">90</div>
+            <div class="tdRecord">90</div>
+        </div>
+        <div class="trRecord">
+            <div class="tdRecord">2</div>
+            <div class="tdRecord">김길동</div>
+            <div class="tdRecord">70</div>
+            <div class="tdRecord">100</div>
+            <div class="tdRecord">90</div>
+        </div>
+        <div class="trRecord">
+            <div class="tdRecord">3</div>
+            <div class="tdRecord">신길동</div>
+            <div class="tdRecord">80</div>
+            <div class="tdRecord">80</div>
+            <div class="tdRecord">92</div>
+        </div>
+    </div>   
+</body>
+</html>

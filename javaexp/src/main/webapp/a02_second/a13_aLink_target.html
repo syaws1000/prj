@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# a link의 target 옵션
+1. 형식
+	<a href="" target="옵션"></a>
+2. _blank : 새 브라우저 탭이나 창에서 링크를 엽니다.
+3. _self : 현재의 화면/브라우저 창에서 화면을 여는 것을 말한다.
+	default로 기본적으로 이 처리를 한다.
+4. _parent : 현재 프레임의 부모 프레임에서 링크를 엽니다.
+	만약 프레임이 없다면 _self와 같은 방식으로 동작합니다.
+	# iframe이나 window창이 로딩되었을 때, 확인할 수 있다.
+5. _top : 현재 프레임을 포함한 최상위 브라우저 창에서 링크를 연다.
+	모든 프레임을 제거하고 새 페이지를 표시한다.
+	# iframe이나 window창이 로딩되었을 때, 확인할 수 있다.
+6. 프레임명 : iframe의 name="프레임명" 지정해 페이지내에 특정한 공간으로
+	다른 페이지로 변경할 때, 사용된다.	
+	# iframe이 로딩되었을 때, 확인할 수 있다.
+ -->
+<h2>target옵션별 처리 내용</h2>
+<a href="http://www.w3.org" target="_blank">w3c(새 윈도우, _blank)</a><br>
+<a href="http://www.etnews.com" target="_self">전자신문(현재 윈도우, _self)</a><br>
+<a href="http://www.naver.com" target="_parent">네이버(부모 윈도우, _parent)</a><br>
+<a href="http://www.mk.co.kr" target="_top">매일경제신문(브라우저 윈도우, _top)</a><br>
+<!-- 
+ex) a14_targetOpt.html  
+	1) 새로운 창에서 로딩  ==> a15_show.html  <h2>새로운 창
+	2) 현재 창에서 로딩  ==> a16_show.html   <h2>현재 창
+	
+
+
+ --> 
+ 
+
+</body>
+</html>

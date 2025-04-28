@@ -1,0 +1,165 @@
+
+## ✅ 객관식 문제 15문제 
+
+1. `Scanner` 클래스를 사용하기 위해 필요한 import 구문은 무엇인가요?  
+   ① import java.lang.Scanner;  
+   ② import java.util.input;  
+   #③ import java.util.Scanner;  
+   ④ import java.io.Scanner;
+   
+   # console데이터 입력시 처리 내용
+   import java.util.Scanner;  
+   
+   Scanner sc = new Scanner(System.in);
+   String str = sc.nextLine(); // 문자열 입력
+   int int01 = Integer.parseInt(sc.nextLine); // 정수입력
+   double dbl01 = Double.parseDouble(sc.nextLine); // 실수입력
+   
+
+2. `while`문과 `do-while`문 중 조건이 거짓이어도 반드시 한 번 실행되는 것은?  
+   ① while  
+   #② do-while  
+   ③ for  
+   ④ switch
+   
+   do{
+   	  조건이 안되더라도 한번은 실행..
+   }while(조건);
+
+3. `while(true)`의 의미로 가장 알맞은 것은?  
+   ① 조건이 false일 때 한 번만 실행  
+   #② 무한 루프를 의미  
+   ③ 항상 종료되는 반복  
+   ④ 조건이 참이면 중단
+   
+   while(true){ // 무한 반복
+   
+   		if(조건){
+   			break; // 반복문 중단 처리
+   		}
+   }
+   
+
+4. 다음 중 `break`문의 기능으로 적절한 것은?  
+   ① 반복문에서 현재 반복을 건너뛰고 계속 진행  
+   #② 반복문을 즉시 종료  
+   ③ 프로그램 전체를 종료  
+   ④ 새로운 변수를 선언
+
+5. `continue` 문은 다음 중 어떤 역할을 하나요?  
+   ① 프로그램 전체 종료  
+   ② 반복문 조건을 false로 설정  
+   #③ 반복문의 이번 회차를 건너뛰고 다음으로 이동  
+   ④ 새로운 반복문 생성
+   
+   for(int cnt =1;cnt<=10;cnt++){
+   		if(cnt==5){
+   			continue;  // cnt가 5번일 때만, 처리되는 구문이 수행되지 않고, 다음 반복스텝(6)을 수행
+   		}
+   		처리되는 구문
+   }
+
+6. 객체를 생성하는 문법으로 올바른 것은?  
+   ① Car c1();  
+   ② class Car = new();  
+   #③ Car c1 = new Car();  
+   ④ new Car() = c1;
+   main(){
+   	  Car c1 = new Car();
+   	  Car c1 : 객체의 선언
+   	  =new Car(); heap메모리에 객체를 생성
+   	  c1 : 객체의 heap메모리의 주소값을 할당한 참조변수(stack영역에 저장)
+   }
+   
+   class Car{}
+
+7. 클래스는 무엇을 정의한 것인가요?  
+   ① 반복문의 조건  
+   #② 객체의 설계도/틀 (ex) 붕어빵이 객체이고,  붕어빵을 만드는 틀이 class 이다..
+   				         빌딩이 객체이고, 이 빌딩의 설계도가 class 이다.. 
+   ③ 사용자 입력  
+   ④ 정수형 자료형
+
+8. 다음 중 메서드 선언에 해당하지 않는 것은?  
+   ① void print()  
+   ② static int getNumber()  
+   #③ return print()  
+   ④ String showName()
+   
+   함수는 기능의 선언한 것으로 선언된 내용을 호출하여 재활용하는 것이다.
+   자바에서 클래스/객체의 내부에 선언된 함수를 메서드라고 한다.
+   void call(){
+   	   System.out.println("함수내 출력 명령어");
+   }
+   // 위와 같이 void(리턴값이 없음)는 함수를 선언하면
+   // 아래와 같이 함수를 호출하여 해당 함수의 기능이 "함수내 출력 명령어" 출력이 처리된다.   
+   call();
+   call();
+   call();
+   
+
+9. 메서드에 매개변수를 사용하는 이유는?  
+   ① 반복을 줄이기 위해  
+   #② 외부에서 값을 받아서 활용하기 위해  
+   ③ 메서드를 종료하기 위해  
+   ④ 클래스를 선언하기 위해
+   
+   int plus(int no1, int no2){
+   
+   		int sum = no1 + no2;
+   		
+   		return sum;
+   }
+   
+   System.out.println(plus(25,30)); ==> 55 출력..
+   int no = plus(5,7);  12
+   
+   plus(int no1, int no2) : 함수에 호출되는 곳에서 데이터를 입력 유형을 선언하면
+   plus(5,7) 이와 같이 해당 유형에 맞게 데이터를 전달한다.
+   
+   int plus(...){
+   	return sum;
+   }
+   int : 리턴되는 sum값의 데이터 유형을 의미한다.  
+   sum : 실제 호출하는 곳에 전달될 데이터;
+   
+
+10. 다음 중 리턴값이 있는 메서드의 예는?  
+   ① void printHello()  : 함수도 리턴이 필요없이 입력값만 넣거나 화면에 출력을 할 때, void라고 선언한다.
+   #② int getCount()  : 정수값을 리턴하는 메서드를 선언한다.
+   ③ static greet()  : 형식에 맞지 않음.. 리턴값에 대한 내용을 선언하여야 한다.
+   ④ method(); : 리턴값을 선언하여야 한다.
+
+11. `Math.random()`의 반환값 범위는?  
+   ① 0 이상 1 이하  
+   #② 0.0 이상 1.0 미만  
+   ③ 1 이상 10 이하  
+   ④ -1 이상 1 이하
+   
+   (int)(Math.random()*경우의 수 + 시작수) 
+
+12. 문자열을 비교할 때 `equals()`를 사용하는 이유는?  
+   ① 수학 연산을 하기 위해  
+   ② 주소 값을 비교하기 위해  
+   #③ 문자열의 내용을 비교하기 위해  
+   ④ 크기를 비교하기 위해
+	문자열1==문자열2  : stack영역에서 heap영역의 주소값을 비교하지 문자열 자체를 비교하는 것이 
+		아니기에 오류가 날 수 있다.(주의-자바에서만)
+13. `return` 키워드의 역할은 무엇인가요?  
+   ① 반복문을 종료  
+   #② 메서드를 종료하고 값을 반환 : 호출되는 곳에 값을 전달 한다.  
+   ③ 객체를 생성  
+   ④ 클래스를 정의
+
+14. 다음 중 입력을 받는 메서드가 아닌 것은?  
+   ① nextLine()  
+   ② nextInt()  
+   ③ readLine()  
+   #④ println() : 출력메서드...
+
+15. `void` 키워드는 어떤 메서드에 사용되나요?  
+   ① 리턴값이 반드시 있어야 하는 메서드  
+   #② 리턴값이 없는 메서드  
+   ③ 매개변수가 없는 메서드  
+   ④ 반복문을 사용하는 메서드
+

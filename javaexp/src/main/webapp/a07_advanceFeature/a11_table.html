@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+table{width:100px;height:100px;padding:0px;}
+td{padding:5px;text-align:center;} /*padding : 글자와 border와의 사이 간격*/
+/*text-align:center 글자의 정렬 위치 지정*/
+
+/*
+ex) .tab01{} 선언하고, 크기를 300px, 300px 지정하고 table의 padding은 5px,
+	td의 padding은 10px 설정후,  3X3형식으로 1~9까지 입력 후, 중앙정렬 처리하세요..
+*/
+.tab01{
+	width:300px;height:300px;padding:5px;border-collapse: collapse;
+}
+.tab01 td{padding:20px;text-align:right;}
+</style>
+</head>
+<body>
+	<table class="tab01" border>
+		<tr><td>1</td><td>2</td><td>3</td></tr>
+		<tr><td>4</td><td>5</td><td>6</td></tr>
+		<tr><td>7</td><td>8</td><td>9</td></tr>
+	</table>
+	<!-- caption, col, thead, tbody, tfoot 생략가능 -->
+	<table border>
+		<tr><td>1</td><td>2</td></tr>
+		<tr><td>3</td><td>3</td></tr>
+	</table>
+<!-- 
+
+
+ -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# js의 데이터 유형
+1. 자바스크립트도 다른 프로그램과 같이 데이터 유형이 있다.
+2. 데이터 유형 종류
+    1) 문자열(string) : 문자열('', "")형식에 넣는 데이터를 말한다.
+        ex) var str1 = "홍길동"
+    2) 숫자형(number) : 정수/실수를 포함해서 모두 다 number 유형으로
+        분류한다.
+        ex) var num1 = 25, num2 = 3.14
+        ex) var num1 = 25; var num2 = 3.14
+    3) 참거짓(boolean) : true/false 값을 가지는 유형을 말한다.
+        ex) var isTrue = true;
+            var isPass = point>=70;
+    4) 함수형(function) : 기능를 선언하고, 그 기능을 호출할 때,
+        매개변수로 입력값, 리턴값이 있는 형태를 말한다.
+        ex) var fun01 = function(no1, no2){
+                return no + no2;
+            }
+            // 변수형 함수 처리
+            function fun01(25,5){
+                return no + no2;
+            }
+            // 선언적 함수 처리
+            fun01(25,5)
+    5) 객체형(object) : 위 선언한 여러 유형을 데이터를 포함하여
+        속성과 기능함수를 포함하는 유형을 말한다.
+        ex) var obVar = {속성:속성값, 함수명:function(){}} (json) 
+        배열도 객체 유형에 포함된다.
+3. 유형확인하는 함수(typeof())
+    typeof(fun01) 를 이용하면 데이터 유형을 확인 할 수 있다..         
+*/
+
+var str1 = '안녕하세요'    
+document.body.innerHTML=`<h1>${str1}[${typeof(str1)}]</h1>`
+var num1 = 25, num2 = 3.14
+document.body.innerHTML+=`<h1>${num1}[${typeof(num1)}]</h1>`
+document.body.innerHTML+=`<h1>${num2}[${typeof(num2)}]</h1>`
+var isTrue = false;
+var isPass = num1>20;
+document.body.innerHTML+=`<h1>${isTrue}[${typeof(isTrue)}]</h1>`
+document.body.innerHTML+=`<h1>${isPass}[${typeof(isPass)}]</h1>`
+var fun01 = function(no1, no2){
+    return no1 + no2;
+}
+document.body.innerHTML+=`<h1>${fun01(25,5)}[${typeof(fun01)}]</h1>`
+var ob01 = {name:"홍길동",age:25,show:function(){ return this.name} }
+document.body.innerHTML+=`<h1>${ob01.name}[${typeof(ob01)}]</h1>`
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 텍스트 그림자(text-shadow)
+1. 텍스트를 아이콘으로 사용할 때, 그림자를 통해 가장하면 보다 효과적으로
+	특정한 내용을 표현할 수 있다.
+2. 기본 형식
+	text-shadow : 속성1 속성2 속성3 속성4
+	1) 주요속성
+		속성1(h-shadow) : 원본 텍스트와 수평적 간격을 지정하는 것을 말한다.
+		속성2(v-shadow) : 원본 텍스트와 수직적 간격을 지정하는 것을 말한다.
+		속성3(blur-radius) : 흐릿한 그림자를 만드는 효과로 흐릿하게 퍼지는 길이를 지정한다.
+		속성4(color) : 그림자의 색상을 지정한다.
+	ex) div.red{
+			text-shadow:3px 3px 5px red;
+		}	
+		div의 클래스명은 red 인것으로
+			그림자가 오른쪽 3px, 아래로 3px 이동하고 퍼짐 정도가 5px이고 그림자의 색상을 red인 경우..
+*/
+	div{font:normal 24px verdana;}
+	.dropText{text-shadow:3px 3px;}
+	.redText{text-shadow:3px 3px 3px blue;}
+	/*ex) .greenText 3개의 매개변수값 green 색상으로 그림자를 만든*/
+	.greenText{text-shadow:4px 3px 2px green;}
+	.blueText{text-shadow:3px 3px 1px skyblue;}
+	.basic{text-shadow:2px 2px 4px #888;}
+	.glowEffect{text-shadow:0px 0px 3px red;}
+	.wordArtEffect{color:white;text-shadow:0px 0px 3px darkblue;}
+	.wordEffect2{color:white;text-shadow:0px 0px 4px navy;}
+	.threeDEffect{color:white;text-shadow:2px 2px 4px black;}
+	.multiEffect{color:yellow;text-shadow:2px 2px 4px black, 0 0 5px darkblue;}
+	/*
+	.multiEffect2로  글자색은 pink  text-shadow를 2개를 설정해서 출력하세요...
+	*/
+	.multiEffect2{color:pink;text-shadow:3px 3px 5px navy, 0 0 4px green;}
+</style>
+</head>
+<body>
+
+	<div>기본 div</div>
+
+	<div class="dropText">css로 멋진 텍스트 효과를 만들어보세요!</div>
+	<div class="redText">css로 멋진 텍스트 효과를 만들어보세요!</div>
+	<div class="blueText">css로 멋진 텍스트 효과를 만들어보세요!</div>
+	<div class="basic">css로 멋진 텍스트 효과를 만들어보세요(basic)!</div>
+	<div class="glowEffect">css로 멋진 텍스트 효과를 만들어보세요(glowEffect)!</div>
+	<div class="wordArtEffect">css로 멋진 텍스트 효과를 만들어보세요(wordArtEffect)!</div>
+	<div class="threeDEffect">css로 멋진 텍스트 효과를 만들어보세요(threeDEffect)!</div>
+	<div class="multiEffect">css로 멋진 텍스트 효과를 만들어보세요(multiEffect)!</div>
+	<div class="multiEffect2">다중 shadowEffect 처리 연습</div>
+	<div class="wordEffect2">기본 div(.wordEffect2)</div>
+	<div class="greenText">연습예제 div(.greenText)</div>	
+<!-- 
+ex) 클래스 basic 으로 선언하여
+	텍스트 그림자 기본 예제
+	1. 수평 이동 2px
+	2. 수직 이동 2px
+	3. 흐림 효과 4px
+	4. 색상 : 회색(#888)
+
+ -->
+</body>
+</html>

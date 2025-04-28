@@ -1,0 +1,349 @@
+## ✅ 객관식 10문제 (정답 미표기)
+
+1. 다음 중 `for`문에 대한 설명으로 옳은 것은?  
+   ① 반복 조건은 항상 false여야 한다  
+   ② `for`문은 무한 반복만 가능하다  
+   ③ 초기값, 조건, 증감은 생략이 불가능하다  
+   ④ 초기값, 조건식, 증감식을 포함하여 반복을 제어한다
+
+2. 다음 중 전역변수에 대한 설명으로 옳은 것은?  
+   ① 반복문 블록 안에서만 사용할 수 있다  
+   ② 메서드 바깥 또는 반복문 외부에서 선언된 변수이다  
+   ③ 선언된 메서드 안에서만 사용 가능하다  
+   ④ 지역변수보다 우선순위가 낮다
+
+3. `break`문의 역할은?  
+   ① 조건이 false일 때 실행된다  
+   ② 반복문을 즉시 종료한다  
+   ③ 반복문을 무한 반복시킨다  
+   ④ 변수 값을 초기화한다
+
+4. `continue`문은 어떤 역할을 하는가?  
+   ① 현재 반복을 건너뛰고 다음 반복으로 이동  
+   ② 반복을 멈춘다  
+   ③ 프로그램을 종료한다  
+   ④ 오류를 발생시킨다
+
+5. 다음 중 HTML의 기본 배치 흐름(normal flow)이 아닌 것은?  
+   ① 위에서 아래로  
+   ② 왼쪽에서 오른쪽으로  
+   ③ 오른쪽에서 왼쪽으로  
+   ④ 순서대로 태그 배치
+
+6. `position:relative`의 특징은?  
+   ① 기본 위치를 무시하고 원하는 위치로 배치  
+   ② 기존 위치 기준으로 상대적으로 이동  
+   ③ 부모 요소 기준으로 고정  
+   ④ 항상 화면 맨 위에 표시
+
+7. `position:absolute`는 어떤 위치 기준을 사용하나요?  
+   ① 바로 위에 있는 요소 기준  
+   ② 브라우저 또는 가장 가까운 relative 조상 요소  
+   ③ 항상 중앙 기준  
+   ④ 문서 끝 기준
+
+8. `position:fixed`의 특징은?  
+   ① 스크롤 시 같이 움직인다  
+   ② 요소가 사라진다  
+   ③ 스크롤에도 위치가 고정된다  
+   ④ 항상 z-index가 0이다
+
+9. `z-index` 속성이 필요한 이유는?  
+   ① 요소의 앞뒤 순서를 조절할 수 있다  
+   ② 위치를 고정시킨다  
+   ③ 요소를 숨긴다  
+   ④ 크기를 키운다
+
+10. `visibility:hidden`은 어떤 동작을 하는가?  
+   ① 요소를 완전히 삭제한다  
+   ② 요소를 보이게 한다  
+   ③ 요소를 보이지 않게 하지만 공간은 유지  
+   ④ 요소의 위치를 변경한다
+
+## ✅ 주관식 개념문제 10문제
+
+1. 전역변수와 지역변수의 차이점을 설명하세요.
+
+2. `for`문에서 초기값, 조건식, 증감식의 역할을 각각 설명하세요.
+
+3. `break`와 `continue`의 차이점은 무엇인가요?
+
+4. `position:relative`와 `position:absolute`의 차이점은 무엇인가요?
+
+5. `z-index` 속성은 어떤 상황에서 사용하는가요?
+
+6. `position:fixed`가 유용하게 쓰이는 예를 한 가지 설명하세요.
+
+7. `visibility:hidden`과 `display:none`의 차이점을 비교하세요.
+
+8. 자바에서 반복문과 조건문을 함께 사용하는 예는 어떤 것이 있나요?
+
+9. HTML 요소가 겹칠 때 어떤 속성을 사용하여 순서를 조정할 수 있나요?
+
+10. `for(int i=1; i<=10; i++)` 반복문이 실행되는 순서를 단계별로 설명하세요.
+
+---
+
+## ✅ 재미있는 응용 실습 문제 5문제
+
+1. **🎁 보물찾기 게임 (자바)**  
+   - 1~10번 상자 중 무작위 번호에 보물이 숨겨져 있습니다.  
+   - `for`문을 사용하여 상자를 차례대로 열고, 정답 상자에서 `break`로 종료합니다.  
+   - 상자 열 때 `"X번 상자 열기..."` / 보물 찾으면 `"보물 발견!"` 출력하세요.
+
+2. **💣 지뢰찾기 (자바 + continue)**  
+   - 1~10까지 번호 중 3, 7은 지뢰입니다.  
+   - 번호를 순회하며 `"X번 칸 안전"` 또는 `"지뢰 발견! 지나가기"` 출력 (continue 사용)
+
+3. **🚀 로켓 점프 (HTML/CSS + relative)**  
+   - 로켓 이모지를 div로 출력하고, 마우스 hover 시 위로 떠오르게 하세요.  
+   - (position:relative와 top/bottom 활용)
+
+4. **📌 공지 박스 고정 (HTML/CSS + fixed)**  
+   - 오른쪽 하단에 항상 보이는 "오늘의 공지사항" 박스를 만드세요.  
+   - 스크롤을 내려도 위치가 고정되어 있어야 합니다.
+
+5. **🃏 카드 쌓기 (HTML/CSS + z-index)**  
+   - 카드 3장을 약간 겹치게 배치하고, 맨 위 카드를 클릭 시 `z-index`로 가장 위에 오게 하세요.
+   
+   
+   
+   ### ✅ 객관식 10문제 정답 및 해설
+
+---
+
+**1. 다음 중 `for`문에 대한 설명으로 옳은 것은?**  
+✔️ **정답: ④**  
+**해설:**  
+`for(초기값; 조건식; 증감식)`을 통해 반복을 제어합니다.  
+①,②,③은 틀린 설명입니다.
+
+---
+
+**2. 다음 중 전역변수에 대한 설명으로 옳은 것은?**  
+✔️ **정답: ②**  
+**해설:**  
+전역변수는 메서드 외부 또는 블록 외부에서 선언되어 여러 곳에서 사용 가능해요.
+
+---
+
+**3. `break`문의 역할은?**  
+✔️ **정답: ②**  
+**해설:**  
+`break`는 반복문을 **즉시 중단**하고 빠져나옵니다. `while`, `for`, `switch` 등에서 사용됨.
+
+---
+
+**4. `continue`문은 어떤 역할을 하는가?**  
+✔️ **정답: ①**  
+**해설:**  
+현재 반복을 **건너뛰고**, 다음 반복으로 넘어가는 명령입니다. 반복 자체를 종료하진 않아요.
+
+---
+
+**5. 다음 중 HTML의 기본 배치 흐름(normal flow)이 아닌 것은?**  
+✔️ **정답: ③**  
+**해설:**  
+HTML의 기본 흐름은 왼쪽→오른쪽, 위→아래 방향입니다. 오른쪽→왼쪽은 아닙니다.
+
+---
+
+**6. `position:relative`의 특징은?**  
+✔️ **정답: ②**  
+**해설:**  
+`relative`는 기본 위치를 기준으로 **상대적으로 이동**됩니다. 주변 요소 배치에 영향 미치지 않음.
+
+---
+
+**7. `position:absolute`는 어떤 위치 기준을 사용하나요?**  
+✔️ **정답: ②**  
+**해설:**  
+가장 가까운 `position:relative`를 가진 조상 요소를 기준으로 배치합니다. 없으면 브라우저 기준.
+
+---
+
+**8. `position:fixed`의 특징은?**  
+✔️ **정답: ③**  
+**해설:**  
+스크롤해도 해당 요소는 **항상 같은 위치**에 유지됩니다. (예: 고정된 알림창)
+
+---
+
+**9. `z-index` 속성이 필요한 이유는?**  
+✔️ **정답: ①**  
+**해설:**  
+겹치는 요소들 중 **위에 올라올 요소**를 지정할 때 사용합니다. 숫자가 클수록 앞에 보입니다.
+
+---
+
+**10. `visibility:hidden`은 어떤 동작을 하는가?**  
+✔️ **정답: ③**  
+**해설:**  
+요소는 **보이지 않지만 공간은 차지**합니다. `display:none`은 공간까지 사라지는 차이점이 있습니다.
+
+---
+
+### ✅ 주관식 해설
+
+**1.** 전역변수는 블록 밖에서 선언되어 전체 범위에서 접근 가능하고, 지역변수는 특정 블록 내에서만 유효하다.  
+**2.** 초기값은 반복을 시작할 변수의 값 설정, 조건식은 반복 여부 판단, 증감식은 변수의 값을 변화시킨다.  
+**3.** `break`는 반복문 자체를 종료시키고, `continue`는 현재 반복만 건너뛰고 다음 반복으로 진행한다.  
+**4.** `relative`는 원래 위치 기준으로 이동하고, `absolute`는 부모 또는 브라우저 기준 절대 위치로 이동한다.  
+**5.** 여러 요소가 겹칠 때 우선순위를 정해 어떤 요소를 위로 보이게 할지 지정할 때 사용된다.  
+**6.** 페이지에 항상 떠 있는 알림창이나 채팅창 고정 등에 사용된다.  
+**7.** `visibility:hidden`은 요소가 보이지 않지만 공간은 유지되고, `display:none`은 요소 자체가 사라져 공간도 차지하지 않는다.  
+**8.** 예: `for`문에서 `if(i % 2 == 0)` 조건을 이용해 짝수만 처리하는 방식 등이다.  
+**9.** `z-index` 속성을 사용하여 겹치는 요소의 순서를 조정할 수 있다.  
+**10.** `i`를 1로 시작해 조건식이 참이면 블록을 실행, 이후 `i++`로 증가시키며 조건을 다시 판단해 반복을 진행한다.  
+
+
+### ✅ 1. 🎁 보물찾기 게임 (자바 - `break` 연습)
+
+```java
+public class TreasureGame {
+    public static void main(String[] args) {
+        int treasureBox = (int)(Math.random() * 10 + 1); // 1~10 중 랜덤 보물
+        for(int i = 1; i <= 10; i++) {
+            System.out.println(i + "번 상자 열기...");
+            if(i == treasureBox) {
+                System.out.println("🎉 보물 발견! 게임 종료!");
+                break;
+            }
+        }
+    }
+}
+```
+
+---
+
+### ✅ 2. 💣 지뢰찾기 (자바 - `continue` 연습)
+
+```java
+public class MineGame {
+    public static void main(String[] args) {
+        for(int i = 1; i <= 10; i++) {
+            if(i == 3 || i == 7) {
+                System.out.println(i + "번 칸 👉 💣 지뢰 발견! 지나가기");
+                continue;
+            }
+            System.out.println(i + "번 칸 👉 안전합니다 ✅");
+        }
+    }
+}
+```
+
+---
+
+### ✅ 3. 🚀 로켓 점프 (HTML/CSS - `position: relative`)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>로켓 점프</title>
+<style>
+.rocket {
+    display: inline-block;
+    font-size: 50px;
+    transition: 0.3s;
+}
+.rocket:hover {
+    position: relative;
+    bottom: 50px;
+}
+</style>
+</head>
+<body>
+    <h2>🚀 로켓 점프 게임</h2>
+    <div class="rocket">🚀</div>
+    <div class="rocket">🚀</div>
+    <div class="rocket">🚀</div>
+</body>
+</html>
+```
+
+---
+
+### ✅ 4. 📌 공지 박스 고정 (HTML/CSS - `position: fixed`)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>공지사항</title>
+<style>
+.notice {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fffae6;
+    padding: 15px 25px;
+    border: 2px solid orange;
+    border-radius: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+    <div class="notice">📌 오늘의 공지사항: 점심은 12시에 시작합니다!</div>
+    <div style="height:2000px;"> <!-- 스크롤 공간 -->
+        <h1>스크롤 해도 공지는 고정됩니다.</h1>
+    </div>
+</body>
+</html>
+```
+
+---
+
+### ✅ 5. 🃏 카드 쌓기 (HTML/CSS/JS - `z-index`)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>카드 쌓기</title>
+<style>
+.card {
+    position: absolute;
+    width: 100px;
+    height: 140px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+#card1 {
+    left: 100px;
+    top: 100px;
+    z-index: 1;
+}
+#card2 {
+    left: 130px;
+    top: 130px;
+    z-index: 2;
+}
+#card3 {
+    left: 160px;
+    top: 160px;
+    z-index: 3;
+}
+</style>
+</head>
+<body>
+    <img id="card1" class="card" src="media/spade-7.png" onclick="bringToFront(this)">
+    <img id="card2" class="card" src="media/spade-3.png" onclick="bringToFront(this)">
+    <img id="card3" class="card" src="media/spade-A.png" onclick="bringToFront(this)">
+
+    <script>
+        let currentZ = 10;
+        function bringToFront(card) {
+            card.style.zIndex = currentZ++;
+        }
+    </script>
+</body>
+</html>
+```
+
+   
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+a:link{color:green;}
+a:visited{color:orange;}
+a:active{color:pink;}
+a:hover{background-color:navy;color:yellow;}
+*/
+/*
+ex) 초기 링크 : 글자색상 - 빨강색
+	이동 후 : 글자색상 - 노랑색, 배경색상 - 파랑색
+	클릭시 : 글자색상 - 오렌지
+	마우스커서위치시 : 글자 색상 - 파랑색, 배경색상:노랑색
+*/
+
+a:link{color:red;}
+a:visited{color:yellow;}
+a:hover{color:blue;}
+a:active{color:orange;}
+/*
+1. link, visited, hover, active으로 처리하여야 충돌이 나지 않는다.
+2. visited는 배경색상이 처리되지 않는다.
+
+*/
+
+
+/*
+background-color:yellow;
+a:link{color:red;}
+a:visited{color:yellow;background-color:blue;}
+
+a:hover{color:blue;background-color:yellow;}
+*/
+
+</style>
+</head>
+<body>
+<h2>링크 색상확인</h2>
+<a href="a04_class_selector.html">css 첫화면 이동4</a>
+<a href="a03_selector.html">css 첫화면 이동3</a>
+<a href="a02_basicShow.html">css 첫화면 이동2</a>
+<a href="a01_basic.html">css 첫화면 이동1</a>
+
+<!-- 
+1. 초기 link 색상  :link		default- blue
+2. 이동 후 색상	:visited    default- purple
+3. 마우스 커서 위치시 색상 :hover  default-x
+4. 클릭한 순간 색상 :active  default- red
+ 
+
+ -->
+</body>
+</html>

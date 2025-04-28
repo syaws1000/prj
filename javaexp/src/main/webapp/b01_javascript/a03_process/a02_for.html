@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# 반복문(loops)
+1. 반복문은 주어진 조건이 참일 동안 특정 코드를 반복적으로 실행하는 구조입니다.
+   javascript에서는 for, while, do-while과 같은 반복문을 제공합니다.
+2. 기본 개념
+    1) for문 : 초기화, 조건식, 증감식으로 구성되어 있으며, 주어진 횟수만큼 반복합니다.
+       for(초기화; 조건식; 증감식) {
+        // 반복할 코드 블록
+       }
+       for(index번호 in 배열){
+           배열[index번호] = 값; // 배열의 index번호에 값을 대입한다.
+       }
+    2) while문 : 조건식이 참인 동안 반복합니다.
+    3) do-while문 : 최소한 한 번은 실행되고, 이후 조건식이 참인 동안 반복합니다.
+*/    
+let show = "" // 초기화
+for(let i=1; i<=3; i++){ // 1부터 3까지 반복
+    show += `<h1>${i}번째 반복</h1>` // show에 누적처리
+}
+document.body.innerHTML = show // 화면에 출력
+
+// ex)table 구조를 만들고 해당 테이블에 들어갈 코드를 만든 후, 구구단의 3단을 출력해보세요..
+let tabShow = "<table border='1'>"
+let grade = 3 // 구구단의 단수
+// 구구단의 단수 출력..
+for(let i=1; i<=9; i++){ // 1부터 9까지 반복
+    tabShow += "<tr>" // 행 시작
+    tabShow += `<td>${grade} * ${i} = ${grade*i}</td>` // 구구단의 단수와 곱하는 수, 결과를 출력
+    tabShow += "</tr>" // 행 종료
+}
+tabShow +="</table>" // 테이블 종료
+document.body.innerHTML = tabShow // 화면에 출력
+// ex) 과일의 가격을 선언하고, 이 과일의 가격을 1~10개 까지 판매한 총액을 출력하세요
+//     과일의 가격이 3000원이라면
+//     1개   3000원
+//     2개   6000원
+let tabShow2 = "<table border='1'>"
+let fruitPrice = 3000 // 과일의 가격
+// 과일의 가격 출력..
+for(let i=1; i<=10; i++){ // 1부터 10까지 반복
+    tabShow2 += "<tr>" // 행 시작
+    tabShow2 += `<td>${i}개</td>` // 과일의 개수 출력
+    tabShow2 += `<td>${fruitPrice*i}원</td>` // 과일의 가격 출력
+    tabShow2 += "</tr>" // 행 종료
+}
+tabShow2 +="</table>" // 테이블 종료
+document.body.innerHTML = tabShow2 // 화면에 출력
+
+
+
+</script>
+</html>

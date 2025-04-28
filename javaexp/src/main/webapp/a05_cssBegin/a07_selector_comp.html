@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 
+# 선택자 조합하기
+1. 선택자는 여러가지를 조합해서 만들어 사용할 수 있다.
+	* {} : 모든 태그에 적용
+	선택자1, 선택자2{} : 해당 선택자 모두 같은 속성 적용
+		ex) h1, #id01{color:blue}   h1과 id명으로 id01은 색상을 blue로 처리
+	선택자[속성=속성값]
+
+2. 선택자 조합유형
+	1) 자식 선택자
+		부모 자식 관계인 두 선택자를 기준으로 해당 선택자를 상위 부모로 가진 선택자를 말한다.
+		부모 > 자식선택자 : 해당 부모를 가진 자식선택자를 지정할 때, 사용한다.
+		ex) div>strong{color:dodgerblue;}
+			div의 직계 자식인 strong 태그에 적용되는 글자색상을 dodgerblue로 한다.
+	2) 자손 선택자
+		자손 관계인 2개 이상의 태그 나열
+		상위조상 하위자손선택자 : 위 자식 선택자를 포함하여 바로 위가 아니더라도 상위 조상선택자를
+			가진 하위자손 선택자를 말한다. 자식 선택자와 차이는 계층레벨이 상위에 있으면 제렙리 몇
+			레벨이라도 선택이 된다. 그래서 자식 선택자의 내용을 포함한다. 자손 선택자는 자식 선택자를 포함
+			ex) ul strong{color:blue;}
+			    ul 자손 strong은 글자색상을 blue로 설정.. 
+*/
+	div > strong{background-color:yellow;}
+	/* div를 바로 상위 부모를 가진 strong태그에 적용 */
+	ul strong{color:dodgerblue;}
+	/* ul을 바로 상위 포함해 조상을 가진 strong태그에 적용 */
+	
+	/* ex) div를 바로 부모로 하는 h1태그의 글자 색상을 주황색(orange)으로 설정 처리*/
+	div > h1{color:orange;}
+</style>
+</head>
+<body>
+	<div>
+		<h1>자바</h1>
+		<p>객체 지향 프로그래밍</p>
+		<h2>html</h2>
+		<p>front대표하는 언어</p>
+		<h1>자바스크립트</h1>
+		<p>화면단 객체 지향 프로그래밍</p>
+	
+	</div>
+
+
+	<h2>자식 선택자와 자손 선택자</h2>
+	<div>
+		<div>2학기 
+			<strong>학습내용</strong>
+		</div>
+		<ul>
+			<li>html5</li>
+			<li>
+				<strong>CSS3</strong>
+			</li>
+			<li>javascript</li>
+		</ul>
+		
+	</div>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+				
+				</td>
+			</tr>
+		
+		</tbody>
+	</table>
+	
+	<!-- 
+	증조할아버지
+		할아버지
+			아버지
+				나
+	
+	ex) 아버지와 나는 부모 자식
+		아버지>나 {}
+		아버지를 가진 나는 속성을 적용
+		할아버지 나 {}
+		할아버지를 조상으로 가진 나의 속성을 적용.
+		
+	 -->
+	
+	
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# css3 표준단위
+7. pt : 포인터  1pt = 1in의 1/71크기 margin-left:20pt 왼쪽 여백 20포인터
+8. pc : 피카소(picas) 1pc = 12pt   font-size:1pc   1pc 크기의 폰트
+9. deg : 각도  transform:rotate(20deg)  시계 방향으로 20도 회전 
+*/
+</style>
+</head>
+<body>
+	<div style="border:1px solid green;margin-left:20pt;">왼쪽 여백 20포인터</div>
+	<div style="border:1px solid green;font-size:1pc;">1pc 크기의 폰트</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<div style="border:1px solid green;transform:rotate(20deg)">시계 방향으로 20도 회전</div>
+	<br><br><br><br><br><br><br>
+<!-- 
+ex) 학생들이 학교 도서관에서 책을 빌리기 위해 왔다. 각 책의 두께(여백), 글꼴 그리고, 책이 
+조금 돌아간 상태에서 대출이 가능하다면 어떻게 처리해야 하는지 설정 해보자
+책1 : 두께 pt단위 설정(여백설정)
+책2 : 책 제목의 폰트 크기 pc단위 사용하여 크기 조정
+책3 : 책이 비틀어진 상태를 deg단위를 사용하여 회전 효과를 주자..
+ -->	
+	<div style="border:1px solid red;margin-left:20pt">책1 : 두께 pt단위 설정(여백설정)</div>	
+	<div style="border:1px solid green;font-size:1pc;">책2 : 책 제목의 폰트 크기 pc단위</div>
+	<br><br><br><br><br><br><br><br><br>
+		
+	<div style="border:1px solid purple;transform:rotate(15deg);">책3 : 책이 비틀어진 상태를 deg단위</div>
+		
+	
+</body>
+</html>

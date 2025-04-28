@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# css 실무 처리
+1. css를 통해서 부분적인 내용을 지금까지 진행했다면
+2. 이 장에서는 전체적인 화면 구성이나 위치 지정 및 주로 많이 활용되는
+	요소객체에 대한 css설정을 한다.
+3. 주요 내용
+	1) html 태그가 출력되는 화면 전체에서의 위치 조절
+	2) 리스트를 css 꾸며서 메뉴나 navigation기능을 링크해서 처리
+	3) 표꾸미기
+	4) 폼을 꾸며서 사용자의 입력에 반응할 수 있게 처리
+	5) css 애니메이션, 전환, 변환 효과 처리
+
+# 화면 배치 처리
+1. css3로 html 태그가 출력되는 위치 지정
+	- html 태그는 웹 페이지에 작성되는 순서와 달리 배치 가능
+2. 배치 기능의 css 속성들
+	display
+	position
+	left, right, top, bottom
+	float
+	z-index
+	visibility
+	overflow
+
+# 박스의 유형 제어 : display
+1. 블럭박스(display:block;)  ex) block : h1~h6, p, div
+	1) 항상 새 라인에서 시작
+	2) 블럭 박스 내에만 배치
+	3) 옆에 다른 요소 배치 불가능
+	4) width와 height 크기 조절
+	5) padding, border, margin 조절 기능
+2. 인라인박스(display:inline)   ex) inline : span, a, strong
+	1) 새 라인에서 시작 못 함. 라인안(inline)에 있음
+	2) 모든 박스 내 배치 기능
+	3) 옆에 다른 요소 배치 가능
+	4) width와 height으로 크기 조절 불가능
+	5) margin-top, margin-bottom 조절 불가능
+3. 인라인블럭박스(display:inline-block;)
+	1) 새라인에서 시작 못함. 라인 안(inline)에 있음
+	2) 모든 박스 내 배치 가능
+	3) 옆에 다른 요소 배치 가능
+	4) width와 height 크기 조절 가능
+	5) padding, border, margin의 조절 가능
+			
+*/
+	h2, span, p, strong{border:1px solid green;}
+	p{ display:inline;} /*width:200px;height:100px;  inline에서는 적용되지 않는다.*/
+	strong{ display:block;width:200px;height:100px;}
+	h2{display:inline;}
+	span{ display:block;width:200px;height:100px;}
+</style>
+</head>
+<body>
+	
+	<h3 >안녕하세요1(나는 block 속성)</h3>
+	<h3 >안녕하세요2(나는 block 속성)</h3>
+	<h3 style="display:inline;border:1px solid green;">안녕하세요(나는 inline 변경)</h3>
+	<h3 style="display:inline;border:1px solid green;">안녕하세요(나는 inline 변경)</h3>
+	<h3 style="display:inline;border:1px solid green;">안녕하세요(나는 inline 변경)</h3>
+<!-- -->
+	<div>
+		<p>원래 block이었던 p태그 inline으로 변경</p>
+		<p>원래 block이었던 p태그 inline으로 변경</p>
+	</div>
+	<div>
+		<strong>원래 inline이었던 태그 block로 변경</strong>
+		<strong>원래 inline이었던 태그 block로 변경</strong>
+	</div>
+	<!--  h2를 inline으로 변경 span을 block으로 변경하여 width, height를 설정하세요 -->
+	<div>
+		<h2>원래 block ==> inline</h2>
+		<h2>원래 block ==> inline</h2>
+		<h2>원래 block ==> inline</h2>
+	</div>
+	<div>
+		<span>원래 inline==> block</span>
+		<span>원래 inline==> block</span>
+		<span>원래 inline==> block</span>
+	</div>
+</body>
+</html>

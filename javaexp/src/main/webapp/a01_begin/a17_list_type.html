@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# ol의 속성 유형
+1. ol의 type에는 여러가지 형태의 numbering을 하는 속성을 가지고 있다.
+	즉, 마커의 종류를 말한다.
+	1) type 속성별 numbering 처리
+		type="1" default 1, 2, 3...
+		type="A" A, B, C
+		type="a" a, b, c
+		type="I" I, II, III
+		type="i" i, ii, iii
+	2) start라는 내용으로 시작 번호를 처리 숫자에 대해서만 적용
+		<ol type="I" start="3">
+			<li>  ==> III 출력   @주의 start="III" 아님
+		<ol type="a" start="3"
+			<li> ===> c 출력   start="c" 아님
+2. ul의 type은 모양으로 처리할 때, 사용된다
+	1) type="disc" 기본값 - 설정하지 않을 때, 나오는 모양
+	2) type="circle" 반원모양
+	3) type="square" 사각형모양
+	4) type="none" 표시하지 않을 때
+	
+
+ -->
+ 	<h2>패션 아이템 목록(ul)</h2>
+ 	<ul type="disc">
+ 		<li>티셔츠
+ 		<li>청바지
+ 		<li>운동화
+ 	</ul>
+ 	<ul type="circle">
+ 		<li>셔츠
+ 		<li>스커트
+ 		<li>부츠
+ 	</ul>
+ 	<ul type="square">
+ 		<li>모자
+ 		<li>벨트
+ 		<li>자켓
+ 	</ul>
+ 	<h2>미션 리스트 목록(ol)</h2>
+ 	<ol start="5">
+ 		<li>문서작성
+ 		<li>이메일확인
+ 		<li>회의 준비
+ 	</ol>
+ 	<ol type="i" start="10"> 
+ 		<li>버스수정
+ 		<li>테스트 작성 
+ 		<li>배포
+ 	</ol>
+ 	<!-- 
+ 	ex1) 취미활동 목록(ul) 활용
+ 	다음 취미 활동을 아래와 같은 스타일 리스트로 작성하세요
+ 		독서, 음악감상, 영화 보기는 circle
+ 		사진찍기, 여행, 요리는 disc 
+ 		운동, 자전거 타기, 등산은 square
+
+
+ 	 -->
+ 	<h2>취미활동 목록(ul)</h2>
+ 	<ul type="circle">
+ 		<li>독서
+ 		<li>음악감상
+ 		<li>영화보기
+ 	</ul> 
+ 	<ul type="disc">
+ 		<li>사진찍기
+ 		<li>여행
+ 		<li>요리
+ 	</ul> 
+ 	<ul type="square">
+ 		<li>운동
+ 		<li>자전거타기
+ 		<li>등산
+ 	</ul> 
+<!-- 
+ 	ex2) 일정 리스트(ol) 활용
+ 	다음 일정을 아래와 같은 스타일로 작성해보세요
+ 		1월1일, 1월5일, 1월 10일은 시작 번호 1부터 일반 숫자로
+ 		2월2일, 2월10일, 2월 20일은 시작번호를 C부터하여 A,B,C 형태로..
+
+ --> 	 
+	<h2>일정 리스트(ol) 활용</h2>
+	<ol>
+		<li>1월1일
+		<li>1월5일
+		<li>1월10일
+	</ol>	 
+	<ol type="A" start="3">
+		<li>2월2일
+		<li>2월10일
+		<li>2월20일
+	</ol>	 
+	
+	<h3>페이지 링크 처리</h3>
+	<ul>
+		<li><a href="a01_structure.html">구조</a>
+		<li><a href="a02_title_code.html">title코드</a>
+		<li><a href="a03_title_align.html">title정렬</a>
+	</ul>
+	
+	
+</body>
+</html>

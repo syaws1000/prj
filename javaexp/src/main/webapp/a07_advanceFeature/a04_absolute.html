@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 절대위치지정
+1. 브라우저 화면을 기준으로 절대적 위치를 지정하는 것을 말한다.
+	ps) 상대위치는 옆에 다른 요소객체를 기준으로 설정한다면
+		절대위치는 전체브라우저를 기준으로 설정.
+2. 기본 형식
+	position:absolute;
+	위치지정: left, right, top, bottom
+*/
+div{
+	display:inline-block;
+	position:absolute;
+	background-color:orange;
+	width:20%;height:30%;
+	border:1px solid green;
+}
+#div01{
+	right:10px;
+	bottom:10px;
+	background-color:red;
+}
+#div02{
+	right:10px;
+	background-color:orange;
+}
+#div03{
+	bottom:10px;
+	background-color:blue;
+}
+#div04{
+	background-color:green;
+}
+
+/*
+ex) div05를 거의 중앙에 위치되게 top, left로 설정해보세요..
+
+*/
+#div05{
+	background-color:pink;
+	top:40%;
+	left:40%;
+	
+}
+/*div01, div02, div03, div04로 id설정 후, 절대위치 이동해서 출력해보세요.
+	background-color는   red, orange, green, blue 로 설정..*/ 
+
+</style>
+</head>
+<body>
+<div id="div05">5</div>
+<div id="div01">1</div>
+<div id="div02">2</div>
+<div id="div03">3</div>
+<div id="div04">4</div>
+<!-- 
+
+
+ -->
+</body>
+</html>

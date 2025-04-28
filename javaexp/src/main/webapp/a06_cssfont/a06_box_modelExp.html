@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* 
+	ex) a06_box_modelExp.html
+	가격 표시 상자 디자인
+	출력 내용 
+		<div> 
+			<p id="price">$99.9</p>     
+		    <p>부가세 포함</p>
+		</div>    			#price{font-weight:bold;text-align:center}
+		가로 200px, 세로 100px   width:200px;height:100px;
+		배경색상 연한 초록색(#e0ffe0)	background-color:#e0ffe0;
+		테두리는 실선, 두께는 2px, 색상은 초록색(darkgreen)
+								border-style:solid;border-width:2px;
+								border-color:darkgreen;
+		가격 텍스트는 bold(font-weight)로  
+			중앙에 배치(text-align:center)
+	*/
+	div{
+		width:200px;height:100px;
+		background-color:#e0ffe0;
+		border-style:solid;
+		border-width:2px;
+		border-color:darkgreen;
+		padding:5px;
+	}
+	p{text-align:right;}
+	#price{text-align:center;font-weight:bold;font-size:15pt;}
+</style>
+</head>
+<body>
+	<div> 
+		<p id="price">$99.9</p>     
+	    <p>부가세 포함</p>
+	</div>
+</body>
+</html>

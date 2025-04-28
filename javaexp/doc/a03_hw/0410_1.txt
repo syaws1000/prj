@@ -1,0 +1,100 @@
+### ✅ 객관식 문제 15문제 (정답 미포함)
+
+1. 다음 중 `overflow` 속성의 값이 아닌 것은?  
+   ① hidden  
+   ② scroll  
+   #③ shrink  
+   ④ visible
+
+2. `overflow:auto` 속성은 어떤 경우에 스크롤바를 생성하나요?  
+   ① 항상 생성됨  
+   #② 내용이 넘칠 때만 자동 생성됨  
+   ③ 스크롤이 불가능할 때 생성됨  
+   ④ 기본적으로 숨김 처리함
+
+3. `input[type=password]`에 배경색을 지정하고 싶을 때 올바른 문법은?  
+   ① input.password{background:yellow;}  
+   ② input[name=password]{color:yellow;}  
+   #③ input[type=password]{background-color:yellow;}  
+   ④ input{type=password}{bg:yellow;}
+
+4. `input:focus` 가상 클래스는 어떤 동작을 할 때 적용되는가?  
+   ① 마우스를 올렸을 때  
+   ② 마우스 클릭 시  
+   #③ 입력창에 커서가 깜박일 때 : 해당 요소객체 커서를 위치시켰을 때...
+   ④ 입력이 완료되었을 때
+
+5. `float:left` 속성은 어떤 정렬 방식인가?  
+   ① 요소를 화면 오른쪽에 배치  
+   ② 요소를 수직으로 정렬  
+   #③ 요소를 왼쪽으로 붙여서 수평 배치  왼쪽으로부터 오른쪽으로 리스트 처리..
+   ④ 중앙 정렬
+
+6. CSS에서 `border-radius`의 역할은?  
+   ① 테두리를 회색으로 만듦  
+   ② 테두리를 굵게 만듦  
+   #③ 테두리를 둥글게 만듦  
+   ④ 테두리를 제거함
+
+7. `display:inline-block` 속성을 사용할 때의 특징은?  
+   ① 줄 바꿈이 반드시 발생  
+   ② 크기 조절이 불가능함  
+   #③ 줄 바꿈 없이 크기 조절 가능  
+   ④ margin을 사용할 수 없음
+
+8. 다음 중 `<form>` 태그 내에 포함되지 않는 요소는?  
+   ① `<input>`  
+   ② `<select>`  
+   ③ `<button>`  
+   #④ `<script>`
+
+9. Oracle SQL에서 모든 컬럼을 조회하려면 어떤 구문을 사용하는가?  
+   ① SELECT ALL FROM 테이블명;  
+   #② SELECT * FROM 테이블명;  
+   ③ SELECT ALL * FROM 테이블명;  
+   ④ SHOW * FROM 테이블명;
+
+10. SQL에서 특정 컬럼에 별칭을 줄 때 사용하는 키워드는?  
+    ① alias  
+    #② as  	ex) select ename as name, empno no 
+    			from emp;
+    			상위 컬럼의 타이틀을 name, no로 변경해서 출력해준다.
+    ③ let  
+    ④ name
+
+11. Oracle에서 두 컬럼을 연결하여 하나의 문자열로 만들고자 할 때 사용하는 기호는?  
+    ① `+`  
+    ② `.`  
+    #③ `||`  
+    ④ `&`
+    
+    프로그램   데이터베이스
+      +         ||
+   "문자열"      '문자열'  ps) 특수문자 공백문자를 포함한 alias "" 활용
+   
+
+12. 다음 SQL문 중 실행 오류가 발생하는 것은?  
+    ① SELECT empno, ename FROM emp;  
+    ② SELECT * FROM emp;  
+    #③ SELECT empno ename FROM emp;    컬럼의 구분자는 ,(콤마)를 활용한다.
+    ④ SELECT '사번'||empno FROM emp;
+
+13. SQL에서 결과 컬럼명이 공백이나 특수문자를 포함할 때 필요한 것은?  
+    ① 작은따옴표('')  
+    ② 중괄호({})  
+    ③ 대괄호([])  
+    #④ 큰따옴표("")
+    select ename "# 이 름 #" from emp;
+    데이터를 표현한 컬럼의 타이틀이 공백이나 특수문자(#)를 포함시킬 때는 ""를 활용한다.
+
+14. 다음 중 Oracle SQL에서 주석을 처리하는 방법으로 옳은 것은?  
+    ① # 주석  
+    ② -- 주석   한줄 주석
+    ③ /* 주석 */  한줄 포함해서 여러줄 주석..
+    #④ 둘 다 ②, ③
+
+15. HTML의 `<input name="age">` 요소에 스타일을 적용하고 싶을 때 사용할 선택자는?  
+    ① input[age]  
+    ② input.type.age  
+    #③ input[name=age]  
+    ④ input.age

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+ex) overflow연습
+div에 적절하게 class 선언하여
+1. 선물상자 숨기기 : 선물상자를 여러개 출력하되 너무 많아 넘칠 경우 넘친 내용이 보이지 않도록 처리
+2. 고대문서 스크롤하기 : 스크롤을 이용하여 전체 내용을 읽을 수 있도록 처리
+3. 선글라스 광고 박스 : 밖으로 튀어나오는 효과로 보이게 처리
+4. 책페이지 넘기기는 : 내용이 넘칠 때만 자동으로 스크롤이 생기도록 처리
+위 내용을 타이틀과 이모지를 통해 출력되게 하세요..
+*/
+div{width:200px;height:100px;border:1px solid blue;}
+.hidden{overflow:hidden;}
+.scroll{overflow:scroll;}
+.visible{overflow:visible;}
+.auto{overflow:auto;}
+
+</style>
+</head>
+<body>
+	<div class="hidden"><h2>선물상자 숨기기</h2>
+		🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁🎁 
+	</div>
+	<div class="scroll"><h2>고대문서 스크롤하기</h2>
+		📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜📜 
+	</div>	
+	<div class="visible"><h2>선글라스 광고 박스</h2>
+		🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶🕶
+	</div>	
+	
+	<br><br><br><br><br><br><br><br><br><br>
+	<div class="auto"><h2>책페이지 넘기기</h2>
+		📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚📚
+	</div>		
+	
+</body>
+</html>

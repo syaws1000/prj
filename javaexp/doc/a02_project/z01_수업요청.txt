@@ -1,0 +1,39 @@
+7조는 얘기 나눈 결과 
+자바는 체크리스트 5번(특수문자)과+8번이후부터 추가 수업이 필요할 것 같다고 얘기했습니다. 
+html은 1,2번이 더 취약하다고 여겨 1,2번을 수업 듣고 시간이 더 가능하다면 이후 css까지 수업듣고 싶습니다
+
+6조 입니다. Java 조건문과 반복문 부분 부탁드리겠습니다
+
+
+4조 입니다.
+#수업에 필요한  보충적으로 필요한 내용#
+1)자바의 
+클래스 정의 및 객체생성 부분이 아직 어렵습니다
+
+2)java의 연산자 응용, 변수 선언, 반복문 
+html의 form 요소 사용
+
+package aaa3;
+
+import javax.sound.midi.VoiceStatus;
+
+public class A02 {
+      
+   static void f7(int str) {
+      
+      System.out.println("f7넘겨온 "+str);
+   }
+      
+   public static void main(String[] args) {   
+      
+      f7(25);
+            
+   }
+
+}
+
+Scanner 부분 개념 설명 부탁드립니다.
+
+선생님, 저희 조는 자바 a04_data부터 수업 보충이 필요하다고 생각했습니다! 
+특히 if else 부분이 많이 헷갈리는 것 같습니다. 감사합
+

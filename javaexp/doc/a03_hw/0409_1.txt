@@ -1,0 +1,152 @@
+## ✅ [객관식 문제 15문제]
+
+1. 자바에서 `static` 키워드를 사용하는 주요 이유는?
+   #1) 객체 생성을 생략하기 위해
+   	   Start.java (main())
+   	   
+	   	   void call(){}
+	   	   
+	   	   static void call2(){}
+	   	   
+	   	   main(){
+	   	   	   Start s = new Start();
+	   	   	   s.call();	
+	   	   	   call2();  //static 객체 생성을 생략하고 바로 사용할 수 있다.   
+	   	   }
+   	   
+   	   
+   	     
+   2) 메모리를 절약하기 위해  
+   3) 반복문을 작성하기 위해  
+   4) 변수 선언을 쉽게 하기 위해
+
+2. 다음 중 매개변수가 2개인 함수로 알맞은 것은?
+   1) `static void func()`  
+   2) `static void func(int a)`  
+   #3) `static void func(int a, int b)`  
+   4) `static void func(String name)`
+   
+   main()
+   	func(25,30); (o)
+   	func(25.5,30); (x)
+   	func("25"); (x)
+   	
+   
+
+3. 함수의 리턴값이 없는 경우 사용하는 키워드는?
+   1) `int`  
+   2) `String`  
+   3) `double`  
+   4) `void`
+
+4. `Math.random()`의 리턴값 타입은?
+   1) int  
+   #2) double  
+   3) float  
+   4) long
+   
+   0.0 <= Math.random < 1.0
+   0.0 <= Math.random*6 < 6.0
+   0 <= (int)(Math.random*6) < 6
+   1 <= (int)(Math.random*6+1) < 7
+   1~6까지 정수가 임의 처리
+    (int)(Math.random*경우의수+시작수)
+
+5. `buy("사과", 2000, 5)` 함수에서 매개변수의 개수는?
+   1) 1  
+   2) 2  
+   #3) 3  
+   4) 4
+
+6. 다음 중 객체를 생성하는 올바른 구문은?
+   #1) `Person p01 = new Person();`
+   		클래스   참조변수 = new 클래스명과같은생성자명();  
+   2) `Person = new p01("홍길동",25);`  
+   3) `Person p01;`  
+   4) `new Person("홍길동",25);`
+
+7. 함수가 `int`를 리턴하는 경우 사용하는 키워드는?
+   1) `void`  
+   #2) `int`  
+   3) `String`  
+   4) `boolean`
+   
+   리턴유형 함수명(매개변수1, 매개변수2...){
+   		함수를 통해서 처리되는 내용
+   		return 실제리턴할데이터;
+   }
+   // 함수선언
+   int plus(int no1, int no2){
+      int tot = no1 + no2;
+   	  return tot;
+   }
+   
+   main() 
+   함수호출
+   int sum = plus(25,30);   // sum에 55가 할당된다.
+   
+
+8. 클래스의 전역변수를 가리키기 위한 키워드는?
+	class Person{
+		String name;
+		Person(String name){
+			this.name = name;
+		}
+		void show(){
+			System.out.println("이름:"+name);
+		}
+	}
+	main()
+		Person p01 = new Person("홍길동");
+		p01.show();
+
+   1) `class`  
+   #2) `this`  
+   3) `super`  
+   4) `self`
+
+9. HTML에서 overflow의 기본값은?
+   1) auto  
+   2) hidden  
+   #3) visible  : 요소객체에 넘치더라도 보이게 처리...  
+   4) scroll
+
+10. CSS에서 `border-collapse: collapse;`는 어떤 역할?
+   1) 셀 병합  
+   2) 셀 테두리 제거  
+   #3) 중복된 테두리 결합 : 테이블경우에 기본적으로 border 2중라인으로 된 것을 결합(붕괴)처리되어 보이게 한다.  
+   4) 테이블 배경 변경
+
+11. `<thead>`, `<tbody>`, `<tfoot>`는 어떤 태그의 하위 요소인가?
+   1) `<div>`  
+   2) `<form>`  
+   #3) `<table>`  
+   4) `<section>`
+
+12. `<td>`와 `<th>`의 차이점은?
+   1) 둘 다 행을 나타냄  
+   2) 둘 다 타이틀만 표현함  
+   #3) `<th>`는 제목 셀, `<td>`는 일반 셀  
+   4) 둘 다 이미지 삽입용
+	tr 밑에 실제 컬럼의 데이터를 처리하는데 th 기본적으로 중앙정렬 진하게 보이게 한다.
+	
+13. CSS에서 특정 짝수행의 배경색을 지정하는 선택자는?
+   1) `tr:hover`  
+   #2) `tr:nth-child(even)`  
+   3) `td:nth-child(odd)`  
+   4) `table:even`
+
+14. `Math.random()`을 통해 생성된 값을 1~6 범위로 만들기 위한 연산식은?
+   1) `(int)Math.random()*6+1`  
+   #2) `(int)(Math.random()*6)+1`  
+   3) `Math.random()*6+1`  
+   4) `(Math.random()*10)+6`
+
+15. `overflow:auto;` 속성의 특징은?
+   1) 항상 스크롤 표시  
+   2) 넘쳐도 항상 숨김  
+   #3) 넘칠 때만 스크롤 표시  
+   4) 넘쳐도 항상 보이게
+
+   
+   

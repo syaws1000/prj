@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# 자바스크립트에서 변수 선언할 때, 사용하는 키워드 var, let, const
+1. 변수들은 일반적으로 재사용시 선언 방법과 지역변수/전역변수 구분 사용,
+    한번 선언하면 바꾸지 못 하는 내용으로 여러가지 유형으로 선언되고 있다.
+2. var - 오래된 종이 상자
+    1) 어디에서나 꺼낼 수 있고, 똑같은 상자를 또 만들 수 있다.
+    2) var로 변수를 선언하면, {}(중괄호 블럭)에 의해서 구분되는 전역/지역
+        변수 개념을 무시하여, 계속 호출이 가능하다.
+    3) var로 변수를 선언한 것을 다시, var로 동일한 변수이름으로 사용이 
+        가능하다.
+    var no = 1;
+    var no = 2; // var 선언 가능
+    if(true){
+        var no = 5;
+    }    
+    console.log(no) // 할당은 5가 된다. 코드 블럭 상관없이 최종적으로
+        선언된 데이터가 출력이 된다. 전역/지역변수 구분이 없음.
+
+*/
+var no = 1
+var no = 2 // var은 동일한 이름으로 재사용이 가능
+console.log("현재no 변수:"+no)
+if(true){
+    var no = 5
+    console.log("현재no 변수:"+no)
+    var no1 = 3
+}
+console.log("현재no 변수:"+no) 
+console.log("현재no1 변수:"+no1) 
+// 블럭 안에 할당된 내용을 블럭 밖에서 확인할 수 있음
+/*
+3. let -튼튼한 플라스틱 상자
+    1) 상자를 만든 그 작은 구역({}) 안에서만 꺼낼 수 있고 같은 구역에 똑같은 이름의 상자는
+        만들 수 없어요. 하지만 값을 바꾸는 것을 가능합니다.
+*/
+let box = 1
+console.log("현재 box 변수[전역]:"+box)
+//let box = 3 동일한 변수명으로 선언 불가능
+box = 3 // 새로 다른 데이터를 할당하는 것은 가능
+if(true){
+    let box = 5  // 블럭이 다르기에 선언하고 할당하는 것은 가능
+    console.log("현재 box 변수[지역]:"+box)
+    let box2 = 5;
+    console.log("현재 box2 변수[지역]:"+box)
+}
+console.log("현재 box 변수[전역]:"+box) // 블럭 밖에 선언된 데이터를 가져와서 출력
+//console.log("현재 box2 변수[전역]:"+box2) 에러발생 {}블럭안에 선언된 변수는 사용하지 못 함.
+/*
+ex1) let 변수로 castle로 초기에 오렌지 성으로 할당해서, console.log로 출력하고,
+    if(true){   블럭안에서 다시 let 변수로 castle로 레몬 성을 선언 후, 해당 블럭해서 출력하고
+    }
+    마지막으로 여기서 castle로 변수가 할당된 내용을 확인(console.log)하세요.
+*/
+let castle = "오렌지성"
+var castle2 = "마법성"
+console.log("초기[전역]:"+castle)
+console.log("초기[전역]var:"+castle2)
+if(true){
+    let castle = "레몬성"
+    console.log("초기[지역]:"+castle)
+    var castle2 = "일반성"
+    console.log("초기[지역]:"+castle2)
+}
+console.log("마지막[전역]:"+castle)
+console.log("마지막[전역]var:"+castle2)
+/*
+ex2) if(true){} 블럭 안에  var trasure1 보물1,  let으로 trasure2 보물2를 할당하고,
+     if 문 밖에서 해당 변수를 호출해서, 차이를 확인하세요..
+*/
+if(true){
+    var trasure1 = "보물1"
+    let trasure2 = "보물2"
+    console.log("지역영역1"+trasure1)    
+    console.log("지역영역2"+trasure2)    
+}
+console.log("전역영역1"+trasure1)    
+//console.log("전역영역2"+trasure2)  let으로 선언한 지역변수를 인식을 못 함..
+/*    
+ex3) var로 chest로 1를 할당 한후, var chest로 2를 할당 후, 출력하고,
+     let으로 coin으로 5를 할당 한 후, let coin를 2를 할당 후, 출력하되 에러 내용을 확인하고,
+     원인을 파악해 보세요..     
+*/
+var chest = 1
+var chest = 2
+let coin = 5
+//let coin = 5   let은 동일 영역에서는 재 선언이 불가능하다..
+/*
+3. const = 자물쇠 달린 금고
+    1) const는 항상 초기값을 넣어서 만들고, 이 후에는 내용물을 바꿀 수 없음.
+        소위 말하는 상수를 말한다.
+
+*/
+//const prod; // 선언만 하는 것도 불가능 반드시 데이터를 할당해야함
+const name = '마길동'
+//name = '오길동'    한번할당된 데이터를 변경하는 것도 불가능함..
+
+
+
+
+
+</script>
+</html>

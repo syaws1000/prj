@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# visibility 텍스트 숨기기
+1. 화면에 안보이지만 특정한 요소가 있어야 할때, 주로 사용된다.
+2. 웹화면에서 문제은행이라든가/요청값을 전달해야하는데 그 요청값을 보이지 
+	않게 하거나 보이가 하는 등에서 사용된다.
+	화면에는 안 보이지만, 내부적으로 있어야 하는 경우가 많디ㅏ.
+3. 기본 형식
+	선택자:{visibility:hidden;} 요소객체가 보이지 않게 할 때,
+	반대로 초기에 보였다가 보이지 않게 할 때
+	선택자:{visibility:visible;}
+*/
+	#christmas:active{visibility:hidden;}
+	#spade-2{visibility:hidden;} 
+</style>
+</head>
+<body>
+	<img id="spade-2" src="media/spade-2.png" 
+		width="100" height="200"><br>
+	<input type="button" onclick="show()" value="카드보여라!"/><br>
+	<input type="button" onclick="hide()" value="카드사라져라!"/>
+	<script type="text/javascript">
+	function show(){
+		document.querySelector("#spade-2").style.visibility="visible";
+	}
+	function hide(){
+		document.querySelector("#spade-2").style.visibility="hidden";
+	}	
+	</script>
+	
+	<br>
+	<img id="christmas" src="media/christmastree.png">
+
+</body>
+</html>

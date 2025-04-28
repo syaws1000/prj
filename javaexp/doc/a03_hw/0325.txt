@@ -1,0 +1,211 @@
+## ✅ **객관식 10문제 (문제만)**
+
+1. `<input type="radio">`의 주된 기능은 무엇인가요?  
+   ① 여러 개 항목 중 하나만 선택  
+   ② 여러 항목을 동시에 선택  
+   ③ 입력 필드를 숨김 처리  
+   ④ 파일 업로드  
+
+2. `<input type="checkbox">`는 어떤 선택 방식에 사용되나요?  
+   ① 단일 선택  
+   ② 다중 선택  
+   ③ 비밀번호 입력  
+   ④ 숫자 입력  
+
+3. `<input type="submit">` 버튼의 기능은?  
+   ① 입력값 초기화  
+   ② 입력 데이터를 서버로 전송  
+   ③ 선택 해제  
+   ④ 페이지 새로고침  
+
+4. `<input type="color">`는 어떤 기능을 하나요?  
+   ① 날짜 선택  
+   ② 색상 선택  
+   ③ 파일 첨부  
+   ④ 주소 입력  
+
+5. `<select>` 태그의 주된 용도는 무엇인가요?  
+   ① 텍스트 입력  
+   ② 콤보박스(선택 목록) 제공  
+   ③ 비밀번호 입력  
+   ④ 페이지 링크  
+
+6. `<textarea>`는 무엇을 입력할 때 사용되나요?  
+   ① 한 줄 텍스트  
+   ② 여러 줄의 긴 텍스트  
+   ③ 이미지 경로  
+   ④ 비밀번호  
+
+7. `<iframe>`은 어떤 기능을 제공하나요?  
+   ① 다른 페이지의 내용을 삽입  
+   ② 파일 다운로드  
+   ③ 이미지 업로드  
+   ④ CSS 적용  
+
+8. HTML에서 `<option>` 태그는 어디에서 사용되나요?  
+   ① `table`  
+   ② `select`  
+   ③ `textarea`  
+   ④ `input`  
+
+9. 자바에서 `++` 연산자는 무엇을 의미하나요?  
+   ① 2배 증가  
+   ② 1 증가  
+   ③ 1 감소  
+   ④ 0으로 초기화  
+
+10. 자바에서 나눗셈 시 정수끼리 나누면 결과는?  
+   ① 항상 실수로 반환  
+   ② 정수 부분만 반환  
+   ③ 오류 발생  
+   ④ 문자열로 반환  
+
+---
+
+## ✅ **주관식 5문제 (문제만)**
+
+1. `input` 요소의 `type="radio"`와 `type="checkbox"`의 차이를 설명하세요.  
+2. HTML `select` 태그와 `option` 태그의 관계를 설명하세요.  
+3. 자바에서 `num++`과 `++num`의 차이를 설명해보세요.  
+4. 자바에서 정수형 나눗셈 시 소수점 이하를 출력하려면 어떻게 해야 하나요?  
+5. `iframe`의 주요 사용 사례를 한 가지 예를 들어 설명하세요.  
+
+---
+
+## ✅ **재미있는 실습문제 3문제 (문제만)**
+
+1. **HTML 실습 문제**:  
+   좋아하는 음식을 라디오 버튼으로 선택 후, 제출 시 "내가 좋아하는 음식은 OOO입니다."를 출력하는 JSP 페이지를 만들어보세요.
+
+2. **자바 실습 문제**:  
+   두 정수형 변수를 선언 후, 더하기/빼기/곱하기/나누기 연산 결과를 각각 출력하는 프로그램을 작성하세요.  
+
+3. **HTML + 자바 실습 문제**:  
+   나이 입력(input type="number")과 이름 입력(input type="text")을 하고 제출 시 JSP 페이지에서 "OOO님은 @@살 입니다."를 출력하는 코드를 작성해보세요.
+   
+
+---
+
+
+## ✅ **객관식 10문제 정답 및 풀이**  
+
+| 번호 | 정답 | 풀이 |
+|---|---|---|
+| 1 | ① | `radio`는 여러 항목 중 하나만 선택 가능하도록 합니다. |
+| 2 | ② | `checkbox`는 여러 항목을 동시에 선택할 수 있습니다. |
+| 3 | ② | `submit` 버튼은 form 데이터를 서버로 전송합니다. |
+		<form action="rev.jsp"> action 속성은 해당페이지 데이터 전송할 때, 사용
+			<input  name="send1" value="val1"
+			<select name="send1"
+				<option>val2
+			<textarea name="send1
+				
+			<input type="submit"> 클릭시, 포함된 요소객체를 전송	
+		</form>
+		rev.jsp?send1=val1&send2=val2
+		==>
+		${param.send1}${param.send2}
+| 4 | ② | `color` 타입은 색상 팔레트를 제공하여 색상을 선택할 수 있습니다. |
+| 5 | ② | `select` 태그는 드롭다운(콤보박스) 목록을 생성합니다. |
+			multiple 여러개 ctrl 선택 다중으로 전송
+			size="3" option을 한번에 보이게 하는 갯수를 지정..
+| 6 | ② | `textarea`는 여러 줄의 텍스트 입력을 받을 때 사용합니다. |
+| 7 | ① | `iframe`은 다른 웹 페이지를 현재 페이지에 삽입해 보여줍니다. |
+		
+| 8 | ② | `option` 태그는 `select` 태그 내부에서 옵션 항목을 정의할 때 사용합니다. |
+| 9 | ② | `++` 연산자는 1씩 증가시키는 연산자입니다. |
+| 10 | ② | 정수끼리 나누면 소수점 이하를 버리고 정수 부분만 반환합니다. |
+		25/7  ==> 정수/정수 ==> 정수값만 가져온다.(몫) ==> 3
+		25%7  ==> 정수%정수 ==> 정수값만 가져온다.(나머지) ==> 4
+		25/7.0 ==> 정수/실수 ==> 실수값까지 처리. ==> 3.5...
+		25/(double)7 ==> 정수/실수 ==> 실수값까지 처리. ==> 3.5...
+		(double)25/7 ==> 실수/정수 ==> 실수값까지 처리. ==> 3.5...
+		
+
+---
+
+## ✅ **주관식 5문제 정답 및 풀이**
+
+1. **`input` 요소의 `type="radio"`와 `type="checkbox"`의 차이:**  
+   - `radio`는 여러 항목 중 **하나**만 선택 가능합니다.  
+   - `checkbox`는 여러 항목을 **동시에** 선택할 수 있습니다.
+
+2. **HTML `select` 태그와 `option` 태그의 관계:**  
+   - `select` 태그는 드롭다운 목록을 만드는 태그이며,  
+   - `option` 태그는 `select` 안에서 개별 선택 항목을 나타냅니다.
+
+3. **자바에서 `num++`과 `++num`의 차이:**
+	int num=1;
+
+  
+   - `num++`은 **후위 연산자**로, 현재 값을 먼저 사용한 후 1 증가합니다.
+   System.out.prntln(num++);  1
+   System.out.prntln(num);  2
+     
+   - `++num`은 **전위 연산자**로, 먼저 값을 1 증가시킨 후 사용합니다.
+   System.out.prntln(++num);  2
+   System.out.prntln(num);  2
+
+4. **자바에서 정수형 나눗셈 시 소수점 이하를 출력하려면:**  
+   - 분자 또는 분모 중 하나를 `double`로 형변환하거나 실수로 작성합니다.  
+   - 예: `10/(double)3` 또는 `10/3.0`
+
+5. **`iframe`의 주요 사용 사례 예시:**  
+   - 쇼핑몰에서 결제창을 `iframe`으로 별도 로드하거나,  
+   - 블로그에 유튜브 동영상을 삽입할 때 사용합니다.
+
+---
+
+## ✅ **재미있는 실습문제 3문제 정답 코드**
+
+---
+
+### 1. **HTML 실습 문제 (좋아하는 음식 선택 후 JSP 전송)**
+
+**HTML 파일 (favoriteFoodForm.jsp):**
+```html
+<h2>좋아하는 음식 선택</h2>
+<form>
+    <input type="radio" name="food" value="치킨"> 치킨<br>
+    <input type="radio" name="food" value="피자"> 피자<br>
+    <input type="radio" name="food" value="햄버거"> 햄버거<br>
+    <input type="radio" name="food" value="초밥"> 초밥<br>
+    <input type="submit" value="제출">
+</form>
+<h2>내가 좋아하는 음식은 ${param.food}입니다.</h2>
+```
+
+---
+
+### 2. **자바 실습 문제 (사칙연산 프로그램)**
+
+```java
+public class ArithmeticExample {
+    public static void main(String[] args) {
+        int num1 = 20;
+        int num2 = 7;
+
+        System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+        System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+        System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+        System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+        System.out.println(num1 + " / " + num2 + " (소수점) = " + ((double)num1 / num2));
+    }
+}
+```
+
+
+
+### 3. **HTML + JSP 실습 문제 (이름과 나이 입력 및 출력)**
+
+**HTML 파일 (ageName.jsp):**
+<h2>나이와 이름 입력</h2>
+<form >
+    이름: <input type="text" name="name"><br>
+    나이: <input type="number" name="age"><br>
+    <input type="submit" value="제출">
+</form>
+<h2>${param.name}님은 ${param.age}살 입니다.</h2>
+```
+
+

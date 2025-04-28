@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# form 요소객체에 focus를 했을 때, css 변경
+1. input:focus{background-color:yellow;}
+*/
+	input:focus{background-color:yellow;}
+	input[type=text]:focus{color:blue;}
+	/* 속성이 type="text"인 경우에 커서를 위치시켰을 때, 글자 색상을 
+		blue로 처리..
+	*/
+</style>
+</head>
+<body>
+	<h2>로그인</h2>
+	아이디:<input type="text"/><br>
+	패스워드:<input type="password"/><br>
+	<input type="submit"/>
+	<h3>점수를 입력</h3>
+	국어:<input type="text"/><br>
+	영어:<input type="text"/><br>
+	수학:<input type="text"/><br>
+	총점:<input type="number"/><br>
+	평균:<input type="number"/><br>
+<!-- 
+ex) input 요소객체 가운데 type='text'인 경우만 focus했을 때, 글자색상으로 파랑색으로 처리하세요..
+	input[type=text]
+ -->
+ 
+</body>
+</html>

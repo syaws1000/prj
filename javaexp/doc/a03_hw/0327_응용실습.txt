@@ -1,0 +1,277 @@
+### ✅ Java 응용 실습 문제 10문제
+
+1. **자동판매기 시뮬레이션**  
+   - 자판기에 커피가 10잔 있다고 가정하고, 커피를 한 잔 살 때마다 `잔수--` 처리 후 남은 잔수를 출력하세요.
+
+2. **레벨업 게임**  
+   - 사용자의 경험치를 변수 `exp`에 저장하고, `exp += 50`씩 증가하여 1000이 되면 "레벨업!"을 출력하세요.
+
+3. **사과 바구니**  
+   - 사과 바구니에 3개의 사과가 있습니다. 사과 하나를 먹을 때마다 `--` 처리하며 몇 개 남았는지 출력해보세요.
+
+4. **헬스장 무게 증가**  
+   - 역기를 들 때, `중량 += 5`로 증가시키며 5세트 반복 출력해보세요. 시작 중량은 20kg입니다.
+
+5. **물 마시기 챌린지**  
+   - 하루 8잔의 물을 마셔야 합니다. 물을 마실 때마다 `count++` 처리하고, 마지막엔 "오늘 목표 달성!" 출력.
+
+6. **미세먼지 비교기**  
+   - 오늘과 어제의 미세먼지 농도를 입력하고, 어느 날이 더 나쁜지 비교하여 출력해보세요.
+
+7. **시험 점수 비교**  
+   - 두 과목 점수를 비교하여 어느 과목이 점수가 더 높은지 출력하는 프로그램을 작성해보세요.
+
+8. **도서 대출 기간 비교**  
+   - `책1`과 `책2`의 대출일 수를 입력받아, 연체 가능성이 더 높은 책을 판단해보세요.
+
+9. **나이 비교 프로그램**  
+   - 두 사람의 나이를 입력받고, 누가 더 나이가 많은지 출력하세요.
+
+10. **주차요금 계산기**  
+    - `시간` 변수를 증가시키며 `요금 += 1000` 처리하여 5시간 주차 시 총 요금을 출력해보세요.
+
+// ✅ Java 응용 실습 문제 정답
+
+// 1. 자동판매기 시뮬레이션
+int coffee = 10;
+System.out.println("커피 한 잔 나왔습니다. 남은 잔수: " + --coffee); // 10회 반복
+// --변수 감소 후, 출력..
+System.out.println("커피 한 잔 나왔습니다. 남은 잔수: " + --coffee); // 10회 반복
+System.out.println("커피 한 잔 나왔습니다. 남은 잔수: " + --coffee); // 10회 반복
+
+// 2. 레벨업 게임
+int exp = 0;
+exp += 50; System.out.println("경험치:"+exp); // 1000일 될 때까지 맞복
+System.out.println("경험치:"+(exp += 50)); // 1000일 될 때까지 맞복
+System.out.println("경험치:"+(exp += 50)); // 1000일 될 때까지 맞복
+System.out.println("경험치:"+(exp += 50)); // 1000일 될 때까지 맞복
+System.out.println("경험치:"+(exp += 50)); // 1000일 될 때까지 맞복
+
+System.out.println("레벨업!");
+
+// 3. 사과 바구니
+int apples = 3;
+System.out.println("사과 먹음. 남은 사과: " + --apples); //0일 될때까지 반복
+System.out.println("사과 먹음. 남은 사과: " + --apples); //0일 될때까지 반복
+System.out.println("사과 먹음. 남은 사과: " + --apples); //0일 될때까지 반복
+
+// 4. 헬스장 무게 증가
+int weight = 20;
+System.out.println((i+1)+"세트 무게: "+ (weight+=5) + "kg"); // 지정 횟수반큼반족
+System.out.println((i+1)+"세트 무게: "+ (weight+=5) + "kg"); // 지정 횟수반큼반족
+System.out.println((i+1)+"세트 무게: "+ (weight+=5) + "kg"); // 지정 횟수반큼반족
+System.out.println((i+1)+"세트 무게: "+ (weight+=5) + "kg"); // 지정 횟수반큼반족
+System.out.println((i+1)+"세트 무게: "+ (weight+=5) + "kg"); // 지정 횟수반큼반족
+
+// 5. 물 마시기 챌린지
+int count = 0;
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("물 마신 잔수: "+ ++count); // 7회 반복
+System.out.println("오늘 목표 달성!");
+
+// 6. 미세먼지 비교기
+int today = 85;
+int yesterday = 70;
+System.out.println("오늘 더 나쁨 여부"+today > yesterday );
+
+// 7. 시험 점수 비교
+int math = 90, english = 80;
+System.out.println( "수학 점수가 높음 여부:"+math > english);
+
+// 8. 도서 대출 기간 비교
+int book1 = 10, book2 = 15;
+System.out.println("책1 연체 가능성 높음 여부:"+book1 > book2);
+
+// 9. 나이 비교 프로그램
+int age1 = 25, age2 = 30;
+System.out.println("첫번째 사람이 나이 많음 여부:"+age1 > age2);
+
+// 10. 주차요금 계산기
+int time = 0, fee = 0;
+time++;fee += 1000; System.out.println("총 주차요금: " + fee + "원"); // 반복
+
+
+
+
+
+
+
+
+### ✅ HTML 응용 실습 문제 10문제
+
+1. **컬러 테마 선택기**  
+   - `<input type="color">`를 활용해 사용자 테마 색상을 고르고 제출 시 선택된 색을 배경색으로 보여주세요.
+
+2. **좋아하는 요일 선택**  
+   - `<input type="checkbox">`로 좋아하는 요일 여러 개 선택하여 제출 후 선택 목록 출력하기.
+
+3. **시간 예약 시스템**  
+   - `<input type="date">`와 `<input type="time">`을 이용해 예약 날짜/시간 입력받고 출력해보세요.
+
+4. **음식 주문 폼**  
+   - `<select>` 태그로 음식 메뉴를 만들고 선택한 메뉴가 어떤 것인지 출력되게 하세요.
+
+5. **회원가입 폼 만들기**  
+   - 이름, 이메일, 전화번호, 비밀번호 입력 `<input>` 태그로 구성하고 `required`, `placeholder`로 꾸며보세요.
+
+6. **검색 입력창 만들기**  
+   - `<input type="search">`로 검색어 입력받고, 결과를 표시하는 흉내를 내보세요.
+
+7. **일기 쓰기 폼**  
+   - `<textarea>`로 오늘의 기분과 일기를 입력하고 출력되게 구성해보세요.
+
+8. **프로필 사진 업로드 폼**  
+   - `<input type="file">`을 이용해 이미지 파일 선택 후 파일명 출력해보기.
+
+9. **슬라이더로 온도 설정**  
+   - `<input type="range">`를 사용하여 온도를 설정하고 현재 온도를 함께 출력해보세요.
+
+10. **이메일 형식 유효성 검사**  
+    - `<input type="email" required>`로 이메일 주소를 입력하게 하여 빈 값 또는 잘못된 형식일 때 경고 메시지 출력되도록 구성하세요.
+
+
+아래는 각 HTML 실습 문제에 대한 **풀이 및 정답 예시 코드**입니다. 각 문제에 대해 HTML 구조와 간단한 JavaScript 동작이 포함되어 있어 실습에 적합합니다.
+
+---
+
+### 1. **컬러 테마 선택기**
+```jsp
+<form>
+  <label>테마 색상 선택: <input type="color" name="colorPicker" required></label>
+  <button type="submit">적용</button>
+</form>
+선택색상:${param.colorPicker}
+```
+
+---
+
+### 2. **좋아하는 요일 선택**
+```jsp
+<form >
+  <label><input type="checkbox" name="day" value="월요일">월요일</label>
+  <label><input type="checkbox" name="day" value="화요일">화요일</label>
+  <label><input type="checkbox" name="day" value="수요일">수요일</label>
+  <label><input type="checkbox" name="day" value="목요일">목요일</label>
+  <label><input type="checkbox" name="day" value="금요일">금요일</label>
+  <button type="submit">확인</button>
+</form>
+<p id="daysResult">
+${paramValues.day[0]}
+${paramValues.day[1]}
+${paramValues.day[2]}
+${paramValues.day[3]}
+${paramValues.day[4]}
+${paramValues.day[5]}
+
+</p>
+```
+
+---
+
+### 3. **시간 예약 시스템**
+```html
+<form>
+  <label>예약 날짜: <input type="date" id="date" required></label>
+  <label>예약 시간: <input type="time" id="time" required></label>
+  <button type="submit">예약</button>
+</form>
+<p id="reserveInfo">예약 날짜:${param.date}, 예약 시간:${param.time}</p>
+```
+
+---
+
+### 4. **음식 주문 폼**
+```jsp
+<form>
+  <label>음식 선택: 
+    <select name="menu" required>
+      <option value="김치찌개">김치찌개</option>
+      <option value="된장찌개">된장찌개</option>
+      <option value="비빔밥">비빔밥</option>
+      <option value="불고기">불고기</option>
+    </select>
+  </label>
+  <button type="submit">주문</button>
+</form>
+<p id="foodResult">${param.menu}</p>
+```
+
+---
+
+### 5. **회원가입 폼 만들기**
+```jsp
+<form 
+  <input type="text" name="name" placeholder="이름" required><br>
+  <input type="email" name="email" placeholder="이메일" required><br>
+  <input type="tel" name="tel" placeholder="전화번호" required><br>
+  <input type="password" name="pwd" placeholder="비밀번호" required><br>
+  <button type="submit">가입하기</button>
+</form>
+이름:${parma.name}
+이메일:${parma.email}
+전화번호:${parma.tel}
+비밀번호:${parma.pwd}
+
+
+---
+
+### 6. **검색 입력창 만들기**
+```html
+<form>
+  <input type="search" name="searchInput" placeholder="검색어 입력" required>
+  <button type="submit">검색</button>
+</form>
+<p id="searchResult">${param.searchInput}</p>
+```
+
+---
+
+### 7. **일기 쓰기 폼**
+```jsp
+<form>
+  <textarea name="diary" placeholder="오늘의 기분과 일기를 적어보세요" rows="4" cols="40" required></textarea><br>
+  <button type="submit">저장</button>
+</form>
+<p id="diaryResult">${param.diary}</p>
+```
+
+---
+
+### 8. **프로필 사진 업로드 폼**
+```html
+<form >
+  <input type="file" name="fileName" required>
+  <button type="submit">업로드</button>
+</form>
+<p id="fileName"></p>
+```
+
+---
+
+### 9. **슬라이더로 온도 설정**
+```jsp
+<label>온도 설정: 
+  <input type="range" name="temp" min="0" max="40" value="20" >
+  <input type="submit">
+</label>
+<span id="tempValue">${param.temp}℃</span>
+```
+
+---
+
+### 10. **이메일 형식 유효성 검사**
+```jsp
+<form> 
+  <input type="email" placeholder="이메일 입력" required>
+  <button type="submit">확인</button>
+</form>
+
+```
+
+
+

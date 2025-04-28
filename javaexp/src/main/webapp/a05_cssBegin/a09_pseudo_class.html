@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 가상클래스(pseudo-class) 선택자
+1. 어떤 조건이나 상황에서 스타일을 적용하도록 만든 선택자
+	1) 40개 이상의 많은 가상 클래스 선택자가 있다.
+		ex) a:visited{color:green;}
+			방문한 a의 링크 텍스트 색을 green으로 출력
+		ex) li:hover{background-color:yellowgreen;}
+			li에 마우스 커서를 위치시켰을 때, 배경색상 변경
+2. 가상클래스의 종류와 내용
+	1) 마우스
+		:hover : 마우스 커서가 위치시켰을 때 스타일 적용
+		:active : 마우스를 누르고 있는 상황에서 스타일 적용
+	2) 폼요소
+		:focus :  폼요소가 키보드가 마우스 클릭으로 포커스를 위치시켰을 때, 스타일 적용
+	3) 링크
+		:link : 방문하지 않은 링크에 스타일 적용
+		:visited : 방문한 링크에 스타일 적용
+	4) 블록
+		::first-letter :p,div등과 같은 블록한 태그의 첫글자에 스타일 적용
+			span같은 인라인 태그에는 적용되지 않음
+		::first-line : p, div등과 같은 블럭형 태그의 첫라인에 스타일 적용
+	5) 구조
+		:nth-child(even) - 짝수번째 모든 자식 태그에 스타일 적용
+		:nth-child(odd) - 홀수번째 모든 자식 태그에 스타일 적용
+		:nth-child(n) - n번째 모든 자식 태그에 스타일 적용
+*/
+	li:hover{background-color:yellowgreen;}
+	/*li 태그에 마우스 커서를 위치시키면 배경색상이 변경되고 벗어나는 원래로 변경 처리*/
+	/*
+	ex)
+	h3를 안녕하세요 5개를 만들고 해당 위치에 커서를 위치시켰을 때 배경색상이 pink로 변경되게 처리하세요
+	*/
+	h3:hover{background-color:pink;color:red;}
+	tr:hover{background-color:yellow;font-size:15pt;}
+</style>
+</head>
+<body>
+	<table width="50%" border>
+		<tr><th>번호</th><th>제목</th></tr>
+		<tr><th>1</th><td>첫번째 게시물</td></tr>
+		<tr><th>2</th><td>게시물</td></tr>
+		<tr><th>3</th><td>게시물</td></tr>
+		<tr><th>4</th><td>게시물</td></tr>
+		<tr><th>5</th><td>게시물</td></tr>
+	</table>
+	<h3>안녕하세요</h3>
+	<h3>안녕하세요</h3>
+	<h3>안녕하세요</h3>
+	<h3>안녕하세요</h3>
+	<h3>안녕하세요</h3>
+	<h2>웹 프로그래머</h2>
+	<ul>
+		<li>HTML5</li>
+		<li>css</li>
+		<li>javascript</li>
+	</ul>
+<!-- 
+
+
+ -->
+</body>
+</html>

@@ -1,0 +1,2 @@
+c:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
+scott/tiger

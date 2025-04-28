@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 인라인블럭 속성
+1. 인라인의 속성인 줄을 바꾸지 않는 속성과 블럭 속성인 넓이와 높이를 가지는
+	속성을 css로 설정해서 처리하는 것을 말한다.
+2. 속성 설정
+	태그{display:inline-block;}
+3. 특성
+	1) 새라인에서 시작 못함. 즉 라인 안에 inline 속성을 가진다.
+	2) 모든 박스 내 배치 가능하다.
+	3) 옆에 다른 요소 배치가 가능하다.
+	4) width와 height 크기 조절 가능하다.
+	5) padding, border, margin의 조절 가능하다.	
+*/
+	div{border:1px solid green;}
+	div div{
+		display:inline-block;
+		background:powderblue;
+		width:100px;height:80px;
+		margin:10px;
+	}
+	/* 아래 div  span태그에 inline-block으로 속성을 지정 배경색상 노랑색, 
+		margin 10px, width/heigh 속성지정*/
+	div span{
+		display:inline-block;
+		background:yellow;
+		width:100px;height:80px;
+		margin:10px;
+	}
+	/*
+	ex) 상품 아이콘 배치
+	전자상거래 웹사이트에서 상품 아이콘들을 한줄에 배치하세요
+	1. 각 상품 아이콘은 80px x 80px 크기의 정사각형으로 만들고, 배경색은 다르게 지정하세요 
+		(border-radius 적용 버튼 모양)
+	2. 아이콘 사이에는 10px 간격을 설정하고, 한 줄에 나란히 배치하도록 하세요.
+	
+	*/
+
+  .product-icon {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-color: #ccc; 
+    border-radius: 10px; 
+    margin-right: 10px;
+    text-align: center;
+    line-height: 80px; 
+    color: white;
+    font-weight: bold;
+  }
+  div h2{
+  	 display:inline-block;
+  	 border:1px solid blue;
+  	 width:120px;height:100px;
+  }
+</style>
+</head>
+<body>
+	<div>
+		<h2>inlie-block 속성 last</h2>
+		<h2>inlie-block 속성 last</h2>
+		<h2>inlie-block 속성 last</h2>
+	</div>
+
+	<div>
+		<div>inline-block 속성으로 설정</div>
+		<div>inline-block 속성으로 설정</div>
+		<div>inline-block 속성으로 설정</div>
+	</div>
+	<div>
+		<span>inline-block 속성 연습1</span>
+		<span>inline-block 속성 연습2</span>
+		<span>inline-block 속성 연습3</span>
+	</div>
+	
+	<div>
+		<div class="product-icon" style="background-color: red;">사과</div>
+		<div class="product-icon" style="background-color: yellow; color: black;">바나나</div>
+		<div class="product-icon" style="background-color: green;">딸기</div>
+	  </div>		
+	
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 전체 선택자와 속성 선택자
+1. 전체 선택자
+	1) 와일드 문자(*)를 사용하여 모든 태그에 적용시키는 선택자
+	ex) *{color:green;}
+		화면 전체 기본 글자색상을 green 선언..
+	2) 웹 페이지의 모든 태그의 하위 요소에도 적용
+	ex) table>*{background-color:yellow}
+		테이블 하위(자식) 요소객체는 배경색상을 yellow 로 선택
+2. 속성 선택자
+	1) html 태그의 특정 속성(attribute)에 대해 값이 일치하는 태그에만
+		스타일을 적용하는 선택자
+		형식1) 태그[속성=속성값]{속성:속성값;}
+		형식2) [속성=속성값]{속성:속성값}
+		ex) input[type=text]{color:red;}
+		type속성이 text인것의 모든 요소객체는 글자색이 빨강..
+*/
+	*{color:green;}
+	input[type=text]{background-color:yellow;}
+	/*
+	ex1) 위 input의 속성에서 type=button인경우에 배경색상으로 pink로 설정하고, 아래 화면에서 
+		출력하세요.
+	ex2) h1을 3개를 만들어 aling으로 left, center, right를 설정하고, h1의 align 속성이
+		center인 경우에 배경색상으로 orange로 설정하세요.
+	*/
+	
+	input[type=button]{background-color:pink;}
+	h1[align=center]{background-color:orange;}
+	/*
+	h1의 align right의 글자색상(color)을 blue 처리..
+	*/
+	
+	h1[align=right]{color:blue;}
+	input[type=password]{background-color:pink};
+	
+
+</style>
+</head>
+<body>
+	<h2>안녕하세요</h2>
+	아이디<input type="text" value="himan"><br>
+	패스워드<input type="password" value="7777"><br>
+	
+	<input type="button" value="버튼클릭!!"/>
+	<h1 align="left">안녕하세요!</h1>
+	<h1 align="center">안녕하세요!</h1>
+	<h1 align="right">안녕하세요!</h1>
+<!-- 
+
+
+
+
+ -->
+</body>
+</html>

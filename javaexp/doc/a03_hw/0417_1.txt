@@ -1,0 +1,150 @@
+### **객관식 문제 15문제 **
+
+1. **`Movie` 클래스에서 기본 생성자를 사용하면 어떤 값이 출력되는가?**
+	Movie m = new Movie();  // default 생성자를 통해서 생성.
+	class Movie{}
+	
+	Movie m = new Movie();
+	m.title,  m.director // 제목없음 감독미상 할당(초기값 설정)
+	Movie m2 = new Movie("재미있는영화","홍길동");
+	m2.title, m.director // 재미있는 영화, 홍길동  생성자를 통해서 할당된데로 처리
+	class Movie{
+		String title;
+		String director;
+		Movie(){
+			title = "제목없음";
+			director = "감독미상";
+		}
+		Movie(String title, String director){
+			this.title = title;
+			this.director = director;
+		}
+	}
+	
+	
+   # ① 제목: "제목없음", 감독: "감독미상"
+   - ② 제목: "기타", 감독: "감독미상"
+   - ③ 제목: "제목없음", 감독: "기타"
+   - ④ 오류 발생
+
+2. **HTML에서 `display: block` 속성이 적용된 요소는 어떻게 처리되는가?**
+   - ① 요소가 줄 바꿈 없이 표시된다.
+   # ② 요소가 블록 형태로 표시되어 전체 너비를 차지한다.
+   		줄바꿈, 너비와 높이를 지정, magin, padding 설정 가능..
+   - ③ 요소가 인라인 형태로 표시된다.
+   - ④ 요소가 숨겨진다.
+
+3. **`Cat(String name)` 생성자를 사용했을 때 출력되는 내용은?**
+   - ① 고양이 이름은 미정입니다.
+   # ② 고양이 이름은 나비입니다.
+   		Cat(String name){
+   			System.out.println("고양이 이름은 "+name+"입니다.");
+   		}
+   		==>
+   		Cat c1 = new Cat("나비");  		
+   - ③ 이름 없는 고양이입니다.
+   - ④ 이름을 설정할 수 없습니다.
+
+4. **`<div class="grid-container">`가 적용된 CSS에서 `grid-template-columns: repeat(3, 1fr);`는 무엇을 의미하는가?**
+   # ① 3개의 열이 동일한 너비로 배치된다.   3 : 열을 의미, 1fr 비율을 처리.. repeat() 1fr을 반복해서 3번...
+   - ② 3개의 열이 각기 다른 너비로 배치된다.
+   - ③ 3개의 열이 각기 다른 크기로 배치된다.
+   - ④ 3개의 열이 수직으로 배치된다.
+
+5. **`DeliveryBot()` 생성자에서 출력되는 값은 무엇인가?**
+   # ① 이름: "기본로봇형"
+   - ② 이름: "작업형로봇"
+   - ③ 이름: null
+   - ④ 이름: "로봇형"
+
+6. **HTML에서 `display: flex` 속성은 무엇을 설정하는가?**
+   - ① 요소를 수직 방향으로 배치한다.
+   # ② 요소들을 가로 또는 세로 방향으로 정렬한다.   	
+   - ③ 요소들이 고정된 크기로 배치된다.
+   - ④ 요소가 숨겨진다.
+
+7. **`GameCharact(String name)` 생성자를 호출한 후 출력되는 내용은 무엇인가?**
+   - ① 기본 캐릭터가 생성되었습니다.
+   # ② 홍길동 캐릭터가 생성되었습니다.
+   - ③ 이름 없는 용사가 생성되었습니다.
+   - ④ 캐릭터 이름을 설정할 수 없습니다.
+
+8. **`HamBurger` 클래스에서 `order1.printOrder()` 메서드를 호출했을 때 출력되는 값은?**
+	class HamBurger{
+		String name; // 속성 저장..필드
+		HamBurger(String name){ // 속성을 초기화할 때, 주로 사용되는 생성자.
+			this.name = name;
+		}
+		void printOrder(){ // 속성을 활용하여 기능을 처리하는 메서드
+			System.out.println("주문한 햄버거의 종류는 "+name+"입니다");
+		}
+	}
+	
+	HamBurger hb = new HamBurger("불고기맛");
+	hb.printOrder();
+
+
+   - ① 주문한 햄버거: 불고기버거
+   - ② 치즈 포함여부: 예
+   - ③ 가격: 4000
+   # ④ 모두 출력된다.
+
+9. **HTML에서 `position: absolute;` 속성을 사용할 경우 어떤 일이 발생하는가?**
+   - ① 요소가 페이지 상에서 상대적인 위치로 배치된다.
+   # ② 요소가 부모 요소 내에서 절대적인 위치로 배치된다.
+   		브라우저 화면의 전체를 기준으로 배치를 처리할 때, 사용된다.
+   - ③ 요소가 페이지 상에서 항상 고정된다.
+   - ④ 요소가 숨겨진다.
+
+10. **`Gift(String item)` 생성자에서 `item`이 "초콜릿"일 때 출력되는 값은?**
+    # ① 선물 초콜릿을 준비했어요!!
+    - ② 초콜릿 선물 준비 완료.
+    - ③ 선물 준비 완료.
+    - ④ 선물 초콜릿을 준비했어요.
+
+11. **CSS에서 `grid-template-columns: 2fr 2fr 1fr;` 속성의 의미는 무엇인가?**
+    # ① 첫 번째 열이 두 배, 두 번째 열이 두 배, 세 번째 열이 한 배 크기를 차지한다.
+    - ② 첫 번째 열이 두 배, 두 번째 열이 한 배, 세 번째 열이 두 배 크기를 차지한다.
+    - ③ 모든 열이 동일한 너비로 나뉘어 있다.
+    - ④ 모든 열이 자동으로 크기가 결정된다.
+
+12. **`PopcornShop` 클래스에서 `PopcornShop(String size)` 생성자를 사용했을 때 출력되는 내용은?**
+		1 PopcornShop()
+		2 PopcornShop(String size)
+		3 PopcornShop(String size, String flavor)
+		#4 PopcornShop(String flavor, String size) 상단에 문자열, 문자열 선언되어 있기에
+												불가능/에러 오버로딩 규칙에 위배
+		5 PopcornShop(String flavor, int pay)
+		main()
+		new PopcornShop(); ==> 1
+		new PopcornShop("X"); ==> 2
+		new PopcornShop("X", "딸기맛"); ==> 3?
+		new PopcornShop("딸기맛", "X"); ==> 4?(X)
+		new PopcornShop("딸기맛", 30000);  ==> 5
+    # ① 사이즈 X 팝콘을 주문하셨습니다.
+    - ② 팝콘 가게에 오신 걸 환영합니다.
+    - ③ 사이즈와 맛을 입력하세요.
+    - ④ 사이즈 X 맛 X 팝콘을 주문하셨습니다.
+
+13. **HTML에서 `<a href="https://example.com">Link</a>`와 같은 앵커 태그를 사용할 때,
+	 링크가 새 탭에서 열리도록 하려면 어떤 속성을 추가해야 하는가?**
+    # ① target="_blank"
+    - ② target="_self"  현재패이지
+    - ③ href="_blank"
+    - ④ rel="noopener"
+    
+    <iframe name="frame01">
+    <a href="" target="frame01"> 해당 프레임에서 화면이 로딩되게 처리...
+    
+
+14. **`House(int rooms)` 생성자를 호출할 때 출력되는 내용은 무엇인가?**
+    # ① 방이 X개인 집이 지어졌습니다.
+    - ② 집이 지어졌습니다.
+    - ③ 집 색상: X
+    - ④ 방이 없어진 집이 지어졌습니다.
+
+15. **CSS에서 `position: fixed;` 속성이 적용된 요소는 어디에 배치되는가?**
+    - ① 화면에서 스크롤을 따라 이동한다.
+    # ② 화면에 고정되어 움직이지 않는다.
+    - ③ 부모 요소 내에서 고정된다.
+    - ④ 화면에서 숨겨진다.

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# display 속성을 통한 컨테이너 설정
+1. display는 기본 요소객체를 통해서 block, inline, inline-block 속성
+	을 설정하여 정렬과 줄바꿈을 처리하는 기능과 함께 넓이와 폭에 대한 설정도
+	가지고 있다.
+2. 추가적으로 none 속성값을 통해 요소를 화면에서 숨기고 레이아웃도 제거하는 기능
+	을 가지고 있다..
+3. 위 내용은 기본적인 속성값인데 이에  더하여 컨테이너 배치를 할 수 있는
+	속성(flex, grid, table)을 가지고 있다.	
+	
+# Grid Layout
+1. 웹 페이지를 행(row)와 열(column) 단위로 나누어, 정렬과 배치가 훨씬 더 정밀하고 직관적으로 가능한 최신 레이아웃
+	방식을 말한다. 특히 반복되는 카드 형태나 표 형태의 레이아웃을 구성할 때 강력하게 활용된다.
+2. 기본 속성
+	1) display:grid;  해당 요소를 grid 레이아웃 컨테이너로 지정
+	2) grid-template-columns 열의 갯수 및 각 열의 너비 설정
+	3) fr 가용 가능한 공간 비율을 설정하는 단위(fraction의 약자)
+	4) gap 행과 열 사이의 간격 설정
+*/
+.grid-container{
+	display:grid;
+	grid-template-columns:repeat(2,1fr); /*2열, 동일한 너비*/
+	gap:10px;
+	padding:10px;
+	background-color:lightgray;
+}
+.grid-container1{
+	display:grid;
+	grid-template-columns:repeat(3,1fr); /*3열, 동일한 너비*/
+	gap:10px;
+	padding:10px;
+	background-color:lightgray;
+}
+.grid-item{
+	background-color:lightcoral;
+	padding:20px;
+	text-align:center;
+}
+.prod-container{
+	display:grid;
+	grid-template-columns:2fr 2fr 1fr; /*3열(2:2:1)*/
+	gap:5px;
+	padding:20px;
+	background-color:yellowgreen;
+}
+.prod{
+	background-color:blueviolet;
+	color:yellow;
+	padding:20px;
+	text-align:center;
+}
+.box-container{
+	display:grid;
+	grid-template-columns:1fr 1fr; /*2열 1:1 비율*/
+	gap:10px;
+	padding:10px;
+	background-color:aqua;
+}
+.box{
+	background-color:purple;
+	color:pink;
+	padding:20px;
+	text-align:center;
+}
+/*
+ex) 4개의 박스를 2행 2열로 나누어 형태로 grid 레이아웃을 활용하여 출력해보세요..
+    각, 박스는 숫자 텍스트(1,2,3,4 포함..)
+*/
+</style>
+</head>
+<body>
+	<div class="box-container">
+		<div class="box">Box 1</div>
+		<div class="box">Box 2</div>
+		<div class="box">Box 3</div>
+		<div class="box">Box 4</div>
+	</div>
+	<div class="prod-container">
+		<div class="prod">사과</div>
+		<div class="prod">3000원</div>
+		<div class="prod">2개</div>
+		<div class="prod">바나나</div>
+		<div class="prod">4000원</div>
+		<div class="prod">4개</div>		
+		<div class="prod">오렌지</div>
+		<div class="prod">2500원</div>
+		<div class="prod">7개</div>		
+	</div>
+
+	<div class="grid-container">
+		<div class="grid-item">아이템 1</div>
+		<div class="grid-item">아이템 2</div>
+		<div class="grid-item">아이템 3</div>
+		<div class="grid-item">아이템 4</div>
+	</div>
+	<div class="grid-container1">
+		<div class="grid-item">아이템 1</div>
+		<div class="grid-item">아이템 2</div>
+		<div class="grid-item">아이템 3</div>
+		<div class="grid-item">아이템 4</div>
+		<div class="grid-item">아이템 5</div>
+		<div class="grid-item">아이템 6</div>
+	</div>	
+</body>
+</html>

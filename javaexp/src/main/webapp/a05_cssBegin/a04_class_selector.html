@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  ctrl+space : 자동코드 선택 -->
+<style type="text/css">
+	/* 
+	# 클래스 선택자 예제
+	.클래스명{속성:속성값;}
+	
+	# 클래스 선택자
+	1. 점(.)으로 시작하는 이름의 선택자
+	2. html태그에서는 특정한 속성인 class 속성으로 지정한 선택자로 css 속성과 속성값을 설정할 수 있다.
+		class 속성은 태그에 종속되지 않고, 해당 class가 선언된 속성은 모두가 설정이 가능하다.
+	3. 기본형식
+		1) 태그 선언
+			태그 class="클래스명1"
+		2) css 선언
+			.클래스명1{속성:속성값;}
+	4. 위 클래스는 여러가지 다른 태그에 종속적이지 않고, 속성으로 class를 선언해서 사용할 뿐만 아니라,
+		css로 상단에 선언한 클래스가 여러 개로 하나의 요소에 적용되는 것을 볼 수 있다.
+		style 선언
+		.클래스명2{속성:속성값;}
+		.클래스명3{속성:속성값;}
+		body태그
+		<태그 class="클래스명1 클래스명2 클래스명3"
+		하나의 태그에 상단에 선언된 여러 클래스들이 공백으로 구분하여 적용될 수 있다.		
+	*/
+	.cls01{color:red;}
+	/* ex) .cls02로 배경색상으로 yellow로 설정하여, 아래 태그에 class="cls02"로 선언하여 적용하세요.*/
+	.cls02{background-color:yellow;}
+	/* ex) .cls03로 글자색(blue)과 배경색상(orange)로 설정하여 아래 태그에 속성으로 추가하여 출력되게 하세요*/
+	.cls03{color:blue;background-color:orange;}
+	
+</style>
+</head>
+<body>
+	<h1>안녕하세요1</h1>
+	<h1 class="cls03">안녕하세요1</h1>
+	<h1>안녕하세요1</h1>
+	<h1 class="cls03">안녕하세요1</h1>
+	<h1>안녕하세요1</h1>
+	<h1>안녕하세요1</h1>
+	<h1 class="cls03">안녕하세요1</h1>
+	<h1>안녕하세요1</h1>
+	<h2 class="cls01">안녕하세요2</h2>
+	<h1 class="cls02">안녕하세요3</h1>
+	<h3 class="cls02">안녕하세요4</h3>
+	<h4 class="cls01">안녕하세요5</h4>
+	<h4  class="cls02">안녕하세요6</h4>
+	<h5 class="cls01">안녕하세요7</h5>
+	<table width="100" height="100" border>
+		<tr><!-- 테이블의 구성요소로 table row 행단위를 먼저 만들고 -->
+			<td class="cls01">테이블</td>  <!-- 테이블의 구성요소 table data 열단위를 만들다. -->
+		</tr>
+	</table>
+	
+	
+</body>
+</html>

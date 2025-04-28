@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 폰트의 모양
+1. font-family : 주로 알고 있는 폰트의 서체를 의미한다.
+	속성값으로 궁서체, 고딕체, Arial, Jokerman 등 여러가지 글씨체를 처리해준다.
+	h1{font-family:굴림체;}
+	p{
+		font-fmaily:Arial, sans-serif;
+	} ==> 이 경우는 먼저 Arial 폰트를 사용하고, 이 폰트가 없을 경우 시스템 기본 sans-serif폰트를 대체로
+		사용처리하는 것을 말한다.
+	
+2. font-style: 포트 자체에 대한 스타일을 지정하는 것을 의미한다.	
+	italic : 기울임체, oblique:기울임체-일부 브라우저에서는 italic과 비슷함
+	normal : 기본 폰트 스타일
+ps) font-style은 텍스트의 기울임을 지정하고, font-family는 사용할 폰트의 종류를
+	설정하는것에 주로 사용된다.	
+3. font-weight : 폰트의 굵기를 지정하는 것
+	noraml : 보통 굵기, bold :  굵은 텍스트, bolder : 더 굵은 텍스트, 
+	light : 얇은 텍스트, lighter : 더 얇은 텍스트,  
+	굵기를 700 으로 숫자로 표현할 수 있다. 700은 bold와 동일
+4. font-size: 폰트의 크기를 지정
+	절대 크기(pt, px), 상대 크기(%,em), 키워드값(small, large, xx-large)등으로 설정할 수 있다.
+5. 혼합 속성 사용
+	위 속성을 한번에 사용하는 것을 말한다.
+	font : italic bold 20px consolas, sans-serif;
+	font속성으로 기울임으로 굵은체로 크기는 20px로 consolas 글자체를 하되 없으면 sans-serif 속성으로
+	지정한다.
+*/
+</style>
+</head>
+<body>
+	<h2>폰트 설정</h2>
+	<hr>
+	<p style="font-weight:900;">font-weight:900</p>
+	<p style="font-weight:100;">font-weight:100</p>
+	<p style="font-style:italic;">font-style:italic</p>
+	<p style="font-style:oblique;">font-style:oblique</p>
+	<p style="font-size:1.5em;">font-size:1.5em</p>
+	<p style="font-family:궁서체;">font-family:궁서체</p>
+	<p style="font:italic bold 20px consolas, sans-serif">
+		font:italic bold 20px consolas, sans-serif</p>
+	<!-- 
+	ex1) 웹페이지에서 "우주탐험"이라는 제목을 스타일링하세요. 제목은 기울임체와
+	굵은 텍스트로 표시되며, 폰트 크기는 30px, 폰트는 Arial로 설정.
+	그리고, Arial가 없다면 sans-serif 폰트가 사용되도록 하세요.
+	
+	 -->
+	<h1 style="font-family:Arial, sans-serif;font-style:italic;
+		font-weight:bold;font-size:30px;">우주 탐험</h1>	 
+	<!-- 
+	ex2) 고양이 이야기 본문 텍스트는 굴림과 기본 굵기로 표시, 텍스트의 크기는 16px
+	폰트 스타일은 기본 스타일로 설정.
+	 -->		
+	<p style="font-family:굴림체;font-style:normal;
+				font-weight:normal;font-size:16px;">고양이 이야기</p>	 
+	 
+		
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- 
+	ctrl+m(전체화면/레이어포함화면)
+
+# 표만들기 table
+1. 표는 웹화면에서 데이터를 리스트할 때, 주로 많이 활용되는 태그이다.
+	주로 검색 화면을 통해서 데이터를 행/열로 출력하여, 현황을 확인할 때 주로 사용된다.
+2. 표만드는데 사용되는 태그
+	1) 표는 계층구조로 각 레벨별로 태그가 구성되어 있다.
+	2) 생략 가능한 태그도 있고, 필수 태그도 있다.
+		생략 가능 태그 - caption, head, tbody, tfoot
+		반드시 포함되어야할 태그 - tr(행), td(데이터-열), th(타이틀-열)
+	3) 테이블 구성 태그
+		table 속성 border : 테두리/셀테두리 설정, width="넓이" height="높이"
+		# css 속성 : 기본태그에 없는 확장된 속성
+			style : 적용할 태그 위에 선언하며 하단에 태그에 적용
+		table : 표 전체를 담는 컨테이너(1레벨 태그)
+			caption : 표 제목 설정 태그(2레벨 태그-생략가능)
+			thead : 헤딩 셀 그룹 구성 태그(2레벨 태그-생략가능)
+			tbody : 데이터 셀 그룹 구성 태그(2레벨 태그-생략가능)
+			tfoot : 바닥 셀 그룹 구성 태그(2레벨 태그-생략가능)
+				tr : 행, 여러 td th 포함되는 태그 테이블의 행이라는 의미(3레벨)
+					th : 테이블에서 타이틀을 나타날 때, 사용되는 태그(4레벨)
+						기본 문자열이 진하게 중앙정렬 처리된다.
+					td : 테이블에서 주로 출력할 데이터를 나타날 때, 사용되는 태그(4레벨)
+ -->
+<body>
+<table width="50%" align="center" border="3">
+<!-- 테이블의 2중선을 기본적으로 출력하기 위해 border속성 선언 
+	변경후, ctrl+s,  브라우저 화면에서 f5
+	
+	thead
+	tbody
+	tfoot
+	 생략이 가능하다. 하지만 없어지는 것이 아니고, 
+	 table
+	 	tr 		==> tbody를 기본적으로 가지고 있다.(주의)
+	 		td
+	 		
+-->
+	<caption>#학생 성적표#</caption>
+	<thead>
+		<tr> <!--  tr : table row 테이블의 행 -->
+			<th>이름</th><th>html</th><th>css</th>
+			<!-- tr 밑에 th(table head), td(table data)  
+			테이블의 열 -->
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>홍길동</td><td>80</td><td>90</td>
+		</tr>
+		<tr>
+			<td>김길동</td><td>70</td><td>90</td>
+		</tr>
+		<tr>
+			<td>신길동</td><td>60</td><td>90</td>
+		</tr>				
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>합계</th><td>210</td><td>270</td>
+		</tr>
+	</tfoot>	
+</table> 
+<!-- 
+2 x 2 테이블 생성
+table
+	tr
+		td td
+	tr
+		td td
+		
+1 x 2 테이블
+table
+	tr
+		td td
+2 x 3 테이블
+table
+	tr
+		td 	td	td
+	tr				
+		td	td 	td
+ -->
+<table width="300" height="200" border>
+	<tr>
+		<td>1행1열</td><td>1행2열</td><td>1행3열</td>
+	</tr>
+	<tr>
+		<td>2행1열</td><td>2행2열</td><td>2행3열</td>
+	</tr>
+		
+</table>
+<!-- 
+ex) 1(행) x 3(열) 테이블 생성, 3x3, 4x2, 2X1   테이블 만들기.. 
+ -->
+<h2>1(행) x 3(열)</h2>
+<table width="300" height="100" border>
+	<tr>
+		<td>1행1열</td><td>1행2열</td><td>1행3열</td>
+	</tr>
+</table>
+<h2>3(행) x 3(열)</h2>
+<table width="300" height="300" border>
+	<tr>
+		<td>1행1열</td><td>1행2열</td><td>1행3열</td>
+	</tr>
+	<tr>
+		<td>2행1열</td><td>2행2열</td><td>2행3열</td>
+	</tr>
+	<tr>
+		<td>3행1열</td><td>3행2열</td><td>3행3열</td>
+	</tr>
+</table>
+<h2>4(행) x 2(열)</h2>
+<table width="200" height="400" border>
+	<tr>
+		<td>1행1열</td><td>1행2열</td>
+	</tr>
+	<tr>
+		<td>2행1열</td><td>2행2열</td>
+	</tr>
+	<tr>
+		<td>3행1열</td><td>3행2열</td>
+	</tr>
+	<tr>
+		<td>4행1열</td><td>4행2열</td>
+	</tr>	
+</table>
+<h2>2(행) x 1(열)</h2>
+<table width="100" height="200" border>
+	<tr>
+		<td>1행1열</td>
+	</tr>
+	<tr>
+		<td>2행1열</td>
+	</tr>
+</table>
+<style>
+	.tab01 tr{ height:50%;}
+</style>
+<h2>2(행)x 2(열)</h2>
+<table width="200" height="200" class="tab01" border>
+	<col width="50%">
+	<col width="50%"><!-- 넓이 간격을 정확하게 설정할 때.. -->
+	<tr>
+		<td>1행1열----------</td>
+		<td>1행2열</td>
+	</tr>
+	<tr>
+		<td>2행1열</td>	
+		<td>2행2열</td>	
+	</tr>
+</table>
+
+</body>
+</html>

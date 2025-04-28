@@ -1,0 +1,194 @@
+## ✅ [1] 주관식 개념 정리 문제 10문제
+
+1. **자바에서 생성자(Constructor)의 주요 목적은 무엇이며, 일반 메서드와 어떤 차이가 있나요?**
+
+2. **`this` 키워드는 자바 클래스 내에서 어떤 역할을 하나요? 실제 예시를 들어 설명하세요.**
+
+3. **자바에서 메서드에 매개변수를 사용하는 이유는 무엇인가요?**
+
+4. **자바 클래스 `ObBus`에서 승객 수를 누적하는 방식은 어떤 원리로 동작하나요?**
+
+5. **SQL의 `INSERT INTO`문에서 `VALUES`절은 어떤 역할을 하나요? 예시와 함께 설명하세요.**
+
+6. **SQL에서 날짜 데이터를 입력할 때 `TO_DATE()` 함수를 사용하는 이유는 무엇인가요?**
+
+7. **`UPDATE` 문을 사용할 때 `WHERE`절을 생략하면 어떤 일이 발생하나요?**
+
+8. **DELETE 문에서 모든 데이터를 삭제하지 않고 일부만 삭제하려면 어떤 절이 반드시 필요하며, 그 이유는 무엇인가요?**
+
+9. **SQL 테이블을 만들 때 각 컬럼의 자료형을 적절히 설정해야 하는 이유를 설명하세요.**
+
+10. **자바의 `speedUp(int speed)`와 같은 메서드를 활용할 때, 인스턴스 변수에 어떤 방식으로 영향을 주는지 설명하세요.**
+
+
+
+
+### 🧙‍♂️ Java 실습 문제 
+
+1. 🧹 **청소 로봇 경로 추적 시스템**  
+   `CleanBot` 클래스를 만들고, 필드로 `botName`, `cleanArea`, `dustLevel`을 포함하세요.  
+   - 생성자를 통해 이름과 청소구역을 초기화하고  
+   - `clean()` 메서드는 먼지 레벨을 감소시키며 출력  
+   - `reportStatus()`는 현재 상태를 출력  
+   📌 예시 실행: `"클린봇A"`가 `"도서관"`에서 먼지 30레벨을 청소 후 상태 출력
+
+2. 🐦 **드론 배달 시스템**  
+   `DroneDelivery` 클래스를 만들고 `droneId`, `location`, `deliveryCount`를 필드로 갖습니다.  
+   - 생성자는 `droneId`, `location` 초기화  
+   - `deliver()` 메서드는 배달 수를 증가시키며 메시지 출력  
+   - `status()` 메서드는 현재 위치와 누적 배달 수 출력  
+   📌 예시 실행: `"드론X"`가 `"강릉"`에서 3건 배달 후 상태 출력
+
+3. 🍽 **요리 대회 참가 시스템**  
+   `Chef` 클래스를 만들고 `name`, `specialDish`, `score` 필드 포함  
+   - 생성자는 이름과 요리 이름 설정  
+   - `updateScore(int point)`로 점수를 증가시키고  
+   - `showChefInfo()`로 상태 출력  
+   📌 예시 실행: `"한식왕 백종원"`이 `갈비찜`으로 점수 90점 얻은 결과 출력
+
+### 🧙‍♀️ Oracle SQL 실습 문제 (5문제)
+
+4. 📚 **마법 도서 대출 관리 시스템**  
+   `MAGIC_BOOK_LOG` 테이블을 생성하고 다음 필드 포함:  
+   `BOOK_ID`, `STUDENT_NAME`, `BOOK_TITLE`, `BORROW_DATE`, `RETURN_STATUS`  
+   ➤ 데이터를 다음과 같이 입력하세요:  
+   `(1, '엘리자베스', '마법약의 역사', TO_DATE('2025-05-01','YYYY-MM-DD'), '미반납')`
+
+5. 🚀 **우주선 정비 일정 관리 시스템**  
+   `SHIP_MAINTENANCE` 테이블을 만들고 `SHIP_ID`, `SHIP_NAME`, `LAST_CHECK`, `STATUS` 컬럼 포함  
+   ➤ `2025-04-30`에 `"스타플라이어"`가 `"정상"`으로 마지막 점검되었음을 입력하세요
+
+
+
+/* ✅ [1] 주관식 개념 정리 문제 해설 */
+
+1. 생성자의 목적은 객체 생성 시 필드를 초기화하는 것. 일반 메서드는 호출 시 동작하지만 생성자는 객체가 생성될 때 자동으로 실행됨.
+
+2. `this`는 현재 객체를 참조하는 키워드. 필드와 매개변수 이름이 같을 때 구분하기 위해 사용됨.
+   예: `this.name = name;` // 왼쪽은 필드, 오른쪽은 매개변수
+
+3. 매개변수는 메서드가 외부로부터 데이터를 받아 처리할 수 있게 해줌. 다양한 입력에 유연하게 대응 가능함.
+
+4. `ObBus` 클래스의 `addPass(int)` 메서드에서 `this.passCnt += passCnt;`로 누적 처리됨. `this.passCnt`는 필드, 오른쪽 `passCnt`는 매개변수.
+
+5. `VALUES`는 실제 데이터를 넣는 부분. 예: `INSERT INTO DEPT01 VALUES(50, '인사', '서울');`
+
+6. 문자열을 날짜형식으로 변환하기 위해 `TO_DATE()` 사용. `TO_DATE('2025-04-01','YYYY-MM-DD')` 등.
+
+7. `WHERE`절 없이 UPDATE 하면 전체 행이 수정됨. 대규모 데이터 변경 위험.
+
+8. DELETE문에서 일부 삭제를 원하면 `WHERE`절로 조건 지정. 예: `DELETE FROM EMP WHERE DEPTNO=10;`
+
+9. 자료형 설정은 데이터의 크기, 형식 제어와 저장 공간 최적화, 오류 방지 목적.
+
+10. `speedUp(int speed)`는 인스턴스 필드 `this.speed`에 매개변수만큼 더해 누적 처리됨.
+
+/* ✅ [2] Java 실습 문제 - 풀이 */
+
+class CleanBot {
+    String botName;
+    String cleanArea;
+    int dustLevel;
+
+    public CleanBot(String botName, String cleanArea) {
+        this.botName = botName;
+        this.cleanArea = cleanArea;
+        this.dustLevel = 100;
+    }
+
+    void clean(int amount) {
+        dustLevel -= amount;
+        System.out.println(botName + "가 " + cleanArea + "를 청소하여 먼지 " + amount + " 감소!");
+    }
+
+    void reportStatus() {
+        System.out.println("[상태] " + botName + ": " + cleanArea + " | 먼지레벨: " + dustLevel);
+    }
+}
+
+class DroneDelivery {
+    String droneId;
+    String location;
+    int deliveryCount;
+
+    public DroneDelivery(String droneId, String location) {
+        this.droneId = droneId;
+        this.location = location;
+        this.deliveryCount = 0;
+    }
+
+    void deliver() {
+        deliveryCount++;
+        System.out.println(droneId + "가 " + location + "에서 배달 1건 수행");
+    }
+
+    void status() {
+        System.out.println("드론 ID: " + droneId + ", 위치: " + location + ", 배달 수: " + deliveryCount);
+    }
+}
+
+class Chef {
+    String name;
+    String specialDish;
+    int score;
+
+    public Chef(String name, String specialDish) {
+        this.name = name;
+        this.specialDish = specialDish;
+        this.score = 0;
+    }
+
+    void updateScore(int point) {
+        score += point;
+        System.out.println(name + " 요리사, " + specialDish + " 점수 " + point + "점 획득!");
+    }
+
+    void showChefInfo() {
+        System.out.println("[요리사 정보] 이름: " + name + ", 요리: " + specialDish + ", 점수: " + score);
+    }
+}
+
+/* ✅ [3] SQL 실습 문제 - 테이블 생성, 조회, 등록, 수정, 삭제 */
+
+-- 1. 마법 도서 대출 관리 시스템
+CREATE TABLE MAGIC_BOOK_LOG(
+    BOOK_ID NUMBER,
+    STUDENT_NAME VARCHAR2(50),
+    BOOK_TITLE VARCHAR2(100),
+    BORROW_DATE DATE,
+    RETURN_STATUS VARCHAR2(20)
+);
+
+-- 데이터 등록
+INSERT INTO MAGIC_BOOK_LOG VALUES(1, '엘리자베스', '마법약의 역사', TO_DATE('2025-05-01','YYYY-MM-DD'), '미반납');
+
+-- 전체 조회
+SELECT * FROM MAGIC_BOOK_LOG;
+
+-- 상태 수정
+UPDATE MAGIC_BOOK_LOG SET RETURN_STATUS = '반납 완료' WHERE BOOK_ID = 1;
+
+-- 삭제
+DELETE FROM MAGIC_BOOK_LOG WHERE BOOK_ID = 1;
+
+-- 2. 우주선 정비 일정 관리
+CREATE TABLE SHIP_MAINTENANCE(
+    SHIP_ID NUMBER,
+    SHIP_NAME VARCHAR2(50),
+    LAST_CHECK DATE,
+    STATUS VARCHAR2(20)
+);
+
+-- 등록
+INSERT INTO SHIP_MAINTENANCE VALUES(1, '스타플라이어', TO_DATE('2025-04-30','YYYY-MM-DD'), '정상');
+
+-- 조회
+SELECT * FROM SHIP_MAINTENANCE;
+
+-- 정비상태 수정
+UPDATE SHIP_MAINTENANCE SET STATUS = '점검 필요' WHERE SHIP_NAME = '스타플라이어';
+
+-- 삭제
+DELETE FROM SHIP_MAINTENANCE WHERE SHIP_NAME = '스타플라이어';
+
+

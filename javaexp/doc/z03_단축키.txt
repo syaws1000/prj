@@ -1,0 +1,16 @@
+ctrl+a : 전체 선택
+ctrl+c : 복사
+ctrl+v : 붙여넣기
+ctrl + alt + 화살표아래 : 줄복사
+ctrl + z : 명령 취소
+ctrl + f11 : 실행 단축키
+ctrl + s : 저장
+
+ctrl + m : 전체화면/레이어화면	
+ctrl + (+/-) : 글자 확대/축소
+window ==> perspective ==> reset perspective  : 화면 초기 설정
+sysout + ctrl + space : System.out.println(); 자동생성
+ctrl+space : 자동코드 선택
+ctrl+shift+o : 자동 내장객체 import 선언(상단)
+ 	
+		

@@ -1,0 +1,359 @@
+### 주관식 문제 (자바, SQL, 객체지향 개념)
+
+1. **자바 생성자에서 `this` 키워드의 사용 목적에 대해 설명하세요.**
+   
+2. **SQL에서 `TO_DATE()` 함수의 역할과 사용 방법에 대해 설명하세요.**
+
+3. **`INSERT INTO` 문에서 `VALUES` 절의 역할에 대해 설명하세요.**
+
+4. **자바 객체지향 프로그래밍에서 `클래스`와 `객체`의 차이를 설명하세요.**
+
+5. **SQL에서 `UPDATE` 문을 사용할 때 주의해야 할 점을 설명하세요.**
+
+6. **자바에서 메서드와 생성자의 차이를 설명하세요.**
+
+7. **SQL에서 `DELETE` 문을 사용할 때, `WHERE` 절이 중요한 이유를 설명하세요.**
+
+
+---
+
+### 재미있는 실습 문제 (이야기 기반)
+
+
+1. **도서관 책 대출 시스템**
+
+   도서관에서 책을 대출하고 반납하는 시스템을 구현하세요. `Book` 클래스를 사용하여 책 정보를 관리하고, 대출 및 반납 기능을 추가하세요. 사용자는 책을 대출할 때, 책이 대출 가능한 상태인지 확인할 수 있어야 합니다.
+
+
+2. **학생 관리 시스템**
+
+   **목표**: 학생의 이름, 나이, 전공을 관리하는 시스템을 만들고, 이를 Oracle SQL로 저장하고 조회합니다.
+   
+   - **자바 구현**: `Student` 클래스를 만들고, 학생 정보를 저장하는 기능을 구현합니다.
+   - **Oracle SQL**: 학생 정보를 저장할 테이블을 생성하고, 조회 및 수정 작업을 수행합니다.
+
+
+3. **영화 예약 시스템**
+   **목표**: 영화의 제목, 감독, 예약 상태를 관리하는 시스템을 만들고, 예약 정보를 Oracle SQL로 저장하고 조회합니다.
+
+   - **자바 구현**: `Movie` 클래스와 `Reservation` 클래스를 만들어 영화 예약 정보를 관리합니다.
+   - **Oracle SQL**: 영화 예약 정보를 저장할 테이블을 생성하고, 예약 상태를 조회하고 업데이트하는 SQL 문을 작성합니다.
+
+
+
+
+### 주관식 문제 정답
+
+1. **자바 생성자에서 `this` 키워드의 사용 목적에 대해 설명하세요.**
+   
+   **정답**: `this` 키워드는 현재 객체를 참조하는데 사용됩니다. 주로 생성자나 메서드 내에서 필드 이름과 매개변수 이름이 같을 때, 매개변수를 구분하기 위해 사용됩니다. 또한, `this`는 현재 객체의 속성에 접근하거나 다른 메서드를 호출할 때 유용합니다.
+   
+   **예시**:
+   ```java
+   class Car {
+       String model;
+       
+       Car(String model) {
+           this.model = model; // this를 사용해 필드와 매개변수를 구분
+       }
+   }
+   ```
+
+2. **SQL에서 `TO_DATE()` 함수의 역할과 사용 방법에 대해 설명하세요.**
+
+   **정답**: `TO_DATE()` 함수는 문자열을 날짜 형식으로 변환하는 함수입니다. 이 함수를 사용하면 문자열로 저장된 날짜를 `DATE` 데이터 타입으로 변환하여 날짜 연산 등을 할 수 있습니다. `TO_DATE()` 함수는 날짜 문자열과 날짜 형식을 매개변수로 받습니다.
+   
+   **예시**:
+   ```sql
+   SELECT TO_DATE('2025-04-01', 'YYYY-MM-DD') FROM DUAL;
+   ```
+
+3. **`INSERT INTO` 문에서 `VALUES` 절의 역할에 대해 설명하세요.**
+
+   **정답**: `VALUES` 절은 `INSERT INTO` 문에서 지정한 테이블에 실제로 데이터를 삽입할 때 사용됩니다. `VALUES` 뒤에 오는 값들은 테이블의 각 컬럼에 맞게 순서대로 입력됩니다.
+   
+   **예시**:
+   ```sql
+   INSERT INTO EMPLOYEE (EMPLOYEE_ID, NAME, SALARY) VALUES (1, '홍길동', 5000);
+   ```
+
+4. **자바 객체지향 프로그래밍에서 `클래스`와 `객체`의 차이를 설명하세요.**
+
+   **정답**: `클래스`는 객체를 생성하기 위한 설계도입니다. 클래스는 속성(필드)과 동작(메서드)을 정의하고, 이를 바탕으로 객체를 생성할 수 있습니다. `객체`는 클래스에서 정의한 속성과 동작을 실제로 구현한 인스턴스입니다. 즉, 클래스를 이용해 여러 개의 객체를 생성할 수 있습니다.
+   
+   **예시**:
+   ```java
+   class Car {
+       String model;
+       
+       void drive() {
+           System.out.println("Driving " + model);
+       }
+   }
+   // 객체 생성
+   Car car1 = new Car();
+   car1.model = "Sedan";
+   car1.drive();
+   ```
+
+5. **SQL에서 `UPDATE` 문을 사용할 때 주의해야 할 점을 설명하세요.**
+
+   **정답**: `UPDATE` 문을 사용할 때는 반드시 `WHERE` 절을 사용하여 조건을 명확히 지정해야 합니다. `WHERE` 절을 생략하면 테이블의 모든 데이터가 수정될 수 있습니다. 또한, `UPDATE` 문을 사용할 때는 데이터의 정확성을 확인해야 하며, 필요한 경우 트랜잭션을 사용하여 롤백할 수 있는 환경을 준비해야 합니다.
+   
+   **예시**:
+   ```sql
+   UPDATE EMPLOYEE SET SALARY = 6000 WHERE EMPLOYEE_ID = 1;
+   ```
+
+6. **자바에서 메서드와 생성자의 차이를 설명하세요.**
+
+   **정답**: 생성자는 클래스의 인스턴스를 생성할 때 호출되는 특수한 메서드로, 객체의 초기화 작업을 담당합니다. 생성자는 반환값이 없으며, 클래스 이름과 동일한 이름을 가집니다. 반면, 메서드는 객체의 동작을 정의하는 함수로, 반환값이 있을 수 있으며 호출할 때 특정 작업을 수행합니다.
+   
+   **예시**:
+   ```java
+   class Car {
+       String model;
+
+       // 생성자
+       Car(String model) {
+           this.model = model;
+       }
+       
+       // 메서드
+       void drive() {
+           System.out.println("Driving " + model);
+       }
+   }
+   ```
+
+7. **SQL에서 `DELETE` 문을 사용할 때, `WHERE` 절이 중요한 이유를 설명하세요.**
+
+   **정답**: `DELETE` 문에서 `WHERE` 절을 사용하지 않으면 테이블에 있는 모든 데이터가 삭제됩니다. `WHERE` 절을 사용하면 특정 조건에 맞는 데이터만 삭제할 수 있습니다. 따라서 `WHERE` 절을 생략하면 원하지 않는 데이터가 삭제되는 위험이 발생할 수 있습니다.
+   
+   **예시**:
+   ```sql
+   DELETE FROM EMPLOYEE WHERE EMPLOYEE_ID = 1;
+   ```
+
+---
+
+### 재미있는 실습 문제 (이야기 기반)
+
+### 1. **도서관 책 대출 시스템**
+
+**목표**: 도서관에서 책을 대출하고 반납하는 시스템을 구현하세요. `Book` 클래스를 사용하여 책 정보를 관리하고, 대출 및 반납 기능을 추가하세요. 사용자는 책을 대출할 때, 책이 대출 가능한 상태인지 확인할 수 있어야 합니다.
+
+**자바 구현**:
+```java
+class Book {
+    String title;
+    String author;
+    boolean isAvailable; // 책이 대출 가능한지 여부
+
+    Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.isAvailable = true; // 기본적으로 대출 가능
+    }
+
+    void borrow() {
+        if (isAvailable) {
+            System.out.println("책을 대출했습니다.");
+            isAvailable = false;
+        } else {
+            System.out.println("책이 이미 대출되었습니다.");
+        }
+    }
+
+    void returnBook() {
+        System.out.println("책을 반납했습니다.");
+        isAvailable = true;
+    }
+}
+
+public class LibrarySystem {
+    public static void main(String[] args) {
+        Book book = new Book("자바의 정석", "홍길동");
+        book.borrow(); // 대출
+        book.returnBook(); // 반납
+    }
+}
+```
+
+**Oracle SQL 처리**:
+
+1. **테이블 생성**:
+```sql
+CREATE TABLE BOOK (
+    BOOK_ID NUMBER PRIMARY KEY,
+    TITLE VARCHAR2(100),
+    AUTHOR VARCHAR2(100),
+    IS_AVAILABLE VARCHAR2(3) DEFAULT 'YES' -- 대출 가능 여부 (YES/NO)
+);
+```
+
+2. **책 데이터 삽입**:
+```sql
+INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, IS_AVAILABLE) VALUES (1, '자바의 정석', '홍길동', 'YES');
+INSERT INTO BOOK (BOOK_ID, TITLE, AUTHOR, IS_AVAILABLE) VALUES (2, 'SQL 기본서', '김길동', 'YES');
+```
+
+3. **책 대출 및 반납 (예약 상태 변경)**:
+```sql
+-- 대출
+UPDATE BOOK SET IS_AVAILABLE = 'NO' WHERE BOOK_ID = 1;
+
+-- 반납
+UPDATE BOOK SET IS_AVAILABLE = 'YES' WHERE BOOK_ID = 1;
+```
+
+4. **대출 가능한 책 조회**:
+```sql
+SELECT * FROM BOOK WHERE IS_AVAILABLE = 'YES';
+```
+
+---
+
+### 2. **학생 관리 시스템**
+
+**목표**: 학생의 이름, 나이, 전공을 관리하는 시스템을 만들고, 이를 Oracle SQL로 저장하고 조회합니다.
+
+**자바 구현**:
+```java
+class Student {
+    String name;
+    int age;
+    String major;
+
+    Student(String name, int age, String major) {
+        this.name = name;
+        this.age = age;
+        this.major = major;
+    }
+    
+    void displayInfo() {
+        System.out.println("이름: " + name + ", 나이: " + age + ", 전공: " + major);
+    }
+}
+
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+        Student student = new Student("홍길동", 22, "컴퓨터공학");
+        student.displayInfo();
+    }
+}
+```
+
+**Oracle SQL 처리**:
+
+1. **테이블 생성**:
+```sql
+CREATE TABLE STUDENT (
+    STUDENT_ID NUMBER PRIMARY KEY,
+    NAME VARCHAR2(100),
+    AGE NUMBER,
+    MAJOR VARCHAR2(100)
+);
+```
+
+2. **학생 데이터 삽입**:
+```sql
+INSERT INTO STUDENT (STUDENT_ID, NAME, AGE, MAJOR) VALUES (1, '홍길동', 22, '컴퓨터공학');
+INSERT INTO STUDENT (STUDENT_ID, NAME, AGE, MAJOR) VALUES (2, '김철수', 21, '수학');
+```
+
+3. **학생 목록 조회**:
+```sql
+SELECT * FROM STUDENT;
+```
+
+4. **학생 정보 수정**:
+```sql
+UPDATE STUDENT SET AGE = 23 WHERE STUDENT_ID = 1;
+```
+
+5. **학생 삭제**:
+```sql
+DELETE FROM STUDENT WHERE STUDENT_ID = 2;
+```
+
+---
+
+### 3. **영화 예약 시스템**
+
+**목표**: 영화의 제목, 감독, 예약 상태를 관리하는 시스템을 만들고, 예약 정보를 Oracle SQL로 저장하고 조회합니다.
+
+**자바 구현**:
+```java
+class Movie {
+    String title;
+    String director;
+    boolean isReserved; // 예약 상태
+
+    Movie(String title, String director) {
+        this.title = title;
+        this.director = director;
+        this.isReserved = false; // 기본적으로 예약되지 않음
+    }
+
+    void reserve() {
+        if (!isReserved) {
+            System.out.println("영화 예약이 완료되었습니다.");
+            isReserved = true;
+        } else {
+            System.out.println("이미 예약된 영화입니다.");
+        }
+    }
+
+    void cancelReservation() {
+        if (isReserved) {
+            System.out.println("영화 예약이 취소되었습니다.");
+            isReserved = false;
+        } else {
+            System.out.println("예약된 영화가 없습니다.");
+        }
+    }
+}
+
+public class MovieReservationSystem {
+    public static void main(String[] args) {
+        Movie movie = new Movie("승부", "김형주");
+        movie.reserve(); // 예약
+        movie.cancelReservation(); // 예약 취소
+    }
+}
+```
+
+**Oracle SQL 처리**:
+
+1. **테이블 생성**:
+```sql
+CREATE TABLE MOVIE_RESERVATION (
+    RESERVATION_ID NUMBER PRIMARY KEY,
+    MOVIE_ID NUMBER,
+    MOVIE_TITLE VARCHAR2(100),
+    DIRECTOR VARCHAR2(100),
+    RESERVATION_STATUS VARCHAR2(20) -- 예약 상태 (예: 예약됨, 취소됨)
+);
+```
+
+2. **영화 예약 데이터 삽입**:
+```sql
+INSERT INTO MOVIE_RESERVATION (RESERVATION_ID, MOVIE_ID, MOVIE_TITLE, DIRECTOR, RESERVATION_STATUS) 
+VALUES (1, 1, '승부', '김형주', '예약됨');
+
+INSERT INTO MOVIE_RESERVATION (RESERVATION_ID, MOVIE_ID, MOVIE_TITLE, DIRECTOR, RESERVATION_STATUS) 
+VALUES (2, 2, '스타워즈', '조지 루카스', '예약됨');
+```
+
+3. **예약 상태 조회**:
+```sql
+SELECT * FROM MOVIE_RESERVATION WHERE RESERVATION_STATUS = '예약됨';
+```
+
+4. **예약 상태 업데이트**:
+```sql
+UPDATE MOVIE_RESERVATION SET RESERVATION_STATUS = '취소됨' WHERE RESERVATION_ID = 1;
+```
+
+---

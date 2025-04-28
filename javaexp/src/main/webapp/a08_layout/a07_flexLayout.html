@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# flex layout
+1. FlexBox(Flexible Box Layout)는 css3에서 도입된 일차원(가로/세로 한방향) 레이아웃 시스템이다.
+	요소들의 정렬, 크기 조절, 가격 배치 등을 유연하게 처리할 수 있도록 도와준다.
+2. 주요 개념
+	1) flex container : 
+		floxbox를 적용할 부모요소 
+		display:flex;
+		display:inline-flex;
+	2) flex item :
+		flex 컨테이너의 직속 자식 요소들이 자동으로 flex item으로 처리됨
+3. 속성(컨테이너)
+	display:flex;   플렉스 컨테이너로 선언 
+	flex-direction  주 축 방향 지정(row/column) 
+					속성값으로 row, column, row-reverse, column-reverse
+	flex-wrap 줄바꿈 여부 설정 
+					속성값 nowrap(기본), wrap, wrap-reverse
+	justify-content 주 축 방향 정렬
+					속성값 flex-start, flex-end, center, space-between
+						 space-around, space-evenly
+	align-items 교차축 정렬(1줄일 때)
+					속성값 stretch, flex-start, flex-end, center, baseline
+	align-content 교차축 정렬(2줄 이상일 때)
+					속성값 stretch, flex-start, flex-end, center, space-between
+						 space-around
+4. 속성(컨테이너에 포함된 아이템)
+	flex-grow 남은 공간 비율로 확장  1, 2, 0
+	flex-shrink 공간 부족 시 줄어드는 비율   기본 1
+	flex-basis 기본 크기 지정 auto, 100px, 30%
+	flex  grow, shrink, basis 단축속성   flex:1 1 100px;
+	align-self 개별 아이템 정렬 auto flex-start flex-end, center, stretch					 
+*/
+.fruit-shelf{
+	display:flex;
+	justify-content:center; /*가운데 정렬*/
+	align-items: center;  /*아이템들은 수직 가운데 정렬*/
+	gap:20px;
+	background-color:#f0f0f0;
+}
+.fruit{
+	background-color:#ffb347;
+	padding:30px;
+	border-radius:10px;
+	font-size:1.2em;
+	color:white;
+	font-weight:bold;
+	flex:1;  /* 공간 균등 배분*/
+	text-align:center;
+	line-height: 5px;
+}
+
+/*
+ex) 홈  서비스  소개   연락처     메뉴를 flex 레이아웃으로 리스트 되게 해보세요..
+.menu-container{}
+.menu{}
+*/
+.menu-container{
+	display:flex;
+	background-color:navy;
+	padding:10px;
+	justify-content:space-around;
+}
+.menu{
+	color:white;
+	padding:15px 20px;
+	text-decoration:none;
+	transition:background-color 0.5s, color 0.5s, font-size 0.5s;                         /*커서위치를 했을 때, 동적 작동을 할때 옵션*/
+}
+.menu:hover{
+	background-color:#575757;
+	color:yellow;
+	font-size:120%;
+	border-radius:5px;
+}
+</style>
+</head>
+<body>
+<div class="menu-container">
+	<a href="#" class="menu">홈</a>
+	<a href="#" class="menu">서비스</a>
+	<a href="#" class="menu">소개</a>
+	<a href="#" class="menu">연락처</a>
+</div>
+
+<div class="fruit-shelf">
+	<div class="fruit">🍎사과</div>
+	<a  style="height:5px;border:1px solid green;">🍌바나나</a>
+	<div class="fruit">🍇포도</div>
+</div>	
+</body>
+</html>

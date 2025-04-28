@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# 전체 화면 대비 중앙 정렬 처리
+1. 내용에 적절하게 중앙 정렬을 처리하려면 margin을 왼쪽/오른쪽에 설정하여야 한다.
+2. 웹화면에서 요소객체들에 대한 정렬을 중앙으로 할 때, 비율로 처리하는 방법이 %로
+	설정하면 브라우저화면이 작아지더라도 해당 내용에 적절한 크기를 지정할 수 있다.
+3. 요소객체들에 대한 내용을 설정해보자.
+*/
+h1, h2, p, body{border:1px solid green;}
+body{border:1px solid red;}
+/* 모든 요소들을 외부 여백(margin)과 내부 여백(padding)을 0으로 설정
+
+*/
+*{margin:0;padding:0;}
+/*
+4. margin을 %로 설정하는 경우도 있으나, auto로 설정하면 적절하게 양 옆에
+자동으로 중앙으로 올 수 있게 간격이 설정된다.
+*/
+body{
+	margin:0 auto;
+	width:80%;
+}
+/*
+ex) a04_centerAlign.html
+	h2 : 자바
+	p : 자바 검색 내용출력
+	h3 : 오라클
+	p : 오라클 검색 내용 출력
+	위 css 동일하게 출력하되 width를 70%로 처리하여 출력 하세요..
+	
+*/
+</style>
+</head>
+<body>
+	<h1>html</h1>
+	<h2>css</h2>
+	<p>css를 위키백과에 검색한 내용을 삽입하자.. 
+		종속형 시트 또는 캐스케이딩 스타일 시트(영어: Cascading Style Sheets)는 마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어(영어: style sheet language or style language)로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이고, 페이지 레이아웃과 스타일을 정의할 때의 자유도가 높다. 기본 파일명[2]은 style.css이다.
+		마크업 언어(ex: HTML)가 웹사이트의 몸체를 담당한다면 CSS는 옷과 액세서리처럼 꾸미는 역할을 담당한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.
+		현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.	
+	</p>
+<!-- 
+
+
+ -->
+</body>
+</html>

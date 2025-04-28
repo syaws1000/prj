@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# border-radius
+1. border-radius 속성은 html 요소(태그)의 모서리를 둥글게 만드는 데 사용된다.
+2. 값은 픽셀(px), 퍼센트(%), 또는 다른 단위로 설정할 수 있으며, 요소의 각 모서리를 독립적으로 조정할 수도 있다.
+3. 둥근 버튼, 태그, 카드 등 다양한 디자인 요소를 구현할 때, 자주 활용된다.
+4. 하나의 값을 사용하면 모든 모서리에 동일한 곡률이 적용되고, 네 개의 값을 사용하면 각 모서리에 개별적으로
+	적용된다. 세개, 두개를 하면 해당 모서리의 반대 방향도 같이 곡률이 적용된다.
+# 기본 형식
+1. 한 값만 지정하기 
+	border-radius:20px;
+	모든 모서리가 20px 반경으로 둥글게 변한다.	
+*/
+/* p의 모든 태그 적용*/
+p{background-color:#90d000;width:300px;padding:20px;}
+/* 태그 중에 id값 round1*/
+#round1{border-radius:40px;}
+.round2{border-radius:40px;}
+/*
+ex) h2 태그에서 안녕하세요라고 타이틀를 설정하고, 넓이(200px)와 높이(100px), 배경색 pink 설정 후, 
+	border-radius를 10px로 설정해서 출력하세요 
+*/
+h2{width:200px;height:100px;background-color:pink;border-radius:10px;
+	text-align:center;padding:10px;line-height:100px;}
+#round2{border-radius:0px 20px 40px 60px;}	
+/*
+ex) h3 태그에 "모든 방향에 굴곡처리"  5px 10px 15px 20px, 배경색상은 orange, 넓이/폭 설정
+*/
+h3{width:200px;height:100px;background-color:orange;border-radius:5px 10px 15px 20px;}
+#round3{border-radius:0px 20px 40px;}
+#round4{border-radius:20px 40px;}
+/*
+ex) h4 태그에 2개방향의 굴곡옵션을 30px 50px 배경색상을 pink, 넓이200/폭200 출력..
+*/
+h4{width:200px;height:200px;background-color:pink;border-radius:30px 50px;
+	text-align:center;padding:10px;line-height:200px;}
+	
+</style>
+</head>
+<body>
+<h4>2개방향의 굴곡옵션</h4>
+<h3>모든 방향 굴곡처리</h3>
+<h2>안녕하세요</h2>
+<h2 class="round2">안녕하세요</h2>
+<p>초기 p 태그</p>
+<p id="round1">radius:20px;</p>
+<p id="round2">radius:0px 20px 40px 60px;</p>
+<p id="round3">radius:0px 20px 40px</p>
+<p id="round4">radius:20px 40px</p>
+<!-- 2개의 속성 둥글기 설정-->
+<p style="border-radius:30px 50px;background-color:pink;">radius연습(2개)</p>
+<!-- 4개의 속성 둥글기 설정-->
+<p style="border-radius:5px 10px 15px 20px;background-color:pink;">radius연습(4개)</p>
+
+</body>
+</html>

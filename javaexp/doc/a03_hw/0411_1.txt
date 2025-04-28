@@ -1,0 +1,92 @@
+## ✅ 객관식 15문제 
+
+1. 다음 중 `while`문과 `do-while`문의 차이로 올바른 것은?  
+   ① 둘 다 최소 1번은 실행된다  
+   #② do-while은 조건이 false여도 1회 실행된다  
+   ③ while문은 반드시 break가 필요하다  
+   ④ do-while은 반복 조건을 먼저 검사한다
+
+2. `Scanner` 클래스에서 입력을 받기 위한 객체 생성 방식은?  
+   ① Scanner scan = input();  
+   ② Scanner scan = new Scanner(System);  
+   #③ Scanner scan = new Scanner(System.in);  
+   ④ Scanner scan = Scanner.in();
+
+3. `break`문과 관련하여 틀린 설명은?  
+   ① 반복문을 즉시 종료시킨다  
+   #② 반복문 외부에서만 사용할 수 있다  
+   ③ switch문에서도 사용된다  
+   ④ 조건에 따라 반복 흐름을 중단할 수 있다
+
+4. 다음 중 메서드 정의가 잘못된 것은?  
+   ① void hello() {}  
+   ② static int getNumber() { return 10; }  
+   ③ public void print(String msg) {}  
+   #④ int sum(a, b) { return a + b; }
+   int sum(int a, int b) { return a + b; }		
+
+5. 리턴값이 있는 메서드에 대한 설명으로 옳은 것은?  
+   ① 호출 시 반드시 값을 출력해야 한다  
+   ② 반드시 int형만 리턴할 수 있다  
+   #③ return 키워드를 사용하여 값을 반환한다  리턴데이터유형  실제리턴값을처리  
+   ④ 매개변수를 가질 수 없다
+
+6. `Math.random()` 함수의 반환 범위는?  
+   ① 0 이상 1 이하  
+   ② 1 이상 2 미만  
+   #③ 0.0 이상 1.0 미만  
+   ④ -1 이상 1 이하
+
+7. 배열의 크기를 확인하는 올바른 Java 문법은?  
+   ① array.size()  
+   #② array.length  
+   ③ array.count()  
+   ④ array.length()
+
+8. SQL에서 `WHERE salary BETWEEN 2000 AND 4000`의 의미는?  
+   ① 2000 초과 4000 미만  
+   #② 2000과 4000 포함  
+   ③ 2000과 4000 제외  
+   ④ 2000 미만과 4000 초과
+
+9. 다음 SQL 문 중 논리 연산자를 사용한 것은?  
+   ① WHERE salary = 3000  
+   ② WHERE name LIKE '%A%'  
+   #③ WHERE deptno = 10 OR job = 'CLERK'  
+   ④ WHERE hiredate BETWEEN '01-JAN-01' AND '01-JAN-02'
+
+10. `overflow: scroll;`의 특징은?  
+    ① 넘치는 내용은 삭제된다  hidden
+    #② 항상 스크롤바가 보인다  
+    ③ 넘치는 경우에만 스크롤바가 생성된다  auto
+    ④ 넘치는 내용을 자동 줄바꿈한다 
+
+11. `overflow: hidden;`을 적용하면 어떤 결과가 나타나는가?  
+    ① 스크롤바가 생긴다  
+    ② 내용이 사라지지 않는다  
+    #③ 넘친 내용이 잘린다  
+    ④ 내부 내용이 줄어든다
+
+12. 다음 중 `float: left;`를 사용한 효과는?  
+    ① 요소를 수직으로 배치  
+    ② 요소를 중앙 정렬  
+    #③ 요소를 수평 정렬  왼쪽부터 오른쪽으로..  
+    ④ 요소를 무작위 정렬
+
+13. `margin: 0 auto;` 속성의 주된 효과는?  
+    ① 상단 여백을 제거  
+    ② 내부 여백을 조절  
+    #③ 요소를 가로 중앙 정렬  
+    ④ 요소를 화면 왼쪽에 고정
+
+14. SQL에서 `IS NULL` 조건은 어떤 데이터를 찾는가?  
+    ① 공백("") 값  
+    ② 숫자 0  
+    #③ null 값     컬럼명 = NULL ==> 컬럼명 = 'NULL' 
+    ④ 없는 테이블
+
+15. Java에서 객체를 생성하는 문법으로 올바른 것은?  
+    ① Person p = Person();  
+    #② Person p = new Person();  
+    ③ p = new Person[];  
+    ④ new Person p = Person();

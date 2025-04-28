@@ -1,0 +1,182 @@
+### ✅ 객관식 10문제
+
+1. **자바에서 정수형 데이터를 문자열로 변환할 때 사용하는 메서드는?**  
+   - (A) String.toInteger()  
+   - (B) Integer.parseInt()  
+   - (C) Integer.toString()  
+   - (D) String.parseDouble()  
+
+2. **자바에서 작은 데이터 유형을 큰 데이터 유형에 넣는 것을 무엇이라고 하나요?**  
+   - (A) Casting  
+   - (B) Promotion  
+   - (C) Transformation  
+   - (D) Conversion  
+
+3. **정수형끼리 나누면 결과는 어떻게 출력되나요?**  
+   - (A) 항상 소수점까지 출력  
+   - (B) 무조건 0  
+   - (C) 정수로 출력되고 소수점 이하는 버림  
+   - (D) 에러가 발생한다  
+
+4. **10 / 3.0 의 결과는?**  
+   - (A) 3  
+   - (B) 3.0  
+   - (C) 3.3333...  
+   - (D) 에러  
+
+5. **다음 중 HTML `form` 요소의 하위 요소가 아닌 것은?**  
+   - (A) input  
+   - (B) select  
+   - (C) textarea  
+   - (D) h1  
+
+6. **input 요소에서 한 줄짜리 텍스트 입력창을 만들 때 사용하는 type은?**  
+   - (A) text  
+   - (B) textarea  
+   - (C) inputbox  
+   - (D) paragraph  
+
+7. **HTML에서 다중 선택 가능한 입력 요소는?**  
+   - (A) radio  
+   - (B) checkbox  
+   - (C) select  
+   - (D) text  
+
+8. **HTML에서 입력된 내용을 초기화하는 버튼의 타입은?**  
+   - (A) reset  
+   - (B) clear  
+   - (C) submit  
+   - (D) cancel  
+
+9. **자바에서 실수형 문자열을 실수형으로 변환할 때 사용하는 메서드는?**  
+   - (A) Double.toString()  
+   - (B) Integer.parseDouble()  
+   - (C) Double.parseDouble()  
+   - (D) Float.convert()  
+
+10. **form 요소의 action 속성은 어떤 역할을 하나요?**  
+   - (A) 입력 필드를 초기화한다  
+   - (B) 데이터를 전송할 URL 또는 페이지를 지정한다  
+   - (C) 입력 필드의 크기를 조절한다  
+   - (D) 색상을 지정한다  
+
+---
+
+### ✅ 주관식 5문제
+
+1. 자바에서 정수형 데이터를 문자열로 변환하는 방법 두 가지를 서술하세요.  
+2. 자바에서 정수형끼리 나눗셈을 할 때, 소수점 이하 결과를 출력하려면 어떻게 해야 하나요?  
+3. HTML에서 한 페이지 내 특정 위치로 이동하는 링크는 어떤 속성을 사용하나요?  
+4. HTML에서 `input type="submit"`의 역할은 무엇인가요?  
+5. 자바에서 실수형 데이터를 정수형으로 변환할 때 사용하는 형변환 방법을 작성하세요.  
+
+---
+
+### ✅ 재미있는 실습 문제 3문제
+
+1. **자바 실습 문제:**  
+   정수형 변수 `appleCount = 27`, 곰돌이 수 `bearCount = 4`를 선언하고,  
+   - 정수 나눗셈 결과  
+   - 나머지 값  
+   - 실수 나눗셈 결과를 출력하세요.  
+
+2. **HTML 실습 문제:**  
+   좋아하는 음식을 `checkbox`로 선택할 수 있게 만들고,  
+   선택된 값을 `submit` 버튼 클릭 시 서버로 전송하는 폼을 작성해보세요.  
+
+3. **HTML  실습 문제:**  
+   색상 선택(input type="color")과 이름 입력(input type="text") 후,  
+   버튼 클릭 시 "OOO님의 오늘 기분 색상은 [색상]" 이라는 다음 화면(jsp) 띄우는 코드를 작성해보세요.  
+   
+
+   
+   ### ✅ 객관식 10문제 정답 및 풀이  
+
+| 번호 | 정답 | 풀이 |
+|------|------|------|
+| 1 | (C) | `Integer.toString()`은 정수 → 문자열 변환 메서드입니다. |
+| 2 | (B) | 작은 데이터 타입이 큰 타입에 자동으로 들어가는 것을 promotion(자동 형 변환)이라고 합니다. |
+| 3 | (C) | 정수끼리 나누면 소수점 이하는 버리고 정수만 남습니다. |
+| 4 | (C) | 분모나 분자가 실수형이면 결과는 실수로 출력됩니다. |
+| 5 | (D) | `h1`은 제목 태그로 form 하위 요소가 아닙니다. |
+| 6 | (A) | `input type="text"`는 한 줄 텍스트 입력창입니다. |
+| 7 | (B) | `checkbox`는 여러 개를 선택할 수 있습니다. |
+| 8 | (A) | `reset` 버튼은 입력한 데이터를 초기화합니다. |
+| 9 | (C) | `Double.parseDouble()` 메서드는 문자열 → 실수형 변환입니다. |
+| 10 | (B) | `action`은 전송할 URL이나 JSP 파일을 지정하는 속성입니다. |
+
+
+---
+
+### ✅ 주관식 5문제 정답 및 풀이  
+
+1. **자바에서 정수형 데이터를 문자열로 변환하는 방법 두 가지:**  
+   - `String str = "" + intVal;`  
+   - `String str = Integer.toString(intVal);`  
+
+2. **자바에서 정수형끼리 나눗셈 시 소수점 결과 출력 방법:**  
+   - 분자나 분모를 실수형으로 캐스팅한다.  
+   - 예: `10 / 3.0`, `(double)10 / 3`, `10 / (double)3`  
+
+3. **HTML에서 한 페이지 내 특정 위치로 이동하는 링크 속성:**  
+   - `href="#아이디명"`  
+
+4. **`input type="submit"`의 역할:**  
+   - 작성된 폼 데이터를 지정된 `action` URL로 전송하는 버튼입니다.  
+
+5. **자바에서 실수형을 정수형으로 변환하는 형변환 방법:**  
+   - `int newInt = (int)doubleVal;` (캐스팅 처리)  
+
+
+---
+
+### ✅ 재미있는 실습 문제 풀이  
+
+---
+
+#### 1. **자바 실습 문제 코드**  
+```java
+int appleCount = 27;
+int bearCount = 4;
+System.out.println("정수 나눈 갯수: " + (appleCount / bearCount));
+System.out.println("나머지 사과 개수: " + (appleCount % bearCount));
+System.out.println("동일하게 나눈 실수 값: " + (appleCount / (double)bearCount));
+```
+
+---
+
+#### 2. **HTML 실습 문제 코드**  
+```html
+<h2>좋아하는 음식 선택</h2>
+<form action="a02_receiveData.jsp">
+  <input type="checkbox" name="food" value="피자">피자
+  <input type="checkbox" name="food" value="치킨">치킨
+  <input type="checkbox" name="food" value="초밥">초밥
+  <input type="checkbox" name="food" value="스파게티">스파게티<br>
+  <input type="submit" value="제출">
+</form>
+```
+a02_receiveData.jsp
+${paramValues.food[0]},
+${paramValues.food[1]},
+${paramValues.food[2]},
+${paramValues.food[3]}
+---
+
+
+#### 3. **HTML + 자바스크립트 실습 문제 코드**  
+```html
+<h2>오늘 기분 색상 선택</h2>
+<form action="a02_receiveData.jsp">
+이름: <input type="text" name="userName"><br>
+오늘 기분 색상: <input type="color" name="colorChoice"><br>
+<button >확인</button>
+
+
+a02_receiveData.jsp
+<body bgColor="${param.colorChoice}">
+   이름:${param.userName}"<br>
+   기분색상:${param.colorChoice}"<br>
+   ${param.userName}님의 오늘 기분 색상은 ${param.colorChoice}
+```
+   

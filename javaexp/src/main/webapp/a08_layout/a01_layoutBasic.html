@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+# css 정렬 처리
+1. 화면에서 해당 요소객체들을 단위로 레이아웃을 위치가 정렬을 처리할 때,
+	사용되는 요소를 말한다.
+2. 기본형식
+	선택자{ overflow:hidden;} : 내용(content)가 넘칠 때, 보이지 않게 처리
+	선택자{ float:left;} : 첫번째 요소 기준으로 왼쪽에서 오른쪽으로 리스트를 정렬해서
+		수평정렬 레이아웃을 설정하는 경우를 말한다.
+*/
+	div.container{ overflow:hidden;}
+	/* div 중에서 클래스(class) 속성이 container인것을 말한다.
+		<div class="container">
+	*/
+	div.items{
+		float:left; /* 속성을 right로도 바꾸어서 내용을 확인해보세요..*/
+		margin:20px 10px;
+		padding: 30px;
+		border:2px double green;
+	}
+	/*	<div class="items"> 
+		margin : border 기준 외부 요소와의 간격 설정 수평 수직 간격
+		padding : border 기분 내부 요소(글자, 내용 등)과의 간격 설정
+		
+	ex) a02_layout.html로 구매물품을 리스트를 나열해보세요..(위 속성 css 적용)		
+	*/
+</style>
+</head>
+<body>
+	<div class="contianer">
+		<div class="items">메뉴 - 1</div>
+		<div class="items">메뉴 - 2</div>
+		<div class="items">메뉴 - 3</div>
+		<div class="items">메뉴 - 4</div>
+		
+	</div>
+<!-- 
+
+
+ -->
+</body>
+</html>

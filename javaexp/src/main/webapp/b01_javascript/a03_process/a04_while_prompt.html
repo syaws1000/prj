@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# while(true){} break문을 통한 입력 처리.
+1. while(true) 구문은 무한 방법을 수행한다.
+2. prompt()를 통해서 데이터를 입력해준다.
+3. if(조건) break;를 통해서 반복을 중단시켜준다.
+4. 위 내용을 이용해서 특정한 문자열을 입력시까지 반복해서
+    데이터를 입력받아서 브라우저 화면에 출력할 수 있다.
+*/
+/*    
+document.body.innerHTML="<h1>등록한 회원명단</h1>"
+while(true){
+    let member = prompt("등록할 회원을 입력하세요(중지시Q입력)")
+    if(member=='Q'){
+        alert("회원등록 완료!!")
+        break;
+    }
+    document.body.innerHTML+=`<h2>${member}</h2>`
+}
+*/
+// 구매할 물건을 입력받아서, 화면에 출력되게 처리하세요..(가격입력 => 총계)
+document.body.innerHTML="<h1>구매한 물건리스트</h1>"
+let tot = 0;
+while(true){
+    let prod = prompt("물건명을 입력하세요(중지시Q입력!)")
+    if(prod=='Q'){
+        alert("구매물건입력 완료!")
+        break; // 중단 처리
+    }
+    let price = parseInt(prompt("물건가격입력",0))
+    tot += price  // 입력받은 가격 누적
+    document.body.innerHTML+=`<h2>${prod} - ${price}원</h2>`
+}
+document.body.innerHTML+=`<h2>총구매금액:${tot}원</h1>`
+
+
+</script>
+</html>
