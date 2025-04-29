@@ -1,0 +1,388 @@
+
+# ✅ 주관식 개념문제 10문제
+
+1. **CASE WHEN 구문에서 "단순 CASE 구문(Simple CASE Expression)"과 "검색 CASE 구문(Searched CASE Expression)"의 차이를 설명하세요.**
+
+2. **INSTR 함수는 어떤 경우에 사용되며, 반환하는 값은 무엇을 의미하나요?**
+
+3. **LPAD 함수와 RPAD 함수의 차이와 각각의 사용 목적을 설명하세요.**
+
+4. **LTRIM(), RTRIM(), TRIM() 함수는 각각 어떤 역할을 하며, 공통적인 특징은 무엇인가요?**
+
+5. **SYSDATE 함수는 어떤 데이터 타입을 반환하며, +1이나 +1/24 같은 연산과 결합했을 때 어떤 의미를 가지나요?**
+
+6. **MONTHS_BETWEEN 함수는 어떤 상황에서 유용하게 사용할 수 있나요? 실무 예시를 간단히 설명하세요.**
+
+7. **Oracle SQL의 ADD_MONTHS 함수는 어떤 기능을 하나요? 사용 예를 간단히 작성하세요.**
+
+8. **자바에서 1:1 관계를 설정할 때 클래스 안에 다른 클래스 타입 필드를 선언하는 이유는 무엇인가요?**
+
+9. **자바 클래스 설계에서 "포함 관계(Has-A 관계)"란 무엇을 의미하나요?**
+
+10. **자바의 ArrayList와 배열(Array)의 차이점은 무엇이며, ArrayList를 사용할 때의 장점은 무엇인가요?**
+
+---
+
+# ✅ 재미있는 이야기 기반 실습형 문제 
+
+### 🎯 실습문제 1
+**"지구방위대 프로젝트"**  
+- `Weapon` 클래스를 만들어주세요. (속성: 무기이름, 공격력)  
+- `Hero` 클래스는 `Weapon`을 하나 장착할 수 있어야 합니다.  
+- `attack()` 메서드를 만들어, 히어로가 무기를 사용해 공격하는 메시지를 출력하세요.
+
+---
+
+### 🎯 실습문제 2
+**"고양이 호텔 시스템"**  
+- `Collar` 클래스(속성: 색상, 방울유무)를 만들고,  
+- `Cat` 클래스는 `Collar` 객체를 포함하여 등록되어야 합니다.  
+- 고양이가 울 때 목걸이 정보를 함께 출력하는 `meow()` 메서드를 만들어보세요.
+
+---
+
+### 🎯 실습문제 3
+**"책 대여 시스템"**  
+- `Book` 클래스(속성: 제목, 저자)를 만들고,  
+- `Member` 클래스(속성: 회원명, 대여한 Book)를 만들어서,  
+- 대여한 책의 정보를 함께 출력하는 `borrowBook()` 메서드를 구현하세요.
+
+---
+
+### 🎯 실습문제 4
+**"비행기 탑승 프로젝트"**  
+- `Ticket` 클래스(속성: 항공사, 좌석번호)를 만들고,  
+- `Passenger` 클래스는 하나의 `Ticket`을 가지고 있습니다.  
+- `checkIn()` 메서드를 만들어 탑승 수속 정보를 출력하세요.
+
+---
+
+### 🎯 실습문제 5
+**"핸드폰 가게 시스템"**  
+- `Phone` 클래스(속성: 모델명, 가격)를 만들고,  
+- `Customer` 클래스(속성: 이름, 구매한 Phone)를 만들어  
+- `buyPhone()` 메서드로 고객이 구매한 핸드폰 정보를 출력하세요.
+
+
+
+
+# ✅ 데이터베이스(SQL) 연습 문제 3개
+
+---
+
+### 🔵 문제 1. "급여 인상 시뮬레이션"
+
+**설명:**  
+- `EMP` 테이블에서 사원들의 급여(`SAL`)를 10% 인상한다고 가정합니다.  
+- 각 사원의 이름(`ENAME`), 원래 급여(`SAL`), 인상된 급여를 함께 출력하는 SQL을 작성하세요.  
+- 인상된 급여 컬럼 이름은 `NEW_SALARY`로 표시하세요.
+
+
+
+### 🔵 문제 2. "사원 근속 연수 구하기"
+
+**설명:**  
+- `EMP` 테이블에서 각 사원의 입사일(`HIREDATE`)을 기준으로 현재까지 근속연수를 계산하세요.  
+- 근속연수는 소수점 없이 정수 연도(`YEARS`)로 표시하세요.  
+- 출력 컬럼: 사원명(`ENAME`), 입사일(`HIREDATE`), 근속연수(`YEARS`)
+
+
+
+
+### ✅ 주관식 개념문제 해설 및 정답 코드
+
+1. **CASE WHEN 구문에서 "단순 CASE 구문(Simple CASE Expression)"과 "검색 CASE 구문(Searched CASE Expression)"의 차이를 설명하세요.**
+   - **단순 CASE 구문**: 특정 값과 비교하여 조건을 평가합니다. 예를 들어, `CASE WHEN column = value THEN result ELSE result END` 형식입니다. 주로 단일 값에 대해 여러 조건을 평가할 때 사용됩니다.
+   - **검색 CASE 구문**: 여러 조건식을 사용하여 평가합니다. `CASE WHEN condition1 THEN result1 WHEN condition2 THEN result2 ELSE result END` 형식으로 조건이 복잡할 때 사용됩니다.
+   
+   **예시:**
+   ```sql
+   -- 단순 CASE 구문
+   SELECT CASE job
+             WHEN 'CLERK' THEN '사무직'
+             WHEN 'MANAGER' THEN '관리직'
+             ELSE '기타'
+          END AS JobCategory
+   FROM emp;
+
+   -- 검색 CASE 구문
+   SELECT CASE 
+             WHEN salary > 3000 THEN '고급직'
+             WHEN salary BETWEEN 2000 AND 3000 THEN '중급직'
+             ELSE '저급직'
+          END AS SalaryCategory
+   FROM emp;
+   ```
+
+2. **INSTR 함수는 어떤 경우에 사용되며, 반환하는 값은 무엇을 의미하나요?**
+   - **사용 경우**: 문자열 내에서 특정 문자열의 위치를 찾을 때 사용합니다.
+   - **반환 값**: 찾은 문자열의 첫 번째 문자의 위치를 인덱스로 반환합니다. 찾지 못한 경우 0을 반환합니다.
+   
+   **예시:**
+   ```sql
+   SELECT INSTR('hello world', 'world') AS position FROM dual;
+   -- 결과: 7 (world의 첫 번째 위치)
+   ```
+
+3. **LPAD 함수와 RPAD 함수의 차이와 각각의 사용 목적을 설명하세요.**
+   - **LPAD**: 문자열의 왼쪽에 특정 문자를 채워서 지정된 길이로 만듭니다.
+   - **RPAD**: 문자열의 오른쪽에 특정 문자를 채워서 지정된 길이로 만듭니다.
+   
+   **예시:**
+   ```sql
+   SELECT LPAD('abc', 5, '*') AS LeftPadded, RPAD('abc', 5, '#') AS RightPadded FROM dual;
+   -- 결과: LeftPadded = '**abc', RightPadded = 'abc##'
+   ```
+
+4. **LTRIM(), RTRIM(), TRIM() 함수는 각각 어떤 역할을 하며, 공통적인 특징은 무엇인가요?**
+   - **LTRIM**: 문자열의 왼쪽 끝에서 지정된 문자를 제거합니다.
+   - **RTRIM**: 문자열의 오른쪽 끝에서 지정된 문자를 제거합니다.
+   - **TRIM**: 문자열의 양쪽 끝에서 지정된 문자를 제거합니다.
+   
+   **공통 특징**: 모두 문자열의 특정 부분에서 지정된 문자를 반복적으로 제거하는 함수입니다.
+   
+   **예시:**
+   ```sql
+   SELECT LTRIM('***abc***', '*') AS LeftTrimmed,
+          RTRIM('***abc***', '*') AS RightTrimmed,
+          TRIM('*' FROM '***abc***') AS Trimmed
+   FROM dual;
+   -- 결과: LeftTrimmed = 'abc***', RightTrimmed = '***abc', Trimmed = 'abc'
+   ```
+
+5. **SYSDATE 함수는 어떤 데이터 타입을 반환하며, +1이나 +1/24 같은 연산과 결합했을 때 어떤 의미를 가지나요?**
+   - **SYSDATE**: 현재 날짜와 시간을 반환하는 함수로, **DATE** 데이터 타입을 반환합니다.
+   - **+1**: 하루를 더한 날짜를 의미합니다.
+   - **+1/24**: 1시간을 더한 날짜를 의미합니다.
+   
+   **예시:**
+   ```sql
+   SELECT SYSDATE + 1 AS tomorrow, SYSDATE + 1/24 AS one_hour_later FROM dual;
+   -- 결과: tomorrow은 내일 날짜, one_hour_later는 현재 시간에서 1시간 뒤
+   ```
+
+6. **MONTHS_BETWEEN 함수는 어떤 상황에서 유용하게 사용할 수 있나요? 실무 예시를 간단히 설명하세요.**
+   - **MONTHS_BETWEEN**: 두 날짜 사이의 차이를 월 단위로 반환합니다.
+   - **실무 예시**: 계약 기간이 몇 개월 남았는지 계산하거나, 직원의 근속 연수를 계산할 때 유용합니다.
+   
+   **예시:**
+   ```sql
+   SELECT MONTHS_BETWEEN(SYSDATE, hiredate) AS months_of_service FROM emp;
+   -- 결과: 사원의 근속 연수를 월 단위로 출력
+   ```
+
+7. **Oracle SQL의 ADD_MONTHS 함수는 어떤 기능을 하나요? 사용 예를 간단히 작성하세요.**
+   - **ADD_MONTHS**: 날짜에 월 단위로 지정된 수만큼 더하거나 빼는 함수입니다.
+   
+   **예시:**
+   ```sql
+   SELECT ADD_MONTHS(SYSDATE, 3) AS three_months_later FROM dual;
+   -- 결과: 현재 날짜에서 3개월 후의 날짜를 반환
+   ```
+
+8. **자바에서 1:1 관계를 설정할 때 클래스 안에 다른 클래스 타입 필드를 선언하는 이유는 무엇인가요?**
+   - **1:1 관계**는 두 클래스 간에 객체가 1대1로 연결되는 관계입니다. 하나의 클래스 객체가 다른 클래스 객체를 포함하거나 참조함으로써 이러한 관계를 설정합니다.
+
+9. **자바 클래스 설계에서 "포함 관계(Has-A 관계)"란 무엇을 의미하나요?**
+   - **포함 관계(Has-A)**는 한 클래스가 다른 클래스의 객체를 멤버 변수로 포함하고 있을 때 사용되는 관계입니다. 예를 들어, `Car` 클래스가 `Engine` 클래스를 포함하는 경우, `Car`는 `Engine`을 "가지고 있다(Has-A)"고 표현합니다.
+
+10. **자바의 ArrayList와 배열(Array)의 차이점은 무엇이며, ArrayList를 사용할 때의 장점은 무엇인가요?**
+    - **배열**은 크기가 고정되어 있고, 크기를 변경할 수 없습니다. 
+    - **ArrayList**는 크기가 동적으로 변경되며, 데이터를 추가하거나 삭제할 수 있습니다.
+    - **ArrayList 장점**: 동적으로 크기를 조정할 수 있고, 다양한 메서드로 데이터를 쉽게 조작할 수 있습니다.
+    
+---
+
+### ✅ 재미있는 이야기 기반 실습형 문제 해설
+
+#### 🎯 실습문제 1: "지구방위대 프로젝트"
+```java
+class Weapon {
+    String name;
+    int attackPower;
+
+    public Weapon(String name, int attackPower) {
+        this.name = name;
+        this.attackPower = attackPower;
+    }
+}
+
+class Hero {
+    Weapon weapon;
+
+    public Hero(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void attack() {
+        System.out.println("Hero is attacking with " + weapon.name + " causing " + weapon.attackPower + " damage!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Weapon sword = new Weapon("Sword", 50);
+        Hero hero = new Hero(sword);
+        hero.attack();
+    }
+}
+```
+
+#### 🎯 실습문제 2: "고양이 호텔 시스템"
+```java
+class Collar {
+    String color;
+    boolean hasBell;
+
+    public Collar(String color, boolean hasBell) {
+        this.color = color;
+        this.hasBell = hasBell;
+    }
+}
+
+class Cat {
+    String name;
+    Collar collar;
+
+    public Cat(String name, Collar collar) {
+        this.name = name;
+        this.collar = collar;
+    }
+
+    public void meow() {
+        System.out.println(name + " says meow with a " + collar.color + " collar" + (collar.hasBell ? " with a bell." : "."));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Collar collar = new Collar("Red", true);
+        Cat cat = new Cat("Whiskers", collar);
+        cat.meow();
+    }
+}
+```
+
+#### 🎯 실습문제 3: "책 대여 시스템"
+```java
+class Book {
+    String title;
+    String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+}
+
+class Member {
+    String name;
+    Book borrowedBook;
+
+    public Member(String name, Book borrowedBook) {
+        this.name = name;
+        this.borrowedBook = borrowedBook;
+    }
+
+    public void borrowBook() {
+        System.out.println(name + " borrowed the book \"" + borrowedBook.title + "\" by " + borrowedBook.author + ".");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Book book = new Book("The Great Gatsby", "F. Scott Fitzgerald");
+        Member member = new Member("Alice", book);
+        member.borrowBook();
+    }
+}
+```
+
+#### 🎯 실습문제 4: "비행기 탑승 프로젝트"
+```java
+class Ticket {
+    String airline;
+    String seatNumber;
+
+    public Ticket(String airline, String seatNumber) {
+        this.airline = airline;
+        this.seatNumber = seatNumber;
+    }
+}
+
+class Passenger {
+    String name;
+    Ticket ticket;
+
+    public Passenger(String name, Ticket ticket) {
+        this.name = name;
+        this.ticket = ticket;
+    }
+
+    public void checkIn() {
+        System.out.println(name + " checked in with ticket for " + ticket.airline + " with seat number " + ticket.seatNumber + ".");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Ticket ticket = new Ticket("Airline X", "12A");
+        Passenger passenger = new Passenger("John Doe", ticket);
+        passenger.checkIn();
+    }
+}
+```
+
+#### 🎯 실습문제 5: "핸드폰 가게 시스템"
+```java
+class Phone {
+    String model;
+    int price;
+
+    public Phone(String model, int price) {
+        this.model = model;
+        this.price = price;
+    }
+}
+
+class Customer {
+    String name;
+    Phone phone;
+
+    public Customer(String name, Phone phone) {
+        this.name = name;
+        this.phone = phone;
+    }
+
+    public void buyPhone() {
+        System.out.println(name + " bought the phone model " + phone.model + " for $" + phone.price + ".");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Phone phone = new Phone("iPhone 13", 999);
+        Customer customer = new Customer("Jane", phone);
+        customer.buyPhone();
+    }
+}
+```
+
+---
+
+### ✅ 데이터베이스(SQL) 연습 문제 해설
+
+#### 🔵 문제 1: "급여 인상 시뮬레이션"
+```sql
+SELECT ename, sal, sal * 1.1 AS NEW_SALARY
+FROM emp;
+```
+- **설명**: `sal * 1.1`을 사용하여 급여를 10% 인상한 새로운 급여를 계산합니다.
+
+#### 🔵 문제 2: "사원 근속 연수 구하기"
+```sql
+SELECT ename, hiredate, FLOOR(MONTHS_BETWEEN(SYSDATE, hiredate) / 12) AS YEARS
+FROM emp;
+```
+- **설명**: `MONTHS_BETWEEN(SYSDATE, hiredate)` 함수로 두 날짜의 차이를 구한 후, 그 값을 12로 나누어 연도로 변환합니다. `FLOOR()` 함수는 소수점을 버립니다.
+
