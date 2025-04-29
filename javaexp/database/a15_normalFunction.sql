@@ -83,6 +83,20 @@ FROM EMP;
 	   위 나열된 조건 이외일 대, 처리할 문자열3으로 수행        
 		
  * */
+SELECT COMM FROM EMP;
+SELECT ENAME, COMM,
+	   		 CASE
+	   			WHEN COMM IS NULL THEN '보너스 없음'
+	   			WHEN COMM > 500 THEN '고급보너스'
+	   			ELSE '하급보너스'
+	   		 END "보너스구분"
+FROM EMP;	   
+/*
+
+**/
+
+
+
 SELECT ENAME, SAL,
        CASE 
        	 WHEN SAL>=5000 THEN '고임금자'
