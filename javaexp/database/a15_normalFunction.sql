@@ -1,39 +1,3 @@
-SELECT * FROM EMP;
-i
-/*
-# DECODE(표현식,조건1,결과1,조건2,결과2,....,기본값)
-1. 조건에 따라 값을 다르게 반환(SQL의 switch-case처럼 작동)
-	oracle sql 전용 함수
-2. 기본형식
-	SELECT DECODE(표현식, 조건1, ...)
-	FROM 테이블
-	WHERE DECODE(컬럼, 조건1,...) = 데이터
-3. 특징
-	1) 조건과 같이 순서쌍으로 표현
-	2) DEFAULT 값을 마지막에 줄 수 있음
-*/
--- JOB의 역할 표시는 한글로 표현 분류
-insert INTO EMP VALUES(7839, 'KING', 'PRESIDENT', NULL, 1600, 0, 10, SYSDATE);
-
-
-SELECT ENAME, JOB, DECODE(JOB,'CLERK','사무직',
-                              'MANAGER','관리직', '기타') "직무분류(한글)"
-  FROM EMP;
--- DEPTNO로 지역 분류
-SELECT ENAME, DEPTNO, DECODE(DEPTNO,10,'서울',
-                                    20,'대전',
-                                    30,'부산', '기타') "근무지"
-FROM EMP;
--- SAL의 특정 값이면 분류로 보통, 높음 표현 그외는 기타로 분류
-SELECT ENAME, SAL, DECODE(SAL, 1600,'보통',
-                               5000, '높음', '기타') "급여등급"
-FROM EMP;     
--- EX1) ENAME이 ALLEN이면 영업팀, FORD이면 개발팀, 그외는 일반틱으로 팀을 구분해서 사원번호, 사원명, 팀구분 출력
-SELECT ENAME, DECODE(ENAME,'ALLEN','영업팀','FORD','개발팀','일반팀') "팀구분"
-FROM EMP;
--- EX2) MGR이 7389이면 회장님, 7566이면 부장님 나머지는 기타관리자로  관리자분류로   사원명 관리자번호  관리자구분 출력
-SELECT ENAME, MGR, DECODE(MGR,7389,'회장님',7566,'부장님','기타관리자') "관리자구분"
-FROM EMP;
 /*
 # CASE WHEN 구문
 1. CASE WHEN 구문은 조건에 따라 다른 값을 반환하는 구문입니다. SQL 쿼리 내에서
@@ -92,8 +56,16 @@ SELECT ENAME, COMM,
 	   		 END "보너스구분"
 FROM EMP;	   
 /*
-
+ex) MGR 기준으로 NULL일 때는 최고관리자, 7839일 때는 중간관리자  그외는 일반 사원으로  처리해서 
+사원번호, 사원명, 관리자번호(MGR), 관리자분류  로 출력하세요..
 **/
+SELECT ENAME, MGR,
+		CASE WHEN MGR IS NULL THEN '최고관리자'
+		     WHEN MGR = 7839 THEN '중간관리자'
+		     ELSE '일반사원'
+		END "관리자구분"     
+FROM EMP;		
+SELECT MGR FROM EMP;
 
 
 

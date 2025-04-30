@@ -29,3 +29,20 @@ FROM EMP;
 	개월 수을 계산하여 숫자로 리턴한다. 1개월 단위로 1리턴되므로,
 	만약 15일이면 0.5가 리턴된다.
  * */
+SELECT SYSDATE,  MONTHS_BETWEEN(SYSDATE+30, SYSDATE) "현재와 30일후 월"
+FROM DUAL;
+SELECT ENAME, MONTHS_BETWEEN(HIREDATE+45, HIREDATE) "입사후 45일 후"
+FROM EMP;
+-- EX) 사원명, 입사일, 현재날짜로 15일후, 현재날짜 30일전의 개월 수를 출력하세요...
+SELECT ENAME, HIREDATE, 
+	MONTHS_BETWEEN(SYSDATE+15, SYSDATE) "현재날짜로 15일 후",
+	MONTHS_BETWEEN(SYSDATE, SYSDATE-30) "현재날짜로 30일 전"
+FROM EMP;
+/*
+# ADD_MONTHS(기준날짜데이터, 추가개월수) : 특정 추가개월 수 후에 날짜를 가져다 준다.
+ * */
+SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE, 3) "입사후, 3개월",
+	   ADD_MONTHS(HIREDATE, -2) "입사2개월전"
+ FROM EMP;	   
+
+
