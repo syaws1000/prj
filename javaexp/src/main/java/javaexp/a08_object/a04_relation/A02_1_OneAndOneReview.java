@@ -6,6 +6,8 @@ public class A02_1_OneAndOneReview {
 		// TODO Auto-generated method stub
 		// 친구 객체 만들기.
 		Friend fi01 = new Friend("민수");
+
+
 		// 집 객체 만들..
 		FriendHouse fh01 = new FriendHouse("서울시 강남구",fi01 ); // 생성자를 통해서 초기화..
 		
@@ -20,10 +22,24 @@ public class A02_1_OneAndOneReview {
 		2. 친구의집을 만들다 : FriendHouse fh01 = new FriendHouse("서울시 강남구",fi01 ); 
 		3. 친구와 집을 소개 하다. : fh01.introduceHouse();
 		 * */
-
+		King k01 = new King();
+		Kingdom kd01 = new Kingdom();
+		kd01.name = "조선";
+		kd01.king.name = "숙종(왕)";
 	}
 
 }
+// 왕 클래스
+class King{
+	String name;
+}
+// 왕을 포함한 클래스
+class Kingdom{
+	String name;
+	King king;
+}
+
+
 /*
 # 1:1 객체 관계로 친구와 집을 연결하는 이야기
 1. 관계란 ?
