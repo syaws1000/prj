@@ -33,9 +33,33 @@ public class A02_1_OneAndOneReview {
 		//System.out.println("왕국의 왕은:"+kd02.getKing().getName());
 		kd02.showKindomInfo();
 		// 왕국에 있는 King객체를 호출하고, 그 안에있는 이름 호출.. 
+		Director d01 = new Director();
+		d01.name = "봉준호";
+		Movie m01 = new Movie();
+		m01.director = d01;
+		m01.title = "기생충";
+		System.out.println(m01.director.name);// 포함한객체.포함된객체.필드
+		
 	}
 
 }
+// 영화와 감독..
+// Movie(title, director), Director(name)
+// 1. 클래스 선언
+class Director{
+	String name;
+}
+class Movie{
+	String title;
+	Director director;
+}
+
+// --------------------------------
+// 2. private 없이 1:1 관계 main()에서 설정 확인 후,
+// 3. private 값 선언 후, 처리 출력까지.. 
+
+
+
 // 왕 클래스
 class King{  // private 설정,  생성자, get/set 메서드 호출
 	private String name;
