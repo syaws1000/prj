@@ -24,19 +24,62 @@ public class A02_1_OneAndOneReview {
 		 * */
 		King k01 = new King();
 		Kingdom kd01 = new Kingdom();
-		kd01.name = "조선";
-		kd01.king.name = "숙종(왕)";
+		//kd01.name = "조선";
+		//kd01.king.name = "숙종(왕)";
+		// 생성자 형태로 객체 생성과 메서드 호출..
+		King k02 = new King("광개토대왕");
+		Kingdom kd02 = new Kingdom("고구려",k02);
+		System.out.println("왕국의 이름은:"+kd02.getName());
+		System.out.println("왕국의 왕은:"+kd02.getKing().getName());
+		// 왕국에 있는 King객체를 호출하고, 그 안에있는 이름 호출.. 
 	}
 
 }
 // 왕 클래스
-class King{
-	String name;
+class King{  // private 설정,  생성자, get/set 메서드 호출
+	private String name;
+
+	public King() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public King(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 }
 // 왕을 포함한 클래스
 class Kingdom{
-	String name;
+	String name; //private 설정,  생성자, get/set 메서드 호출
 	King king;
+	public Kingdom() {
+		// TODO Auto-generated constructor stub
+	}
+	public Kingdom(String name, King king) {
+		this.name = name;
+		this.king = king;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public King getKing() {
+		return king;
+	}
+	public void setKing(King king) {
+		this.king = king;
+	}
+	
 }
 
 
