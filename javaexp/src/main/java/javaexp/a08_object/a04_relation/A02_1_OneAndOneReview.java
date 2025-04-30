@@ -34,27 +34,64 @@ public class A02_1_OneAndOneReview {
 		kd02.showKindomInfo();
 		// 왕국에 있는 King객체를 호출하고, 그 안에있는 이름 호출.. 
 		Director d01 = new Director();
-		d01.name = "봉준호";
 		Movie m01 = new Movie();
-		m01.director = d01;
-		m01.title = "기생충";
-		System.out.println(m01.director.name);// 포함한객체.포함된객체.필드
+		//d01.name = "봉준호";
+		//m01.director = d01;
+		//m01.title = "기생충";
+		//System.out.println(m01.director.name);// 포함한객체.포함된객체.필드
+		Director d02 = new Director("봉준호");
+		Movie m02 = new Movie("기생충", d02);
+		m02.showMovieInfo();
+		
 		
 	}
-
 }
 // 영화와 감독..
 // Movie(title, director), Director(name)
 // 1. 클래스 선언
 class Director{
-	String name;
+	private String name;
+	public Director() {
+	}
+	public Director(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }
 class Movie{
-	String title;
-	Director director;
+	private String title;
+	private Director director;
+	public Movie() {
+		// TODO Auto-generated constructor stub
+	}
+	public Movie(String title, Director director) {
+		this.title = title;
+		this.director = director;
+	}
+	public void showMovieInfo() {
+		System.out.println("# 영화 정보 #");
+		System.out.println("1. 영화제목:"+title);
+		System.out.println("2. 감독명:"+director.getName());
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public Director getDirector() {
+		return director;
+	}
+	public void setDirector(Director director) {
+		this.director = director;
+	}
+	
 }
-
-// --------------------------------
 // 2. private 없이 1:1 관계 main()에서 설정 확인 후,
 // 3. private 값 선언 후, 처리 출력까지.. 
 
