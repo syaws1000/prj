@@ -29,8 +29,9 @@ public class A02_1_OneAndOneReview {
 		// 생성자 형태로 객체 생성과 메서드 호출..
 		King k02 = new King("광개토대왕");
 		Kingdom kd02 = new Kingdom("고구려",k02);
-		System.out.println("왕국의 이름은:"+kd02.getName());
-		System.out.println("왕국의 왕은:"+kd02.getKing().getName());
+		//System.out.println("왕국의 이름은:"+kd02.getName());
+		//System.out.println("왕국의 왕은:"+kd02.getKing().getName());
+		kd02.showKindomInfo();
 		// 왕국에 있는 King객체를 호출하고, 그 안에있는 이름 호출.. 
 	}
 
