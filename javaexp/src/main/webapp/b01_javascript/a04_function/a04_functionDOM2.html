@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>안녕하세요</h2>
+    <button type="button" onclick="chText()">글자 변경</button>
+    <h3>바뀔물건명</h3>
+    <button type="button" onclick="chProd('사과',2)">사과, 2</button>
+    <button type="button" onclick="chProd('바나나',3)">바나나, 3</button>
+    <button type="button" onclick="chProd('오렌지',4)">오렌지, 4</button>
+</body>
+<script>
+    function chText(){
+        document.querySelector("h2").innerText = "Hello!!"
+        // h2 DOM객체에 innerText(문자열을 변경하는 속성)  속성값으로 Hello!! 할당 처리
+    }
+    // 함수를 선언 클릭시, h3 바뀔물건명을 실제 물건명인 사과로 변경되게 처리하세요..
+    function chProd(prod, cnt){
+        document.querySelector("h3").innerText = `물건명:${prod}, 갯수:${cnt}`
+    }
+
+</script>
+</html>

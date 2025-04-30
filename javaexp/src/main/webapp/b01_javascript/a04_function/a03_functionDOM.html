@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>안녕하세요</h3>
+    <h2 onclick="chColor('red')">빨강</h2>
+    <h2 onclick="chColor('blue')">파랑</h2>
+    <h2 onclick="chColor('yellow')">노랑</h2>
+</body>
+<script>
+/*
+# DOM
+1. document object model로 body안에 있는 모든 tag들을 객체화하여 접근이 가능하며, 그 속성값을 동적으로
+    함수에 의해 변경을 할 수 있다.
+*/
+document.body.innerHTML+="<h2>화면에 DOM을 생성</h2>"
+/*
+2. body에 선언된 내용도 DOM으로 접근하여 속성을 변경할 수 있다.
+    document.querySelector("h3")
+    document.querySelector("선택자")
+        선택자 : 태그, #아이디명, .클래스
+
+
+*/
+let h3Ob = document.querySelector("h3")
+h3Ob.style.background="yellow" // 배경 색상 변경..
+/*
+3. 함수의 매개변수를 통해서 DOM객체의 속성을 변경할 수 있다.
+*/
+function chColor(color){
+    document.querySelector("h3").style.background = color
+}
+</script>
+</html>

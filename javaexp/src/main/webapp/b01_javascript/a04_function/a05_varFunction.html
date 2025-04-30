@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# 변수형 함수..
+1. 변수명으로 선언하고, 해당 변수명으로 호출하는 함수 형태를 말한다.
+2. 기본형식
+    var 함수명 = function(매개변수){ 처리할 내용}
+    함수명(데이터1, 데이터2)
+3. 앞선 예제에서 한 선언적 함수와 달리 반드시 선언후, 호출이 가능하다.    
+*/ 
+var plus = function(no1, no2){
+    return no1+no2;
+}
+
+let sum = plus(25, 3)  // 함수 호출 후, 리턴값으로 합산결과를 sum에 할당..
+alert("최종 리턴값:"+sum)
+
+
+</script>
+</html>
