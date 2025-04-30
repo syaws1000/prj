@@ -42,8 +42,10 @@ public class A02_1_OneAndOneReview {
 		Director d02 = new Director("봉준호");
 		Movie m02 = new Movie("기생충", d02);
 		m02.showMovieInfo();
-		
-		
+		Director d03 = new Director("임권택");
+		m02.setDirector(d03); // 감독 객체 변경..
+		m02.setTitle("장군의 아들");// 영화 제목 변경
+		m02.showMovieInfo(); // 영화정보를 출력하는 열쇠
 	}
 }
 // 영화와 감독..
