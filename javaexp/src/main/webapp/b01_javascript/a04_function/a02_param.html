@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 onclick="greet('철수')">철수</h2>  
+    <h2 onclick="greet('영희')">영희</h2>  
+    <h2 onclick="greet('영자')">영자</h2>  
+    <table width="200" height="200" border>
+        <tr>
+            <td onclick="buy('사과')">사과</td>
+            <td onclick="buy('바나나')">바나나</td>
+        </tr>
+        <tr>
+            <td onclick="buy('오렌지')">오렌지</td>
+            <td onclick="buy('수박')">수박</td>
+        </tr>    `
+    </table>
+</body>
+<script>
+function buy(fruit){
+    document.body.innerHTML+=`<h3>구매물건:${fruit}</h3>`
+}
+/*
+
+
+# 함수에서 매개변수 처리
+1. 자바스크립트에서 매개변수(parameter)는 함수가 호출될 때, 그 함수 내부에 사용할 값을 전달하는
+역할을 합니다. 매개변수는 함수 선언 시에 정의되며, 함수를 호출할 때 그 값을 전달해 줍니다.
+2. 매개변수 기본 개념
+    1) 함수는 매개변수를 사용하여 외부에서 값을 전달발고, 그 값을 내부에서 처리할 수 있습니다.
+    매개변수는 함수 선언시 괄호() 안에 정의되면, 함수 호출 시 실제 값을 넣어서 전달합니다.
+
+ex) 함수로 buy()선언하고 prod로 물건명을 매개변수로 받아 클릭시 마다, 구매물건 리스트로 출력되게 하세요.
+
+*/
+function greet(name){
+    document.body.innerHTML+=`<span>${name}야! 안녕!!  </span>`
+}
+greet("민수")
+</script>
+</html>
