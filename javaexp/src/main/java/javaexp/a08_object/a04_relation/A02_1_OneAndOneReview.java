@@ -67,6 +67,10 @@ class Kingdom{
 		this.name = name;
 		this.king = king;
 	}
+	public void showKindomInfo() {
+		System.out.println("왕국의 이름:"+name);
+		System.out.println("왕국의 왕:"+king.getName());
+	}
 	public String getName() {
 		return name;
 	}
