@@ -84,3 +84,195 @@
 > 출력 예시:  
 > “화가 윤슬이의 작품 ‘봄의 정원’은 크기 120x80입니다.”
 
+
+물론입니다! 아래에 주관식 개념 문제 10문항에 대한 **정답 및 해설**, 그리고 응용 실습 문제 5문항에 대한 **Java 또는 JavaScript 샘플 풀이 코드**를 제공합니다.
+
+---
+
+## ✅ 주관식 개념 문제 – 정답 및 해설
+
+1. **[정답] 포함 관계(Has-a 관계)**  
+   → 한 클래스가 다른 클래스의 객체를 필드로 가지는 것을 포함 관계라고 하며, 이는 **1:1 객체 관계** 또는 **구성 관계**(composition)를 표현할 때 사용됩니다.
+
+2. **[정답] getter / setter 메서드**  
+   → `get필드명()`은 값을 읽는 역할, `set필드명()`은 값을 설정하는 역할을 합니다.
+
+3. **[정답] 객체 생성 시 필드값을 초기화하기 위함.**  
+   생성자 오버로딩은 서로 다른 방식으로 객체를 초기화할 수 있도록 해 유연성을 제공합니다.
+
+4. **[정답] 코드의 재사용성과 상호작용성을 높일 수 있으며 이벤트 기반 처리를 쉽게 할 수 있다.**  
+   → HTML 요소에 직접 이벤트를 지정함으로써 사용자 입력이나 클릭에 따라 함수가 실행됩니다.
+
+5. **[정답] 외부에서 전달된 값을 함수 내부에서 사용하기 위해서이며, 반복적이거나 다양한 입력에 유연하게 대응할 수 있다.**  
+   → 예: `function greet(name){ alert(name + "님, 안녕하세요!"); }`
+
+6. **[정답] HTML 문서 내에서 특정 요소를 선택하고 접근할 수 있게 해주는 함수입니다.**  
+   → 선택자: 태그명(예: `"h2"`), 클래스명(`".className"`), ID명(`"#idName"`)
+
+7. **[정답] 포함(Composition) 또는 참조(Association) 관계**  
+   → 한 객체가 다른 객체를 필드로 포함하여 사용하는 방식은 객체지향 프로그래밍에서 **has-a 관계**를 표현합니다.
+
+8. **[정답] 데이터 은닉(encapsulation)을 통해 외부로부터 직접 필드 접근을 차단하고, 특정 메서드를 통해서만 값을 읽거나 쓸 수 있도록 함으로써 보안성과 유지보수성을 높입니다.**
+
+9. **[정답] HTML의 DOM 객체 속성을 조작하기 위한 방식입니다.**  
+   `innerText`는 텍스트 내용을, `style.background`는 배경 색상을 변경할 수 있습니다.
+
+10. **[정답] 포함될 객체 클래스는 데이터를 제공하는 역할, 포함하는 객체 클래스는 전체를 대표하며 포함 객체의 기능도 활용합니다.**
+
+---
+
+## 🧩 응용 실습 문제 – 예제 코드
+
+---
+
+### 1. 🧸 [Java] 인형과 아이의 관계
+
+```java
+class Doll {
+    String name;
+    String color;
+
+    public Doll(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+}
+
+class Child {
+    String childName;
+    Doll doll;
+
+    public Child(String childName, Doll doll) {
+        this.childName = childName;
+        this.doll = doll;
+    }
+
+    public void introduceDoll() {
+        System.out.println("저는 " + childName + "예요. 제 인형은 '" + doll.name + "'이고, 색깔은 " + doll.color + "이에요!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Doll d = new Doll("핑크토끼", "분홍색");
+        Child c = new Child("지우", d);
+        c.introduceDoll();
+    }
+}
+```
+
+---
+
+### 2. 🐾 [JavaScript] 애완동물 이름 등록소
+
+```html
+<button onclick="registerPet('강아지')">강아지</button>
+<button onclick="registerPet('고양이')">고양이</button>
+<button onclick="registerPet('햄스터')">햄스터</button>
+<div id="result"></div>
+
+<script>
+function registerPet(petType) {
+    let name = prompt(petType + "의 이름을 입력하세요");
+    document.getElementById("result").innerHTML += `<p>${petType}의 이름은 ${name}입니다</p>`;
+}
+</script>
+```
+
+---
+
+### 3. 🧁 [Java] 제빵사와 케이크
+
+```java
+class Cake {
+    String flavor;
+    int layers;
+
+    public Cake(String flavor, int layers) {
+        this.flavor = flavor;
+        this.layers = layers;
+    }
+}
+
+class Baker {
+    String name;
+    Cake cake;
+
+    public Baker(String name, Cake cake) {
+        this.name = name;
+        this.cake = cake;
+    }
+
+    public void showCake() {
+        System.out.println("제빵사 " + name + "는 " + cake.flavor + " 케이크(" + cake.layers + "단)를 만들었습니다.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cake cake = new Cake("초콜릿", 3);
+        Baker baker = new Baker("민수", cake);
+        baker.showCake();
+    }
+}
+```
+
+---
+
+### 4. 🚗 [JavaScript] 자동차 색상 꾸미기 게임
+
+```html
+<h3 id="car">자동차: 마티즈</h3>
+<button onclick="paintCar('red')">빨강</button>
+<button onclick="paintCar('blue')">파랑</button>
+<button onclick="paintCar('green')">초록</button>
+
+<script>
+function paintCar(color) {
+    document.querySelector("#car").style.color = color;
+}
+</script>
+```
+
+---
+
+### 5. 🎨 [Java] 화가와 그림
+
+```java
+class Painting {
+    String title;
+    int width;
+    int height;
+
+    public Painting(String title, int width, int height) {
+        this.title = title;
+        this.width = width;
+        this.height = height;
+    }
+}
+
+class Artist {
+    String name;
+    Painting painting;
+
+    public Artist(String name, Painting painting) {
+        this.name = name;
+        this.painting = painting;
+    }
+
+    public void showPainting() {
+        System.out.println("화가 " + name + "의 작품 '" + painting.title + "'은 크기 " + painting.width + "x" + painting.height + "입니다.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Painting p = new Painting("봄의 정원", 120, 80);
+        Artist a = new Artist("윤슬이", p);
+        a.showPainting();
+    }
+}
+```
+
+---
+
