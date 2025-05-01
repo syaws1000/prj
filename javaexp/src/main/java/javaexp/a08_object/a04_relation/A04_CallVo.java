@@ -54,6 +54,24 @@ public class A04_CallVo {
 			System.out.print(pro.getPrice()+"\t");
 			System.out.print(pro.getCnt()+"\n");
 		}
+		//ex) Dept 객체를 ==> List<Dept>에 dlist담고,  for 문을 통해서 출력하세요..
+		List<Dept> dlist = new ArrayList<Dept>();
+		dlist.add(new Dept(10,"인사","성남"));
+		dlist.add(new Dept(20,"회계","서울"));
+		dlist.add(new Dept(30,"총무","제주"));
+		Dept d04 = dlist.get(2); // 3번째 Dept 객체 가져오기..
+		System.out.print(d04.getDeptno()+"\t");
+		System.out.print(d04.getDname()+"\t");
+		System.out.print(d04.getLoc()+"\n");
+		System.out.println("부서번호\t부서명\t부서위치");
+		for(Dept dept:dlist) {
+			System.out.print(dept.getDeptno()+"\t");
+			System.out.print(dept.getDname()+"\t");
+			System.out.print(dept.getLoc()+"\n");
+		}
+		
+		
+		
 		
 		
 		
