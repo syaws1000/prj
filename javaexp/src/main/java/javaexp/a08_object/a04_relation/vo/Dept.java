@@ -1,5 +1,5 @@
 package javaexp.a08_object.a04_relation.vo;
-
+// import javaexp.a08_object.a04_relation.vo.Dept
 public class Dept {
 	private int deptno;
 	private String dname;
