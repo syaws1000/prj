@@ -44,5 +44,23 @@ FROM EMP;
 SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE, 3) "입사후, 3개월",
 	   ADD_MONTHS(HIREDATE, -2) "입사2개월전"
  FROM EMP;	   
-
+/*
+# NEXT_DAY(기준일,'요일')
+1. 해당 날짜를 기준으로 명시된 요일의 첫 날짜를 반환하는 함수
+ * */
+-- 오늘로부터 다가오는 첫 일요일
+SELECT 
+	NEXT_DAY(SYSDATE,'일') "다가올 첫 일요일",
+	NEXT_DAY(SYSDATE,'수') "다가올 첫 수요일"
+FROM DUAL;
+-- EX) 사원명과 입사일, 입사후첫토요일 출력하세요
+SELECT ENAME, HIREDATE, NEXT_DAY(HIREDATE,'토') "입사후첫토요일"
+FROM EMP;
+/*
+# LAST_DAY(날짜데이터) : 해당날짜가 속한 달의 마지막 날짜
+ * */
+SELECT SYSDATE, LAST_DAY(SYSDATE) "이번달 마지막일",
+		LAST_DAY(SYSDATE)+1 "다음달 첫날"
+FROM DUAL;
+-- EX) 입사한 날짜에 속한 마지막날짜와 그다음 첫날을 출력하되, 
 
