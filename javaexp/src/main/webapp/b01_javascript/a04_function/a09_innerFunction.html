@@ -16,11 +16,16 @@
 <script>
     function buy(){
         let pname = document.querySelector("[name=pname]").value
+        // 화면에 DOM(선택자로 속성을 name이고 속성값이 pname)을 선택해서 해당 객체의 속성(value)
+        // 가져와서 pname 변수에 할당..
         let price = Number( document.querySelector("[name=price]").value )
+        // price 속성값을 가져와서 숫자형으로 변환(Number) price 변수에 할당
         let cnt = Number( document.querySelector("[name=cnt]").value )
+        // 
         document.querySelector("#buyInfo").innerHTML=`<h2>물건 구매정보</h2>
-            물건명:${pname}<br>가격:${price}원<br>갯수:${cnt}<br>총비용:${price*cnt}
-        `
+            물건명:${pname}<br>가격:${price}원<br>갯수:${cnt}<br>총비용:${price*cnt}`
+        // 특정한 대상 객체(DOM) <div id="buyInfo"></div> 가져와서 문자열을 만들고,
+        // 그것을 html코드로 해석하는 속성 innerHTML를 활용해서 출력 처리..
     }
 
 </script>
