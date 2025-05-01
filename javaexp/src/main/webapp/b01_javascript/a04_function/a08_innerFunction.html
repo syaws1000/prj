@@ -26,13 +26,23 @@
         ex) parseInt("123.25") ==> 123 (숫자) 정수형만 추출해준다
 
 */
+/*
 let numStr1 = prompt("첫번째 숫자 입력","0")
 let numStr2 = prompt("두번째 숫자 입력","0")
 document.body.innerHTML+=`<h2>문자열만 합산:${numStr1}+${numStr2}=${numStr1+numStr2}</h2>`
 let num1 = parseInt(numStr1)
 let num2 = parseInt(numStr2)
 document.body.innerHTML+=`<h2>숫자로 변환 합산:${num1}+${num2}=${num1+num2}</h2>`
+*/
 // ex) 예제시 주석 처리 prompt로 국어, 영어, 수학 점수를 받아서, 위 parseInt()로 형변환 처리하고,
 //     평균점수(정수형)를 출력하세요..
+let korStr = prompt("국어 점수 입력:", '0')
+let engStr = prompt("영어 점수 입력:", '0')
+let mathStr = prompt("수학 점수 입력:", '0')
+let kor = parseInt(korStr)
+let eng = parseInt(engStr)
+let math = parseInt(mathStr)
+let avg = parseInt( (kor+eng+math)/3 ); // 합산된 총액을 3으로 나누고, 소숫점이하 절삭
+document.body.innerHTML = `<h2>국어:${kor}, 영어:${eng}, 수학:${math}, 평균점수:${avg}</h2>`
 </script>
 </html>
