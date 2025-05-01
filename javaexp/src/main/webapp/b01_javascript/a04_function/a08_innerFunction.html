@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# 내장함수
+1. 자바스크립트 내장 함수는 자주 사용되는 작업을 쉽게 처리할 수 있도록 도와줍니다. 각 내장 함수는
+자바스크립트에서 매우 유용하게 사용되며, 이를 잘 활용하면 코드를 더 효율적으로 간결하게 작성할 수
+있습니다. 객체에 종속된 내장함수(메서드)와 객체에 종속되지 않는 내장 함수가 있는데,
+2. 우선, 객체에 종속되지 않는 그로벌 범위(전역 함수)를 먼저 알아 보자.
+3. 객체 종속되지 않는 내장 함수 종류
+    1) parseInt()
+        주어진 문자열을 정수로 변환합니다.
+        문자열이 숫자로 시작하면 해당 숫자만 반환하고, 숫자가 아니라면 NaN(Not a Number)을
+        반환합니다.
+        ex) parseInt("123") ==> 123 (숫자)
+        ex) parseInt("1000abc") ==> 1000 (앞에서 문자가 나오기전 숫자만 추출)
+        ex) parseInt("abc1000") ==> NaN (앞에서 숫자가 없기에 NaN으로 에러 코드 출력)
+        ex) parseInt("123.25") ==> 123 (숫자) 정수형만 추출해준다
+
+*/
+let numStr1 = prompt("첫번째 숫자 입력","0")
+let numStr2 = prompt("두번째 숫자 입력","0")
+document.body.innerHTML+=`<h2>문자열만 합산:${numStr1}+${numStr2}=${numStr1+numStr2}</h2>`
+let num1 = parseInt(numStr1)
+let num2 = parseInt(numStr2)
+document.body.innerHTML+=`<h2>숫자로 변환 합산:${num1}+${num2}=${num1+num2}</h2>`
+// ex) 예제시 주석 처리 prompt로 국어, 영어, 수학 점수를 받아서, 위 parseInt()로 형변환 처리하고,
+//     평균점수(정수형)를 출력하세요..
+</script>
+</html>
