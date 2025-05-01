@@ -1,0 +1,134 @@
+## ✅ Java + JavaScript 기반 객관식 문제 15문항 (문제만)
+
+---
+
+### 🔸 Java 관련 (10문항)
+
+1. 다음 중 **Java에서 1:1 관계 표현**에 가장 적절한 예시는?  
+   A. 배열 사용  
+   B. `Book` 클래스 안에 `Author` 클래스를 필드로 선언  
+   C. 상속 사용  
+   D. `Scanner` 사용
+
+---
+
+2. 다음 중 **getter 메서드**의 목적은 무엇인가?  
+   A. 객체를 생성한다  
+   B. 데이터를 삭제한다  
+   C. 필드 값을 읽어온다  
+   D. 클래스 이름을 반환한다
+
+---
+
+3. 다음 중 **private 필드에 직접 접근이 안 되는 이유**는?  
+   A. 메모리 절약  
+   B. 속도 향상  
+   C. 캡슐화 보안  
+   D. 오류 방지
+
+---
+
+4. 다음 중 **생성자(Constructor)**에 대한 설명으로 올바른 것은?  
+   A. 클래스와 다른 이름을 갖는다  
+   B. 반환 타입을 반드시 지정해야 한다  
+   C. 객체 초기화에 사용된다  
+   D. 반드시 매개변수가 있어야 한다
+
+---
+
+5. 다음 코드에서 잘못된 부분은?  
+```java
+class A {
+    private int x;
+}
+A a = new A();
+a.x = 10;
+```  
+   A. 객체 생성 방식  
+   B. 클래스 이름  
+   C. 접근 제한자 문제  
+   D. 생성자 누락
+
+---
+
+6. 다음 중 **포함될 객체**에 해당하는 클래스는?  
+   A. Cafe  
+   B. Menu  
+   C. Person  
+   D. CarOwner
+
+---
+
+7. 다음 중 **1:1 관계가 아닌 것**은?  
+   A. Book - BookBuyer  
+   B. Friend - FriendHouse  
+   C. Pet - PetOwner  
+   D. Man - List\<Subject>
+
+---
+
+8. 다음 중 `getName()` 메서드는 어떤 클래스에서 주로 사용되었는가?  
+   A. Scanner  
+   B. Subject  
+   C. Friend  
+   D. License
+
+---
+
+9. `this.name = name;` 이 구문의 역할은?  
+   A. 정적 변수 선언  
+   B. 외부 객체 참조  
+   C. 인스턴스 필드 초기화  
+   D. 배열 복사
+
+---
+
+10. `System.out.println(m2.getDirector().getName());` 와 같은 호출은 어떤 구조를 이용한 것인가?  
+   A. 메서드 체이닝  
+   B. 클래스 상속  
+   C. 인터페이스  
+   D. 추상 클래스
+
+---
+
+### 🔸 JavaScript 관련 (5문항)
+
+11. 다음 중 JavaScript에서 **함수를 정의하는 올바른 방식**은?  
+   A. `function = sayHello() {}`  
+   B. `let sayHello = () => alert("hi")`  
+   C. `define sayHello() {}`  
+   D. `func sayHello()`
+
+---
+
+12. `onclick="buy('사과')"`에서 `'사과'`는 어떤 역할을 하는가?  
+   A. 변수  
+   B. 객체  
+   C. 매개변수  
+   D. 선택자
+
+---
+
+13. `document.querySelector("h3").style.background = "yellow"`는 어떤 동작을 하나?  
+   A. h3 태그를 제거한다  
+   B. h3 태그의 배경을 노란색으로 변경  
+   C. 문서에 h3를 추가  
+   D. 스타일을 초기화
+
+---
+
+14. 다음 중 **함수 호출의 결과로 DOM을 변경하는 코드**는?  
+   A. `alert("Hello")`  
+   B. `prompt("이름?")`  
+   C. `document.querySelector("h3").innerText = "바뀐값"`  
+   D. `console.log("출력")`
+
+---
+
+15. JavaScript에서 `var plus = function(a,b){ return a+b; }` 와 같은 선언은 어떤 함수 형식인가?  
+   A. 선언적 함수  
+   B. 익명 함수  
+   C. 클래스형 함수  
+   D. 콜백 함수
+
+---
