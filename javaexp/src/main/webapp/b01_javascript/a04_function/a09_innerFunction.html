@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>form요소들에 입력해서 데이터 처리하기</h2>
+    물건명:<input type="text" name="pname"/><br>
+    가격:<input type="text" name="price"/><br>
+    갯수:<input type="text" name="cnt"/><br>
+    <input type="button" value="구매" onclick="buy()"/><br>
+    <div id="buyInfo"></div>
+</body>
+<script>
+    function buy(){
+        let pname = document.querySelector("[name=pname]").value
+        let price = Number( document.querySelector("[name=price]").value )
+        let cnt = Number( document.querySelector("[name=cnt]").value )
+        document.querySelector("#buyInfo").innerHTML=`<h2>물건 구매정보</h2>
+            물건명:${pname}<br>가격:${price}원<br>갯수:${cnt}<br>총비용:${price*cnt}
+        `
+    }
+
+</script>
+</html>
