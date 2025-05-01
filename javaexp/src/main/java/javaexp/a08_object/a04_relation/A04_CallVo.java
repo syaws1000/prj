@@ -47,6 +47,13 @@ public class A04_CallVo {
 		System.out.println(pd01.getName());
 		System.out.println(pd01.getPrice());
 		System.out.println(pd01.getCnt());
+		System.out.println("물건명\t가격\t갯수");
+		// for(단위데이터 : 배열데이터 )
+		for(Product pro:plist) {
+			System.out.print(pro.getName()+"\t");
+			System.out.print(pro.getPrice()+"\t");
+			System.out.print(pro.getCnt()+"\n");
+		}
 		
 		
 		
