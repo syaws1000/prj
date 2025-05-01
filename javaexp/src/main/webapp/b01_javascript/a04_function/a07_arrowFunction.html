@@ -7,14 +7,22 @@
     <script>
     // 화살표 함수도 변수형함수(익명함수)의 일종이라서 상단 선언후, 사용이 가능하다.
     // 선언적 함수( function 함수명(){})는 하단에 선언하더라도 호출이 가능하다..   
+    // const : 상수로 한번 할당 후, 변경되지 않게 할 때, 사용된다.
     const call = ()=>alert('화살표함수!!')
     const call2 = (a, b) =>{
         let sum = a + b
         alert("합산:"+sum)
     }
+    // ex) 화살표 선언형식으로 매개변수로 물건가격과 갯수를 전달하여, 구매 금액의 총계를 
+    // alert()출력하세요.
+    const buy = (price, cnt) => alert(`물건가격:${price}원, 갯수:${cnt}개,\n총계:${price*cnt}원`)
+
     </script>
 </head>
 <body>
+    <h2 onclick="buy(3000,2)">사과(3000원) 2개 구매</h2>
+    <h2 onclick="buy(4000,3)">바나나(4000원) 3개 구매</h2>
+    <h2 onclick="buy(7000,4)">딸기(7000원) 4개 구매</h2>
     <h2 onclick="call()">화살표 함수 호출</h2>
     <h2 onclick="call2(5, 7)">화살표 함수 형식2 호출</h2>
 </body>
