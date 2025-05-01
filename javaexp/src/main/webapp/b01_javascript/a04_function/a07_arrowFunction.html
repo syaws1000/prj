@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 화살표 함수도 변수형함수(익명함수)의 일종이라서 상단 선언후, 사용이 가능하다.
+    // 선언적 함수( function 함수명(){})는 하단에 선언하더라도 호출이 가능하다..   
+    const call = ()=>alert('화살표함수!!')
+    const call2 = (a, b) =>{
+        let sum = a + b
+        alert("합산:"+sum)
+    }
+    </script>
+</head>
+<body>
+    <h2 onclick="call()">화살표 함수 호출</h2>
+    <h2 onclick="call2(5, 7)">화살표 함수 형식2 호출</h2>
+</body>
+</body>
+<script>
+/*
+# 화살표 함수(Arrow Functions)
+1. ES6(자바스크립트버젼)에서 도입된 화살표 함수의 문법은 기본 함수형식으로 보단 간결하게 처리하였다.
+2. 형식
+    const 함수명 = (매개변수1, 매개변수2..) => 리턴값처리
+    const 함수명 = (매개변수1, 매개변수2..) => { 
+        프록세스처리
+        리턴값처리}
+*/
+
+
+</script>
+</html>
