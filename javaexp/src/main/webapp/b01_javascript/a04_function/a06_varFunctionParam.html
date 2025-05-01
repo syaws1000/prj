@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <h1 onclick="call(1000,2000)">가변형 함수호출(1000,2000)</h1>
+    <h1 onclick="call('사과','바나나')">가변형 함수호출('사과','바나나')</h1>
+    <h1 onclick="call('사과',3000,2)">가변형 함수호출('사과',3000,2)</h1>
+    <h1 id="showRec"></h1>
+    <h2 onclick="records('홍길동',70,80,90)">홍길동 성적 확인</h2>
+    <h2 onclick="records('김길동',80,80,90)">김길동 성적 확인</h2>
+    <h2 onclick="records('마길동',100,80,90)">마길동 성적 확인</h2>
+</body>
+<script>
+function records(...recs){
+    let tot = recs[1]+recs[2]+recs[3]
+    let avg = tot/3
+    let show = `이름:${recs[0]}, 국어:${recs[1]}, 영어:${recs[2]}, 수학:${recs[3]},
+                총점:${tot}, 평균:${avg}`
+    document.querySelector("#showRec").innerText = show            
+}
+function call(...params){
+    //alert(params)
+    document.querySelector("div").innerText=params
+}
+// ex) 학생별 이름과 국어,영어, 수학 점수를 매개변수로 전달하여   클릭할 시 마다 해당 학생의 이름과
+//    점수 정보가 출력되게 처리하세요..
+//     '홍길동',70,80,90
+//     '신길동',80,80,90
+//     '마길동',100,80,90
+/*
+# 가변형 매개변수 처리
+1. 함수에 매개변수가 여러개 있거나 없더라도 가변적으로 매개변수를 처리하는
+    유형 2번째.
+2. 기본형식
+    function 함수명(...배열명){
+        배열명[0]...
+        배열명.length
+    }
+    함수명(100,200)
+    함수명('사과',3000,2)
+3. 위와 같은 경우 앞선 예제에 arguments 키워드를 사용하는 것보다,
+    보다 간편하게 배열명으로 배열로 매개변수를 처리해준다.
+*/
+
+</script>
+</html>
