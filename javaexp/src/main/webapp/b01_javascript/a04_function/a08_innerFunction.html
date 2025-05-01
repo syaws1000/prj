@@ -36,6 +36,7 @@ document.body.innerHTML+=`<h2>숫자로 변환 합산:${num1}+${num2}=${num1+num
 */
 // ex) 예제시 주석 처리 prompt로 국어, 영어, 수학 점수를 받아서, 위 parseInt()로 형변환 처리하고,
 //     평균점수(정수형)를 출력하세요..
+/*
 let korStr = prompt("국어 점수 입력:", '0')
 let engStr = prompt("영어 점수 입력:", '0')
 let mathStr = prompt("수학 점수 입력:", '0')
@@ -44,5 +45,31 @@ let eng = parseInt(engStr)
 let math = parseInt(mathStr)
 let avg = parseInt( (kor+eng+math)/3 ); // 합산된 총액을 3으로 나누고, 소숫점이하 절삭
 document.body.innerHTML = `<h2>국어:${kor}, 영어:${eng}, 수학:${math}, 평균점수:${avg}</h2>`
+*/
+/*
+# parseFloat()
+1. 주어진 문자열을 부동소숫점 숫자로 변환합니다.
+2. 문자열이 숫자로 시작하면 해당 문자만 반환하고, 숫자가 아니면 NaN을 반환합니다.
+ex) parseFloat("12.34abc")  ===> 12.34
+ex) parseFloat("abc12.34")  ===> NaN
+# Number() : 주의) 시작 N은 대문자로 처리
+1. 위 정수형변환함수(parseInt())와 실수형변환함수(parseFloat())의 두가지 모든 변환기능을 가지고
+    있다.
+2. 하지만, 숫자형 추출 기능이 없어서 에러발생 한다.
+    ex) Number("75") ==> 75
+    ex) Number("75.75") ==> 75.75
+    ex) Number("75abc") ==> NaN
+    ex) Number("75.75abc") ==> NaN
+*/
+/*
+let num01 = Number(prompt("첫번째 숫자(정수)",0))
+let num02 = Number(prompt("두번째 숫자(실수)",0))
+document.body.innerHTML = `<h2>${num01} + ${num02} = ${num01 + num02}</h2>`
+*/
+// ex) Number를 이용하여 구구단의 단수와 곱할 수를 입력하여 결과를 화면에 출력하세요..
+let grade = Number(prompt("단수를 입력"), "2")
+let cnt = Number(prompt("곱할 수를 입력"), "1")
+document.body.innerHTML =`<h2>${grade} x ${cnt} = ${grade*cnt}</h2>`
+
 </script>
 </html>
