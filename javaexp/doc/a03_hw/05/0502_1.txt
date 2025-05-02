@@ -7,7 +7,7 @@
 1. 다음 중 `ArrayList`를 사용하는 가장 큰 이유는?  
    A. 정적인 크기 설정 가능  
    B. 빠른 검색 속도  
-   C. 동적으로 요소 추가/삭제가 가능함  
+   #C. 동적으로 요소 추가/삭제가 가능함  
    D. 배열보다 메모리를 적게 사용함
 
 ---
@@ -15,7 +15,7 @@
 2. 클래스에서 `private` 필드를 사용하는 목적은?  
    A. 외부에서 바로 접근 가능하게 하기 위함  
    B. 생성자와 혼동하지 않기 위해  
-   C. 내부 데이터 보호 및 캡슐화를 위함  
+   #C. 내부 데이터 보호 및 캡슐화를 위함  
    D. 모든 객체에서 공유되게 하기 위함
 
 ---
@@ -23,7 +23,7 @@
 3. 다음 중 `getter` 메서드의 역할은?  
    A. 객체를 생성한다  
    B. 데이터를 삭제한다  
-   C. 필드 값을 반환한다  
+   #C. 필드 값을 반환한다    private로 되어 있는 필드값을 가져오기 위한 열쇠 역할
    D. 클래스를 복사한다
 
 ---
@@ -31,14 +31,14 @@
 4. 다음 중 생성자에 대한 설명으로 **틀린 것**은?  
    A. 객체 생성 시 자동으로 호출된다  
    B. 클래스명과 동일한 이름을 가진다  
-   C. 반환 타입이 void이다  
+   #C. 반환 타입이 void이다  
    D. 오버로딩이 가능하다  
 
 ---
 
 5. 다음 중 Java에서 객체를 `List`에 담고 활용하는 올바른 방법은?  
    A. List<Object> list = new List<>();  
-   B. list.add(new Object);  
+   #B. list.add(new Object);  
    C. list.get(0);  
    D. ArrayList<Object> list = new List<>();  
 
@@ -47,7 +47,9 @@
 6. 다음 중 Java의 for-each 문에 해당하는 구문은?  
    A. for(int i=0; i<list.size(); i++)  
    B. while(i<list.length)  
-   C. for(String item : list)  
+   #C. for(String item : list)  
+   	   for(단위데이터 : 배열형데이터)
+   	   for(Person p : plist) 
    D. forEach(list)
 
 ---
@@ -55,40 +57,72 @@
 7. `Product` 클래스의 객체들을 `List<Product>`에 담은 후 가격 총합을 구할 때 사용하는 반복문은?  
    A. if문  
    B. while문  
-   C. for-each문  
+   #C. for-each문  
    D. do-while문
-
+   
+   List<Product> list = new ArrayList<Proudct>();
+   list.add(new Product("사과",3000,2));ㅣ
+	....
+   int tot = 0;
+   for(Product pro:list){
+   	   tot += pro.getPrice()*pro.getCnt();
+   }
+   System.out.println("총합:"+tot);
 ---
 
 ### 🔹 JavaScript 관련 (5문항)
 
 8. 다음 중 화살표 함수에 대한 설명으로 올바른 것은?  
    A. 반드시 매개변수가 있어야 한다  
-   B. 선언 전에 호출할 수 있다  
+   B. 선언 전에 호출할 수 있다  선언전에는 불가능 하다. 익명함수/변수형 함수이기때문에.. 
    C. this 바인딩이 기존 함수와 동일하다  
-   D. 간결한 문법으로 함수를 정의할 수 있다  
+   #D. 간결한 문법으로 함수를 정의할 수 있다  
+   let 함수명 = ()=>리턴값;
+   let 함수명 = (매개변수)=>{프로세스처리};
+   함수명()
 
 ---
 
 9. `arguments` 객체와 `...rest` 파라미터의 차이로 올바른 설명은?  
    A. 둘 다 배열이다  
    B. `arguments`는 화살표 함수에서 사용 가능하다  
-   C. `...rest`는 배열이며 배열 메서드를 사용할 수 있다  
+   #C. `...rest`는 배열이며 배열 메서드를 사용할 수 있다  
    D. `arguments`는 ES6 이후에 도입되었다
+   
+   function calcu(...points){
+   	  let tot = 0;
+   	  for(idx in points){
+   	  	 tot += points[idx]
+   	  }
+   	  return tot;
+   }
+   	// 매개변수의 갯수와 상관없이 처리해주는 가변형 매개변수
+  	calcu(10,20);
+  	calcu(10,20,30);
+  	calcu(100,200);
+  	calcu(10);
 
 ---
+	<h3>사과</h3>
+	<h3>바나나</h3>
+	<h3>딸기</h3>
 
+	var h3Ob = document.querySelector("h3") ==> <h3>사과</h3>
+	h3Ob.innerText ==> 사과
+	var h3Arr = document.quereySelectorAll("h3") ==> 나열된 h3 모두를 배열로 가진다.
+	h3Arr[2].innerText ==> 딸기
+	
 10. 다음 중 `document.querySelector("h3")`의 기능은?  
     A. 모든 h3 요소를 선택한다  
     B. h3 요소를 배열로 반환한다  
-    C. 첫 번째 h3 요소 하나만 반환한다  
+    #C. 첫 번째 h3 요소 하나만 반환한다  
     D. h3 태그를 새로 생성한다
 
 ---
 
 11. `parseInt("100px")`의 결과는?  
     A. NaN  
-    B. 100  
+    #B. 100    시작하는 숫자만 추출..
     C. "100px"  
     D. 0
 
@@ -97,9 +131,11 @@
 12. 다음 중 `Number("75abc")`의 반환 결과는?  
     A. 75  
     B. 0  
-    C. NaN  
+    #C. NaN    Not a Number
     D. "75"
-
+	Number("25") ==> 정수 25
+	Number("25.85") ==> 실수 25.85
+	
 ---
 
 ### 🔹 Oracle SQL 관련 (3문항)
@@ -107,7 +143,7 @@
 13. `NEXT_DAY(SYSDATE, '일')` 함수의 의미는?  
     A. 다음 주 일요일  
     B. 이번 주 일요일  
-    C. 기준일로부터 가장 가까운 미래의 일요일  
+    #C. 기준일로부터 가장 가까운 미래의 일요일  
     D. 현재 날짜에서 일요일만 추출
 
 ---
@@ -115,14 +151,14 @@
 14. `LAST_DAY(SYSDATE)` 함수의 결과는?  
     A. 이전 달 마지막 날  
     B. 이번 달 첫째 날  
-    C. 기준일이 속한 달의 마지막 날짜  
+    #C. 기준일이 속한 달의 마지막 날짜  
     D. 다음 달 1일
 
 ---
 
 15. 다음 중 입사 다음 달 10일을 계산하는 SQL 함수는?  
     A. `NEXT_DAY(HIREDATE, '10')`  
-    B. `LAST_DAY(HIREDATE)+10`  
+    #B. `LAST_DAY(HIREDATE)+10`  
     C. `FIRST_DAY(HIREDATE)+10`  
     D. `SYSDATE + 10`
 
