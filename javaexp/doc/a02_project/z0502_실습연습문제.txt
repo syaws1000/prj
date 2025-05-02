@@ -145,6 +145,8 @@
 
 ---
 
+
+
 ## ✅ [2] 이야기 기반 응용 실습문제 30문제
 
 ### 💡 JavaScript + DOM 응용 (10문제)
@@ -187,3 +189,586 @@
 29. **"요일 계산기"**: 오늘 기준 첫 '토요일', '수요일' 날짜를 구해보세요.  
 30. **"개월 수 계산기"**: 현재날짜 기준 15일 후, 30일 전의 개월 차를 MONTHS_BETWEEN으로 출력하세요.
 
+
+
+
+## ✅ [1] 객관식 문제 해설 및 정답
+
+### 🔹 JavaScript (10문항)
+1. **정답: B**  
+   `break`는 무한 루프를 중단하는 데 사용됩니다.
+
+2. **정답: C**  
+   `pop()`은 배열의 마지막 요소를 제거하고 반환합니다.
+
+3. **정답: C**  
+   `arguments` 객체는 함수 내부에서 전달된 매개변수를 배열처럼 접근할 수 있게 해줍니다.
+
+4. **정답: C**  
+   화살표 함수의 올바른 선언 형식입니다: `(x, y) => x + y`
+
+5. **정답: C**  
+   `document.querySelector()`는 CSS 선택자를 이용하여 DOM 요소를 선택합니다.
+
+6. **정답: D**  
+   `parseInt("123.45")`는 소수점 앞 숫자인 `123`만 반환합니다.
+
+7. **정답: B**  
+   숫자가 아닌 문자가 포함되어 있어 `Number("123abc")`는 `NaN`을 반환합니다.
+
+8. **정답: A**  
+   `push()` 메서드는 배열 끝에 요소를 추가합니다.
+
+9. **정답: A**  
+   `splice(1,2)`는 1번 인덱스부터 2개 요소를 삭제합니다.
+
+10. **정답: C**  
+    `innerHTML`은 HTML 태그까지 해석하지만 `innerText`는 텍스트만 출력합니다.
+
+---
+
+### 🔹 Java (10문항)
+11. **정답: B**  
+    클래스 안에 다른 클래스 타입 필드를 선언하면 1:1 관계를 표현할 수 있습니다.
+
+12. **정답: B**  
+    생성자는 객체를 초기화하는 역할을 합니다.
+
+13. **정답: A**  
+    `add()`는 ArrayList에 데이터를 추가하는 메서드입니다.
+
+14. **정답: D**  
+    향상된 for문은 `for(String item : list)` 형식입니다.
+
+15. **정답: C**  
+    `private` 접근제어자는 해당 클래스 내부에서만 접근할 수 있습니다.
+
+16. **정답: C**  
+    `setXXX()` 메서드는 필드 값을 변경하는 데 사용됩니다.
+
+17. **정답: D**  
+    절차지향은 객체지향의 핵심이 아닙니다.
+
+18. **정답: B**  
+    `list.get(0)`은 첫 번째 요소를 반환합니다.
+
+19. **정답: B**  
+    객체 내부 객체의 메서드 접근은 `객체.필드.메서드()`입니다.
+
+20. **정답: C**  
+    객체 생성 시 `new` 키워드를 사용합니다.
+
+---
+
+### 🔹 Oracle SQL (10문항)
+21. **정답: B**  
+    `DECODE`는 `CASE`문의 기능을 단순화하여 제공하는 Oracle 전용 함수입니다.
+
+22. **정답: B**  
+    'L'은 "HELLO" 문자열에서 세 번째 위치(1부터 시작).
+
+23. **정답: B**  
+    `***hi`로 왼쪽에 `*`가 채워집니다.
+
+24. **정답: B**  
+    `SYSDATE + 1`은 1일(24시간) 후입니다.
+
+25. **정답: B**  
+    `ADD_MONTHS(SYSDATE, 2)`는 두 달 후 날짜를 반환합니다.
+
+26. **정답: D**  
+    `TRIM(' A ' FROM ' ABC ')`는 정확한 구문이 아니므로 TRIM 사용법은 `"TRIM('A' FROM 'ABC')"`
+
+27. **정답: C**  
+    Oracle에서는 `SYSDATE`가 현재 날짜/시간을 반환합니다.
+
+28. **정답: A**  
+    `CASE WHEN` 구문은 조건에 따라 다른 값을 반환하는 조건 연산입니다.
+
+29. **정답: A**  
+    `NEXT_DAY(SYSDATE, '월')`는 다가오는 다음 월요일을 반환합니다.
+
+30. **정답: D**  
+    `LAST_DAY(SYSDATE)`는 이번 달의 마지막 날짜를 반환합니다.
+    
+    
+아래는 요청하신 **JavaScript + DOM 응용 10문제**와 **Java 객체지향 1:1 관계 10문제**의 **정답 및 예시 코드**입니다.
+
+---
+
+## ✅ [1] JavaScript + DOM 응용 정답 예시 (1~10)
+
+---
+
+1. **상점 사장님이 말하길**  
+```html
+<button onclick="add('사과', 1000)">사과</button>
+<button onclick="add('바나나', 1500)">바나나</button>
+<div id="cart"></div>
+<script>
+let total = 0;
+function add(item, price){
+    total += price;
+    document.getElementById("cart").innerHTML += `${item}: ${price}원<br>`;
+    document.getElementById("cart").innerHTML += `총합: ${total}원<br>`;
+}
+</script>
+```
+
+---
+
+2. **초능력 색상 바꾸기**  
+```html
+<h3 id="target">안녕하세요!</h3>
+<button onclick="changeColor('red')">빨강</button>
+<button onclick="changeColor('yellow')">노랑</button>
+<button onclick="changeColor('blue')">파랑</button>
+<script>
+function changeColor(color){
+    document.getElementById("target").style.background = color;
+}
+</script>
+```
+
+---
+
+3. **마법의 이름 호출기**  
+```html
+<button onclick="greet('철수')">철수</button>
+<button onclick="greet('영희')">영희</button>
+<div id="hello"></div>
+<script>
+function greet(name){
+    document.getElementById("hello").innerHTML += `<p>${name}야! 안녕!</p>`;
+}
+</script>
+```
+
+---
+
+4. **학생 점수 처리기**  
+```javascript
+let kor = parseInt(prompt("국어 점수"));
+let eng = parseInt(prompt("영어 점수"));
+let math = parseInt(prompt("수학 점수"));
+let avg = parseInt((kor + eng + math) / 3);
+alert(`평균 점수: ${avg}`);
+```
+
+---
+
+5. **과일바구니 관리**  
+```html
+<div id="fruits"></div>
+<script>
+let basket = ["사과", "바나나", "딸기"];
+document.getElementById("fruits").innerHTML = `초기 바구니: ${basket}<br>`;
+basket.pop();
+document.getElementById("fruits").innerHTML += `pop 후: ${basket}<br>`;
+basket.shift();
+document.getElementById("fruits").innerHTML += `shift 후: ${basket}<br>`;
+</script>
+```
+
+---
+
+6. **무한등록 머신**  
+```javascript
+let names = [];
+while(true){
+    let input = prompt("이름 입력(Q 입력시 종료)");
+    if(input === "Q") break;
+    names.push(input);
+}
+document.body.innerHTML = `<h3>입력된 이름들: ${names.join(", ")}</h3>`;
+```
+
+---
+
+7. **동물소리 이벤트**  
+```html
+<button onclick="sound('고양이')">고양이</button>
+<button onclick="sound('개')">개</button>
+<button onclick="sound('오리')">오리</button>
+<script>
+function sound(animal){
+    let msg = "";
+    if(animal === "고양이") msg = "야옹~";
+    else if(animal === "개") msg = "멍멍!";
+    else if(animal === "오리") msg = "꽥꽥!";
+    alert(msg);
+}
+</script>
+```
+
+---
+
+8. **상품계산기**  
+```html
+<input id="item" placeholder="상품명">
+<input id="price" placeholder="가격">
+<input id="count" placeholder="갯수">
+<button onclick="calc()">구매</button>
+<div id="result"></div>
+<script>
+function calc(){
+    let name = document.getElementById("item").value;
+    let price = Number(document.getElementById("price").value);
+    let cnt = Number(document.getElementById("count").value);
+    let total = price * cnt;
+    document.getElementById("result").innerHTML = `${name} 총 ${total}원`;
+}
+</script>
+```
+
+---
+
+9. **말하는 상품 목록 (화살표 함수)**  
+```html
+<button onclick="buy(3000,2)">사과 2개</button>
+<script>
+const buy = (price, cnt) => {
+    alert(`총 금액: ${price * cnt}원`);
+}
+</script>
+```
+
+---
+
+10. **학생 성적 계산기**  
+```javascript
+function records(name, kor, eng, math){
+    let total = kor + eng + math;
+    let avg = total / 3;
+    alert(`이름: ${name}, 총점: ${total}, 평균: ${avg}`);
+}
+records("홍길동", 70, 80, 90);
+```
+
+---
+
+## ✅ [2] Java 객체지향 1:1 관계 예제 정답 (11~20)
+
+---
+
+11. **애완견 산책**  
+```java
+class Dog {
+    String name;
+    Dog(String name){ this.name = name; }
+}
+class Leash {
+    String color;
+    Leash(String color){ this.color = color; }
+}
+Dog dog = new Dog("초코");
+Leash leash = new Leash("빨강");
+System.out.println(dog.name + "는 " + leash.color + " 목줄로 산책 중입니다.");
+```
+
+---
+
+12. **아이와 장난감**  
+```java
+class Child {
+    String name;
+    Toy toy;
+    Child(String name, Toy toy){ this.name = name; this.toy = toy; }
+    void play(){ System.out.println(name + "가 " + toy.name + "로 놀고 있어요."); }
+}
+class Toy {
+    String name;
+    Toy(String name){ this.name = name; }
+}
+Child c = new Child("민수", new Toy("로봇"));
+c.play();
+```
+
+---
+
+13. **학생과 가방**  
+```java
+class Student {
+    String name;
+    Bag bag;
+    Student(String name, Bag bag){ this.name = name; this.bag = bag; }
+}
+class Bag {
+    String brand;
+    Bag(String brand){ this.brand = brand; }
+}
+Student s = new Student("지은", new Bag("Nike"));
+System.out.println(s.name + "의 가방 브랜드는 " + s.bag.brand);
+```
+
+---
+
+14. **사람과 여권**  
+```java
+class Person {
+    String name;
+    Passport passport;
+    Person(String name, Passport passport){ this.name = name; this.passport = passport; }
+}
+class Passport {
+    String number;
+    Passport(String number){ this.number = number; }
+}
+Person p = new Person("현수", new Passport("P1234567"));
+System.out.println(p.name + "의 여권번호: " + p.passport.number);
+```
+
+---
+
+15. **카페와 메뉴**  
+```java
+class Cafe {
+    String name;
+    Menu menu;
+    Cafe(String name, Menu menu){ this.name = name; this.menu = menu; }
+}
+class Menu {
+    String bestItem;
+    Menu(String bestItem){ this.bestItem = bestItem; }
+}
+Cafe c = new Cafe("카페라떼", new Menu("아인슈페너"));
+System.out.println(c.name + "의 인기 메뉴는 " + c.menu.bestItem);
+```
+
+---
+
+16. **자동차와 엔진**  
+```java
+class Car {
+    String model;
+    Engine engine;
+    Car(String model, Engine engine){ this.model = model; this.engine = engine; }
+    void start(){ System.out.println(model + "의 엔진: " + engine.type); }
+}
+class Engine {
+    String type;
+    Engine(String type){ this.type = type; }
+}
+Car car = new Car("소나타", new Engine("V6"));
+car.start();
+```
+
+---
+
+17. **휴대폰과 유심**  
+```java
+class Phone {
+    String model;
+    Sim sim;
+    Phone(String model, Sim sim){ this.model = model; this.sim = sim; }
+}
+class Sim {
+    String carrier;
+    Sim(String carrier){ this.carrier = carrier; }
+}
+Phone p = new Phone("Galaxy", new Sim("KT"));
+System.out.println(p.model + "는 " + p.sim.carrier + " 통신사 사용");
+```
+
+---
+
+18. **책과 저자**  
+```java
+class Book {
+    String title;
+    Author author;
+    Book(String title, Author author){ this.title = title; this.author = author; }
+}
+class Author {
+    String name;
+    Author(String name){ this.name = name; }
+}
+Book b = new Book("자바 입문", new Author("이강민"));
+System.out.println(b.title + "의 저자: " + b.author.name);
+```
+
+---
+
+19. **학생과 성적표**  
+```java
+class Student {
+    String name;
+    Score score;
+    Student(String name, Score score){ this.name = name; this.score = score; }
+}
+class Score {
+    int kor, eng, math;
+    Score(int k, int e, int m){ kor=k; eng=e; math=m; }
+    int getTotal(){ return kor+eng+math; }
+    double getAvg(){ return getTotal()/3.0; }
+}
+Student s = new Student("희정", new Score(90, 85, 95));
+System.out.println(s.name + " 총점: " + s.score.getTotal() + ", 평균: " + s.score.getAvg());
+```
+
+---
+
+20. **음식과 레시피**  
+```java
+class Food {
+    String name;
+    Recipe recipe;
+    Food(String name, Recipe recipe){ this.name = name; this.recipe = recipe; }
+    void cook(){ System.out.println(name + " 요리법: " + recipe.detail); }
+}
+class Recipe {
+    String detail;
+    Recipe(String detail){ this.detail = detail; }
+}
+Food f = new Food("김치찌개", new Recipe("김치+돼지고기+두부 끓이기"));
+f.cook();
+```
+
+
+아래는 요청하신 **Oracle SQL 응용 문제 21~30번**에 대한 **정답 및 풀이**입니다. 실무에서 자주 활용되는 날짜, 문자열, 조건 처리 함수가 포함되어 있습니다.
+
+---
+
+## ✅ Oracle SQL 응용 문제 정답 및 풀이
+
+---
+
+### 21. **직원 역할 분류기**  
+**문제 요약**: `DECODE`를 사용하여 JOB에 따라 분류  
+```sql
+SELECT ENAME, JOB,
+       DECODE(JOB, 
+              'CLERK', '사무직', 
+              'MANAGER', '관리직', 
+              'SALESMAN', '관리직',
+              'ANALYST', '기타', 
+              '기타') AS 역할분류
+FROM EMP;
+```
+
+---
+
+### 22. **사원의 급여 등급**  
+**문제 요약**: `CASE`문으로 SAL에 따른 급여 수준 표시  
+```sql
+SELECT ENAME, SAL,
+       CASE 
+           WHEN SAL >= 5000 THEN '높음'
+           WHEN SAL >= 3000 THEN '보통'
+           ELSE '낮음'
+       END AS 급여등급
+FROM EMP;
+```
+
+---
+
+### 23. **출근 팀 나누기**  
+**문제 요약**: EMPNO의 끝자리 숫자 또는 숫자 조건을 기준으로 팀 나누기  
+```sql
+SELECT ENAME, EMPNO,
+       CASE MOD(EMPNO, 3)
+           WHEN 0 THEN '홍팀'
+           WHEN 1 THEN '청팀'
+           ELSE '백팀'
+       END AS 팀구분
+FROM EMP;
+```
+
+---
+
+### 24. **직책 필터링기**  
+**문제 요약**: `INSTR`을 사용하여 JOB 컬럼에서 'MAN'이 포함된 데이터 필터링  
+```sql
+SELECT ENAME, JOB
+FROM EMP
+WHERE INSTR(JOB, 'MAN') > 0;
+```
+
+---
+
+### 25. **입사일 계산기**  
+**문제 요약**: 입사일 기준 ±일수 계산  
+```sql
+SELECT ENAME, HIREDATE,
+       HIREDATE + 90 AS "입사 후 90일",
+       HIREDATE - 30 AS "입사 30일 전"
+FROM EMP;
+```
+
+---
+
+### 26. **첫 급여일 계산**  
+**문제 요약**: 입사한 달의 마지막 날 + 10일 → 첫 월급일  
+```sql
+SELECT ENAME, HIREDATE,
+       LAST_DAY(HIREDATE) AS "입사월 마지막날",
+       LAST_DAY(HIREDATE) + 10 AS "첫급여일"
+FROM EMP;
+```
+
+---
+
+### 27. **급여 이름 포매터**  
+**문제 요약**: `LPAD`, `RPAD`로 ENAME을 8자리로 정렬 출력  
+```sql
+SELECT 
+   ENAME,
+   LPAD(ENAME, 8, '*') AS "왼쪽채움",
+   RPAD(ENAME, 8, '-') AS "오른쪽채움"
+FROM EMP;
+```
+
+---
+
+### 28. **문자열 자르기**  
+**문제 요약**: `SUBSTR`, `REPLACE` 등을 활용하여 문자 일부 제거  
+```sql
+SELECT ENAME,
+       SUBSTR(ENAME, 2) AS "앞 A 제거",
+       SUBSTR(JOB, 1, LENGTH(JOB) - 1) AS "뒤 N 제거"
+FROM EMP
+WHERE ENAME LIKE 'A%' OR JOB LIKE '%N';
+```
+
+---
+
+### 29. **요일 계산기**  
+**문제 요약**: `NEXT_DAY` 함수로 오늘 기준 특정 요일 계산  
+```sql
+SELECT 
+   SYSDATE AS "오늘",
+   NEXT_DAY(SYSDATE, '토') AS "이번주 토요일",
+   NEXT_DAY(SYSDATE, '수') AS "이번주 수요일"
+FROM DUAL;
+```
+
+---
+
+### 30. **개월 수 계산기**  
+**문제 요약**: `MONTHS_BETWEEN`으로 날짜 차이 계산  
+```sql
+SELECT 
+   MONTHS_BETWEEN(SYSDATE + 15, SYSDATE) AS "15일 후와의 개월차",
+   MONTHS_BETWEEN(SYSDATE, SYSDATE - 30) AS "30일 전과의 개월차"
+FROM DUAL;
+```
+
+---
+
+### ✅ 전체 포인트 요약
+
+| 함수/기능       | 사용 목적 및 포인트                      |
+|----------------|-------------------------------------------|
+| `DECODE`       | 조건값 매칭 처리 (if-else 구조 간단화)     |
+| `CASE`         | 범위 조건 판단 처리                       |
+| `INSTR`        | 문자열 포함 여부 판단                     |
+| `MOD`          | 팀 구분 등 나머지 연산 기반 분류          |
+| `LAST_DAY`     | 월 단위 마지막 날짜 확인                 |
+| `NEXT_DAY`     | 기준일 이후 특정 요일 날짜 반환            |
+| `LPAD/RPAD`    | 문자열 정렬 및 포맷 처리                  |
+| `SUBSTR`       | 문자열 잘라내기                           |
+| `MONTHS_BETWEEN`| 개월 수 차이 계산                         |
+
+---
+
+    
