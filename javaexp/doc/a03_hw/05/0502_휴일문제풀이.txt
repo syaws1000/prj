@@ -1,0 +1,350 @@
+## 5/3(토) 풀이
+
+1. **JS - 도깨비 초대장 만들기**
+```javascript
+let name = prompt("이름을 입력하세요");
+document.body.innerHTML = `<h2>${name}님, 도깨비 마을에 오신 걸 환영합니다!</h2>`;
+```
+
+2. **Java - 도깨비 주민 클래스 만들기**
+```java
+class Goblin {
+    String name;
+    int age;
+    void introduce() {
+        System.out.println("안녕하세요. 저는 도깨비 " + name + "이고 나이는 " + age + "살입니다.");
+    }
+}
+```
+
+3. **SQL - 전체 조회**
+```sql
+SELECT * FROM goblin_members;
+```
+
+4. **JS - 복권 생성기**
+```javascript
+let number = Math.floor(Math.random() * 10) + 1;
+if (number === 7) alert("당첨!");
+```
+
+5. **Java - 인사 함수**
+```java
+void sayHello() {
+    System.out.println("도깨비가 반갑게 인사합니다!");
+}
+```
+
+6. **SQL - 급여 3000 이상 검색**
+```sql
+SELECT * FROM emp WHERE sal >= 3000;
+```
+
+7. **JS - 버튼 DOM 조작**
+```html
+<button onclick="showGoblin()">도깨비 등장!</button>
+<div id="area"></div>
+<script>
+function showGoblin() {
+    document.getElementById("area").innerHTML = "반짝반짝 도깨비 등장!";
+}
+</script>
+```
+
+8. **Java - 반복 Scanner 입력**
+```java
+Scanner sc = new Scanner(System.in);
+int count = 0;
+while (count < 3) {
+    System.out.print("이름 입력: ");
+    String name = sc.nextLine();
+    System.out.println("입력된 이름: " + name);
+    count++;
+}
+```
+
+9. **SQL - 입사 100일 후 날짜**
+```sql
+SELECT ename, hiredate, hiredate + 100 AS after_100_days FROM emp;
+```
+
+10. **JS - 이미지 토글**
+```html
+<img id="goblin" src="goblin.png">
+<button onclick="toggle()">등장/사라짐</button>
+<script>
+let visible = true;
+function toggle() {
+  const goblin = document.getElementById("goblin");
+  goblin.style.display = visible ? "none" : "block";
+  visible = !visible;
+}
+</script>
+```
+
+---
+
+## 5/4(일) 풀이
+
+1. **Java - while 반복**
+```java
+int count = 0;
+while (count < 3) {
+    System.out.print("도깨비 이름: ");
+    String name = sc.nextLine();
+    System.out.println("도깨비: " + name);
+    count++;
+}
+```
+
+2. **SQL - CASE문**
+```sql
+SELECT ename, job,
+  CASE
+    WHEN job = 'SALESMAN' THEN '장사꾼'
+    WHEN job = 'MANAGER' THEN '수호자'
+    ELSE '기타'
+  END AS role
+FROM emp;
+```
+
+3. **JS - for 사탕 나눔**
+```javascript
+for (let i = 1; i <= 10; i++) {
+    document.body.innerHTML += `<p>${i}번 도깨비에게 사탕 전달!</p>`;
+}
+```
+
+4. **Java - do while 로그인**
+```java
+String id;
+do {
+    System.out.print("ID 입력: ");
+    id = sc.nextLine();
+} while (!id.equals("admin"));
+System.out.println("로그인 성공");
+```
+
+5. **SQL - 이름 LIKE 검색**
+```sql
+SELECT * FROM emp WHERE ename LIKE '%도%';
+```
+
+6. **JS - 날짜 출력**
+```javascript
+document.getElementById("btn").onclick = () => {
+    document.getElementById("time").innerHTML = new Date();
+};
+```
+
+7. **Java - 구구단 출력기**
+```java
+void printGugu(int dan) {
+  for (int i = 1; i <= 9; i++) {
+    System.out.println(dan + " x " + i + " = " + (dan*i));
+  }
+}
+```
+
+8. **SQL - NVL 함수**
+```sql
+SELECT ename, sal, NVL(comm,0) AS comm, sal+NVL(comm,0) AS total_income FROM emp;
+```
+
+9. **JS - 랜덤 이름**
+```javascript
+let names = ["도깨비1", "도깨비2", "도깨비3", "도깨비4", "도깨비5"];
+let random = names[Math.floor(Math.random() * names.length)];
+alert("선택된 도깨비: " + random);
+```
+
+10. **Java - 홀수 출력**
+```java
+for (int i = 1; i <= 20; i++) {
+    if (i % 2 == 0) continue;
+    System.out.println(i);
+}
+```
+
+---
+
+## 5/5(월) 풀이
+
+1. **Java - PetRobot 클래스**
+```java
+class PetRobot {
+    String name;
+    int age;
+    void introduce() {
+        System.out.println("저는 로봇 " + name + "이고, 나이는 " + age + "살입니다.");
+    }
+}
+```
+
+2. **SQL - 테이블 생성**
+```sql
+CREATE TABLE toy (
+  name VARCHAR2(20),
+  price NUMBER
+);
+```
+
+3. **JS - 가격 알림**
+```html
+<button onclick="alert('가격은 5000원입니다!')">장난감 클릭</button>
+```
+
+4. **Java - TravelPackage 할인**
+```java
+class TravelPackage {
+    String destination;
+    int price;
+    double discount() {
+        return price * 0.9;
+    }
+}
+```
+
+5. **SQL - 5000 이상 가격 조회**
+```sql
+SELECT * FROM toy WHERE price >= 5000;
+```
+
+6. **JS - 배경색 변경**
+```html
+<select onchange="document.body.style.backgroundColor = this.value">
+  <option value="white">White</option>
+  <option value="lightblue">Light Blue</option>
+  <option value="pink">Pink</option>
+</select>
+```
+
+7. **Java - Movie 인기작 판단**
+```java
+class Movie {
+    String title;
+    double rating;
+    void checkPopular() {
+        if (rating >= 8) System.out.println("인기작!");
+    }
+}
+```
+
+8. **SQL - 날짜 포맷 출력**
+```sql
+SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') AS today FROM dual;
+```
+
+9. **JS - 어린이 인사**
+```html
+<input id="name" placeholder="이름 입력">
+<button onclick="greet()">인사</button>
+<h3 id="msg"></h3>
+<script>
+function greet() {
+  let name = document.getElementById("name").value;
+  document.getElementById("msg").innerText = name + " 어린이 안녕!";
+}
+</script>
+```
+
+10. **Java - BookBuyer 관계**
+```java
+class Book {
+    String title;
+}
+class BookBuyer {
+    Book book;
+    void buy(Book b) {
+        book = b;
+        System.out.println("책 구매 완료: " + book.title);
+    }
+}
+```
+
+---
+
+## 5/6(화) 풀이
+
+1. **Java - sum 함수**
+```java
+int sum(int a, int b) {
+    return a + b;
+}
+```
+
+2. **JS - 두 숫자 더하기**
+```html
+<input id="n1"><input id="n2">
+<button onclick="add()">더하기</button>
+<div id="result"></div>
+<script>
+function add() {
+  let a = parseInt(document.getElementById("n1").value);
+  let b = parseInt(document.getElementById("n2").value);
+  document.getElementById("result").innerText = a + b;
+}
+</script>
+```
+
+3. **SQL - 연봉 출력**
+```sql
+SELECT ename, sal * 12 AS annual_salary FROM emp;
+```
+
+4. **Java - 로그인 3회 제한**
+```java
+int tries = 0;
+while (tries < 3) {
+    System.out.print("아이디: ");
+    String id = sc.nextLine();
+    if (id.equals("admin")) {
+        System.out.println("로그인 성공");
+        break;
+    }
+    tries++;
+}
+if (tries == 3) System.out.println("로그인 잠김");
+```
+
+5. **SQL - 총수입 출력**
+```sql
+SELECT ename, sal, NVL(comm,0) AS comm, sal+NVL(comm,0) AS total FROM emp;
+```
+
+6. **JS - confirm 삭제**
+```javascript
+if (confirm("정말 삭제하시겠습니까?")) alert("삭제됨");
+```
+
+7. **Java - Student 배열 출력**
+```java
+Student[] students = new Student[3];
+for (int i = 0; i < 3; i++) {
+    students[i] = new Student();
+    students[i].name = "학생" + (i+1);
+    System.out.println(students[i].name);
+}
+```
+
+8. **SQL - 입사일 정렬**
+```sql
+SELECT * FROM emp ORDER BY hiredate DESC;
+```
+
+9. **JS - 배열 반복 출력**
+```javascript
+let names = ["도깨비A", "도깨비B", "도깨비C"];
+for (let name of names) {
+    console.log(name);
+}
+```
+
+10. **Java - 이름 리턴 함수**
+```java
+String getName() {
+    return "도깨비";
+}
+```
+
+
