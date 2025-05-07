@@ -1,10 +1,10 @@
 package javaexp.a09_exception;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class A05_Try_with_resources {
 
@@ -36,7 +36,15 @@ public class A05_Try_with_resources {
 		}		
 		System.out.println("# 처리 종료 #");
 		
-		
+		try(
+				FileInputStream in = new FileInputStream("C:\\Users\\USER\\git\\prj\\javaexp\\src\\main\\java\\javaexp\\a09_exception\\a.txt");
+				FileOutputStream out = new FileOutputStream("C:\\Users\\USER\\git\\prj\\javaexp\\src\\main\\java\\javaexp\\a09_exception\\b.txt");
+				){
+				out.write(in.read()); // 특정 파일에서 읽어온 데이터를 특정 파일에 쓰는 경우 a.txt ==> b.txt
+				// out, in 순서대로 자원을 close() 메서드가 자동으로 처리가 된다.
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			} 		
 		
 	}
 
