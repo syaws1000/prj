@@ -1,9 +1,46 @@
 package javaexp.a10_database;
 
-public class A01_Basic {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
+public class A01_Basic {
+	// DB 연결 처리하는 모듈만들기..
+	
+	// 1. 연결 처리하는 메서드.
+	public static Connection con() {
+		
+		Connection con=null;
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "scott";
+		String pwd = "tiger";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url,user,pwd);
+			System.out.println("접속성공!!");
+		} catch (ClassNotFoundException e) {
+			System.out.println("예외1:"+e.getMessage());
+		} catch (SQLException e) {
+			System.out.println("예외2:"+e.getMessage());
+		}
+		
+		return con;
+	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		con();
+		
+		
+		try {
+			DB.con();
+			System.out.println("접속성공2");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -11,7 +48,8 @@ public class A01_Basic {
 /*
 # 데이터베이스 연동 처리
 1. 자바에서 데이터베이스 연동은 client입장에서 데이터베이스 서버에 프로그래밍으로 연결하여
- 데이터를 가져오는 것을 말한다. 일반적으로 원하는 형식(문자열/숫자형/객체형/리스트형)으로
+ 데이터를 가져오는 것/서버의 데이터를 등록/수정/삭제 처리하는 것을 말한다. 
+ 일반적으로 원하는 형식(문자열/숫자형/객체형/리스트형)으로
  변환하여, 리턴하고 그 리턴된 값을 console창에 출력하거나, 웹 프로그래밍에서는 브라우저
  화면에 뿌려주는 처리를 한다.
 2. 데이터베이스 연동 순서(client-자바코드, server-DB서버)
@@ -34,7 +72,7 @@ public class A01_Basic {
 				==> jdbc 드라이버는 자바와 데이터베이스 사이에서 말을 잘 통하게 도와주는 통역사입니다.
 		- 연결 클래스를 선언을 통해 연결객체(Connection)를 생성한 내용을 가지고,
 		- 대화 객체(Statement/PreparedStatement)를 통해 sql 구문을 서버에 전달하고,
-		- 그 결과값이 있는 경우(select구문), 결과객체(ResultSet)를 통해서 2차원(테이블형/엑셀셀형식)의 데이터를 가져온다.
+		- 그 결과값이 있는 경우(select구문), 결과객체(ResultSet)를 통해서 2차원(테이블형/엑셀시트형식)의 데이터를 가져온다.
 		- 가져온 2차원의 데이터를 결과객체(ResultSet)에 할당한 내용을 가지고,
 		  필요한 데이터형식(문자열, 숫자, 객체, 객체형배열)로 변환하여 리턴 처리하고,
 		  rs.next() 다음 행에 데이터가 있는지 여부를 리턴
