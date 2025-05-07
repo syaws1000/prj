@@ -1,6 +1,24 @@
 package javaexp.a10_database;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javaexp.a10_database.dto.Emp;
+
 public class A02_EmpDao {
+	
+	
+	
+	public List<Emp> getEmpAll(){
+		List<Emp> list  = new ArrayList<Emp>();
+		String sql = "SELECT * FROM EMP10";
+		// 1. 연결
+		// 2. 대화
+		// 3. 결과
+		
+		
+		return list;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
