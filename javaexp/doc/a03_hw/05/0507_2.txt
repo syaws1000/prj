@@ -35,4 +35,185 @@
    팀원 재훈이는 Oracle DB에 연결하려 했지만 JDBC URL을 잘못 입력해서 연결에 실패했어요.
    이때 발생한 예외는 무엇이며, 이 상황을 어떻게 로그로 출력하고 안정적으로 처리할 수 있을까요?
 
-   
+
+
+### ✅ \[1] 주관식 개념 문제 정답 및 해설
+
+1. **Q: `ArrayIndexOutOfBoundsException`이 발생하는 이유는?**
+   **A:** 배열의 인덱스 범위를 초과하여 접근할 때 발생합니다. 예: 배열 크기가 3이면 인덱스는 0\~2까지만 사용 가능함.
+
+2. **Q: `e.getMessage()`의 역할은?**
+   **A:** 예외가 발생한 이유에 대한 간단한 메시지를 문자열로 반환합니다.
+
+3. **Q: `unchecked exception`의 예시 3가지?**
+   **A:** `NullPointerException`, `ArithmeticException`, `ArrayIndexOutOfBoundsException`
+
+4. **Q: `try-with-resources`의 장점은?**
+   **A:** `close()`를 명시적으로 호출하지 않아도 자동으로 자원을 해제해주므로 코드가 간단해지고 누락 방지됨.
+
+5. **Q: `finally` 블럭의 역할은?**
+   **A:** 예외 발생 여부와 상관없이 항상 실행되는 코드 블럭으로, 주로 자원 해제에 사용됩니다.
+
+6. **Q: `FileNotFoundException`은 checked인가요? 이유는?**
+   **A:** 예, 컴파일러가 반드시 예외 처리를 요구하는 checked exception이기 때문입니다.
+
+7. **Q: JDBC 연결을 위한 필수 정보 3가지?**
+   **A:** DB URL, 사용자 계정, 비밀번호
+
+8. **Q: `Class.forName("oracle.jdbc.driver.OracleDriver")` 역할은?**
+   **A:** JDBC 드라이버 클래스를 로드하여 `DriverManager`에 등록합니다.
+
+9. **Q: `ResultSet`에서 데이터 가져오는 메서드와 방식은?**
+   **A:** `rs.next()`로 다음 행이 있는지 확인하고, `rs.getString("컬럼명")`, `rs.getInt("컬럼명")` 등으로 열 값을 가져옵니다.
+
+10. **Q: `DriverManager.getConnection()`의 예외와 처리 이유는?**
+    **A:** `SQLException` 예외를 던지며, DB 연결 실패 시 반드시 처리해줘야 시스템 장애를 막을 수 있습니다.
+
+---
+
+### ✅ \[2] 이야기 응용 확인문제 정답 및 해설
+
+1. **📦 철수의 실수 – 배열 인덱스 초과**
+   **정답:** `ArrayIndexOutOfBoundsException` 발생
+   **풀이:** `String[] addr = new String[5]; addr[5]`처럼 범위를 벗어난 접근 시 발생
+   **해결:** 배열의 크기를 확인하거나 반복문에서 `length` 조건을 지켜야 함
+
+2. **📱 지민이의 닉네임 오류 – 널 포인터**
+   **정답:** `NullPointerException` 발생
+   **풀이:** `String nickname = null; nickname.length();` → 객체가 null이면 메서드 호출 불가
+   **해결:** `if(nickname != null)` 조건문으로 방어 처리
+
+3. **🎮 민수의 평균 계산 – 0 나누기 오류**
+   **정답:** `ArithmeticException` 발생
+   **풀이:** `1 / 0` 같은 0으로 나누는 코드
+   **해결:** 나누기 전에 `if(분모 != 0)` 조건 확인
+
+4. **📁 수빈이의 파일 읽기 – 파일 없음 예외**
+   **정답:** `FileNotFoundException` 발생
+   **풀이:** 지정된 경로에 파일이 없을 때 파일 열기 시도하면 발생
+   **해결:** `try-catch`로 감싸고, 사용자에게 안내 메시지 제공
+
+5. **🔌 재훈이의 DB 연결 – 잘못된 URL**
+   **정답:** `SQLException` 발생
+   **풀이:** `DriverManager.getConnection("jdbc:wrong:url")`와 같이 잘못된 URL일 때 발생
+   **해결:** catch 블럭에서 `e.getMessage()`로 출력하고 로그 기록 및 연결 재시도 가능
+
+ 
+ 
+ 좋습니다! 아래는 앞서 제시한 **이야기 기반 응용 확인문제 5제**에 대한 **정답 코드와 해설**입니다. 각 문제는 예외가 발생하는 상황과 그 예외를 어떻게 안전하게 처리하는지 보여줍니다.
+
+---
+
+### ✅ 1. 📦 철수의 실수 – 배열 인덱스 초과
+
+**📌 예외 유형:** `ArrayIndexOutOfBoundsException`
+**🛠️ 정답 코드:**
+
+```java
+public class DeliveryApp {
+    public static void main(String[] args) {
+        try {
+            String[] addresses = {"서울", "부산", "대전", "대구", "광주"};
+            System.out.println(addresses[5]); // 존재하지 않는 인덱스
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("❌ 주소 인덱스 오류 발생!");
+            System.out.println("▶ " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+### ✅ 2. 📱 지민이의 닉네임 오류 – 널 포인터
+
+**📌 예외 유형:** `NullPointerException`
+**🛠️ 정답 코드:**
+
+```java
+public class NicknameChecker {
+    public static void main(String[] args) {
+        String nickname = null;
+        try {
+            System.out.println("닉네임 길이: " + nickname.length());
+        } catch (NullPointerException e) {
+            System.out.println("❌ 닉네임이 등록되지 않았습니다.");
+            System.out.println("▶ " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+### ✅ 3. 🎮 민수의 평균 계산 – 0 나누기 오류
+
+**📌 예외 유형:** `ArithmeticException`
+**🛠️ 정답 코드:**
+
+```java
+public class ScoreCalculator {
+    public static void main(String[] args) {
+        try {
+            int totalScore = 100;
+            int playerCount = 0;
+            System.out.println("평균 점수: " + (totalScore / playerCount));
+        } catch (ArithmeticException e) {
+            System.out.println("❌ 0으로 나눌 수 없습니다!");
+            System.out.println("▶ " + e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+### ✅ 4. 📁 수빈이의 파일 읽기 – 파일 없음 예외
+
+**📌 예외 유형:** `FileNotFoundException`
+**🛠️ 정답 코드:**
+
+```java
+import java.io.*;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("config.txt"));
+            System.out.println("파일 내용: " + br.readLine());
+            br.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("❌ 파일을 찾을 수 없습니다!");
+            System.out.println("▶ " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("❌ 파일 읽기 중 오류!");
+        }
+    }
+}
+```
+
+---
+
+### ✅ 5. 🔌 재훈이의 DB 연결 – 잘못된 URL
+
+**📌 예외 유형:** `SQLException`
+**🛠️ 정답 코드:**
+
+```java
+import java.sql.*;
+
+public class DBConnector {
+    public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:wrong:url");
+            System.out.println("✅ DB 연결 성공");
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("❌ DB 연결 실패");
+            System.out.println("▶ " + e.getMessage());
+        }
+    }
+}
+```
+
+  
