@@ -1,9 +1,10 @@
 package javaexp.a09_exception;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class A05_Try_with_resources {
 
@@ -15,15 +16,27 @@ public class A05_Try_with_resources {
 			System.out.println(br.readLine());
 		} catch (Exception e) { // 예외 처리 구문
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("예외 처리1");
 		}finally {  // 예외 발생상관없이 처리할 코드 구문
 			try {
-				br.close();
-			} catch (IOException e) {
 				
-				e.printStackTrace();
+				br.close();
+			} catch (Exception e) {
+				
+				System.out.println("결과"+e.getMessage());
 			}
 		}
+		System.out.println("# try with resources 구문 예외 #");
+		try( BufferedReader br1 = new BufferedReader(
+				new FileReader("C:\\Users\\USER\\git\\prj\\javaexp\\src\\main\\java\\javaexp\\a09_exception\\memo.txt") ) ){
+			System.out.println(br1.readLine());
+		}catch(IOException e) {
+			System.out.println("# 예외 발생 #");
+			System.out.println(e.getMessage());
+		}		
+		System.out.println("# 처리 종료 #");
+		
+		
 		
 	}
 
