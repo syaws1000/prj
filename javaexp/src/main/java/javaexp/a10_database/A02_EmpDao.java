@@ -47,7 +47,7 @@ public class A02_EmpDao {
 		- sql : 확인  매개변수 결과값을 확인 후,
 			매개변수 : where 조건이나, 입력값을 어떻게 할 것인지 결정하여 DTO/VO로 정한다.
 			결과내용 : select의 경우 단일행 단일열데이터, 단일행 다중열, 다중행 단일열데이터, 다중행다중행데이터로 구분하여
-								단일변수로 리턴,  List<단일유형>   List<DTO>
+								단일변수로 리턴,       DTO      List<단일유형>   List<DTO>
 		- 기능메서드의 매개변수와 리턴값 선언.						
 			public String getEname(int empno)			 
 			public Emp getEmp(int empno)			 
