@@ -2,6 +2,8 @@ package javaexp.a09_exception;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class A03_CheckedException {
 
@@ -21,6 +23,20 @@ public class A03_CheckedException {
 			
 		}
 		System.out.println("# 파일 읽기 처리 프로그램 종료 #");
+		
+		//ex) import 후에 checked exception 처리 잘못된 jdbc url 연결시
+		
+		System.out.println("# jdbc 연결 프로그램 #");
+		
+		try {
+			DriverManager.getConnection("jdbc:wrong:url");
+		} catch (SQLException e) {
+			System.out.println("# DB 연결 예외 처리 #");
+			System.out.println(e.getMessage());
+		}
+		
+		
+		System.out.println("# jdbc 연결 프로그램 종료#");
 		
 	}
 
