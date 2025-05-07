@@ -69,9 +69,22 @@ public class A05_Try_with_resources {
 		- 위 전통 방식에서 보다 간단하게 자동으로 자원해제 해주는 코드를 작성할 수 있다.
 			try( BufferedReader br = new BufferedReader(new FileReader("memo.txt")) ){
 				System.out.println(br.readLine());
-			} // 블럭이 끝나면 자동으로 br.close()가 처리된다.
+			}catch(Exception e){} // 블럭이 끝나면 자동으로 br.close()가 처리된다.
 		- finally 없이도, 그 안에서 예외 처리 코드 블럭 없이 자동으로 자원해제가 된다.
-			
+	4) 두개 이상도 순서대로 닫힙니다!!(다중 리소스)
+		- 괄로 안에 세미콜론(;)으로 여러개 선언 가능, 역순으로 닫힘
+			일반적으로 자원들은 계층 관계로 설정이 된 경우도 많다. 즉, 상위 계증에 메모리가 열려야 하위 계층의
+			메모리를 사용하여 처리하는 등이 필요한 경우를 말한다. 이 때는 여러 개의 상/하위 관계에 있는 자원도
+			열린 순서대로 닫아 줘야 하는 경우를 말한다.
+			try(
+				FileInputStream in = new FileInputStream("a.dat");
+				FileOutputStream out = new FileOutputStream("b.dat");
+				){
+				out.write(in.read); // 특정 파일에서 읽어온 데이터를 특정 파일에 쓰는 경우 a.dat ==> b.dat
+				// out, in 순서대로 자원을 close() 메서드가 자동으로 처리가 된다.
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			} 
 				
 				
  * */
