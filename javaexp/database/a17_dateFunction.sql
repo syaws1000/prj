@@ -62,5 +62,11 @@ FROM EMP;
 SELECT SYSDATE, LAST_DAY(SYSDATE) "이번달 마지막일",
 		LAST_DAY(SYSDATE)+1 "다음달 첫날"
 FROM DUAL;
--- EX) 입사한 날짜에 속한 마지막날짜와 그다음 첫날을 출력하되, 
+-- EX) 입사한 날짜에 속한 마지막날짜와 그 다음 첫날을 출력하되, 
+--     급여일이 그 다음달 10일째되는 날이라고 할 때, 사원의 첫월급날짜를 출력하세요
+SELECT ENAME, HIREDATE, LAST_DAY(HIREDATE) "그달마지막날",
+		LAST_DAY(HIREDATE)+1 "입사다음달첫일", 
+		LAST_DAY(HIREDATE)+10 "첫급여일"
+FROM EMP;		
+
 
