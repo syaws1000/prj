@@ -7,63 +7,78 @@
 1. 다음 중 `Scanner` 클래스를 이용해 사용자로부터 입력을 받을 수 있는 코드는?  
    A. `new Input();`  
    B. `System.input.get();`  
-   C. `Scanner sc = new Scanner(System.in);`  
+   #C. `Scanner sc = new Scanner(System.in);`
+   		sc.nextLine()  문자열 입력..
+   		Integer.parseInt(sc.nextLine());  
+   		Double.parseInt(sc.nextLine());  
    D. `Scanner sc = System.get();`
 
 2. 클래스와 객체의 관계로 옳은 것은?  
    A. 클래스는 메서드만 포함한다  
    B. 객체는 클래스 없이 존재할 수 있다  
-   C. 클래스는 객체를 찍어내는 틀이다  
+   #C. 클래스는 객체를 찍어내는 틀이다  
    D. 객체는 static만 사용한다
 
 3. 다음 중 메서드 선언으로 적절한 것은?  
-   A. `int sum(int a, b) { return a + b; }`  
-   B. `void show() { System.out.println(); }`  
+   A. `int sum(int a, b) { return a + b; }`  int b 
+   #B. `void show() { System.out.println(); }`  
    C. `show() void { }`  
    D. `void() show { }`
 
 4. `do-while`문의 특징으로 옳은 것은?  
    A. 조건이 참일 때만 실행된다  
    B. 반복 횟수를 미리 알아야 한다  
-   C. 조건과 상관없이 최소 1회 실행된다  
+   #C. 조건과 상관없이 최소 1회 실행된다
+   	  do{
+   	  	반복처리할 내용
+   	  }while(조건문);  
    D. break 없이 종료된다
 
 5. 다음 중 생성자 오버로딩이 가능한 경우는?  
    A. 매개변수가 같고 내용이 다름  
    B. 생성자 이름이 다름  
-   C. 매개변수 개수 또는 타입이 다름  
+   #C. 매개변수 개수 또는 타입이 다름
+   		생성자, 메서드의 매개변수로 식별하는 것을 오버로딩 규칙에 의해 선언가능 여부를 처리한다.
+     
    D. 생성자에는 return이 있어야 함
 
 6. 객체를 다른 객체의 필드로 포함하는 구조는 무엇이라 부르는가?  
    A. 추상화  
    B. 상속  
-   C. 포함 관계 (has-a)  
+   #C. 포함 관계 (has-a)  
    D. 다형성
+   class Car{}
+   class Person{
+   	  private Car myCar;
+   }
+   
+   
 
 7. 다음 중 return 값이 있는 함수는?  
    A. `void hello() {}`  
-   B. `String getName() { return \"홍길동\"; }`  
+   #B. `String getName() { return \"홍길동\"; }`  
    C. `void printSum(int a, int b) {}`  
    D. `int() sum {}`
 
 8. 다음 중 `for` 반복문 형태로 올바른 것은?  
    A. `for int i = 0; i < 5; i++`  
    B. `for (i = 0; i < 5; ++i)`  
-   C. `for (int i = 0; i < 5; i++)`  
+   #C. `for (int i = 0; i < 5; i++)`
+   		for(초기값선언;반복조건;증감연산자)  
    D. `loop (int i < 5)`
 
 9. `if (score >= 90)` 조건이 참일 경우 실행되는 명령은?  
-   A. `System.out.println(\"우수\");`  
+   #A. `System.out.println(\"우수\");`  
    B. `System.print(\"우수\");`  
    C. `System.out.println(\"Fail\");`  
    D. 아무 것도 실행되지 않는다
 
 10. 다음 중 배열 선언과 초기화가 모두 올바른 것은?  
-   A. `int arr = new int[5];`  
-   B. `String[] names = {\"철수\", \"영희\"};`  
-   C. `double[] data = double[3];`  
+   A. `int arr = new int[5];`   int[]
+   #B. `String[] names = {\"철수\", \"영희\"};`  
+   C. `double[] data = double[3];` new double[3];  
    D. `int[] nums; nums = (1,2,3);`
-
+		nums = new int[]{1,2,3}
 ---
 
 ### 🔸 JavaScript (10문제)
@@ -71,11 +86,11 @@
 11. 사용자에게 입력을 받을 수 있는 함수는?  
    A. `output()`  
    B. `confirm()`  
-   C. `prompt()`  
+   #C. `prompt()`  
    D. `input()`
 
 12. 랜덤 숫자를 만들기 위한 메서드 조합으로 알맞은 것은?  
-   A. `Math.random() * 100`  
+   #A. `Math.random() * 100`  
    B. `Number.random()`  
    C. `Math.floor(100)`  
    D. `Random.next()`
@@ -84,50 +99,77 @@
    A. `<div>`  
    B. `<script>`  
    C. `<style>`  
-   D. `<button>`
+   #D. `<button>`
+   		<button onclick="call()"
 
 14. 다음 중 화면에 출력하는 함수는?  
    A. `System.out.print()`  
    B. `echo()`  
-   C. `document.body.innerHTML = ...`  
+   #C. `document.body.innerHTML = ...`
+   		전체 화면 대상..
+   		document.querySelector("선택자").innerHTML; :단일 선택
+   		선택자 형식 : 태그명, .클래스명, #아이디명 등으로  특정 요소객체(tag)를 선택하여
+   			원하는 속성의 내용을 설정 및 변경가능 하다.
+   		document.querySelectorAll("선택자").innerHTML; :다중 선택(배열로 처리)	  
    D. `window.log()`
 
 15. 배열에서 랜덤 값을 선택하는 방법으로 적절한 것은?  
    A. `arr.select()`  
    B. `arr[random]`  
-   C. `arr[Math.floor(Math.random() * arr.length)]`  
+   #C. `arr[Math.floor(Math.random() * arr.length)]`  
    D. `arr.random()`
+   body에 특정한 cell(td)를 랜덤으로 색상을 변경할 때..
+   table로 3x3 선언
+   var tds = document.querySelectorAll("td")
+   tds[Math.floor(Math.random()*tds.length)].style.background = "pink";
+   tds.length : 배열의 갯수
+   Math.random() : 임의의 경우수
+   Math.floor() : 실수제거(정수로 절삭)
+   ==> 자바의 (int) 캐스팅 효과
+   Math.floor(Math.random()*임의의경우수) : 임의의 경우수 중 하나가 나오기에..
+   테이블 셀의 배열 0~8 index번호 중 하나를 가져오기에 결국 ex) tds[5] 와 같이 셀을
+   선택한 객체를 지정해서 style.background = "pink"를 통해 해당 td의 배경색상을 변경 처리..
+   
 
 16. 다음 중 JavaScript에서 문자열을 대문자로 만드는 함수는?  
    A. `toCapital()`  
-   B. `toUpperCase()`  
+   #B. `toUpperCase()`  
    C. `convertUpper()`  
    D. `makeUpperCase()`
 
 17. HTML에서 `<select>` 요소의 변경을 감지하는 이벤트는?  
    A. `oninput`  
-   B. `onchange`  
+   #B. `onchange`  
    C. `onclick`  
    D. `onhover`
+   
+   <select onchange="choice01(this)">
+   	 <option>10</option>
+   	 <option>20</option>
+   	 <option>30</option>
+   
+   function choice01(ob){
+   		alert(ob.value); // 선택했을 때, 선택된 값을 alert()으로 출력..
+   }	 
 
 18. 다음 중 조건문으로 적절한 형태는?  
    A. `if x > 10 then`  
-   B. `if (x > 10)`  
+   #B. `if (x > 10)`  
    C. `if x > 10:`  
    D. `when (x > 10)`
 
 19. `confirm()` 함수의 반환값은 무엇인가?  
    A. 항상 문자열  
-   B. true 또는 false  
+   #B. true 또는 false  
    C. null 또는 문자열  
    D. 아무 것도 반환하지 않음
 
 20. 다음 중 id가 \"target\"인 요소의 텍스트를 변경하는 올바른 문법은?  
    A. `getElementByClass(\"target\") = \"내용\"`  
    B. `document.query(\"#target\").text = \"내용\"`  
-   C. `document.getElementById(\"target\").innerText = \"내용\"`  
+   #C. `document.getElementById(\"target\").innerText = \"내용\"`  
    D. `element(\"target\").text = \"내용\"`
-
+	document.querySelector("#아이디명")
 ---
 
 ### 🔸 SQL (10문제)
@@ -135,60 +177,61 @@
 21. 다음 중 모든 행을 조회하는 SQL문은?  
    A. `SELECT FROM emp;`  
    B. `SHOW * FROM emp;`  
-   C. `SELECT * FROM emp;`  
+   #C. `SELECT * FROM emp;`  
    D. `GET ALL FROM emp;`
 
 22. `WHERE`절의 용도는?  
    A. 데이터를 정렬한다  
-   B. 조건에 맞는 행만 선택한다  
+   #B. 조건에 맞는 행만 선택한다  
    C. 데이터를 그룹화한다  
    D. 새로운 테이블을 만든다
 
 23. `NVL(comm, 0)`의 의미는?  
    A. comm 값이 NULL이 아니면 0으로 바꿈  
-   B. comm이 NULL이면 0으로 대체  
+   #B. comm이 NULL이면 0으로 대체  
    C. comm을 0으로 덮어씀  
    D. comm에 0을 더함
 
 24. `TO_CHAR(SYSDATE, 'YYYY-MM-DD')`는 무엇을 반환하는가?  
    A. 현재 연도  
    B. 숫자형 날짜  
-   C. 문자형 날짜  
+   #C. 문자형 날짜  
    D. 시간값만
 
 25. `CASE` 구문은 어떤 목적으로 사용되는가?  
    A. 새로운 테이블 생성  
    B. 문자열 자르기  
-   C. 조건에 따라 값을 다르게 반환  
+   #C. 조건에 따라 값을 다르게 반환  
    D. 숫자 계산
 
 26. `ORDER BY hiredate DESC`의 의미는?  
    A. 입사일 빠른 순으로 정렬  
    B. 입사일 없는 행만 조회  
-   C. 입사일 기준 내림차순 정렬  
+   #C. 입사일 기준 내림차순 정렬  
    D. 입사일을 기준으로 그룹화
 
 27. 다음 중 `LIKE` 검색에 해당하는 예시는?  
    A. `ename = '홍%'`  
-   B. `ename LIKE '%길동%'`  
+   #B. `ename LIKE '%길동%'`  
    C. `ename IN ('길동')`  
    D. `ename > '김'`
 
 28. `CREATE TABLE toy (name VARCHAR2(20), price NUMBER);`의 의미는?  
    A. 기존 테이블 수정  
    B. 테이블 삭제  
-   C. 새로운 toy 테이블 생성  
+   #C. 새로운 toy 테이블 생성  
    D. toy 테이블 내용 조회
 
 29. 보너스(comm)와 급여(sal)를 합산한 SQL문은?  
    A. `SELECT sal + comm FROM emp;`  
    B. `SELECT sum(sal, comm) FROM emp;`  
-   C. `SELECT sal + NVL(comm,0) FROM emp;`  
+   #C. `SELECT sal + NVL(comm,0) FROM emp;`  
+   		comm이 null이 있을 때, 연산으로 하지 않고 처리..  
    D. `SELECT add(sal, comm) FROM emp;`
 
 30. 다음 중 연봉을 계산하는 SQL문은?  
    A. `SELECT salary * 12 FROM emp;`  
-   B. `SELECT sal * 12 FROM emp;`  
+   #B. `SELECT sal * 12 FROM emp;`  
    C. `SELECT wage * 12 FROM emp;`  
    D. `SELECT emp * 12 FROM sal;`
 
