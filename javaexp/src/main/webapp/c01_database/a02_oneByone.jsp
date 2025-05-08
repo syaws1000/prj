@@ -21,7 +21,7 @@ String ename = dao.getEnameByEmpno(empno);
 <div class="container">
 	<h2 class="title">단일데이터 입력 단일데이터검색</h2>
 	<form class="form">
-		<label>사원번호()</label>
+		<label>사원번호</label>
 		<input type="number" name="empno" value="<%=empno%>"/><br>
 		<label>사원명</label><%=ename%>
 	</form>
