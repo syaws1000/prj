@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javaexp.a10_database.dto.Emp;
@@ -20,6 +21,14 @@ public class A02_EmpDao {
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 			 ResultSet rs = pstmt.executeQuery()
 				){
+			
+			while(rs.next()) { // 다중행일때, while 사용  
+				// rs.get데이터유형("조회된 컬럼명")
+				// rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO")
+				//            Emp(int empno, String ename, String job, int mgr, Date hiredate, double sal, double comm, int deptno)
+				list.add(new Emp(rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getInt("MGR"),
+								rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO") ));
+			}
 			
 			
 		}catch(SQLException e) {
