@@ -80,13 +80,43 @@ public class A03_ExpDao {
 	public double getSalByEmpno(int empno){
 		double sal = 0;
 		String sql = "SELECT SAL FROM EMP10 WHERE EMPNO = ?";
-		
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, empno);
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {
+					sal = rs.getDouble("SAL");
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
 		return sal;
 	}	
-	// ex) 
+
 	public String getEnameBySal(double sal){
 	  	String ename=null;
 	  	String sql = "SELECT ENAME FROM EMP10 WHERE SAL = ?";
+
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setDouble(1, sal);
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {  // 단일
+					ename = rs.getString("ENAME");
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}	  	
+	  	
 	  	
 	  	return ename;
 	}	
@@ -99,6 +129,8 @@ public class A03_ExpDao {
 		A03_ExpDao dao = new A03_ExpDao();
 		System.out.println(dao.getEnameByEmpno(7654));
 		System.out.println(dao.getJobByEname("WARD"));
+		System.out.println("사원번호로 급여 확인:"+dao.getSalByEmpno(7369));
+		System.out.println("급여로 사원명 확인:"+dao.getEnameBySal(800.0));
 	}
 
 }
