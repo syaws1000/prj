@@ -23,6 +23,13 @@ public class A01_Basic {
 			System.out.println("예외1:"+e.getMessage());
 		} catch (SQLException e) {
 			System.out.println("예외2:"+e.getMessage());
+			try {
+				con.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 		
 		return con;

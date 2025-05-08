@@ -63,7 +63,7 @@
 | PRIMARY KEY | 기본 키, 중복 ❌, NULL ❌  |
 | UNIQUE      | 중복 ❌, NULL 가능       |
 | NOT NULL    | NULL ❌              |
-| FOREIGN KEY | 다른 테이블 참조 (부모 자식관계) |
+| FOREIGN KEY | 다른 테이블 참조 (부모 자식관계) |  EMP   DEPT
 | CHECK       | 특정 조건 만족 여부         |
 
 ---

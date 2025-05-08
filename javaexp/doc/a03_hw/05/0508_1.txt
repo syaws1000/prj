@@ -1,19 +1,37 @@
 ### ✅ 예외 처리 및 JDBC 연동 관련 객관식 문제 15제
 
+try{
+	예외가 발생할 수 있는 코드..
+
+}catch(Exception e){
+	예외가 발생했을 때, 처리하는 코드..
+}
+==> 예외/error가 발생하더라도 중단하지 않고 수행..
+Exception : 예외의 상위 객체이기에 모두를 처리할 수 있다.
+
 1. 다음 중 `ArrayIndexOutOfBoundsException`이 발생하는 상황은?
-   A. 배열 크기보다 큰 인덱스를 참조할 때
+   #A. 배열 크기보다 큰 인덱스를 참조할 때
    B. 배열이 null일 때
    C. 파일이 없을 때
    D. 나누기 연산에서 0을 사용할 때
 
-2. `NullPointerException`은 언제 발생하#는가?
+2. `NullPointerException`은 언제 발생하는가?
    A. 숫자를 잘못 입력했을 때
-   B. null 객체로 메서드를 호출했을 때
+   #B. null 객체로 메서드를 호출했을 때
    C. 파일을 못 찾았을 때
    D. 루프가 무한히 돌 때
+   
+   stack/heap
+   객체는 heap영역에 생성이 되고, 이 heap영역에 주소값을 stack에 저장한다.
+   Person p = null;   Person 객체를 선언하고, heap영역에 할당되어 있지 않는 상황..
+   p.getName(); 이 상황에서 구성요소(메서드)를 호출시 에러 발생..NullPointerException
+   													Null 값이 없음.
+   													Pointer 주소..
+   
+   
 
 3. `ArithmeticException`이 발생하는 대표적인 예는?
-   A. 0으로 나누기
+   #A. 0으로 나누기
    B. 인덱스 초과
    C. 문자열이 너무 길 때
    D. 예외 처리를 하지 않을 때
@@ -21,72 +39,105 @@
 4. `FileNotFoundException`은 어떤 유형의 예외인가?
    A. unchecked exception
    B. compile-time warning
-   C. checked exception
+   #C. checked exception
    D. runtime error
+   
+   unchecked exception : 컴파일은 되지만, 실행시 발생하는 예외..
+   checked exception  : 컴파일 자체가 되지 않아서, 초기에 예외를 처리해야된다.
+   	  IO(input output 발생시) file 읽기/쓰기, db연동 처리, network 프로그램..
+   
 
 5. 다음 중 `try-with-resources` 문법을 사용할 수 없는 객체는?
+	여러가지 IO가 발생하는 처리에서 자원해제를 자동으로 처리해주는 예외처리 형식(자동문닫기)
+	try( IO 발생하는 객체 생성.){
+	
+	}catch(Exception){
+	
+	}finally{
+		객체의 자원 해제 및 예외처를 하지 않아도 자동으로 처리된다.. .close()
+	}
+	
    A. FileReader
    B. BufferedReader
    C. Connection
-   D. String
+   #D. String
 
 6. 다음 코드에서 발생할 수 있는 예외는?
    `String str = null; str.length();`
    A. ArrayIndexOutOfBoundsException
    B. SQLException
-   C. NullPointerException
+   #C. NullPointerException
    D. IOException
 
 7. 예외 처리에서 `finally` 블럭의 역할은?
    A. 예외 메시지 출력
    B. 예외 발생 시 무조건 종료
-   C. 예외 여부와 상관없이 항상 실행
+   #C. 예외 여부와 상관없이 항상 실행
    D. 예외를 전달
+   
+   try(자동자원해제 대상객체 생성;){
+   	  예외 가능성 있는 코드 블럭..
+   
+   }catch(최하위예외객체){
+   
+   }catch(중간예외객체){
+   
+   }catch(Exception e){
+   
+   }finally{
+   
+   }
+   
 
 8. 다음 중 `SQLException`이 발생하는 경우는?
    A. 문자열 길이 계산 시
    B. 배열 인덱스 초과 시
-   C. 잘못된 DB URL 연결 시
+   #C. 잘못된 DB URL 연결 시
    D. 파일이 없을 때
+   try{
+   	  DB처리
+   }catch(SQLExcpetion e){
+   	  System.out.println(e.getMessage);
+   }
 
 9. 자바에서 JDBC를 사용하기 위해 가장 먼저 수행해야 하는 작업은?
    A. `executeQuery()` 호출
    B. `close()` 호출
-   C. JDBC 드라이버 로딩
+   #C. JDBC 드라이버 로딩
    D. Statement 객체 생성
 
 10. `Class.forName("oracle.jdbc.driver.OracleDriver")`의 목적은?
     A. DB 접속 끊기
     B. 테이블 생성
-    C. JDBC 드라이버 로딩
+    #C. JDBC 드라이버 로딩
     D. 사용자 인증
 
-11. 다음 중 `ResultSet` 객체의 메서드가 아닌 것은?
-    A. `next()`
-    B. `getString()`
-    C. `executeUpdate()`
+11. 다음 중 `ResultSet(엑셀의 시트-행/열)` 객체의 메서드가 아닌 것은?
+    A. `next()`  행단위로 이동처리/해당행에 데이터가 있는지 여부(true/false)
+    B. `getString("컬럼")` 열단위로 데이터유형과 컬럼명에 따른 데이터를 가져올 때.
+    #C. `executeUpdate()`
     D. `getInt()`
 
 12. 다음 중 자원 해제를 자동으로 처리하는 구문은?
     A. `try-finally`
     B. `throws`
-    C. `try-with-resources`
+    #C. `try-with-resources` try()
     D. `throw`
 
 13. JDBC 연결을 위한 정보가 아닌 것은?
     A. JDBC URL
     B. DB 사용자 이름
     C. 드라이버 이름
-    D. 배열 크기
+    #D. 배열 크기
 
 14. 예외 메시지를 출력할 때 사용하는 메서드는?
     A. `toString()`
     B. `getCause()`
-    C. `getMessage()`
+    #C. `getMessage()`
     D. `print()`
 
 15. 다음 중 예외가 발생하더라도 프로그램이 계속 실행되도록 도와주는 키워드는?
-    A. `catch`
+    #A. `catch`
     B. `new`
     C. `return`
     D. `import`

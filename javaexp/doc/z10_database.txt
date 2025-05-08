@@ -1,0 +1,29 @@
+# database 처리를 위한 java 학습 내용 계열화
+1. sql 학습
+2. class/object 기초
+	1) 필드
+	2) 생성자
+	3) 메서드
+	==> dto/vo 생성 패턴, 생성자 매개변수 처리
+3. 배열/동적배열
+	1) 정적 배열 int[] arr = {1000,2000,3000};
+	2) 동적 배열 List<Emp> emp = new ArrayList<Emp>();	
+4. object vs object 
+	1) 1:1객체
+	2) 1:다객체
+	3) 상속 1단계/추상클래스/인터페이스 개념
+5. 예외 처리:필수예외처리.
+6. DAO(database access object) 설정 처리
+	1) sql 만들어 수행하기
+		- 어떤 값이 입력값인지 where, insert문, update, delete
+		- 어떤 값이 출력값인지 select ***
+		확인해서 입력값을 dao의 메서드의 매개변수로 처리 이에 필요한 dto 작성준비
+			   출력값은 dao의 리턴값으로 이에 필요한 dao 작성준비	
+	2) dto/vo 작성
+	3) 메서드 선언 (리턴유형, 매개변수 처리)
+		리턴유형에 따른 변수/객체 선언..
+	4) pstmt 처리 및 입력값 처리
+	5) rs(ResultSet)에서 VO할당.
+7. jsp에서 연동하여 화면 처리..
+			   
+	
