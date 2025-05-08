@@ -79,6 +79,8 @@
 			리턴값 : 조회된 1개데이터유형에 맞게 ex) ENAME ==> String
 			매개변수 : 입력할 데이터유형에 맞게 ex) EMPNO ==> int
 			문자열 sql 처리
+			dao.getEnameByEmpno(7369); ==> ALLEN
+			
 			public String getEnameByEmpno(int empno){
 				String ename =null;
 				String sql = "SELECT ENAME FROM EMP10 WHERE EMPNO=?";
@@ -92,7 +94,16 @@
 			 	ename = rs.getString("ENAME"); // 결과 컬럼이 ENAME으로 문자열 데이터 처리..
 			 }			
 		- main()에서 테스트 확인  완료..
-					
+	ex) 연습 예제
+	1. 사원명(ENAME)으로 이 사원의 직책(JOB)을 가져오는 처리를 하고자 한다. 
+	2. sql 작성
+	----------------------
+	3. 입력값? 리턴값?  유형이 무엇인지?
+	4. sql이 문자열로 처리될 때, 내용 선언
+	5. 기능메서드 선언..
+		리턴값 매개변수 sql 문자열, 리언변수와 리턴처리.
+		A03_ExpDao.java 에 기능  메서드로 선언..
+							
 		
 		
 		

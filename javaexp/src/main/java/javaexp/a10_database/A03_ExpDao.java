@@ -35,7 +35,7 @@ public class A03_ExpDao {
 	
 	public String getEnameByEmpno(int empno) {
 		String ename = null;
-		String sql ="SELECT ENAME FROM EMP WHERE EMPNO=?";
+		String sql ="SELECT ENAME FROM EMP WHERE EMPNO=? ";
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);			 
 					){
@@ -54,12 +54,24 @@ public class A03_ExpDao {
 		
 		return ename;
 	}
+	public String getJobByEname(String ename) {
+		String job=null;
+		String sql = "SELECT JOB FROM EMP10 WHERE ENAME=?";
+		
+		
+		return job;
+	}
+	// ex) 사원번호(EMPNO)이  사원의 급여(SAL)를 구하는 SQL과 메서드를 선언해보세요..
+	
+	
 	
 	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		// 7654 입력했을 때, 나올 사원명 확인
+		A03_ExpDao dao = new A03_ExpDao();
+		System.out.println(dao.getEnameByEmpno(7654));
 	}
 
 }
