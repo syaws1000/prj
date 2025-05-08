@@ -14,12 +14,13 @@ public class A03_ExpDao {
 	// SELECT 템플릿
 	public List<Emp> getSelectTmp(Emp sch){
 		List<Emp> list  = new ArrayList<Emp>();
-		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ?";
+		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ? AND JOB LIKE ?";
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
 			pstmt.setString(1, "%"+sch.getEname()+"%");
+			pstmt.setString(2, "%"+sch.getJob()+"%");
 			try(ResultSet rs = pstmt.executeQuery()){
-				while(rs.next()) {   
+				while(rs.next()) {  // 여러행 
 					list.add(new Emp(rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getInt("MGR"),
 									rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO") ));
 				}
@@ -57,13 +58,38 @@ public class A03_ExpDao {
 	public String getJobByEname(String ename) {
 		String job=null;
 		String sql = "SELECT JOB FROM EMP10 WHERE ENAME=?";
-		
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setString(1, ename);
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {  // 한개행 
+					job = rs.getString("JOB");
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
 		
 		return job;
 	}
 	// ex) 사원번호(EMPNO)이  사원의 급여(SAL)를 구하는 SQL과 메서드를 선언해보세요..
-	
-	
+	public double getSalByEmpno(int empno){
+		double sal = 0;
+		String sql = "SELECT SAL FROM EMP10 WHERE EMPNO = ?";
+		
+		return sal;
+	}	
+	// ex) 
+	public String getEnameBySal(double sal){
+	  	String ename=null;
+	  	String sql = "SELECT ENAME FROM EMP10 WHERE SAL = ?";
+	  	
+	  	return ename;
+	}	
 	
 	
 
@@ -72,6 +98,7 @@ public class A03_ExpDao {
 		// 7654 입력했을 때, 나올 사원명 확인
 		A03_ExpDao dao = new A03_ExpDao();
 		System.out.println(dao.getEnameByEmpno(7654));
+		System.out.println(dao.getJobByEname("WARD"));
 	}
 
 }

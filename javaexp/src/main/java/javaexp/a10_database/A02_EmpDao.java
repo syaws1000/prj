@@ -54,6 +54,8 @@ public class A02_EmpDao {
 			System.out.print(e.getJob()+"\t");
 			System.out.print(e.getSal()+"\n");
 		}
+		System.out.println();
+		
 	}
 
 }
