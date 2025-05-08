@@ -12,7 +12,7 @@ import javaexp.a10_database.dto.Emp;
 
 public class A03_ExpDao {	
 	// SELECT 템플릿
-	public List<Emp> getSelectEmp(Emp sch){
+	public List<Emp> getSelectTmp(Emp sch){
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10";
 		try( Connection con = DB.con();
