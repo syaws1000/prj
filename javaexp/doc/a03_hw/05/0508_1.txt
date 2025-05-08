@@ -1,0 +1,118 @@
+### ✅ 예외 처리 및 JDBC 연동 관련 객관식 문제 15제
+
+1. 다음 중 `ArrayIndexOutOfBoundsException`이 발생하는 상황은?
+   A. 배열 크기보다 큰 인덱스를 참조할 때
+   B. 배열이 null일 때
+   C. 파일이 없을 때
+   D. 나누기 연산에서 0을 사용할 때
+
+2. `NullPointerException`은 언제 발생하#는가?
+   A. 숫자를 잘못 입력했을 때
+   B. null 객체로 메서드를 호출했을 때
+   C. 파일을 못 찾았을 때
+   D. 루프가 무한히 돌 때
+
+3. `ArithmeticException`이 발생하는 대표적인 예는?
+   A. 0으로 나누기
+   B. 인덱스 초과
+   C. 문자열이 너무 길 때
+   D. 예외 처리를 하지 않을 때
+
+4. `FileNotFoundException`은 어떤 유형의 예외인가?
+   A. unchecked exception
+   B. compile-time warning
+   C. checked exception
+   D. runtime error
+
+5. 다음 중 `try-with-resources` 문법을 사용할 수 없는 객체는?
+   A. FileReader
+   B. BufferedReader
+   C. Connection
+   D. String
+
+6. 다음 코드에서 발생할 수 있는 예외는?
+   `String str = null; str.length();`
+   A. ArrayIndexOutOfBoundsException
+   B. SQLException
+   C. NullPointerException
+   D. IOException
+
+7. 예외 처리에서 `finally` 블럭의 역할은?
+   A. 예외 메시지 출력
+   B. 예외 발생 시 무조건 종료
+   C. 예외 여부와 상관없이 항상 실행
+   D. 예외를 전달
+
+8. 다음 중 `SQLException`이 발생하는 경우는?
+   A. 문자열 길이 계산 시
+   B. 배열 인덱스 초과 시
+   C. 잘못된 DB URL 연결 시
+   D. 파일이 없을 때
+
+9. 자바에서 JDBC를 사용하기 위해 가장 먼저 수행해야 하는 작업은?
+   A. `executeQuery()` 호출
+   B. `close()` 호출
+   C. JDBC 드라이버 로딩
+   D. Statement 객체 생성
+
+10. `Class.forName("oracle.jdbc.driver.OracleDriver")`의 목적은?
+    A. DB 접속 끊기
+    B. 테이블 생성
+    C. JDBC 드라이버 로딩
+    D. 사용자 인증
+
+11. 다음 중 `ResultSet` 객체의 메서드가 아닌 것은?
+    A. `next()`
+    B. `getString()`
+    C. `executeUpdate()`
+    D. `getInt()`
+
+12. 다음 중 자원 해제를 자동으로 처리하는 구문은?
+    A. `try-finally`
+    B. `throws`
+    C. `try-with-resources`
+    D. `throw`
+
+13. JDBC 연결을 위한 정보가 아닌 것은?
+    A. JDBC URL
+    B. DB 사용자 이름
+    C. 드라이버 이름
+    D. 배열 크기
+
+14. 예외 메시지를 출력할 때 사용하는 메서드는?
+    A. `toString()`
+    B. `getCause()`
+    C. `getMessage()`
+    D. `print()`
+
+15. 다음 중 예외가 발생하더라도 프로그램이 계속 실행되도록 도와주는 키워드는?
+    A. `catch`
+    B. `new`
+    C. `return`
+    D. `import`
+
+
+
+### ✅ 예외 처리 및 JDBC 연동 관련 객관식 문제 정답 및 해설
+
+| 번호 | 정답 | 해설                                                               |
+| -- | -- | ---------------------------------------------------------------- |
+| 1  | A  | 배열의 인덱스를 초과해 접근하면 `ArrayIndexOutOfBoundsException`이 발생합니다.       |
+| 2  | B  | `null` 객체로 메서드를 호출하면 `NullPointerException`이 발생합니다.              |
+| 3  | A  | `1 / 0` 같은 0으로 나누는 연산은 `ArithmeticException`을 발생시킵니다.            |
+| 4  | C  | `FileNotFoundException`은 반드시 예외 처리를 강제하는 checked exception입니다.   |
+| 5  | D  | `String`은 자원 해제가 필요한 객체가 아니므로 `try-with-resources`에서 사용할 수 없습니다. |
+| 6  | C  | null 참조로 메서드를 호출하면 `NullPointerException`이 발생합니다.                |
+| 7  | C  | `finally`는 예외 발생 여부와 상관없이 항상 실행됩니다. 주로 자원 해제에 사용됩니다.             |
+| 8  | C  | JDBC 연결 URL이 잘못되었을 때 `SQLException`이 발생합니다.                      |
+| 9  | C  | JDBC 연동을 위해 드라이버 클래스를 먼저 로드해야 합니다 (`Class.forName()`).           |
+| 10 | C  | 해당 코드는 JDBC 드라이버를 메모리에 로드하는 용도로 사용됩니다.                           |
+| 11 | C  | `executeUpdate()`는 `Statement` 객체의 메서드이며, `ResultSet` 객체에는 없습니다. |
+| 12 | C  | `try-with-resources`는 자원 해제를 자동으로 처리해주는 문법입니다.                   |
+| 13 | D  | 배열 크기는 JDBC 연결과는 무관합니다.                                          |
+| 14 | C  | 예외 메시지를 출력할 때 `getMessage()`를 주로 사용합니다.                          |
+| 15 | A  | `catch` 블럭은 예외를 잡아서 프로그램이 중단되지 않게 도와줍니다.                         |
+
+---
+
+
