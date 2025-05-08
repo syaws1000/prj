@@ -38,7 +38,7 @@ public class A03_ExpDao {
 	}
 	
 	public String getEnameByEmpno(int empno) {
-		String ename = null;
+		String ename = "";
 		String sql ="SELECT ENAME FROM EMP WHERE EMPNO=? ";
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);			 
