@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javaexp.a10_database.dto.Emp;
+/*
+import="javaexp.a10_database.A03_ExpDao"
+import="javaexp.a10_database.dto.Emp"
 
-
+ */
 public class A03_ExpDao {	
 	// SELECT 템플릿
 	public List<Emp> getSelectTmp(Emp sch){
