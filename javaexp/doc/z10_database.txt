@@ -25,5 +25,61 @@
 	4) pstmt 처리 및 입력값 처리
 	5) rs(ResultSet)에서 VO할당.
 7. jsp에서 연동하여 화면 처리..
+
+
+# dao 기능 처리 개발 순서
+1. 사용할 Dao 클래스 선언
+2. sql 처리
+	1) 입력값
+	2) 출력값 
+	SELECT * FROM EMP WHERE ENAME LIKE '%A%' AND JOB LIKE '%MAN%';
+
+3. Dto, Vo 클래스 선언
+	ename, job 받을 수 있는 객체 new Emp(ename, job);
+	new Emp(........)
+4. 기능메서드 추가
+	1) sql에 내용에 따른 리턴유형, 매개변수 및 sql 선언, 리턴 객체 생성 선언.
+		ex) emp 사원정보 처리
+			사원정보를 사원명과 직책을 키워드로 검색된 내용 Emp sch에 두개 정보를 할당하고,
+			이것을 where조건에 연결 처리, 결과 내용을 empList에 처리되는 내용.. 작성 예시..
+		public List<Emp> getEmpList(Emp sch){
+			List<Emp> empList = new ArrayList<Emp>();
+			String sql = "SELECT * FROM EMP WHERE ENAME LIKE ? AND JOB LIKE ?";
+			return empList
+		}
+	2) PreparedStatement 객체생성 : 연결객체로 선언된 내용을로 pstmt객체에 연동 처리..
+			Connection con = DB.con() // 전날 만들어진 연결객체(Connection)를 리턴한 내용 처리..
+			PreparedStatement pstmt = con.pareparedStatement(sql);  연결객체에서 psmt 객체를 전달해준다.
+			
+			pstmt.setString(1, "%"+sch.getEname()+"%); 위 sql 안에 있는 ? 에 매핑시킬 조건문의 들어갈 데이터
+			pstmt.setString(2, "%"+sch.getJob()+"%);
+	4) ResultSet rs = pstmt.executeQuery(); 		
+		while(rs.next()){  // 행단위로 데이터가 있을 때까지 반복 처리 및 행단위로 이동
+			empList.add(new Emp(rs.getInt("empno"), rs.getString("ename"),......));
+			// 반복문을 통해서 행단위 안에 열에 해당하는 데이터를 컬럼명으로 가져와서 객체에 담고, 
+			그 객체는 다시 empList에 있는 동적 배열에 담기어 진다..
+		
+		}
+			
+	5) 예외 처리..
+# DB처리의 핵심 객체
+1. 연결객체 :Connection
+2. 대화객체 :PreparedStatement
+3. 결과객체 :ResultSet(행/열단위로)		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
 			   
 	

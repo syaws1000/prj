@@ -1,5 +1,9 @@
 package javaexp.a10_database;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +16,17 @@ public class A02_EmpDao {
 	public List<Emp> getEmpAll(){
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery()
+				){
+			
+			
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
 		// 1. 연결
 		// 2. 대화
 		// 3. 결과
