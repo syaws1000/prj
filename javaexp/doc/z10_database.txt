@@ -67,8 +67,32 @@
 2. 대화객체 :PreparedStatement
 3. 결과객체 :ResultSet(행/열단위로)		
 		
-		
-		
+# 단계별 조회처리 연습
+1. 1행1열 데이터 처리(한개데이터 처리)
+	1) 입력값도 1개, 출력값도 1개인 SQL문에 대한 처리 방법
+	2) 예시 SQL 구문
+		SELECT ENAME FROM EMP10 WHERE EMPNO=?
+		사원번호입력시, 사원명 한개를 처리하는 구문을 기능메서드로 처리..
+	3) 처리 순서
+		- sql 예시 구문 데이터 확인
+		- 기능메서드 선언
+			리턴값 : 조회된 1개데이터유형에 맞게 ex) ENAME ==> String
+			매개변수 : 입력할 데이터유형에 맞게 ex) EMPNO ==> int
+			문자열 sql 처리
+			public String getEnameByEmpno(int empno){
+				String ename =null;
+				String sql = "SELECT ENAME FROM EMP10 WHERE EMPNO=?";
+				
+				return ename;
+			}	
+		- select 템플릿내용 복사 
+		- 템플릿에서 변경할 내용 처리
+			 pstmt.setString(1, empno);  // 매개변수로 입력되는 내용을 ?에 mapping 시켜준다.
+			 if(rs.next()){  // 결과 데이터가 하나행이므로 if 조건 처리..
+			 	ename = rs.getString("ENAME"); // 결과 컬럼이 ENAME으로 문자열 데이터 처리..
+			 }			
+		- main()에서 테스트 확인  완료..
+					
 		
 		
 		
