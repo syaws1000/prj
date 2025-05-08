@@ -16,9 +16,8 @@ public class A03_ExpDao {
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ?";
 		try( Connection con = DB.con();
-			 PreparedStatement pstmt = con.prepareStatement(sql);			 
-				){
-				pstmt.setString(1, "%"+sch.getEname()+"%");
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setString(1, "%"+sch.getEname()+"%");
 			try(ResultSet rs = pstmt.executeQuery()){
 				while(rs.next()) {   
 					list.add(new Emp(rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getInt("MGR"),
