@@ -17,6 +17,9 @@ public class A02_EmpDao {
 	public List<Emp> getEmpAll(){
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10";
+		// 1. 연결
+		// 2. 대화
+		// 3. 결과
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 			 ResultSet rs = pstmt.executeQuery()
@@ -30,15 +33,13 @@ public class A02_EmpDao {
 								rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO") ));
 			}
 			
-			
+			System.out.println("데이터 로딩 완료:"+list.size());
 		}catch(SQLException e) {
 			System.out.println("DB처리 에러:"+e.getMessage());
 		}catch(Exception e) {
 			System.out.println("기타 에러:"+e.getMessage());
 		}
-		// 1. 연결
-		// 2. 대화
-		// 3. 결과
+
 		
 		
 		return list;
@@ -46,7 +47,13 @@ public class A02_EmpDao {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		A02_EmpDao dao = new A02_EmpDao();
+		for(Emp e:dao.getEmpAll()) {
+			System.out.print(e.getEmpno()+"\t");
+			System.out.print(e.getEname()+"\t");
+			System.out.print(e.getJob()+"\t");
+			System.out.print(e.getSal()+"\n");
+		}
 	}
 
 }
