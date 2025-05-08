@@ -34,6 +34,28 @@ public class A03_ExpDao {
 		return list;
 	}
 	
+	public String getEnameByEmpno(int empno) {
+		String ename = null;
+		String sql ="SELECT ENAME FROM EMP WHERE EMPNO=?";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);			 
+					){
+					pstmt.setInt(1, empno); // ?에 있는 1번째 데이터 할당 처리..
+				try(ResultSet rs = pstmt.executeQuery()){
+					if(rs.next()) {    // 한개 행 리턴
+						ename = rs.getString("ENAME");
+					}
+					System.out.println("데이터 로딩 완료:");				
+				}
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}		
+		
+		return ename;
+	}
+	
 	
 
 	public static void main(String[] args) {
