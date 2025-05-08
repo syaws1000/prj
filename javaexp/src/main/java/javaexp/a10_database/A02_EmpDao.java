@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import javaexp.a10_database.dto.Emp;
-
+// javaexp.a10_database.A02_EmpDao
 public class A02_EmpDao {
 	
 	
