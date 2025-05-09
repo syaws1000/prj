@@ -144,7 +144,12 @@ public class A03_ExpDao {
 		}	 	
 	 	return dname;
 	}	
-
+	public List<String> getEnamesByDeptno(int deptno){
+		List<String> enames = new ArrayList<String>();
+		
+		
+		return enames;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// 7654 입력했을 때, 나올 사원명 확인
