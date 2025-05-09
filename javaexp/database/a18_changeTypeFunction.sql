@@ -60,11 +60,36 @@ SELECT SYSDATE,
 		TO_CHAR(SYSDATE,'W') "월단위주",
 		TO_CHAR(SYSDATE,'YYYY/MM/DD Q"/4분기"') "연/월/일 분기표시"
 FROM DUAL;
-SELECT ENAME, HIREDATE, TO_CHAR(HIREDATE) "입사일", TO_CHAR(SYSDATE,'YYYY/MM/DD Q"/4분기"') "연/월/일 분기표시"
+SELECT ENAME, HIREDATE, TO_CHAR(HIREDATE) "입사일", 
+	TO_CHAR(HIREDATE,'YYYY/MM/DD Q"/4분기"') "연/월/일 분기표시"
 FROM EMP
 WHERE HIREDATE LIKE '81%'; -- HIREDATE 키워드 검색시는 TO_CHAR() 적용되어 자동형변환으로 검색된다.
-
-
+-- # 시간 처리 format
+SELECT TO_CHAR(SYSDATE, 'AM') "오전/오후",
+       TO_CHAR(SYSDATE, 'HH24') "24시간",
+       TO_CHAR(SYSDATE, 'MI') "분",
+       TO_CHAR(SYSDATE, 'SS') "초",
+       TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') "일자 및 시간"
+ FROM DUAL;     
+-- ex) 입사일을 기준으로 년도월일 시간분초까지 표현해서  사원번호, 사원명, 입사일을 출력하세요 
+SELECT * FROM EMP01;
+SELECT EMPNO, ENAME, HIREDATE, TO_CHAR(HIREDATE,'YYYY-MM-DD HH24:MI:SS') "입사일"
+FROM EMP01;
+/*
+# 숫자형데이터 ==> 문자열 
+1. 형식을 지정해서 처리해주는 형태를 말한다.
+	TO_CHAR(숫자형데이터,'지정형식')
+	- 단위로 표시 TO_CHAR(데이터,'$99999')
+		앞에 $로 표시하고, 99999자리를 맞추어 표현
+	- 소숫점 자리수 표현 TO_CHAR(데이터, '99999.99')
+		전체자리수와 소수점 이하 자리 표현
+	- 천단위 표현 ,(콤마) 표시 : TO_CHAR(데이터, '9,999,999')
+ * */
+SELECT TO_CHAR(755582,'$999999') "달라표현",
+       TO_CHAR(7342.3422,'9999.99') "소숫점자리표현",
+       TO_CHAR(7333322,'999,999,999') "천단위표현"
+  FROM DUAL;  
+-- EX) 
 
 
 
