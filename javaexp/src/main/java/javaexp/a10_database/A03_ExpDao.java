@@ -144,16 +144,31 @@ public class A03_ExpDao {
 		}	 	
 	 	return dname;
 	}	
-	public List<String> getEnamesByDeptno(int deptno){
+	public List<String> getEnamesByDeptno(int deptno){	
 		List<String> enames = new ArrayList<String>();
-		
-		
+		String sql = "SELECT ENAME FROM EMP10 WHERE DEPTNO = ?";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, deptno);
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 여러행 
+					enames.add(rs.getString("ENAME"));
+				}
+				System.out.println("데이터 로딩 완료:"+enames.size());				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
 		return enames;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// 7654 입력했을 때, 나올 사원명 확인
 		A03_ExpDao dao = new A03_ExpDao();
+		for(String ename:dao.getEnamesByDeptno(10)) {
+			System.out.println(ename);
+		}
+		
 		System.out.println("부서명:"+dao.getDnameByDeptno(30));
 		
 		System.out.println(dao.getEnameByEmpno(7654));
