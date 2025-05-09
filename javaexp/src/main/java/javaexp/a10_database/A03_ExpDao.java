@@ -124,12 +124,33 @@ public class A03_ExpDao {
 	  	return ename;
 	}	
 	
-	
+	public String getDnameByDeptno(int deptno){
+	 	String dname = "";
+	 	String sql = "SELECT DNAME FROM DEPT WHERE DEPTNO = ?";
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, deptno);
+
+			try(ResultSet rs = pstmt.executeQuery()){
+				if(rs.next()) {  // 단일행 if 
+					dname = rs.getString("DNAME");
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}	 	
+	 	return dname;
+	}	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// 7654 입력했을 때, 나올 사원명 확인
 		A03_ExpDao dao = new A03_ExpDao();
+		System.out.println("부서명:"+dao.getDnameByDeptno(30));
+		
 		System.out.println(dao.getEnameByEmpno(7654));
 		System.out.println(dao.getJobByEname("WARD"));
 		System.out.println("사원번호로 급여 확인:"+dao.getSalByEmpno(7369));
