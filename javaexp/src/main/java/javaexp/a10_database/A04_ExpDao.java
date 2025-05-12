@@ -157,6 +157,23 @@ public class A04_ExpDao {
 	public List<Integer> getEmpnos(int mgr){
 		List<Integer> empnos = new ArrayList<Integer>();
 		String sql = "SELECT EMPNO FROM EMP WHERE MGR = ?";
+
+		
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, mgr);  // set정수형(1번째, 부서번호)
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 다중행 
+					empnos.add( rs.getInt("EMPNO") ); // get결과유형("컬럼명")
+
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}					
 		return empnos;
 	}	
 	// 3
