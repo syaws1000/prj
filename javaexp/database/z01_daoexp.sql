@@ -111,6 +111,9 @@ SELECT * FROM DEPT WHERE DEPTNO = 10;
 
 
 
+SELECT * FROM STUDENT WHERE NO = 1;
+-- 위 내용을 처리하기위한 Dto(Student)
+
 
 -- 1. SQL
 -- 2. 입력/출력값 정리
@@ -118,5 +121,4 @@ SELECT * FROM DEPT WHERE DEPTNO = 10;
 -- 4. try catch문 복사
 -- 5. pstmt.setXXX 설정
 -- 6. rs.next(), rs.getXXX()
-
 
