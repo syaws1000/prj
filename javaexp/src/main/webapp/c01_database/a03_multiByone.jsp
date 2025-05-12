@@ -16,8 +16,8 @@
 // 브라우저 url   a03_multiByone.jsp?deptno=40  ==> ?deptno=입력된데이터
 // request.getParameter("요청키") : 입력한 요청값을 받게된다.
 String deptnoStr = request.getParameter("deptno");
-if(deptnoStr==null) deptnoStr = "0"; // 부서번호가 null(없으면)  "0"으로 처리
-int deptno = Integer.parseInt(deptnoStr);
+if(deptnoStr==null || deptnoStr.equals("")) deptnoStr = "0"; // 부서번호가 null(없으면)  "0"으로 처리
+int deptno = Integer.parseInt(deptnoStr);  // "10" (문자열)을 숫자 10 로 변환..
 A04_ExpDao dao = new A04_ExpDao();
 
 %>
@@ -30,7 +30,7 @@ A04_ExpDao dao = new A04_ExpDao();
     <table class="data-table">
 	<tr><th>사원명</th></tr>
 	<%
-	for(String ename:dao.getEnamesByDeptno(deptno)){
+	for(String ename:dao.getEnamesByDeptno(deptno)){  // List<String> 안에 들어간 문자열을 하나씩 뽑아줌
 	%>
 	<tr><td><%=ename%></td></tr>
 	<%
