@@ -22,7 +22,7 @@ A04_ExpDao dao = new A04_ExpDao();
 
 %>
 <div class="container">
-    <h2 class="title">단일 데이터 입력 다중데이터검색</h2>
+    <h2 class="title">부서에 속한 사원명 검색</h2>
     <form class="form">
 	<label>검색한 부서번호:</label>
 	<input type="number" name="deptno" value="<%=deptnoStr%>"/><br>
