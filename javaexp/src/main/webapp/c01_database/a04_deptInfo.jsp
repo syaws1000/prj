@@ -14,14 +14,18 @@
 <%
 // 1. name="deptno" 에 데이터를 입력하여 enter키 submit되어..
 // 2. a04_deptInfo.jsp?deptno=10
-// 3. request.getParameter("deptno")
+// 3. request.getParameter("deptno") : 위에 key로 어떤 값이 전달해오는지 확인..
 
 %>
 <div class="container">
     <h2 class="title">부서정보검색</h2>
     <form class="form">
-	<label>부서번호:<%=request.getParameter("deptno")%></label>
-	<input type="number" name="deptno" value=""/><br>
+		<label>부서번호:<%=request.getParameter("deptno")%></label>
+		<input type="number" name="deptno" value=""/><br>
+		<label>이름:</label>
+		<input type="text" name="name" value=""/><br>
+		입력된 이름:<%=request.getParameter("name")%><br>
+		<input type="submit">
     </form>
     
     <table class="data-table">
