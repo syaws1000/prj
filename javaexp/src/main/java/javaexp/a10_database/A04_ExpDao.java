@@ -180,6 +180,22 @@ public class A04_ExpDao {
 	public List<Double> getSalsByDeptno(int deptno){
 		List<Double> sals = new ArrayList<Double>();
 		String sql = "SELECT SAL FROM EMP WHERE DEPTNO = ?";
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, deptno);  // set정수형(1번째, 부서번호)
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 다중행 
+					sals.add( rs.getDouble("SAL") ); // get결과유형("컬럼명")
+
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}							
+		
 		return sals;
 	}	
 	public static void main(String[] args) {
