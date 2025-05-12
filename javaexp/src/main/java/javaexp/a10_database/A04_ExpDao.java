@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javaexp.a10_database.dto.Emp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class A04_ExpDao {
 
@@ -103,6 +103,50 @@ public class A04_ExpDao {
 		}				
 		
 		return job;
+	}	
+	
+	public List<String> getEnamesByDeptno( int deptno){
+		List<String> enames = new ArrayList<String>();
+		String sql = "SELECT ENAME FROM EMP WHERE DEPTNO = ?";
+
+		
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, deptno);  // set정수형(1번째, 부서번호)
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 다중행 
+					// list를 담는 메서드 리스트명.add(담을데이터)
+					enames.add( rs.getString("ENAME") ); // get결과유형("컬럼명")
+					// 컬럼과 데이터 유형에 따라  rs.get데이터유형("컬럼명");
+					// 리턴할 결과값 sal에 할당처리
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
+		
+		return enames;
+	}
+	// 1
+	public List<String> getEnamesByJob(String job){
+		List<String> enames = new ArrayList<String>();
+		String sql = "SELECT ENAME FROM EMP WHERE JOB = ?";
+		return enames;
+	}	
+	// 2
+	public List<Integer> getEmpnos(int mgr){
+		List<Integer> empnos = new ArrayList<Integer>();
+		String sql = "SELECT EMPNO FROM EMP WHERE MGR = ?";
+		return empnos;
+	}	
+	// 3
+	public List<Double> getSalsByDeptno(int deptno){
+		List<Double> sals = new ArrayList<Double>();
+		String sql = "SELECT SAL FROM EMP WHERE DEPTNO = ?";
+		return sals;
 	}	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
