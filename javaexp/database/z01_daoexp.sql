@@ -20,6 +20,7 @@ public int getCountEmp(int deptno){
 -- 5. pstmt.setXXX 설정
 --    매개변수로 데이터를 ?에 연결 처리..	
 -- 6. rs.next(), rs.getXXX()
+--    결과를 처리해주는 내용..
 
 
 -- sql을 통한 메서드 선언 연습문제
@@ -64,6 +65,25 @@ public String getJobBySal(double sal){
 
 SELECT * FROM EMP;
 
+-- 1. SQL(다수행 1열)
+SELECT ENAME FROM EMP WHERE DEPTNO = 10;
+-- 2. 입력/출력값 정리
+--    입력 : int deptno
+--    결과값 : List<String> enames = new ArrayList<String>();
+----   결과값의 유형들 List<Integer>  List<Int>(x)  List(int) (x)
+--                 List<Double>  List<double>(x)
+--                 List(Date)  
+-- 3. 메서드 선언
+/*
+public List<String> getEnamesByDeptno( int deptno){
+	List<String> enames = new ArrayList<String>();
+	String sql = "SELECT ENAME FROM EMP WHERE DEPTNO = ?";
+	return enames;
+}
+ * */
+-- 4. try catch문 복사
+-- 5. pstmt.setXXX 설정
+-- 6. rs.next(), rs.getXXX()
 
 
 -- 1. SQL
@@ -72,3 +92,5 @@ SELECT * FROM EMP;
 -- 4. try catch문 복사
 -- 5. pstmt.setXXX 설정
 -- 6. rs.next(), rs.getXXX()
+
+
