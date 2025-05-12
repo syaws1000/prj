@@ -123,6 +123,14 @@ SELECT * FROM STUDENT WHERE NO = 1;
 -- 입력 : int no;
 -- 결과 : int no; String name; int kor; int eng; int math;
 /*
+st=new Student(
+	rs.getInt("NO"),
+	rs.getString("NAME"),
+	rs.getInt("KOR"),
+	rs.getInt("ENG"),
+	rs.getInt("MATH")
+	);
+
 결과를 한번에 받을 수 있는 Dto
 class Student{
 	private int no;
@@ -132,6 +140,18 @@ class Student{
 	private int math;
 	// 생성자. get/set 메서드 생성.
 }
+메서드 선언.
+public Student getStudent(int no){
+	Student st = null;
+	String sql = "SELECT * FROM STUDENT WHERE NO = ?";
+	return st;
+}
+
+메서드 내용 복사(틀)
+main()
+
+
+
  * */
 SELECT * FROM CART_ITEM;
 SELECT * FROM CART_ITEM WHERE CART_ID=1;
