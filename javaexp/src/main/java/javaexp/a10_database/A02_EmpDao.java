@@ -14,6 +14,7 @@ public class A02_EmpDao {
 	
 	
 	
+	
 	public List<Emp> getEmpAll(){
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10";
