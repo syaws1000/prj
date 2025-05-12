@@ -72,7 +72,7 @@ SELECT ENAME FROM EMP WHERE DEPTNO = 10;
 --    결과값 : List<String> enames = new ArrayList<String>();
 ----   결과값의 유형들 List<Integer>  List<Int>(x)  List(int) (x)
 --                 List<Double>  List<double>(x)
---                 List(Date)  
+--                 List(Date)    
 -- 3. 메서드 선언
 /*
 public List<String> getEnamesByDeptno( int deptno){
@@ -84,6 +84,12 @@ public List<String> getEnamesByDeptno( int deptno){
 -- 4. try catch문 복사
 -- 5. pstmt.setXXX 설정
 -- 6. rs.next(), rs.getXXX()
+
+-- 다수행1열 sql 처리 메서드 선언 연습.
+-- 1 
+SELECT * FROM EMP;
+
+
 
 
 -- 1. SQL

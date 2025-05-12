@@ -19,12 +19,16 @@ if(empnoStr!=null) empno = Integer.parseInt(empnoStr);
 String ename = dao.getEnameByEmpno(empno);
 %>
 <div class="container">
-	<h2 class="title">단일데이터 입력 단일데이터검색</h2>
+	<h2 class="title">타이틀</h2>
 	<form class="form">
 		<label>사원번호</label>
 		<input type="number" name="empno" value="<%=empno%>"/><br>
 		<label>사원명</label><%=ename%>
 	</form>
+	<table class="data-table">
+		<tr><th>사원번호</th><th>사원명</th><th>급여</th><th>부서번호</th></tr>
+		<tr><td><td><td><td></tr>
+	</table>	
 </div>
 
 </body>

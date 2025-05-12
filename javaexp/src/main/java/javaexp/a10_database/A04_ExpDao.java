@@ -6,6 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+/*
+import = "javaexp.a10_database.A04_ExpDao"
+import = "java.util.ArrayList"
+import = "java.util.List"
+ 
+ 
+*/
+
 
 public class A04_ExpDao {
 
@@ -199,7 +207,12 @@ public class A04_ExpDao {
 		return sals;
 	}	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// 
+		A04_ExpDao dao = new A04_ExpDao();
+		System.out.println("부서번호 10으로 급여 계산");
+		for(double d:dao.getSalsByDeptno(10)) {
+			System.out.println(d);
+		}
 
 	}
 
