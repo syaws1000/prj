@@ -113,7 +113,7 @@ public class A04_ExpDao {
 		return job;
 	}	
 	
-	public List<String> getEnamesByDeptno( int deptno){
+	public List<String> getEnamesByDeptno(int deptno){
 		List<String> enames = new ArrayList<String>();
 		String sql = "SELECT ENAME FROM EMP WHERE DEPTNO = ?";
 
