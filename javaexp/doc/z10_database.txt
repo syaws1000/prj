@@ -122,6 +122,19 @@
 		oneList.add(rs.getXXX("@@@@"));
 	}	
 
+# dao 검색 3단계(단일행, 다중열)
+1. sql
+2. 입력 : 유형 자바코드
+   출력 : 다른 유형의 컬럼들 ==> DTO/VO 
+   		 위 내용을 받을 수 있게 처리.
+3. 기능 메서드
+	public DTo getDto(입력유형){
+		Dto 참조변수=null;
+		
+		return 참조변수;
+	}
+4. try 템플릿 복사.
+5. main() 호출 처리..
 	
 		
 		

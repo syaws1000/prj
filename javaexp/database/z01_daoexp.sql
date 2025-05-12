@@ -90,6 +90,26 @@ public List<String> getEnamesByDeptno( int deptno){
 SELECT * FROM EMP;
 
 
+-- 1. SQL
+SELECT * FROM DEPT WHERE DEPTNO = 10;
+-- 2. 입력/출력값 정리
+---   입력 : int deptno
+--    출력 : int deptno; String dname; String loc;
+---         필드명 ==> 컬럼명 소문자, 
+--          데이터유형 
+--          VARCHAR2(), vARCHAR()  ==> String
+--          Number(7,2) ==> double
+--          Number(4,0) ==> int
+--          DATE   ==> Date(java.util.Date)
+--          ==> Dto 객체 필요 class Dept
+
+-- 3. 메서드 선언
+-- 4. try catch문 복사
+-- 5. pstmt.setXXX 설정
+-- 6. rs.next(), rs.getXXX()
+
+
+
 
 
 -- 1. SQL
