@@ -103,7 +103,14 @@ SELECT * FROM DEPT WHERE DEPTNO = 10;
 --          DATE   ==> Date(java.util.Date)
 --          ==> Dto 객체 필요 class Dept
 
--- 3. 메서드 선언
+-- 3. 메서드 선언  : 다중열(받기위해서 Dto객체를 생성 처리..)
+/*
+public Dept getDeptByDeptno(int deptno){
+	Dept dept = null;
+	String sql = "SELECT * FROM DEPT WHERE DEPTNO = ?";
+	return dept;
+}
+ * */
 -- 4. try catch문 복사
 -- 5. pstmt.setXXX 설정
 -- 6. rs.next(), rs.getXXX()
@@ -113,7 +120,33 @@ SELECT * FROM DEPT WHERE DEPTNO = 10;
 
 SELECT * FROM STUDENT WHERE NO = 1;
 -- 위 내용을 처리하기위한 Dto(Student)
-
+-- 입력 : int no;
+-- 결과 : int no; String name; int kor; int eng; int math;
+/*
+결과를 한번에 받을 수 있는 Dto
+class Student{
+	private int no;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	// 생성자. get/set 메서드 생성.
+}
+ * */
+SELECT * FROM CART_ITEM;
+SELECT * FROM CART_ITEM WHERE CART_ID=1;
+-- EX) 위 기준 DTO 만들기 class명 CartItem
+/*
+class CartItem{
+	private String cartId; // snake case(CART_ID)를 자바에서 사용시 camel case로
+	private int userId;
+	private String productName;
+	private int quantity;
+	private int pricePerItem;
+	private Date addedDate;
+	
+}
+ * */
 
 -- 1. SQL
 -- 2. 입력/출력값 정리
