@@ -134,6 +134,23 @@ public class A04_ExpDao {
 	public List<String> getEnamesByJob(String job){
 		List<String> enames = new ArrayList<String>();
 		String sql = "SELECT ENAME FROM EMP WHERE JOB = ?";
+		
+		try( Connection con = DB.con();
+			PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setString(1, job);  // set정수형(1번째, 부서번호)
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 다중행 
+					enames.add( rs.getString("ENAME") ); // get결과유형("컬럼명")
+
+				}
+				System.out.println("데이터 로딩 완료:");				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}				
+		
 		return enames;
 	}	
 	// 2
