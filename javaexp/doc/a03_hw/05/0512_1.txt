@@ -1,0 +1,126 @@
+### 🔸 **Oracle SQL 형변환 및 SEQUENCE 관련 (1\~10)**
+
+1. `TO_NUMBER()` 함수의 기본 목적은 무엇인가?
+   A. 날짜를 문자열로 변환
+   B. 문자열이나 날짜를 숫자로 변환
+   C. 숫자를 날짜로 변환
+   D. 문자열을 날짜로 변환
+
+2. 다음 중 `TO_NUMBER('1,200', '9,999')`의 결과는?
+   A. 1.2
+   B. 1200
+   C. ‘1,200’
+   D. 오류 발생
+
+3. 날짜 데이터를 문자열로 변환하는 함수는?
+   A. TO\_DATE()
+   B. TO\_NUMBER()
+   C. TO\_CHAR()
+   D. TO\_STRING()
+
+4. `TO_CHAR(SYSDATE, 'Q')`의 의미는?
+   A. 날짜의 연도
+   B. 날짜의 월
+   C. 날짜의 분기
+   D. 날짜의 요일
+
+5. 다음 중 `TO_CHAR(SAL, '$99999')`의 결과는 어떤 형식인가?
+   A. 소수점 포함 숫자
+   B. 천 단위 콤마 숫자
+   C. 달러 기호가 있는 숫자
+   D. 날짜 형식
+
+6. 다음 중 `SYSDATE`의 시간을 24시간제와 분으로 표현하는 형식은?
+   A. 'HH12\:MM'
+   B. 'HH\:MI'
+   C. 'HH24\:MI'
+   D. 'HH24\:MM'
+
+7. 다음 중 `TO_CHAR(12345.67, '99999.99')`의 결과로 가장 적절한 것은?
+   A. 12345.67
+   B. 012345.67
+   C. '12345.67'
+   D. ‘12,345.67’
+
+8. SEQUENCE 객체에서 `NEXTVAL`은 어떤 의미인가?
+   A. 시퀀스를 초기화
+   B. 다음 시퀀스 값을 가져옴
+   C. 현재 시퀀스 값을 재사용
+   D. 시퀀스를 삭제함
+
+9. 다음 중 SEQUENCE 생성 시 시작 숫자를 지정하는 옵션은?
+   A. INCREMENT BY
+   B. MAXVALUE
+   C. START WITH
+   D. CYCLE
+
+10. 시퀀스를 사용하여 테이블에 데이터를 삽입할 때 사용하는 표현은?
+    A. SEQ\_NAME.CURRVAL
+    B. SEQ\_NAME.NEXTVAL
+    C. SEQ\_NAME.PREVVAL
+    D. SEQ\_NAME.COUNT
+
+---
+
+### 🔸 **Java DAO 단계별 처리 관련 (11\~20)**
+
+11. 1행 1열을 DAO에서 처리할 때 적절한 리턴 방식은?
+    A. ResultSet
+    B. void
+    C. 단일 값 변수(int, String 등)
+    D. List<Emp>
+
+12. 다중행 1열 결과를 처리하기 위한 Java 컬렉션은?
+    A. HashMap
+    B. List<String>
+    C. String\[]
+    D. HashSet
+
+13. PreparedStatement에서 SQL문의 `?` 자리에 값을 지정하는 방법은?
+    A. pstmt.query();
+    B. pstmt.setValue();
+    C. pstmt.setString(index, value);
+    D. pstmt.assign(index, value);
+
+14. `ResultSet`에서 특정 열의 값을 가져올 때 사용하는 메서드는?
+    A. getField()
+    B. fetchValue()
+    C. rs.getXXX("컬럼명")
+    D. getValue("컬럼명")
+
+15. 다음 중 1행 다중열을 처리하기 위한 객체는?
+    A. ResultSet
+    B. String
+    C. VO 클래스 (ex: Emp)
+    D. int\[]
+
+16. 다음 중 여러 명의 사원 정보를 모두 담을 수 있는 리턴타입은?
+    A. Emp
+    B. int
+    C. List<Emp>
+    D. String
+
+17. DAO 처리 흐름에서 while(rs.next())의 역할은?
+    A. 하나의 열만 반복
+    B. 여러 행을 한 번에 출력
+    C. 한 행씩 반복하여 접근
+    D. 에러 발생 시 예외 처리
+
+18. DAO 클래스에서 try-with-resources의 장점은?
+    A. 컴파일 속도 향상
+    B. 자동 예외 발생
+    C. 메모리 자동 해제
+    D. SQL 최적화
+
+19. DAO 메서드 작성 순서로 가장 알맞은 것은?
+    A. SQL 작성 → Connection → 실행 → 결과 처리
+    B. Connection → 결과 처리 → SQL 작성
+    C. 결과 처리 → SQL → Connection
+    D. Connection → 결과 저장소 생성 → SQL 작성
+
+20. `pstmt.setString(1, "%"+ename+"%")`는 어떤 SQL 조건에 해당하는가?
+    A. WHERE ENAME = ?
+    B. WHERE ENAME IN (?)
+    C. WHERE ENAME BETWEEN ?
+    D. WHERE ENAME LIKE ?
+
