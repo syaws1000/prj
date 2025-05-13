@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javaexp.a10_database.dto.Baby;
@@ -81,7 +82,7 @@ public class A06_ExpDao {
 		
 		
 	}
-	public List<Emp> getEmpList(Emp sch){
+	public List<Emp> getEmpList(Emp sch){ // new Emp("직책", 10)
 		List<Emp> list = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP WHERE DEPTNO = ? AND JOB  = ?";
 
@@ -91,9 +92,19 @@ public class A06_ExpDao {
 			pstmt.setString(2, sch.getJob());
 			try(ResultSet rs = pstmt.executeQuery()){
 				while(rs.next()) {  // 여러행 
+					// Emp(int empno, String ename, String job, int mgr, Date hiredate, 
+					//     double sal, double comm, int deptno)
 					list.add(new Emp(
-								
-							));
+								rs.getInt("EMPNO"),
+								rs.getString("ENAME"),
+								rs.getString("JOB"),
+								rs.getInt("MGR"),
+								rs.getDate("HIREDATE"),
+								rs.getDouble("SAL"),
+								rs.getDouble("COMM"),
+								rs.getInt("DEPTNO")
+							 )
+							);
 				}
 				System.out.println("데이터 로딩 완료:"+list.size());				
 			}
