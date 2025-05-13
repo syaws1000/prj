@@ -1,11 +1,11 @@
 package javaexp.a10_database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javaexp.a10_database.dto.Baby;
@@ -13,6 +13,7 @@ import javaexp.a10_database.dto.Bus;
 import javaexp.a10_database.dto.Car;
 import javaexp.a10_database.dto.Dept;
 import javaexp.a10_database.dto.Emp;
+import javaexp.a10_database.dto.Order;
 import javaexp.a10_database.dto.Person;
 import javaexp.a10_database.dto.Student01;
 
@@ -116,6 +117,40 @@ public class A06_ExpDao {
 		
 		return list;
 	}
+	public List<Order> getOrders(Order sch){   // dao.getOrders(new Order("Potter",100,200)) 
+		List<Order> list = new ArrayList<Order>();
+		String sql = "SELECT * FROM ORDERS "
+				+ "WHERE WIZARD_NAME LIKE ? "
+				+ "AND ORDER_AMOUNT BETWEEN ? AND ?";
+
+
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setString(1, "%"+sch.getWizardName()+"%");
+			pstmt.setInt(2, sch.getFrOrder());
+			pstmt.setInt(3, sch.getToOrder());
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 여러행 
+					// Order(String wizardName, String orderId, Date orderDate, int orderAmount)
+					list.add(new Order(
+								rs.getString("WIZARD_NAME"),
+								rs.getString("ORDER_ID"),
+								rs.getDate("ORDER_DATE"),
+								rs.getInt("ORDER_AMOUNT")
+							 )
+							);
+				}
+				System.out.println("데이터 로딩 완료:"+list.size());				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
+				
+		
+		return list;
+	}	
 	public static void main(String[] args) {
 		takeBus(new Bus("M001","서울~수원")   /*버스 객체 생성*/);
 		takeBus(new Bus("7791","대전~인천")   /*버스 객체 생성*/);
@@ -176,6 +211,20 @@ public class A06_ExpDao {
 			System.out.print(dept.getDname()+"\t");
 			System.out.print(dept.getLoc()+"\n");
 		}
+		for(Emp e:dao.getEmpList(new Emp("SALESMAN",30))) {
+			System.out.print(e.getEmpno()+"\t");
+			System.out.print(e.getEname()+"\t");
+			System.out.print(e.getJob()+"\t");
+			System.out.print(e.getHiredate()+"\t");
+			System.out.print(e.getSal()+"\t");
+			System.out.print(e.getComm()+"\t");
+			System.out.print(e.getDeptno()+"\n");
+		}
+		
+		
+		
+		
+		
 		
 	}
 

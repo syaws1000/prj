@@ -222,6 +222,30 @@ public List<Emp> getEmpList(Emp sch){
 -- 6. pstmt 설정
 -- 7. rs 설정
 
-
-
+/*
+EX) 
+SELECT * FROM ORDERS 
+WHERE WIZARD_NAME LIKE '%Potter%' 
+  AND ORDER_AMOUNT BETWEEN 100 AND 200;
+1. 입력/결과 자바 변수로 ==> 객체
+   입력 : String wizardName, int frOrder, int toOrder  ==> class Order   
+   													new Order("Potter",100,200)
+   출력 : String orderId, String wizardName, ==> class Order
+         Date orderDate, int orderAmount  new Order(rs.getInt("ORDER_ID"), rs.getString("WIZARD_NAME"),
+         										rs.getDate("ORDER_DATE"), rs.getInt("ORDER_AMOUNT"));
+2. DTO클래스 생성(Order)
+   ------
+   
+3. 메서드 선언
+public List<Order> getOrders(Order sch){
+	List<Order> list = new ArrayList<Order>();
+	String sql = "";
+	
+	return list;
+}
+*/
+--4. TRY CATCH 복사
+--5. pstmt, rs 처리..
+--6. main() 확인..
+  
 
