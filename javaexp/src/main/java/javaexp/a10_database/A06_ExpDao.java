@@ -62,8 +62,26 @@ public class A06_ExpDao {
 		
 		return dlist;
 	}
+	public  static void setDept(Dept sch) { /// Dept sch  = new Dept(10,"인사","서울")
+		System.out.println("# 객체를 매개변수로 전달 #");
+		System.out.println(sch.getDeptno());
+		System.out.println(sch.getDname());
+		System.out.println(sch.getLoc());
+		
+	}
+	public static void takeBus() {   // 매개변수 class Bus로  버스번호, 행선지(속성) dto
+		System.out.println("# 버스를 탔습니다. #");
+		// 버스 번호와 행선지를 출력..
+		
+	}
 
 	public static void main(String[] args) {
+		
+		
+		setDept(new Dept(10,"인사","서울"));
+		setDept(new Dept(20,"회계","부산"));
+		
+		
 		Student01 st01 = new Student01("오길동",70,90); // 객체 생성
 		st01.setName("마길동"); // 데이터변경
 		System.out.println(st01.getName()); // 호출
