@@ -122,3 +122,359 @@ GROUP BY d.DNAME;
 
 
 
+아래는 요청하신 각 문제에 대한 \*\*정답 코드(Java 기반)\*\*입니다. 객체 정의부터 `main()` 테스트 코드까지 포함되어 있으며, JDBC 기반으로 `EMP`, `DEPT` 테이블을 활용하는 예제도 포함되어 있습니다.
+
+---
+
+## ✅ 1. 클래스 → 객체 생성 → Getter/Setter 사용
+
+### 🔹 문제 1: `Student` 클래스
+
+```java
+public class Student {
+    private String name;
+    private int korScore;
+    private int mathScore;
+
+    public Student(String name, int korScore, int mathScore) {
+        this.name = name;
+        this.korScore = korScore;
+        this.mathScore = mathScore;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getKorScore() {
+        return korScore;
+    }
+
+    public int getMathScore() {
+        return mathScore;
+    }
+
+    public static void main(String[] args) {
+        Student s = new Student("홍길동", 90, 85);
+        System.out.println("이름: " + s.getName());
+        System.out.println("국어: " + s.getKorScore());
+        System.out.println("수학: " + s.getMathScore());
+    }
+}
+```
+
+### 🔹 문제 2: `Car` 클래스
+
+```java
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public static void main(String[] args) {
+        Car c = new Car("Hyundai", "Avante", 2022);
+        System.out.println(c.getMake() + " - " + c.getModel() + " (" + c.getYear() + ")");
+    }
+}
+```
+
+---
+
+## ✅ 2. 생성자 데이터 초기화
+
+### 🔹 문제 1: `Book` 클래스
+
+```java
+public class Book {
+    private String title;
+    private String author;
+    private int price;
+
+    public Book(String title, String author, int price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public static void main(String[] args) {
+        Book b = new Book("자바의 정석", "남궁성", 35000);
+        System.out.println(b.getTitle() + " / " + b.getAuthor() + " / " + b.getPrice() + "원");
+    }
+}
+```
+
+### 🔹 문제 2: `Person` 클래스
+
+```java
+public class Person {
+    private String name;
+    private int age;
+    private String city;
+
+    public Person(String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+
+    public static void main(String[] args) {
+        Person p = new Person("김영희", 30, "서울");
+        System.out.println(p.name + " / " + p.age + " / " + p.city);
+    }
+}
+```
+
+---
+
+## ✅ 3. 객체를 매개변수로 전달
+
+### 🔹 문제 1
+
+```java
+public class Person {
+    private String name;
+    private int age;
+    private String address;
+
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public void setPerson(Person p) {
+        System.out.println("이름: " + p.name);
+        System.out.println("나이: " + p.age);
+        System.out.println("주소: " + p.address);
+    }
+
+    public static void main(String[] args) {
+        Person ob = new Person("테스트", 0, "");
+        ob.setPerson(new Person("홍길동", 25, "성남"));
+    }
+}
+```
+
+### 🔹 문제 2
+
+```java
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public static void printPersonInfo(Person p) {
+        System.out.println("이름: " + p.name);
+        System.out.println("나이: " + p.age);
+    }
+
+    public static void main(String[] args) {
+        Person p = new Person("이순신", 40);
+        printPersonInfo(p);
+    }
+}
+```
+
+---
+
+## ✅ 4. Getter/Setter 사용
+
+### 🔹 문제 1: `Book`
+
+```java
+public class Book {
+    private String title;
+    private String author;
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+
+    public static void main(String[] args) {
+        Book b = new Book();
+        b.setTitle("Effective Java");
+        b.setAuthor("Joshua Bloch");
+        System.out.println(b.getTitle() + " - " + b.getAuthor());
+    }
+}
+```
+
+### 🔹 문제 2: `Student`
+
+```java
+public class Student {
+    private String name;
+    private int age;
+
+    public void setName(String name) { this.name = name; }
+    public void setAge(int age) { this.age = age; }
+
+    public String getName() { return name; }
+    public int getAge() { return age; }
+
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.setName("김철수");
+        s.setAge(18);
+        System.out.println(s.getName() + " / " + s.getAge());
+    }
+}
+```
+
+---
+
+## ✅ 5. List 객체 할당
+
+### 🔹 문제 1: `Dept` 리스트 출력
+
+```java
+import java.util.*;
+
+public class Dept {
+    private int deptNo;
+    private String deptName;
+    private String location;
+
+    public Dept(int deptNo, String deptName, String location) {
+        this.deptNo = deptNo;
+        this.deptName = deptName;
+        this.location = location;
+    }
+
+    public int getDeptNo() { return deptNo; }
+    public String getDeptName() { return deptName; }
+    public String getLocation() { return location; }
+
+    public static void main(String[] args) {
+        List<Dept> dlist = new ArrayList<>();
+        dlist.add(new Dept(10, "인사", "수원"));
+        dlist.add(new Dept(20, "회계", "서울"));
+        dlist.add(new Dept(30, "총무", "제주"));
+
+        for (Dept d : dlist) {
+            System.out.println(d.getDeptNo() + " / " + d.getDeptName() + " / " + d.getLocation());
+        }
+    }
+}
+```
+
+---
+
+## ✅ 6. ResultSet에서 객체 할당 (JDBC 코드 예시)
+
+### 🔹 문제 1: `Dept` 객체에 데이터 할당
+
+```java
+while (rs.next()) {
+    Dept d = new Dept(rs.getInt("DEPTNO"), rs.getString("DNAME"), rs.getString("LOC"));
+    list.add(d);
+}
+```
+
+---
+
+## ✅ 7. List<Dept> 단일 데이터 추가
+
+### 🔹 문제 1
+
+```java
+List<Dept> dlist = new ArrayList<>();
+dlist.add(new Dept(10, "총무", "서울"));
+for (Dept d : dlist) {
+    System.out.println(d.getDeptNo() + ", " + d.getDeptName() + ", " + d.getLocation());
+}
+```
+
+---
+
+## ✅ EMP/DEPT 기반 응용 문제 정답
+
+### 🔹 문제 1: 부서별 직원 정보 조회
+
+```java
+public List<Emp> getEmpByDept(int deptno) {
+    List<Emp> list = new ArrayList<>();
+    String sql = "SELECT e.EMPNO, e.ENAME, e.JOB, e.HIREDATE, e.SAL, e.DEPTNO "
+               + "FROM EMP e JOIN DEPT d ON e.DEPTNO = d.DEPTNO WHERE d.DEPTNO = ?";
+    try (Connection con = DB.connect(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+        pstmt.setInt(1, deptno);
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            Emp e = new Emp(rs.getInt("EMPNO"), rs.getString("ENAME"),
+                            rs.getString("JOB"), rs.getDate("HIREDATE"),
+                            rs.getDouble("SAL"), rs.getInt("DEPTNO"));
+            list.add(e);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return list;
+}
+```
+
+---
+
+### 🔹 문제 2: 부서별 평균 급여 조회
+
+```java
+public double getDeptAvgSal(int deptno) {
+    double avg = 0;
+    String sql = "SELECT AVG(SAL) AS AVG_SALARY FROM EMP WHERE DEPTNO = ?";
+    try (Connection con = DB.connect(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+        pstmt.setInt(1, deptno);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            avg = rs.getDouble("AVG_SALARY");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return avg;
+}
+```
+
+---
+
+
+
