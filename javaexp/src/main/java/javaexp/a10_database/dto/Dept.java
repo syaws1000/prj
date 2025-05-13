@@ -7,6 +7,12 @@ public class Dept {
 	public Dept() {
 		// TODO Auto-generated constructor stub
 	}
+	// 검색 즉, where 조건에 들어갈 데이터의 생성자 형식으로 선언..
+	public Dept(String dname, String loc) {
+		this.dname = dname;
+		this.loc = loc;
+	}
+
 	public Dept(int deptno, String dname, String loc) {
 		this.deptno = deptno;
 		this.dname = dname;
