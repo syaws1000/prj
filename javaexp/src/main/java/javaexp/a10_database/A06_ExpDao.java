@@ -10,6 +10,7 @@ import java.util.List;
 import javaexp.a10_database.dto.Baby;
 import javaexp.a10_database.dto.Bus;
 import javaexp.a10_database.dto.Dept;
+import javaexp.a10_database.dto.Person;
 import javaexp.a10_database.dto.Student01;
 
 public class A06_ExpDao {
@@ -88,6 +89,20 @@ public class A06_ExpDao {
 		/*
 		다중의 행을 처리할 때, 사용하는 List<데이터유형> list = new ArrayList<데이터유형>();
 		 * */
+		List<Person> plist = new ArrayList<Person>();
+		plist.add(new Person("홍길동",25,"성남"));
+		plist.add(new Person("김길동",27,"부산"));
+		plist.add(new Person("신길동",35,"제주"));
+		System.out.println(plist.size());
+		for(Person p:plist) {
+			System.out.print(p.getName()+"\t");
+			System.out.print(p.getAge()+"\t");
+			System.out.print(p.getLoc()+"\n");
+		}
+		/*
+		class Car로 선언하고 종류(kind), 배기량(cc), 최고속도(mxSpeed)
+		 * */
+		
 		
 		
 		
