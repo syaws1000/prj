@@ -1,0 +1,167 @@
+### 주관식 개념문제 10문제
+
+1. DAO 패턴의 주요 장점은 무엇이며, 데이터 접근 로직을 왜 분리해야 할까요?
+2. ResultSet에서 rs.next() 메서드의 역할과 사용하는 이유는 무엇인가요?
+3. SQL 쿼리에서 COUNT(\*)와 COUNT(컬럼명)의 차이점은 무엇인가요? 각각의 사용 예시를 설명해주세요.
+4. try-with-resources 문법이 사용되는 경우와 이점에 대해 설명해주세요.
+5. PreparedStatement의 setInt()와 setString() 메서드의 역할과 차이점에 대해 설명해주세요.
+5. ResultSet에서 컬럼명 오타가 발생했을 때 발생할 수 있는 문제와 예외 처리 방법에 대해 설명해주세요.
+7. 데이터베이스에서의 트랜잭션 처리의 필요성과 이점을 설명해주세요.
+8. PreparedStatement에서 ?를 사용하는 이유와 주의할 점에 대해 설명해주세요.
+
+### 재미있는 이야기가 있는 실습문제 5문제 (문제만)
+
+1. 다음과 같은 상황에서 DAO 패턴을 적용하면 어떤 장점을 누릴 수 있을까요? (예시: 레스토랑 주문 시스템)
+2. ResultSet을 사용하여 사원의 이름을 조회한 후, 그 이름으로부터 사원의 부서명을 구하는 과정을 자세히 설명해보세요.
+3. try-with-resources 문법을 사용하지 않고 Connection, PreparedStatement, ResultSet을 사용할 때 발생할 수 있는 문제와 해결 방법을 직관적으로 설명해주세요.
+4. PreparedStatement를 사용하여 데이터베이스에서 사원의 급여를 조회하고, 그 급여를 통해 사원의 직급을 구하는 과정을 실제 코드로 나타내보세요.
+5. 데이터베이스에서 부서번호로 직원들의 이름을 조회하여 리스트로 반환하는 메서드를 작성하고, 그 결과를 출력해보세요.
+
+
+### 주관식 개념문제 정답 코드
+
+1. **DAO 패턴의 주요 장점은 무엇이며, 데이터 접근 로직을 왜 분리해야 할까요?**
+
+   **정답:**
+
+   * DAO 패턴은 데이터베이스와의 연결을 추상화하여, 비즈니스 로직과 데이터 접근 로직을 분리하는데 사용됩니다. 이는 코드의 재사용성을 높이고, 유지보수를 용이하게 하며, 데이터베이스 변경 시 비즈니스 로직에 미치는 영향을 최소화합니다.
+
+2. **PreparedStatement와 Statement의 차이점은 무엇인가요? 각각의 사용 시나리오를 예로 들어 설명해주세요.**
+
+   **정답:**
+
+   * **PreparedStatement**: SQL 쿼리를 미리 컴파일하여 실행 계획을 저장하고, 파라미터화된 쿼리를 사용하여 SQL 인젝션 공격을 예방합니다. 예시: 사용자 입력을 받아 쿼리에서 조건을 설정할 때.
+   * **Statement**: SQL 쿼리를 매번 컴파일하여 실행하는 방식입니다. 예시: 고정된 쿼리에서 사용됩니다.
+
+3. **ResultSet에서 rs.next() 메서드의 역할과 사용하는 이유는 무엇인가요?**
+
+   **정답:**
+
+   * `rs.next()`는 결과 집합에서 다음 행을 가리키도록 커서를 이동시키는 메서드입니다. 첫 번째 호출 시 첫 번째 행을, 이후에는 두 번째, 세 번째 행을 계속해서 가리킵니다. 데이터가 더 이상 없으면 `false`를 반환하여 반복문을 종료시킬 수 있습니다.
+
+4. **SQL 쿼리에서 COUNT(\*)와 COUNT(컬럼명)의 차이점은 무엇인가요? 각각의 사용 예시를 설명해주세요.**
+
+   **정답:**
+
+   * **COUNT(\*)**: 테이블의 모든 행을 세는 함수입니다. 예시: `SELECT COUNT(*) FROM EMP;`
+   * **COUNT(컬럼명)**: 지정한 컬럼의 `NULL`이 아닌 값을 세는 함수입니다. 예시: `SELECT COUNT(SAL) FROM EMP;`
+
+5. **try-with-resources 문법이 사용되는 경우와 이점에 대해 설명해주세요.**
+
+   **정답:**
+
+   * `try-with-resources`는 자원을 자동으로 닫아주는 문법으로, 주로 `Connection`, `PreparedStatement`, `ResultSet` 객체처럼 `AutoCloseable`을 구현한 객체에서 사용됩니다. 이점은 자원 해제를 자동으로 처리하여, 개발자가 자원 해제를 놓칠 위험을 줄이고, 코드가 더 깔끔하고 안전해집니다.
+
+6. **PreparedStatement의 setInt()와 setString() 메서드의 역할과 차이점에 대해 설명해주세요.**
+
+   **정답:**
+
+   * `setInt()`: 정수형 데이터를 SQL 쿼리의 매개변수에 바인딩하는 메서드입니다. 예시: `pstmt.setInt(1, 10);`
+   * `setString()`: 문자열 데이터를 SQL 쿼리의 매개변수에 바인딩하는 메서드입니다. 예시: `pstmt.setString(1, "John");`
+
+7. **DAO 클래스에서의 getConnection() 메서드의 역할과 중요성에 대해 설명해주세요.**
+
+   **정답:**
+
+   * `getConnection()`은 데이터베이스와 연결을 맺기 위한 메서드입니다. 이 메서드는 DB 연결 정보를 통해 `Connection` 객체를 반환하며, 이후 SQL 쿼리 실행 및 트랜잭션 관리 등에 사용됩니다. 중요한 이유는 여러 곳에서 데이터베이스 연결을 재사용할 수 있게 하고, 코드 중복을 줄여주기 때문입니다.
+
+8. **ResultSet에서 컬럼명 오타가 발생했을 때 발생할 수 있는 문제와 예외 처리 방법에 대해 설명해주세요.**
+
+   **정답:**
+
+   * 컬럼명 오타가 발생하면 `SQLException`이 발생합니다. 예외 처리 방법으로는 `try-catch`를 사용하여 `SQLException`을 잡고, 적절한 오류 메시지를 출력하거나 로깅하는 방법이 있습니다.
+
+9. **데이터베이스에서의 트랜잭션 처리의 필요성과 이점을 설명해주세요.**
+
+   **정답:**
+
+   * 트랜잭션 처리의 필요성은 여러 개의 SQL 문이 하나의 단위로 실행되어야 할 때, 모든 작업이 성공적으로 처리되거나 모두 롤백되어야 하는 요구 사항이 있기 때문입니다. 이를 통해 데이터 일관성, 무결성, 신뢰성을 보장할 수 있습니다.
+
+10. **PreparedStatement에서 ?를 사용하는 이유와 주의할 점에 대해 설명해주세요.**
+
+**정답:**
+
+* `?`는 SQL 쿼리에서 매개변수를 동적으로 바인딩하기 위해 사용됩니다. 이를 사용하면 SQL 인젝션 공격을 방지할 수 있습니다. 주의할 점은 `setInt()`, `setString()` 등으로 값을 바인딩할 때, 각 데이터 타입에 맞는 메서드를 사용해야 한다는 것입니다.
+
+---
+
+### 실습문제 정답 코드
+
+1. **다음과 같은 상황에서 DAO 패턴을 적용하면 어떤 장점을 누릴 수 있을까요? (예시: 레스토랑 주문 시스템)**
+
+   **정답 코드:**
+
+   * 레스토랑 주문 시스템에서 DAO 패턴을 사용하면 데이터베이스와의 상호작용을 `OrderDao`와 같은 객체로 분리할 수 있습니다. 이렇게 하면 비즈니스 로직과 데이터 접근 로직이 분리되어 유지보수가 용이하고, 데이터베이스 변경 시 비즈니스 로직에 미치는 영향을 최소화할 수 있습니다.
+
+2. **ResultSet을 사용하여 사원의 이름을 조회한 후, 그 이름으로부터 사원의 부서명을 구하는 과정을 자세히 설명해보세요.**
+
+   **정답 코드:**
+
+   ```java
+   String ename = getEnameByEmpno(7369);  // EMPNO 7369에 해당하는 사원명 조회
+   String job = getJobBySal(2500);  // 급여가 2500인 사원의 직업 조회
+   ```
+
+3. **try-with-resources 문법을 사용하지 않고 Connection, PreparedStatement, ResultSet을 사용할 때 발생할 수 있는 문제와 해결 방법을 직관적으로 설명해주세요.**
+
+   **정답 코드:**
+
+   ```java
+   // 예시 코드
+   try {
+       Connection con = DB.con();
+       PreparedStatement pstmt = con.prepareStatement("SELECT * FROM EMP");
+       ResultSet rs = pstmt.executeQuery();
+       while (rs.next()) {
+           System.out.println(rs.getString("ENAME"));
+       }
+   } catch (SQLException e) {
+       System.out.println("DB 처리 오류: " + e.getMessage());
+   } finally {
+       // Connection, PreparedStatement, ResultSet을 수동으로 닫아야 한다.
+   }
+   ```
+
+4. **PreparedStatement를 사용하여 데이터베이스에서 사원의 급여를 조회하고, 그 급여를 통해 사원의 직급을 구하는 과정을 실제 코드로 나타내보세요.**
+
+   **정답 코드:**
+
+   ```java
+   public String getJobBySal(double sal) {
+       String job = "";
+       String sql = "SELECT JOB FROM EMP WHERE SAL = ?";
+       try (Connection con = DB.con(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+           pstmt.setDouble(1, sal);
+           try (ResultSet rs = pstmt.executeQuery()) {
+               if (rs.next()) {
+                   job = rs.getString("JOB");
+               }
+           }
+       } catch (SQLException e) {
+           System.out.println("DB 처리 오류: " + e.getMessage());
+       }
+       return job;
+   }
+   ```
+
+5. **데이터베이스에서 부서번호로 직원들의 이름을 조회하여 리스트로 반환하는 메서드를 작성하고, 그 결과를 출력해보세요.**
+
+   **정답 코드:**
+
+   ```java
+   public List<String> getEnamesByDeptno(int deptno) {
+       List<String> enames = new ArrayList<>();
+       String sql = "SELECT ENAME FROM EMP WHERE DEPTNO = ?";
+       try (Connection con = DB.con(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+           pstmt.setInt(1, deptno);
+           try (ResultSet rs = pstmt.executeQuery()) {
+               while (rs.next()) {
+                   enames.add(rs.getString("ENAME"));
+               }
+           }
+       } catch (SQLException e) {
+           System.out.println("DB 처리 오류: " + e.getMessage());
+       }
+       return enames;
+   }
+   ```
