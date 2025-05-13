@@ -136,6 +136,28 @@
 4. try 템플릿 복사.
 5. main() 호출 처리..
 	
+# dao 검색 4단계(다중행, 다중열 처리)
+1. SQL
+2. 입력 : 입력되는 데이터(다수의 데이터일 경우, DTO나 VO 생성)
+   출력 : 여러유형의 데이터를 유해 DTO, VO 생성
+   		 이것이 행단위로 여러개일 경우  List<DTO> 형식으로 처리
+3. 메서드 선언
+	public List<DTO> getXXXList(DTO sch){
+		List<DTO> list = new ArrayList<DTO>();
+		String sql = "": // 다중행, 다중열 결과 sql
+		
+		return list;
+	}
+4. 기본 코드 복사 try catch문	
+5. pstmt 입력
+	pstmt.setXXX(1, sch.getXXX());	
+	pstmt.setXXX(2, sch.getXXX());	
+	pstmt.setXXX(3, sch.getXXX());	
+6. result 처리
+	while(rs.next()){
+		list.add(new DTO(rs.getXXX("컬럼명"),......)
+	}	
+
 		
 		
 		
