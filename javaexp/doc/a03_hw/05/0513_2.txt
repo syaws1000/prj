@@ -1,0 +1,124 @@
+### 1. **클래스 ==> 객체 생성 ==> getter/setter 사용**
+
+#### 문제 1:
+
+`Student` 클래스를 정의하고 `name`, `korScore`, `mathScore`라는 속성을 추가합니다. 생성자를 통해 이 속성들을 초기화하고, getter 메서드를 사용하여 학생의 이름과 점수를 출력하는 프로그램을 작성하세요.
+
+#### 문제 2:
+
+`Car` 클래스를 정의하고, `make`, `model`, `year`라는 속성을 추가합니다. 생성자를 통해 초기 값을 설정하고, getter 메서드를 사용하여 자동차의 세부 정보를 출력하는 프로그램을 작성하세요.
+
+---
+
+### 2. **생성자를 통해 데이터 초기화**
+
+#### 문제 1:
+
+`Book` 클래스를 정의하고 `title`, `author`, `price`라는 속성을 추가합니다. 생성자를 통해 이 값을 초기화한 후, `main()` 메서드에서 `Book` 객체를 생성하고 그 세부 정보를 출력하세요.
+
+#### 문제 2:
+
+`Person` 클래스를 정의하고 `name`, `age`, `city`라는 속성을 추가합니다. 생성자를 통해 객체를 초기화하고, `main()` 메서드에서 해당 객체의 세부 정보를 출력하세요.
+
+---
+
+### 3. **객체를 매개변수로 전달하기**
+
+#### 문제 1:
+
+`Person` 클래스는 `name`, `age`, `address` 속성을 가지고 있으며, `setPerson(Person p)`라는 메서드가 이 객체를 매개변수로 받아 해당 사람의 정보를 출력합니다. `main()` 메서드에서 `Person` 객체를 생성하고 `setPerson()` 메서드를 호출하세요.
+
+#### 문제 2:
+
+`printPersonInfo(Person p)`라는 메서드를 정의하여 `Person` 객체를 매개변수로 받아 이름과 나이를 출력하는 프로그램을 작성하세요. `main()` 메서드에서 `Person` 객체를 생성하고 이를 `printPersonInfo()` 메서드에 전달하세요.
+
+---
+
+### 4. **get/set 메서드를 통한 객체 속성 처리**
+
+#### 문제 1:
+
+`Book` 클래스를 정의하고 `title`과 `author`라는 속성을 추가한 후, setter와 getter 메서드를 구현하세요. `main()` 메서드에서 `Book` 객체를 생성하고, setter 메서드를 사용하여 값을 설정하고, getter 메서드를 사용하여 값을 출력하세요.
+
+#### 문제 2:
+
+`Student` 클래스를 정의하고 `name`과 `age` 속성을 추가한 후, setter와 getter 메서드를 구현하세요. `main()` 메서드에서 `Student` 객체를 생성하고, setter 메서드를 사용하여 값을 설정하고, getter 메서드를 사용하여 값을 출력하세요.
+
+---
+
+### 5. **List<Dept> 객체 할당**
+
+#### 문제 1:
+
+`Dept` 클래스를 정의하고 `deptNo`, `deptName`, `location`이라는 속성을 추가하세요. `main()` 메서드에서 `List<Dept>` 객체를 생성하고, 3개의 부서 객체를 리스트에 추가한 후, 반복문을 사용하여 부서의 세부 정보를 출력하세요.
+
+#### 문제 2:
+
+`Car` 클래스를 정의하고 `make`, `model`, `year`라는 속성을 추가한 후, `main()` 메서드에서 `List<Car>` 객체를 생성하고, 5개의 자동차 객체를 리스트에 추가한 후, 반복문을 사용하여 자동차의 세부 정보를 출력하세요.
+
+---
+
+### 6. **ResultSet에서 데이터 가져와 객체에 할당**
+
+#### 문제 1:
+
+`Dept` 클래스를 정의하고 `deptNo`와 `deptName` 속성을 추가합니다. 데이터베이스에서 `rs.getString("DNAME")`을 사용하여 부서 이름을 가져오고 이를 `Dept` 객체에 할당하여 출력하세요.
+
+#### 문제 2:
+
+`Student` 클래스를 정의하고 `name`, `age`, `score` 속성을 추가합니다. `rs.getString()`과 `rs.getInt()`를 사용하여 데이터베이스에서 데이터를 가져오고 이를 `Student` 객체에 할당하여 출력하세요.
+
+---
+
+### 7. **List<Dept> 형 객체 단일 데이터 할당**
+
+#### 문제 1:
+
+`Dept` 클래스를 정의하고 `deptNo`와 `deptName` 속성을 추가합니다. `main()` 메서드에서 `List<Dept>` 객체를 생성하고, `Dept` 객체를 하나 추가한 후, 반복문을 사용하여 부서의 정보를 출력하세요.
+
+#### 문제 2:
+
+`Dept` 클래스를 정의하고 `deptNo`, `deptName`, `location` 속성을 추가합니다. `main()` 메서드에서 `List<Dept>` 객체를 생성하고 여러 `Dept` 객체를 추가한 후, 반복문을 사용하여 각 부서의 세부 정보를 출력하세요.
+
+여기 `EMP`와 `DEPT` 테이블을 기준으로 한 두 가지 문제만 제시합니다:
+
+---
+
+### 문제 1: **부서별 직원 정보 조회**
+
+회사의 부서별로 직원들의 정보를 조회하는 프로그램을 작성하세요. 사용자가 입력한 부서 번호(`DEPTNO`)에 해당하는 직원들의 이름과 직무를 출력하도록 합니다.
+
+* `Dept` 클래스는 `deptNo`, `dname`, `loc` 속성을 가지며, `Emp` 클래스는 `empNo`, `ename`, `job`, `hireDate`, `sal`, `deptNo` 속성을 가집니다.
+* SQL 쿼리를 작성하여 사용자가 입력한 `DEPTNO`를 기준으로 부서의 이름, 위치, 직원 이름과 직무를 출력하세요.
+
+**SQL 예시:**
+
+```sql
+SELECT e.ENAME, e.JOB, d.DNAME, d.LOC 
+FROM EMP e
+JOIN DEPT d ON e.DEPTNO = d.DEPTNO
+WHERE d.DEPTNO = ?;
+```
+
+---
+
+### 문제 2: **부서별 평균 급여 계산**
+
+사용자가 입력한 부서 번호(`DEPTNO`)에 해당하는 부서의 평균 급여를 계산하는 프로그램을 작성하세요.
+
+* `Dept` 클래스는 `deptNo`, `dname`, `loc` 속성을 가지며, `Emp` 클래스는 `empNo`, `ename`, `job`, `hireDate`, `sal`, `deptNo` 속성을 가집니다.
+* SQL 쿼리를 작성하여 사용자가 입력한 `DEPTNO`에 해당하는 부서의 평균 급여를 계산하고 출력하세요.
+
+**SQL 예시:**
+
+```sql
+SELECT d.DNAME, AVG(e.SAL) AS AVG_SALARY
+FROM EMP e
+JOIN DEPT d ON e.DEPTNO = d.DEPTNO
+WHERE d.DEPTNO = ?
+GROUP BY d.DNAME;
+```
+
+
+
+
