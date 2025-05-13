@@ -182,6 +182,16 @@
 		Dept dept = new Dept(rs.getInt("DEPTNO"), rs.getString("DNAME"), rs.getString("LOC"));
 		dlist.add(dept);
 	}		
+	
+4. main()
+	List<Dept> list = dao.getDeptList(new Dept(..));
+	for(Dept d:list){
+		System.out.print(d.getDeptno());
+		System.out.print(d.getDname());
+		System.out.print(d.getLoc());
+	}	
+	
+	
 		
 		
 		
