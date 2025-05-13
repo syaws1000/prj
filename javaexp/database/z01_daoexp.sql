@@ -169,9 +169,26 @@ class CartItem{
  * */
 
 -- 1. SQL
+SELECT * FROM DEPT WHERE DNAME LIKE '%A%' AND LOC LIKE '%A%';
 -- 2. 입력/출력값 정리
+/*
+입력 : String dname, String loc ===> class Dept(여러개의 입력값을 위해 DTO)
+출력 : int deptno, String dname, String loc 
+		==> class Dept(다중열) ==> List<Dept> (다중행)
+**/
 -- 3. 메서드 선언
+/*
+public List<Dept> getDeptList(Dept sch){
+	List<Dept> dlist = new ArrayList<Dept>();
+	String sql = "SELECT * FROM DEPT WHERE DNAME LIKE ? AND LOC LIKE ?";
+	return dlist;
+}
+ * */
 -- 4. try catch문 복사
 -- 5. pstmt.setXXX 설정
+---   pstmt.setString(1, sch.getDname());
+---   pstmt.setString(2, sch.getLoc());
 -- 6. rs.next(), rs.getXXX()
-
+--    while(rs.next()){
+--      list.add(new Dept(rs.getInt("DEPTNO"), rs.getString("DNAME"), rs.getString("LOC")));
+--  }

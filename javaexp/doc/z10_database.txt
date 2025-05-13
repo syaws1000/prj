@@ -138,9 +138,19 @@
 	
 # dao 검색 4단계(다중행, 다중열 처리)
 1. SQL
+	SELECT * FROM EMP WHERE ENAME LIKE ? AND JOB LIKE ?
 2. 입력 : 입력되는 데이터(다수의 데이터일 경우, DTO나 VO 생성)
+		 String ename, String job
+		 class Emp{
+		 	public Emp( String ename, String job)
+		 }
    출력 : 여러유형의 데이터를 유해 DTO, VO 생성
+   		 int empno, String ename, String job, int mgr, Date hiredate, double sal, double comm,
+   		 int deptno ==> 
+   		 class Emp{}
    		 이것이 행단위로 여러개일 경우  List<DTO> 형식으로 처리
+   		 List<Emp> list = new ArrayList<Emp>();
+   		
 3. 메서드 선언
 	public List<DTO> getXXXList(DTO sch){
 		List<DTO> list = new ArrayList<DTO>();
