@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javaexp.a10_database.dto.Baby;
+import javaexp.a10_database.dto.Bus;
 import javaexp.a10_database.dto.Dept;
 import javaexp.a10_database.dto.Student01;
 
@@ -69,14 +70,18 @@ public class A06_ExpDao {
 		System.out.println(sch.getLoc());
 		
 	}
-	public static void takeBus() {   // 매개변수 class Bus로  버스번호, 행선지(속성) dto
+	public static void takeBus(Bus bus      /*버스 객체 선언*/) {   // 매개변수 class Bus로  버스번호, 행선지(속성) dto
 		System.out.println("# 버스를 탔습니다. #");
 		// 버스 번호와 행선지를 출력..
+		System.out.println("버스번호:"+bus.getNo());
+		System.out.println("버스행선지:"+bus.getDestin());
+		
 		
 	}
 
 	public static void main(String[] args) {
-		
+		takeBus(new Bus("M001","서울~수원")   /*버스 객체 생성*/);
+		takeBus(new Bus("7791","대전~인천")   /*버스 객체 생성*/);
 		
 		setDept(new Dept(10,"인사","서울"));
 		setDept(new Dept(20,"회계","부산"));
