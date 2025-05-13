@@ -138,6 +138,57 @@
 
 ---
 
+# 조별로 단계별 확인 내용
+1. class ==> 객체생성 ==> 속성값 활용 get/set 활용 이해여부
+2. 객체의 생성자 사용 활용 이해 여부
+
+	javaexp.a10_database.dto
+	이름, 국어점수, 수학점수   class Student01
+	==> 생성자를 통해서 초기데이터 할당.
+	set/get메서드 데이터 호출 및 변경 처리..
+	
+	javaexp.a10_database.dto  class Baby
+	이름, 나이 속성 설언..
+	==> 생성자를 통해 초기데이터 할당.
+	set/get메서드 데이터 호출 및 변경 처리..	
+	A06_ExpDao.java main()로 해당 객체 생성..
+
+	
+3. 메서드를 통해서 매개변수로 객체를 전송하기 이해여부
+	public void setPerson(Person p){
+	
+	}
+	ob.setPerson(new Person("홍길동",25,"성남"));
+4. 매개변수의 객체를 통해서, get/set 메서드 사용..이해 여부
+	String sql = "SELECT DEPTNO, DNAME FROM DEPT WHERE DNAME LIKE ?:
+	pstmt.setString(1, "%"+d.getEname+"%");
+	
+5. List<Dept> dlist 의 객체 할당 이해 여부?
+	dlist.add(new Dept(10,"인사","수원"));	
+	dlist.add(new Dept(20,"회계","서울"));	
+	dlist.add(new Dept(30,"총무","제주"));	
+6. rs.getString("DNAME") ==> 형태의 데이터를 가져와서 객체에 할당 이해 여부?
+
+7. List<Dept> 형 객체 단일 데이터 할당에 대한 이해 여부?
+    for(Dept d:dlist){
+		d.getDeptno()
+	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## ✅ 학습자와 공유할 요약 포인트 (시트/슬라이드용)
 
 * `배열 = 여러 데이터를 순서대로 저장`

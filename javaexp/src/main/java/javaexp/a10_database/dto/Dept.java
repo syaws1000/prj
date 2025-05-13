@@ -2,8 +2,8 @@ package javaexp.a10_database.dto;
 
 public class Dept {
 	private int deptno; 
-	private String dname; 
-	private String loc;
+	private String dname; // "A"
+	private String loc; // "B"
 	public Dept() {
 		// TODO Auto-generated constructor stub
 	}
