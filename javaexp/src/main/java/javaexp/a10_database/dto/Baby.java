@@ -3,6 +3,7 @@ package javaexp.a10_database.dto;
 public class Baby {
 	private String name;
 	private int age;
+	
 	public Baby() {
 		// TODO Auto-generated constructor stub
 	}

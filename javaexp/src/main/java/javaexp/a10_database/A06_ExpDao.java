@@ -9,6 +9,7 @@ import java.util.List;
 
 import javaexp.a10_database.dto.Baby;
 import javaexp.a10_database.dto.Bus;
+import javaexp.a10_database.dto.Car;
 import javaexp.a10_database.dto.Dept;
 import javaexp.a10_database.dto.Person;
 import javaexp.a10_database.dto.Student01;
@@ -102,7 +103,16 @@ public class A06_ExpDao {
 		/*
 		class Car로 선언하고 종류(kind), 배기량(cc), 최고속도(mxSpeed)
 		 * */
+		List<Car> clist = new ArrayList<Car>();
+		clist.add(new Car("그랜저",3500,280));
+		clist.add(new Car("BMW",4000,300));
+		clist.add(new Car("제규어",4500,350));
 		
+		for(Car c:clist) {
+			System.out.print(c.getKind()+"\t");
+			System.out.print(c.getCc()+"\t");
+			System.out.print(c.getMxSpeed()+"\n");
+		}
 		
 		
 		
