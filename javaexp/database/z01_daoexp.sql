@@ -203,9 +203,20 @@ SELECT * FROM EMP WHERE DEPTNO = 30 AND JOB  = 'SALESMAN';
 --    출력 : int empno, String ename, String job, int mgr, Date hiredate, double sal,
 --          double comm, int deptno ==> Emp(..전체 데이터 처리..)여러열 ==> List<Emp> 여러행
 -- 3. class 생성자, 선언
-
 ----------------------------------------------
 -- 4. 메서드 선언
+/*
+리턴 ==> 출력의해서
+입력 ==> 매개변수로..
+public List<Emp> getEmpList(Emp sch){
+	List<Emp> list = new ArrayList<Emp>();
+	String sql = "SELECT * FROM EMP WHERE DEPTNO = ? AND JOB  = ?";
+	
+	return list;
+}
+
+
+ * */
 ----------------
 -- 5. try 복사
 -- 6. pstmt 설정

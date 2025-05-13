@@ -11,6 +11,7 @@ import javaexp.a10_database.dto.Baby;
 import javaexp.a10_database.dto.Bus;
 import javaexp.a10_database.dto.Car;
 import javaexp.a10_database.dto.Dept;
+import javaexp.a10_database.dto.Emp;
 import javaexp.a10_database.dto.Person;
 import javaexp.a10_database.dto.Student01;
 
@@ -80,7 +81,30 @@ public class A06_ExpDao {
 		
 		
 	}
+	public List<Emp> getEmpList(Emp sch){
+		List<Emp> list = new ArrayList<Emp>();
+		String sql = "SELECT * FROM EMP WHERE DEPTNO = ? AND JOB  = ?";
 
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			pstmt.setInt(1, sch.getDeptno());
+			pstmt.setString(2, sch.getJob());
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {  // 여러행 
+					list.add(new Emp(
+								
+							));
+				}
+				System.out.println("데이터 로딩 완료:"+list.size());				
+			}
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
+		
+		return list;
+	}
 	public static void main(String[] args) {
 		takeBus(new Bus("M001","서울~수원")   /*버스 객체 생성*/);
 		takeBus(new Bus("7791","대전~인천")   /*버스 객체 생성*/);
