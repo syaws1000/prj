@@ -134,7 +134,7 @@ public class A06_ExpDao {
 					// Order(String wizardName, String orderId, Date orderDate, int orderAmount)
 					list.add(new Order(
 								rs.getString("WIZARD_NAME"),
-								rs.getString("ORDER_ID"),
+								rs.getInt("ORDER_ID"),
 								rs.getDate("ORDER_DATE"),
 								rs.getInt("ORDER_AMOUNT")
 							 )
@@ -221,7 +221,12 @@ public class A06_ExpDao {
 			System.out.print(e.getDeptno()+"\n");
 		}
 		
-		
+		for(Order o:dao.getOrders(new Order("Potter",10,500))) {
+			System.out.print(o.getOrderId()+"\t");
+			System.out.print(o.getWizardName()+"\t");
+			System.out.print(o.getOrderDate()+"\t");
+			System.out.print(o.getOrderAmount()+"\n");
+		}
 		
 		
 		

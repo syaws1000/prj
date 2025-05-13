@@ -6,7 +6,7 @@ public class Order {
 	private String wizardName;
 	private int frOrder;
 	private int toOrder;
-	private String orderId;
+	private int orderId;
 	private Date orderDate;
 	private int orderAmount;
 	public Order() {
@@ -17,7 +17,7 @@ public class Order {
 		this.frOrder = frOrder;
 		this.toOrder = toOrder;
 	}
-	public Order(String wizardName, String orderId, Date orderDate, int orderAmount) {
+	public Order(String wizardName, int orderId, Date orderDate, int orderAmount) {
 		this.wizardName = wizardName;
 		this.orderId = orderId;
 		this.orderDate = orderDate;
@@ -41,10 +41,10 @@ public class Order {
 	public void setToOrder(int toOrder) {
 		this.toOrder = toOrder;
 	}
-	public String getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(String orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 	public Date getOrderDate() {
@@ -59,5 +59,6 @@ public class Order {
 	public void setOrderAmount(int orderAmount) {
 		this.orderAmount = orderAmount;
 	}
+
 	
 }
