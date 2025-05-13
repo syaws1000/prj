@@ -39,7 +39,14 @@ public class A06_ExpDao {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		A06_ExpDao dao = new A06_ExpDao();
+		List<Dept> dlist = dao.getDeptList(new Dept("A","A")); // 검색할 내용인 DNAME, LOC
+		for(Dept dept:dlist) {
+			System.out.print(dept.getDeptno()+"\t");
+			System.out.print(dept.getDname()+"\t");
+			System.out.print(dept.getLoc()+"\n");
+		}
+		
 	}
 
 }
