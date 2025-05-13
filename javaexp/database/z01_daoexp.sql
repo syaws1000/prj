@@ -194,15 +194,16 @@ public List<Dept> getDeptList(Dept sch){
 --  }
 
 -- 
-SELECT * FROM EMP;
+SELECT * FROM DEPT;
 --  부서번호와 직책을 통해서 검색된 내용을 처리하는 DAO 메서드를 만들어 보세요..
 -- 1. SQL
 SELECT * FROM EMP WHERE DEPTNO = 30 AND JOB  = 'SALESMAN';
 ---------------------
 -- 2. 입력 : int deptno, String job ==> Emp( int deptno, String job)
---    출력   int empno, String ename, String job, int mgr, Date hiredate, double sal,
---          double comm, int deptno
+--    출력 : int empno, String ename, String job, int mgr, Date hiredate, double sal,
+--          double comm, int deptno ==> Emp(..전체 데이터 처리..)여러열 ==> List<Emp> 여러행
 -- 3. class 생성자, 선언
+
 ----------------------------------------------
 -- 4. 메서드 선언
 ----------------

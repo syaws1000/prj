@@ -15,6 +15,11 @@ public class Emp {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Emp(String job, int deptno) {
+		this.job = job;
+		this.deptno = deptno;
+	}
+
 	public Emp(String ename, String job) {
 		this.ename = ename;
 		this.job = job;
