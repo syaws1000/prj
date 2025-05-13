@@ -168,7 +168,20 @@
 		list.add(new DTO(rs.getXXX("컬럼명"),......)
 	}	
 
-		
+# 다중 행을 처리할 때 사용하는 List<데이터유형> list = new ArrayList<데이터유형>
+1. DB에서 여러 행의 데이터를 처리할 때, SQL쿼리 결과를 여러 개의 레코드로 반환받을 수 있습니다. 이때
+	데이터를 효율적으로 처리하고 저장하려면 컬렉션을 사용하여 여러 데이터를 저장하는 것이 유리합니다.
+	java에서는 List인터페이스를 구현한 ArrayList를 자주 사용하여 여러 개의 객체를 처리합니다.
+	List는 순차적 데이터를 저장하고, 인덱스를 통해 해당 데이터를 쉽게 접근할 수 있는 자료구조입니다.
+2. ArrayList는 동적 배열로, 크기가 자동으로 확장되기 때문에 데이터를 추가하거나 삭제하는데 유리하며,
+	데이터를 효율적으로 저장하고 관리할 수 있습니다. DB에서 다중 행을 처리할 때 ArrayList에 각
+	행을 객체로 저장하여 다양한 연산을 쉽게 처리할 수 있습니다.
+3. 부서정보
+	List<Dept> dlist = new ArrayList<Dept>();
+	while(rs.next()){
+		Dept dept = new Dept(rs.getInt("DEPTNO"), rs.getString("DNAME"), rs.getString("LOC"));
+		dlist.add(dept);
+	}		
 		
 		
 		

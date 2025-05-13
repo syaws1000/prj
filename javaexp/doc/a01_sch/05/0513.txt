@@ -160,7 +160,7 @@
 	}
 	ob.setPerson(new Person("홍길동",25,"성남"));
 4. 매개변수의 객체를 통해서, get/set 메서드 사용..이해 여부
-	String sql = "SELECT DEPTNO, DNAME FROM DEPT WHERE DNAME LIKE ?:
+	String sql = "SELECT DEPTNO, DNAME FROM DEPT WHERE DNAME LIKE ?"
 	pstmt.setString(1, "%"+d.getEname+"%");
 	
 5. List<Dept> dlist 의 객체 할당 이해 여부?

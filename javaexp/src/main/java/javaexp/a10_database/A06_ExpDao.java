@@ -85,6 +85,12 @@ public class A06_ExpDao {
 		
 		setDept(new Dept(10,"인사","서울"));
 		setDept(new Dept(20,"회계","부산"));
+		/*
+		다중의 행을 처리할 때, 사용하는 List<데이터유형> list = new ArrayList<데이터유형>();
+		 * */
+		
+		
+		
 		
 		
 		Student01 st01 = new Student01("오길동",70,90); // 객체 생성
