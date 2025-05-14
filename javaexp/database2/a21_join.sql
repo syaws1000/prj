@@ -63,7 +63,29 @@ WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;
 	FROM EMP E, EMP M
 	WHEERE E.MGR = M.EMPNO;	
  * */
-	SELECT E.ENAME "사원이름", E.MGR "관리자의 사원번호", M.ENAME "관리자의 이름"
-	FROM EMP E, EMP M
-	WHEERE E.MGR = M.EMPNO;	
+SELECT E.ENAME "사원이름", E.MGR "관리자의 사원번호", M.ENAME "관리자의 이름"
+FROM EMP E, EMP M
+WHERE E.MGR = M.EMPNO;	
+CREATE TABLE FAMILY (
+    PERSON_ID INT ,     -- 사람 ID
+    NAME VARCHAR(50),              -- 사람 이름
+    PARENT_ID INT                 -- 부모의 ID (SELF JOIN을 위한 참조)
+);
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(1, 'John', NULL);              -- John은 부모가 없음 (최상위)
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(2, 'Jane', 1);                 -- Jane의 부모는 John
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(3, 'Alice', 1);                -- Alice의 부모는 John
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(4, 'Bob', 2);                  -- Bob의 부모는 Jane
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(5, 'Charlie', 2);              -- Charlie의 부모는 Jane
+INSERT INTO FAMILY (PERSON_ID, NAME, PARENT_ID) VALUES(6, 'David', 3);                -- David의 부모는 Alice
+-- 위 SELF JOIN으로 FMAILY 테이블을 조인하여  자식이름  부모이름  출력하세요.
+SELECT * FROM FAMILY;
+SELECT S.NAME "자식이름", P.NAME "부모이름"
+FROM FAMILY S, FAMILY P
+WHERE S.PARENT_ID = P.PERSON_ID;
+SELECT S.*, P.*
+FROM FAMILY S, FAMILY P
+WHERE S.PARENT_ID = P.PERSON_ID;
+
+
+
 
