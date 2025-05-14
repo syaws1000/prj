@@ -1,18 +1,25 @@
 ### 1. **클래스 ==> 객체 생성 ==> getter/setter 사용**
 
 **문제 1:**
-`Student` 클래스에서 `name`, `korScore`, `mathScore`라는 속성을 가진 객체를 생성하고, `getter` 메서드를 사용하여 출력하는 코드가 올바르게 구현된 것은?
+`Student` 클래스에서 `name`, `korScore`, `mathScore`라는 속성을 가진 객체를 생성하고,
+class Student{
+	private String name;
+	private int korScore;
+	private int mathScore;
+	
+} 
+`getter` 메서드를 사용하여 출력하는 코드가 올바르게 구현된 것은?
 A. `Student s = new Student("홍길동", 80, 90);`
 B. `s.getKorScore();`
 C. `s.setKorScore(100);`
-D. 위 모두 올바른 코드이다.
+#D. 위 모두 올바른 코드이다.
 
 **문제 2:**
 `Car` 클래스에서 `make`, `model`, `year`라는 속성을 가진 자동차 객체를 생성하고, `getter` 메서드를 사용하여 자동차 정보를 출력하는 코드가 올바르게 구현된 것은?
 A. `Car c = new Car("Hyundai", "Sonata", 2020);`
-B. `c.getModel();`
-C. `c.setYear(2022);`
-D. 위 모두 올바른 코드이다.
+B. `c.getModel();`   // 속성값을 가져오는 메서드
+C. `c.setYear(2022);` // 속성/필드를 변경시키는 메서드..
+#D. 위 모두 올바른 코드이다.
 
 ---
 
@@ -23,14 +30,14 @@ D. 위 모두 올바른 코드이다.
 A. `Book b = new Book("Java Basics", "John Doe", 30.5);`
 B. `b.getTitle();`
 C. `b.setPrice(35.0);`
-D. 위 모두 올바른 코드이다.
+#D. 위 모두 올바른 코드이다.
 
 **문제 2:**
 `Person` 클래스에서 생성자와 초기화된 값을 출력하는 코드가 올바른 것은?
 A. `Person p = new Person("Alice", 25, "Seoul");`
 B. `p.getName();`
 C. `p.setCity("Busan");`
-D. 위 모두 올바른 코드이다.
+#D. 위 모두 올바른 코드이다.
 
 ---
 
