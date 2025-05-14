@@ -40,6 +40,29 @@ WHERE HIREDATE = (
 	FROM EMP
 );
 -- EX1) 최저 급여자 사원정보를 출력하세요.. MIN
+SELECT *
+FROM EMP 
+WHERE SAL = (
+	SELECT MIN(SAL)
+	FROM EMP
+);
 -- EX2) 가장 마지막에 입사한 사원정보를 출력하세요  
-
-
+SELECT *
+FROM EMP 
+WHERE HIREDATE = (
+	SELECT MAX(HIREDATE)
+	FROM EMP
+);
+-- 부서별로 최고 급여자 정보를 가져올려고 할 때..
+SELECT DEPTNO, MAX(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+SELECT *
+FROM EMP
+WHERE (DEPTNO , SAL) IN(
+	SELECT DEPTNO, MAX(SAL)
+	FROM EMP
+	GROUP BY DEPTNO
+);
+-- (열1, 열2) IN ( SUBQUERY ) : SUBQUERY로 처리된 결과가 여러개일 때, IN으로 사용
+-- (열1, 열2) = ( SUBQUERY ) : SUBQUERY로 처리된 결과가 단일 한개일 때, = 으로 사용
