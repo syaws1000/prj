@@ -9,7 +9,7 @@
 3. 서브쿼리 기본 형식
 	1) 서브 쿼리의 기본 형식
 		서브쿼리는 WHERE, FROM, SELECT 절에ㅐ서 사용될 수 있습니다. 각기 다른 상황에
-		맞는 서브뤄키 사용벙르 아래에서 다뤄보겠습니다.
+		맞는 서브뤄키 사용방법을 아래에서 다뤄보겠습니다.
 		- 조건문의 데이터로 사용되는 서브쿼리
 		서브쿼리를 조건문에서 사용하면, 먼저 내부 쿼리로 데이터를 조회한 후, 그 결과를 외부
 		쿼리에서 사용하여 조건을 적용합니다.
@@ -22,8 +22,24 @@ WHERE SAL = (
 	SELECT MAX(SAL)
 	FROM EMP
 );
+SELECT * FROM EMP;
 /*
 	1. 내부 쿼리(SELECT MAX(SAL) FROM EMP)는 EMP 테이블에서 최고 급여를 찾습니다.
 	2. 외부 쿼리에서 그 급여와 일치하는 사원의 이름과 급여를 출력합니다.
  * */
+SELECT * FROM EMP;
+-- 최초 입사한 사원 정보를 가져와라..
+-- 1. SUBQUERY 최초 입사일..
+SELECT MIN(HIREDATE)
+FROM EMP;
+-- 2. MAINQUERY에 할당 처리.
+SELECT *
+FROM EMP
+WHERE HIREDATE = (
+	SELECT MIN(HIREDATE)
+	FROM EMP
+);
+-- EX1) 최저 급여자 사원정보를 출력하세요.. MIN
+-- EX2) 가장 마지막에 입사한 사원정보를 출력하세요  
+
 
