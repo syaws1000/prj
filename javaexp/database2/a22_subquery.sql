@@ -64,5 +64,26 @@ WHERE (DEPTNO , SAL) IN(
 	FROM EMP
 	GROUP BY DEPTNO
 );
--- (열1, 열2) IN ( SUBQUERY ) : SUBQUERY로 처리된 결과가 여러개일 때, IN으로 사용
+-- (열1, 열2) IN ( SUBQUERY ) : SUBQUERY로 처리된 결과가 여러 개일 때, IN으로 사용
 -- (열1, 열2) = ( SUBQUERY ) : SUBQUERY로 처리된 결과가 단일 한개일 때, = 으로 사용
+-- EX) 직책(JOB)별로 최저급여자 사원정보를 출력하세요..
+SELECT JOB, MIN(SAL)
+FROM EMP e 
+GROUP BY JOB;
+SELECT *
+FROM EMP
+WHERE (JOB, SAL) IN(
+	SELECT JOB, MIN(SAL)
+	FROM EMP e 
+	GROUP BY JOB
+);
+-- 분기별 최저 급여자..
+SELECT HIREDATE, TO_CHAR(HIREDATE,'Q')||'/4' "분기", SAL
+FROM EMP;
+-- TO_CHAR(HIREDATE,'Q') : 입사일에서 분기를 나타내는 형변환 처리 함수가 적용된 내용
+SELECT TO_CHAR(HIREDATE,'Q')||'/4' "분기", MIN(SAL)
+FROM EMP
+GROUP BY TO_CHAR(HIREDATE,'Q')
+ORDER BY "분기"; 
+
+
