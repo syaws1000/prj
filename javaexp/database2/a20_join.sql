@@ -20,5 +20,40 @@ SELECT * FROM EMP;
 	AS SELECT E.*, D.DEPTNO, D.LOC
 	FROM EMP E, DEPT D
 	WHERE E.DEPTNO = D.DEPTNO
-	
+	이 SQL문은 EMP와 DEPT테이블을 조인하여 EMP_DEPT라는 새로운 테이블을 생성합니다.
+4. 업데이터 및 삭제 처리
+	테이블을 분리하여 관리하면 다음과 같은 장점이 있습니다.
+	1) 예를 들어, 부서명을 변경할 때, EMP_DEPT 테이블에서는 모든 부서 관련 컬럼을 수정해야 하지만, DEPT
+	테이블만 수정하면 일관성 문제가 해결됩니다.
+	2) 부서 정보를 삭제할 때, 관련된 사원 정보까지 삭제될 수 있으므로, EMP와 DEPT테이블을 분리하면 사원
+	정보는 그대로 유지됩니다.
+# 예시1 사원과 부서 정보 조회	
 */
+SELECT E.ENAME "사원명", D.DNAME "부서명", E.SAL "급여", D.LOC "부서위치"
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO;
+
+
+	CREATE TABLE EMP_DEPT
+	AS SELECT E.*, D.DNAME, D.LOC
+	FROM EMP E, DEPT D
+	WHERE E.DEPTNO = D.DEPTNO;
+SELECT * FROM EMP_DEPT;
+
+SELECT * FROM EMP01;
+SELECT * FROM DEPT01;
+UPDATE DEPT01
+	SET DNAME = '영업부'
+WHERE DEPTNO = 30;
+CREATE TABLE EMP01_DEPT01
+AS SELECT E.*, D.DNAME, D.LOC
+	FROM EMP01 E, DEPT01 D
+	WHERE E.DEPTNO = D.DEPTNO;
+SELECT * FROM EMP01_DEPT01;
+--7369, 1002, 7566
+SELECT * FROM EMP01;
+SELECT * FROM DEPT01;
+DELETE 
+FROM EMP01 
+WHERE EMPNO IN(7369,1002, 7566);
+
