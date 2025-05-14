@@ -90,11 +90,17 @@ SELECT * FROM CUSTOMER; -- 101, 102, 103, 105, NULL
 -- 양쪽의 데이터를 나타낸다.
 SELECT M.*, CUSTOMER_ID, NAME
 FROM MOVIE M, CUSTOMER C
-WHERE M.MOVIE_ID = C.MOVIE_ID
+WHERE M.MOVIE_ID = C.MOVIE_ID;
 -- 위 JOIN형식으로 MOVIE, CUSTOMER 테이블 조인하여, 전체 데이터를 출력하세요..
 
 --EX1) 사원정보(EMP),부서정보(DEPT)를 기준으로 부서번호, 부서명, 사원번호, 사원명, 급여를 출력해보세요..
+SELECT D.DEPTNO "부서번호", DNAME "부서명", EMPNO "사원번호", ENAME "사원명", SAL "급여"
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO;
 --EX2) 영화 정보에 영화장르, 영화타이틀, 고객이름을 출력하세요
+SELECT GENRE "영화장르", TITLE "영화타이틀", NAME "고객이름"
+FROM MOVIE M, CUSTOMER C
+WHERE M.MOVIE_ID = C.MOVIE_ID;
 
 /* # INNER JOIN형식
 SELECT E.*, D.DNAME, D.LOC
