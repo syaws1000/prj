@@ -45,14 +45,14 @@ C. `p.setCity("Busan");`
 
 **문제 1:**
 `Person` 클래스에서 `setPerson(Person p)` 메서드가 올바르게 객체를 매개변수로 받아서 정보를 출력할 수 있는 방법은?
-A. `setPerson(new Person("홍길동", 25, "서울"));`
+#A. `setPerson(new Person("홍길동", 25, "서울"));`
 B. `setPerson("홍길동", 25, "서울");`
 C. `setPerson(Person("홍길동", 25, "서울"));`
 D. 위 모두 올바르지 않다.
 
 **문제 2:**
 `printPersonInfo(Person p)` 메서드를 사용하여 `Person` 객체의 이름과 나이를 출력할 수 있는 올바른 코드는?
-A. `printPersonInfo(new Person("김철수", 30, "서울"));`
+#A. `printPersonInfo(new Person("김철수", 30, "서울"));`
 B. `printPersonInfo("김철수", 30, "서울");`
 C. `printPersonInfo(new Person());`
 D. 위 모두 올바르지 않다.
@@ -66,14 +66,14 @@ D. 위 모두 올바르지 않다.
 A. `Book b = new Book(); b.setTitle("Java Programming");`
 B. `b.getTitle();`
 C. `b.setAuthor("John Smith");`
-D. 위 모두 올바른 코드이다.
+#D. 위 모두 올바른 코드이다.
 
 **문제 2:**
 `Student` 클래스에서 `setter`와 `getter` 메서드를 사용하여 학생의 이름과 나이를 설정하고 출력할 수 있는 코드가 올바른 것은?
-A. `Student s = new Student(); s.setName("Jane");`
-B. `s.setAge(20);`
-C. `s.getName();`
-D. 위 모두 올바른 코드이다.
+A. `Student s = new Student(); 초기값을 설정하지 않음 s.setName("Jane");` 초기값설정 
+B. `s.setAge(20);` 초기값 설정 
+C. `s.getName();` 저장된 데이터 가져오기..
+#D. 위 모두 올바른 코드이다.
 
 ---
 
@@ -81,7 +81,21 @@ D. 위 모두 올바른 코드이다.
 
 **문제 1:**
 `Dept` 클래스에서 `deptNo`, `deptName`, `location` 속성을 추가하고, `List<Dept>`를 생성하여 부서 객체를 추가할 수 있는 올바른 코드는?
-A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul"));`
+#A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul"));`
+
+	[] : 동적으로 객체를 할당할 수 있는 메모리 List<Dept> dlist = new ArrayList<>();
+	[(Dept10|HR|SEOUL), ] dlist.add(new Dept(10, "HR", "Seoul"));
+	[(Dept10|HR|SEOUL), (Dept20|AC|부산) ] dlist.add(new Dept(20, "AC", "부산"));
+	
+	for(Dept d:dlist){ // foreach 구문 단위:배열
+		// 반복문을 돌면서 포함되어 있는 객체 하나씩을 Dept d에 할당 처리..
+		d.getDeptno()
+		d.getDname()
+		d.getLoc()
+	}
+	
+	
+
 B. `dlist.add(new Dept("HR", 10, "Seoul"));`
 C. `List<Dept> dlist = new LinkedList<>();`
 D. 위 모두 올바르지 않다.

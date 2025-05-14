@@ -117,7 +117,8 @@ public class A06_ExpDao {
 		
 		return list;
 	}
-	public List<Order> getOrders(Order sch){   // dao.getOrders(new Order("Potter",100,200)) 
+	public List<Order> getOrders(Order sch){   
+		// dao.getOrders(new Order("Potter",100,200)) 
 		List<Order> list = new ArrayList<Order>();
 		String sql = "SELECT * FROM ORDERS "
 				+ "WHERE WIZARD_NAME LIKE ? "
@@ -132,6 +133,8 @@ public class A06_ExpDao {
 			try(ResultSet rs = pstmt.executeQuery()){
 				while(rs.next()) {  // 여러행 
 					// Order(String wizardName, String orderId, Date orderDate, int orderAmount)
+					// 반복문을 통해서 각 행에 대한 열의 데이터를 가져와서, 객체를 생성하여
+					//    list에 담는 처리는 하는 것을 말한다.
 					list.add(new Order(
 								rs.getString("WIZARD_NAME"),
 								rs.getInt("ORDER_ID"),
