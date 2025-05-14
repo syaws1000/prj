@@ -107,6 +107,16 @@ SELECT E.*, D.DNAME, D.LOC
 	FROM EMP01 E, DEPT01 D
 	WHERE E.DEPTNO = D.DEPTNO
 **/
+/*
+# 아웃조인(outer join)
+1. 두 개 이상의 테이블을 조인할 때, 조인 조건에 맞는 데이터뿐만 아니라, 한쪼 테이블에만 존재하는 데이터도 
+	결과에 포함시키는 조인 방식입니다.
+2. outer join의 종류
+	1) LEFT OUTER JOIN  : 기준테이블이 왼쪽테이블이고 오른쪽 테이블 값이 NULL이라도 출력해주는 형식을 말한다.
+	2) RIGHT OUTER JOIN : 기준테이블이 오른쪽테이블이고 왼쪽 테이블 값이 NULL이라도 출력해주는 형식을 말한다.
+	3) FULL OUTER JOIN : 양쪽 모두 포함해서 없는 쪽이 NULL이라도 출력해주는 형식을 말한다.
+ * */
+
 
 
 
