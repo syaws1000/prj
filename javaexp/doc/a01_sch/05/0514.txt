@@ -60,8 +60,11 @@
 ```sql
 SELECT e.ename, d.dname
 FROM emp e
-JOIN dept d ON e.deptno = d.deptno;
+JOIN dept d ON e.deptno = d.deptno;  (oracle에만 지원)
 ```
+SELECT e.ename, d.dname
+FROM emp e, dept d
+WHERE e.deptno = d.deptno; (ANSI 모든 데이터베이스에 공통된 방식)
 
 ➡ `부서명과 사원명 출력`, 왜 INNER JOIN인가요?
 
@@ -72,7 +75,10 @@ SELECT d.dname, e.ename
 FROM dept d
 LEFT JOIN emp e ON d.deptno = e.deptno;
 ```
-
+```
+SELECT e.ename, d.dname
+FROM emp e, dept d
+WHERE e.deptno(+) = d.deptno; 
 ➡ `부서가 있지만 사원이 없는 경우도 보여주기`
 
 ---
