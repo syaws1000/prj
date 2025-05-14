@@ -46,5 +46,24 @@ SELECT ENAME, SAL, GRADE
 FROM EMP E, SALGRADE S
 WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;
 **/
-
+/*
+# SELF JOIN
+1. 동일한 테이블을 두 번 이상 참조하여 조인하는 방법입니다. 즉, 하나의 테이블을 자기 자신과
+조인하는 것입니다. 일반적인 조인에서는 서로 다른 두 테이블을 결합하지만, SELF JOIN에서는 하나의
+테이블을 두 번 참조하여 데이터를 결합합니다.
+2. SELF JOIN을 사용할 때는 테이블에 두 개의 별칭(ALIAS)을 사용하여 구분합니다. 이를 통해
+동일한 테이블에서 서로 다른 데이터를 비교하거나 결합할 수 있습니다.
+3. 예시
+	사원과 그들의 상사 정보 : 사원과 해당 사원의 상사 정보를 함께 조회하고자 할 때,
+	사원테이블을 자기 자신과 조인하여 상사의 이름과 그에 따른 사원의 정보를 동시에 가져올 수 있습니다.
+	EMPNO ==> 사원번호
+	MGR ==> 해당사원의 관리자 번호 ==> EMPNO 관리자의 사원번호 ENAME 관리자의 이름
+	
+	SELECT E.ENAME "사원이름", E.MGR "관리자의 사원번호", M.ENAME "관리자의 이름"
+	FROM EMP E, EMP M
+	WHEERE E.MGR = M.EMPNO;	
+ * */
+	SELECT E.ENAME "사원이름", E.MGR "관리자의 사원번호", M.ENAME "관리자의 이름"
+	FROM EMP E, EMP M
+	WHEERE E.MGR = M.EMPNO;	
 
