@@ -1,0 +1,198 @@
+### 1. **클래스 ==> 객체 생성 ==> getter/setter 사용**
+
+**문제 1:**
+`Student` 클래스에서 `name`, `korScore`, `mathScore`라는 속성을 가진 객체를 생성하고, `getter` 메서드를 사용하여 출력하는 코드가 올바르게 구현된 것은?
+A. `Student s = new Student("홍길동", 80, 90);`
+B. `s.getKorScore();`
+C. `s.setKorScore(100);`
+D. 위 모두 올바른 코드이다.
+
+**문제 2:**
+`Car` 클래스에서 `make`, `model`, `year`라는 속성을 가진 자동차 객체를 생성하고, `getter` 메서드를 사용하여 자동차 정보를 출력하는 코드가 올바르게 구현된 것은?
+A. `Car c = new Car("Hyundai", "Sonata", 2020);`
+B. `c.getModel();`
+C. `c.setYear(2022);`
+D. 위 모두 올바른 코드이다.
+
+---
+
+### 2. **생성자를 통해 데이터 초기화**
+
+**문제 1:**
+`Book` 클래스를 생성하고, `title`, `author`, `price` 속성을 초기화하는 생성자를 사용하여 객체를 생성하는 코드가 올바른 것은?
+A. `Book b = new Book("Java Basics", "John Doe", 30.5);`
+B. `b.getTitle();`
+C. `b.setPrice(35.0);`
+D. 위 모두 올바른 코드이다.
+
+**문제 2:**
+`Person` 클래스에서 생성자와 초기화된 값을 출력하는 코드가 올바른 것은?
+A. `Person p = new Person("Alice", 25, "Seoul");`
+B. `p.getName();`
+C. `p.setCity("Busan");`
+D. 위 모두 올바른 코드이다.
+
+---
+
+### 3. **객체를 매개변수로 전달하기**
+
+**문제 1:**
+`Person` 클래스에서 `setPerson(Person p)` 메서드가 올바르게 객체를 매개변수로 받아서 정보를 출력할 수 있는 방법은?
+A. `setPerson(new Person("홍길동", 25, "서울"));`
+B. `setPerson("홍길동", 25, "서울");`
+C. `setPerson(Person("홍길동", 25, "서울"));`
+D. 위 모두 올바르지 않다.
+
+**문제 2:**
+`printPersonInfo(Person p)` 메서드를 사용하여 `Person` 객체의 이름과 나이를 출력할 수 있는 올바른 코드는?
+A. `printPersonInfo(new Person("김철수", 30, "서울"));`
+B. `printPersonInfo("김철수", 30, "서울");`
+C. `printPersonInfo(new Person());`
+D. 위 모두 올바르지 않다.
+
+---
+
+### 4. **get/set 메서드를 통한 객체 속성 처리**
+
+**문제 1:**
+`Book` 클래스에서 `setter`와 `getter` 메서드를 사용하여 속성 값을 설정하고 출력할 수 있는 코드가 올바른 것은?
+A. `Book b = new Book(); b.setTitle("Java Programming");`
+B. `b.getTitle();`
+C. `b.setAuthor("John Smith");`
+D. 위 모두 올바른 코드이다.
+
+**문제 2:**
+`Student` 클래스에서 `setter`와 `getter` 메서드를 사용하여 학생의 이름과 나이를 설정하고 출력할 수 있는 코드가 올바른 것은?
+A. `Student s = new Student(); s.setName("Jane");`
+B. `s.setAge(20);`
+C. `s.getName();`
+D. 위 모두 올바른 코드이다.
+
+---
+
+### 5. **List<Dept> 객체 할당**
+
+**문제 1:**
+`Dept` 클래스에서 `deptNo`, `deptName`, `location` 속성을 추가하고, `List<Dept>`를 생성하여 부서 객체를 추가할 수 있는 올바른 코드는?
+A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul"));`
+B. `dlist.add(new Dept("HR", 10, "Seoul"));`
+C. `List<Dept> dlist = new LinkedList<>();`
+D. 위 모두 올바르지 않다.
+
+**문제 2:**
+`Car` 클래스에서 `make`, `model`, `year` 속성을 추가하고, `List<Car>` 객체에 자동차 객체를 추가하는 방법으로 올바른 코드는?
+A. `List<Car> clist = new ArrayList<>(); clist.add(new Car("Hyundai", "Sonata", 2020));`
+B. `clist.add(new Car("Sonata", "Hyundai", 2020));`
+C. `List<Car> clist = new LinkedList<>();`
+D. 위 모두 올바른 코드이다.
+
+---
+
+### 6. **ResultSet에서 데이터 가져와 객체에 할당**
+
+**문제 1:**
+`Dept` 클래스에서 `rs.getString("DNAME")`을 사용하여 부서 이름을 가져오고 이를 `Dept` 객체에 할당하는 방법으로 올바른 코드는?
+A. `Dept dept = new Dept(); dept.setDeptName(rs.getString("DNAME"));`
+B. `Dept dept = new Dept(); dept.setDeptName("DNAME");`
+C. `Dept dept = new Dept(rs.getString("DNAME"));`
+D. 위 모두 올바르지 않다.
+
+**문제 2:**
+`Student` 클래스에서 `rs.getString("NAME")`과 `rs.getInt("SCORE")`를 사용하여 데이터를 가져오고 이를 `Student` 객체에 할당하는 방법으로 올바른 코드는?
+A. `Student student = new Student(); student.setName(rs.getString("NAME"));`
+B. `Student student = new Student(rs.getString("NAME"), rs.getInt("SCORE"));`
+C. `Student student = new Student(); student.setScore(rs.getInt("SCORE"));`
+D. 위 모두 올바른 코드이다.
+
+---
+
+### 7. **List<Dept> 형 객체 단일 데이터 할당**
+
+**문제 1:**
+`Dept` 클래스에서 `deptNo`, `deptName` 속성을 추가하고, `List<Dept>` 객체에 `Dept` 객체를 하나 추가한 후 부서 정보를 출력하는 방법으로 올바른 코드는?
+A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR")); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`
+B. `dlist.add(new Dept("HR", 10)); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`
+C. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept()); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`
+D. 위 모두 올바르지 않다.
+
+**문제 2:**
+`Dept` 클래스에서 `deptNo`, `deptName`, `location` 속성을 추가하고, `List<Dept>` 객체에 여러 개의 `Dept` 객체를 추가한 후 모든 부서 정보를 출력하는 방법으로 올바른 코드는?
+A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul")); dlist.add(new Dept(20, "IT", "Busan")); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`
+B. `List<Dept> dlist = new ArrayList<>(); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`
+C. `dlist.add(new Dept(10, "HR", "Seoul")); dlist.add(new Dept(20, "IT", "Busan"));`
+D. 위 모두 올바르지 않다.
+
+
+
+
+
+### 1. **클래스 ==> 객체 생성 ==> getter/setter 사용**
+
+**문제 1:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+**문제 2:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+---
+
+### 2. **생성자를 통해 데이터 초기화**
+
+**문제 1:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+**문제 2:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+---
+
+### 3. **객체를 매개변수로 전달하기**
+
+**문제 1:**
+정답: **A. `setPerson(new Person("홍길동", 25, "서울"));`**
+
+**문제 2:**
+정답: **A. `printPersonInfo(new Person("김철수", 30, "서울"));`**
+
+---
+
+### 4. **get/set 메서드를 통한 객체 속성 처리**
+
+**문제 1:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+**문제 2:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+---
+
+### 5. **List<Dept> 객체 할당**
+
+**문제 1:**
+정답: **A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul"));`**
+
+**문제 2:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+---
+
+### 6. **ResultSet에서 데이터 가져와 객체에 할당**
+
+**문제 1:**
+정답: **A. `Dept dept = new Dept(); dept.setDeptName(rs.getString("DNAME"));`**
+
+**문제 2:**
+정답: **D. 위 모두 올바른 코드이다.**
+
+---
+
+### 7. **List<Dept> 형 객체 단일 데이터 할당**
+
+**문제 1:**
+정답: **A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR")); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`**
+
+**문제 2:**
+정답: **A. `List<Dept> dlist = new ArrayList<>(); dlist.add(new Dept(10, "HR", "Seoul")); dlist.add(new Dept(20, "IT", "Busan")); for (Dept dept : dlist) { System.out.println(dept.getDeptName()); }`**
+
+---
+

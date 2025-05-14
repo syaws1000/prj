@@ -1,6 +1,6 @@
 package javaexp.a10_database.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Order {
 	private String wizardName;

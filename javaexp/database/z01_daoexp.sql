@@ -224,9 +224,7 @@ public List<Emp> getEmpList(Emp sch){
 
 /*
 EX) 
-SELECT * FROM ORDERS 
-WHERE WIZARD_NAME LIKE '%Potter%' 
-  AND ORDER_AMOUNT BETWEEN 100 AND 200;
+SELECT * FROM ORDERS WHERE WIZARD_NAME LIKE '%Potter%' AND ORDER_AMOUNT BETWEEN 100 AND 200;
 1. 입력/결과 자바 변수로 ==> 객체
    입력 : String wizardName, int frOrder, int toOrder  ==> class Order   
    													new Order("Potter",100,200)
@@ -237,9 +235,10 @@ WHERE WIZARD_NAME LIKE '%Potter%'
    ------
    
 3. 메서드 선언
-public List<Order> getOrders(Order sch){
+public List<Order> getOrders(Order sch){   // dao.getOrders(new Order("Potter",100,200)) 
 	List<Order> list = new ArrayList<Order>();
-	String sql = "";
+	String sql = "SELECT * FROM ORDERS WHERE WIZARD_NAME LIKE ? AND ORDER_AMOUNT BETWEEN ? AND ?";
+	
 	
 	return list;
 }
@@ -247,5 +246,6 @@ public List<Order> getOrders(Order sch){
 --4. TRY CATCH 복사
 --5. pstmt, rs 처리..
 --6. main() 확인..
-  
+  SELECT * FROM ORDERS; WHERE WIZARD_NAME LIKE '%Potter%' AND ORDER_AMOUNT BETWEEN 100 AND 200;
+
 
