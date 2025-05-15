@@ -6,9 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2 onclick="showDate1()">현재 날짜를 표준 출력으로 (클릭)</h2>  
+    <h2 onclick="showDate2()">현재 시간를 표준 출력으로 (클릭)</h2>  
+    <h2 onclick="showDate3()">현재 날짜와 시간를 표준 출력으로 (클릭)</h2>  
 </body>
 <script>
+function showDate1(){
+    let toDate = new Date();
+    alert(toDate.toLocaleDateString())
+}
+function showDate2(){
+    let toDate = new Date();
+    alert(toDate.toLocaleTimeString())
+}
+function showDate3(){
+    let toDate = new Date();
+    alert(toDate.toLocaleString())
+}
+
+// 위 내용을 클릭시, alert()으로 해당 내용을 출력하세요..    
 /*
 # 내장 객체1(Date)
 1. javascript에서 Date객체는 날짜와 시간을 처리하는 데 사용됩니다. Date 객체는 날짜와 시간
@@ -29,7 +45,7 @@
 // 현재 날짜와 시간..
 let bdOb = document.body
 let toDayOb = new Date()
-bdOb.innerHTML = `<h2>오늘 날짜/현재 시간:${toDayOb}</h2>` 
+bdOb.innerHTML += `<h2>오늘 날짜/현재 시간:${toDayOb}</h2>` 
 let firstDate = new Date("2025-05-01T10:00:00") // ISO 형식..
 bdOb.innerHTML += `<h2>특정 날짜/현재 시간:${firstDate}</h2>` 
 bdOb.innerHTML += `<h2>ISO 형식:${firstDate.toISOString()}</h2>` 
