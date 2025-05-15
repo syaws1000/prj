@@ -6,9 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+   <h1>red</h1>  
+   <h1>orange</h1>  
+   <h1>yellow</h1>  
+   <h1>green</h1>  
+   <h1>blue</h1>  
+   <h1>navy</h1>  
+   <h1>purple</h1>  
+   <input type="button" value="색상입히기" onclick="addColor()"/>
 </body>
 <script>
+function addColor(){
+    let h1Arr = document.querySelectorAll("h1")
+    h1Arr.forEach((h1Ob, idx)=>{ // h1Ob  :  h1Arr안에 있는 각 단위 h1 객체(DOM)
+        console.log(h1Ob.innerText)  // h1Ob안에 있는 레이블 색상(red,.....)
+        h1Ob.style.backgroundColor=h1Ob.innerText // 레이블에 있는 색상을 style.background로 설정 
+    })
+}
 /*
 # 자바스크립트 배열
 1. 배열은 여러 개의 데이터를 하나의 변수에 저장할 수 있는 자료형입니다. 배열은 순차적으로
@@ -33,7 +47,7 @@ for(let idx in fruits){
 //    배열.forEach(function(단위 데이터, idx){
 //        idx,  단위데이터 처리..
 //    })
-console.log("# forEach 구문")
+console.log("# forEach 구문 #")
 fruits.forEach((fruit, idx)=>{
     console.log(idx+1+":"+fruit)
 })
