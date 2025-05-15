@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="start()">시험시작</h1>    
+</body>
+<script>
+function start(){
+    alert("10초 후에 종료됩니다.")
+    var set01 = setTimeout(()=>{
+        alert("시험이 종료되었습니다.")
+        clearTimeout(set01)
+    }, 10000)
+}    
+/*
+# setTimeout 함수
+1. 특정한 시간(밀리초 단위-1/1000초) 후에 코드를 한 번 실행하도록 예약하는 함수입니다.
+비동기적(동시에 여러개의 작업 진행)으로 실행되기 때문에 호출된 코드는 주어진 시간이 지난 후에 실행됩니다.
+2. 기본형식
+    let 반환변수 = setTimeout(함수, 지연시간)
+    함수 : 지연 시간 후에 실행할 함수
+    지연시간 : 실행할 함수가 지연될 시간(1/1000 밀리초 단위)
+    반환변수 : setTimeout()은 타이머 id를 반환합니다. 이 id는 clearTimout()에 매개변수에
+        할당하여 정지를 처리한다.(자원해재)
+        clearTimeout(반환변수)
+*/
+
+
+</script>
+</html>
