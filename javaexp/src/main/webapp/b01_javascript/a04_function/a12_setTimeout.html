@@ -6,9 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 onclick="start()">시험시작</h1>    
+    <h1 onclick="start()">시험시작</h1> 
+    <h2 >로그인 처리</h2>
+    <form>
+        아이디:<input type="text" name="id"><br>
+        패스워드<input type="pwd" name="pwd"><br>
+        <input type="button" onclick="login()" value="5초안에 입력">
+    </form>   
 </body>
 <script>
+function login(){
+    //alert("로그인 처리!!")
+    let set01 = setTimeout(()=>{
+        var idObVal = document.querySelector("[name=id]").value;
+        var pwdObVal = document.querySelector("[name=pwd]").value;
+        if(idObVal!="" && pwdObVal!=""){
+            alert("아이디:"+idObVal+",패스워드:"+pwdObVal)
+        }else{
+            alert("입력시간이 만료되었습니다")
+        }
+    }, 5000)
+
+}    
+// h2에 로그인 처리를 클릭한 후, 5초안에 id, pwd를 입력하지 않을 시, 
+// 입력시간이 만료되었습니다라고, 출력하고, 입력할시에는 입력된 id, pwd는 @@@ 입니다. 출력하세요..
+// var idObVal = document.querySelector("[name=id]").value   : 입력된 값을 변수에 할당.
+//     
+
 function start(){
     alert("10초 후에 종료됩니다.")
     var set01 = setTimeout(()=>{
@@ -25,7 +49,7 @@ function start(){
     함수 : 지연 시간 후에 실행할 함수
     지연시간 : 실행할 함수가 지연될 시간(1/1000 밀리초 단위)
     반환변수 : setTimeout()은 타이머 id를 반환합니다. 이 id는 clearTimout()에 매개변수에
-        할당하여 정지를 처리한다.(자원해재)
+        할당하여 정지를 처리한다.(자원해제)
         clearTimeout(반환변수)
 */
 
