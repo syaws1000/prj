@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>학생 성적 처리</h2>
+    학생명:<input type="text" name="name"/><br>
+    국어:<input type="text" name="kor"/><br>
+    영어:<input type="text" name="eng"/><br>
+    <input type="button" value="합산과 평균" onclick="totPoint()"/><br>
+
+</body>
+<script>
+function totPoint(){
+    // 국어 점수와 영어점수를 입력받아서, 숫자형인지 여부를 확인하고, 
+    // 숫자형이면 합산과 평균을 출력, 그외는 점수는 숫자형으로 입력 처리 표현..
+    let kor = Number(document.querySelector("[name=kor]").value)
+    // 영어점수..
+    let eng = Number(document.querySelector("[name=eng]").value)
+    // if(!isNaN(kor)&& ...)
+    //    합산과 평균을 alert() 처리
+    // else
+    //    국어/영어 점수를 숫자형으로 입력하여야 합니다.
+    if(!isNaN(kor) && !isNaN(eng)){
+        let sum = kor + eng;
+        let avg = sum/2
+        alert(`점수 합산:${sum}, 평균:${avg}`)
+    }else{
+        alert("국어 영어 점수는 숫자형으로 입력하여야 합니다.")
+    }
+}
+</script>
+</html>
