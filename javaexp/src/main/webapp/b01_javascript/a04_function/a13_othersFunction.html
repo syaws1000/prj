@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여러가지 내장 함수</title>
+</h바나나d>
+<body>
+사과의 갯수입력:<input type="text" name="apple" /><br>    
+바나나의 갯수입력:<input type="text" name="banana" /><br>    
+<input type="button" value="과일의 총갯수" onclick="sumAll()"/>
+</body>
+<script>
+function sumAll(){
+    var appleCnt = Number(document.querySelector("[name=apple]").value);
+    var bananaCnt = Number(document.querySelector("[name=banana]").value);
+    if(isNaN(appleCnt) || isNaN(bananaCnt) ){
+        alert("입력하는 사과의 갯수와 바나나의 갯수는 숫자형이어야 합니다.")
+    }else{
+        alert("총과일의 갯수:"+(appleCnt+bananaCnt))
+    }
+}
+/*
+# isNaN()
+1. 주어진 값이 NaN(Not a Number)인지 여부를 판별합니다.
+   입력값이 숫자형 문자열이어야지 형변환하여 숫자를 변환하는데, 입력값 자체가 숫자로 변환할 수 
+   없는 문자열일 때는 형변환함수를 사용할더라도 NaN에러 코드를 전달한다.
+   이 때, 조건문과 함께 위 함수로 해당 내용을 체크한 후, 처리를 하면 보다 효과적으로
+   숫자형을 변환하고, 숫자형 입력에 대한 처리를 할 수 있다.
+2. 기본 형식
+   let 결과변수 = isNaN("입력한 문자열")
+   입력한 문자열이 숫자형 아니면이면 결과변수가 true로 할당, 입력한 문자열이 숫자형이면
+   결과변수에 false로 할당..
+
+
+
+*/
+
+</script>
+</html>
