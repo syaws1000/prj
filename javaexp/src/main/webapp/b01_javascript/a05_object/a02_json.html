@@ -17,21 +17,22 @@
     <h2>등록된 인사정보</h2>
     <table border width="30%">
         <thead><tr><th>번호</th><th>이름</th><th>나이</th><th>사는곳</th></tr></thead>
-        <tbody></tbody>
+        <tbody></tbody><!-- 등록정보를 누적부분..-->
     </table>
 </body>
 <script>
-let mlist = []
+let mlist = [] // 배열(객체형)  전역변수..
 function register(){
     var nameV = document.querySelector("[name=name]").value;
     var ageV = document.querySelector("[name=age]").value;
     var locV = document.querySelector("[name=loc]").value;
-    var person = {name:nameV,age:ageV,loc:locV}
+    var person = {name:nameV,age:ageV,loc:locV} // 입력받은 내용을 단일 객체에 할당..
     //alert(`사원정보 등록내용 - 이름:${person.name}, 나이:${person.age}, 사는곳:${person.loc}`)
     mlist.push(person) // 배열안에 객체가 하나씩 추가..    
     let tbOb = document.querySelector("tbody")
-    let addHTML=""
+    let addHTML=""  // 추가할 html 태그를 누적해서 처리
     mlist.forEach((ps, idx)=>{
+        // ps는 mlist의 안에 있는 단위객체
         addHTML+=`<tr><td>${idx+1}</td><td>${ps.name}</td><td>${ps.age}</td><td>${ps.loc}</td></tr>`
     })
     tbOb.innerHTML=addHTML
