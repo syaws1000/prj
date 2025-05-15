@@ -8,9 +8,21 @@
 <body>
 사과의 갯수입력:<input type="text" name="apple" /><br>    
 바나나의 갯수입력:<input type="text" name="banana" /><br>    
-<input type="button" value="과일의 총갯수" onclick="sumAll()"/>
+<input type="button" value="과일의 총갯수" onclick="sumAll()"/><br>
+과일의 가격 입력:<input type=""text" name="price"/><br>
+<input type="button" value="총비용 계산" onclick="totPay()"/>
+
 </body>
 <script>
+// ex) 함수로 totPay()를 선언하고 price의 입력시 숫자형인지 여부를 check하고, 숫자형일 때는
+//    최종 위 합산 결과와 함께 출력하세요..
+function totPay(){
+    alert("함수 호출")
+    let priceObVal = document.querySelector("[name=price]").value
+    alert("입력한 값:"+priceObVal)
+}
+
+let totCnt = 0;
 function sumAll(){
     var appleCnt = Number(document.querySelector("[name=apple]").value);
     var bananaCnt = Number(document.querySelector("[name=banana]").value);
@@ -18,6 +30,7 @@ function sumAll(){
         alert("입력하는 사과의 갯수와 바나나의 갯수는 숫자형이어야 합니다.")
     }else{
         alert("총과일의 갯수:"+(appleCnt+bananaCnt))
+        totCnt =  appleCnt+bananaCnt;
     }
 }
 /*
