@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        td{text-align:center;}
+    </style>
 </head>
 <body>
-    
+    <h2>인사정보 등록</h2>
+    이름:<input type="text" name="name"/><br>
+    나이:<input type="text" name="age"/><br>
+    사는곳:<input type="text" name="loc"/><br>
+    <input type="button" value="등록완료" onclick="register()"/>
+    <h2>등록된 인사정보</h2>
+    <table border width="30%">
+        <thead><tr><th>번호</th><th>이름</th><th>나이</th><th>사는곳</th></tr></thead>
+        <tbody></tbody>
+    </table>
 </body>
 <script>
+let mlist = []
+function register(){
+    var nameV = document.querySelector("[name=name]").value;
+    var ageV = document.querySelector("[name=age]").value;
+    var locV = document.querySelector("[name=loc]").value;
+    var person = {name:nameV,age:ageV,loc:locV}
+    //alert(`사원정보 등록내용 - 이름:${person.name}, 나이:${person.age}, 사는곳:${person.loc}`)
+    mlist.push(person) // 배열안에 객체가 하나씩 추가..    
+    let tbOb = document.querySelector("tbody")
+    let addHTML=""
+    mlist.forEach((ps, idx)=>{
+        addHTML+=`<tr><td>${idx+1}</td><td>${ps.name}</td><td>${ps.age}</td><td>${ps.loc}</td></tr>`
+    })
+    tbOb.innerHTML=addHTML
+}
 /*
 # object
 1. 자바스크립트에서 객체는 속성들의 집합으로, 객체는 데이터와 기능을 모두 포함할 수 있습니다.
@@ -22,6 +49,7 @@ let car = {
     model:"Camry",
     year:2023,
     start:function(){
+        // this.속성 : 이 객체가 가지고 있는 속성 접근 : js 반드시 접두어로 사용하여야 한다.
         return `${this.brand} ${this.model} 자동차가 출발합니다.`
     }
 }
@@ -29,6 +57,21 @@ let car = {
 console.log("자동차회사:"+car.brand)
 console.log("자동차모델:"+car.model)
 console.log("자동차출발():"+car.start())
+// ex) person 객체로 속성 이름(name), 나이(age), 사는곳(loc)을 json형식으로 선언하고,
+//        기능메서드 show로  위 내용을 전체 출력하는 리턴값을 문자열로 처리하여..
+// console.log()에서 속성과 메서드를 호출하세요..
+let person = {
+    name : "홍길동",
+    age: 25,
+    loc:"성남",
+    show:function(){
+        return `이름:${this.name}, 나이:${this.age}, 사는곳:${this.loc}`
+    }
+}
+console.log("이름:"+person.name)
+console.log("나이:"+person.age)
+console.log("사는곳:"+person.loc)
+console.log("show()함수:"+person.show())
 
 </script>
 </html>
