@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+# object
+1. 자바스크립트에서 객체는 속성들의 집합으로, 객체는 데이터와 기능을 모두 포함할 수 있습니다.
+객체는 중괄호{}를 사용하여 정의하며, 속성은 key:value 형식으로 구성됩니다. 객체 내부에는 함수를
+포함한 속성을 메서드라고 부릅니다.
+2. json(javascript object notation) 형식
+    1) let 객체명 = {속성1:속성값1, 속성2:속성값2, 함수명:function(){}}
+*/
+let car = {
+    brand:"토요타",
+    model:"Camry",
+    year:2023,
+    start:function(){
+        return `${this.brand} ${this.model} 자동차가 출발합니다.`
+    }
+}
+// 객체 활용
+console.log("자동차회사:"+car.brand)
+console.log("자동차모델:"+car.model)
+console.log("자동차출발():"+car.start())
+
+</script>
+</html>
