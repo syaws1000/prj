@@ -17,9 +17,14 @@
 // ex) 함수로 totPay()를 선언하고 price의 입력시 숫자형인지 여부를 check하고, 숫자형일 때는
 //    최종 위 합산 결과와 함께 출력하세요..
 function totPay(){
-    alert("함수 호출")
-    let priceObVal = document.querySelector("[name=price]").value
+    //alert("함수 호출")
+    let priceObVal = Number( document.querySelector("[name=price]").value )
     alert("입력한 값:"+priceObVal)
+    if(!isNaN(priceObVal)){  // 숫자형인 경우..
+       alert("총비용은 "+(totCnt*priceObVal))
+    }else{
+        alert("가격 숫자형태로 입력하세요...")
+    }
 }
 
 let totCnt = 0;
