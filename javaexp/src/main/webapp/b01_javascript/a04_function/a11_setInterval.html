@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        td{width:33.3%;height:33.3%;text-align:center;}
+    </style>
 </head>
 <body>
     <h1 onclick="countUp()">카운트(카운트업)</h1>
     <h2>0</h2>
+    <h1 onclick="moveCell()">테이블 셀 색상 변경</h1>
+    <table width="300pt" height="300pt" border>
+        <col width="33%"><col width="34%"><col width="33%">
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td></tr>
+    </table>
 </body>
 <script>
+    function moveCell(){
+        let idx = 0;
+        let tdArr = document.querySelectorAll("td") // td의 모든 태그를 객체로 할당(DOM)
+        let set01 = setInterval(()=>{
+            tdArr[idx].innerText=idx+1
+            tdArr[idx].style.backgroundColor="pink"
+            idx++
+            if(idx==10){
+                clearInterval(set01)
+            }
+        },1000)
+    }
 /*
 # setInterval()
 1. 일정 시간 간격으로 반복적으로 함수를 실행합니다.
@@ -19,12 +41,14 @@
 */
 
 function countUp(){
-    let cnt = 1;
+    let cnt = 0;
     let set01 = setInterval( ()=>{
         let h2Ob = document.querySelector("h2") // h2 태그를 객체화(h2Ob) 하여 선언
-        h2Ob.innerText = cnt++;                 // h2Ob의 innerText로 출력을 처리하는 속성으로 증가변수 처리
-
-    }, 1000)  // 1초마다 해당 함수를 처리하는 정의
+        h2Ob.innerText = ++cnt;                 // h2Ob의 innerText로 출력을 처리하는 속성으로 증가변수 처리
+        if(cnt == 100){ // 특정 조건에서 해당 반복을 중단시켜주는 처리..
+            clearInterval(set01)
+        }
+    }, 100)  // 1초마다 해당 함수를 처리하는 정의
 }
 
 </script>
