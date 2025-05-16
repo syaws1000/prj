@@ -1,0 +1,243 @@
+
+### 주관식 개념문제 7문제
+
+1. `setInterval()` 함수와 `setTimeout()` 함수의 차이점에 대해 설명하시오.
+2. JavaScript에서 `this` 키워드는 무엇을 나타내며, 사용되는 경우를 설명하시오.
+3. JavaScript에서 `NaN`은 무엇을 의미하며, 이를 체크하는 방법을 설명하시오.
+4. DOM에서 `querySelector()`와 `querySelectorAll()`의 차이점에 대해 설명하시오.
+5. `clearInterval()` 함수의 역할을 설명하고, 어떤 상황에서 사용되는지 예시를 들어 설명하시오.
+6. `Number()` 함수와 `parseInt()` 함수의 차이점에 대해 설명하시오.
+7. `addEventListener()` 함수는 무엇이며, `onclick` 이벤트와 비교하여 어떤 장점이 있는지 설명하시오.
+
+### 재미있는 이야기가 포함된 응용 실습문제 15문제(아래 내용은 본인이 할 수 있는 범위로 만들어서 제출하세요)
+
+1. **게임 점수 시스템**
+
+   * 한 학생의 점수를 입력받아 그 점수를 기준으로 등급을 매기는 프로그램을 작성하시오. 점수는 100점 만점이며, 90점 이상은 "A", 80점 이상은 "B", 그 이하는 "C"로 표시된다. 점수를 입력하면 해당 등급을 출력하시오.
+
+2. **날씨 정보 출력**
+
+   * 사용자가 입력한 도시의 날씨 정보를 출력하는 프로그램을 작성하시오. 예시로, 서울의 날씨를 물어보면 "서울의 오늘 날씨는 맑음입니다."와 같은 형태로 출력된다. (실제 API를 사용하지 않고, 예시 문자열로 출력)
+
+3. **장바구니 프로그램**
+
+   * 여러 개의 상품을 장바구니에 추가하고, 각 상품의 가격을 더하여 최종 가격을 출력하는 프로그램을 작성하시오. 예를 들어, 사과 3개, 바나나 2개를 추가하고, 가격이 각각 1000원, 1500원이라면, 총 가격을 출력한다.
+
+4. **시간 계산기**
+
+   * 사용자가 입력한 시간을 초 단위로 바꿔주는 프로그램을 작성하시오. 예를 들어, "2시간 30분"을 입력하면, 총 시간을 초로 계산하여 출력한다.
+
+5. **학생 성적 관리 시스템**
+
+   * 여러 학생의 성적을 입력받아, 해당 학생들의 평균 점수를 출력하는 프로그램을 작성하시오. 사용자가 학생 이름과 점수를 입력하고, 평균 점수를 출력한다.
+6. **다중 선택기**
+
+   * 사용자가 여러 개의 항목을 선택할 수 있도록 체크박스를 이용한 다중 선택기 프로그램을 작성하시오. 선택한 항목들의 총합을 출력하시오.
+
+7. **초단위로 카운트다운**
+
+   * 사용자가 입력한 시간(초)을 기준으로 카운트다운을 진행하는 프로그램을 작성하시오. 시간이 0초가 되면 "시간 종료!"를 출력한다.
+
+
+8. **나이 계산기**
+
+* 사용자가 입력한 생일을 기준으로 현재 나이를 계산하는 프로그램을 작성하시오. 예를 들어, "1990년 5월 15일"을 입력하면, 현재 나이를 계산하여 출력한다.
+
+9. **숫자 추측 게임**
+
+* 프로그램이 랜덤으로 생성한 숫자를 사용자가 맞추는 게임을 작성하시오. 사용자가 숫자를 입력하면, "너무 작습니다." 또는 "너무 큽니다."라는 힌트를 주고, 맞히면 "정답입니다!"를 출력한다.
+
+10. **구구단 출력기**
+
+* 사용자가 입력한 숫자에 대해 구구단을 출력하는 프로그램을 작성하시오. 예를 들어, 5를 입력하면 5단을 출력한다.
+
+
+### 주관식 개념문제 풀이
+
+1. **`setInterval()` 함수와 `setTimeout()` 함수의 차이점에 대해 설명하시오.**
+
+   * `setInterval()`은 지정된 시간 간격마다 반복적으로 함수를 실행합니다.
+   * `setTimeout()`은 지정된 시간 후에 함수를 한 번만 실행합니다.
+   * 차이점: `setInterval()`은 반복적인 실행을, `setTimeout()`은 단 한 번의 실행을 예약합니다.
+
+2. **JavaScript에서 `this` 키워드는 무엇을 나타내며, 사용되는 경우를 설명하시오.**
+
+   * `this`는 함수가 호출되는 문맥에 따라 다르게 결정되는 객체입니다. 주로 객체의 메서드 내에서 해당 객체를 참조할 때 사용됩니다.
+   * 예: 객체 메서드 내에서 `this`는 그 객체를 참조합니다.
+
+3. **JavaScript에서 `NaN`은 무엇을 의미하며, 이를 체크하는 방법을 설명하시오.**
+
+   * `NaN`은 "Not a Number"의 약자로, 숫자가 아닌 값을 의미합니다. 예를 들어, 0으로 나누거나 숫자가 아닌 문자열을 수학 연산에 사용할 때 발생합니다.
+   * `isNaN()` 함수를 사용하여 `NaN` 여부를 확인할 수 있습니다.
+
+4. **DOM에서 `querySelector()`와 `querySelectorAll()`의 차이점에 대해 설명하시오.**
+
+   * `querySelector()`는 CSS 선택자를 사용하여 일치하는 첫 번째 요소를 반환합니다.
+   * `querySelectorAll()`은 CSS 선택자와 일치하는 모든 요소를 NodeList로 반환합니다.
+
+5. **`clearInterval()` 함수의 역할을 설명하고, 어떤 상황에서 사용되는지 예시를 들어 설명하시오.**
+
+   * `clearInterval()`은 `setInterval()`로 설정된 반복적인 실행을 중지하는 함수입니다.
+   * 예시: 타이머나 반복 작업을 중단할 때 사용합니다.
+
+6. **`Number()` 함수와 `parseInt()` 함수의 차이점에 대해 설명하시오.**
+
+   * `Number()`는 값을 숫자형으로 변환하며, 변환이 불가능하면 `NaN`을 반환합니다.
+   * `parseInt()`는 문자열을 정수로 변환하며, 유효한 숫자가 시작하는 부분까지만 변환하고, 그 이후의 문자는 무시합니다.
+
+7. **`addEventListener()` 함수는 무엇이며, `onclick` 이벤트와 비교하여 어떤 장점이 있는지 설명하시오.**
+
+   * `addEventListener()`는 이벤트 리스너를 추가하는 메서드로, 여러 이벤트를 동일한 요소에 추가할 수 있습니다. `onclick`은 하나의 이벤트만 처리할 수 있습니다.
+   * 장점: `addEventListener()`는 이벤트 리스너를 여러 개 추가할 수 있어 더 유연한 처리가 가능합니다.
+
+---
+
+### 재미있는 이야기가 포함된 응용 실습문제 풀이
+
+1. **게임 점수 시스템**
+
+```javascript
+function gradeSystem(score) {
+    if (score >= 90) {
+        return "A";
+    } else if (score >= 80) {
+        return "B";
+    } else {
+        return "C";
+    }
+}
+let score = prompt("학생의 점수를 입력하세요:");
+alert("학생의 등급은: " + gradeSystem(Number(score)));
+```
+
+2. **날씨 정보 출력**
+
+```javascript
+function getWeather(city) {
+    if (city === "서울") {
+        return "서울의 오늘 날씨는 맑음입니다.";
+    } else {
+        return city + "의 날씨 정보를 찾을 수 없습니다.";
+    }
+}
+let city = prompt("도시 이름을 입력하세요:");
+alert(getWeather(city));
+```
+
+3. **장바구니 프로그램**
+
+```javascript
+function calculateTotal() {
+    let appleCount = Number(prompt("사과의 개수를 입력하세요:"));
+    let bananaCount = Number(prompt("바나나의 개수를 입력하세요:"));
+    let applePrice = 1000;
+    let bananaPrice = 1500;
+    let total = (appleCount * applePrice) + (bananaCount * bananaPrice);
+    alert("총 가격은: " + total + "원");
+}
+calculateTotal();
+```
+
+4. **시간 계산기**
+
+```javascript
+function timeToSeconds() {
+    let hours = Number(prompt("시간을 입력하세요:"));
+    let minutes = Number(prompt("분을 입력하세요:"));
+    let totalSeconds = (hours * 3600) + (minutes * 60);
+    alert("총 시간은 " + totalSeconds + "초입니다.");
+}
+timeToSeconds();
+```
+
+5. **학생 성적 관리 시스템**
+
+```javascript
+function calculateAverage() {
+    let studentName = prompt("학생 이름을 입력하세요:");
+    let score1 = Number(prompt(studentName + "의 첫 번째 점수를 입력하세요:"));
+    let score2 = Number(prompt(studentName + "의 두 번째 점수를 입력하세요:"));
+    let average = (score1 + score2) / 2;
+    alert(studentName + "의 평균 점수는: " + average);
+}
+calculateAverage();
+```
+
+6. **다중 선택기**
+
+```javascript
+function multiSelect() {
+    let selectedItems = [];
+    let item1 = confirm("사과를 선택하시겠습니까?");
+    if (item1) selectedItems.push("사과");
+    
+    let item2 = confirm("바나나를 선택하시겠습니까?");
+    if (item2) selectedItems.push("바나나");
+    
+    let item3 = confirm("체리를 선택하시겠습니까?");
+    if (item3) selectedItems.push("체리");
+    
+    alert("선택한 항목들: " + selectedItems.join(", "));
+}
+multiSelect();
+```
+
+7. **초단위로 카운트다운**
+
+```javascript
+function countdown() {
+    let time = Number(prompt("몇 초부터 카운트다운을 시작할까요?"));
+    let interval = setInterval(function() {
+        alert(time--);
+        if (time < 0) {
+            clearInterval(interval);
+            alert("시간 종료!");
+        }
+    }, 1000);
+}
+countdown();
+```
+
+8. **나이 계산기**
+
+```javascript
+function calculateAge() {
+    let birthYear = Number(prompt("태어난 연도를 입력하세요:"));
+    let currentYear = new Date().getFullYear();
+    let age = currentYear - birthYear;
+    alert("현재 나이는 " + age + "세입니다.");
+}
+calculateAge();
+```
+
+9. **숫자 추측 게임**
+
+```javascript
+function guessNumber() {
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+    let guess = Number(prompt("1부터 100까지의 숫자를 맞추세요:"));
+    
+    while (guess !== randomNum) {
+        if (guess < randomNum) {
+            guess = Number(prompt("너무 작습니다! 다시 시도하세요:"));
+        } else {
+            guess = Number(prompt("너무 큽니다! 다시 시도하세요:"));
+        }
+    }
+    alert("정답입니다! 숫자는 " + randomNum + "입니다.");
+}
+guessNumber();
+```
+
+10. **구구단 출력기**
+
+```javascript
+function multiplicationTable() {
+    let number = Number(prompt("구구단에서 원하는 숫자를 입력하세요:"));
+    for (let i = 1; i <= 9; i++) {
+        alert(number + " x " + i + " = " + (number * i));
+    }
+}
+multiplicationTable();
+```
+
