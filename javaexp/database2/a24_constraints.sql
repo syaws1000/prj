@@ -26,4 +26,45 @@
 		EX) EMP테이블에 DEPTNO는 DEPTNO테이블에 DEPTNO가 있는 데이터만 입력
 	5) CHECK : 해당 컬럼에 저장 가능한 테이터 값의 범위나 조건을 저장하여 처리
 		EX) 학년1~4, 그외 데이터는 입력 불가능하게 처리..	
+5. 제약 조건 이름 설정 규칙
+	1) 이름 없이 생성하면 내부적 메타정보에 의해서 자동 생성이 된다.(USER_CONTSTRAINTS)
+	2) 이름 설정하여 처리하는 겨우
+		CONSTRAINTS 테이블명_컬럼명_제약조건종류(UK,NN, PR,FK,CK) 형식으로 처리한다.
+	3) 메타정보로 제약조건 확인
+		SELECT *
+		FROM USER_CONSTRAINTS 
+		WHERE TABLE_NAME = '테이블명대문자';		
  * */
+-- NOT NULL 제약조건 설정과 메타정보로 제약조건 확인
+SELECT * FROM STUDENT01;
+-- 자동 제약조건 이름 설정
+CREATE TABLE STUDENT01(
+	NAME VARCHAR2(50) NOT NULL
+);
+SELECT * FROM STUDENT01;
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME='STUDENT01';
+INSERT INTO STUDENT01 VALUES(NULL);
+SELECT * FROM STUDENT02;
+--EX STUDENT02테이블 생성시
+--   학생명, 국어, 영어, 수학점수를 컬럼을 지정하되 학생명과 국어 점수는 NOT NULL로 설정하세요..
+CREATE TABLE STUDENT02(
+	NAME VARCHAR2(50) NOT NULL,
+	KOR NUMBER NOT NULL,
+	ENG NUMBER,
+	MATH NUMBER
+);
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME='STUDENT02';
+INSERT INTO STUDENT02 VALUES('홍길동', NULL, 70,80);
+INSERT INTO STUDENT02 VALUES('홍길동', 80, 70,80);
+SELECT * FROM STUDENT02;
+
+
+
+
+
+
+
+
+
+
+
