@@ -1,0 +1,251 @@
+### 주관식 개념문제 10문제
+
+1. **무결성 제약조건의 목적은 무엇인가요?**
+
+2. **NOT NULL 제약조건이 적용된 열에 어떤 값도 입력할 수 없으면 어떤 오류가 발생할까요?**
+
+3. **UNIQUE KEY 제약조건을 사용하면 어떤 데이터에 대해 어떤 처리가 이루어지나요?**
+
+4. **PRIMARY KEY 제약조건이 무엇을 보장하나요?**
+
+5. **CHECK 제약조건을 사용하여 학년을 1\~4로 제한하려면 어떻게 정의해야 할까요?**
+
+6. **FOREIGN KEY 제약조건이 적용된 컬럼에 데이터가 삽입될 때 어떤 규칙이 적용되나요?**
+
+7. **PRIMARY KEY와 UNIQUE KEY의 차이는 무엇인가요?**
+
+8. **NULL 값을 허용하는 열에 UNIQUE KEY 제약조건을 적용할 수 있나요? 그 경우의 특징은 무엇인가요?**
+
+9. **제약조건을 설정할 때 "CONSTRAINT 테이블명\_컬럼명\_제약조건종류" 형식으로 이름을 지정하는 이유는 무엇인가요?**
+
+10. **CHECK 제약조건을 활용하여 'M' 또는 'F'만 입력 가능한 성별 컬럼을 설정하려면 어떻게 정의해야 할까요?**
+
+---
+
+### 재미있는 이야기가 있는 실습형 문제 10문제
+
+1. **홍길동 학생의 성적을 입력하는 테이블에 국어 점수는 반드시 입력되어야 하며, 이름과 수학 점수는 선택적으로 입력할 수 있도록 제약조건을 설정하는 SQL 문을 작성하세요.**
+
+2. **'MUSIC01' 테이블을 생성할 때, 타이틀과 가수명은 반드시 입력되도록 제약조건을 설정해 보세요. 만약 발매연도만 입력하고 나머지 컬럼이 빈 채로 데이터를 삽입하려고 하면 어떤 오류가 발생할까요?**
+
+3. **학생들의 학번과 이름을 관리하는 'STUDENT05' 테이블을 만들 때, 학번은 중복될 수 없도록 UNIQUE KEY 제약조건을 설정하고, 국어, 영어, 수학 점수는 반드시 입력되도록 설정하세요. 이 테이블에 '홍길동' 학생의 데이터를 삽입하는 SQL 문을 작성하세요.**
+
+4. **쇼핑몰에서 구매 테이블을 만들 때, 'ORDER\_ID'와 'PRODUCT\_ID'를 두 개의 컬럼으로 PRIMARY KEY를 설정하는 이유는 무엇일까요? 이와 관련된 SQL 문을 작성하고, 데이터를 삽입하는 예시를 들어보세요.**
+
+5. **'STUDENT\_COURSES' 테이블에서 학생 아이디와 과목 아이디를 기준으로 PRIMARY KEY를 설정하고, 하나의 학생이 여러 과목을 수강할 수 있도록 처리하는 SQL 문을 작성하세요.**
+
+6. **학년 컬럼에 대해 1\~4 사이의 값만 입력할 수 있도록 CHECK 제약조건을 설정하려면 어떻게 해야 할까요? 해당 제약조건을 설정한 테이블을 작성하고 예시 데이터를 입력해 보세요.**
+
+7. **학생의 성별 컬럼에 대해 'F'와 'M'만 입력되도록 제약조건을 설정하는 SQL 문을 작성하고, '홍길동'과 '홍길순'의 성별 데이터를 각각 입력하는 예시를 보세요.**
+
+8. **부서 번호를 참조하는 외래 키 제약조건을 설정하는 방법을 설명하고, 'EMP11' 테이블에 부서 번호가 잘못된 데이터를 삽입하려고 할 때 발생하는 오류를 예시로 보여주세요.**
+
+9. **학생들의 수강 과목을 관리하는 'STUDENT12\_SUBJECT' 테이블을 만들 때, 학생의 SID를 참조키로 설정하여 수강 신청을 학생만 할 수 있도록 설정하는 SQL 문을 작성하세요.**
+
+10. **학생의 수강 신청이 여러 과목에 대해 가능한 테이블을 만들고, 중복된 수강 신청을 방지하려면 어떤 제약조건을 설정해야 할까요? 이를 위한 SQL 문을 작성하고 예시 데이터를 삽입해 보세요.**
+
+
+
+### 주관식 개념문제 풀이
+
+1. **무결성 제약조건의 목적은 무엇인가요?**
+
+   * **풀이**: 무결성 제약조건은 데이터의 정확성과 일관성을 보장하는 역할을 합니다. 이를 통해 데이터의 입력, 수정, 삭제 시 데이터가 규칙에 맞게 처리되도록 합니다.
+
+2. **NOT NULL 제약조건이 적용된 열에 어떤 값도 입력할 수 없으면 어떤 오류가 발생할까요?**
+
+   * **풀이**: NOT NULL 제약조건이 적용된 열에 NULL 값을 삽입하려고 할 경우, `ORA-01400: cannot insert NULL into ("테이블명"."열명")` 오류가 발생합니다.
+
+3. **UNIQUE KEY 제약조건을 사용하면 어떤 데이터에 대해 어떤 처리가 이루어지나요?**
+
+   * **풀이**: UNIQUE KEY 제약조건은 열 또는 열 조합의 값이 고유해야 하며, 중복된 값이 입력되지 않도록 처리합니다. 단, NULL 값은 여러 번 입력이 가능하고, NULL끼리의 중복은 허용됩니다.
+
+4. **PRIMARY KEY 제약조건이 무엇을 보장하나요?**
+
+   * **풀이**: PRIMARY KEY 제약조건은 열 값이 반드시 존재해야 하며, 유일해야 합니다. 즉, 해당 열에 NULL 값이 들어갈 수 없으며, 중복된 값이 입력될 수 없습니다.
+
+5. **CHECK 제약조건을 사용하여 학년을 1\~4로 제한하려면 어떻게 정의해야 할까요?**
+
+   * **풀이**: `CHECK` 제약조건을 사용하여 학년을 1\~4로 제한하려면 다음과 같이 정의합니다:
+
+     ```sql
+     CREATE TABLE STUDENT (
+         NAME VARCHAR2(50),
+         GRADE NUMBER CONSTRAINT STUDENT_GRADE_CK CHECK (GRADE BETWEEN 1 AND 4)
+     );
+     ```
+
+6. **FOREIGN KEY 제약조건이 적용된 컬럼에 데이터가 삽입될 때 어떤 규칙이 적용되나요?**
+
+   * **풀이**: FOREIGN KEY 제약조건은 참조하는 테이블의 해당 컬럼에 있는 값만 입력할 수 있게 제한합니다. 예를 들어, `DEPTNO` 컬럼이 `DEPT` 테이블의 `DEPTNO` 컬럼을 참조하면, `EMP` 테이블에 삽입되는 `DEPTNO` 값은 `DEPT` 테이블에 반드시 존재해야 합니다.
+
+7. **PRIMARY KEY와 UNIQUE KEY의 차이는 무엇인가요?**
+
+   * **풀이**: PRIMARY KEY는 `NOT NULL`과 `UNIQUE`의 결합으로, 해당 컬럼은 중복된 값이 입력될 수 없으며 NULL 값도 입력될 수 없습니다. 반면, UNIQUE KEY는 중복을 허용하지 않지만 NULL 값은 여러 번 입력할 수 있습니다.
+
+8. **NULL 값을 허용하는 열에 UNIQUE KEY 제약조건을 적용할 수 있나요? 그 경우의 특징은 무엇인가요?**
+
+   * **풀이**: NULL 값을 허용하는 열에도 UNIQUE KEY 제약조건을 적용할 수 있습니다. 이 경우, NULL 값은 여러 번 입력될 수 있지만, 다른 값들에 대해서는 중복이 허용되지 않습니다.
+
+9. **제약조건을 설정할 때 "CONSTRAINT 테이블명\_컬럼명\_제약조건종류" 형식으로 이름을 지정하는 이유는 무엇인가요?**
+
+   * **풀이**: 제약조건에 이름을 지정함으로써, 나중에 해당 제약조건을 쉽게 수정하거나 삭제할 수 있습니다. 또한, 제약조건 이름을 통해 해당 제약조건이 어느 테이블의 어느 열에 적용되는지를 명확히 알 수 있습니다.
+
+10. **CHECK 제약조건을 활용하여 'M' 또는 'F'만 입력 가능한 성별 컬럼을 설정하려면 어떻게 정의해야 할까요?**
+
+    * **풀이**: `CHECK` 제약조건을 사용하여 성별 컬럼에 'M' 또는 'F'만 입력되도록 하려면 다음과 같이 정의할 수 있습니다:
+
+      ```sql
+      CREATE TABLE STUDENT (
+          NAME VARCHAR2(50),
+          GENDER CHAR(1) CONSTRAINT STUDENT_GENDER_CK CHECK (GENDER IN ('M', 'F'))
+      );
+      ```
+
+---
+
+### 재미있는 이야기가 있는 실습형 문제 풀이
+
+1. **홍길동 학생의 성적을 입력하는 테이블에 국어 점수는 반드시 입력되어야 하며, 이름과 수학 점수는 선택적으로 입력할 수 있도록 제약조건을 설정하는 SQL 문을 작성하세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT (
+         NAME VARCHAR2(50),
+         KOR NUMBER NOT NULL,
+         ENG NUMBER,
+         MATH NUMBER
+     );
+     ```
+
+2. **'MUSIC01' 테이블을 생성할 때, 타이틀과 가수명은 반드시 입력되도록 제약조건을 설정해 보세요. 만약 발매연도만 입력하고 나머지 컬럼이 빈 채로 데이터를 삽입하려고 하면 어떤 오류가 발생할까요?**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE MUSIC01 (
+         TITLE VARCHAR2(50) CONSTRAINT MUSIC01_TITLE_NN NOT NULL,
+         SINGER VARCHAR2(50) CONSTRAINT MUSIC01_SINGER_NN NOT NULL,
+         PUB_YEAR NUMBER(4,0)
+     );
+     -- 오류 발생 예시: 발매연도만 입력하려고 할 경우
+     INSERT INTO MUSIC01 (PUB_YEAR) VALUES (2025); -- 오류 발생
+     ```
+
+3. **학생들의 학번과 이름을 관리하는 'STUDENT05' 테이블을 만들 때, 학번은 중복될 수 없도록 UNIQUE KEY 제약조건을 설정하고, 국어, 영어, 수학 점수는 반드시 입력되도록 설정하세요. 이 테이블에 '홍길동' 학생의 데이터를 삽입하는 SQL 문을 작성하세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT05 (
+         SNO NUMBER(5,0) CONSTRAINT STUDENT05_SNO_UK UNIQUE,
+         NAME VARCHAR2(50) CONSTRAINT STUDENT05_NAME_NN NOT NULL,
+         KOR NUMBER(3,0) NOT NULL,
+         ENG NUMBER(3,0) NOT NULL,
+         MATH NUMBER(3,0) NOT NULL
+     );
+     INSERT INTO STUDENT05 VALUES (1001, '홍길동', 80, 90, 70);
+     ```
+
+4. **쇼핑몰에서 구매 테이블을 만들 때, 'ORDER\_ID'와 'PRODUCT\_ID'를 두 개의 컬럼으로 PRIMARY KEY를 설정하는 이유는 무엇일까요? 이와 관련된 SQL 문을 작성하고, 데이터를 삽입하는 예시를 들어보세요.**
+
+   * **풀이**:
+     `ORDER_ID`와 `PRODUCT_ID`가 함께 고유한 값을 가지기 때문에 두 컬럼을 기준으로 PRIMARY KEY를 설정하여 중복된 구매 정보를 방지할 수 있습니다.
+
+     ```sql
+     CREATE TABLE ORDER_DETAILS (
+         ORDER_ID NUMBER,
+         PRODUCT_ID NUMBER,
+         QUANTITY NUMBER,
+         PRICE NUMBER(10,2),
+         CONSTRAINT ORDER_PRODUCT_PK PRIMARY KEY (ORDER_ID, PRODUCT_ID)
+     );
+     INSERT INTO ORDER_DETAILS VALUES (101, 1, 10, 50.0);
+     INSERT INTO ORDER_DETAILS VALUES (101, 2, 5, 100.0);
+     ```
+
+5. **'STUDENT\_COURSES' 테이블에서 학생 아이디와 과목 아이디를 기준으로 PRIMARY KEY를 설정하고, 하나의 학생이 여러 과목을 수강할 수 있도록 처리하는 SQL 문을 작성하세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT_COURSES (
+         STUDENT_ID VARCHAR2(50),
+         COURSE_ID VARCHAR2(50),
+         ENROLLMENT_DATE DATE,
+         PRIMARY KEY (STUDENT_ID, COURSE_ID)
+     );
+     INSERT INTO STUDENT_COURSES VALUES ('1001', '8001', SYSDATE);
+     ```
+
+6. **학년 컬럼에 대해 1\~4 사이의 값만 입력할 수 있도록 CHECK 제약조건을 설정하려면 어떻게 해야 할까요? 해당 제약조건을 설정한 테이블을 작성하고 예시 데이터를 입력해 보세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT (
+         NAME VARCHAR2(50),
+         GRADE NUMBER CONSTRAINT STUDENT_GRADE_CK CHECK (GRADE BETWEEN 1 AND 4)
+     );
+     INSERT INTO STUDENT VALUES ('홍길동', 3);
+     ```
+
+7. **학생들의 성별을 'M' 또는 'F'로 제한하는 제약조건을 설정하는 SQL 문을 작성하고, '홍길동'과 '홍길순'의 성별 데이터를 각각 입력하는 예시를 보세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT (
+         NAME VARCHAR2(50),
+         GENDER CHAR(1) CONSTRAINT STUDENT_GENDER_CK CHECK (GENDER IN ('M', 'F'))
+     );
+     INSERT INTO STUDENT VALUES ('홍길동', 'M');
+     INSERT INTO STUDENT VALUES ('홍길순', 'F');
+     ```
+
+8. **부서 번호를 참조하는 외래 키 제약조건을 설정하는 방법을 설명하고, 'EMP11' 테이블에 부서 번호가 잘못된 데이터를 삽입하려고 할 때 발생하는 오류를 예시로 보여주세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE EMP11 (
+         EMPNO NUMBER(4,0),
+         ENAME VARCHAR2(50),
+         DEPTNO NUMBER(2,0) CONSTRAINT EMP11_DEPTNO_FK REFERENCES DEPT(DEPTNO)
+     );
+     -- 참조 에러 예시
+     INSERT INTO EMP11 VALUES (1005, '하길동', 50); -- DEPT 테이블에 50번 부서가 없으므로 오류 발생
+     ```
+
+9. **학생들의 수강 과목을 관리하는 'STUDENT12\_SUBJECT' 테이블을 만들 때, 학생의 SID를 참조키로 설정하여 수강 신청을 학생만 할 수 있도록 설정하는 SQL 문을 작성하세요.**
+
+   * **풀이**:
+
+     ```sql
+     CREATE TABLE STUDENT12_SUBJECT (
+         SUBJECT VARCHAR2(50),
+         GRADE NUMBER,
+         SID NUMBER CONSTRAINT STUDENT12_SUBJECT_SID_FK REFERENCES STUDENT12(SID)
+     );
+     INSERT INTO STUDENT12 VALUES (1001, '김길동', 26);
+     INSERT INTO STUDENT12_SUBJECT VALUES ('알고리즘개론', 3.0, 1001);
+     ```
+
+10. **학생의 수강 신청이 여러 과목에 대해 가능한 테이블을 만들고, 중복된 수강 신청을 방지하려면 어떤 제약조건을 설정해야 할까요? 이를 위한 SQL 문을 작성하고 예시 데이터를 삽입해 보세요.**
+
+    * **풀이**:
+      `PRIMARY KEY` 제약조건을 학생 아이디와 과목 아이디에 대해 설정하여 중복을 방지할 수 있습니다.
+
+      ```sql
+      CREATE TABLE STUDENT_COURSES (
+          STUDENT_ID VARCHAR2(50),
+          COURSE_ID VARCHAR2(50),
+          ENROLLMENT_DATE DATE,
+          PRIMARY KEY (STUDENT_ID, COURSE_ID)
+      );
+      INSERT INTO STUDENT_COURSES VALUES ('1001', '8001', SYSDATE);
+      INSERT INTO STUDENT_COURSES VALUES ('1001', '8001', SYSDATE); -- 중복되어 삽입되지 않음
+      ```
+
+
