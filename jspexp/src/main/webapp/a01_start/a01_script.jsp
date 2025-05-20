@@ -88,12 +88,24 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
         <th>제목</th>
         <th>작성자</th>
         <th>작성일</th>
-        <th>조회</th>
+        <th>조회수</th>
       </tr>
-    </thead>	
+    </thead>
+    <%
+    // 위 항목의 번호, 제목, 작성자, 작성일, 조회수로 문자열과 정수형으로 선언하고, 아래에
+    // 출력하세요..
+    // 1단계 : 변수 ---
+    int no = 1; String title="첫게시물"; String writer="홍길동"; String writeDate="2025-05-20";
+    int readCnt = 3;
+    // 2단계 : 문자열 배열
+    String bArry[]={"2","문서파일입니다.","마길동","2025-05-21","2"};
+    // 3단계 : 객체
+    %>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td><%=no%></td><td><%=title%></td><td><%=writer%></td>
+    		<td><%=writeDate %></td><td><%=readCnt %></td></tr>
+    	<tr><td><%=bArry[0]%></td><td><%=bArry[1]%></td><td><%=bArry[2]%></td>
+    		<td><%=bArry[3]%></td><td><%=bArry[4]%></td></tr>
     	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
