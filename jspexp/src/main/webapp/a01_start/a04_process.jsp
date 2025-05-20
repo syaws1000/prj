@@ -44,6 +44,17 @@
   }else{
 	  out.println("<h3>불합격</h3>");
   }
+  
+  // ex) int 나이를 설정하고,  18세 이상일 때는 성인 그외는 미성년자로 출력하세요..
+  int age = 25;
+  out.println("<h2>입력한 나이:"+age+"</h2>");
+  if(age<18){
+	  out.println("<h3>안녕하세요! 미성년자 여러분!</h3");
+  }else if(age>=18 && age < 60){
+	  out.println("<h3>안녕하세요!! 성인 여러분!!</h3>");
+  }else{
+	  out.println("<h3>안녕하세요!! 황금 노년의 여유!!</h3>");
+  }
   %>
 
 </div>
