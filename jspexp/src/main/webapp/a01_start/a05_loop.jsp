@@ -63,10 +63,7 @@ for(int cnt=1;cnt<=10;cnt++){
     		if(cnt%3==1){
     			out.println("<tr class='table-success text-center'>");
     		}
-    		
-    	%>
-    		<td><%=cnt%></td>
-    	<%
+			out.println("<td>"+cnt+"</td>");
 			if(cnt%3==0){
 				out.println("</tr>");
 			}    		
