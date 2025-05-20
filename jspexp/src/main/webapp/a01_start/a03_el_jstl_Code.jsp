@@ -20,15 +20,7 @@
 	2) ${} 내부에는 변수, 연산자 메소드 호출 등을 포함할 수 있습니다.
 
  --%>
-<%
-// scope별(page,request, session, application)로 key/value 데이터 할당(메모리+시간적범위)
-request.setAttribute("no1", 10);  // scope 범위로 데이터를 할당 처리..
-request.setAttribute("no2", 20);  // scope 범위로 데이터를 할당 처리..
-request.setAttribute("name01", "홍길동");  // scope 범위로 데이터를 할당 처리..
-request.setAttribute("arr01", new String[]{"사과","바나나","딸기"});  // scope 범위로 데이터를 할당 처리..
-request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범위로 데이터를 할당 처리..
 
-%> 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -45,10 +37,27 @@ request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범
 	});
 </script>
 </head>
-
+<%
+// scope별(page,request, session, application)로 key/value 데이터 할당(메모리+시간적범위)
+request.setAttribute("no1", 10);  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("no2", 20);  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("name01", "홍길동");  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("arr01", new String[]{"사과","바나나","딸기"});  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범위로 데이터를 할당 처리..
+// ex1) 물건명과 물건가격, 갯수를 단일 변수로 선언하고,
+// ex2) 물건가격과 갯수를 int[]형 배열로 선언
+// ex3) 물건명 가격 갯수가 있는 class를 선언 후, 객체 생성하여 pro01에 할당..
+// 위 선언한 내용을 아래에서 el 태그로 출력 하세요..
+%> 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>번호1:${no1}</h2>
+  <h2>번호2:${no2}</h2>
+  <h2>합산:${no1 + no2}</h2>
+  <h2>이름:${name01}</h2>
+  <h2>배열:${arr01[0]},${arr01[1]},${arr01[2]}</h2>
+  <h2>객체:${p01.getEname()}, ${p01.job}, ${p01.sal}</h2>
+  <%-- p01.job이지만, 생략해서 처리된 것이지 실제 p01.getJob()을 처리한 것을 간편하게 나타낸것.. --%>
 
 </div>
 <%-- 
