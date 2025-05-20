@@ -1,7 +1,7 @@
 1. **데이터의 무결성이란 무엇을 의미하나요?**
-
+	데이터의 입력/수정시, 흠결이 있는 데이터가 처리되지 않도록 하는 것을 말한다...
    * A. 데이터의 유일성을 보장하는 것
-   * B. 데이터의 정확성과 일관성을 유지하는 것
+   # B. 데이터의 정확성과 일관성을 유지하는 것
    * C. 열에 null 값을 허용하는 것
    * D. 데이터 수정 처리를 하는 것
 
@@ -10,11 +10,11 @@
    * A. UNIQUE KEY
    * B. PRIMARY KEY
    * C. CHECK
-   * D. NOT NULL
+   # D. NOT NULL
 
 3. **UNIQUE KEY 제약 조건은 무엇을 보장하나요?**
 
-   * A. 모든 값이 유일해야 한다
+   # A. 모든 값이 유일해야 한다
    * B. null 값을 허용한다
    * C. 데이터 범위를 처리한다
    * D. 다른 테이블을 참조한다
@@ -23,12 +23,12 @@
 
    * A. UNIQUE KEY
    * B. CHECK
-   * C. PRIMARY KEY
+   # C. PRIMARY KEY
    * D. FOREIGN KEY
 
 5. **NOT NULL과 UNIQUE 제약 조건을 결합한 제약 조건은 무엇인가요?**
 
-   * A. PRIMARY KEY
+   # A. PRIMARY KEY
    * B. CHECK
    * C. UNIQUE KEY
    * D. FOREIGN KEY
@@ -37,20 +37,20 @@
 
    * A. null 값을 허용한다
    * B. 데이터의 정확성을 보장한다
-   * C. 데이터를 고유하게 식별한다
+   # C. 데이터를 고유하게 식별한다
    * D. 데이터 수정 처리를 한다
 
 7. **FOREIGN KEY 제약 조건은 무엇을 보장하나요?**
 
    * A. 데이터의 유일성을 보장한다
-   * B. 참조 무결성을 보장한다
+   # B. 참조 무결성을 보장한다
    * C. null 값을 허용한다
    * D. 열 값 범위를 설정한다
 
 8. **어떤 제약 조건이 열에 저장할 수 있는 특정 데이터 값을 보장하나요?**
 
    * A. PRIMARY KEY
-   * B. CHECK
+   # B. CHECK
    * C. UNIQUE KEY
    * D. FOREIGN KEY
 
@@ -59,12 +59,12 @@
    * A. 데이터 일관성을 보장한다
    * B. null 값을 처리한다
    * C. 데이터의 유일성을 보장한다
-   * D. 특정 범위 내의 데이터를 허용한다
+   # D. 특정 범위 내의 데이터를 허용한다
 
 10. **특정 데이터 범위나 조건을 보장하는 제약 조건은 무엇인가요?**
 
     * A. UNIQUE KEY
-    * B. CHECK
+    # B. CHECK
     * C. PRIMARY KEY
     * D. FOREIGN KEY
 
@@ -72,12 +72,12 @@
 
     * A. 테이블 이름과 열 이름을 사용하여 설정된다
     * B. 임의의 이름을 사용하여 설정된다
-    * C. 시스템 생성 ID를 사용한다
+    # C. 시스템 생성 ID를 사용한다
     * D. 사용자 정의 레이블을 사용한다
 
 12. **행을 고유하게 식별하기 위해 사용되는 제약 조건은 무엇인가요?**
 
-    * A. PRIMARY KEY
+    # A. PRIMARY KEY
     * B. CHECK
     * C. UNIQUE KEY
     * D. FOREIGN KEY
@@ -86,7 +86,8 @@
 
     * A. CHECK
     * B. PRIMARY KEY
-    * C. UNIQUE KEY
+    # C. UNIQUE KEY  null값은 여러 행에서 입력이 가능하다는 점에서 primary key의 유일성과
+    			     차이가 있다.
     * D. FOREIGN KEY
 
 14. **어떤 제약 조건이 열에 null 값을 포함할 수 없도록 하나요?**
@@ -94,12 +95,12 @@
     * A. UNIQUE KEY
     * B. CHECK
     * C. PRIMARY KEY
-    * D. NOT NULL
+    # D. NOT NULL
 
 15. **무결성 제약 조건의 주요 목적은 무엇인가요?**
 
     * A. 데이터 수정에 유연성을 제공하기 위해
-    * B. 비즈니스 규칙을 적용하고 데이터 정확성을 유지하기 위해
+    # B. 비즈니스 규칙을 적용하고 데이터 정확성을 유지하기 위해
     * C. 쿼리 성능을 단순화하기 위해
     * D. 대용량 데이터를 효율적으로 처리하기 위해
 

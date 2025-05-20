@@ -35,6 +35,11 @@
 | `<%= %>`  | 자바 변수나 결과값을 HTML로 출력 | `<%= i %>`              |
 | `<%! %>`  | 전역 변수, 메서드 선언        | `<%! int count = 0; %>` |
 | `.jsp` 파일 | HTML+Java 혼합 확장자     | `hello.jsp`             |
+[클라이언트-브라우저에서] url로 요청
+[웹서버에서 일어나는 일]jsp(java+html 코드) ==> java ==> .class ==> 최종 html을 만들어 client에 전달
+[클라이언트-브라우저에서 일어나는 일]==> html ==>  html 해석/javascript 실행 
+                               
+
 
 ---
 
