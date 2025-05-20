@@ -41,20 +41,34 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
   int sum = 10 + 20;
   out.println("합계:"+sum); // out : 내장된 객체를 화면에 출력을 처리해주는 객체(이미 선언이 되어 참조변수로 사용가능)
   out.println("<h2>"+sum+"</h2>");
-  // 
+  // ex) String으로 이름,  age로 나이, loc로 사는 곳을 변수를 할당하여, out.println()을 이용하여, 화면에 출력하세요.
+  String name = "홍길동";
+  int age = 25;
+  String loc = "성남";
+  out.println("<h3>이름:"+name+"</h3>");
+  out.println("<h3>나이:"+age+"</h3>");
+  out.println("<h3>사는곳:"+loc+"</h3>");
   %>
-
-  <h2>타이틀</h2>
-
+  <%-- expression은 html 화면에 특정한 자바의 변수를 출력할 때, 주로 활용된다.. <%=변수명%> --%>
+  <h1>expression 활용하여 출력 처리..</h1>
+  <h2>이름:<%=name%></h2>
+  <h2>나이:<%=age%></h2>
+  <h2>사는곳:<%=loc%></h2>
 </div>
 <%-- 
 		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
+	<%
+	String pname="사과";
+	int price= 3000;
+	%>
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name="" value="<%=pname %>" class="form-control mr-sm-2" />
+	    
+	    <input placeholder="내용" name="" value="<%=price%>" class="form-control mr-sm-2"/>
+	    
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
