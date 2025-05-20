@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
+    import="jspexp.a01_vo.Board"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -100,13 +101,17 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
     // 2단계 : 문자열 배열
     String bArry[]={"2","문서파일입니다.","마길동","2025-05-21","2"};
     // 3단계 : 객체
+    //  Board(int no, String title, String writer, String writeDate, int readCnt)
+    Board bd = new Board(3, "객체로만들기","프로그래머","2025-05-01",3);
+    
     %>	
     <tbody>
     	<tr><td><%=no%></td><td><%=title%></td><td><%=writer%></td>
     		<td><%=writeDate %></td><td><%=readCnt %></td></tr>
     	<tr><td><%=bArry[0]%></td><td><%=bArry[1]%></td><td><%=bArry[2]%></td>
     		<td><%=bArry[3]%></td><td><%=bArry[4]%></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td><%=bd.getNo()%></td><td><%=bd.getTitle()%></td><td><%=bd.getWriter()%></td>
+    		<td><%=bd.getWriteDate()%></td><td><%=bd.getReadCnt()%></td></tr>
     </tbody>
 	</table>    
     
