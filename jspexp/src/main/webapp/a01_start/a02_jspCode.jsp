@@ -55,8 +55,14 @@ class Person{
 %>
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>선언된 변수 호츨:<%=num01 %></h2>
+  <h2>선언된 함수 호츨:<%=plus(10,20) %></h2>
+  <%
+  // 선언된 객체 생성 및 출력
+  Person p01 = new Person("홍길동",25);
+  %>
+  <h2>Person객체의 이름:<%=p01.getName()%></h2>	
+  <h2>Person객체의 나이:<%=p01.getAge()%></h2>	
 </div>
 <%-- 
 		
