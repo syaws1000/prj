@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import="java.util.*"
     import="jspexp.a01_vo.Board"
+    import = "jspexp.a01_vo.Emp01"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -125,15 +126,25 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <%
+      // Emp01 클래스 선언,  ename, job, sal 선언   
+      // jsp import
+      // 객체 생성
+      
+      Emp01 emp = new Emp01("홍길동","사원",3500.0);
+      %>
       <div class="modal-body">
 		<form id="frm02" class="form"  method="post">
 	     <div class="row">
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	        <input type="text" class="form-control" value="<%=emp.getEname()%>" placeholder="사원명 입력" name="ename">
 	      </div>
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
+	        <input type="text" class="form-control" value="<%=emp.getJob()%>" placeholder="직책명 입력" name="job">
 	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" value="<%=emp.getSal()%>" placeholder="급여 입력" name="sal">
+	      </div>	      
 	     </div>
 	    </form> 
       </div>
