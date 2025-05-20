@@ -1,15 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
+    import = "jspexp.a01_vo.Emp01"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <%--
-
+# EL(Expression Language)
+1. 동적인 콘텐츠 생성을 위해 사용되는 기술로, 동적 데이터 표현을 간단하고
+직관적으로 처리할 수 있게 해준다.
+2. 핵심 기능
+	1) 객체 데이터 접근 : javaBean 프로퍼티에 직접 접근할 수 있습니다.
+	2) 연산자 사용 : 숫자 연산, 비교 연산들을 지원
+	3) 기본적인 데이터 타입 : EL은 문자열, 숫자, boolean, 객체등을 처리할 수 있다.
+3. 문법
+	1) ${expression}: EL에서 표현식을 사용하여 값을 출력합니다.
+	2) ${} 내부에는 변수, 연산자 메소드 호출 등을 포함할 수 있습니다.
 
  --%>
+<%
+// scope별(page,request, session, application)로 key/value 데이터 할당(메모리+시간적범위)
+request.setAttribute("no1", 10);  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("no2", 20);  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("name01", "홍길동");  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("arr01", new String[]{"사과","바나나","딸기"});  // scope 범위로 데이터를 할당 처리..
+request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범위로 데이터를 할당 처리..
+
+%> 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,81 +46,10 @@
 </script>
 </head>
 
-<%!
-// jsp에서 declaration 선언부분
-// 1. 클래스내에 기능 처리하는 함수를 선언하거나
-// 2. 클래스안에 클래스를 정의하여 사용
-// 3. 변수를 선언할 때 사용..
-int num01 = 25;
-// ex) 물건명 선언
-String name = "사과";
-// 함수 정의
-int plus(int no1, int no2){
-	return no1 + no2;
-}
-// ex) buy() 물건 가격, 갯수 입력받아  총비용 리턴
-int buy(int price, int cnt){
-	
-	return price*cnt;
-}
-// ex) 클래스 선언.
-// class Product 물건명, 가격, 갯수를 선언, 생성자에 의해 초기화, get메서드에 의해서 가져오기..
-class Product{
-	private String name;
-	private int price;
-	private int cnt;
-	Product(String name, int price, int cnt){
-		this.name = name;
-		this.price = price;
-		this.cnt = cnt;
-	}
-	String getName(){
-		return name;
-	}
-	int getPrice(){
-		return price;
-	}
-	int getCnt(){
-		return cnt;
-	}
-	
-}
-// 하단에서 호출하여 처리..
-class Person{
-	private String name;
-	private int age;
-	Person(String name, int age){
-		this.name = name;
-		this.age = age;
-	}
-	String getName(){
-		return name;
-	}
-	int getAge(){
-		return age;
-	}
-}
-%>
 <body>
 <div class="jumbotron text-center">
-  <h2>선언된 변수 호츨:<%=num01 %></h2>
-  <h2>선언된 함수 호츨:<%=plus(10,20) %></h2>
-  <%
-  // 선언된 객체 생성 및 출력
-  Person p01 = new Person("홍길동",25);
-  %>
-  <h2>Person객체의 이름:<%=p01.getName()%></h2>	
-  <h2>Person객체의 나이:<%=p01.getAge()%></h2>	
-  
-  <h2>물건명:<%=name %></h2>
-  <h3>합산가격:<%=buy(3000,2)%></h3>
-  <%
-  Product pro01 = new Product("오렌지",2500,5);
-  %>
-  <h2>물건명:<%=pro01.getName() %></h2>
-  <h2>가격:<%=pro01.getPrice() %></h2>
-  <h2>갯수:<%=pro01.getCnt() %></h2>
-  <h2>총계:<%=buy(pro01.getPrice(),pro01.getCnt())%></h2>
+  <h2>타이틀</h2>
+
 </div>
 <%-- 
 		
