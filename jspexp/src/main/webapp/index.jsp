@@ -23,14 +23,14 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		// document.querySelector("h2").innerText = "jsp시작"
-		$("h2").text("양현수 site(192.168.0.135)")
+		$("h2").text("홍길동 site(192.168.0.135)")
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>양현수 site(192.168.0.135)</h2>
+  <h2></h2>
 
 </div>
 <%-- 
