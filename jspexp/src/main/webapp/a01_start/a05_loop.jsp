@@ -71,6 +71,47 @@ for(int cnt=1;cnt<=10;cnt++){
     	%>
     </tbody>
 	</table>  	
+	<%--
+	ex) for을 이용해서 1~20까지 출력하되, 3의 배수일 때는 짝!! 이라고 출력되게 하세요..
+	 --%>
+	<%
+	for(int cnt=1;cnt<=20;cnt++){
+		if(cnt%3==0){
+			out.println("<h2>짝</h2>");
+		}else{
+			out.println("<h2>"+cnt+"</h2>");
+		}
+	}
+	%>
+	<%--
+	# jstl의 반복문 형식
+	1. <c:forEach var="단위데이터" begin="시작번호" end="마지막번호" step="증감단위">
+	2. <c:forEach var="단위데이터" items="배열형데이터" >
+	--%>
+	<c:forEach var="cnt" begin="1" end="10" step="1">
+		<span>${cnt},</span>
+	</c:forEach>
+	<%--
+	ex) 50~70까지 2씩 증가하여 h2로 출력하세요..
+	 --%> 
+   <table class="table table-hover table-striped">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+    <thead>
+    <tbody>
+    	<c:forEach var="cnt" begin="50" end="80" step="2">
+    	<c:if test="${(cnt-50)%8==0}">
+    	<tr>
+    	</c:if>
+    		<td>${cnt}</td>
+    	<c:if test="${(cnt-56)%8==0}">	
+    	</tr>
+    	</c:if>
+    	</c:forEach>
+    </tbody>
+	</table>   	
 	
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
