@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import="java.util.*"
     import = "jspexp.a01_vo.Emp01"
+    import = "jspexp.a01_vo.Product"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -45,12 +46,27 @@ request.setAttribute("name01", "홍길동");  // scope 범위로 데이터를 �
 request.setAttribute("arr01", new String[]{"사과","바나나","딸기"});  // scope 범위로 데이터를 할당 처리..
 request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범위로 데이터를 할당 처리..
 // ex1) 물건명과 물건가격, 갯수를 단일 변수로 선언하고,
+request.setAttribute("pname","사과");
+request.setAttribute("price",3000);
+request.setAttribute("cnt",2);
 // ex2) 물건가격과 갯수를 int[]형 배열로 선언
+request.setAttribute("buyInfo", new int[]{4500,2});
 // ex3) 물건명 가격 갯수가 있는 class를 선언 후, 객체 생성하여 pro01에 할당..
+request.setAttribute("prod", new Product("사과",3000,2));
 // 위 선언한 내용을 아래에서 el 태그로 출력 하세요..
 %> 
 <body>
 <div class="jumbotron text-center">
+  <h2>물건명:${pname}</h2>
+  <h2>가격:${price}</h2>
+  <h2>갯수:${cnt}</h2>
+  <h2>가격[배열]:${buyInfo[0]}</h2>
+  <h2>갯수[배열]:${buyInfo[1]}</h2>
+  <h2>물건명[객체]:${prod.name}</h2>
+  <h2>가격[객체]:${prod.price}</h2>
+  <h2>갯수[객체]:${prod.cnt}</h2>
+
+
   <h2>번호1:${no1}</h2>
   <h2>번호2:${no2}</h2>
   <h2>합산:${no1 + no2}</h2>
@@ -58,7 +74,7 @@ request.setAttribute("p01", new Emp01("홍길동","사원",3000));  // scope 범
   <h2>배열:${arr01[0]},${arr01[1]},${arr01[2]}</h2>
   <h2>객체:${p01.getEname()}, ${p01.job}, ${p01.sal}</h2>
   <%-- p01.job이지만, 생략해서 처리된 것이지 실제 p01.getJob()을 처리한 것을 간편하게 나타낸것.. --%>
-
+	
 </div>
 <%-- 
 		
