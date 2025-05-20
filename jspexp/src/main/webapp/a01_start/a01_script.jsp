@@ -26,8 +26,8 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
 <style>
 	td{text-align:center;}
 </style>
-<script src="${path}/com/jquery.3.7.1.js"></script>
-<script src="${path}/com/bootstrap.bundle.min.js"></script>
+<script src="${path}/com/jquery-3.7.1.js"></script>
+<script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 	
