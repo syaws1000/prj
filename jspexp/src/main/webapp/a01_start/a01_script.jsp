@@ -12,10 +12,10 @@
 jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지를 작성합니다.
 2. jsp에서 사용되는 scriptlet, el, jstl
 	1) script - 자바 코드를 jsp안에 직접 작성하는 방식으로 구성요소로 scriplet(<%%>),
-				expression(<%=%>), declearation(<%!%>) 등이 있다.
+				expression(<%=%>), declaration(<%!%>) 등이 있다.
 	2) el(${}) - 자바 코드를 간단한 표현식으로 대체하여 출력만 할 수 있는 표현 언어를 말한다.
 				${변수명}
-	3) jst(<c:...>) - jsp에서 반복, 조건문, 포맷 등을 처리할 수 있도록 도와주는 표준 태그 라이브러리
+	3) jstl(<c:...>) - jsp에서 반복, 조건문, 포맷 등을 처리할 수 있도록 도와주는 표준 태그 라이브러리
  --%>
 <html>
 <head>
@@ -36,6 +36,14 @@ jstl(javaserver pages standard tag library)을 사용하여 동적 웹 페이지
 
 <body>
 <div class="jumbotron text-center">
+  <%
+  // java코드를 활용할 수 있는 scriptlet
+  int sum = 10 + 20;
+  out.println("합계:"+sum); // out : 내장된 객체를 화면에 출력을 처리해주는 객체(이미 선언이 되어 참조변수로 사용가능)
+  out.println("<h2>"+sum+"</h2>");
+  // 
+  %>
+
   <h2>타이틀</h2>
 
 </div>
