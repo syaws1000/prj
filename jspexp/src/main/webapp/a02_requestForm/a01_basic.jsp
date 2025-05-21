@@ -56,6 +56,9 @@
 	function gogo(){
 		location.href="a03_show.jsp" // <h2>이동 성공!!!</h2>
 	}
+	function goReq(){
+		location.href="a04_show.jsp?pname=수박"
+	}
 </script>
 </head>
 
@@ -70,7 +73,10 @@
   <a href="a03_show.jsp">링크로 페이지 이동</a>	
   <h3 onclick="location.href='a03_show.jsp'">페이지 이동(js)</h3>
   <h3 onclick="gogo()">페이지 이동(js함수)</h3>
-  	
+  <h2>2단계(요청값과 함께 페이지 이동)</h2>	
+  <a href="a04_show.jsp?pname=apple">페이지 이동</a><br>
+  <h3 onclick="location.href='a04_show.jsp?pname=orange'">페이지 이동(js)</h3>
+  <h3 onclick="goReq()">페이지 이동(함수js)</h3>  
   	
   	
   
