@@ -29,29 +29,18 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>요청된 이름:${param.name}</h2>
 
 </div>
 <%-- 
-# 요청값 처리와 form 데이터 처리	
-1. link로 페이지 호출과 요청값 전달..
-	페이지명?key=value
-	해당 페이지 request.getParameter("key") : 요청값으로 value
-2. form데이터 처리..
-	<form action="페이지명">
-		<form요소	 name="key" value="value">
-		<input type="submit"> 전송버튼을 클릭시, action 설정된 페이지로
-			form하위요소객체의 name으로 설정된 것이 key되고, 입력한 데이터가 value 설정되어
-			전송이 된다..
-		ex) /a07_show.jsp?name=마길동	
-ex) 3단계  form에 action값을 설정하고, 하위 요소속성으로 설정하여  a08_show.jsp?prodName=사과	 만들어져서
-	요청값을 전달할 수 있게 form 및 form 하위 요소를 선언하여 처리하세요.. a08_form.jsp로 새로 만들어 처리..
+		
 --%>
 <div class="container">
-	<form id="frm01" class="form"  action="a07_show.jsp" >
+	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="이름입력" name="name" value="홍길동" class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="submit">요청처리</button>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
