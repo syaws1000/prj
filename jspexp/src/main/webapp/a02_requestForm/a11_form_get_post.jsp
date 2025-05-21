@@ -57,19 +57,22 @@
 
 </div>
 <%-- 
-		
+ex) a12_formPost.jsp  
+	물건명 가격 갯수 입력 받아서 하단에 출력되게 하세요 method="post"으로 설정..		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name="title"  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name="content"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
+	<h2>제목:${param.title}</h2>
+	<h2>내용:${param.content}</h2>
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">
