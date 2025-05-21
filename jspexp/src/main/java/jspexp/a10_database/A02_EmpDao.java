@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Emp;
 
 /*
@@ -18,6 +19,31 @@ public class A02_EmpDao {
 	
 	
 	
+	public List<Dept> getDeptAll(){
+		List<Dept> list  = new ArrayList<Dept>();
+		String sql = "SELECT * FROM DEPT01";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery()
+				){
+			
+			while(rs.next()) { // 다중행일때, while 사용  
+				list.add(new Dept(rs.getInt("DEPTNO"),
+							rs.getString("DNAME"),rs.getString("LOC")));
+			}
+			
+			System.out.println("데이터 로딩 완료:"+list.size());
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+
+		
+		
+		return list;
+	}
+
 	public List<Emp> getEmpAll(){
 		List<Emp> list  = new ArrayList<Emp>();
 		String sql = "SELECT * FROM EMP10";
@@ -43,7 +69,7 @@ public class A02_EmpDao {
 		}catch(Exception e) {
 			System.out.println("기타 에러:"+e.getMessage());
 		}
-
+	
 		
 		
 		return list;
