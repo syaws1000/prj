@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"
     import="java.util.*"
 	import = "jspexp.a10_database.A02_EmpDao"
-	import = "jspexp.a10_database.dto.Emp"    
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
