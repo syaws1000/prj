@@ -7,34 +7,8 @@
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <%--
-# jsp의 Form과 요청값 처리
-1. jsp에서 form은 html 페이지 내에서 사용자가 데이터를 입력하고 서버로 전송하는 방법을 
-	제공합니다.
-2. jsp에서 요청값을 주로 HTTP요청을 통해 전달됩니다. 사용자가 html form을 통해 데이터를
-	입력하고 제출하면, jsp페이지는 해당 데이터를 http 요청 객체(request)에서 꺼내어 처리할 수 있습니다.
-3. 요청값 처리 단계
-	1) html form 작성 : 사용자는 데이터를 입력할 수 있는 폼을 작성합니다.
-	2) 폼 제출 : 사용자가 폼을 제출하면 데이터를 서버로 전송합니다. 이때, 폼의 method 속성(get 또는 post)에
-		따라 데이터가 서버로 전송됩니다.
-	3) 서버 측 처리 : jsp에서는 request.getParameter()/${param.@@@}를 사용하여 폼 데이터를 처리하고,
-		이를 활용하여 동적인 웹 페이지를 생성합니다.
-	4) 응답 생성 : 데이터를 처리한 후, jsp 페이지가 결과를 사용자에게 출력합니다.
-4. 핵심 프로세스
-	1) 일반적으로 특정한 페이지에서 특정한 페이지로 이동할 때,
-		<a href="이동할페이지.jsp">페이지이동</a>
-		즉, url로 이동할페이지.jsp로 페이지를 전환하여 이동한다.
-	2) 이 때, 위 form에 특정데이터를 입력하면 아래의 형식으로 페이지 이동과 함께 이동할 페이지에 데이터를 전송한다.
-		이동할페이지.jsp?요청key=요청값
-	3) 이렇게 페이지가 이동하면서 요청key와 요청값을 해당 페이지에서는 request.getParameter("요청키")로
-		요청키에 맞는 요청값을 받아서, 이 요청값에 따라서 데이터베이스를 처리하거나, 페이지에 대한 비지니스로직으로
-		처리하게 된다..
-5. 단계별 예제
-	1) 페이지 이동
-	2) 페이지 이동과 함께 요청값 전달
-	3) form을 통한 요청값 전달(다른페이지에)
-	4) form을 통한 요청값 전달(현재페이지에)
-	5) get/post 방식에 따른 차리
-	6) el/jstl로 처리
+
+
  --%>
 <html>
 <head>
@@ -50,20 +24,12 @@
 	$(document).ready(function(){
 	
 	});
-	function go(){
-		location.href="a02_show.jsp" // <h2>이동된 페이지</h2>
-	}
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>1단계(그냥 페이지 이동)</h2>
-  <a href="a02_show.jsp">페이지 이동</a><br>
-  <h3 onclick="location.href='a02_show.jsp'">페이지 이동(js)</h3>
-  <h3 onclick="go()">페이지 이동(함수js)</h3>
-  
-  
+  <h2>이동된 페이지</h2>
 
 </div>
 <%-- 
