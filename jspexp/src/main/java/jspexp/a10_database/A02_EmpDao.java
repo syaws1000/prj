@@ -9,8 +9,10 @@ import java.util.List;
 
 import jspexp.a10_database.dto.Emp;
 
-
-// javaexp.a10_database.A02_EmpDao
+/*
+import = "jspexp.a10_database.A02_EmpDao"
+import = "jspexp.a10_database.dto.Emp"
+ */
 public class A02_EmpDao {
 	
 	

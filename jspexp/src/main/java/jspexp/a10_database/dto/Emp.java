@@ -1,7 +1,7 @@
 package jspexp.a10_database.dto;
 
 import java.util.Date;
-// javaexp.a10_database.dto.Emp
+// import= "jspexp.a10_database.dto.Emp"
 public class Emp {
 	private int empno;
 	private String ename;
