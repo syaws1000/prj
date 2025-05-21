@@ -5,6 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="UTF-8"/> 
+<%-- post 방식 한글 encoding 처리 --%>
 <!DOCTYPE html>
 <%--
 # form의 get/post 방식
@@ -20,11 +22,11 @@
 	1. url에 데이터를 포함하여 전송
 	2. 데이터 크기 제한(웹 서버나 브라우저에 따라 다름)
 	3. 보안에 취약(url에 데이터가 표시되므로)
-	4. form에 속성을 설정하지 않으면 default로 get방식으로 전송된다.
+	4. form에 속성을 설정하지 않으면 default로 get방식으로 전송된다. - URL을 통해서 LINK/JS로 처리..
 3. post 방식
 	1) post방식은 데이터를 http 본문(body)에 담아서 전송합니다. 데이터 크기가 제한 없이 
 		전송될 수 있어 보안이 필요한 작업이나 데이터의 크기가 큰 경우 사용됩니다.
-	2) get방식과 달리 ul에 데이터가 표시되지 않으므로, 보안이 필요한 데이터를 전송할 때 적합합니다.
+	2) get방식과 달리 url에 데이터가 표시되지 않으므로, 보안이 필요한 데이터를 전송할 때 적합합니다.
 	# 요약
 	1. url에 데이터를 표시하지 않음
 	2. 데이터 크기 제한이 없음
