@@ -59,6 +59,9 @@
 	function goReq(){
 		location.href="a04_show.jsp?pname=수박"
 	}
+	function goReq2(){
+		location.href="a05_show.jsp?member=홍길동"
+	}	
 </script>
 </head>
 
@@ -77,7 +80,12 @@
   <a href="a04_show.jsp?pname=apple">페이지 이동</a><br>
   <h3 onclick="location.href='a04_show.jsp?pname=orange'">페이지 이동(js)</h3>
   <h3 onclick="goReq()">페이지 이동(함수js)</h3>  
-  	
+  <%-- a05_show.jsp  요청키를 member로 받아서 request.getParameter(), el
+  위 3가지 형식으로 요청키와 요청값 전달하되, 요청값을  himan, higirl, 홍길동으로  전달해서 요청페이지에서 출력되게 하세요.
+   --%>
+  <a href="a05_show.jsp?member=himan">페이지 이동</a><br>
+  <h3 onclick="location.href='a05_show.jsp?member=higirl'">페이지 이동(js)</h3>
+  <h3 onclick="goReq2()">페이지 이동(함수js)</h3>    	
   	
   
   
