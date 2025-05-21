@@ -64,6 +64,12 @@ ALTER TABLE EMP02
 DROP COLUMN DEPTNO;
 SELECT * FROM EMP02;
 
-
+SELECT * FROM EMP03;
+-- 테이블의 컬럼 구조 변경
+ALTER TABLE EMP03
+MODIFY(NAME VARCHAR2(50) );
+-- 구조 변경은 데이터 있을 때는 등록된 데이터의 크기 이상으로는 변경가능, 작게 변경불가
+--          데이터가 같은 유형에 맞게 변경 가능
+--          데이터가 없을 때는 데이터 크기나 유형이 다르더라도 변경이 가능하다.
 
 
