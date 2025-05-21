@@ -48,7 +48,7 @@
 		항목을 이 변수에 할당하여 사용할 수 있습니다.
 	3) varStatus : 반복문에 대한 상태 정보를 담는 변수입니다. 이 속성은
 		반복문의 인덱스(index), 반복 횟수(count), 마지막 항목 여부(last),
-		첫번째 항목 여부(fist) 등을 알 수 있습니다.
+		첫번째 항목 여부(first) 등을 알 수 있습니다.
 	4) begin : 반복의 시작 인덱스를 지정합니다. 기본값은 0입니다.
 	5) end : 반복의 종료 인덱스를 지정합니다. 이 값은 반복문이 끝날 인덱스를
 		지정하여, 기본값을 items의 크기입니다.
@@ -60,9 +60,15 @@
 %>
 <div class="container">
 	<c:forEach var="fruit" items="${fruits}" varStatus="sts">
-		<h2>${sts.count}) ${fruit}</h2>
+		<h2>${sts.count}) ${fruit}[${sts.first},${sts.last}]</h2>
 	</c:forEach>
-	
+<%
+// points로 점수를 배열로 선언하여 forEach 구문에 의해서 학생들의 점수를 리스트해보세요..
+	request.setAttribute("points", new int[]{70,80,90});
+%>	
+	<c:forEach var="point" items="${points}" varStatus = "sts">
+		<h2>${sts.count}) ${point}</h2>
+	</c:forEach>	
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">
