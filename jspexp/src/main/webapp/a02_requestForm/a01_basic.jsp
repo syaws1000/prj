@@ -34,7 +34,7 @@
 	3) form을 통한 요청값 전달(다른페이지에)
 	4) form을 통한 요청값 전달(현재페이지에)
 	5) get/post 방식에 따른 차리
-	6) el/jstl로 처리
+	6) el/jstl/useBean로 처리
  --%>
 <html>
 <head>
