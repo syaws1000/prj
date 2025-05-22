@@ -148,6 +148,7 @@ public class A02_EmpDao {
 		// 1. 연결
 		// 2. 대화
 		// 3. 결과
+		// a19_empSchList.jsp  사원명:[    ] 직책:[    ]  [검색]
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 				){
@@ -193,7 +194,16 @@ public class A02_EmpDao {
 			System.out.print(e.getJob()+"\t");
 			System.out.print(e.getSal()+"\n");
 		}
-		System.out.println();
+		System.out.println("# 사원정보 검색 #");
+		
+		for(Emp e:dao.getEmpSch(new Emp("A","A"))) {
+			System.out.print(e.getEmpno()+"\t");
+			System.out.print(e.getEname()+"\t");
+			System.out.print(e.getJob()+"\t");
+			System.out.print(e.getSal()+"\n");
+		}
+		System.out.println();		
+		
 		
 	}
 
