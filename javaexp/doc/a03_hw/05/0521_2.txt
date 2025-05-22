@@ -1,0 +1,258 @@
+### JSP & ORACLE SQL 개념문제 (주관식 10문제)
+
+1. JSP에서 폼 데이터를 서버로 전송할 때 사용하는 HTTP 요청 방법 중 하나를 설명하시오.
+2. JSP에서 `request.getParameter()` 메서드는 어떤 역할을 하는지 설명하시오.
+3. `GET` 방식과 `POST` 방식의 차이점에 대해 설명하시오.
+4. JSP에서 URL로 데이터를 전달할 때, 전달하는 방식에 대한 구체적인 예시를 설명하시오.
+5. Oracle SQL에서 `ALTER TABLE` 명령어를 사용하여 테이블에 새로운 컬럼을 추가하는 SQL 문을 작성하시오.
+6. Oracle SQL에서 테이블 구조를 변경할 때 `DROP COLUMN` 명령어의 역할을 설명하시오.
+7. JSP에서 `form` 태그의 `action` 속성은 무엇을 설정하는 데 사용되는지 설명하시오.
+8. Oracle SQL에서 `RENAME COLUMN` 명령어를 사용하여 테이블의 컬럼 이름을 변경하는 SQL 문을 작성하시오.
+9. JSP에서 사용자가 입력한 데이터를 처리할 때 `request.getParameter()`와 `${param.xxx}`의 차이점은 무엇인지 설명하시오.
+10. Oracle SQL에서 테이블의 컬럼의 데이터 유형을 수정하는 SQL 문을 작성하시오.
+
+---
+
+### JSP & ORACLE SQL 응용연습문제 (재미있는 이야기가 있는 문제 10문제)
+
+1. **동물원 관리 시스템**
+
+   * 동물원에 있는 동물들의 이름과 종류를 입력받아 해당 정보를 서버에 전송하는 JSP 페이지를 작성하고, 입력된 동물 정보를 보여주는 페이지를 작성하세요.
+
+2. **주문 처리 시스템**
+
+   * 고객이 주문할 상품을 선택하고, 주문자의 이름과 연락처를 입력받아 서버로 전송하는 JSP 페이지를 작성한 후, 그 결과를 화면에 출력하는 시스템을 구현하세요.
+
+3. **상품 관리 페이지**
+
+   * 사용자가 입력한 상품명, 가격, 수량을 처리하는 JSP 페이지를 작성하고, 입력된 상품 정보에 대한 요약을 출력하는 페이지를 만들어보세요.
+
+4. **도서관 책 대출 시스템**
+
+   * 도서관에서 대출할 책을 선택하고 대출자 정보를 입력받아 서버로 전송하는 JSP 페이지를 작성한 후, 대출된 책 정보를 보여주는 페이지를 작성하세요.
+
+5. **직원 정보 관리**
+
+   * 직원의 이름, 직책, 급여를 입력받고 이를 서버로 전송하는 JSP 페이지를 작성하고, 그 정보를 출력하는 페이지를 구현하세요.
+
+6. **회원 가입 시스템**
+
+   * 사용자가 회원가입 시 입력한 아이디, 비밀번호, 이메일을 서버로 전송하여 회원 가입 처리 후, 성공 메시지를 출력하는 JSP 페이지를 만들어보세요.
+
+7. **학생 성적 입력 시스템**
+
+   * 학생의 이름과 성적을 입력받아 서버로 전송한 후, 해당 성적을 기반으로 등급을 출력하는 JSP 페이지를 작성하세요.
+
+8. **여행 예약 시스템**
+
+   * 여행지와 여행 날짜를 입력받아 해당 정보를 서버로 전송한 후, 예약 완료 메시지를 출력하는 JSP 페이지를 작성하세요.
+
+9. **연락처 관리 시스템**
+
+   * 사용자가 이름, 전화번호, 이메일을 입력하여 연락처를 추가하고, 이를 서버로 전송하여 저장하는 JSP 페이지를 작성하고, 저장된 연락처 정보를 출력하세요.
+
+10. **대출 이력 조회 시스템**
+
+    * 사용자가 대출 이력을 조회할 수 있도록 대출번호와 대출자의 이름을 입력받아 서버로 전송한 후, 대출 이력을 출력하는 JSP 페이지를 작성하세요.
+
+아래는 위에서 요청한 **JSP와 Oracle SQL**을 기반으로 한 **결과 코드**입니다.
+
+### 1. 동물원 관리 시스템 (JSP)
+
+**동물 정보를 입력받는 JSP 페이지 (`animal_form.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>동물원 관리 시스템</title>
+</head>
+<body>
+    <h2>동물 정보 입력</h2>
+    <form action="animal_result.jsp" method="POST">
+        동물 이름: <input type="text" name="animalName"><br>
+        동물 종류: <input type="text" name="animalType"><br>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
+```
+
+**동물 정보를 처리하고 출력하는 JSP 페이지 (`animal_result.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>동물 정보</title>
+</head>
+<body>
+    <h2>동물 정보</h2>
+    동물 이름: ${param.animalName}<br>
+    동물 종류: ${param.animalType}<br>
+</body>
+</html>
+```
+
+---
+
+### 2. 주문 처리 시스템 (JSP)
+
+**주문 입력 폼 (`order_form.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>주문 처리 시스템</title>
+</head>
+<body>
+    <h2>주문 입력</h2>
+    <form action="order_result.jsp" method="POST">
+        이름: <input type="text" name="customerName"><br>
+        상품명: <input type="text" name="productName"><br>
+        수량: <input type="number" name="quantity"><br>
+        <input type="submit" value="주문하기">
+    </form>
+</body>
+</html>
+```
+
+**주문 결과 처리 (`order_result.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>주문 결과</title>
+</head>
+<body>
+    <h2>주문 결과</h2>
+    고객명: ${param.customerName}<br>
+    상품명: ${param.productName}<br>
+    수량: ${param.quantity}<br>
+</body>
+</html>
+```
+
+---
+
+### 3. 상품 관리 페이지 (JSP)
+
+**상품 관리 폼 (`product_form.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>상품 관리 시스템</title>
+</head>
+<body>
+    <h2>상품 정보 입력</h2>
+    <form action="product_result.jsp" method="POST">
+        상품명: <input type="text" name="productName"><br>
+        가격: <input type="number" name="price"><br>
+        수량: <input type="number" name="quantity"><br>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
+```
+
+**상품 정보 처리 (`product_result.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>상품 정보</title>
+</head>
+<body>
+    <h2>상품 정보</h2>
+    상품명: ${param.productName}<br>
+    가격: ${param.price}<br>
+    수량: ${param.quantity}<br>
+</body>
+</html>
+```
+
+---
+
+### 4. Oracle SQL 테이블 변경 예시
+
+1. **컬럼 추가:**
+
+```sql
+ALTER TABLE EMP08
+ADD ADDRESS VARCHAR2(500);
+```
+
+2. **컬럼 삭제:**
+
+```sql
+ALTER TABLE EMP04
+DROP COLUMN DEPTNO;
+```
+
+3. **컬럼 수정 (데이터 타입 변경):**
+
+```sql
+ALTER TABLE EMP03
+MODIFY(NAME VARCHAR2(50));
+```
+
+4. **컬럼 이름 변경:**
+
+```sql
+ALTER TABLE EMP07
+RENAME COLUMN OLD_COLUMN TO NEW_COLUMN;
+```
+
+5. **테이블 이름 변경:**
+
+```sql
+ALTER TABLE EMP08
+RENAME TO EMP_NEW;
+```
+
+---
+
+### 5. 회원 가입 시스템 (JSP)
+
+**회원가입 폼 (`signup_form.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>회원 가입</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <form action="signup_result.jsp" method="POST">
+        아이디: <input type="text" name="userId"><br>
+        비밀번호: <input type="password" name="password"><br>
+        이메일: <input type="email" name="email"><br>
+        <input type="submit" value="가입하기">
+    </form>
+</body>
+</html>
+```
+
+**회원 가입 처리 결과 (`signup_result.jsp`)**
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>회원 가입 결과</title>
+</head>
+<body>
+    <h2>회원 가입 결과</h2>
+    아이디: ${param.userId}<br>
+    비밀번호: ${param.password}<br>
+    이메일: ${param.email}<br>
+</body>
+</html>
+```
+

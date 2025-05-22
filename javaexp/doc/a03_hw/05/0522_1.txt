@@ -1,0 +1,109 @@
+### JSP Form과 요청값 처리에 대한 객관식 문제
+
+1. **JSP에서 form을 사용하여 사용자가 데이터를 입력하고 서버로 전송하는 방식은 무엇인가요?**
+
+   * A. HTTP 요청을 통해
+   * B. WebSocket을 통해
+   * C. File Upload를 통해
+   * D. LocalStorage를 통해
+
+2. **HTTP GET 방식의 특징은 무엇인가요?**
+
+   * A. 데이터가 URL에 포함되어 전송된다.
+   * B. 데이터가 HTTP 본문에 포함되어 전송된다.
+   * C. 대용량 데이터를 전송할 때 사용된다.
+   * D. 데이터 보안이 매우 강하다.
+
+3. **JSP에서 요청값을 받는 방법으로 올바른 것은 무엇인가요?**
+
+   * A. request.getParameter("key")
+   * B. request.setAttribute("key")
+   * C. session.getAttribute("key")
+   * D. context.getParameter("key")
+
+4. **JSP에서 `request.getParameter("key")`로 요청값을 받아오는 이유는 무엇인가요?**
+
+   * A. URL에 포함된 쿼리 파라미터 값을 받기 위해
+   * B. HTML 페이지의 JavaScript 값을 받기 위해
+   * C. 서버의 세션 데이터를 받기 위해
+   * D. 클라이언트의 쿠키 값을 받기 위해
+
+5. **HTML form에서 `method="post"`와 `method="get"`의 주요 차이점은 무엇인가요?**
+
+   * A. GET은 데이터가 URL에 포함되고 POST는 본문에 포함된다.
+   * B. GET은 서버로 데이터가 전송되지 않지만, POST는 전송된다.
+   * C. POST는 데이터의 크기 제한이 없고, GET은 크기 제한이 있다.
+   * D. POST는 데이터를 암호화하여 전송하고, GET은 암호화하지 않는다.
+
+6. **JSP에서 링크를 클릭하여 페이지를 이동하고, 요청값을 전달하는 방법으로 올바른 것은 무엇인가요?**
+
+   * A. `<a href="page.jsp?pname=value">링크</a>`
+   * B. `<a src="page.jsp?pname=value">링크</a>`
+   * C. `<a href="page.jsp?name=value">submit</a>`
+   * D. `<a method="post" href="page.jsp">링크</a>`
+
+7. **JSP에서 form의 `action` 속성에 의해 처리되는 결과는 무엇인가요?**
+
+   * A. 데이터를 전송할 페이지를 지정한다.
+   * B. 폼의 디자인을 설정한다.
+   * C. 폼의 입력값을 자동으로 저장한다.
+   * D. 서버의 세션 정보를 자동으로 전송한다.
+
+8. **다음 중 `POST` 방식의 전송 방식에 대한 설명으로 올바른 것은?**
+
+   * A. URL에 데이터를 포함하여 전송한다.
+   * B. 데이터가 HTTP 본문에 포함되어 서버로 전송된다.
+   * C. 데이터의 크기가 제한된다.
+   * D. 보안에 취약하여 로그인 정보 같은 민감한 데이터를 전송하기 적합하다.
+
+9. **JSP에서 `param` 객체를 사용하여 요청값을 출력하는 방법으로 올바른 것은 무엇인가요?**
+
+   * A. `${param.key}`
+   * B. `${request.param.key}`
+   * C. `${request.getParameter("key")}`
+   * D. `${param["key"]}`
+
+10. **JSP에서 `a05_show.jsp?member=higirl`와 같이 요청값을 URL에 포함시켜 페이지로 전송할 때, `member`의 값은 어디에서 확인할 수 있나요?**
+
+    * A. JSP에서 `request.getAttribute("member")`로 확인한다.
+    * B. JSP에서 `param.member`로 확인한다.
+    * C. JSP에서 `session.getAttribute("member")`로 확인한다.
+    * D. JSP에서 `cookie.getValue("member")`로 확인한다.
+
+11. **다음 중 JSP에서 요청값을 전달하기 위해 사용하는 방법으로 옳지 않은 것은?**
+
+    * A. URL 쿼리 파라미터를 이용한 전송
+    * B. HTML form의 POST 방식
+    * C. HTML form의 GET 방식
+    * D. HTTP 상태 코드 404
+
+12. **JSP에서 `form`의 `method="post"`를 사용할 때의 장점은 무엇인가요?**
+
+    * A. 전송되는 데이터가 URL에 포함되어 보안에 취약하다.
+    * B. 전송되는 데이터의 크기 제한이 없다.
+    * C. 데이터를 간편하게 암호화할 수 있다.
+    * D. 모든 데이터가 서버의 세션에 저장된다.
+
+13. **JSP에서 `request.getParameter()`를 사용할 때, 데이터가 전달되지 않으면 어떻게 되나요?**
+
+    * A. `null` 값이 반환된다.
+    * B. 공백 문자열이 반환된다.
+    * C. 예외가 발생한다.
+    * D. `undefined`가 반환된다.
+
+14. **JSP에서 `GET` 방식으로 데이터를 전송하는 방식의 특징은 무엇인가요?**
+
+    * A. URL에 데이터를 포함하여 전송하며 데이터의 크기에 제한이 있다.
+    * B. URL에 데이터를 포함하지 않으며 대용량 데이터를 전송할 수 있다.
+    * C. 서버에 데이터를 암호화하여 전송한다.
+    * D. 보안이 강화되어 로그인 정보 전송에 적합하다.
+
+15. **JSP에서 `form` 데이터를 서버로 전송할 때, `action` 속성에 지정된 페이지로 데이터를 전송하기 위해 사용되는 HTTP 방식은 무엇인가요?**
+
+    * A. GET
+    * B. POST
+    * C. PUT
+    * D. DELETE
+
+    
+    

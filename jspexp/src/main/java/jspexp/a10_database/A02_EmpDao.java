@@ -78,6 +78,7 @@ public class A02_EmpDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
+		// [()()()]
 		for(Emp e:dao.getEmpAll()) {
 			System.out.print(e.getEmpno()+"\t");
 			System.out.print(e.getEname()+"\t");
