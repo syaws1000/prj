@@ -72,6 +72,38 @@ public class A03_DeptDao {
 		return list;
 	}
 
+	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
+	public int insertDept(Dept ins){
+		int insCnt = 0;
+		String sql = "INSERT INTO DEPT01 VALUES(?,?,?)";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+			con.setAutoCommit(false); // 자동 commit 방지
+			pstmt.setInt(1, ins.getDeptno());
+			pstmt.setString(2, ins.getDname());
+			pstmt.setString(3, ins.getLoc());
+			insCnt = pstmt.executeUpdate(); 
+			if(insCnt == 0) {
+				System.out.println("등록 실패");
+				con.rollback();
+			}else {
+				System.out.println("등록 성공");
+				con.commit();
+			}
+			// 등록 수행 후, 등록 건수 리턴..
+
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+	
+		
+		
+		return insCnt;
+	}
+
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
 		// TODO Auto-generated method stub
