@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
+    import = "jspexp.a01_vo.Product"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -51,10 +52,10 @@ String name = request.getParameter("name");
 String priceStr = request.getParameter("price");
 String cntStr = request.getParameter("cnt");
 int price = 0; int cnt = 0;
-if(priceStr!=null) price = Integer.parseInt(priceStr);
+if(priceStr!=null) price = Integer.parseInt(priceStr); // 요청값을 문자열이기에 Integer.parseInt() 형변환
 if(cntStr!=null) cnt = Integer.parseInt(cntStr);
 // 요청값을 받은 후 객체로 할당.
-
+Product prod = new Product(name,price,cnt);
 %>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
@@ -65,57 +66,10 @@ if(cntStr!=null) cnt = Integer.parseInt(cntStr);
 	    <button class="btn btn-info" type="submit">구매</button>
  	</nav>
 	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>    
-    
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
-	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
-	      </div>
-	     </div>
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+	<h2>요청처리된 객체(구매정보)</h2>
+	<h3><%=prod.getName() %></h3>
+	<h3><%=prod.getPrice() %></h3>
+	<h3><%=prod.getCnt() %></h3>
 </div>
 </body>
 </html>
