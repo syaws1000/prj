@@ -38,23 +38,46 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>useBean을 통한 객체 처리..</h2>
 
 </div>
 <%-- 
+# useBean이용한 요청값 처리.
+1. useBean을 이용하면 객체의 메서드를 호출하거나 요청값 할당하지 않더라도,
+   자동으로 특정한 설정에 의해서 객체에 요청값이 할당 처리된다.
+2. 요청값과 useBean 객체에 할당되는 기본 형식..
+   ?name=홍길동&age=25&loc=서울
+   
+   useBean 내부에서 setName, setAge, setLoc로 위 내용을 받을 수 있는
+   매개변수 type이 설정되어 있으면 자동으로 요청값이 객체에 할당된다. setProperty property="*"
+
 		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="이름" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="나이" name="age"  class="form-control mr-sm-2"/>
+	    <input placeholder="사는곳" name="loc"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">등록</button>
  	</nav>
 	</form>
+	<%--
+	ex1) 부서번호, 부서명, 부서위치를 등록하는 form을 만들고,
+		요청에 의해 useBean을 처리하여 출력되게 하세요..
+	-------------------	
+	ex2) 나라이름, 수도, 인구 정보를 등록하는 form을 만들고,
+		 VO를 생성하고, useBean의해서 등록된 나라정보를 출력하세요..
+	ex3) 요리명 재료 난이도를 등록하는 form을 만들고,
+		 VO를 생성하고, useBean의해서 등록된 요리레시피 정보를 출력하세요.
+		 	 	
+	 --%>
+	<jsp:useBean id="p01" class="jspexp.a01_vo.Person" />
+	<jsp:setProperty property="*" name="p01"/>
+	<h1>요청으로 받아온 값</h1>
+	<h2>${p01.name}</h2>
+	<h2>${p01.age}</h2>
+	<h2>${p01.loc}</h2>
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">
