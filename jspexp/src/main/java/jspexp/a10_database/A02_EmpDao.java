@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import jspexp.a01_vo.Order;
 import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Emp;
 
@@ -61,6 +63,36 @@ public class A02_EmpDao {
 				//            Emp(int empno, String ename, String job, int mgr, Date hiredate, double sal, double comm, int deptno)
 				list.add(new Emp(rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getInt("MGR"),
 								rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO") ));
+			}
+			
+			System.out.println("데이터 로딩 완료:"+list.size());
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+	
+		
+		
+		return list;
+	}
+
+	public List<Order> getOrderAll(){
+		List<Order> list  = new ArrayList<Order>();
+		String sql = "SELECT * FROM ORDERS";
+		// 1. 연결
+		// 2. 대화
+		// 3. 결과
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery()
+				){
+			
+			while(rs.next()) { // 다중행일때, while 사용  
+				// rs.get데이터유형("조회된 컬럼명")
+				// (int orderId, String wizardName, Date orderDate, int orderAmount)
+				list.add(new Order(rs.getInt("ORDER_ID"),rs.getString("WIZARD_NAME"),
+								  rs.getDate("ORDER_DATE"),rs.getInt("ORDER_AMOUNT") ));
 			}
 			
 			System.out.println("데이터 로딩 완료:"+list.size());
