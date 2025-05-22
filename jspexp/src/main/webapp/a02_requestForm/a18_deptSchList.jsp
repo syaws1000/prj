@@ -23,7 +23,10 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(  ()=>{
+			alert("부서정보 등록 페이지 이동")
+			location.href="a20_deptInsert.jsp";	
+		})
 	});
 </script>
 </head>
@@ -42,6 +45,7 @@
 	    <input placeholder="부서명" name="dname" value="${param.dname}"  class="form-control mr-sm-2" />
 	    <input placeholder="부서위치" name="loc"  value="${param.loc}"   class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" type="button" id="regBtn">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
