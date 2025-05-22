@@ -142,6 +142,40 @@ public class A02_EmpDao {
 		return list;
 	}
 
+	public List<Emp> getEmpSch(Emp sch){
+		List<Emp> list  = new ArrayList<Emp>();
+		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ? AND JOB LIKE ?";
+		// 1. 연결
+		// 2. 대화
+		// 3. 결과
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+			if(sch.getEname()==null) sch.setEname("");
+			if(sch.getJob()==null) sch.setJob("");
+			pstmt.setString(1, "%"+sch.getEname()+"%");
+			pstmt.setString(2, "%"+sch.getJob()+"%");
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) { // 다중행일때, while 사용  
+					list.add(new Emp(rs.getInt("EMPNO"),rs.getString("ENAME"),rs.getString("JOB"),rs.getInt("MGR"),
+									rs.getDate("HIREDATE"),rs.getDouble("SAL"),rs.getDouble("COMM"),rs.getInt("DEPTNO") ));
+				}
+				
+				System.out.println("데이터 로딩 완료:"+list.size());				
+			}
+			
+
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+	
+		
+		
+		return list;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
