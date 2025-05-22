@@ -57,6 +57,7 @@ if(cntStr!=null) cnt = Integer.parseInt(cntStr);
 // 요청값을 받은 후 객체로 할당.
 Product prod = new Product(name,price,cnt);
 %>
+<%-- el/jstl로 처리해서 출력하세요.. --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
