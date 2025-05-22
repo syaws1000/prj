@@ -70,6 +70,10 @@ Product prod = new Product(name,price,cnt);
 	<h3><%=prod.getName() %></h3>
 	<h3><%=prod.getPrice() %></h3>
 	<h3><%=prod.getCnt() %></h3>
+<%--
+ex) 이름, 나이, 사는 곳을 입력하여 Person객체에 할당하고, 해당 내용을 출력하세요..
+    a14_formRequestObject.jsp
+ --%>
 </div>
 </body>
 </html>
