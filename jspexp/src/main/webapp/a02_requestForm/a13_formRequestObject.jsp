@@ -56,7 +56,11 @@ if(priceStr!=null) price = Integer.parseInt(priceStr); // 요청값을 문자열
 if(cntStr!=null) cnt = Integer.parseInt(cntStr);
 // 요청값을 받은 후 객체로 할당.
 Product prod = new Product(name,price,cnt);
+request.setAttribute("prod", new Product());
 %>
+${prod.setName(param.name)}
+${prod.setPrice(param.price)}
+${prod.setCnt(param.cnt)}
 <%-- el/jstl로 처리해서 출력하세요.. --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
@@ -67,6 +71,10 @@ Product prod = new Product(name,price,cnt);
 	    <button class="btn btn-info" type="submit">구매</button>
  	</nav>
 	</form>
+	<h3>요청 처리된 객체(jstl/e)</h3>
+	<h2>${prod.name}</h2>
+	<h2>${prod.price}</h2>
+	<h2>${prod.cnt}</h2>
 	<h2>요청처리된 객체(구매정보)</h2>
 	<h3><%=prod.getName() %></h3>
 	<h3><%=prod.getPrice() %></h3>
