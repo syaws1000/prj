@@ -40,7 +40,9 @@ public class A03_DeptDao {
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public List<Dept> getDeptSch(Dept sch){
 		List<Dept> list  = new ArrayList<Dept>();
-		String sql = "SELECT * FROM DEPT01 WHERE DNAME LIKE ? AND LOC LIKE ?";
+		String sql = "SELECT * FROM DEPT01 "
+				+ "WHERE DNAME LIKE ? AND LOC LIKE ? "
+				+ "ORDER BY DEPTNO ";
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 			){
@@ -106,8 +108,9 @@ public class A03_DeptDao {
 
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
+		dao.insertDept(new Dept(80,"인사","부산"));
 		// TODO Auto-generated method stub
-		for(Dept d:dao.getDeptSch(new Dept("A",""))) {
+		for(Dept d:dao.getDeptSch(new Dept("",""))) {
 			System.out.print(d.getDeptno()+"\t");
 			System.out.print(d.getDname()+"\t");
 			System.out.print(d.getLoc()+"\n");
