@@ -1,5 +1,5 @@
 package jspexp.a10_database.dto;
-
+// jspexp.a10_database.dto.Dept
 public class Dept {
 	private int deptno; 
 	private String dname; // "A"

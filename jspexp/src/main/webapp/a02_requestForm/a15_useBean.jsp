@@ -50,11 +50,32 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+	<jsp:useBean id="dept" class="jspexp.a10_database.dto.Dept"/>
+	<jsp:setProperty property="deptno" name="dept" value="1000"/>
+	<jsp:setProperty property="dname" name="dept" value="인사"/>
+	<jsp:setProperty property="loc" name="dept" value="성남"/>
+  	<h2>useBean을 이용해서 객체 생성 후, 값가져오기.</h2>
+  	<h3>부서번호:${dept.deptno}</h3>
+  	<h3>부서명:${dept.dname}</h3>
+  	<h3>부서위치:${dept.loc}</h3>
+	<%--- dto하위에 Emp 객체를 useBean으로 생성하고, ename값을 위 형식으로 설정한 후, 출력하세요..  --%>
+	<jsp:useBean id="emp" class="jspexp.a10_database.dto.Emp"/>
+	<jsp:setProperty property="ename" name="emp" value="홍길동"/>
+	<jsp:setProperty property="empno" name="emp" value="7369"/>
+	<jsp:setProperty property="job" name="emp" value="대리"/>
+	<h3>사원번호:${emp.empno}</h3>
+	<h3>사원명:${emp.ename}</h3>
+	<h3>직책:${emp.job}</h3>
 </div>
 <%-- 
-		
+	사원번호, 직책..  설정하고, 출력까지 ...
+
+   Dept dept = new Dept();		
+   dept.setDeptno(1000); // 
+   dept.getDeptno()
+   
+   
+   
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
