@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
+    import = "jspexp.a01_vo.Person"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="UTF-8"/> 
 <!DOCTYPE html>
 <%--
 
@@ -27,104 +29,34 @@
 </script>
 </head>
 
+<%
+List<Person> plist = new ArrayList<Person>();
+plist.add(new Person("홍길동",25,"서울"));
+plist.add(new Person("김길동",30,"인천"));
+plist.add(new Person("신길동",27,"부천"));
+
+request.setAttribute("plist", plist);
+%>
 <body>
 <div class="jumbotron text-center">
-  <h2>jstl의 변수 선언과 반복문</h2>
+  <h2>객체형 배열 처리</h2>
+  <%
+  for(Person p:plist){
+  %>
+  <h3><%=p.getName()%>, <%=p.getAge()%>, <%=p.getLoc()%></h3>
+  <%
+  }
+  %>
+  <c:forEach var="person" items="${plist}">
+  	<h3>${person.name}, ${person.age}, ${person.loc}</h3>
+  		<%-- person.getName() 간단하게 el로 표현한 내용.. --%>
+  </c:forEach>
 
 </div>
 <%-- 
-# jstl로 변수 선언 방법
-1. 간단하게 <c:set var="변수명" value="데이터" scope="page/request/session/application"/>
-	1) 기존에 변수의 종류와 크기에 따라서 설정했지만, page의 진행/서버 처리 단위에 따라서	시간적/공간적 단위가 범위 추가된다.
-	2) 기본적으로 설정하지 않으면(scope) 현재 페이지에서만 처리가 된다..
-	3) 호출시 ${변수명} 호출 가능하다..	
-	4) 어디에 선언되든지 전역변수로 설정이 된다.
+		
 --%>
-<c:set var="no01" value="1000"/>
-<c:set var="no02" value="2000"/>
-<c:set var="no03" value="${no01+no02}"/>
-<c:set var="str01" value="안녕하세요"/>
-<%
-for(int cnt=1;cnt<=10;cnt++){
-%>
-	<h2>카운트:<%=cnt%></h2>
-<%
-}
-%>
 <div class="container">
-	<h2>${no01}, ${no02}, ${no03}, ${str01}</h2>
-   <table class="table table-hover table-striped">
-   	<col width="33%">
-   	<col width="34%">
-   	<col width="33%">
-    <tbody>
-    	<%
-    	for(int cnt=1;cnt<=9;cnt++){
-    		if(cnt%3==1){
-    			out.println("<tr class='table-success text-center'>");
-    		}
-			out.println("<td>"+cnt+"</td>");
-			if(cnt%3==0){
-				out.println("</tr>");
-			}    		
-    	}
-    	%>
-    </tbody>
-	</table>  	
-	<%--
-	ex) for을 이용해서 1~20까지 출력하되, 3의 배수일 때는 짝!! 이라고 출력되게 하세요..
-	 --%>
-	<%
-	for(int cnt=1;cnt<=20;cnt++){
-		if(cnt%3==0){
-			out.println("<h2>짝</h2>");
-		}else{
-			out.println("<h2>"+cnt+"</h2>");
-		}
-	}
-	
-	String arr[] = {"사과","바나나","딸기"};
-	for(String fruit:arr){
-		out.println("<h2>"+fruit+"</h2>");
-	}
-	
-	request.setAttribute("fruits",arr);
-	%>
-	<c:forEach var="fruit" items="${fruits}">
-		<h2>${fruit}</h2>
-	</c:forEach>
-	
-	
-	<%--
-	# jstl의 반복문 형식
-	1. <c:forEach var="단위데이터" begin="시작번호" end="마지막번호" step="증감단위">
-	2. <c:forEach var="단위데이터" items="배열형데이터" >
-	--%>
-	<c:forEach var="cnt" begin="1" end="10" step="1">
-		<span>${cnt},</span>
-	</c:forEach>
-	<%--
-	ex) 50~70까지 2씩 증가하여 h2로 출력하세요..
-	 --%> 
-   <table class="table table-hover table-striped">
-   	<col width="25%">
-   	<col width="25%">
-   	<col width="25%">
-   	<col width="25%">
-    <thead>
-    <tbody>
-    	<c:forEach var="cnt" begin="50" end="80" step="2">
-    	<c:if test="${(cnt-50)%8==0}">
-    	<tr>
-    	</c:if>
-    		<td>${cnt}</td>
-    	<c:if test="${(cnt-56)%8==0}">	
-    	</tr>
-    	</c:if>
-    	</c:forEach>
-    </tbody>
-	</table>   	
-	
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
