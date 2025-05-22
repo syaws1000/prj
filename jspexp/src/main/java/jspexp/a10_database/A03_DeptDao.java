@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jspexp.a10_database.dto.Dept;
-
+/*
+*/ 
 public class A03_DeptDao {
 
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
@@ -108,7 +109,7 @@ public class A03_DeptDao {
 
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
-		dao.insertDept(new Dept(80,"인사","부산"));
+		dao.insertDept(new Dept(81,"총무","인천"));
 		// TODO Auto-generated method stub
 		for(Dept d:dao.getDeptSch(new Dept("",""))) {
 			System.out.print(d.getDeptno()+"\t");

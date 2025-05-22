@@ -60,7 +60,7 @@
         <th>부서위치</th>
       </tr>
     </thead>	
-    <jsp:useBean id="dao" class="jspexp.a10_database.A02_EmpDao"/>
+    <jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
     <jsp:useBean id="sch" class="jspexp.a10_database.dto.Dept"/>
     <jsp:setProperty property="*" name="sch"/>
     <tbody>

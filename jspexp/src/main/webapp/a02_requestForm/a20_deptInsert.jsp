@@ -19,10 +19,21 @@
 <style>
 	td{text-align:center;}
 </style>
+<jsp:useBean id="ins" class="jspexp.a10_database.dto.Dept"/>
+<jsp:setProperty property="*" name="ins"/>
+<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
+<c:if test="${not empty ins.dname}">
+ 	<c:set var="insCnt" value="${dao.insertDept(ins)}" />
+</c:if>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		var insCnt = "${insCnt}"	
+		if(insCnt>0){
+			alert("부서정보 등록 성공")
+			location.href="a18_deptSchList.jsp"
+		}
 	
 	});
 </script>
