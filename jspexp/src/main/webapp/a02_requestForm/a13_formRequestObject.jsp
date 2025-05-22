@@ -71,7 +71,7 @@ ${prod.setCnt(param.cnt)}
 	    <button class="btn btn-info" type="submit">구매</button>
  	</nav>
 	</form>
-	<h3>요청 처리된 객체(jstl/e)</h3>
+	<h3>요청 처리된 객체(jstl/el)</h3>
 	<h2>${prod.name}</h2>
 	<h2>${prod.price}</h2>
 	<h2>${prod.cnt}</h2>
