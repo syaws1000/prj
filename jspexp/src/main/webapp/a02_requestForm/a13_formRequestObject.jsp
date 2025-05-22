@@ -45,15 +45,24 @@
 <%-- 
 		
 --%>
+<%
+// 요청 처리되었을 때, 자바 코드
+String name = request.getParameter("name");
+String priceStr = request.getParameter("price");
+String cntStr = request.getParameter("cnt");
+int price = 0; int cnt = 0;
+if(priceStr!=null) price = Integer.parseInt(priceStr);
+if(cntStr!=null) cnt = Integer.parseInt(cntStr);
+// 요청값을 받은 후 객체로 할당.
+
+%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="물건입력" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="가격입력" name="price"  class="form-control mr-sm-2"/>
+	    <input placeholder="갯수입력" name="cnt"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">구매</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
