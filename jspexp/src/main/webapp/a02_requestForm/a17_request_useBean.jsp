@@ -62,22 +62,55 @@
 	    <button class="btn btn-info" type="submit">등록</button>
  	</nav>
 	</form>
-	<%--
-	ex1) 부서번호, 부서명, 부서위치를 등록하는 form을 만들고,
-		요청에 의해 useBean을 처리하여 출력되게 하세요..
-	-------------------	
-	ex2) 나라이름, 수도, 인구 정보를 등록하는 form을 만들고,
-		 VO를 생성하고, useBean의해서 등록된 나라정보를 출력하세요..
-	ex3) 요리명 재료 난이도를 등록하는 form을 만들고,
-		 VO를 생성하고, useBean의해서 등록된 요리레시피 정보를 출력하세요.
-		 	 	
-	 --%>
 	<jsp:useBean id="p01" class="jspexp.a01_vo.Person" />
 	<jsp:setProperty property="*" name="p01"/>
 	<h1>요청으로 받아온 값</h1>
 	<h2>${p01.name}</h2>
 	<h2>${p01.age}</h2>
-	<h2>${p01.loc}</h2>
+	<h2>${p01.loc}</h2>	
+	<form id="frm02" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="부서번호" name="deptno"  class="form-control mr-sm-2" />
+	    <input placeholder="부서명" name="dname"  class="form-control mr-sm-2"/>
+	    <input placeholder="부서위치" name="loc"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">부서등록</button>
+ 	</nav>
+	</form>	
+	<jsp:useBean id="dept" class="jspexp.a10_database.dto.Dept"/>
+	<jsp:setProperty property="*" name="dept"/>
+	<h1>요청값으로 받아온 값</h1>
+	<h2>${dept.deptno}</h2>
+	<h2>${dept.dname}</h2>
+	<h2>${dept.loc}</h2>
+	<%--
+	ex1) 부서번호, 부서명, 부서위치를 등록하는 form을 만들고,
+		요청에 의해 useBean을 처리하여 출력되게 하세요..
+	ex2) 나라이름, 수도, 인구 정보를 등록하는 form을 만들고,
+		 VO를 생성하고, useBean의해서 등록된 나라정보를 출력하세요..
+	===============	 
+	ex3) 요리명 재료 난이도를 등록하는 form을 만들고,
+		 VO를 생성하고, useBean의해서 등록된 요리레시피 정보를 출력하세요.
+		 	 	
+	 --%>
+	<form id="frm03" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="나라이름" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="수도" name="capital"  class="form-control mr-sm-2"/>
+	    <input placeholder="인구수" name="population"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">부서등록</button>
+ 	</nav>
+ 	<%--
+ 	private String name;
+ 	private String capital;
+ 	private int population;
+ 	 --%>
+	</form>	
+	<jsp:useBean id="ctr" class="jspexp.a01_vo.Country"/>
+	<jsp:setProperty property="*" name="ctr"/>
+	<h1>요청값으로 받아온 값</h1>
+	<h2>${ctr.name}</h2>
+	<h2>${ctr.capital}</h2>
+	<h2>${ctr.popluation}</h2>
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">
