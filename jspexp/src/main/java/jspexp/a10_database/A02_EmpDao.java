@@ -145,6 +145,13 @@ public class A02_EmpDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
+		for(Dept d:dao.getDeptSch(new Dept("A","A"))) {
+			System.out.print(d.getDeptno()+"\t");
+			System.out.print(d.getDname()+"\t");
+			System.out.print(d.getLoc()+"\n");
+		}
+		
+		
 		// [()()()]
 		for(Emp e:dao.getEmpAll()) {
 			System.out.print(e.getEmpno()+"\t");
