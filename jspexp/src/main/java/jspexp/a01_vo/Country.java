@@ -1,6 +1,8 @@
 package jspexp.a01_vo;
-
+// jspexp.a01_vo.Country
 public class Country {
+	
+	
  	private String name;
  	private String capital;
  	private int population;
