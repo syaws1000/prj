@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    	
+    import = "javaexp.a10_database.A02_EmpDao"
     import="javaexp.a10_database.dto.Emp"
     %>
 <!DOCTYPE html>

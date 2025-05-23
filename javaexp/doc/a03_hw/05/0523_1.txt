@@ -1,0 +1,107 @@
+### 객관식 문제 15문제
+
+1. **`<jsp:useBean>` 태그의 주요 목적은 무엇인가요?**
+
+   * A. JSP 페이지에서 JavaBean 객체를 생성하거나 기존 객체를 가져와서 사용하는 것
+   * B. 데이터베이스와 연결하는 것
+   * C. JSP 페이지에서 클라이언트의 요청을 처리하는 것
+   * D. JavaScript 코드를 실행하는 것
+
+2. **`<jsp:setProperty>` 태그의 역할은 무엇인가요?**
+
+   * A. 요청 파라미터 값을 객체의 속성에 설정하는 것
+   * B. JSP 페이지에서 객체를 초기화하는 것
+   * C. 객체의 속성 값을 JSP 페이지에서 출력하는 것
+   * D. JavaScript 코드를 JSP 페이지에서 실행하는 것
+
+3. **JSP에서 `request.getParameter("name")`의 역할은 무엇인가요?**
+
+   * A. 요청 헤더에서 파라미터 값을 가져오는 것
+   * B. 클라이언트가 보낸 파라미터 값을 가져오는 것
+   * C. 세션에서 파라미터 값을 가져오는 것
+   * D. JSP 페이지에서 출력하는 값을 가져오는 것
+
+4. **`<jsp:useBean>` 태그에서 `scope` 속성에 사용할 수 있는 값이 아닌 것은 무엇인가요?**
+
+   * A. page
+   * B. request
+   * C. session
+   * D. class
+
+5. **`<jsp:useBean>`을 사용할 때 `id` 속성의 역할은 무엇인가요?**
+
+   * A. JavaBean 클래스의 이름을 지정하는 것
+   * B. JSP 페이지에서 객체를 참조하는 변수명을 지정하는 것
+   * C. 객체의 속성을 설정하는 것
+   * D. 객체의 메서드를 호출하는 것
+
+6. **`<jsp:setProperty>` 태그에서 `property="*"`의 의미는 무엇인가요?**
+
+   * A. 객체의 모든 속성을 자동으로 설정하는 것
+   * B. 객체의 속성을 하나씩 수동으로 설정하는 것
+   * C. 객체의 메서드를 자동으로 호출하는 것
+   * D. 요청 파라미터를 객체의 속성으로 변환하지 않는 것
+
+7. **`<jsp:useBean>`을 사용할 때, 객체가 이미 존재하면 어떻게 처리하나요?**
+
+   * A. 새로운 객체를 생성한다
+   * B. 이미 존재하는 객체를 사용한다
+   * C. 객체를 삭제하고 새로운 객체를 생성한다
+   * D. 객체를 세션에서 제거한다
+
+8. **`<jsp:useBean>` 태그에서 `beanName` 속성을 사용하는 경우는 언제인가요?**
+
+   * A. 객체를 세션에 저장하려고 할 때
+   * B. 이미 존재하는 객체를 찾을 때
+   * C. 객체를 새로 생성할 때
+   * D. 객체의 속성 값을 설정할 때
+
+9. **JSP에서 `param` 객체와 `request` 객체의 차이점은 무엇인가요?**
+
+   * A. `param` 객체는 URL 파라미터만 가져오고, `request` 객체는 모든 요청 정보를 가져온다
+   * B. `param` 객체는 세션 파라미터만 가져오고, `request` 객체는 모든 세션 정보를 가져온다
+   * C. `param` 객체는 클라이언트의 요청 헤더만 가져오고, `request` 객체는 서버의 응답 정보를 가져온다
+   * D. `param` 객체와 `request` 객체는 동일한 역할을 한다
+
+10. **`<jsp:useBean>`을 사용하여 객체의 속성을 설정할 때, `setProperty` 태그의 기본 형식은 무엇인가요?**
+
+* A. `<jsp:setProperty name="beanName" property="propertyName" value="value"/>`
+* B. `<jsp:setProperty property="propertyName" name="beanName" value="value"/>`
+* C. `<jsp:setProperty name="propertyName" value="value"/>`
+* D. `<jsp:setProperty property="value" name="beanName"/>`
+
+11. **JSP에서 `useBean`을 사용하여 객체를 생성할 때, 객체가 세션에 저장된다면 그 범위는 무엇인가요?**
+
+* A. session
+* B. page
+* C. application
+* D. request
+
+12. **JSP에서 `useBean`을 사용하여 `scope="application"`을 설정했을 때, 객체의 범위는 어디인가요?**
+
+* A. 웹 애플리케이션 전체
+* B. 현재 JSP 페이지
+* C. 현재 HTTP 요청
+* D. 현재 사용자 세션
+
+13. **`<jsp:useBean>`을 사용하여 생성된 객체의 속성 값은 어떻게 설정되나요?**
+
+* A. `setProperty` 태그를 사용하여 설정
+* B. `getProperty` 태그를 사용하여 설정
+* C. JavaScript를 사용하여 설정
+* D. HTML form에서 직접 설정
+
+14. **`<jsp:setProperty>`를 사용할 때, `property="*"`을 사용하면 객체의 속성이 자동으로 설정되는데, 이때 `property` 속성에 지정된 값은 무엇인가요?**
+
+* A. JSP 페이지에서 전달된 요청 파라미터 이름
+* B. 클래스의 메서드 이름
+* C. 데이터베이스 테이블의 컬럼 이름
+* D. HTML form의 `name` 속성 값
+
+15. **JSP에서 `useBean`을 사용하여 객체를 설정할 때, 그 객체의 클래스는 어디에 정의되어야 하나요?**
+
+* A. JSP 페이지의 맨 위에 선언해야 한다
+* B. JSP 페이지에서 `class` 속성으로 지정해야 한다
+* C. JSP 페이지에서 `beanName` 속성으로 지정해야 한다
+* D. 서버의 데이터베이스에 저장해야 한다
+

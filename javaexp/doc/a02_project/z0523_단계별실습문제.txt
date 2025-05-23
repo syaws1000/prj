@@ -1,0 +1,100 @@
+### JSP에서 DAO를 통한 검색 처리 학습을 위한 세부 체크리스트
+
+#### 1. **DAO 만들기**
+
+* [ ] **SQL 작성**: 데이터베이스와 연동할 SQL 쿼리 작성
+* [ ] **입력/출력 구분**: SQL 쿼리에서 입력과 출력을 구분
+* [ ] **VO 작성**: 메서드 매개변수와 리턴값을 처리할 VO 클래스 작성
+* [ ] **메서드 정의**: 필요한 DAO 메서드 정의 (예: `select`, `insert`, `update`, `delete`)
+* [ ] **PreparedStatement 설정**: `pstmt.setXXX(1, @@@)` 형태로 쿼리 매개변수 설정
+* [ ] **ResultSet 처리**: `rs.next()`, `rs.getXXX("컬럼명")`을 사용하여 검색 결과 처리
+
+#### 2. **요청값 처리하기**
+
+* [ ] **페이지 전환**: 요청 후 다른 페이지로 전환하는 방법 이해
+* [ ] **요청 key와 value 처리**: 페이지 전환 시 요청된 값들을 올바르게 처리
+* [ ] **HTML Form 구성**: `form`의 `action`, `name`, `value` 속성 사용
+* [ ] **Method 방식 이해**: GET/POST 방식으로 데이터 전송
+* [ ] **request.getParameter() 활용**: JSP에서 `request.getParameter("key")`를 이용하여 요청값 받기
+* [ ] **useBean 사용**: `useBean`을 사용하여 요청값을 자동으로 처리하는 방법
+
+#### 3. **DAO와 요청값 연동**
+
+* [ ] **Form 화면 구성**: HTML에서 검색 폼 구성
+* [ ] **useBean 활용**: 검색 요청을 처리할 때 `useBean` 활용
+* [ ] **DAO와 연동**: `useBean`으로 받은 요청값을 DAO 메서드에 전달하여 결과 출력
+
+---
+
+### 실습문제 (단계별 15문제)
+
+#### **단계 1: 기초 문제**
+
+1. **문제 1: SQL 작성**
+
+   * `Employee` 테이블에서 직원의 이름, 부서명, 급여를 조회하는 SQL을 작성하세요.
+
+2. **문제 2: VO 클래스 작성**
+
+   * `EmployeeVO` 클래스를 작성하세요. 이 클래스는 직원의 `name`, `department`, `salary` 필드를 포함해야 합니다.
+
+3. **문제 3: PreparedStatement 사용**
+
+   * `EmployeeDAO` 클래스에서 직원의 이름을 기준으로 데이터를 조회하는 SQL 쿼리에서 `pstmt.setString(1, name)`을 사용하는 코드 예시를 작성하세요.
+
+4. **문제 4: ResultSet 처리**
+
+   * `EmployeeDAO` 클래스에서 `ResultSet`을 사용하여 `Employee` 정보를 출력하는 예시 코드를 작성하세요. (예: `rs.getString("name")`)
+
+5. **문제 5: request.getParameter() 사용**
+
+   * JSP 페이지에서 `request.getParameter("department")`를 사용하여 부서명을 받는 코드를 작성하세요.
+
+---
+
+#### **단계 2: 중간 난이도 문제**
+
+6. **문제 6: HTML Form 작성**
+
+   * 사용자로부터 `department`를 입력받는 검색 폼을 HTML로 작성하세요. (`<form>`, `<input>`, `<button>` 태그 사용)
+
+7. **문제 7: GET 방식으로 데이터 전송**
+
+   * 위 HTML 폼에서 사용자가 부서를 입력한 후, GET 방식으로 데이터를 전송하도록 설정하세요.
+
+8. **문제 8: JSP에서 요청값 처리**
+
+   * JSP 페이지에서 `request.getParameter("department")`를 이용하여 입력된 부서명을 출력하는 코드를 작성하세요.
+
+9. **문제 9: useBean을 이용한 요청값 처리**
+
+   * `useBean`을 사용하여 부서명을 저장하고, 해당 값을 JSP에서 출력하는 예시 코드를 작성하세요.
+
+10. **문제 10: DAO 메서드 정의**
+
+    * `EmployeeDAO` 클래스에서 `getEmployeesByDepartment(String department)` 메서드를 작성하세요. 이 메서드는 부서명을 받아 해당 부서의 직원을 반환합니다.
+
+---
+
+#### **단계 3: 고급 문제**
+
+11. **문제 11: DAO에서 SQL 쿼리 작성**
+
+    * `EmployeeDAO` 클래스에서 부서명을 조건으로 직원 목록을 조회하는 SQL 쿼리를 작성하고, 이 쿼리를 실행하는 메서드를 구현하세요.
+
+12. **문제 12: JSP와 DAO 연동**
+
+    * JSP 페이지에서 `useBean`을 사용하여 부서명을 `EmployeeDAO`의 `getEmployeesByDepartment` 메서드로 전달하고, 해당 부서의 직원을 출력하는 코드를 작성하세요.
+
+13. **문제 13: 검색 결과 출력**
+
+    * `EmployeeDAO`에서 `ResultSet`으로 조회한 직원 목록을 `JSP` 페이지에서 `<table>`로 출력하는 예시 코드를 작성하세요.
+
+14. **문제 14: 데이터 입력 처리**
+
+    * `EmployeeDAO` 클래스에서 직원 정보를 입력하는 `insertEmployee()` 메서드를 작성하고, JSP 페이지에서 사용자 입력을 받아 이 메서드를 호출하도록 구현하세요.
+
+15. **문제 15: 페이지 전환 및 결과 처리**
+
+    * 사용자로부터 부서명을 입력받고, 검색 결과를 다른 페이지에서 출력하는 기능을 구현하세요. 페이지 전환 시, `request` 또는 `session`을 사용하여 데이터 전달합니다.
+
