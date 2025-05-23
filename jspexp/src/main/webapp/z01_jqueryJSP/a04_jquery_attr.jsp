@@ -23,7 +23,7 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 /*
-# jquery에소 속성 처리 관련 attr, css 메서드
+# jquery에 속성 처리 관련 attr, css 메서드
 1. jquery에서 DOM 요소의 속성, 스타일을 쉽게 읽고 수정할 수 있도록 다양한 메서드를
 	제공합니다. attr(), css()는 그 중에서도 가장 기본적이고 중요한 메서드입니다.
 	이 두 메서드는 각각 요소의 속성과 스타일을 처리하는 데 사용됩니다.
@@ -38,14 +38,21 @@
 		$("선택자").attr({속성:속성값, 속성2:속성2값,...})
  */
 	$(document).ready(function(){
-	
+		
+		$("h2").eq(0).click(()=>{
+			$("h2").eq(0).attr("align","left")
+		})
+		$("h2").eq(1).click(()=>{
+			$("h2").eq(1).attr("align","right")
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>정렬처리.(왼쪽으로)</h2>
+  <h2>정렬처리.(오른쪽으로)</h2>
 
 </div>
 <%-- 
