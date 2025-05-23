@@ -61,12 +61,25 @@
 		// html() : 태그를 랜더링(해석) 적용해서 출력,  text() 문자열 그대로 출력..
 		$(".show").html("<h2>안녕하세요(태그를 쓰기 처리..)</h2>")
 		$(".show1").text("<h2>안녕하세요(태그를 쓰기 처리..)</h2>")
+		/*
+		ex1) h1에 오늘의 인삿말을 대체해서 출력되게 하세요..
+		ex2) h3의 내용을 가져와서, 다시 h3에 구매할 물건인 사과, 바나나를 처리하여
+			결국은 구매할 물건:사과, 바나나 출력되게 하세요.. text() 가져오기(읽기) text("쓰기") 를 활용
+		ex3) class="show2" div에 ul/li이용해서 구매할 물건 리스트 3개를 출력하세요.. 
+		*/
+		$("h1").text("Hello!!");
+		//let cont = $("h3").text()
+		//alert(cont)
+		$("h3").text($("h3").text()+"사과, 바나나")
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
+	<h1>오늘의 인삿말 처리</h1>
+	<h3>구매할 물건:</h3>
+	<div class="show2"></div>
   <h2>타이틀</h2>
   <div class="show"></div>
   <div class="show1"></div>
