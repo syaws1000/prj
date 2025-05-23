@@ -22,57 +22,8 @@
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
-/*
-# jquery의 선택자
-1. jquery의 선택자는 css 선택자와 유사한 문법을 사용하여 html 요소를 선택하고, 선택된
-요소에 대해 다양한 작업을 수행할 수 있게 해줍니다. jquery 선택자는 html 문서에서 요소를
-쉽게 찾고 조작하는 데 중요한 역할을 합니다.
-2. 기본 형식
-	jquery 선택자는 주로 $() 함수 안에 넣어 사용합니다. 이 함수는 css 스타일의 선택자를
-	사용하여  DOM에서 요소를 선택하여, 선택된 요소의 메서드를 호출하여 조작할 수 있습니다.
-	$("selector").action()
-	selector : html 요소를 선택하는 기준(css 선택자와 유사)
-	action : 선택된 요소에 대해 실행할 작업(예) text(), css(), click() 등)
-3. 선택자의 종류
-	1) id 선택자 : 태그의 속성이 id값을 가진 요소를 선택합니다.
-		$("#선택자아이디")
-		<h2 id="ch01"></h2>
-		$("#ch01").text("선택했습니다. 아이디를!!")
-	2) class 선택자 : 특정한 클래스 값을 가진 모든 요소를 선택합니다.
-	    $(".클래스명")
-	    <h2 class="cls01"></h2>
-	    <h2 class="cls01"></h2>
-	    <h2 class="cls01"></h2>
-	    $(".cls01").text("모든 cls01 클래스 한꺼번에 변경")
-	 3) 태그 선택자 : 특정 html 태그를 선택합니다.
-	 	$("태그명")
-	 	<p>오늘의 영어</p>
-	 	$("p").text("오늘의 프로그래밍!!")
-	 4) 그외 속성 선택자($("input[type=text]")), 전체 선택자($("*"))
-	    자식/자손 선택자($("div .cls01")) 현제선택자$("#first+#second")
-	    조합선택자($("#header, .content"))
-4. 기본 javascript와 차이가 나는 강화된 부분.
-	1) 전체 선택에서 반복문 없이도 가능하다.
-		<h1></h1>
-		<h1></h1>
-		<h1></h1>
-		<h1></h1>
-		js)  let h1Arr = document.querySelectorAll("h1")
-			 for(let idx;idx<h1Arr.length;idx++){
-				 h1Arr[idx] = "안녕"
-			 }
-		jquery) $("h1").text("안녕")
-	2)	하나씩 동일 선택자를 개별로 처리..
-		$("h1:eq(0)").text("hello") : 첫번째 h1
-		$("h1").eq(1).text("good day") : 두번째 h1 개별적으로 index번호를 활용하여 처리도
-			가능하다.
- */
 	$(document).ready(function(){
-		$("h2").text("한번에 적용")	
-		$("h3").eq(0).text('red')
-		$("h3").eq(1).text('oranage')
-		$("h3").eq(2).text('yellow')
-		$("h3").eq(3).text('green')
+	
 	});
 </script>
 </head>
@@ -80,14 +31,6 @@
 <body>
 <div class="jumbotron text-center">
   <h2>타이틀</h2>
-  <h2>타이틀</h2>
-  <h2>타이틀</h2>
-  <h2>타이틀</h2>
-  <h2>타이틀</h2>
-  <h3></h3>
-  <h3></h3>
-  <h3></h3>
-  <h3></h3>
 
 </div>
 <%-- 
