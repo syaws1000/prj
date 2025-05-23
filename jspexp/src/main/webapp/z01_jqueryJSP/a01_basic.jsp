@@ -71,6 +71,13 @@
 		//let cont = $("h3").text()
 		//alert(cont)
 		$("h3").text($("h3").text()+"사과, 바나나")
+		let htmlAdd = `<h2>구매할 물건</h2>
+		               <ul>
+		               		<li>사과</li>
+		               		<li>바나나</li>
+		               		<li>딸기</li>
+		               </ul>`
+		$(".show2").html( htmlAdd )               
 	});
 </script>
 </head>
