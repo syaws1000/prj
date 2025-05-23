@@ -76,7 +76,11 @@
  
  */
 	$(document).ready(function(){
-	
+		$("h2").text("한번에 적용")	
+		$("h3").eq(0).text('red')
+		$("h3").eq(1).text('oranage')
+		$("h3").eq(2).text('yellow')
+		$("h3").eq(3).text('green')
 	});
 </script>
 </head>
@@ -84,6 +88,14 @@
 <body>
 <div class="jumbotron text-center">
   <h2>타이틀</h2>
+  <h2>타이틀</h2>
+  <h2>타이틀</h2>
+  <h2>타이틀</h2>
+  <h2>타이틀</h2>
+  <h3></h3>
+  <h3></h3>
+  <h3></h3>
+  <h3></h3>
 
 </div>
 <%-- 
