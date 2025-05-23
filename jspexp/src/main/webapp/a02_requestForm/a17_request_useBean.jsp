@@ -62,10 +62,13 @@
 	    <button class="btn btn-info" type="submit">등록</button>
  	</nav>
 	</form>
+	<%-- ?name=홍길동&age=25&loc=수원 --
+		  setName(), setAge(), setLoc()	
+	--%>
 	<jsp:useBean id="p01" class="jspexp.a01_vo.Person" />
 	<jsp:setProperty property="*" name="p01"/>
 	<h1>요청으로 받아온 값</h1>
-	<h2>${p01.name}</h2>
+	<h2>${p01.getName()}</h2>
 	<h2>${p01.age}</h2>
 	<h2>${p01.loc}</h2>	
 	<form id="frm02" class="form"  method="post">
