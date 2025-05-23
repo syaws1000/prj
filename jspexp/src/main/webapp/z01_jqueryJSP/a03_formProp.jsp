@@ -22,31 +22,58 @@
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+/*
+# jquery에서 출력 처리관련 action
+1. text   $("선택자").text()
+2. html   $("선택자").html()
+3. val
+	$("[name=age]").val()  : 저장된 value 값을 가져오는 action 메서드
+	$("[name=loc]").val("서울")  : 저장된 value 값을 설정하는 action 메서드
 	
+
+# jquery에서 속성 처리관련 action
+1. attr
+2. css
+ */
+	$(document).ready(function(){
+		$("#sumBtn").click(()=>{
+			let kor = parseInt( $("[name=kor]").val() ) // 읽기 val()와 숫자형 변환
+			let eng = parseInt( $("[name=eng]").val() )
+			$("[name=sum]").val(kor+eng) // 합산된 결과를 쓰기 val() 처리.
+		})
+		// ex) 물건명name, 가격price, 갯수cnt를 지정하여 총비용을 input 요소에 출력하세요..
+		$("#calPay").click(()=>{
+			let price = $("[name=price]").val()
+			let cnt = $("[name=cnt]").val()  
+			$("[name=sumPay]").val(price*cnt) // 가격과 갯수를 곱해서 처리..
+		})
 	});
+	// ex) input
 </script>
 </head>
-
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>여러가지 action 속성</h2>
 </div>
-<%-- 
-		
---%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm02" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="물건명" name="pname"  class="form-control mr-sm-2" />+
+	    <input placeholder="가격" name="price"  class="form-control mr-sm-2"/>=
+	    <input placeholder="갯수" name="cnt"  class="form-control mr-sm-2"/>
+	    <input placeholder="총비용" name="sumPay"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="button" id="calPay">합산</button>
  	</nav>
 	</form>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="국어" name="kor"  class="form-control mr-sm-2" />+
+	    <input placeholder="영어" name="eng"  class="form-control mr-sm-2"/>=
+	    <input placeholder="합산" name="sum"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="button" id="sumBtn">합산</button>
+ 	</nav>
+	</form>
+	<h2 id="show"></h2>
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">
