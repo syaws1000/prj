@@ -51,6 +51,27 @@
 	 4) 그외 속성 선택자($("input[type=text]")), 전체 선택자($("*"))
 	    자식/자손 선택자($("div .cls01")) 현제선택자$("#first+#second")
 	    조합선택자($("#header, .content"))
+4. 기본 javascript와 차이가 나는 강화된 부분.
+	1) 전체 선택에서 반복문 없이도 가능하다.
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		js)  let h1Arr = document.querySelectorAll("h1")
+			 for(let idx;idx<h1Arr.length;idx++){
+				 h1Arr[idx] = "안녕"
+			 }
+		jquery) $("h1").text("안녕")
+	2)	하나씩 동일 선택자를 개별로 처리..
+		$("h1:eq(0)").text("hello") : 첫번째 h1
+		$("h1").eq(1).text("good day") : 두번째 h1 개별적으로 index번호를 활용하여 처리도
+			가능하다.
+			
+	
+	
+	
+	
+	
 	    
  
  */
