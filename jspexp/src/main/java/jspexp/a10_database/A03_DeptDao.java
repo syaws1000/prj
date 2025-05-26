@@ -113,9 +113,7 @@ public class A03_DeptDao {
 		A03_DeptDao dao = new A03_DeptDao();
 		// Emp(String ename, String job, int mgr, String hiredateStr, 
 		// double sal, double comm, int deptno)
-		System.out.println("### 등록 처리 ####");
-		int insCnt = dao.insertEmp10(new Emp("마길동","대리", 7789,"2025-05-01",4000,100,20));
-		System.out.println("등록된 건수:"+insCnt);
+
 		
 		
 		

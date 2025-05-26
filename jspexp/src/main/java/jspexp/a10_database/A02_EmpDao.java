@@ -158,7 +158,9 @@ public class A02_EmpDao {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
 
-		
+		System.out.println("### 등록 처리 ####");
+		int insCnt = dao.insertEmp10(new Emp("마길동","대리", 7789,"2025-05-01",4000,100,20));
+		System.out.println("등록된 건수:"+insCnt);		
 		
 		// [()()()]
 		for(Emp e:dao.getEmpAll()) {

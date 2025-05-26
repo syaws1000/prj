@@ -33,13 +33,15 @@ public class A04_FamilyDao {
 			}catch(Exception e) {
 				System.out.println("기타 에러:"+e.getMessage());
 			}
-		
-		
 		return insCnt;
 	}	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("# family 등록 #");
+		A04_FamilyDao dao = new A04_FamilyDao();
+		int ins = dao.insertFamily(new Family("오길동", 1));
+		System.out.println("등록건수:"+ins);
 
 	}
 
