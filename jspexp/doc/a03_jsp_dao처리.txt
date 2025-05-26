@@ -47,7 +47,7 @@
  	1) 조회리스트
  		- 화면구성 ( 조회할 form, 조회를 통해서 출력리스트 테이블)
  			- 입력되는 데이터, 출력하는 데이터
- 		- databse(dao 기능메서드)
+ 		- database(dao 기능메서드)
  			- sql 작성
  			- 입력/출력 ==> VO
  			- 기능 메서드 선언..
@@ -55,7 +55,27 @@
  		- 화면에 요청값 ==> usebBean, dao ==> useBean
  			- 요청값. 처리
  			- 요청값에 의한 dao 메서드 호출 foreach를 통해서 화면 출력..
- 									
+ 	2) 등록처리
+ 		- 화면구성(등록 form)
+ 			조회리스트에 등록버튼 추가해서, 등록 화면 이동 처리
+ 		- databse(dao 기능메서드)	
+ 			- sql 작성
+ 			- 입력 ==> VO
+ 			- 기능 메서드 선언
+ 			- try catch 처리 pstmt.setXXXX
+ 		- 화면에 요청 ==> useBean, dao ==> useBean
+ 			- 요청값으로 등록 처리 dao 메서드 호출 : 등록시 1이상, 0 등록 실패..
+ 			<c:if test="${not empty ins.dname}">
+			 	<c:set var="insCnt" value="${dao.insertDept(ins)}" />
+			</c:if>		
+			var insCnt = "${insCnt}"	
+			if(insCnt>0){
+				if(!confirm("부서정보 등록 성공\n계속 등록?")){
+					location.href="a18_deptSchList.jsp"
+				}
+			}
+			
+											
 			
 		
 			
