@@ -141,7 +141,32 @@ public class A03_DeptDao {
 			}		
 		return uptCnt;
 	}	
-	
+	public int deleteDept01(int deptno){
+		int delCnt = 0;
+		String sql = "DELETE FROM DEPT01 WHERE DEPTNO = ?";
+		try( Connection con = DB.con();
+				 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				con.setAutoCommit(false); // 자동 commit 방지
+				pstmt.setInt(1, deptno);
+				delCnt = pstmt.executeUpdate(); 
+				if(delCnt == 0) {
+					System.out.println("삭제 실패"); // 등록시 실패시 원복
+					con.rollback();
+				}else {
+					System.out.println("삭제 성공");  
+					con.commit();
+				}
+				// 등록 수행 후, 등록 건수 리턴..
+
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}			
+		return delCnt;
+	}	
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
 		System.out.println("수정 건수:"+ dao.updateDept01(new Dept(30,"회계","서울")));

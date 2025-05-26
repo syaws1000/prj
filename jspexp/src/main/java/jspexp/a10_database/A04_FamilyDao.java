@@ -71,8 +71,9 @@ public class A04_FamilyDao {
 		// TODO Auto-generated method stub
 		System.out.println("# family 등록 #");
 		A04_FamilyDao dao = new A04_FamilyDao();
-		int ins = dao.insertFamily(new Family("오길동", 1));
-		System.out.println("등록건수:"+ins);
+		System.out.println("수정건수:"+dao.updateFamily(new Family(7,"하길동",1)));
+		//int ins = dao.insertFamily(new Family("오길동", 1));
+		//System.out.println("등록건수:"+ins);
 
 	}
 

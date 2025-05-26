@@ -94,7 +94,17 @@ public int updateFamily(Family upt){
 }
  * */
 
+SELECT * FROM DEPT01;
+DELETE FROM DEPT01 WHERE DEPTNO = 81;
+/*
+public int deleteDept01(int deptno){
+	int delCnt = 0;
+	String sql = "DELETE FROM DEPT01 WHERE DEPTNO = ?";
+	
+	return delCnt;
+}
 
+ * */
 
 
 
