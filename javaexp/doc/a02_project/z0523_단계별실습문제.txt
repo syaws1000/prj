@@ -98,3 +98,173 @@
 
     * 사용자로부터 부서명을 입력받고, 검색 결과를 다른 페이지에서 출력하는 기능을 구현하세요. 페이지 전환 시, `request` 또는 `session`을 사용하여 데이터 전달합니다.
 
+
+
+### **단계 1: 기초 문제**
+
+1. **문제 1: SQL 작성**
+
+   ```sql
+   SELECT name, department, salary FROM Employee;
+   ```
+
+2. **문제 2: VO 클래스 작성**
+
+   ```java
+   public class EmployeeVO {
+       private String name;
+       private String department;
+       private double salary;
+       
+       // Getters and setters
+   }
+   ```
+
+3. **문제 3: PreparedStatement 사용**
+
+   ```java
+   String sql = "SELECT * FROM Employee WHERE name = ?";
+   PreparedStatement pstmt = conn.prepareStatement(sql);
+   pstmt.setString(1, name);
+   ```
+
+4. **문제 4: ResultSet 처리**
+
+   ```java
+   ResultSet rs = pstmt.executeQuery();
+   while (rs.next()) {
+       String name = rs.getString("name");
+       String department = rs.getString("department");
+       double salary = rs.getDouble("salary");
+       // Process each row
+   }
+   ```
+
+5. **문제 5: request.getParameter() 사용**
+
+   ```jsp
+   <%
+       String department = request.getParameter("department");
+   %>
+   ```
+
+### **단계 2: 중간 난이도 문제**
+
+6. **문제 6: HTML Form 작성**
+
+   ```html
+   <form action="search.jsp" method="get">
+       <input type="text" name="department">
+       <button type="submit">Search</button>
+   </form>
+   ```
+
+7. **문제 7: GET 방식으로 데이터 전송**
+
+   ```html
+   <form action="search.jsp" method="get">
+       <!-- Same as above -->
+   </form>
+   ```
+
+8. **문제 8: JSP에서 요청값 처리**
+
+   ```jsp
+   <%
+       String department = request.getParameter("department");
+       out.println("Department: " + department);
+   %>
+   ```
+
+9. **문제 9: useBean을 이용한 요청값 처리**
+
+   ```jsp
+   <jsp:useBean id="emp" class="EmployeeVO"/>
+   <jsp:setProperty name="emp" property="department" value="<%= department %>"/>
+   <%
+       out.println("Department: " + emp.getDepartment());
+   %>
+   ```
+
+10. **문제 10: DAO 메서드 정의**
+
+    ```java
+    public List<EmployeeVO> getEmployeesByDepartment(String department) {
+        // Implementation
+    }
+    ```
+
+### **단계 3: 고급 문제**
+
+11. **문제 11: DAO에서 SQL 쿼리 작성**
+
+    ```java
+    String sql = "SELECT * FROM Employee WHERE department = ?";
+    PreparedStatement pstmt = conn.prepareStatement(sql);
+    pstmt.setString(1, department);
+    ResultSet rs = pstmt.executeQuery();
+    ```
+
+12. **문제 12: JSP와 DAO 연동**
+
+    ```jsp
+    <jsp:useBean id="dao" class="EmployeeDAO"/>
+    <%
+        List<EmployeeVO> employees = dao.getEmployeesByDepartment(department);
+        for (EmployeeVO employee : employees) {
+            out.println("Name: " + employee.getName() + ", Department: " + employee.getDepartment());
+        }
+    %>
+    ```
+
+13. **문제 13: 검색 결과 출력**
+
+    ```jsp
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        <%
+            for (EmployeeVO employee : employees) {
+        %>
+        <tr>
+            <td><%= employee.getName() %></td>
+            <td><%= employee.getDepartment() %></td>
+            <td><%= employee.getSalary() %></td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
+    ```
+
+14. **문제 14: 데이터 입력 처리**
+
+    ```java
+    public void insertEmployee(EmployeeVO employee) {
+        // Implementation
+    }
+    ```
+
+15. **문제 15: 페이지 전환 및 결과 처리**
+
+    ```jsp
+    <!-- In the first page -->
+    <form action="searchResults.jsp" method="get">
+        <input type="text" name="department">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- In searchResults.jsp -->
+    <jsp:useBean id="dao" class="EmployeeDAO"/>
+    <%
+        String department = request.getParameter("department");
+        List<EmployeeVO> employees = dao.getEmployeesByDepartment(department);
+        request.setAttribute("employees", employees);
+        // Redirect to another page or display here
+    %>
+    ```
+
+    
