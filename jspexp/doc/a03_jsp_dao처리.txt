@@ -1,11 +1,12 @@
 # 부서정보 처리.
 1. 관련 파일과 내용
 	1) database
-		A03_DeptDao.java [부서정보 처리 하는 dao]
+		A03_DeptDao.java [부서정보 처리 하는 dao] 조회/등록/상세조회-수정,삭제
 			List<Dept> getDeptSch(Dept sch)[전체 조회]
+			Dept getDept(int deptno)[상세조회]
 			int insertDept(Dept ins)[등록]
 			int updateDept01(Dept upt)[수정]
-			nt deleteDept01(int deptno)[삭제]
+			int deleteDept01(int deptno)[삭제]
 		Dept.java [부서정보 데이터 처리하는 기능 DTO]
 	2) web
 		a08_deptList.jsp [전체정보 조회리스트]
@@ -16,8 +17,8 @@
     		<jsp:setProperty property="*" name="sch"/>
     				
 			<검색 form>
-		    <input placeholder="부서명" name="dname" value="${param.dname}"  class="form-control mr-sm-2" />
-		    <input placeholder="부서위치" name="loc"  value="${param.loc}"   class="form-control mr-sm-2"/>
+		    <input  name="dname" value="${param.dname}"  />
+		    <input  name="loc"  value="${param.loc}"   />
 		    
 		    <검색 table 리스트>
 	    	<c:forEach var="dept" items="${dao.getDeptSch(sch)}">
@@ -25,23 +26,36 @@
 	    	</c:forEach>	
 		a20_deptInsert.jsp
 			<등록 요청하는 form 내용>
-                <input type="number" class="form-control" id="deptno" name="deptno" placeholder="부서번호를 입력하세요" required>
-                <input type="text" class="form-control" id="dname" name="dname" placeholder="부서명을 입력하세요" required>
-               <input type="text" class="form-control" id="loc" name="loc" placeholder="부서위치를 입력하세요" required>
+               <input name="deptno" >
+               <input name="dname" >
+               <input name="loc" >
 			<등록 정보 요청값 처리 dto>
 				<jsp:useBean id="ins" class="jspexp.a10_database.dto.Dept"/>
 				<jsp:setProperty property="*" name="ins"/>
 			<등록 dao 처리>
 				<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
-				<c:if test="${not empty ins.dname}">
+				<c:if test="${not empty ins.dname}"> ==> 초기 입력전 화면과 입력 DB 처리 구분..
  				<c:set var="insCnt" value="${dao.insertDept(ins)}" />
  			<등록 완료시 javascript 처리>	
-	 		var insCnt = "${insCnt}"	
+	 		var insCnt = "${insCnt}"	java 코드와 javascript 연동.. 
 			if(insCnt>0){
 				alert("부서정보 등록 성공")
 				location.href="a18_deptSchList.jsp"
-			}				
- 				
-</c:if>					
+			}	
+		a21_deptDetail.jsp				
+ 2. 각 단계별 개발 순서
+ 	1) 조회리스트
+ 		- 화면구성 ( 조회할 form, 조회를 통해서 출력리스트 테이블)
+ 			- 입력되는 데이터, 출력하는 데이터
+ 		- databse(dao 기능메서드)
+ 			- sql 작성
+ 			- 입력/출력 ==> VO
+ 			- 기능 메서드 선언..
+ 			- try catch 처리 :pstmt, result 
+ 		- 화면에 요청값 ==> usebBean, dao ==> useBean
+ 			- 요청값. 처리
+ 			- 요청값에 의한 dao 메서드 호출 foreach를 통해서 화면 출력..
+ 									
+			
 		
 			
