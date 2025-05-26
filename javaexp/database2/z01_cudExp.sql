@@ -105,6 +105,8 @@ public int deleteDept01(int deptno){
 }
 
  * */
+SELECT * FROM EMP10;
+DELETE FROM EMP10 WHERE EMPNO = 2001;
 
 
 

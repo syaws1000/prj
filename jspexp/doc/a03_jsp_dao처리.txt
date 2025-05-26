@@ -1,0 +1,47 @@
+# 부서정보 처리.
+1. 관련 파일과 내용
+	1) database
+		A03_DeptDao.java [부서정보 처리 하는 dao]
+			List<Dept> getDeptSch(Dept sch)[전체 조회]
+			int insertDept(Dept ins)[등록]
+			int updateDept01(Dept upt)[수정]
+			nt deleteDept01(int deptno)[삭제]
+		Dept.java [부서정보 데이터 처리하는 기능 DTO]
+	2) web
+		a08_deptList.jsp [전체정보 조회리스트]
+	    	<dao 객체 호출>
+	    	<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
+	    	<요청값 검색된 내용 할당 객체>
+    		<jsp:useBean id="sch" class="jspexp.a10_database.dto.Dept"/>
+    		<jsp:setProperty property="*" name="sch"/>
+    				
+			<검색 form>
+		    <input placeholder="부서명" name="dname" value="${param.dname}"  class="form-control mr-sm-2" />
+		    <input placeholder="부서위치" name="loc"  value="${param.loc}"   class="form-control mr-sm-2"/>
+		    
+		    <검색 table 리스트>
+	    	<c:forEach var="dept" items="${dao.getDeptSch(sch)}">
+	    	<tr><td>${dept.deptno}</td><td>${dept.dname}</td><td>${dept.loc}</td></tr>
+	    	</c:forEach>	
+		a20_deptInsert.jsp
+			<등록 요청하는 form 내용>
+                <input type="number" class="form-control" id="deptno" name="deptno" placeholder="부서번호를 입력하세요" required>
+                <input type="text" class="form-control" id="dname" name="dname" placeholder="부서명을 입력하세요" required>
+               <input type="text" class="form-control" id="loc" name="loc" placeholder="부서위치를 입력하세요" required>
+			<등록 정보 요청값 처리 dto>
+				<jsp:useBean id="ins" class="jspexp.a10_database.dto.Dept"/>
+				<jsp:setProperty property="*" name="ins"/>
+			<등록 dao 처리>
+				<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
+				<c:if test="${not empty ins.dname}">
+ 				<c:set var="insCnt" value="${dao.insertDept(ins)}" />
+ 			<등록 완료시 javascript 처리>	
+	 		var insCnt = "${insCnt}"	
+			if(insCnt>0){
+				alert("부서정보 등록 성공")
+				location.href="a18_deptSchList.jsp"
+			}				
+ 				
+</c:if>					
+		
+			
