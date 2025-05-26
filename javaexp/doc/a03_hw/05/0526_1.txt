@@ -3,7 +3,7 @@
 1. 다음 중 NULL 값을 허용하지 않는 제약 조건은?
 
    * A. UNIQUE
-   * B. PRIMARY KEY
+   # B. PRIMARY KEY (NOT NULL + UNIQUE)
    * C. CHECK
    * D. FOREIGN KEY
 
@@ -11,62 +11,69 @@
 
    * A. NULL 값을 허용한다
    * B. 중복된 값을 허용한다
-   * C. 유일성과 NOT NULL을 모두 만족해야 한다
+   # C. 유일성과 NOT NULL을 모두 만족해야 한다
    * D. 한 테이블에 여러 개 설정할 수 있다
 
 3. FOREIGN KEY의 기능으로 올바른 것은?
 
    * A. 무조건 NULL 입력을 허용한다
    * B. 참조하는 테이블의 모든 컬럼을 복사한다
-   * C. 참조 테이블에 존재하는 값만 입력 가능하게 한다
+   # C. 참조 테이블에 존재하는 값만 입력 가능하게 한다
+   		부서번호는 부서테이블 있는 데이터만 사원테이블에 입력가능..
    * D. 자동으로 참조 테이블을 생성한다
 
 4. CHECK 제약 조건의 역할은?
 
    * A. 값의 중복을 막는다
    * B. 참조 무결성을 보장한다
-   * C. 입력값의 범위나 조건을 제한한다
+   # C. 입력값의 범위나 조건을 제한한다
    * D. 자동으로 인덱스를 생성한다
 
 5. 다음 중 두 개 이상의 컬럼을 기준으로 PRIMARY KEY를 설정할 수 있는 예는?
 
    * A. 단일 학생 ID
    * B. 단일 상품 ID
-   * C. 주문ID + 상품ID
+   # C. 주문ID + 상품ID
    * D. 주민번호
+   
+   상품테이블    주문테이블
+   상품아이디    주문아이디  ==> 혼합해서 PRIMARY KEY 설정.. 
+              상품아이디  
+   
 
 6. 제약조건 이름을 명시적으로 설정할 때 사용하는 키워드는?
 
    * A. RESTRICT
-   * B. CONSTRAINT
+   # B. CONSTRAINT    컬럼명  데이터유형  CONTSRAINT 테이블명_컬럼_제약조건종류 제약조건명
    * C. REQUIRE
    * D. BIND
 
 7. UNIQUE 키 제약 조건의 특징으로 옳은 것은?
 
    * A. NULL을 허용하지 않는다
-   * B. 여러 개 설정 불가능
-   * C. NULL을 여러 개 허용한다
+   # B. 여러 개 설정 불가능
+   # C. NULL을 여러 개 허용한다  
    * D. 기본 키와 동일한 기능이다
 
 8. NOT NULL 제약 조건은 어느 시점에 설정 가능한가?
-
+   제약조건 하나의 행단위로 생성하기에 해당 행의 열하나라도 제약조건이 맞지 않으면 입력불가..
+   수정시는 여러컬럼을 수정할 때는 하나의 컬럼이라도 제약조건에 맞지 않으면 수정불가.. 
    * A. INSERT 명령어에서만
    * B. SELECT 명령어에서
-   * C. 테이블 생성 및 수정 시
+   # C. 테이블 생성 및 수정 시
    * D. WHERE 절에서
 
 9. 다음 중 제약 조건 위반 시 발생하는 결과로 옳은 것은?
 
    * A. 위반된 컬럼만 제외하고 입력된다
-   * B. 전체 행이 입력되지 않는다
+   # B. 전체 행이 입력되지 않는다
    * C. 자동으로 수정된다
    * D. 경고만 발생한다
 
 10. 다음 중 USER\_CONSTRAINTS 뷰의 용도는?
 
 * A. 테이블의 컬럼명을 확인
-* B. 테이블의 제약 조건 확인
+# B. 테이블의 제약 조건 확인
 * C. 테이블의 데이터 확인
 * D. 테이블의 인덱스 구조 확인
 
@@ -79,18 +86,18 @@
 * A. 컬럼 추가
 * B. 컬럼 삭제
 * C. 테이블 이름 변경
-* D. 테이블을 복제
+# D. 테이블을 복제
 
 12. ALTER TABLE ADD는 무엇을 위한 명령어인가?
 
 * A. 기존 컬럼 변경
-* B. 새로운 컬럼 추가
+# B. 새로운 컬럼 추가
 * C. 데이터 삭제
 * D. 제약 조건 제거
 
 13. 컬럼 이름을 변경하는 명령어는?
 
-* A. RENAME COLUMN
+# A. RENAME COLUMN
 * B. CHANGE COLUMN
 * C. RENAME TO
 * D. MODIFY COLUMN
@@ -99,13 +106,13 @@
 
 * A. 컬럼 데이터 타입 변경
 * B. 제약 조건 추가
-* C. 컬럼 삭제
+# C. 컬럼 삭제
 * D. 컬럼 크기 증가
 
 15. ALTER TABLE DROP COLUMN을 사용하면 어떤 작업이 수행되는가?
 
 * A. 컬럼의 값 초기화
-* B. 컬럼이 삭제됨
+# B. 컬럼이 삭제됨
 * C. 테이블 삭제
 * D. 컬럼 값 변경
 
@@ -113,31 +120,49 @@
 
 ### ✅ JSP 요청값 처리 및 form 처리
 
+1. URL 호출로 해당페이지 이동
+2. URL 호출과 함께 ?KEY=VALUE 요청값과 함께 페이지 이동
+3. form action="이동할페이지"
+	 name="KEY" value="VALUE"
+	 <input type="submit">
+4. method="get|post"
+	get : url에 요청값을 전달
+	post : 요청 body에 숨겨서 전달하기에 url에 보이지 않음..
+5. 요청값을 받는 처리
+	1) request.getParameter("KEY")
+	2) ${param.KEY}
+	3) <jsp:usebean>
+	 	  <jsp:setProperty property="*"
+	 	  useBean에서 선언된 DTO/VO setProperty명이 요청key와 동일하고
+	 	  데이터유형(int, String) 같을 때, 자동으로 객체로 할당까지 해준다.
+	 	  	
+
+
 16. 다음 중 form 태그에서 데이터를 서버로 전송할 때 사용하는 속성은?
 
 * A. href
 * B. src
-* C. action
+# C. action
 * D. method
 
 17. GET 방식의 특징으로 옳지 않은 것은?
 
 * A. URL에 데이터가 표시됨
 * B. 데이터 전송 크기가 제한적임
-* C. URL에 데이터가 숨겨짐
+# C. URL에 데이터가 숨겨짐
 * D. 검색 요청 등에 주로 사용됨
 
 18. POST 방식의 장점으로 적절한 것은?
 
 * A. URL에 데이터가 드러남
 * B. 데이터 크기에 제한이 있음
-* C. 보안에 더 적합함
+# C. 보안에 더 적합함
 * D. 링크 클릭만으로 전송됨
 
 19. 다음 중 request.getParameter() 함수의 목적은?
 
 * A. 데이터 저장
-* B. 요청값 추출
+# B. 요청값 추출
 * C. 페이지 이동
 * D. DB 연결
 
@@ -145,7 +170,7 @@
 
 * A. request.saveAttribute
 * B. request.getAttribute()
-* C. request.getParameter()
+# C. request.getParameter()
 * D. setResponseHeader()
 
 ---
@@ -156,35 +181,40 @@
 
 * A. DB 연결 수행
 * B. 자바스크립트 실행
-* C. 객체 생성 및 속성 자동 매핑
+# C. 객체 생성 및 속성 자동 매핑
 * D. HTML 렌더링
 
 22. useBean의 id 속성은 무엇을 지정하는가?
-
+	주의) property에서는 name으로 설정한다..
 * A. HTML 요소의 ID
-* B. 객체 참조 이름
+# B. 객체 참조 이름
 * C. DB 테이블명
 * D. 클래스명
 
 23. setProperty의 property="\*" 의미는?
 
 * A. 특정 속성만 설정
-* B. 모든 파라미터를 set메서드에 자동 설정
+# B. 모든 파라미터를 set메서드에 자동 설정
 * C. 객체 초기화 방지
 * D. 객체의 기본값 초기화
 
 24. EL(Expression Language)에서 객체의 속성을 출력할 때 사용하는 문법은?
 
-* A. \${객체.속성}
+# A. \${객체.속성}   ${객체명.get생략한 property}
 * B. <객체:속성>
 * C. get(객체.속성)
 * D. EL(객체.속성)
 
 25. JSTL의 c\:if 태그는 어떤 용도인가?
+	<c:if test="${boolean조건}"> 조건문만 있다.
+	<c:choose>
+		<c:when test="${조건1}">
+		<c:when test="${조건2}">
+		<c:otherwise>
 
 * A. 반복처리
 * B. 데이터베이스 출력
-* C. 조건문 처리
+# C. 조건문 처리
 * D. HTML 태그 스타일링
 
 ---
@@ -195,146 +225,44 @@
 
 * A. 과목을 여러 번 수강할 수 있게 하려고
 * B. 학생당 한 과목만 등록하게 하려고
-* C. 동일 과목 중복 수강 방지를 위해
+# C. 동일 과목 중복 수강 방지를 위해
 * D. 데이터 크기를 줄이기 위해
+
+	학생				수강신청			과목
+	STUDENT_ID      STUDENT_ID      COURSE_ID
+                    COURSE_ID
+                    
+    회원             구매              물품
+                    
+                    
 
 27. 제약조건을 삭제할 때 사용하는 SQL 명령은?
 
 * A. DELETE CONSTRAINT
 * B. REMOVE CONSTRAINT
-* C. DROP CONSTRAINT
+# C. DROP CONSTRAINT
 * D. DELETE KEY
 
 28. FOREIGN KEY가 참조 무결성을 보장하는 방식은?
 
 * A. 값을 자동으로 수정한다
 * B. 외부 테이블을 삭제한다
-* C. 참조 테이블의 값만 허용한다
+# C. 참조 테이블의 값만 허용한다
 * D. 테이블을 병합한다
 
 29. useBean을 사용하면 요청값이 자동으로 할당되는 기준은?
 
 * A. HTML 태그명과 동일한 경우
 * B. 클래스명과 동일한 경우
-* C. name속성과 set메서드 이름이 매칭되는 경우
+# C. name속성과 set메서드 이름이 매칭되는 경우
 * D. id 속성과 URL이 같은 경우
 
 30. form의 method="post"를 지정하지 않을 경우 기본 전송 방식은?
 
-* A. get
+# A. get
 * B. post
 * C. delete
 * D. patch
 
 
 
-
-### ✅ Oracle 무결성 제약조건
-
-1. 다음 중 NULL 값을 허용하지 않는 제약 조건은?
-   ✅ **B. PRIMARY KEY**
-
-2. PRIMARY KEY 제약 조건의 특징으로 올바른 것은?
-   ✅ **C. 유일성과 NOT NULL을 모두 만족해야 한다**
-
-3. FOREIGN KEY의 기능으로 올바른 것은?
-   ✅ **C. 참조 테이블에 존재하는 값만 입력 가능하게 한다**
-
-4. CHECK 제약 조건의 역할은?
-   ✅ **C. 입력값의 범위나 조건을 제한한다**
-
-5. 다음 중 두 개 이상의 컬럼을 기준으로 PRIMARY KEY를 설정할 수 있는 예는?
-   ✅ **C. 주문ID + 상품ID**
-
-6. 제약조건 이름을 명시적으로 설정할 때 사용하는 키워드는?
-   ✅ **B. CONSTRAINT**
-
-7. UNIQUE 키 제약 조건의 특징으로 옳은 것은?
-   ✅ **C. NULL을 여러 개 허용한다**
-
-8. NOT NULL 제약 조건은 어느 시점에 설정 가능한가?
-   ✅ **C. 테이블 생성 및 수정 시**
-
-9. 다음 중 제약 조건 위반 시 발생하는 결과로 옳은 것은?
-   ✅ **B. 전체 행이 입력되지 않는다**
-
-10. 다음 중 USER\_CONSTRAINTS 뷰의 용도는?
-    ✅ **B. 테이블의 제약 조건 확인**
-
----
-
-### ✅ Oracle 테이블 구조 변경
-
-11. ALTER TABLE 명령어의 기능이 아닌 것은?
-    ✅ **D. 테이블을 복제**
-
-12. ALTER TABLE ADD는 무엇을 위한 명령어인가?
-    ✅ **B. 새로운 컬럼 추가**
-
-13. 컬럼 이름을 변경하는 명령어는?
-    ✅ **A. RENAME COLUMN**
-
-14. 다음 중 MODIFY 명령어로 수행할 수 없는 것은?
-    ✅ **C. 컬럼 삭제**
-
-15. ALTER TABLE DROP COLUMN을 사용하면 어떤 작업이 수행되는가?
-    ✅ **B. 컬럼이 삭제됨**
-
----
-
-### ✅ JSP 요청값 처리 및 form 처리
-
-16. 다음 중 form 태그에서 데이터를 서버로 전송할 때 사용하는 속성은?
-    ✅ **C. action**
-
-17. GET 방식의 특징으로 옳지 않은 것은?
-    ✅ **C. URL에 데이터가 숨겨짐**
-
-18. POST 방식의 장점으로 적절한 것은?
-    ✅ **C. 보안에 더 적합함**
-
-19. 다음 중 request.getParameter() 함수의 목적은?
-    ✅ **B. 요청값 추출**
-
-20. 요청값을 받아 객체로 처리할 때 사용하는 기본 Java 코드 구성은?
-    ✅ **C. request.getParameter()**
-
----
-
-### ✅ useBean 및 EL/JSTL 처리
-
-21. useBean의 기본 동작은?
-    ✅ **C. 객체 생성 및 속성 자동 매핑**
-
-22. useBean의 id 속성은 무엇을 지정하는가?
-    ✅ **B. 객체 참조 이름**
-
-23. setProperty의 property="\*" 의미는?
-    ✅ **B. 모든 파라미터를 set메서드에 자동 설정**
-
-24. EL(Expression Language)에서 객체의 속성을 출력할 때 사용하는 문법은?
-    ✅ **A. \${객체.속성}**
-
-25. JSTL의 c\:if 태그는 어떤 용도인가?
-    ✅ **C. 조건문 처리**
-
----
-
-### ✅ 종합 응용
-
-26. 학생이 과목을 수강할 때, STUDENT\_ID와 COURSE\_ID를 PRIMARY KEY로 설정하는 이유는?
-    ✅ **C. 동일 과목 중복 수강 방지를 위해**
-
-27. 제약조건을 삭제할 때 사용하는 SQL 명령은?
-    ✅ **C. DROP CONSTRAINT**
-
-28. FOREIGN KEY가 참조 무결성을 보장하는 방식은?
-    ✅ **C. 참조 테이블의 값만 허용한다**
-
-29. useBean을 사용하면 요청값이 자동으로 할당되는 기준은?
-    ✅ **C. name속성과 set메서드 이름이 매칭되는 경우**
-
-30. form의 method="post"를 지정하지 않을 경우 기본 전송 방식은?
-    ✅ **A. get**
-
----
