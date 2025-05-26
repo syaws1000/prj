@@ -35,7 +35,38 @@ public class A04_FamilyDao {
 			}
 		return insCnt;
 	}	
-	
+	public int updateFamily(Family upt){
+		int uptCnt = 0;
+		String sql = "UPDATE FAMILY\r\n"
+				+ "		SET NAME = ?,\r\n"
+				+ "		    PARENT_ID = ?\r\n"
+				+ "		WHERE PERSON_ID = ?";
+		try( Connection con = DB.con();
+				 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				con.setAutoCommit(false); // 자동 commit 방지
+				pstmt.setString(1, upt.getName());				
+				pstmt.setInt(2, upt.getParentId());  // 매핑되는 데이터 처리..
+				pstmt.setInt(3, upt.getPersonId());  // 매핑되는 데이터 처리..
+				uptCnt = pstmt.executeUpdate(); 
+				if(uptCnt == 0) {
+					System.out.println("수정 실패"); // 등록시 실패시 원복
+					con.rollback();
+				}else {
+					System.out.println("수정 성공");  
+					con.commit();
+				}
+				// 등록 수행 후, 등록 건수 리턴..
+
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}		
+		return uptCnt;
+		
+	}	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("# family 등록 #");

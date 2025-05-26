@@ -74,6 +74,24 @@ public int updateDept01(Dept upt){
   				WHERE DEPTNO = ? ";
 	return uptCnt;
 }
+
+ * */
+
+SELECT * FROM FAMILY; 
+UPDATE FAMILY
+	SET NAME = '마길동',
+	    PARENT_ID = 2
+	WHERE PERSON_ID = 7;
+/*
+public int updateFamily(Family upt){
+	int uptCnt = 0;
+	String sql = "UPDATE FAMILY
+					SET NAME = ?,
+					    PARENT_ID = ?
+					WHERE PERSON_ID = ?";
+	return uptCnt;
+	
+}
  * */
 
 
