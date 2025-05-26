@@ -76,6 +76,21 @@
 			}
 			
 											
+# 사원정보 관리
+1. 관련 파일
+	1) database
+		A02_EmpDao.java
+		Emp.java
+	2) jsp 화면..
+		a19_empSchList.jsp
+		
+2. 처리 순서
+	1) 사원정보 리스트
+		- 조회 기본화면 구성
+		- dao 기능메서드 처리
+		- usebean 요청값처리/dao메서드호출..
+	2) 사원정보 등록
+		
 			
 		
 			
