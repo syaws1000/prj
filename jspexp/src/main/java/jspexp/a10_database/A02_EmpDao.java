@@ -86,7 +86,7 @@ public class A02_EmpDao {
 
 	public List<Emp> getEmpSch(Emp sch){
 		List<Emp> list  = new ArrayList<Emp>();
-		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ? AND JOB LIKE ?";
+		String sql = "SELECT * FROM EMP10 WHERE ENAME LIKE ? AND JOB LIKE ? ORDER BY EMPNO DESC";
 		// 1. 연결
 		// 2. 대화
 		// 3. 결과
