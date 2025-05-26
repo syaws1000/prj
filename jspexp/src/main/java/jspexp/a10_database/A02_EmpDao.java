@@ -154,13 +154,43 @@ public class A02_EmpDao {
 		return insCnt;
 	}
 
+	public int deleteEmp10(int empno){
+		int delCnt = 0;
+		String sql = "DELETE FROM EMP10 WHERE EMPNO = ?";
+		// try() with resources 구문은 예외가 발생하면 자동으로 자원해제와 롤백이 처리된다.
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				con.setAutoCommit(false); // 자동 commit 방지
+				pstmt.setInt(1, empno);
+				delCnt = pstmt.executeUpdate(); 
+				if(delCnt == 0) {
+					System.out.println("등록 실패"); // 등록시 실패시 원복
+					con.rollback();
+				}else {
+					System.out.println("등록 성공");  
+					con.commit();
+				}
+				// 등록 수행 후, 등록 건수 리턴..
+	
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+	
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}		
+		
+		return delCnt;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
-
-		System.out.println("### 등록 처리 ####");
-		int insCnt = dao.insertEmp10(new Emp("마길동","대리", 7789,"2025-05-01",4000,100,20));
-		System.out.println("등록된 건수:"+insCnt);		
+		System.out.println("삭제건수:"+dao.deleteEmp10(2003));
+		
+		//System.out.println("### 등록 처리 ####");
+		//int insCnt = dao.insertEmp10(new Emp("마길동","대리", 7789,"2025-05-01",4000,100,20));
+		//System.out.println("등록된 건수:"+insCnt);		
 		
 		// [()()()]
 		for(Emp e:dao.getEmpAll()) {
