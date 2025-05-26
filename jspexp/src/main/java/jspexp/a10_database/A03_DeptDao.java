@@ -144,6 +144,9 @@ public class A03_DeptDao {
 	
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
+		System.out.println("수정 건수:"+ dao.updateDept01(new Dept(30,"회계","서울")));
+		
+		
 		// Emp(String ename, String job, int mgr, String hiredateStr, 
 		// double sal, double comm, int deptno)
 
