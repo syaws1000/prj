@@ -23,6 +23,13 @@ class Emp10{
 }
 1. 추가 DTO 생성.
 2. 비슷한 DTO에 속성을 추가하고, 생성자와 set/get 추가..
+
+public int insertEmp10(Emp ins){
+	int insCnt = 0;
+	String sql = "";
+	
+	return insCnt;
+}
  
  * * */
 
