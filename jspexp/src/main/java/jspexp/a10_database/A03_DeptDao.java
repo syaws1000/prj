@@ -77,27 +77,29 @@ public class A03_DeptDao {
 
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public int insertDept(Dept ins){
-		int insCnt = 0;
+		int insCnt = 0; // 입력값 형식으로 VO/DTO, 리턴으로 등록된 데이터의 갯수..int 리턴..
 		String sql = "INSERT INTO DEPT01 VALUES(?,?,?)";
+
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 			){
 			con.setAutoCommit(false); // 자동 commit 방지
-			pstmt.setInt(1, ins.getDeptno());
+			pstmt.setInt(1, ins.getDeptno());  // 매핑되는 데이터 처리..
 			pstmt.setString(2, ins.getDname());
 			pstmt.setString(3, ins.getLoc());
 			insCnt = pstmt.executeUpdate(); 
 			if(insCnt == 0) {
-				System.out.println("등록 실패");
+				System.out.println("등록 실패"); // 등록시 실패시 원복
 				con.rollback();
 			}else {
-				System.out.println("등록 성공");
+				System.out.println("등록 성공");  
 				con.commit();
 			}
 			// 등록 수행 후, 등록 건수 리턴..
 
 		}catch(SQLException e) {
 			System.out.println("DB처리 에러:"+e.getMessage());
+
 		}catch(Exception e) {
 			System.out.println("기타 에러:"+e.getMessage());
 		}

@@ -1,0 +1,15 @@
+# 데이터베이스 등록/수정/삭제 dao 메서드 처리
+1. sql 작성
+2. 입력값 처리
+	입력되는 데이터 유형에 따라 VO/DTO 작성
+3. 기능메서드 선언..
+	public int insertXXX(VO ){
+		int insCnt = 0;
+		
+		return insCnt
+	}	
+4. try catch 문 복사..
+5. 입력값 pstmt 설정..
+6. test
+7. web화면 연동 처리..
+	
