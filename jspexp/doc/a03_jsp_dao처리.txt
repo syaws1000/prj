@@ -101,6 +101,28 @@
 		- 등록 처리 후, javascript..
 		
 		
-			
+# Family 관리
+1. 관련 파일
+	1) database
+		A04_FamilyDao.java
+			List<Family> getFamlySch(Family sch)
+			int insertFamily(Family ins)
+		Family.java
+	2) jsp 화면..
+		a22_familySchList.jsp
+		a23_familyInsert.jsp
+2. 처리 순서
+	1) 사원정보 리스트
+		- 조회 기본화면 구성
+		- dao 기능메서드 처리
+		- usebean 요청값처리/dao메서드호출..
+	2) 사원정보 등록
+		- 등록 기본 화면 구성 : 
+		- 조회에서 등록 버튼 클릭시, 이동 처리
+		- dao 기능 메서드 처리
+			sql
+			메서드선언
+		- 등록화면에 요청값 usebean, 등록처리 dao usebean
+		- 등록 처리 후, javascript..			
 		
 			
