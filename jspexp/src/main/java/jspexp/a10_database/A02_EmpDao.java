@@ -116,6 +116,44 @@ public class A02_EmpDao {
 		return list;
 	}
 
+	public int insertEmp10(Emp ins){
+		int insCnt = 0;
+		String sql = "INSERT INTO EMP10 VALUES(EMP10_SEQ.NEXTVAL, ?, ?, ?, "
+				+ "TO_DATE(?,'YYYY-MM-DD'), ?,?,?)";
+		// try() with resources 구문은 예외가 발생하면 자동으로 자원해제와 롤백이 처리된다.
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				con.setAutoCommit(false); // 자동 commit 방지
+				// Emp(String ename, String job, int mgr, String hiredateStr, 
+				// double sal, double comm, int deptno)
+				pstmt.setString(1, ins.getEname());  // 매핑되는 데이터 처리..
+				pstmt.setString(2, ins.getJob());
+				pstmt.setInt(3, ins.getMgr());
+				pstmt.setString(4, ins.getHiredateStr());
+				pstmt.setDouble(5, ins.getSal());
+				pstmt.setDouble(6, ins.getComm());
+				pstmt.setInt(7, ins.getDeptno());
+				insCnt = pstmt.executeUpdate(); 
+				if(insCnt == 0) {
+					System.out.println("등록 실패"); // 등록시 실패시 원복
+					con.rollback();
+				}else {
+					System.out.println("등록 성공");  
+					con.commit();
+				}
+				// 등록 수행 후, 등록 건수 리턴..
+	
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+	
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}		
+		
+		return insCnt;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
