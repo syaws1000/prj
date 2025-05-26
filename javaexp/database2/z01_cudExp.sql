@@ -56,6 +56,29 @@ public int insertFamily(Family ins){
 ----------------------------------------------
 -- 4. TRY CATCH 복사 및 PSTMT 처리..
 -- 5. MAIN() 테스트  확인..
+-- 수정/삭제  CUD 동일한 패턴..
+SELECT * FROM DEPT01;
+-- 1. SQL 작성
+UPDATE DEPT01
+   SET DNAME = '인사',
+       LOC = '성남'
+  WHERE DEPTNO = 30;    
+-- 2. VO/DTO
+-- 3. 메서드
+/*
+public int updateDept01(Dept upt){
+	int uptCnt = 0;
+	String sql = "UPDATE DEPT01
+   					SET DNAME = ?,
+       				LOC = ?
+  				WHERE DEPTNO = ? ";
+	return uptCnt;
+}
+ * */
+
+
+
+
 
 
 

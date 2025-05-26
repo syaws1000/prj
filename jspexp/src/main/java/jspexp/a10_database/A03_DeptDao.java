@@ -109,6 +109,39 @@ public class A03_DeptDao {
 		
 		return insCnt;
 	}
+	public int updateDept01(Dept upt){
+		int uptCnt = 0;
+		String sql = "UPDATE DEPT01\r\n"
+				+ "	 		SET DNAME = ?,\r\n"
+				+ "	    		LOC = ?\r\n"
+				+ "	  		WHERE DEPTNO = ? ";
+		
+		try( Connection con = DB.con();
+				 PreparedStatement pstmt = con.prepareStatement(sql);
+				){
+				con.setAutoCommit(false); // 자동 commit 방지
+				pstmt.setString(1, upt.getDname());
+				pstmt.setString(2, upt.getLoc());
+				pstmt.setInt(3, upt.getDeptno());
+				uptCnt = pstmt.executeUpdate(); 
+				if(uptCnt == 0) {
+					System.out.println("수정 실패"); // 등록시 실패시 원복
+					con.rollback();
+				}else {
+					System.out.println("수정 성공");  
+					con.commit();
+				}
+				// 등록 수행 후, 등록 건수 리턴..
+
+			}catch(SQLException e) {
+				System.out.println("DB처리 에러:"+e.getMessage());
+
+			}catch(Exception e) {
+				System.out.println("기타 에러:"+e.getMessage());
+			}		
+		return uptCnt;
+	}	
+	
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
 		// Emp(String ename, String job, int mgr, String hiredateStr, 
