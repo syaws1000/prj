@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="mgr">관리자번호</label>
-                <input type="text" class="form-control" id="mgr" name="mgr" placeholder="관리자번호 입력하세요" required>
+                <input type="number" class="form-control" id="mgr" name="mgr" placeholder="관리자번호 입력하세요" required>
             </div>
              <div class="form-group">
                 <label for="hiredateStr">입사일</label>
@@ -52,15 +52,15 @@
             </div>
              <div class="form-group">
                 <label for="sal">급여</label>
-                <input type="text" class="form-control" id="sal" name="sal" placeholder="급여 입력하세요" required>
+                <input type="number" class="form-control" id="sal" name="sal" placeholder="급여 입력하세요" required>
             </div>
              <div class="form-group">
                 <label for="comm">보너스</label>
-                <input type="text" class="form-control" id="comm" name="comm" placeholder="보너스 입력하세요" required>
+                <input type="number" class="form-control" id="comm" name="comm" placeholder="보너스 입력하세요" required>
             </div>
              <div class="form-group">
                 <label for="deptno">부서번호</label>
-                <input type="text" class="form-control" id="deptno" name="deptno" placeholder="부서번호 입력하세요" required>
+                <input type="number" class="form-control" id="deptno" name="deptno" placeholder="부서번호 입력하세요" required>
             </div>
             <button type="submit" class="btn btn-primary">등록</button>
             <button type="button" class="btn btn-success"

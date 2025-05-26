@@ -23,7 +23,14 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		/*
+	    <button class="btn btn-success" id="regBtn"
+	        type="button">등록</button>		
+		*/
+		$("#regBtn").click(()=>{
+			alert("사원정보 등록")
+			location.href="a21_empInsert.jsp";
+		})
 	});
 </script>
 </head>
@@ -46,8 +53,7 @@
 	    <input placeholder="사원명" name="ename" value="${sch.ename}"  class="form-control mr-sm-2" />
 	    <input placeholder="직책명" name="job" value="${sch.job}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
+	    <button class="btn btn-success" id="regBtn"
 	        type="button">등록</button>
  	</nav>
 	</form>
