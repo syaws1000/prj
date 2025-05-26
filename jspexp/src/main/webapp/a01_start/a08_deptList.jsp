@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
-    import = "jspexp.a10_database.A02_EmpDao"
+    import = "jspexp.a10_database.A03_DeptDao"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -59,7 +59,7 @@
       </tr>
     </thead>	
     <%
-    A02_EmpDao dao = new A02_EmpDao();
+    A03_DeptDao dao = new A03_DeptDao();
     request.setAttribute("dList", dao.getDeptAll());
     %>
     <tbody>

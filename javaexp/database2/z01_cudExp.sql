@@ -26,10 +26,36 @@ class Emp10{
 
 public int insertEmp10(Emp ins){
 	int insCnt = 0;
-	String sql = "";
+	String sql = "INSERT INTO EMP10 VALUES(EMP10_SEQ.NEXTVAL, ?, ?, ?, TO_DATE(?,'YYYY-MM-DD'), ?,?,?)";
 	
 	return insCnt;
 }
  
  * * */
+SELECT * FROM FAMILY;  -- FAMILY_SEQ 생성.. START WITH 7
+CREATE SEQUENCE FAMILY_SEQ
+       START WITH 7;
+-- 1. SQL
+INSERT INTO FAMILY VALUES(FAMILY_SEQ.NEXTVAL, '홍길동',1);
+-- 2. DTO
+/*
+class Family
+	private int personId;
+	private String name;
+	private int parentId;
+	
+ * */
+-- 3. 메서드 기본 선언
+/*
+public int insertFamily(Family ins){
+	int insCnt = 0;
+	String sql = "INSERT INTO FAMILY VALUES(FAMILY_SEQ.NEXTVAL, ?,?)";
+	return insCnt;
+}
+ * */
+----------------------------------------------
+-- 4. TRY CATCH 복사 및 PSTMT 처리..
+-- 5. MAIN() 테스트  확인..
+
+
 
