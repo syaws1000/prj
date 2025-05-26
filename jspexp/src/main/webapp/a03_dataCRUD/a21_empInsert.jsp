@@ -21,9 +21,20 @@
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
+<jsp:useBean id="ins" class="jspexp.a10_database.dto.Emp"/>
+<jsp:setProperty name="ins" property="*"/>
+<jsp:useBean id="dao" class="jspexp.a10_database.A02_EmpDao"/>
+<c:if test="${not empty ins.ename}">
+	<c:set var="insCnt" value="${dao.insertEmp10(ins)}"/>
+</c:if>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let insCnt = "${insCnt}"
+		if(insCnt>0){
+			if(!confirm("등록성공\n계속등록하시겠습니까?")){
+				location.href="a19_empSchList.jsp";
+			}
+		}
 	});
 </script>
 </head>
