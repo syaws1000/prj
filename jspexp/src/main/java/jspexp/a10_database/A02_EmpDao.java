@@ -87,6 +87,7 @@ public class A02_EmpDao {
 		// 1. 연결
 		// 2. 대화
 		// 3. 결과
+		
 		// a19_empSchList.jsp  사원명:[    ] 직책:[    ]  [검색]
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
