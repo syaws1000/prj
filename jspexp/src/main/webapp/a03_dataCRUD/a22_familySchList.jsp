@@ -30,7 +30,7 @@
 	});
 </script>
 </head>
-<%--
+<%--    <button class="btn btn-success" type="button" id="regBtn">등록</button>
   1. 요청값 1개씩 확인
   <h3>${param.name}</h3>
   <h3>${param.pname}</h3>

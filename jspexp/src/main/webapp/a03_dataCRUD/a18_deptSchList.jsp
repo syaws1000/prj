@@ -25,7 +25,7 @@
 	$(document).ready(function(){
 		$("#regBtn").click(  ()=>{
 			alert("부서정보 등록 페이지 이동")
-			location.href="a20_deptInsert.jsp";	
+			location.href="a19_deptInsert.jsp";	
 		})
 	});
 </script>
