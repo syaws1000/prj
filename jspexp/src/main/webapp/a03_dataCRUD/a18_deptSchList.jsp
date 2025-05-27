@@ -65,10 +65,16 @@
     <jsp:setProperty property="*" name="sch"/>
     <tbody>
     	<c:forEach var="dept" items="${dao.getDeptSch(sch)}">
-    	<tr><td>${dept.deptno}</td><td>${dept.dname}</td><td>${dept.loc}</td></tr>
+    	<tr ondblclick="goPage(${dept.deptno})" >
+    		<td>${dept.deptno}</td><td>${dept.dname}</td><td>${dept.loc}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goPage(deptno){
+			location.href="a20_deptDetail.jsp?deptno="+deptno
+		}
+	</script>
     
 </div>
 </body>
