@@ -4,6 +4,7 @@ public class Family {
 	private int personId;
 	private String name;
 	private int parentId;
+	private String pname;
 	public Family() {
 		// TODO Auto-generated constructor stub
 	}
@@ -17,6 +18,14 @@ public class Family {
 		this.personId = personId;
 		this.name = name;
 		this.parentId = parentId;
+	}
+	
+
+	public Family(int personId, String name, int parentId, String pname) {
+		this.personId = personId;
+		this.name = name;
+		this.parentId = parentId;
+		this.pname = pname;
 	}
 
 	public int getPersonId() {
@@ -41,6 +50,14 @@ public class Family {
 
 	public void setParentId(int parentId) {
 		this.parentId = parentId;
+	}
+
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 	
 }
