@@ -2,12 +2,17 @@ package jspexp.a10_database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Family;
 
 public class A04_FamilyDao {
 
+	
 	
 	
 	
@@ -71,6 +76,39 @@ public class A04_FamilyDao {
 		return uptCnt;
 		
 	}	
+	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
+	public List<Family> getFamlySch(Family sch){
+		List<Family> list  = new ArrayList<Family>();
+		String sql = "SELECT * FROM DEPT01 "
+				+ "WHERE DNAME LIKE ? AND LOC LIKE ? "
+				+ "ORDER BY DEPTNO ";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+			// key word 검색에서 초기에는 데이터를 전체 출력하기 위해서 설정..
+			//if(sch.getDname()==null) sch.setDname("");
+			//if(sch.getLoc()==null) sch.setLoc("");
+			
+			//pstmt.setString(1, "%"+sch.getDname()+"%");
+			//pstmt.setString(2, "%"+sch.getLoc()+"%");
+			
+			try( ResultSet rs = pstmt.executeQuery() ){
+				while(rs.next()) { // 다중행일때, while 사용  
+					list.add(new Family());
+				}
+			}
+			
+			System.out.println("데이터 로딩 완료:"+list.size());
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+	
+		
+		
+		return list;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("# family 등록 #");
