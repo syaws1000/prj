@@ -10,6 +10,7 @@ import java.util.List;
 import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Emp;
 /*
+jspexp.a10_database.A03_DeptDao
 */ 
 public class A03_DeptDao {
 
@@ -194,7 +195,10 @@ public class A03_DeptDao {
 	}	
 	public static void main(String[] args) {
 		A03_DeptDao dao = new A03_DeptDao();
-		System.out.println("삭제 건수:"+dao.deleteDept01(82));
+		Dept d = dao.getDept(10);
+		System.out.println("#상세:"+d.getDname());
+		System.out.println("#상세:"+d.getLoc());
+		//System.out.println("삭제 건수:"+dao.deleteDept01(82));
 		//System.out.println("수정 건수:"+ dao.updateDept01(new Dept(30,"회계","서울")));
 		
 		
