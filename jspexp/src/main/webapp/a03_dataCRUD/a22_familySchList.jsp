@@ -23,7 +23,10 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(()=>{
+			alert("등록화면이동")
+			location.href="a23_familyInsert.jsp";
+		})
 	});
 </script>
 </head>
@@ -49,7 +52,7 @@
 	    <input placeholder="이름" name="name" value="${sch.name}" class="form-control mr-sm-2" />
 	    <input placeholder="부모이름" name="pname" value="${sch.pname}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" type="button">등록</button>
+	    <button class="btn btn-success" type="button" id="regBtn">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

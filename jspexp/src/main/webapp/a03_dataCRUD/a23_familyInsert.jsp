@@ -21,9 +21,24 @@
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
+<jsp:useBean id="ins" class="jspexp.a10_database.dto.Family"/>
+<jsp:setProperty property="*" name="ins"/>
+<jsp:useBean id="dao" class="jspexp.a10_database.A04_FamilyDao" />
+<c:if test="${not empty ins.name}">
+	<c:set var="insCnt" value="${dao.insertFamily(ins)}"/>
+</c:if>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		//let name = "${sch.name}"  // java코드 ==> javascript 코드
+		//if(name!="")
+		//	alert(name)
+		let insCnt = "${insCnt}"
+		if(insCnt>0){
+			if(!confirm("등록성공!!\n계속 등록하시겠습니까?")){
+				location.href="a22_familySchList.jsp";
+			}
+		}
+			
 	});
 </script>
 </head>
