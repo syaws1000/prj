@@ -27,46 +27,50 @@
 	});
 </script>
 </head>
-
+<%--
+  1. 요청값 1개씩 확인
+  <h3>${param.name}</h3>
+  <h3>${param.pname}</h3>
+  2. 요청값을 usebean으로 확인..
+  <h4>${f.name}</h4>
+  <h4>${f.pname}</h4>
+ --%>
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>가족정보</h2>
+  <h3>요청값 처리 연습</h3>
 
+  <jsp:useBean id="sch" class="jspexp.a10_database.dto.Family"/>
+  <jsp:setProperty property="*" name="sch"/>
 </div>
-<%-- 
-		
---%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="이름" name="name" value="${sch.name}" class="form-control mr-sm-2" />
+	    <input placeholder="부모이름" name="pname" value="${sch.pname}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <button class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>부모아이디</th>
+        <th>부모명</th>
       </tr>
     </thead>	
+    <jsp:useBean id="dao" class="jspexp.a10_database.A04_FamilyDao"/>
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="fa" items="${dao.getFamilySch(sch)}">
+    		<tr><td>${fa.personId}</td><td>${fa.name}</td>
+    			<td>${fa.parentId}</td><td>${fa.pname}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     

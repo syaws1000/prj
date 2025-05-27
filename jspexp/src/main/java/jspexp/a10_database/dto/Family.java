@@ -1,5 +1,5 @@
 package jspexp.a10_database.dto;
-
+// jspexp.a10_database.dto.Family
 public class Family {
 	private int personId;
 	private String name;

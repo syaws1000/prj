@@ -9,7 +9,7 @@ import java.util.List;
 
 import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Family;
-
+//jspexp.a10_database.A04_FamilyDao
 public class A04_FamilyDao {
 
 	
@@ -77,7 +77,7 @@ public class A04_FamilyDao {
 		
 	}	
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
-	public List<Family> getFamlySch(Family sch){
+	public List<Family> getFamilySch(Family sch){
 		List<Family> list  = new ArrayList<Family>();
 		String sql = "SELECT S.*, P.NAME PNAME \r\n"
 				+ "FROM FAMILY S, FAMILY P\r\n"
@@ -120,7 +120,7 @@ public class A04_FamilyDao {
 		System.out.println("수정건수:"+dao.updateFamily(new Family(7,"하길동",1)));
 		//int ins = dao.insertFamily(new Family("오길동", 1));
 		//System.out.println("등록건수:"+ins);
-		for(Family f:dao.getFamlySch(new Family("",""))) {
+		for(Family f:dao.getFamilySch(new Family("",""))) {
 			System.out.print(f.getPersonId()+"\t");
 			System.out.println(f.getName());
 		}
