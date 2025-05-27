@@ -41,8 +41,6 @@
 <body>
 <div class="jumbotron text-center">
   <h2>가족정보</h2>
-  <h3>요청값 처리 연습</h3>
-
   <jsp:useBean id="sch" class="jspexp.a10_database.dto.Family"/>
   <jsp:setProperty property="*" name="sch"/>
 </div>
