@@ -25,7 +25,8 @@
 <jsp:setProperty property="*" name="ins"/>
 <jsp:useBean id="dao" class="jspexp.a10_database.A04_FamilyDao" />
 <c:if test="${not empty ins.name}">
-	<c:set var="insCnt" value="${dao.insertFamily(ins)}"/>
+	<c:set var="insCnt" value="${dao.insertFamily(ins)}"/> 
+	<%-- ins(등록정보-name, parentId)로 데이터를 받아서 dao 메서드에 매개변수로 전달 --%>
 </c:if>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -35,6 +36,7 @@
 		let insCnt = "${insCnt}"
 		if(insCnt>0){
 			if(!confirm("등록성공!!\n계속 등록하시겠습니까?")){
+				// 취소를 클릭시, 전체 리스트 화면이동..
 				location.href="a22_familySchList.jsp";
 			}
 		}
