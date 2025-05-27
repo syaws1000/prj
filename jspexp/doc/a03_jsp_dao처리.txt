@@ -74,7 +74,25 @@
 					location.href="a18_deptSchList.jsp"
 				}
 			}
-	3) 상세화면
+	3) 상세화면(a20_deptDetail.jsp)
+		- 처리할 프로세스
+			행단위로 리스트 되어 있는 화면에서 특정한 행의 데이터를 클릭하면
+			해당 행의 키값인(deptno)정보와 함께 상세화면으로 이동한다.
+			location.href="a20_deptDetail.jsp?deptno="+deptno
+		 	
+		 	요청값을 받아서 상세데이터를 검색(DAO 기능메서드)
+			SELECT * FROM DEPT01 WHERE DEPTNO = ?
+			public Dept getDept(int deptno){
+				Dept d = null;
+				
+				return d;
+			}
+		 	화면에 value="${dept.deptno}" DB에서 받은 내용을 출력..
+		 	수정을 클릭시, 요청값 bean 받아서 수정 dao메서드에 매개변수로 전달.처리
+		 	삭제을 클릭시, 요청값 deptno 받아서 삭제 dao메서드에 매개변수로 전달.처리
+		 	
+	
+	
 		
 		
 		
