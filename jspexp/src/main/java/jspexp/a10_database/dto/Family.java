@@ -20,6 +20,11 @@ public class Family {
 		this.parentId = parentId;
 	}
 	
+	
+	public Family(String name, String pname) {
+		this.name = name;
+		this.pname = pname;
+	}
 
 	public Family(int personId, String name, int parentId, String pname) {
 		this.personId = personId;

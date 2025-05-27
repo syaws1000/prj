@@ -120,6 +120,10 @@ public class A04_FamilyDao {
 		System.out.println("수정건수:"+dao.updateFamily(new Family(7,"하길동",1)));
 		//int ins = dao.insertFamily(new Family("오길동", 1));
 		//System.out.println("등록건수:"+ins);
+		for(Family f:dao.getFamlySch(new Family("길동",""))) {
+			System.out.print(f.getPersonId()+"\t");
+			System.out.println(f.getName());
+		}
 
 	}
 
