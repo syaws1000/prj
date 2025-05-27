@@ -74,7 +74,11 @@
 					location.href="a18_deptSchList.jsp"
 				}
 			}
-			
+	3) 상세화면
+		
+		
+		
+				
 											
 # 사원정보 관리
 1. 관련 파일
