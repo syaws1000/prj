@@ -15,6 +15,7 @@ public class A03_DeptDao {
 
 	
 	
+	
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public List<Dept> getDeptAll(){
 		List<Dept> list  = new ArrayList<Dept>();
@@ -76,6 +77,29 @@ public class A03_DeptDao {
 		
 		
 		return list;
+	}
+
+	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
+	public Dept getDept(int deptno){
+		Dept d = null;
+		String sql = "SELECT * FROM DEPT01 WHERE DEPTNO = ? ";
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+			pstmt.setInt(1, deptno);
+			try( ResultSet rs = pstmt.executeQuery() ){
+				if(rs.next()) { // 다중행일때, while 사용  
+					d = new Dept(rs.getInt("DEPTNO"),
+								rs.getString("DNAME"),rs.getString("LOC"));
+				}
+			}
+			System.out.println("데이터 상세 완료:");
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}
+		return d;
 	}
 
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
