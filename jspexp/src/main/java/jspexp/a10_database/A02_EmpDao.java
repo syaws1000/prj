@@ -121,6 +121,7 @@ public class A02_EmpDao {
 	}
 
 	public int insertEmp10(Emp ins){
+		
 		int insCnt = 0;
 		String sql = "INSERT INTO EMP10 VALUES(EMP10_SEQ.NEXTVAL, ?, ?, ?, "
 				+ "TO_DATE(?,'YYYY-MM-DD'), ?,?,?)";

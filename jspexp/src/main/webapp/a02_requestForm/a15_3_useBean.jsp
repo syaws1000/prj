@@ -47,6 +47,10 @@
 	ex) 도서명(bkTitle), 가격(price), 저자(writer)로 요청값을 form으로 만들고 BookVO 객체로 useBean으로
 	처리되어 출력되게 하세요..
 
+
+	ex) 물건명(name), 가격(price), 구매자(buyer)..
+	    [   ]    [   ]  [    ]
+	    
 --%>
 <div class="container">
 	<form id="frm02" class="form"  method="post">
