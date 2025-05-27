@@ -76,6 +76,7 @@ public class A04_FamilyDao {
 		return uptCnt;
 		
 	}	
+	
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public List<Family> getFamilySch(Family sch){
 		List<Family> list  = new ArrayList<Family>();
@@ -83,7 +84,7 @@ public class A04_FamilyDao {
 				+ "FROM FAMILY S, FAMILY P\r\n"
 				+ "WHERE S.PARENT_ID  = P.PERSON_ID\r\n"
 				+ "AND S.NAME LIKE ?\r\n"
-				+ "AND P.NAME LIKE ? ";
+				+ "AND P.NAME LIKE ? ORDER BY S.PERSON_ID DESC";
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);
 			){
