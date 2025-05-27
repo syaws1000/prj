@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부서정보 상세</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f4f7fa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      max-width: 800px; /* Ensure the container doesn't stretch too much */
+      margin-top: 50px;
+    }
+
+    .dept-details {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .dept-details:hover {
+      transform: scale(1.02);
+    }
+
+    .dept-details h2 {
+      color: #007bff;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-size: 16px;
+      padding: 15px;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-size: 16px;
+      padding: 12px 25px;
+      border-radius: 6px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .back-btn {
+      color: #007bff;
+      font-size: 18px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      border-radius: 12px 12px 0 0;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card-footer {
+      background-color: #f8f9fa;
+      border-radius: 0 0 12px 12px;
+      padding: 15px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card dept-details">
+      <div class="card-header">
+        부서정보 상세
+      </div>
+
+      <!-- Form for editing department info -->
+      <div class="card-body">
+        <form action="/submit" method="POST">
+          <div class="form-group">
+            <label for="deptNo">부서번호</label>
+            <input type="text" class="form-control" id="deptNo" name="deptNo" value="10" readonly>
+          </div>
+          
+          <div class="form-group">
+            <label for="deptName">부서명</label>
+            <input type="text" class="form-control" id="deptName" name="deptName" value="IT" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">위치</label>
+            <input type="text" class="form-control" id="location" name="location" value="서울" required>
+          </div>
+
+          <div class="form-group">
+            <label for="manager">부서장</label>
+            <input type="text" class="form-control" id="manager" name="manager" value="John Doe" required>
+          </div>
+
+          <div class="form-group">
+            <label for="employees">직원수</label>
+            <input type="number" class="form-control" id="employees" name="employees" value="45" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">부서 설명</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">변경사항 저장</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card-footer">
+        <a href="/departments" class="back-btn"><i class="fas fa-arrow-left"></i> 부서 목록으로 돌아가기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+
+
+
+### 요청값 처리 단계별 문제
+
+1. **기본 요청값 처리**
+
+   * HTML form을 사용하여 사용자가 이름과 이메일을 입력하고 제출했을 때, JSP에서 이 값을 받아 출력하는 코드를 작성하세요.
+
+2. **useBean 활용**
+
+   * `useBean`을 사용하여 사용자가 입력한 이름과 이메일을 `User` 객체에 저장하고, 이 객체의 정보를 JSP에서 출력하는 코드를 작성하세요.
+
+### DAO 처리 단계별 문제
+
+1. **SQL 처리**
+
+   * `Employee` 테이블에서 직원의 이름, 부서명, 급여를 조회하는 SQL을 작성하세요.
+
+2. **기능 메서드 선언**
+
+   * `EmployeeDAO` 클래스에서 직원의 이름을 기준으로 데이터를 조회하는 메서드를 작성하세요. 메서드는 `List<Employee>` 형태로 결과를 반환해야 합니다.
+
+3. **try-catch 블럭 처리**
+
+   * 예외 처리를 포함한 코드에서 SQL 문장을 실행하는 예시를 작성하세요. `try-catch` 블럭을 사용하여 SQL 실행 중 발생할 수 있는 예외를 처리하는 방법을 보여주세요.
+
+### 요청, Bean과 DAO 연동 화면 구현 문제
+
+1. **Bean과 DAO 연동**
+
+   * 사용자가 입력한 이름을 `Employee` 객체의 이름 필드에 할당하고, 이를 `EmployeeDAO`를 사용하여 데이터베이스에 저장하는 코드를 작성하세요.
+
+2. **화면 구현**
+
+   * `Employee` 객체의 정보를 입력할 수 있는 HTML form을 만들고, 이를 JSP에서 처리하여 `EmployeeDAO`를 통해 데이터베이스에 저장하는 기능을 구현하세요.
+
+
+
+
+아래는 `Employee` 테이블 생성 및 예제 데이터를 입력하는 SQL 스크립트입니다.
+
+### 1. **Employee 테이블 생성 스크립트**
+
+```sql
+CREATE TABLE Employee (
+    emp_id NUMBER(6) PRIMARY KEY,  -- 직원 ID
+    emp_name VARCHAR2(50) NOT NULL, -- 직원 이름
+    department VARCHAR2(50),        -- 부서명
+    salary NUMBER(10, 2),           -- 급여
+    hire_date DATE,                 -- 입사일
+    email VARCHAR2(100)             -- 이메일
+);
+```
+
+### 2. **예제 데이터 입력 스크립트**
+
+```sql
+INSERT INTO Employee (emp_id, emp_name, department, salary, hire_date, email) 
+VALUES (1, 'John Doe', 'IT', 60000, TO_DATE('2020-01-15', 'YYYY-MM-DD'), 'john.doe@example.com');
+
+INSERT INTO Employee (emp_id, emp_name, department, salary, hire_date, email) 
+VALUES (2, 'Jane Smith', 'HR', 50000, TO_DATE('2019-05-21', 'YYYY-MM-DD'), 'jane.smith@example.com');
+
+INSERT INTO Employee (emp_id, emp_name, department, salary, hire_date, email) 
+VALUES (3, 'Michael Johnson', 'Finance', 70000, TO_DATE('2018-10-10', 'YYYY-MM-DD'), 'michael.johnson@example.com');
+
+INSERT INTO Employee (emp_id, emp_name, department, salary, hire_date, email) 
+VALUES (4, 'Emily Davis', 'Marketing', 45000, TO_DATE('2021-08-11', 'YYYY-MM-DD'), 'emily.davis@example.com');
+
+INSERT INTO Employee (emp_id, emp_name, department, salary, hire_date, email) 
+VALUES (5, 'David Brown', 'Sales', 55000, TO_DATE('2020-07-30', 'YYYY-MM-DD'), 'david.brown@example.com');
+```
+
+### 3. **데이터 조회 예시 (확인용)**
+
+```sql
+SELECT * FROM Employee;

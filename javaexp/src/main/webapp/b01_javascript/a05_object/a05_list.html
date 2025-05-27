@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부서 목록</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f4f7fa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .dept-list-table {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .dept-list-table h2 {
+      color: #007bff;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-size: 16px;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .back-btn {
+      color: #007bff;
+      font-size: 18px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="dept-list-table">
+      <h2>부서 목록</h2>
+      
+      <!-- Table displaying department list -->
+      <table>
+        <thead>
+          <tr>
+            <th>부서번호</th>
+            <th>부서명</th>
+            <th>위치</th>
+            <th>부서장</th>
+            <th>직원수</th>
+            <th>상세보기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Sample Data - Replace with dynamic data from the database -->
+          <tr>
+            <td>10</td>
+            <td>IT</td>
+            <td>서울</td>
+            <td>John Doe</td>
+            <td>45</td>
+            <td><a href="/dept-details?id=10" class="btn btn-primary">상세보기</a></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>HR</td>
+            <td>부산</td>
+            <td>Jane Smith</td>
+            <td>30</td>
+            <td><a href="/dept-details?id=20" class="btn btn-primary">상세보기</a></td>
+          </tr>
+          <!-- Add more rows dynamically here -->
+        </tbody>
+      </table>
+
+      <!-- Back Button -->
+      <div class="text-center">
+        <a href="/home" class="back-btn"><i class="fas fa-arrow-left"></i> 홈으로 돌아가기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
