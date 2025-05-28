@@ -41,6 +41,7 @@ public class A03_DeptDao {
 
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public List<Dept> getDeptSch(Dept sch){
+		
 		List<Dept> list  = new ArrayList<Dept>();
 		String sql = "SELECT * FROM DEPT01 "
 				+ "WHERE DNAME LIKE ? AND LOC LIKE ? "

@@ -5,14 +5,17 @@
 2. 핵심 내장 객체들의 기능과 메서드
 	1) Connection : 데이터베이스 서버에 연결을 처리하는 객체
 	2) PreparedStatement : 데이터베이스의 sql에 ?(매개값)을 mapping하여 수행하는 객체
+		pstmt.setXXX(1, XXX);
 	3) ResultSet : 결과값을 받는 객체
+		rs.next()
+		rs.getXXX("컬럼명")
 3. 단계별 처리내용
 	아래 내용을 데이터베이스에서 SELECT 문의 결과를 내용으로 단계별로 처리하는 것을 말한다.
-	1) 1행1열 결과
-	2) 다수행1열 결과
-	3) 1행다수열 결과
-	4) 다수행다수열 결과
-	5) 데이터 등록/수정/삭제 처리..
+	1) 1행1열 결과  SELECT COUNT(*) FROM EMP;
+	2) 다수행1열 결과 SELECT ENAME  FROM EMP;
+	3) 1행다수열 결과 SELECT * FROM EMP WHERE EMPNO = ?
+	4) 다수행다수열 결과  SELECT * FROM EMP;
+	5) 데이터 등록/수정/삭제 처리..	INSERT INTO EMP VALUES(.....);
 4. DAO 기능메서드 구현 순서
 	1) SQL 작성
 	2) SQL의 입력값과 결과값이 무엇인지 파악
