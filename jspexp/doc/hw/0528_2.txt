@@ -1,0 +1,475 @@
+### 주관식 개념 문제 10문제:
+
+1. **JSP에서 `<jsp:useBean>` 태그의 역할은 무엇인가요?**
+2. **`session scope`와 `request scope`의 차이점에 대해 설명해주세요.**
+3. **`<c:set>` 태그는 JSP에서 어떤 역할을 하나요?**
+4. **`<c:if>` 태그를 사용할 때, 조건이 true일 경우에 어떤 처리가 이루어지나요?**
+5. **`<jsp:setProperty>` 태그의 용도는 무엇인가요?**
+6. **JSP에서 `session` 객체는 무엇을 저장할 수 있으며, 어떤 범위에서 유효한가요?**
+7. **`<c:choose>`와 `if-else` 문을 비교했을 때, 각각의 장단점에 대해 설명해주세요.**
+8. **`<form>` 태그의 method 속성에서 `post`와 `get`의 차이를 설명해주세요.**
+9. **JSP에서 `scope` 속성이 `application`, `session`, `page`, `request`에 각각 설정될 때의 특징을 설명해주세요.**
+
+
+### 재미있는 이야기 기반 실습문제 5문제 
+
+1. **"슈퍼마켓 쇼핑 리스트" 이야기:**
+
+   * 슈퍼마켓에서 고객이 구매하려는 상품 목록을 입력합니다. 각 상품에는 이름, 가격, 수량이 포함됩니다. 사용자는 "상품 추가" 버튼을 눌러 새로운 상품을 추가하고, "상품 삭제" 버튼으로 선택한 상품을 삭제합니다. 추가된 후, 해당 상품 목록을 확인하고 성공적으로 업데이트된 목록을 화면에 표시하세요. (상황: 고객이 `사과`, `바나나`, `치킨`을 구매하려고 함)
+
+2. **"영화관 좌석 예약" 이야기:**
+
+   * 영화관에서 사용자들이 좌석을 예약하려고 합니다. 영화명, 상영 시간, 좌석 번호를 입력받고, 좌석 예약을 성공적으로 완료한 후 "예약 완료" 메시지를 표시하고, 전체 예약 좌석 리스트를 화면에 보여줍니다. 만약 이미 예약된 좌석을 예약하려고 하면 "이미 예약된 좌석입니다"라는 메시지가 나타납니다. (상황: `영화관 좌석 예약`)
+
+3. **"도서관 책 대출" 이야기:**
+
+   * 도서관에서 회원이 책을 대출하고자 합니다. 각 책에는 제목, 대출 기간, 대출자가 포함됩니다. 사용자가 "대출하기" 버튼을 눌러 책을 대출하고, 대출된 책 목록을 확인할 수 있도록 합니다. 대출된 책의 목록은 "대출된 책" 버튼을 통해 출력됩니다. (상황: `책 제목`, `대출자 이름`, `대출 기간`)
+
+### 주관식 개념 문제 10문제 (정답 포함):
+
+1. **JSP에서 `<jsp:useBean>` 태그의 역할은 무엇인가요?**
+
+   * `<jsp:useBean>` 태그는 JSP 페이지에서 자바 객체(빈 객체)를 생성하거나, 이미 생성된 객체를 사용할 수 있도록 해줍니다. 이 태그를 사용하여 JSP에서 자바빈을 설정하고, 객체의 프로퍼티 값을 설정하거나 가져오는 데 사용됩니다.
+
+2. **`session scope`와 `request scope`의 차이점에 대해 설명해주세요.**
+
+   * `session scope`는 클라이언트가 웹 애플리케이션을 사용하는 동안 유효한 범위로, 세션이 유지되는 동안 데이터를 저장할 수 있습니다. 사용자가 브라우저를 닫으면 세션이 종료됩니다.
+   * `request scope`는 하나의 HTTP 요청에 대해서만 유효하며, 요청이 끝나면 데이터가 소멸합니다. 즉, 요청이 처리되는 동안만 유효한 범위입니다.
+
+3. **`<c:set>` 태그는 JSP에서 어떤 역할을 하나요?**
+
+   * `<c:set>` 태그는 값을 설정하는 데 사용됩니다. 이 값은 `page`, `request`, `session`, `application` 스코프에 저장할 수 있으며, 지정된 `scope` 속성에 따라 데이터를 저장합니다.
+
+4. **`<c:if>` 태그를 사용할 때, 조건이 true일 경우에 어떤 처리가 이루어지나요?**
+
+   * `<c:if>` 태그는 조건이 true일 때만 내부의 내용을 실행합니다. 조건이 false일 경우에는 아무 동작도 하지 않습니다. 조건을 만족하는 경우에만 해당 부분이 렌더링됩니다.
+
+5. **`<jsp:setProperty>` 태그의 용도는 무엇인가요?**
+
+   * `<jsp:setProperty>` 태그는 자바빈 객체의 프로퍼티 값을 설정하는 데 사용됩니다. 이를 통해 폼 데이터나 다른 데이터를 자바 빈의 속성에 할당할 수 있습니다.
+
+6. **`<jsp:forward>`와 `<jsp:redirect>`의 차이점에 대해 설명해주세요.**
+
+   * `<jsp:forward>`는 서버 내부에서 페이지를 이동하는 방식으로, 클라이언트는 변경된 URL을 알 수 없습니다. 서버는 요청을 다른 페이지로 전달하지만 클라이언트는 이를 모릅니다.
+   * `<jsp:redirect>`는 클라이언트에게 새로운 URL을 요청하게 하여 페이지를 이동합니다. 클라이언트는 새로 요청된 URL을 알게 되며, 브라우저 주소창에 새 URL이 표시됩니다.
+
+7. **JSP에서 `session` 객체는 무엇을 저장할 수 있으며, 어떤 범위에서 유효한가요?**
+
+   * `session` 객체는 클라이언트와 관련된 데이터를 저장할 수 있으며, 예를 들어 로그인 정보, 사용자 설정 등을 저장합니다. `session` 범위는 사용자가 웹 애플리케이션을 사용하는 동안 유효합니다.
+
+8. **`<c:choose>`와 `if-else` 문을 비교했을 때, 각각의 장단점에 대해 설명해주세요.**
+
+   * `<c:choose>`는 여러 조건을 순차적으로 검사하고, 해당하는 조건이 true일 때 실행되는 방식으로 여러 조건을 처리할 수 있습니다. `if-else` 문은 조건이 하나일 때 간단하고 직관적으로 사용할 수 있습니다. `<c:choose>`는 많은 조건을 처리할 때 유리하고, `if-else`는 간단한 조건에 적합합니다.
+
+9. **`<form>` 태그의 method 속성에서 `post`와 `get`의 차이를 설명해주세요.**
+
+   * `get`은 데이터를 URL에 포함시켜 전송하며, 데이터 크기에 제한이 있습니다. URL에 파라미터가 그대로 나타나기 때문에 보안에 취약합니다.
+   * `post`는 데이터를 HTTP 본문에 포함시켜 전송하며, 데이터 크기 제한이 거의 없습니다. 보안 면에서 `get`보다 안전합니다.
+
+10. **JSP에서 `scope` 속성이 `application`, `session`, `page`, `request`에 각각 설정될 때의 특징을 설명해주세요.**
+
+* `application` scope는 애플리케이션 전체에서 유효하며, 모든 클라이언트에서 공유됩니다.
+* `session` scope는 사용자가 세션을 유지하는 동안 유효하며, 각 클라이언트에 대해 고유합니다.
+* `page` scope는 페이지 내에서만 유효하며, 페이지가 렌더링되는 동안만 사용 가능합니다.
+* `request` scope는 하나의 요청에 대해서만 유효하며, 요청이 끝나면 데이터가 소멸됩니다.
+
+---
+
+### 재미있는 이야기 기반 실습문제 5문제 (정답 포함):
+
+1. **"슈퍼마켓 쇼핑 리스트" 이야기:**
+
+   * **문제:** 슈퍼마켓에서 고객이 구매하려는 상품 목록을 입력합니다. 각 상품에는 이름, 가격, 수량이 포함됩니다. 사용자는 "상품 추가" 버튼을 눌러 새로운 상품을 추가하고, "상품 삭제" 버튼으로 선택한 상품을 삭제합니다. 추가된 후, 해당 상품 목록을 확인하고 성공적으로 업데이트된 목록을 화면에 표시하세요.
+   * **정답:** 상품 목록을 `HTML` 테이블 형식으로 표시하고, `JavaScript`로 `add`와 `remove` 버튼을 구현하여 목록을 수정할 수 있습니다. `AJAX`를 사용하여 서버와 데이터를 주고받으며, 업데이트된 목록을 동적으로 표시할 수 있습니다.
+
+2. **"영화관 좌석 예약" 이야기:**
+
+   * **문제:** 영화관에서 사용자들이 좌석을 예약하려고 합니다. 영화명, 상영 시간, 좌석 번호를 입력받고, 좌석 예약을 성공적으로 완료한 후 "예약 완료" 메시지를 표시하고, 전체 예약 좌석 리스트를 화면에 보여줍니다. 만약 이미 예약된 좌석을 예약하려고 하면 "이미 예약된 좌석입니다"라는 메시지가 나타납니다.
+   * **정답:** 예약된 좌석은 `Array`나 `List`로 저장하고, 사용자가 선택한 좌석이 이미 예약되었는지 확인합니다. 예약이 가능하면 좌석 정보를 `database`나 `session`에 저장하고, 예약 완료 메시지를 표시합니다.
+
+3. **"도서관 책 대출" 이야기:**
+
+   * **문제:** 도서관에서 회원이 책을 대출하고자 합니다. 각 책에는 제목, 대출 기간, 대출자가 포함됩니다. 사용자가 "대출하기" 버튼을 눌러 책을 대출하고, 대출된 책 목록을 확인할 수 있도록 합니다. 대출된 책의 목록은 "대출된 책" 버튼을 통해 출력됩니다.
+   * **정답:** `HTML` 폼에서 책 정보를 입력받고, `JavaScript`로 대출 버튼을 눌렀을 때 대출된 책 정보를 목록으로 출력합니다. 이 목록은 `session`에 저장되어 나중에 확인할 수 있습니다.
+
+4. **"동물 보호소 입양" 이야기:**
+
+   * **문제:** 동물 보호소에서 입양할 수 있는 동물 목록을 보여줍니다. 각 동물에는 이름, 나이, 품종이 포함됩니다. 사용자는 동물을 입양할 수 있는 버튼을 눌러 선택한 동물을 입양하고, 성공적으로 입양된 동물 목록을 출력합니다.
+   * **정답:** `HTML` 테이블에 입양 가능한 동물들을 나열하고, 동물 선택 후 입양 버튼을 누르면 `AJAX`로 선택한 동물이 입양 리스트에 추가됩니다.
+
+5. **"레스토랑 메뉴 주문" 이야기:**
+
+   * **문제:** 레스토랑에서 고객이 메뉴를 주문합니다. 메뉴 항목에는 음식명, 가격, 수량이 포함됩니다. 사용자가 "주문하기" 버튼을 클릭하여 선택한 음식을 주문하고, 주문 내역을 보여주는 목록을 화면에 출력합니다. 주문 내역을 성공적으로 확인한 후 "주문 완료" 메시지를 표시합니다.
+   * **정답:** `HTML`에서 메뉴 목록을 표시하고, 고객이 선택한 음식을 `JavaScript`를 사용하여 `order` 배열에 추가합니다. 주문 내역을 화면에 동적으로 표시하고, "주문 완료" 메시지를 출력합니다.
+
+   
+### 1. **"슈퍼마켓 쇼핑 리스트" 이야기:**
+
+**HTML, CSS, JavaScript 코드:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈퍼마켓 쇼핑 리스트</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>슈퍼마켓 쇼핑 리스트</h2>
+    
+    <form id="shoppingForm">
+        <label for="item">상품명:</label>
+        <input type="text" id="item" name="item" required><br><br>
+        <label for="price">가격:</label>
+        <input type="number" id="price" name="price" required><br><br>
+        <label for="quantity">수량:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        <button type="submit">상품 추가</button>
+    </form>
+
+    <h3>구매 목록:</h3>
+    <table id="shoppingList">
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>총액</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('shoppingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const item = document.getElementById('item').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const total = price * quantity;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item}</td>
+                <td>${price}</td>
+                <td>${quantity}</td>
+                <td>${total}</td>
+                <td><button class="deleteBtn">삭제</button></td>
+            `;
+
+            document.querySelector('#shoppingList tbody').appendChild(row);
+
+            // 입력 필드 초기화
+            document.getElementById('item').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('quantity').value = '';
+        });
+
+        // 삭제 버튼 이벤트
+        document.querySelector('#shoppingList').addEventListener('click', function(event) {
+            if (event.target.classList.contains('deleteBtn')) {
+                event.target.closest('tr').remove();
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### 2. **"영화관 좌석 예약" 이야기:**
+
+**HTML, CSS, JavaScript 코드:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화관 좌석 예약</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .reserved {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>영화관 좌석 예약</h2>
+    <table id="seatTable">
+        <thead>
+            <tr>
+                <th>좌석</th>
+                <th>상영 시간</th>
+                <th>예약</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>10:00</td>
+                <td><button class="reserveBtn">예약</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>10:00</td>
+                <td><button class="reserveBtn">예약</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>10:00</td>
+                <td><button class="reserveBtn">예약</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelector('#seatTable').addEventListener('click', function(event) {
+            if (event.target.classList.contains('reserveBtn')) {
+                const row = event.target.closest('tr');
+                if (!row.classList.contains('reserved')) {
+                    row.classList.add('reserved');
+                    event.target.textContent = '예약됨';
+                    alert('예약 완료');
+                } else {
+                    alert('이미 예약된 좌석입니다.');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### 3. **"도서관 책 대출" 이야기:**
+
+**HTML, CSS, JavaScript 코드:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서관 책 대출</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>도서관 책 대출</h2>
+    <form id="loanForm">
+        <label for="bookTitle">책 제목:</label>
+        <input type="text" id="bookTitle" required><br><br>
+        <label for="loaner">대출자:</label>
+        <input type="text" id="loaner" required><br><br>
+        <button type="submit">대출하기</button>
+    </form>
+
+    <h3>대출된 책 목록:</h3>
+    <table id="loanList">
+        <thead>
+            <tr>
+                <th>책 제목</th>
+                <th>대출자</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const bookTitle = document.getElementById('bookTitle').value;
+            const loaner = document.getElementById('loaner').value;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${bookTitle}</td><td>${loaner}</td>`;
+            document.querySelector('#loanList tbody').appendChild(row);
+
+            // 입력 필드 초기화
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('loaner').value = '';
+        });
+    </script>
+</body>
+</html>
+```
+
+### 4. **"동물 보호소 입양" 이야기:**
+
+**HTML, CSS, JavaScript 코드:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물 보호소 입양</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>동물 보호소 입양</h2>
+    <form id="adoptForm">
+        <label for="animalName">동물 이름:</label>
+        <input type="text" id="animalName" required><br><br>
+        <label for="age">나이:</label>
+        <input type="number" id="age" required><br><br>
+        <label for="breed">품종:</label>
+        <input type="text" id="breed" required><br><br>
+        <button type="submit">입양하기</button>
+    </form>
+
+    <h3>입양된 동물 목록:</h3>
+    <table id="adoptedAnimals">
+        <thead>
+            <tr>
+                <th>동물 이름</th>
+                <th>나이</th>
+                <th>품종</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('adoptForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const animalName = document.getElementById('animalName').value;
+            const age = document.getElementById('age').value;
+            const breed = document.getElementById('breed').value;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${animalName}</td><td>${age}</td><td>${breed}</td>`;
+            document.querySelector('#adoptedAnimals tbody').appendChild(row);
+
+            // 입력 필드 초기화
+            document.getElementById('animalName').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('breed').value = '';
+        });
+    </script>
+</body>
+</html>
+```
+
+### 5. **"레스토랑 메뉴 주문" 이야기:**
+
+**HTML, CSS, JavaScript 코드:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레스토랑 메뉴 주문</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>레스토랑 메뉴 주문</h2>
+    <form id="orderForm">
+        <label for="dishName">음식명:</label>
+        <input type="text" id="dishName" required><br><br>
+        <label for="price">가격:</label>
+        <input type="number" id="price" required><br><br>
+        <label for="quantity">수량:</label>
+        <input type="number" id="quantity" required><br><br>
+        <button type="submit">주문하기</button>
+    </form>
+
+    <h3>주문 내역:</h3>
+    <table id="orderList">
+        <thead>
+            <tr>
+                <th>음식명</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>총액</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const dishName = document.getElementById('dishName').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const total = price * quantity;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${dishName}</td><td>${price}</td><td>${quantity}</td><td>${total}</td>`;
+            document.querySelector('#orderList tbody').appendChild(row);
+
+            // 입력 필드 초기화
+            document.getElementById('dishName').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('quantity').value = '';
+        });
+    </script>
+</body>
+</html>
+```
+
+   
