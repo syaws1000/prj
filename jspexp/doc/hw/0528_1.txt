@@ -1,7 +1,7 @@
 1. `A03_DeptDao` 클래스에서 부서 상세정보를 조회하는 메서드는?
 
    * A. `getDeptList()`
-   * B. `getDept(int deptno)`
+   # B. `getDept(int deptno)`
    * C. `searchDept()`
    * D. `selectDeptAll()`
 
@@ -9,20 +9,20 @@
 
    * A. `<c:forEach>`
    * B. `<c:set>`
-   * C. `<jsp:useBean>` 및 `<jsp:setProperty>`
+   # C. `<jsp:useBean>` 및 `<jsp:setProperty>`
    * D. `<jsp:forward>`
 
 3. `insertDept()` 메서드 수행 후 `con.commit()`이 호출되는 조건은?
-
+	pstmt.executeUpdate();  등록/수정/삭제 건수 리턴..
    * A. 등록 건수가 0일 때
-   * B. 등록 건수가 1 이상일 때
+   # B. 등록 건수가 1 이상일 때
    * C. 등록이 실패했을 때
    * D. 항상 자동 실행된다
 
 4. 다음 중 부서 삭제 처리에 사용하는 메서드는?
 
    * A. `removeDept(int no)`
-   * B. `deleteDept01(int deptno)`
+   ㅠ B. `deleteDept01(int deptno)`
    * C. `deleteDeptByName(String name)`
    * D. `dropDept(Dept d)`
 
@@ -30,27 +30,38 @@
 
    * A. HTML 코드 자동 생성
    * B. JSP 태그 반복 처리
-   * C. SQL 문 실행 및 매개변수 바인딩
+   # C. SQL 문 실행 및 매개변수 바인딩
+   	    sql = "SELECT * FROM EMP WHERE ENAME LIKE ?"
+   	    pstmt.setString(1, "%"+sch.getEname+"%");
    * D. 클라이언트 데이터 검증
 
 6. `<c:if test="${param.proc=='upt'}">` 구문은 어떤 상황을 처리하기 위한 것인가?
-
+	상제화면에서 수정/삭제 프로세스가 같이 있을 때, dao에 수정/삭제 구분..
    * A. 등록 처리
    * B. 삭제 처리
-   * C. 수정 처리
+   # C. 수정 처리
    * D. 조회 처리
 
 7. `<jsp:setProperty property="*" name="ins"/>` 태그에서 `"*"`의 의미는?
 
+	<jsp:useBean> ===> 객체 생성.
+	<jsp:setProperty property="*" name="ins"/> ==> 요청값 객체에 할당.
+
+
    * A. 전체 요청값을 무시
    * B. 특정 필드만 수동 설정
-   * C. VO의 모든 필드에 해당되는 요청값을 자동으로 할당
+   # C. VO의 모든 필드에 해당되는 요청값을 자동으로 할당
    * D. 아무런 동작을 하지 않음
 
 8. 부서 상세화면에서 특정 행을 클릭하면 어떤 방식으로 상세페이지로 이동하는가?
-
+	<tr ondblclick="goPage(${dept.deptno})">  행단위로 더블 클릭시, 키값을 deptno 전달
+	
+	function goPage(deptno){
+		location.href="deptDetail.jsp?deptno="+deptno;
+	}	
+	
    * A. form submit
-   * B. location.href로 쿼리스트링 전달
+   # B. location.href로 쿼리스트링 전달
    * C. AJAX 비동기 호출
    * D. iframe 삽입
 
@@ -58,12 +69,12 @@
 
    * A. `dao`
    * B. `dept`
-   * C. `insCnt`
+   # C. `insCnt`
    * D. `result`
 
 10. `updateDept01()` 메서드는 어떤 조건에서 `rollback()`을 수행하는가?
 
-    * A. 수정된 행이 없을 때
+    # A. 수정된 행이 없을 때
     * B. 모든 데이터가 수정되었을 때
     * C. 수정된 행이 1개일 때
     * D. 데이터베이스 연결 실패 시
@@ -71,35 +82,37 @@
 11. JSP에서 DAO 객체를 선언하고 사용할 때 적절한 코드는?
 
     * A. `<jsp:scriptlet class="A03_DeptDao" />`
-    * B. `<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>`
+    # B. `<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>`
+    	  객체만 만들때.. 요청값을 객체에 넣을 때만, <jsp:setProperty>
     * C. `<dao:loadBean class="A03_DeptDao"/>`
     * D. `<bean:define id="dao" class="A03_DeptDao"/>`
 
 12. 부서정보를 화면에 반복 출력할 때 사용하는 JSTL 태그는?
 
     * A. `<c:repeat>`
-    * B. `<c:forEach>`
+    # B. `<c:forEach>`
     * C. `<c:loop>`
     * D. `<c:iterator>`
 
 13. `insertDept()` 메서드 내에서 `con.setAutoCommit(false)`의 목적은?
-
+	commit : 트랜젝션 확정..명시적으로 처리하기 위해.. 자동 commit을 방지 처리..
+	rollback : 데이터 입력/수정/삭제시 원복 처리..(commit 하기전까지)
     * A. 자동으로 트랜잭션을 종료하기 위해
     * B. 여러 건의 insert를 동시에 하기 위해
-    * C. 수동으로 commit/rollback 제어를 하기 위해
+    # C. 수동으로 commit/rollback 제어를 하기 위해
     * D. SQL 구문 자동완성 기능을 위해
 
 14. JSP에서 등록 후 리스트 화면으로 이동하는 JavaScript 조건은?
-
+	let intCnt = "${intCnt}"  ==> java(el)코드와 javascript 코드를 연결처리..
     * A. `if(insCnt<0)`
     * B. `if(insCnt==0)`
-    * C. `if(insCnt>0)`
+    # C. `if(insCnt>0)`
     * D. `if(insCnt!="0")`
 
 15. DAO에서 ResultSet 객체를 닫기 위해 사용한 Java의 문법은?
-
+	try(...)  이 매개변수에 선언된 DB 객체들을 자동 메모리해제
     * A. try-finally 문
     * B. AutoCloseable 인터페이스 구현
-    * C. try-with-resources 문
+    # C. try-with-resources 문
     * D. Manual resource handling
 
