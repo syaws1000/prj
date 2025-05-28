@@ -56,6 +56,7 @@ public class A03_DeptDao {
 			if(sch.getDname()==null) sch.setDname("");
 			if(sch.getLoc()==null) sch.setLoc("");
 			
+			
 			pstmt.setString(1, "%"+sch.getDname()+"%");
 			pstmt.setString(2, "%"+sch.getLoc()+"%");
 			

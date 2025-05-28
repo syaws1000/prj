@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import jspexp.a01_vo.Order;
-import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Emp;
+
 
 /*
 import = "jspexp.a10_database.A02_EmpDao"
@@ -20,6 +19,7 @@ import = "jspexp.a10_database.dto.Emp"
 
  */
 public class A02_EmpDao {
+	
 	
 	
 	
@@ -188,6 +188,7 @@ public class A02_EmpDao {
 		return delCnt;
 	}
 
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_EmpDao dao = new A02_EmpDao();
