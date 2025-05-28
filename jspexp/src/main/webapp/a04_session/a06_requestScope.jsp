@@ -30,30 +30,14 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>request범위 설정</h2>
-  <c:set var="var01" value="페이지범위"  scope="page"/>
-  <c:set var="var02" value="요청범위"  scope="request"/>
-  <c:set var="var03" value="세션범위"  scope="session"/>
-  <c:set var="var04" value="어플리케이션범위"  scope="application"/> 
+  <h2>이동된 페이지(request scope비교)</h2>
+  <h3>${var01}</h3>
+  <h3>${var02}</h3>
+  <h3>${var03}</h3>
+  <h3>${var04}</h3>
+
 </div>
-<%
-	// 현재 페이지가 호출되지 마자, request,response 객체를 가지고, a04_requestScope2.jsp 이동된다.
-	/// forward를 사용하면 기존 객체에 requst 범위 데이터를 넘겨주고, 현재 페이지를 유지 하면서
-	//      이동 페이지를 나타내지만
-	//  redirect를 사용하면 request 범위 데이터는 사라진다.
-	RequestDispatcher rd  = request.getRequestDispatcher("a04_requestScope2.jsp");
-	rd.forward(request, response);
-%>
 <%-- 
-# 페이지를 이동하는 방식
-1. 기본적으로 a href, location.href, response.sendRedirect()
-	등을 말 그대로 페이지를 기존 정보 상관없이 이동하는 것을 말한다.
-2. 기본 페이지에서 요청값과 함께, 이동하는 것을 forward 이동이라고 한다.
-	이 때는 해당 페이지가 가지고 있는 요청정보를 같이 이동한다.
-	이 요청 정보는 request.setAttribute()로 설정하면 다음 페이지에서도
-	가지고 있다..
-	==> 이 때, request 범위가 있을 때는 계속 유지 된다.
-	
 		
 --%>
 <div class="container">

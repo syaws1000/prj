@@ -37,12 +37,7 @@
   <c:set var="var04" value="어플리케이션범위"  scope="application"/> 
 </div>
 <%
-	// 현재 페이지가 호출되지 마자, request,response 객체를 가지고, a04_requestScope2.jsp 이동된다.
-	/// forward를 사용하면 기존 객체에 requst 범위 데이터를 넘겨주고, 현재 페이지를 유지 하면서
-	//      이동 페이지를 나타내지만
-	//  redirect를 사용하면 request 범위 데이터는 사라진다.
-	RequestDispatcher rd  = request.getRequestDispatcher("a04_requestScope2.jsp");
-	rd.forward(request, response);
+	response.sendRedirect("a06_requestScope.jsp");
 %>
 <%-- 
 # 페이지를 이동하는 방식
