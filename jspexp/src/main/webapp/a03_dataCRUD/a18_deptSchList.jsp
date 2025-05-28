@@ -36,9 +36,33 @@
   <h2>부서정보검색</h2>
 
 </div>
+<jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
 <%-- 
-		
+A03_DeptDao dao = new A03_DeptDao();		
 --%>
+<jsp:useBean id="sch" class="jspexp.a10_database.dto.Dept"/>
+<%--
+Dept sch = new Dept();
+ --%>
+<jsp:setProperty property="*" name="sch"/>
+<%--
+sch.setDname(request.getParameter("dname")); 
+// <input  name="dname"  입력 후 submit를 클릭시, 받는 내용
+sch.setLoc(request.getParameter("loc"));
+
+<c:forEach var="dept" items="${dao.getDeptSch(sch)}">
+  	<tr><td>${dept.deptno}</td>
+  		<td>${dept.dname}</td>
+  		<td>${dept.loc}</td></tr>
+
+for(Dept dept:dao.getDeptSch(sch)){
+	dept.getDeptno();
+	dept.getDname();
+	dept.getLoc();
+}  	
+  	
+ --%>
+ 
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -60,9 +84,7 @@
         <th>부서위치</th>
       </tr>
     </thead>	
-    <jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
-    <jsp:useBean id="sch" class="jspexp.a10_database.dto.Dept"/>
-    <jsp:setProperty property="*" name="sch"/>
+
     <tbody>
     	<c:forEach var="dept" items="${dao.getDeptSch(sch)}">
     	<tr ondblclick="goPage(${dept.deptno})" >
