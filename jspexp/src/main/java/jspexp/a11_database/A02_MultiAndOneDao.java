@@ -25,18 +25,19 @@ public class A02_MultiAndOneDao {
 					enames.add(rs.getString("ENAME"));
 				}
 			}
-			
 			System.out.println("데이터 로딩 완료:");
 		}catch(SQLException e) {
 			System.out.println("DB처리 에러:"+e.getMessage());
 		}catch(Exception e) {
 			System.out.println("기타 에러:"+e.getMessage());
 		}		
-		
-		
 		return enames;
 	}	
-	
+	public List<Double> getSalsByDeptno(int deptno){
+		List<Double> sals = new ArrayList<Double>();
+		String sql = "SELECT SAL FROM EMP10 WHERE DEPTNO = ?";
+		return sals;
+	}		
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_MultiAndOneDao dao = new A02_MultiAndOneDao();
