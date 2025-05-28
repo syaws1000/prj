@@ -110,7 +110,7 @@
     * D. `if(insCnt!="0")`
 
 15. DAO에서 ResultSet 객체를 닫기 위해 사용한 Java의 문법은?
-	try(...)  이 매개변수에 선언된 DB 객체들을 자동 메모리해제
+	try(...)  이 매개변수에 선언된 DB 객체들을 자동 메모리해제, 정상 처리시 commit, 문제 발생시 rollack
     * A. try-finally 문
     * B. AutoCloseable 인터페이스 구현
     # C. try-with-resources 문
