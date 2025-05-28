@@ -21,8 +21,32 @@
 </style>
 <jsp:useBean id="ins" class="jspexp.a10_database.dto.Dept"/>
 <jsp:setProperty property="*" name="ins"/>
+<%--
+name="deptno" value="10"
+name="dname" value="회계팀"
+name="loc" value="서울"
+<input type="submit" ==> 클릭..
+
+?deptno=10&dname=회계팀&loc=서울
+
+Dept ins = new Dept();
+ins.setDeptno(request.getParameter("deptno"));
+ins.setDname(request.getParameter("dname"));
+ins.setLoc(request.getParameter("loc"));
+
+ins : 입력값이 담겨진 Dept 객체 생성..
+
+int insCnt = dao.insertDept(ins) : Database에 등록 처리..
+
+javascript
+let insCnt = ${insCnt}
+if(insCnt>0){
+	alert("등록성공")
+}
+ --%>
+
 <jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
-<c:if test="${not empty ins.dname}">
+<c:if test="${not empty ins.dname}"><%-- 초기 입력값이 없는 화면과 입력 후, DB처리가 필요할 때를 구분.. --%>
  	<c:set var="insCnt" value="${dao.insertDept(ins)}" />
 </c:if>
 <script src="${path}/com/jquery-3.7.1.js"></script>

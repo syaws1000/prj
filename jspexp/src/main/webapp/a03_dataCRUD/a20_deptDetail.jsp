@@ -24,6 +24,9 @@
 <jsp:useBean id="dao" class="jspexp.a10_database.A03_DeptDao"/>
 <jsp:useBean id="d" class="jspexp.a10_database.dto.Dept"/>
 <jsp:setProperty property="*" name="d"/>
+
+
+
 <c:if test="${param.proc=='upt'}">
 	<c:set var="uptCnt" value="${dao.updateDept01(d)}"></c:set>
 </c:if>
@@ -45,8 +48,12 @@
 		// uptBtn delBtn mainBtn
 		$("#uptBtn").click(()=>{
 			if(confirm("수정하시겠습니까?")){
+				// <input type="hidden" name="proc" />
+				// 값을 변경해서 DAO 기능메서드를 선택적으로 처리할 때, 사용된다.
+				// 
+				
 				$("[name=proc]").val("upt")
-				$("form").submit()
+				$("form").submit() //<input type="submit" 클릭하는 것과 동일한 효과
 			}
 		})
 		$("#delBtn").click(()=>{
@@ -63,7 +70,11 @@
 </script>
 </head>
 <c:set var="dept" value="${dao.getDept(param.deptno)}"/>
-<%-- dao기능메서드 getDept에 매개변수로 요청값 deptno전송해서 결과값 검색된 dept를 받음.. --%>
+<%-- 
+Dept dept = dao.getDept(request.getParameter("deptno"));
+
+
+dao기능메서드 getDept에 매개변수로 요청값 deptno전송해서 결과값 검색된 dept를 받음.. --%>
 <body>
    <div class="jumbotron text-center">
         <h2>부서 상세(${param.deptno})</h2>
