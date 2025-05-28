@@ -36,6 +36,25 @@ public class A02_MultiAndOneDao {
 	public List<Double> getSalsByDeptno(int deptno){
 		List<Double> sals = new ArrayList<Double>();
 		String sql = "SELECT SAL FROM EMP10 WHERE DEPTNO = ?";
+
+
+
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+			pstmt.setInt(1, deptno);  // 매개변수의 type을 확인해서 변수와 함께 mapping ? 
+			try( ResultSet rs = pstmt.executeQuery() ){
+				while(rs.next()) { // 다중행.. 
+					sals.add(rs.getDouble("SAL"));
+				}
+			}
+			System.out.println("데이터 로딩 완료:");
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}			
+		
 		return sals;
 	}		
 	public static void main(String[] args) {

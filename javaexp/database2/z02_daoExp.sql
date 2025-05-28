@@ -67,6 +67,37 @@ public List<Double> getSalsByDeptno(int deptno){
 --	6) rs.next() : 행단위 커서 이동
 --	   rs.getXXX("컬럼명") : 열단위 컬럼과 타입 설정
 --	7) main() 결과 확인..
+/*
+# 단일행다중열..
+1. 다중열을 데이터가 여러가지 유형의 type이 하나의 행에 나오기에 이것을 담을 수 있자 자바의 유형은 객체형이다.
+  
+ * */
+SELECT * FROM DEPT01 WHERE DEPTNO = 20;
+-- 입력 : int deptno
+-- 출력 : 20	RESEARCH	DALLAS  ==> int deptno, String dname, String loc
+--      ==> class   private int deptno;
+--                  private String dname;
+--                  private String loc;
+--          class Dept
+SELECT * FROM STUDENTS WHERE STUDENT_ID =3;
+-- 입력 : int studentId 
+-- 출력 : int studnetId,  String studentName, String subject, int score
+/*
+class Student{
+	private int studnetId;
+	private String studentName;
+	private String subject;
+	private int score;
+}
+
+ * */
+SELECT * FROM MAGIC_ITEMS WHERE ITEM_ID=1;
+-- 입력 : int itemId
+-- 출력 : int itemId, String itemName, String itemType, String itemStatus, int itemPrice
+/*
+ * 
+ * */
+
 
 
 
