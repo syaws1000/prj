@@ -1,0 +1,122 @@
+## 🦁 동물원 동물 관리 시스템 - JSP & DAO 실습 시리즈
+
+**테이블 이름: `ZOO_ANIMALS`**
+
+---
+
+### ✅ 1단계: 테이블 설계 (동물 테이블 생성)
+
+**문제 1.** 아래 조건에 맞는 동물 테이블 `ZOO_ANIMALS`을 생성하세요.
+
+* `ANIMAL_ID`: 기본키, 숫자형
+* `NAME`: 동물 이름, 문자열 30자
+* `SPECIES`: 종(예: 사자, 기린 등), 문자열 20자
+* `AGE`: 나이, 숫자
+* `ZONE`: 동물이 있는 구역명 (예: A구역, B구역), 문자열 10자
+
+```sql
+CREATE TABLE ZOO_ANIMALS (
+  ANIMAL_ID NUMBER PRIMARY KEY,
+  NAME VARCHAR2(30),
+  SPECIES VARCHAR2(20),
+  AGE NUMBER,
+  ZONE VARCHAR2(10)
+);
+```
+
+---
+
+### ✅ 2단계: VO 클래스 만들기 (Java)
+
+**문제 2.** 아래 필드를 갖는 `Animal.java` 클래스를 만들고, 생성자, getter, setter를 정의하세요.
+
+```java
+private int animalId;
+private String name;
+private String species;
+private int age;
+private String zone;
+```
+
+---
+
+### ✅ 3단계: DAO 기능 메서드 설계
+
+**문제 3.** 다음 동작을 처리할 DAO 메서드를 선언하고 구현하세요:
+
+* 전체 리스트: `List<Animal> getAnimalList(Animal sch)`
+* 상세 조회: `Animal getAnimal(int animalId)`
+* 등록: `int insertAnimal(Animal ins)`
+* 수정: `int updateAnimal(Animal upt)`
+* 삭제: `int deleteAnimal(int animalId)`
+
+---
+
+### ✅ 4단계: 동물 등록 폼 만들기
+
+**문제 4.** `zooAnimalInsert.jsp` 파일에서 등록 form을 구성하고, 입력값을 VO에 할당하세요.
+
+입력 항목:
+
+* 동물이름
+* 종(SPECIES)
+* 나이
+* 위치구역
+
+> 등록 성공 시: “동물 등록 완료!” alert 후 리스트 페이지 이동
+
+---
+
+### ✅ 5단계: 동물 리스트 화면 만들기
+
+**문제 5.** `zooAnimalList.jsp` 파일을 작성하여 아래 항목을 리스트 형태로 출력하세요.
+
+출력 항목:
+
+* 동물 ID
+* 동물 이름
+* 종(SPECIES)
+* 나이
+* 구역
+
+---
+
+### ✅ 6단계: 상세화면 만들기 + 클릭 이동
+
+**문제 6.** 리스트에서 각 행을 클릭하면 `zooAnimalDetail.jsp`로 이동하며, 상세정보를 확인하세요.
+
+---
+
+### ✅ 7단계: 동물 정보 수정 처리
+
+**문제 7.** 상세화면에서 동물 정보를 수정할 수 있도록 하고, 수정 후 "수정 완료" 메시지를 출력하세요.
+
+---
+
+### ✅ 8단계: 동물 정보 삭제 처리
+
+**문제 8.** 상세화면에서 삭제 버튼을 누르면 해당 동물 정보가 삭제되도록 하세요.
+
+---
+
+### ✅ 9단계: 검색 필터링 기능 추가
+
+**문제 9.** 리스트 화면 상단에 아래 검색 조건을 추가하세요.
+
+* 이름 포함 검색
+* 종(SPECIES)별 검색
+* 구역(ZONE)별 검색
+
+---
+
+### ✅ 10단계: 즐거운 정렬 기능 추가
+
+**문제 10.** 동물 나이를 기준으로 정렬할 수 있도록 `<select>` 정렬 메뉴를 추가하고, 선택값에 따라 SQL의 `ORDER BY AGE ASC/DESC`를 동적으로 처리하세요.
+
+---
+
+## 🌟 보너스 아이디어: 더 재밌게 확장하기
+
+* 🥕 **먹이 테이블**을 만들어 어떤 동물이 어떤 먹이를 먹는지 1\:N 관계 처리
+* 🐾 **관람 예약 시스템**과 연동하여 관람 예약 등록도 가능
+* 📅 **입소일 컬럼 추가**로 날짜 관련 `SYSDATE`, `TO_DATE` 학습까지 확장 가능
