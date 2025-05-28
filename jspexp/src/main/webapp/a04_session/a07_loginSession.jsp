@@ -40,7 +40,7 @@
 	<form id="frm01" class="form" action="a08_loginDB.jsp" method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="아이디" name="id"  class="form-control mr-sm-2" />
-	    <input placeholder="패스워드" name="pwd"  class="form-control mr-sm-2"/>
+	    <input type="password" placeholder="패스워드" name="pwd"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">로그인</button>
  	</nav>
 	</form>
