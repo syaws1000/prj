@@ -30,7 +30,11 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>이동된 페이지(request scope)</h2>
+  <h3>${var01}</h3>
+  <h3>${var02}</h3>
+  <h3>${var03}</h3>
+  <h3>${var04}</h3>
 
 </div>
 <%-- 
