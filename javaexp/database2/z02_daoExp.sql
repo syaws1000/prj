@@ -118,12 +118,53 @@ public DessertOrder	getDessertOrder( int orderId){
 SELECT * FROM MEAL_LOG WHERE MEAL_ID=1;
 -- 입력 : int mealId
 -- 출력 : int mealId, String studentName, String menu, Date mealDate
+
 -- class MealLog
 --    속성 선언..
 /*
 기능메서드 선언.
+public MealLog getMealLog(int mealId){
+	MealLog ml = null;
+	String sql = "SELECT * FROM MEAL_LOG WHERE MEAL_ID=?";
+	return ml;
+}
+
+
+
+
+
  * */
 
+CREATE TABLE FunEmployees (
+    emp_id NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(50),
+    emp_dept VARCHAR2(50),
+    emp_salary NUMBER
+);
+
+INSERT INTO FunEmployees (emp_id, emp_name, emp_dept, emp_salary)
+VALUES (1, 'Alice', 'Engineering', 5000);
+
+INSERT INTO FunEmployees (emp_id, emp_name, emp_dept, emp_salary)
+VALUES (2, 'Bob', 'Marketing', 4500);
+
+INSERT INTO FunEmployees (emp_id, emp_name, emp_dept, emp_salary)
+VALUES (3, 'Charlie', 'Finance', 6000);
+
+INSERT INTO FunEmployees (emp_id, emp_name, emp_dept, emp_salary)
+VALUES (4, 'David', 'HR', 4800);
+
+INSERT INTO FunEmployees (emp_id, emp_name, emp_dept, emp_salary)
+VALUES (5, 'Eva', 'IT', 5500);
+
+
+SELECT * FROM FUNEMPLOYEES WHERE EMP_ID=1;
+/*
+입력 : int empId
+출력 : int empId, String empName, String emp_dept, int empSalary;
+
+
+ * */
 
 
 
