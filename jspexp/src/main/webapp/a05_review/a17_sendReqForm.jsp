@@ -23,40 +23,31 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let age = "${param.age}"
+		if(age!=""){
+			alert("18미만 미성년자! 다시 페이지 호출..")
+		}
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>분기 처리..</h2>
-  <c:choose>
-	  <c:when test="${param.age>=18}">
-	  	<%-- 분기문으로 요청값에 따른 처리를 할 수 있다.  --%>
-	  	<jsp:forward page="a16_resultPage.jsp"/>
-	  </c:when>
-	  <c:otherwise>
-	  	<jsp:forward page="a17_sendReqForm.jsp"/>
-	  	<%--
-	  	<jsp:forward page="a14_sendReq.jsp"/>
-	  	 --%>
-	  </c:otherwise>
-  </c:choose>
-
+  <h2>나이 체크</h2>
 </div>
 <%-- 
-		
+a15_process.jsp?age=15		
+form 변환 형식
+이동할 페이지 action속성값으로 설정..  action="a15_process.jsp" 
+key = value ==>  name="age"  value="15"
+submit 버튼을 클릭시, 위 요청과 같은 처리를 해준다.
+
 --%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" class="form" action="a15_process.jsp">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="나이입력" name="age"  class="form-control mr-sm-2" />
+	    <button class="btn btn-info" type="submit">나이확인</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
