@@ -6,6 +6,7 @@ public class Member {
 	private String name;
 	private String auth;
 	private int point;
+	
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
