@@ -31,6 +31,14 @@
 <body>
 <div class="jumbotron text-center">
   <h2>가격:${param.price}원</h2>
+  <c:choose>
+  	<c:when test="${param.price>=10000 }">
+  		<jsp:forward page="a18_formCheck.jsp"/>
+  	</c:when>
+  	<c:otherwise>
+  		<jsp:forward page="a20_result.jsp"/>
+  	</c:otherwise>
+  </c:choose>
 </div>
 </body>
 </html>

@@ -23,14 +23,16 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let price = "${param.price}"
+		if(price!=""){
+			alert("가격이 너무 비싸네요 다시 입력!!")
+		}
 	});
 </script>
 </head>
-
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>가격 체크</h2>
 
 </div>
 <%-- 
