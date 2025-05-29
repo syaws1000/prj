@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import jspexp.a10_database.DB;
 import jspexp.a10_database.dto.Dept;
 
+// jspexp.a11_database.A01_OneAndOneDao
 public class A01_OneAndOneDao {
 	public int getEmpCount(int deptno ){
 		int count = 0;
