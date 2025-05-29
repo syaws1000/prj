@@ -27,15 +27,15 @@
 	});
 </script>
 </head>
-
 <body>
-<jsp:useBean id="mem" class="jspexp.a10_database.dto.Member" scope="session"/>
-<jsp:setProperty property="*" name="mem"/>
+<jsp:useBean id="reqMem" class="jspexp.a10_database.dto.Member" scope="request"/>
+<jsp:setProperty property="*" name="reqMem"/>
+<jsp:useBean id="dao" class="jspexp.a10_database.A05_MemberDao" />
+<c:set var="pgMem" value="${dao.login(reqMem)}" />
 <c:choose>
-	<c:when test="${mem.id=='himan' and mem.pwd=='7777'}">
-		<jsp:setProperty property="name" name="mem" value="홍길동"/>
-		<jsp:setProperty property="auth" name="mem" value="관리자"/>
-		<jsp:setProperty property="point" name="mem" value="4000"/>
+	<c:when test="${not empty pgMem}">  
+		<%-- DB에 데이터 있을 때만 session 설정.. --%>
+		<c:set var="mem" value="${pgMem}" scope="session"/>
 		<jsp:forward page="a09_main.jsp"/>
 	</c:when>
 	<c:otherwise>

@@ -28,9 +28,9 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		let id = "${mem.id}" // 다시 돌아왔을 때, 처리..
+		let id = "${reqMem.id}" // 다시 돌아왔을 때, 처리..
 		if(id!=""){
-			alert("로그인 실패했습니다! 다시 로그인하세요")
+			alert(id+" 로그인 실패했습니다! 다시 로그인하세요")
 		}
 	});
 </script>
