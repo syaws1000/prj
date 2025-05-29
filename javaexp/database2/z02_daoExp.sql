@@ -109,11 +109,21 @@ Dto ==> 출력값을 위해서 생성..
 
 public DessertOrder	getDessertOrder( int orderId){
 	DessertOrder do = null;
+	
+	
 	return do;
 }	   
-		   		   		   
-			   
 **/
+
+SELECT * FROM MEAL_LOG WHERE MEAL_ID=1;
+-- 입력 : int mealId
+-- 출력 : int mealId, String studentName, String menu, Date mealDate
+-- class MealLog
+--    속성 선언..
+/*
+기능메서드 선언.
+ * */
+
 
 
 
