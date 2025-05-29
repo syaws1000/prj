@@ -30,33 +30,15 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>front end로 요청값 전달</h2>
-  <a href="a11_revReq.jsp?name=홍길동&age=25">이름과 나이 전달</a>
-  <h3 onclick="go()">김철수 30 전달</h3>
-
+  <h2>물건명 가격 전송</h2>
+  <a href="a13_revReq.jsp?pname=사과&price=3000">사과 3000 전송</a>
+  <h3 onclick="go()">바나나 4000 전송</h3>
 </div>
 <script type="text/javascript">
-	function go(){
-		location.href="a11_revReq.jsp?name=김철수&age=30"
-	}
-	<%--
-	# a11_revReq.jsp
-	<h2>요청값 받는 페이지</h2>
-	<h3>이름:${param.name}</h3>
-	<h3>나이:<%=request.getParameter("age")%></h3>
-	
-	a12_sendReq.jsp
-		물건명과 가격(pname, price)을 a12_revReq.jsp에 전달하되
-		a href
-		onclick 처리하여 
-	a13_revReq.jsp
-	    물건명 : @@@
-	    가격 : @@@
-	
-	
-	--%>
-	
-	
+  function go(){
+	  location.href="a13_revReq.jsp?pname=바나나&price=4000"
+	  
+  }
 </script>
 <%-- 
 		
