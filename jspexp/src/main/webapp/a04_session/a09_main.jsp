@@ -23,7 +23,10 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let auth = "${mem.auth}" // 세션의 권한을 확인..
+		if(auth != "관리자"){
+			$("#menu").hide() // jquery 해당 요소객체로 보이지 않게 처리..
+		}
 	});
 </script>
 </head>
@@ -32,11 +35,12 @@
 <div class="jumbotron text-center">
   <h2>메인페이지</h2>
   <h3>로그인한 세션 정보</h3>
+  <h3>${mem.name}님 로그인 중</h3>
   <h3>${mem.id}</h3>
-  <h3>${mem.name}</h3>
   <h3>${mem.auth}</h3>
   <h3>${mem.point}</h3>
-
+  <button  onclick="alert('관리자 기능 처리')" id="menu"
+  	class="btn btn-success" type="button">관리자 기능</button>
 </div>
 <%-- 
 		
