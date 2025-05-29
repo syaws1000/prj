@@ -163,9 +163,50 @@ SELECT * FROM FUNEMPLOYEES WHERE EMP_ID=1;
 입력 : int empId
 출력 : int empId, String empName, String emp_dept, int empSalary;
 
+-- 기능메서드 선언..
+
+public FunEmployees getFunEmployees(int empId){
+	FunEmployees fe = null;
+	String sql = "SELECT * FROM FUNEMPLOYEES WHERE EMP_ID=?";
+	return fe;
+	
+}
 
  * */
 
 
+CREATE TABLE SuperheroCases (
+    case_id NUMBER PRIMARY KEY,      -- 사건 ID
+    superhero_name VARCHAR2(50),     -- 슈퍼히어로 이름
+    villain_name VARCHAR2(50),       -- 악당 이름
+    case_description VARCHAR2(500),  -- 사건 설명
+    case_location VARCHAR2(100),     -- 사건 발생 위치
+    case_status VARCHAR2(20)         -- 사건 상태 (예: 해결됨, 진행 중, 보류 등)
+);
+-- 슈퍼히어로 사건 데이터 삽입
+INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
+VALUES (1, 'Iron Man', 'Thanos', 'Thanos has acquired all Infinity Stones and is threatening the universe.', 'New York City', 'Resolved');
 
+INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
+VALUES (2, 'Spider Man', 'Green Goblin', 'Green Goblin has taken over Oscorp Tower and is holding civilians hostage.', 'Oscorp Tower, NYC', 'In Progress');
+
+INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
+VALUES (3, 'Thor', 'Loki', 'Loki is trying to take over Asgard by stealing the Tesseract.', 'Asgard', 'Resolved');
+
+INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
+VALUES (4, 'Captain America', 'Red Skull', 'Red Skull has stolen the Cosmic Cube and is planning world domination.', 'Hydra Base, Europe', 'Resolved');
+
+INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
+VALUES (5, 'Black Widow', 'Taskmaster', 'Taskmaster is impersonating SHIELD agents to sabotage missions.', 'S.H.I.E.L.D Headquarters', 'In Progress');
+SELECT * FROM SuperheroCases;
+SELECT * FROM SuperheroCases 
+WHERE SUPERHERO_NAME LIKE '%%' AND CASE_STATUS LIKE '%%' ;
+/*
+# 다중행다중열 처리..
+1. sql
+2. 입력 : String superheroName, String caseStatus
+   출력 : int caseId, String superheroName, String villainName,
+   	     String caseDescription, String caseLocation, String caseStatus
+  다중행 List   	     
+ * */
 
