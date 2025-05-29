@@ -39,11 +39,15 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let id = "${memReq.id}"
+		if(id!=""){
+			alert(id+" 로그인 실패");
+		}
 	});
 </script>
 </head>
-
+	<c:set var="mem" value="${null}" scope="session"/>
+	<%-- 세션을 삭제하는 처리.. --%>
 <body>
   <div class="card shadow-lg" style="width: 100%; max-width: 400px;">
     <h2 class="text-center">로그인</h2>

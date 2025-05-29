@@ -30,7 +30,7 @@
 <jsp:useBean id="dao" class="jspexp.a10_database.A06_MemberDao2"/>
 <jsp:useBean id="memReq" class="jspexp.a10_database.dto.MemberDto" scope="request"/>
 <jsp:setProperty property="*" name="memReq"/>
-<c:set var="pgMem" value="${dao.login(memReq}"/>
+<c:set var="pgMem" value="${dao.login(memReq)}"/>
 <body>
   <c:choose>
   	<c:when test="${not empty pgMem}">
