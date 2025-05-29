@@ -54,18 +54,25 @@
           <a class="nav-link" href="#">Settings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="javascript:logout()">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
+  <script type="text/javascript">
+  	function logout(){
+  		if(confirm("로그아웃하시겠습니까?")){
+  			location.href="a10_login.jsp";
+  		}
+  	}
+  </script>
 
   <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
         <div class="card dashboard-card">
-          <h4 class="card-title">Welcome Back, User!</h4>
+          <h4 class="card-title">Welcome Back, ${param.id}!</h4>
           <p class="card-text">Here is your dashboard where you can manage your account and access various services.</p>
           <div class="row">
             <div class="col-md-4">

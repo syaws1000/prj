@@ -46,24 +46,24 @@
 
 <body>
   <div class="card shadow-lg" style="width: 100%; max-width: 400px;">
-    <h2 class="text-center">Sign In</h2>
+    <h2 class="text-center">로그인</h2>
     <p class="text-center">Please sign in to your account.</p>
 
-    <form>
+    <form action="a11_process.jsp" method="post">
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Email address" required>
+        <label for="email" class="form-label">아이디</label>
+        <input type="text" name="id" class="form-control" id="email" placeholder="아이디 입력" required>
       </div>
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" required>
+        <label for="password" class="form-label">패스워드</label>
+        <input type="password" name="pwd" class="form-control" id="password" placeholder="패스워드 입력" required>
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="rememberMe">
         <label class="form-check-label" for="rememberMe">Remember me</label>
       </div>
       <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" class="btn btn-primary">로그인</button>
       </div>
       <div class="text-center mt-3">
         <a href="#">Forgot password?</a>

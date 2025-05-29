@@ -41,8 +41,9 @@ public MemberDto login(MemberDto mem){
 SELECT * FROM MEMBER;
 
 
-CREATE TABLE memeber01
+CREATE TABLE MEMBER01
 AS SELECT * FROM MEMBER;
+SELECT * FROM MEMBER01 WHERE ID='himan' AND PWD = '7777';
 /*
 class MemberDto{}
 
@@ -54,7 +55,9 @@ a12_main.jsp
 
 1. 기본 form 화면 만들기..
 2. dao 처리
-3. jsp : usebean설정 처리..
+3. jsp : usebean설정 처리..프로세서 처리
+	session
+	
 
 
  * */
