@@ -53,8 +53,29 @@ a10_login.jsp
 a11_process.jsp
 a12_main.jsp
 
-1. 기본 form 화면 만들기..
+1. 기본 form 화면 만들기.. (요청값 처리가 가능 하도록)
 2. dao 처리
+	1) sql
+		SELECT * FROM MEMBER01 WHERE ID='himan' AND PWD = '7777';
+	2) 입력값/출력
+		입력 : String id, String pwd
+		출력 : String id, String pwd, String name, String auth, int point
+	3) Dto : MemberDto
+	
+
+	4) 메서드 정의
+public 	MemberDto login(MemberDto mem){
+	MemberDto dto = null;
+	String sql = "SELECT * FROM MEMBER01 WHERE ID=? AND PWD = ?";
+
+		
+	return dto;
+}
+	
+		------------------------------
+	5) try catch 복사..
+	6) mapping 처리/resultset..
+	
 3. jsp : usebean설정 처리..프로세서 처리
 	session
 	

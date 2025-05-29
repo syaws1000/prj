@@ -27,15 +27,41 @@
 	});
 </script>
 </head>
-
+<jsp:useBean id="dao" class="jspexp.a10_database.A06_MemberDao2"/>
+<jsp:useBean id="memReq" class="jspexp.a10_database.dto.MemberDto" scope="request"/>
+<jsp:setProperty property="*" name="memReq"/>
+<c:set var="pgMem" value="${dao.login(memReq}"/>
 <body>
-<div class="jumbotron text-center">
-  <h2>${param.id}</h2>
-  <h2>${param.pw}</h2>
-  <jsp:forward page="a12_main.jsp"/>
-</div>
+  <c:choose>
+  	<c:when test="${not empty pgMem}">
+  		<c:set var="mem" value="${pgMem}" scope="session"/>
+  		<jsp:forward page="a12_main.jsp"/>	
+  	</c:when>
+  	<c:otherwise>
+  		<jsp:forward page="a10_login.jsp"/>
+  	</c:otherwise>
+  </c:choose>
 <%-- 
-		
+A06_MemberDao2 dao = new A06_MemberDao2();
+MemberDto memReq = new MemberDto();
+?id=@@@&pwd=@@@
+memReq.setId(request.getParameter("id"));
+memReq.setPwd(request.getParameter("pwd"));
+MemberDto pgMem = dao.login(memReq);
+if(pgMem!=null){
+	session.setAttribute("mem", pgMem);
+	<jsp:forward page="a12_main.jsp"/>	
+}else{
+	<jsp:forward page="a10_login.jsp"/>
+}
+
+
+
+
+1. USEBEAN설정
+// jspexp.a10_database.dto.MemberDto
+// jspexp.a10_database.A06_MemberDao2
+2. 조건에 따른  main화면 또는 로그인화면 이동 처리..		
 --%>
 </body>
 </html>
