@@ -43,12 +43,13 @@
 	<h3>${msg3}</h3>
 	<h3>${msg4}</h3>
 */
-response.sendRedirect("a09_backendShow.jsp");
+//response.sendRedirect("a09_backendShow.jsp");
 // 유지되는 변수범위가 scope : session, application
 
 %>
-<%-- 
-		
+<jsp:forward page="a09_backendShow.jsp"/>
+<%--[주의] request범위의 데이터를 가지고 이동한다.. page 는 설정한 페이지에서만 활용가능..
+	유지되는 변수범위가 scope : request, session, application	
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
