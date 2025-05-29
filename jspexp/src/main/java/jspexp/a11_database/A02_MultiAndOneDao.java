@@ -37,6 +37,7 @@ public class A02_MultiAndOneDao {
 	public List<Double> getSalsByDeptno(int deptno){
 		List<Double> sals = new ArrayList<Double>();
 		String sql = "SELECT SAL FROM EMP10 WHERE DEPTNO = ?";
+		
 
 
 

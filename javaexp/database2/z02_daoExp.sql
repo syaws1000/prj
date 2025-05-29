@@ -105,7 +105,13 @@ SELECT * FROM DESSERT_ORDER WHERE ORDER_ID = 1;
 입력값 자바로 선언: int orderId
 출력값 자바로 선언: int orderId, String customerName, String dessertName, 
 			   int quantity, Date orderDate ==> class DessertOrder
-Dto			   
+Dto ==> 출력값을 위해서 생성..	
+
+public DessertOrder	getDessertOrder( int orderId){
+	DessertOrder do = null;
+	return do;
+}	   
+		   		   		   
 			   
 **/
 
