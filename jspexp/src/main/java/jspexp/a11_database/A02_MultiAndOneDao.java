@@ -15,6 +15,7 @@ public class A02_MultiAndOneDao {
 		List<String> enames = new ArrayList<String>();
 		String sql = "SELECT ENAME FROM EMP10 WHERE JOB = ?";
 
+		
 
 		try( Connection con = DB.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql);

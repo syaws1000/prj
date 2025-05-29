@@ -96,7 +96,18 @@ class Student{
 SELECT * FROM MAGIC_ITEMS WHERE ITEM_ID=1;
 -- 입력 : int itemId
 -- 출력 : int itemId, String itemName, String itemType, String itemStatus, int itemPrice
+/*
+# 1행 다수열 처리..
 
+ * */
+SELECT * FROM DESSERT_ORDER WHERE ORDER_ID = 1;
+/*
+입력값 자바로 선언: int orderId
+출력값 자바로 선언: int orderId, String customerName, String dessertName, 
+			   int quantity, Date orderDate ==> class DessertOrder
+Dto			   
+			   
+**/
 
 
 
