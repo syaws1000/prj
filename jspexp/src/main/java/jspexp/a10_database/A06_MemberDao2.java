@@ -7,8 +7,7 @@ import java.sql.SQLException;
 
 import jspexp.a10_database.dto.MemberDto;
 
-// jspexp.a10_database.dto.MemberDto
-// jspexp.a10_database.A06_MemberDao2
+
 public class A06_MemberDao2 {
 	
 	public 	MemberDto login(MemberDto mem){
