@@ -28,6 +28,11 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
+		let auth = "${reqMem.auth}"
+		if(auth=="NO"){
+			alert("권한이 없군요..")
+		}
+		
 		let id = "${reqMem.id}" // 다시 돌아왔을 때, 처리..
 		if(id!=""){
 			alert(id+" 로그인 실패했습니다! 다시 로그인하세요")

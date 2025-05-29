@@ -28,7 +28,8 @@
 </script>
 </head>
 <body>
-<jsp:useBean id="reqMem" class="jspexp.a10_database.dto.Member" scope="request"/>
+<jsp:useBean id="reqMem" class="jspexp.a10_database.dto.Member" 
+	scope="request"/>
 <jsp:setProperty property="*" name="reqMem"/>
 <jsp:useBean id="dao" class="jspexp.a10_database.A05_MemberDao" />
 <c:set var="pgMem" value="${dao.login(reqMem)}" />
@@ -39,6 +40,7 @@
 		<jsp:forward page="a09_main.jsp"/>
 	</c:when>
 	<c:otherwise>
+		<jsp:setProperty property="auth" name="reqMem" value="NO"/>
 		<jsp:forward page="a07_loginSession.jsp"/>
 	</c:otherwise>
 </c:choose>
