@@ -44,6 +44,8 @@ SELECT ENAME FROM EMP10 WHERE JOB = 'SALESMAN';
 public List<String> getEnamesByJob( String job ){
 	List<String> enames = new ArrayList<String>();
 	String sql = "SELECT ENAME FROM EMP10 WHERE JOB = ?";
+	
+	
 	return enames;
 }
 List<Integer>  List<Double>  List<String>
@@ -94,9 +96,6 @@ class Student{
 SELECT * FROM MAGIC_ITEMS WHERE ITEM_ID=1;
 -- 입력 : int itemId
 -- 출력 : int itemId, String itemName, String itemType, String itemStatus, int itemPrice
-/*
- * 
- * */
 
 
 

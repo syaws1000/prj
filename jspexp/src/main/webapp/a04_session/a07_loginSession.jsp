@@ -26,12 +26,17 @@
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
 	
+	$(document).ready(function(){
+		let id = "${mem.id}" // 다시 돌아왔을 때, 처리..
+		if(id!=""){
+			alert("로그인 실패했습니다! 다시 로그인하세요")
+		}
 	});
 </script>
 </head>
-
+	<%-- 로그인 페이지로 세션을 삭제 처리.. --%>
+	<c:set var="mem" value="${null}" scope="session"/>
 <body>
 <div class="jumbotron text-center">
   <h2>로그인</h2>
