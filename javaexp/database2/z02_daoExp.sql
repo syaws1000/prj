@@ -199,14 +199,28 @@ VALUES (4, 'Captain America', 'Red Skull', 'Red Skull has stolen the Cosmic Cube
 INSERT INTO SuperheroCases (case_id, superhero_name, villain_name, case_description, case_location, case_status)
 VALUES (5, 'Black Widow', 'Taskmaster', 'Taskmaster is impersonating SHIELD agents to sabotage missions.', 'S.H.I.E.L.D Headquarters', 'In Progress');
 SELECT * FROM SuperheroCases;
-SELECT * FROM SuperheroCases 
-WHERE SUPERHERO_NAME LIKE '%%' AND CASE_STATUS LIKE '%%' ;
+SELECT * FROM SuperheroCases WHERE SUPERHERO_NAME LIKE '%%' AND CASE_STATUS LIKE '%%' ;
 /*
 # 다중행다중열 처리..
 1. sql
 2. 입력 : String superheroName, String caseStatus
    출력 : int caseId, String superheroName, String villainName,
    	     String caseDescription, String caseLocation, String caseStatus
-  다중행 List   	     
+  다중행 List<String>, List<Integer>, List<Double>
+  
+  다중열
+  class SuperheroCase{
+  
+  }
+       다중열 List<SuperheroCase>
+3. 기능메서드
+	public List<SuperheroCase> getSuperheroCases(SuperheroCase sch){
+		List<SuperheroCase> slist = new ArrayList<SuperheroCase>();
+		String sql = "SELECT * FROM SuperheroCases WHERE SUPERHERO_NAME LIKE ? AND CASE_STATUS LIKE ?";
+		return slist;
+	}
+         	     
+         	              	     
+         	              	              	              	     
  * */
 
