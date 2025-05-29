@@ -37,16 +37,14 @@ public class A03_OneAndMultiDao {
 		}catch(Exception e) {
 			System.out.println("기타 에러:"+e.getMessage());
 		}			
-				
-		
-		
-		
 		return do1;
 	}		
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		A03_OneAndMultiDao dao = new A03_OneAndMultiDao();
+		DessertOrder do1 = dao.getDessertOrder(1);
+		System.out.println(do1.getCustomerName());
+		System.out.println(do1.getDessertName());
 	}
 
 }
