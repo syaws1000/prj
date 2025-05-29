@@ -39,3 +39,28 @@ public MemberDto login(MemberDto mem){
 --4. 화면단 구현..
 
 SELECT * FROM MEMBER;
+
+
+CREATE TABLE memeber01
+AS SELECT * FROM MEMBER;
+/*
+class MemberDto{}
+
+class MemberDao2{}
+
+a10_login.jsp
+a11_process.jsp
+a12_main.jsp
+
+1. 기본 form 화면 만들기..
+2. dao 처리
+3. jsp : usebean설정 처리..
+
+
+ * */
+
+
+
+
+
+
