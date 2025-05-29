@@ -35,8 +35,9 @@
 	});
 </script>
 </head>
-	<%-- 로그인 페이지로 세션을 삭제 처리.. --%>
+	<%-- 로그인 페이지로 세션을 삭제 처리..  --%>
 	<c:set var="mem" value="${null}" scope="session"/>
+	
 <body>
 <div class="jumbotron text-center">
   <h2>로그인</h2>

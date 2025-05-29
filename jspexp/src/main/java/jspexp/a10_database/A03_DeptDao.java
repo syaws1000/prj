@@ -80,6 +80,7 @@ public class A03_DeptDao {
 
 	// a08_deptList.jsp ==> 부서정보를 테이블에 리스트하는 내용을 만들어 주세요..
 	public Dept getDept(int deptno){
+		
 		Dept d = null;
 		String sql = "SELECT * FROM DEPT01 WHERE DEPTNO = ? ";
 		try( Connection con = DB.con();
