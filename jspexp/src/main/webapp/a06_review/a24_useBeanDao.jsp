@@ -62,6 +62,9 @@
     	</c:forEach>
     </tbody>
 	</table>    
+	<%--
+	a25_useBeanDaoList.jsp   getEnamesByJob("SALESMAN") 직책별로 사원명 리스트 출력..
+	 --%>
     
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
