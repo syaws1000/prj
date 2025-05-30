@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <%--
 
-$("선택자").on("이벤트명",함수)
 
  --%>
 <html>
@@ -24,25 +23,15 @@ $("선택자").on("이벤트명",함수)
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("[name=title]").on("input",function(){
-			// 타이틀을 입력할 때, 입력된 내용을 h3 text에 표현..
-			$("h3").text($(this).val())					
-		})
-		$("[name=price], [name=cnt]").on("input",function(){
-			let price = $("[name=price]").val()
-			let cnt = $("[name=cnt]").val()
-			console.log(price+":"+cnt)
-			$("h4").text(`물건가격:\${price}, 갯수:\${cnt}, 총계:\${price*cnt}`)
-		})
+	
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>input 이벤트</h2>
-  <h3></h3>
-  <h4></h4>  <%-- price 와 cnt입력할 때, h4에 총계를 출력.. --%>
+  <h2>타이틀</h2>
+
 </div>
 <%-- 
 		
@@ -50,9 +39,8 @@ $("선택자").on("이벤트명",함수)
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name="title"  class="form-control mr-sm-2" />
-	    <input placeholder="가격" name="price" value="0" class="form-control mr-sm-2"/>
-	    <input placeholder="갯수" name="cnt"  value="0"  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
