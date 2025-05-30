@@ -34,9 +34,20 @@
 	<jsp:setProperty property="deptno" name="d" value="50"/>
 	${d.setDname("회계")}
 	${d.setLoc("서울")}
-  	<h2>${d.deptno}</h2>
+  	<h2>${d.deptno}</h2> <%-- d.getDeptno() --%>
   	<h2>${d.dname}</h2>
   	<h2>${d.loc}</h2>
+  	<%--
+  	ex) jspexp.a01_vo하위에 
+  		Puppy name(이름), age(나이) 지정해서 클래스를 만들어 
+  		위와 같이 setProperty를 통해서 이름을 설정하고 setAge를 통해서
+  		나이를 할당 후.. el로 호출하세요..
+  	 --%>
+  	<jsp:useBean id="p" class="jspexp.a01_vo.Puppy"/> <%-- Puppy p = new Puppy() --%>
+  	<jsp:setProperty property="name" name="p" value="귀염퍼피"/> <%-- p.setName("귀염퍼피") --%>
+  	${p.setAge(2)}
+  	<h2>${p.name}</h2>	<%-- p.getName() --%>
+  	<h2>${p.age}</h2>
   	
 
 </div>

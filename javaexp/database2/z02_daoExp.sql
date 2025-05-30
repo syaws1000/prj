@@ -224,3 +224,5 @@ SELECT * FROM SuperheroCases WHERE SUPERHERO_NAME LIKE '%%' AND CASE_STATUS LIKE
          	              	              	              	     
  * */
 
+SELECT COUNT(*) COUNT FROM EMP10 WHERE DEPTNO = 30;
+
