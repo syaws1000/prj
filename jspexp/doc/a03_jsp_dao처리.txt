@@ -186,6 +186,13 @@ O6. JSP 코드 ==> javascrpt 코드에 대한 이해
 2. usebean 객체 사용 방법
 	1) 기본 객체 사용
 	2) 요청값 처리하는 객체 사용
+		단일 요청값 처리 ${param.요청키} ${request.getParameter("요청키")}
+		동일명 요청값 처리 ${paramValues.요청키}  ${request.getParameterValues("요청키")}
+		여러가지 요청값 처리를 Vo객체에 할당.
+			<jsp:useBean id="vo" class="@@@.vo.XXX"/>
+			<jsp:setProperty name="vo" property="*"/>
+			
+	
 	3) scope 별로 처리
 3. jstl 변수 설정
 4. jstl 조건문 처리 내용
