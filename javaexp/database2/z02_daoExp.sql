@@ -230,3 +230,75 @@ SELECT COUNT(*) COUNT FROM EMP10 WHERE DEPTNO = 30;
 
 SELECT * FROM STUDENT;
 
+
+
+
+CREATE TABLE FavoriteMovies (
+    movie_id NUMBER PRIMARY KEY,       -- 영화 ID
+    movie_title VARCHAR2(100),         -- 영화 제목
+    movie_genre VARCHAR2(50),          -- 장르
+    fan_name VARCHAR2(50),             -- 팬 이름
+    fan_hobby VARCHAR2(100),           -- 팬 취미
+    movie_rating NUMBER               -- 영화 평점 (1~10)
+);
+-- 영화 데이터 삽입
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (1, '기생충', '드라마', '김영희', '영화 감상, 독서', 9);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (2, '어벤져스: 엔드게임', '액션', '이철수', '게임, 운동', 10);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (3, '겨울왕국', '애니메이션', '박지민', '그림 그리기, 춤', 8);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (4, '기억의 밤', '스릴러', '최준호', '축구, 독서', 7);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (5, '어바웃 타임', '로맨스', '홍길동', '여행, 사진 찍기', 8);
+
+-- 추가된 10건의 영화 데이터 삽입
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (6, '스파이더맨: 노 웨이 홈', '액션', '정서영', '게임, 만화책 읽기', 9);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (7, '어벤져스: 인피니티 워', '액션', '이승민', '운동, 영화 감상', 8);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (8, '그랜드 부다페스트 호텔', '코미디', '최윤희', '여행, 미술', 8);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (9, '다크 나이트', '액션', '박상민', '책 읽기, 운동', 10);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (10, '인셉션', 'SF', '오준호', '사진 찍기, 영화 감상', 9);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (11, '소울', '애니메이션', '이수연', '음악, 춤', 9);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (12, '스타 워즈: 깨어난 포스', 'SF', '김민수', '운동, 별 보기', 8);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (13, '타이타닉', '로맨스', '황보미', '여행, 요리', 9);
+
+INSERT INTO FavoriteMovies (movie_id, movie_title, movie_genre, fan_name, fan_hobby, movie_rating)
+VALUES (14, '겨울왕국 2', '애니메이션', '조아라', '그림 그리기, 춤', 8);
+
+-- 1. SQL 작성
+SELECT * FROM FavoriteMovies WHERE MOVIE_TITLE LIKE '%%' AND MOVIE_GENRE LIKE '%%';
+-- 2. 입력값: String movieTitle, String MovieGenre 
+--    출력값: int movieId, String MovieTitle, String movieGenre,  String fanName, String fanHobby
+--           int movie_rating
+-- 3. class FavoriteMovie
+-- 4. jspexp.a10_database.A07_MovieDao
+--    메서드 선언..
+/*
+public List<FavoriteMovie> getFavoriteMovieList(FavoriteMovie sch){
+	List<FavoriteMovie> list = new ArrayList<FavoriteMovie>();
+	String sql = "SELECT * FROM FavoriteMovies WHERE MOVIE_TITLE LIKE ? AND MOVIE_GENRE LIKE ?";
+	return list;
+}
+ * */         
+
+
