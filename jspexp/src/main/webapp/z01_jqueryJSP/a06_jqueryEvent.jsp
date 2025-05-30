@@ -51,12 +51,14 @@
 			$("h2").css("background","yellow")
 			console.log("마우스 아웃")
 		})
+		// #div01 마우스 오버했을 때, 배경색상이 파랑색, 마우스 아웃했을 때, 배경색상이 빨강색으로 변경되게 하세요..
 	});
 </script>
 </head>
 <body>
 <div class="jumbotron text-center">
   <h2>마우스 커서를 올려보세요..</h2>
+  <div id="div01" style="width:200px;height:200px;border:1px solid green"></div>
 </div>
 <%-- 
 		
