@@ -37,6 +37,28 @@ public class A05_MemberDao {
 		return dto;
 	}	
 
+	public int ckMember(String id){
+		int cnt = 0;
+		String sql = "SELECT COUNT(*) FROM MEMBER WHERE ID = ? ";
+	
+		try( Connection con = DB.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql);
+			){
+			pstmt.setString(1, id);
+			try( ResultSet rs = pstmt.executeQuery() ){
+				if(rs.next()) {   
+					cnt = rs.getInt(1);
+				}
+			}
+			System.out.println("데이터 상세 완료:");
+		}catch(SQLException e) {
+			System.out.println("DB처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("기타 에러:"+e.getMessage());
+		}		
+		return cnt;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
