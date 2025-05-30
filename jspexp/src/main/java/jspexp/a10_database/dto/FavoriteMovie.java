@@ -1,5 +1,5 @@
 package jspexp.a10_database.dto;
-
+// jspexp.a10_database.dto.FavoriteMovie
 public class FavoriteMovie {
 	private int movieId;
 	private String MovieTitle;

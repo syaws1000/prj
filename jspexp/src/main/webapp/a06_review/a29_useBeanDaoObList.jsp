@@ -48,25 +48,34 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
+        <th>아이디</th>
         <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>장르</th>
+        <th>팬이름</th>
+        <th>평점</th>
       </tr>
+      <%-- 아이디 movieId
+제목  movieTitle
+장르  movieGenre
+팬이름 fanName
+평점 movieRating --%>
     </thead>	
+    <jsp:useBean id="dao" class="jspexp.a10_database.A07_MovieDao"/>
+    <jsp:useBean id="sch" class="jspexp.a10_database.dto.FavoriteMovie"/>
+    
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="mv" items="${dao.getFavoriteMovieList(sch)}">
+    	<tr><td>${mv.movieId}</td><td>${mv.movieTitle}</td><td>${mv.movieGenre}</td>
+    		<td>${mv.fanName}</td><td>${mv.movieRating}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     

@@ -299,6 +299,13 @@ public List<FavoriteMovie> getFavoriteMovieList(FavoriteMovie sch){
 	String sql = "SELECT * FROM FavoriteMovies WHERE MOVIE_TITLE LIKE ? AND MOVIE_GENRE LIKE ?";
 	return list;
 }
+아이디 movieId
+제목  movieTitle
+장르  movieGenre
+팬이름 fanName
+평점 movieRating
+
+
  * */         
 
 
