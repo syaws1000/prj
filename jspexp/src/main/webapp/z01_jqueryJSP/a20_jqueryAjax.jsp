@@ -23,14 +23,32 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#ckBtn").click(function(){
+			let idVal = $("[name]").val()
+			$.ajax({
+				url:"a21_ajaxData.jsp",
+				data:{id:idVal}, // 요청값 id=입력한아이디값
+				success:function(rs){ // 서버에서 비동기적으로 가져온값..
+					//alert(rs)
+					if(rs>0){
+						alert(idVal+"중복된 아이디입니다.")
+					}else{
+						alert(idVal+" 등록 가능한 아이디입니다.")
+					}
+				},
+				error:function(err){
+					console.log(err)
+				}
+				
+			})
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>회원중복아이디 등록 체크</h2>
 
 </div>
 <%--
@@ -54,67 +72,11 @@
 		
 --%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="아이디를 입력하세요" name="id"   class="form-control mr-sm-2" />
+	    <button class="btn btn-info" id="ckBtn" type="button">중복체크</button>
  	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>    
-    
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
-	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
-	      </div>
-	     </div>
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+</div> 	
 </body>
 </html>
