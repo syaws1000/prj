@@ -9,7 +9,7 @@ import jspexp.a10_database.dto.Dept;
 import jspexp.a10_database.dto.Student;
 
 
-
+// jspexp.a10_database.A05_ExpDao
 public class A05_ExpDao {
 
 	public Dept getDeptByDeptno(int deptno){

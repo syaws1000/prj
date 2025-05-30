@@ -31,73 +31,43 @@
 <body>
 <div class="jumbotron text-center">
   <h2>Dto/VO 단일 객체 리턴하는 dao 처리</h2>
-
+  <jsp:useBean id="dao" class="jspexp.a10_database.A05_ExpDao"/>
+  <c:set var="stu" value="${dao.getStudent(2)}"/><%-- Student stu = dao.getStudent(1) --%>
+  <h3>학생번호:${stu.no}</h3> <%-- stu.getNo() --%>
+  <h3>학생이름:${stu.name}</h3>
+  <h3>국어:${stu.kor}</h3>
+  <h3>영어:${stu.eng}</h3>
+  <h3>수학:${stu.math}</h3>
 </div>
 <%-- 
-		
+ex) a28_useBeanDao.jsp
+	A03_DeptDao에 있는 getDept(10)  부서정보를 
+	value에 할당해서 출력하세요..		
 --%>
-<div class="container">
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>    
-    
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
-	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
-	      </div>
-	     </div>
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+   <div class="container">
+        <form action="등록처리Servlet" method="post">
+            <div class="form-group">
+                <label for="title">학생번호</label>
+                <input type="text" value="${stu.no}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="title">학생명</label>
+                <input type="text" value="${stu.name}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="title">국어</label>
+                <input type="text" value="${stu.kor}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="title">영어</label>
+                <input type="text" value="${stu.eng}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="title">수학</label>
+                <input type="text" value="${stu.math}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+            </div>
+            <button type="submit" class="btn btn-primary">등록</button>
+        </form>
+      </div>  
 </body>
 </html>
