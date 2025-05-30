@@ -30,22 +30,25 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>단일 요청값 처리</h2>
-  <h3>제목:${param.title}</h3>
-  <h3>내용:${param.content}</h3>
+  <h2>배열형 요청값 처리</h2>
+  <h3>${paramValues.name[0]}</h3>
+  <h3>${paramValues.name[1]}</h3>
+  <h3>${paramValues.name[2]}</h3>
 
 </div>
 <%-- 
-# 단일값 처리..
-?요청key=요청값 
-# 동일한 요청키에 의해서 다중의 데이터 받을 때...		
+?name=홍길동&name=김길동&name=마길동		
+ex) a32_arrayRequestFruit.jsp
+	구매할 과일명(fruits)로 설정해서 과일명을 3개 받아서 화면에 입력한 요청값을 출력
+	하세요..
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name="title"  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name="content"  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">요청처리</button>
+	    <input placeholder="이름1" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="이름2" name="name"  class="form-control mr-sm-2"/>
+	    <input placeholder="이름3" name="name"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
