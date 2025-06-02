@@ -3,13 +3,13 @@
 1. **JSP에서 HTML 코드와 Java 코드를 함께 사용할 수 있도록 하는 기술은?**
 
    * A. JavaScript
-   * B. JSP
+   # B. JSP(java+html) ==> java(servlet) ==> class(tomcat) ==> html코드 요청하는 곳으로 전달 
    * C. PHP
    * D. CSS
 
 2. **JSP 페이지가 처음 요청될 때 서블릿으로 변환하는 과정은?**
 
-   * A. Translation
+   # A. Translation
    * B. Compilation
    * C. Execution
    * D. Deployment
@@ -18,40 +18,41 @@
 
    * A. Application
    * B. Session
-   * C. Request
+   # C. Request
    * D. Page
 
 4. **JSP 기본 객체 중 클라이언트로 응답을 보내는 데 사용하는 객체는?**
+	Request(요청처리), Response(결과처리)
 
    * A. request
-   * B. response
+   # B. response  클라이언트로 html코드를 실제 보내는 객체
    * C. session
    * D. out
 
 5. **JSP에서 HTML 주석은 어떻게 작성하는가?**
 
-   * A. <%-- 주석 --%>
+   # A. <%-- 주석 --%>
    * B. <!-- 주석 -->
    * C. /\* 주석 \*/
    * D. // 주석
 
 6. **JSP에서 자바 변수를 선언하기 위해 사용하는 스크립트 요소는?**
 
-   * A. Declaration `<%! %>`
-   * B. Scriptlet `<% %>`
-   * C. Expression `<%= %>`
+   # A. Declaration `<%! %>` 변수선언, 클래스선언, 메서드
+   * B. Scriptlet `<% %>`	자바 코드(조건문/반복문 처리)
+   * C. Expression `<%= %>`  출력을 처리할 때, 사용..
    * D. Comment `<%-- --%>`
 
 7. **JSP에서 표현식(Expression)의 역할은?**
 
-   * A. 값을 출력한다.
+   # A. 값을 출력한다.
    * B. 메서드를 정의한다.
    * C. HTML을 주석 처리한다.
    * D. SQL 쿼리를 실행한다.
 
 8. **JSP 액션 태그 `<jsp:useBean>`의 주된 목적은?**
 
-   * A. 자바 객체 생성
+   # A. 자바 객체 생성  // 요청값 처리..
    * B. HTML 코드 생성
    * C. DB 연결
    * D. 페이지 이동
@@ -59,35 +60,37 @@
 9. **다음 중 JSP에서 데이터베이스 연결을 위한 표준 API는?**
 
    * A. ODBC
-   * B. JDBC
+   # B. JDBC
    * C. SQL\*Plus
    * D. Hibernate
 
 10. **JSP에서 데이터베이스에 접속할 때 사용하는 클래스는?**
 
-    * A. Connection
-    * B. DriverManager
-    * C. Statement
-    * D. ResultSet
+    # A. Connection   연결
+    * B. DriverManager jdbc 드라이버 설정으로 ip, port, 계정, 비번 설정
+    * C. Statement	 대화
+    * D. ResultSet	결과
 
 11. **ResultSet 객체의 역할은?**
 
     * A. SQL 문 실행
     * B. DB 연결
-    * C. 결과 집합 저장
+    # C. 결과 집합 저장(행/열이 있는 테이블 형식으로 sql결과를 저장)
     * D. 드라이버 로딩
 
 12. **PreparedStatement를 사용하는 주요 이유는?**
 
     * A. 코드 길이 단축
-    * B. 보안 강화와 성능 향상
+    # B. 보안 강화와 성능 향상
+    		? ? ==> mapping 방식으로 sql injection이라는 보안적인 문제를 해결하고,
+    				사전에 서버에 sql을 전송하고 그다음에 ?? 데이터를 전달하기에 재컴파일 줄여 성능 향상..
     * C. HTML 태그 자동 생성
     * D. JSP 페이지 속도 향상
 
 13. **JSP에서 클라이언트 요청값을 받기 위해 사용하는 메서드는?**
 
     * A. request.getAttribute()
-    * B. request.getParameter()
+    # B. request.getParameter()
     * C. response.getWriter()
     * D. session.getAttribute()
 
@@ -95,19 +98,20 @@
 
     * A. request
     * B. response
-    * C. RequestDispatcher
+    # C. RequestDispatcher   <jsp:forward>
     * D. HttpSession
 
 15. **JSP에서 DB 접속을 종료할 때 사용하는 메서드는?**
 
     * A. disconnect()
-    * B. close()
+    # B. close()
     * C. shutdown()
     * D. terminate()
 
 16. **DAO 패턴의 주요 목적은?**
+	데이터베이스를 접근하여 처리하는 메서드를 따로 처리하여 그 결과를 수행하는 내용..
 
-    * A. 데이터 접근을 캡슐화한다.
+    # A. 데이터 접근을 캡슐화한다.
     * B. HTML을 동적으로 생성한다.
     * C. 클라이언트 세션을 관리한다.
     * D. 페이지 네비게이션을 처리한다.
@@ -115,7 +119,7 @@
 17. **JSP에서 빈(Bean) 객체의 필드에 값을 설정하는 액션 태그는?**
 
     * A. `<jsp:getProperty>`
-    * B. `<jsp:setProperty>`
+    # B. `<jsp:setProperty>`
     * C. `<jsp:useBean>`
     * D. `<jsp:include>`
 
@@ -123,19 +127,19 @@
 
     * A. 10분
     * B. 20분
-    * C. 30분
+    # C. 30분
     * D. 60분
 
 19. **JSP 페이지가 실행될 때 서버에서 생성되는 것은?**
 
     * A. HTML 문서
-    * B. Servlet 클래스
+    # B. Servlet 클래스
     * C. JavaScript 코드
     * D. XML 파일
 
 20. **DAO 클래스에서 SQL 오류 발생 시 예외 처리를 위해 필요한 것은?**
 
-    * A. try-catch
+    # A. try-catch
     * B. if-else
     * C. for-loop
     * D. switch-case
@@ -144,7 +148,7 @@
 
     * A. JSP 소스에 직접 작성
     * B. HTML 폼에 저장
-    * C. 서버 환경 파일(web.xml 등)에 저장
+    # C. 서버 환경 파일(web.xml 등)에 저장
     * D. 자바스크립트에 저장
 
 22. **JSP에서 클라이언트가 보낸 요청 정보는 어디에 저장되는가?**
@@ -152,39 +156,52 @@
     * A. application
     * B. response
     * C. session
-    * D. request
+    # D. request
 
 23. **JSP에서 `response.sendRedirect("page.jsp")`의 의미는?**
+	font단 페이지 이동 명령
+		<a href="">
+		location.href=""
+	
+	back단 페이지 이동 명령
+		response.sendRedirect("page.jsp")
+
+
 
     * A. 서버 내부 이동
-    * B. 클라이언트에게 새 요청 유도
+    # B. 클라이언트에게 새 요청 유도(서버프로그램으로 페이지가 이동하여 클라이언트에게 페이지가 이동되게 유도 처리)
     * C. DB에 데이터 삽입
     * D. DB에서 데이터 조회
 
 24. **JSP의 내장 객체 중 서버 전역에 공유되는 객체는?**
-
+	page : 페이지에서만 사용
+	request : 요청값 처리 <jsp:forward> <form 하위 submit 버튼 클릭> 
+					   RequestDispatcher rd = request.getRequestDispatcher(page);
+					   rd.forward(request,response);
+	session : 페이지 이동시도 계속 유지(동일한 서버와 동일한 클라이언트)
+	application : 서버단위..				   
     * A. request
     * B. response
     * C. session
-    * D. application
+    # D. application
 
 25. **JDBC 드라이버를 로딩하는 표준 코드로 알맞은 것은?**
 
     * A. `new DriverManager()`
-    * B. `Class.forName("드라이버이름")`
+    # B. `Class.forName("드라이버이름")`
     * C. `DriverManager.getDriver()`
     * D. `connect.driver()`
 
 26. **JDBC에서 SQL 문을 실행하여 데이터를 수정할 때 사용하는 메서드는?**
 
-    * A. executeQuery()
-    * B. executeUpdate()
+    * A. executeQuery()  : SELECT
+    # B. executeUpdate() : INSERT, UPDATE, DELETE
     * C. execute()
     * D. prepareStatement()
 
 27. **JSP 페이지에서 DB 연결을 반복적으로 하지 않기 위해 사용하는 기술은?**
 
-    * A. Connection Pool
+    # A. Connection Pool : 스프링
     * B. DAO 패턴
     * C. JDBC Driver
     * D. JSP 액션 태그
@@ -192,14 +209,14 @@
 28. **JSP에서 form 전송 시 method 속성을 "post"로 설정하면 특징은?**
 
     * A. URL에 데이터가 보인다.
-    * B. URL에 데이터가 숨겨진다.
+    # B. URL에 데이터가 숨겨진다.
     * C. 파일을 다운로드할 수 있다.
     * D. 세션이 삭제된다.
 
 29. **JSP와 Servlet의 가장 큰 차이점은?**
 
     * A. JSP는 자바 코드, Servlet은 HTML 코드 기반
-    * B. JSP는 HTML 기반, Servlet은 자바 코드 기반
+    # B. JSP는 HTML 기반, Servlet은 자바 코드 기반
     * C. JSP는 컴파일이 필요 없다.
     * D. Servlet은 브라우저에서 직접 실행된다.
 
@@ -207,6 +224,6 @@
 
     * A. 데이터베이스 종류
     * B. 포트 번호
-    * C. 테이블명
+    # C. 테이블명
     * D. 호스트 주소
 
