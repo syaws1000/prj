@@ -24,4 +24,21 @@ public class A03_RequestController {
 		System.out.println("두번째 요청값:"+prod);
 		return "WEB-INF\\views\\a01_begin\\a04_requestExp.jsp";
 	}
+	
+	// http://localhost:5050/req03
+	// http://localhost:5050/req03?title=스프링
+	// a05_requestExp.jsp
+	@GetMapping("req03")
+	public String req03(@RequestParam(value = "title", defaultValue = "") String title) {
+		System.out.println("세번째 요청값:"+title);
+		
+		return "WEB-INF\\views\\a01_begin\\a05_requestExp.jsp";
+	}
+	// http://localhost:5050/req04
+	// http://localhost:5050/req04?singer=아이유
+	// a06_requestExp.jsp
+	
+	
+	
+	
 }
