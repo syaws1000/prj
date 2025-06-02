@@ -1,0 +1,21 @@
+1 스프링 기본 개념
+2. 스프링 환경 설정
+	1) 기본 설정 파일(application.properties)
+		서버포트 설정
+		외부라이브러리 사용
+		DB 설정 선언
+	2) static 폴드
+		기본 css/javascript 등 front단에 사용되는 공통 파일을 설정한다.
+	3) template 폴드
+		html 파일을 실행하고 포딩할 때, 주로 활용
+	4) main/webapp/ : jsp 처리하는 기본 폴드
+	              WEB-INF / 보안폴드로 jsp 파일을 처리하는 위치
+	              WEB-INF/views  : jsp 파일을 위치시켜 처리하는 폴드..
+	5) pom.xml : @@.jar 등 외부 lib파일과 컨테이너(스프링의 핵심 처리) 설정 하는 내용을
+				지정하는 파일로, 해당 파일이 xml로 선언되어 온라인상 다운 받게 된다.
+	6) SpingwebApplication.java : 스프링 전체 실행 파일(tomcat과 함께 서버를 기동하여
+		스프링이 수행할 수 있는 환경을 만들어 준다)
+	7) Controller : 스프링에서 controller 역할을 하는 파일로
+		@GettingMapping("요청url")를 메서드별로 선언하고,
+		return "" : 특정한 view를 호출한다.
+		
