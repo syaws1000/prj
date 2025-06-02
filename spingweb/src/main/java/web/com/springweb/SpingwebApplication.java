@@ -10,4 +10,5 @@ public class SpingwebApplication {
 		SpringApplication.run(SpingwebApplication.class, args);
 	}
 
+	
 }
