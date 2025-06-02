@@ -3,6 +3,7 @@ package web.com.springweb.a01_start.a01_controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class A04_ModelController {
@@ -21,4 +22,26 @@ public class A04_ModelController {
 		d.addAttribute("icecream", "바닐라맛아이스크림");  /// ==> ${icecream}
 		return "WEB-INF\\views\\a01_begin\\a07_model.jsp";
 	}
+	
+	// http://localhost:5050/reqModelExp01
+	// http://localhost:5050/reqModelExp01?no1=10&no2=20
+	//                                     모델데이터 sum   no1+no2
+	@GetMapping("reqModelExp01")
+	public String reqModelExp01( 
+				@RequestParam(value="no1", defaultValue="0") int no1, 
+				@RequestParam(value="no2", defaultValue="0") int no2,
+				Model d
+			){
+		// 요청값 no1로 받되 no1이 없으면 0으로 요청값을 할당해서 no1변수에 처리
+		System.out.println("요청값 no1:"+no1);
+		System.out.println("요청값 no2:"+no2);
+		d.addAttribute("sum", no1+no2);   // ${sum}
+		
+		return "WEB-INF\\views\\a01_begin\\a08_req_model.jsp";
+	}
+	
+	
+	
+	
+	
 }
