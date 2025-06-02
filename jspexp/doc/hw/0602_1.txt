@@ -1,188 +1,231 @@
-좋아요! 요청하신 대로 **가네(Gagné)의 9가지 수업사태**와 **캘러(Keller)의 ARCS 동기이론**을 기반으로, **스프링(Spring Framework) 입문** 주제에 대해 **학습자가 스스로 탐구하고 실무에 적용할 수 있도록**, **웃음과 흥미요소를 포함**한 **구체적이고 체계적인 교안**을 작성해볼게요.
+### ✅ **JSP 프로그래밍 DB 연동 객관식 30문제**
 
----
+1. **JSP에서 HTML 코드와 Java 코드를 함께 사용할 수 있도록 하는 기술은?**
 
-# 🚀 **\[스프링 시작] 학습 교안**
+   * A. JavaScript
+   # B. JSP(java+html) ==> java(servlet) ==> class(tomcat) ==> html코드 요청하는 곳으로 전달 
+   * C. PHP
+   * D. CSS
 
-(공유용 : 학습자와 함께 탐구하고 실습하는 형식)
+2. **JSP 페이지가 처음 요청될 때 서블릿으로 변환하는 과정은?**
 
----
+   # A. Translation
+   * B. Compilation
+   * C. Execution
+   * D. Deployment
 
-## 1. **주의 집중 끌기 & 학습 연결성 제공**
+3. **JSP에서 클라이언트 요청을 처리하는 가장 작은 단위는?**
 
-(가네 Step 1 : 주의집중 / ARCS - Attention)
+   * A. Application
+   * B. Session
+   # C. Request
+   * D. Page
 
-### 👉 **호기심 유발 질문**
+4. **JSP 기본 객체 중 클라이언트로 응답을 보내는 데 사용하는 객체는?**
+	Request(요청처리), Response(결과처리)
 
-* "왜 전 세계 개발자들이 '스프링(Spring)'을 그렇게 좋아할까요?"
-* "스프링을 모르고 개발하면, 마치 맨손으로 피라미드를 쌓는 것과 같다고?"
+   * A. request
+   # B. response  클라이언트로 html코드를 실제 보내는 객체
+   * C. session
+   * D. out
 
-### 🧩 **활동**
+5. **JSP에서 HTML 주석은 어떻게 작성하는가?**
 
-> 간단한 퀴즈 :
-> "Spring과 가장 관련 없는 것은?
-> (1) IoC   (2) DI   (3) MVC   (4) 엘리베이터"
+   # A. <%-- 주석 --%>
+   * B. <!-- 주석 -->
+   * C. /\* 주석 \*/
+   * D. // 주석
 
-> → **(힌트)** 스프링은 개발을 더 빠르고, 더 덜 아프게 만들어주는 프레임워크입니다.
+6. **JSP에서 자바 변수를 선언하기 위해 사용하는 스크립트 요소는?**
 
-### 🔥 **흥미요소**
+   # A. Declaration `<%! %>` 변수선언, 클래스선언, 메서드
+   * B. Scriptlet `<% %>`	자바 코드(조건문/반복문 처리)
+   * C. Expression `<%= %>`  출력을 처리할 때, 사용..
+   * D. Comment `<%-- --%>`
 
-* 밈(Meme) 삽입:
-  !\[이미지: ‘Without Spring vs With Spring’ - 복잡한 코드 vs 깔끔한 코드]
+7. **JSP에서 표현식(Expression)의 역할은?**
 
----
+   # A. 값을 출력한다.
+   * B. 메서드를 정의한다.
+   * C. HTML을 주석 처리한다.
+   * D. SQL 쿼리를 실행한다.
 
-## 2. **학습 목표 제시**
+8. **JSP 액션 태그 `<jsp:useBean>`의 주된 목적은?**
 
-(가네 Step 2 : 학습 목표 제시 / ARCS - Relevance)
+   # A. 자바 객체 생성  // 요청값 처리..
+   * B. HTML 코드 생성
+   * C. DB 연결
+   * D. 페이지 이동
 
-### 🎯 **오늘의 목표**
+9. **다음 중 JSP에서 데이터베이스 연결을 위한 표준 API는?**
 
-* 스프링 프레임워크의 기본 개념을 이해한다.
-* IoC와 DI의 원리를 직접 코드로 체험한다.
-* 간단한 컨트롤러를 만들어본다.
-* ‘왜’ 스프링을 사용하는지, 실무와 연결해서 이해한다.
+   * A. ODBC
+   # B. JDBC
+   * C. SQL\*Plus
+   * D. Hibernate
 
----
+10. **JSP에서 데이터베이스에 접속할 때 사용하는 클래스는?**
 
-## 3. **선수 학습 상기 및 실생활 연결하기**
+    # A. Connection   연결
+    * B. DriverManager jdbc 드라이버 설정으로 ip, port, 계정, 비번 설정
+    * C. Statement	 대화
+    * D. ResultSet	결과
 
-(가네 Step 3 : 선수학습 상기 / ARCS - Relevance)
+11. **ResultSet 객체의 역할은?**
 
-### 🛠️ **기억 소환**
+    * A. SQL 문 실행
+    * B. DB 연결
+    # C. 결과 집합 저장(행/열이 있는 테이블 형식으로 sql결과를 저장)
+    * D. 드라이버 로딩
 
-* 객체지향 프로그래밍(OOP)을 배웠나요?
-* Java 클래스를 만들고 객체를 new로 생성했던 경험이 있나요?
+12. **PreparedStatement를 사용하는 주요 이유는?**
 
-### 🧩 **문제 제기**
+    * A. 코드 길이 단축
+    # B. 보안 강화와 성능 향상
+    		? ? ==> mapping 방식으로 sql injection이라는 보안적인 문제를 해결하고,
+    				사전에 서버에 sql을 전송하고 그다음에 ?? 데이터를 전달하기에 재컴파일 줄여 성능 향상..
+    * C. HTML 태그 자동 생성
+    * D. JSP 페이지 속도 향상
 
-> "클래스가 수백, 수천 개가 된다면, new로 다 만들 건가요?"
+13. **JSP에서 클라이언트 요청값을 받기 위해 사용하는 메서드는?**
 
-### 🎯 **실생활 비유**
+    * A. request.getAttribute()
+    # B. request.getParameter()
+    * C. response.getWriter()
+    * D. session.getAttribute()
 
-* 스프링은 개발자가 'new'를 하지 않고도 필요한 객체를 '자동 배달' 받는 시스템입니다. (마치 **쿠팡 로켓배송**)
+14. **JSP에서 한 페이지에서 다른 페이지로 포워드(Forward)할 때 사용하는 객체는?**
 
----
+    * A. request
+    * B. response
+    # C. RequestDispatcher   <jsp:forward>
+    * D. HttpSession
 
-## 4. **주요 개념/핵심 키워드를 최고의 암기법에 의해 제시**
+15. **JSP에서 DB 접속을 종료할 때 사용하는 메서드는?**
 
-(가네 Step 4 : 자극 제시 / ARCS - Confidence)
+    * A. disconnect()
+    # B. close()
+    * C. shutdown()
+    * D. terminate()
 
-### 🔑 **핵심 키워드**
+16. **DAO 패턴의 주요 목적은?**
+	데이터베이스를 접근하여 처리하는 메서드를 따로 처리하여 그 결과를 수행하는 내용..
 
-* **IoC** (Inversion of Control) = 통제권의 역전
-* **DI** (Dependency Injection) = 의존성 주입
-* **컨테이너** = 객체 보관소
-* **빈(Bean)** = 스프링이 관리하는 객체
+    # A. 데이터 접근을 캡슐화한다.
+    * B. HTML을 동적으로 생성한다.
+    * C. 클라이언트 세션을 관리한다.
+    * D. 페이지 네비게이션을 처리한다.
 
-### 🧠 **암기 팁 (웃긴 기억법)**
+17. **JSP에서 빈(Bean) 객체의 필드에 값을 설정하는 액션 태그는?**
 
-* IoC = **이**젠 **오**브젝트를 **C**ontainer에게 맡겨!
-* DI = **디**펜던시는 **이**리와!
-* **빈** = **빈**그릇처럼 비어있던 객체를 스프링이 채워준다!
+    * A. `<jsp:getProperty>`
+    # B. `<jsp:setProperty>`
+    * C. `<jsp:useBean>`
+    * D. `<jsp:include>`
 
----
+18. **JSP에서 세션(Session) 객체의 기본 지속 시간은?**
 
-## 5. **학습 목표별 탐구형 학습**
+    * A. 10분
+    * B. 20분
+    # C. 30분
+    * D. 60분
 
-(가네 Step 5 : 학습 안내 / ARCS - Confidence)
+19. **JSP 페이지가 실행될 때 서버에서 생성되는 것은?**
 
-### 🔍 **탐구 과제**
+    * A. HTML 문서
+    # B. Servlet 클래스
+    * C. JavaScript 코드
+    * D. XML 파일
 
-* (의문) : "new 없이 객체를 만들려면 어떻게 해야 할까?"
-* (탐색) : IoC 컨테이너를 만들고, @Component, @Autowired를 사용해보기.
+20. **DAO 클래스에서 SQL 오류 발생 시 예외 처리를 위해 필요한 것은?**
 
-### 🧩 **힌트**
+    # A. try-catch
+    * B. if-else
+    * C. for-loop
+    * D. switch-case
 
-* 스프링이 '대신 new 해주겠다'고 약속한 것.
-* **@Component**로 등록하고, **@Autowired**로 주입받으면 끝!
+21. **JSP에서 데이터베이스 연결 정보(아이디, 비번 등)를 관리하는 가장 안전한 방법은?**
 
----
+    * A. JSP 소스에 직접 작성
+    * B. HTML 폼에 저장
+    # C. 서버 환경 파일(web.xml 등)에 저장
+    * D. 자바스크립트에 저장
 
-## 6. **실습 활동 및 협력 학습 유도**
+22. **JSP에서 클라이언트가 보낸 요청 정보는 어디에 저장되는가?**
 
-(가네 Step 6 : 수행 유도 / ARCS - Satisfaction)
+    * A. application
+    * B. response
+    * C. session
+    # D. request
 
-### 💻 **실습**
+23. **JSP에서 `response.sendRedirect("page.jsp")`의 의미는?**
+	font단 페이지 이동 명령
+		<a href="">
+		location.href=""
+	
+	back단 페이지 이동 명령
+		response.sendRedirect("page.jsp")
 
-> **Step 1.** Spring Boot Project 생성 (Start.spring.io)
-> **Step 2.** 간단한 HelloController 작성
-> **Step 3.** @Component로 Service 만들고, Controller에서 주입
 
-### 🧩 **미션**
 
-> "Hello, Spring!" 메시지를 출력하되, 메시지를 Service에서 가져오기
+    * A. 서버 내부 이동
+    # B. 클라이언트에게 새 요청 유도(서버프로그램으로 페이지가 이동하여 클라이언트에게 페이지가 이동되게 유도 처리)
+    * C. DB에 데이터 삽입
+    * D. DB에서 데이터 조회
 
-### 🤝 **협력 학습**
+24. **JSP의 내장 객체 중 서버 전역에 공유되는 객체는?**
+	page : 페이지에서만 사용
+	request : 요청값 처리 <jsp:forward> <form 하위 submit 버튼 클릭> 
+					   RequestDispatcher rd = request.getRequestDispatcher(page);
+					   rd.forward(request,response);
+	session : 페이지 이동시도 계속 유지(동일한 서버와 동일한 클라이언트)
+	application : 서버단위..				   
+    * A. request
+    * B. response
+    * C. session
+    # D. application
 
-* 2인 1조 팀 미션: “누가 더 짧고 우아하게 코딩할 수 있을까?”
-* 코드를 3문장 이내로 설명하는 발표하기!
+25. **JDBC 드라이버를 로딩하는 표준 코드로 알맞은 것은?**
 
----
+    * A. `new DriverManager()`
+    # B. `Class.forName("드라이버이름")`
+    * C. `DriverManager.getDriver()`
+    * D. `connect.driver()`
 
-## 7. **단계별 피드백 제공과 자기 평가 기회**
+26. **JDBC에서 SQL 문을 실행하여 데이터를 수정할 때 사용하는 메서드는?**
 
-(가네 Step 7 : 피드백 제공 / ARCS - Confidence)
+    * A. executeQuery()  : SELECT
+    # B. executeUpdate() : INSERT, UPDATE, DELETE
+    * C. execute()
+    * D. prepareStatement()
 
-### ✅ **피드백 포인트**
+27. **JSP 페이지에서 DB 연결을 반복적으로 하지 않기 위해 사용하는 기술은?**
 
-* @Component와 @Autowired를 제대로 썼나요?
-* 객체 생성과 주입이 정상적으로 이루어졌나요?
+    # A. Connection Pool : 스프링
+    * B. DAO 패턴
+    * C. JDBC Driver
+    * D. JSP 액션 태그
 
-### ✍️ **자기 평가 체크리스트**
+28. **JSP에서 form 전송 시 method 속성을 "post"로 설정하면 특징은?**
 
-* [ ] IoC, DI 개념을 설명할 수 있다.
-* [ ] 직접 @Component로 Bean을 등록해봤다.
-* [ ] Controller와 Service가 연결된 구조를 코딩했다.
+    * A. URL에 데이터가 보인다.
+    # B. URL에 데이터가 숨겨진다.
+    * C. 파일을 다운로드할 수 있다.
+    * D. 세션이 삭제된다.
 
----
+29. **JSP와 Servlet의 가장 큰 차이점은?**
 
-## 8. **수행 평가 및 피드백 제공**
+    * A. JSP는 자바 코드, Servlet은 HTML 코드 기반
+    # B. JSP는 HTML 기반, Servlet은 자바 코드 기반
+    * C. JSP는 컴파일이 필요 없다.
+    * D. Servlet은 브라우저에서 직접 실행된다.
 
-(가네 Step 8 : 수행 평가 / ARCS - Satisfaction)
+30. **DB 연결 URL 문자열에 포함되지 않는 정보는?**
 
-### 📝 **미니 퀴즈**
+    * A. 데이터베이스 종류
+    * B. 포트 번호
+    # C. 테이블명
+    * D. 호스트 주소
 
-* Q1. IoC란 무엇인가요? (20자 이내)
-* Q2. DI의 장점은 무엇인가요? (20자 이내)
 
-### 🎯 **피드백**
-
-> 틀려도 괜찮아!
-> 틀린 답변은 다음 실습의 힌트로 삼자.
-
----
-
-## 9. **학습 전이 강화와 실제 문제 적용 활동**
-
-(가네 Step 9 : 파지와 전이 강화 / ARCS - Satisfaction)
-
-### 🔥 **실무형 미션**
-
-> \[챌린지]
->
-> * 간단한 ‘회원가입' 기능 만들기
-> * Controller, Service, Repository 계층 나누어 설계
-
-### 🧩 **실제 문제**
-
-> “회원 정보를 입력하면, 데이터가 출력되는 미니 시스템을 스프링 구조로 만들어보세요.”
-
----
-
-## 10. **학습 반성 및 향후 학습 준비**
-
-(가네 추가 - 자기반성 유도 / ARCS - Satisfaction + Relevance)
-
-### 🧠 **리플렉션(Reflection)**
-
-* 오늘 가장 어려웠던 부분은?
-* IoC/DI가 앞으로 내 개발에 어떻게 도움이 될까?
-* 다음 시간엔 어떤 개념을 다루면 좋을까?
-
-### 📝 **학습 일기 작성**
-
-> "오늘 스프링에서 얻은 가장 큰 깨달음은 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 이다."
-
----
 
