@@ -18,4 +18,10 @@ public class A03_RequestController {
 		System.out.println("나이:"+age);
 		return "WEB-INF\\views\\a01_begin\\a03_requestExp.jsp";
 	}
+	// http://localhost:5050/req02?prod=사과
+	@GetMapping("req02")
+	public String req02( @RequestParam("prod") String prod ) {
+		System.out.println("두번째 요청값:"+prod);
+		return "WEB-INF\\views\\a01_begin\\a04_requestExp.jsp";
+	}
 }
