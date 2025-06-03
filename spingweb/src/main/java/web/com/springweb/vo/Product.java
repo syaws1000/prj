@@ -8,6 +8,7 @@ public class Product {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Product(String name, int price, int cnt) {
 		super();
 		this.name = name;

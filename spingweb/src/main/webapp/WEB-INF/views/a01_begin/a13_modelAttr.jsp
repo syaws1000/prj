@@ -32,8 +32,8 @@
 <div class="jumbotron text-center">
   <h2>요청값과 모델 데이터 처리</h2>
   <h3>${prod.name}</h3>
-  <h3>${prod.age}</h3>
-  <h3>${prod.loc}</h3>
+  <h3>${prod.price}</h3>
+  <h3>${prod.cnt}</h3>
 
 </div>
 <%-- 
