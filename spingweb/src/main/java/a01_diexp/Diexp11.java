@@ -3,6 +3,7 @@ package a01_diexp;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import a01_diexp.vo.Person;
+import a01_diexp.vo.Product;
 
 
 public class Diexp11 {
@@ -16,6 +17,14 @@ public class Diexp11 {
 		System.out.println(p01.getName());
 		System.out.println(p01.getAge());
 		System.out.println(p01.getLoc());
+		// ex) Product 처리..
+		Product prod = ctx.getBean("prod01",Product.class);
+		System.out.println(prod.getName());
+		System.out.println(prod.getPrice());
+		System.out.println(prod.getCnt());
+		
+		
+		
 		ctx.close();
 	}
 

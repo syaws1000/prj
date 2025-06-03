@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import a01_diexp.vo.Person;
+import a01_diexp.vo.Product;
 
 // 객체들을 선언하여 할당하는 컨테이너(스프링부트에서 처리되는 형식)
 @Configuration
@@ -13,6 +14,11 @@ public class Config11 {
 	@Bean
 	public Person p01() {
 		return new Person("홍길동",25,"성남");
+	}
+	// Product 객체 생성 prod01()
+	@Bean
+	public Product prod01() {
+		return new Product("사과",2000,5);
 	}
 	
 
