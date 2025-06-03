@@ -3,6 +3,8 @@ package a01_diexp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import a01_diexp.vo.Car;
+import a01_diexp.vo.Engine;
 import a01_diexp.vo.Student;
 import a01_diexp.vo.StudentCard;
 
@@ -31,6 +33,14 @@ public class Config12 {
 		st.setStudentCard( stc() );
 		return st;
 	}	
+	@Bean
+	public Car car01() {
+		Car c1 = new Car("BMW");
+		c1.setEngine(new Engine("V6"));
+		// Car객체 안에 Engine()객체도 생성하여 처리..
+		
+		return c1;
+	}
 	
 
 }
