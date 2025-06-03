@@ -71,6 +71,7 @@ public class A05_RequestObjectController {
 	// get방식과 초기화면 호출.
 	// post방식으로 데이터 요청 처리..
 	// get/post방식은 url이 같더라도 선언가능하다.
+	// http://localhost:5050/call01
 	@GetMapping("call01")
 	public String call01() {
 		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
