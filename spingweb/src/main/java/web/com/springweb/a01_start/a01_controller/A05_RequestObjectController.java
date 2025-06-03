@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.vo.Person;
@@ -67,5 +68,20 @@ public class A05_RequestObjectController {
 	//   a13_modelAttr.jsp
 	//   a14_modelAttr.jsp
 	//   a15_modelAttr.jsp
+	// get방식과 초기화면 호출.
+	// post방식으로 데이터 요청 처리..
+	// get/post방식은 url이 같더라도 선언가능하다.
+	@GetMapping("call01")
+	public String call01() {
+		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
+	}
+	@PostMapping("call01")
+	public String call02(Person p01) {
+		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
+	}
+	
+	
+	
+	
 	
 }
