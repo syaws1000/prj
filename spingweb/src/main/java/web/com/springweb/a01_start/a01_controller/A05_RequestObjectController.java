@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.vo.Person;
+import web.com.springweb.vo.Product;
 
 @Controller
 public class A05_RequestObjectController {
@@ -36,5 +37,35 @@ public class A05_RequestObjectController {
 	public String reqOb03(Person p01) { 
 		
 		return "WEB-INF\\views\\a01_begin\\a12_modelAttr.jsp";
-	}		
+	}	
+	// http://localhost:5050/reqOb11
+	@GetMapping("reqOb11")
+	public String reqOb11(
+			@RequestParam(value="name",defaultValue = "") String name,
+			@RequestParam(value="price",defaultValue = "0") int price,
+			@RequestParam(value="cnt",defaultValue = "0") int cnt,
+			Model d
+			) {
+		d.addAttribute("prod", new Product(name,price,cnt));
+		return "WEB-INF\\views\\a01_begin\\a13_modelAttr.jsp";
+	}
+	// http://localhost:5050/reqOb12
+	@GetMapping("reqOb12")
+	public String reqOb12(@ModelAttribute("prod") Product prod ) {
+		return "WEB-INF\\views\\a01_begin\\a14_modelAttr.jsp";
+	}	
+	// http://localhost:5050/reqOb13
+	@GetMapping("reqOb13")
+	public String reqOb13( Product prod ) {
+		return "WEB-INF\\views\\a01_begin\\a15_modelAttr.jsp";
+	}	
+	
+	// Product 클래스 기준으로 단계별로 진행하세요.. 
+	// reqOb11
+	// reqOb12 ... 
+	// reqOb13
+	//   a13_modelAttr.jsp
+	//   a14_modelAttr.jsp
+	//   a15_modelAttr.jsp
+	
 }
