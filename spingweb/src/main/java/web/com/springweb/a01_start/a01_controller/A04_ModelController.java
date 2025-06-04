@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import web.com.springweb.vo.Person;
+import web.com.springweb.vo.Product;
+
 @Controller
 public class A04_ModelController {
 	// http://localhost:5050/modelController
@@ -53,8 +56,28 @@ public class A04_ModelController {
 		d.addAttribute("tot", price*cnt);
 		return "WEB-INF\\views\\a01_begin\\a09_buy.jsp";
 	}
+	// http://localhost:5050/modelObj01   
+	@GetMapping("modelObj01")
+	public String getModelObj01(Model  d) {
+		d.addAttribute("myName", "홍길동"); // ==>view단에서 호출 방법  ${myName}
+		d.addAttribute("myAge", 27); //==> ${myAge}
+		d.addAttribute("prices", new int[] {3000,4000,5000}); // ==> ${prices[0]},${prices[1]},${prices[2]},
+		d.addAttribute("person", new Person("마길동",25,"성남")); // ==> ${person.name} : 주의 getName() 없으면 에러 발생.
+																// ==> ${person.name}, ${person.age}, ${person.loc}
+		return "WEB-INF\\views\\a01_begin\\a08_1_model.jsp"; // view단 호출
+	}
+	// http://localhost:5050/modelObj02
+	// 단일데이터(fruit), 배열데이터( names(String[])), 객체형( Product)
+	//  "WEB-INF\\views\\a01_begin\\a08_2_model.jsp
 	
-	
+	@GetMapping("modelObj02")
+	public String getModelObj02(Model d) {
+		d.addAttribute("fruit", "사과");
+		d.addAttribute("names", new String[] {"홍길동","김길동","신길동"});
+		d.addAttribute("product", new Product("오렌지",3000,2));
+		return "WEB-INF\\views\\a01_begin\\a08_2_model.jsp";
+	}
+
 	
 	
 	

@@ -30,15 +30,20 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>요청값 연습</h2>
-  <h3>요청값1 : ${param.name }</h3>
-  <h3>요청값2 : ${param.age }</h3>
+  <h2>모델 객체</h2>
+  <h3>단일데이터:${myName},  ${myAge}</h3>
+  <h3>배열데이터: ${prices[0]},${prices[1]},${prices[2]}</h3>
+  <h3>객체:${person.name}, ${person.age}, ${person.loc}</h3>
+
 </div>
+<%-- 
+		
+--%>
 <div class="container">
-	<form id="frm01" class="form" >
+	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="이름" name="name"  class="form-control mr-sm-2" />
-	    <input placeholder="나이" name="age"  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
