@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import web.com.springweb.vo.Music;
 import web.com.springweb.vo.Person;
 import web.com.springweb.vo.Product;
 
@@ -82,9 +83,14 @@ public class A05_RequestObjectController {
 	public String call02(Person p01) {
 		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
 	}
-	
-	//  http://localhost:5050/reqOb15?title=좋은노래1&singer=29
+	// 요청객체 + 모델 객체..(모델어트리뷰터)
+	//  http://localhost:5050/reqOb15
+	//  http://localhost:5050/reqOb15?title=좋은노래1&singer=가수1
 	//  요청값 처리 객체를 생성하고, 화면에 출력되게 처리하세요.
+	@GetMapping("reqOb15")
+	public String call03(Music m) { // ${music.title} ${music.singer}
+		return "WEB-INF\\views\\a01_begin\\a17_view.jsp";
+	}
 	
 	
 	
