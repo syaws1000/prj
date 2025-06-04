@@ -28,6 +28,8 @@ public class A05_RequestObjectController {
 	// http://localhost:5050/reqOb02
 	// ModelAttribute : 요청값을 위와 받아서 모델데이터를 설정까지 한번해주는 개념..
 	//    요청값 처리 + 모델 객체 설정 처리 해주는 개념(USEBEAN개념)
+	// http://localhost:5050/reqOb02?name=오길동&age=30&loc=서울
+	//                          ${p01.name}  ${p01.age} ${p01.loc}
 	@GetMapping("reqOb02")
 	public String reqOb01( @ModelAttribute("p01") Person p01 ) {
 		return "WEB-INF\\views\\a01_begin\\a11_modelAttr.jsp";
@@ -35,7 +37,7 @@ public class A05_RequestObjectController {
 	// http://localhost:5050/reqOb03
 	/// 모델 명을 지정하지 않은 객체 소문자 시작으로 자동으로 설정 person
 	@GetMapping("reqOb03")
-	public String reqOb03(Person p01) { 
+	public String reqOb03(Person p01) { // ${person.name}
 		
 		return "WEB-INF\\views\\a01_begin\\a12_modelAttr.jsp";
 	}	
@@ -81,6 +83,8 @@ public class A05_RequestObjectController {
 		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
 	}
 	
+	//  http://localhost:5050/reqOb15?title=좋은노래1&singer=29
+	//  요청값 처리 객체를 생성하고, 화면에 출력되게 처리하세요.
 	
 	
 	
