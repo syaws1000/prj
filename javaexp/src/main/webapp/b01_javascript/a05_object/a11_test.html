@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>하이마트</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* ✅ 상단 고정 바 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+      background-color: white;
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo::after {
+      content: "\25BC";
+      font-size: 10px;
+      margin-left: 6px;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      align-items: center;
+      background-color: #f2f2f2;
+      border-radius: 20px;
+      padding: 3px;
+    }
+
+    .toggle-buttons span {
+      padding: 6px 14px;
+      font-size: 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #000;
+    }
+
+    .toggle-buttons .active {
+      background-color: black;
+      color: white;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    
+        .icon-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+}
+      
+    
+
+    .icons img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: flex-start;
+      padding: 130px 480px 0px; /* header 높이 고려 */
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .filter-btn {
+      max-width: 1200px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active {
+      background-color: black;
+      color: white;
+      border-color: black;
+    }
+
+    /* ✅ 왼쪽 세로 사이드바 */
+   .sidebar {
+      width: 90px;
+      height: 43vh;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      top: 155px;
+      left: 350px;
+      border-radius: 40px 40px 40px 40px;
+      justify-content: space-between;
+      
+    }
+
+    .sidebar h2 {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .main-content {
+      margin-left: 200px;
+      width: calc(100% - 200px);
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .slide img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .slide h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .slide p a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
+
+    .image-container {
+      text-align: center;
+      margin: 30px auto;
+      max-width: 700px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: cover;
+    }
+
+    .sidebar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ccc;
+      font-size: 12px;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .sidebar-item:hover {
+      color: white;
+    }
+
+    .sidebar-item img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-item:last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+
+    .himart {
+      width: 60px;
+      height: 60px;
+      background-color: #ff2d55;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    /*왼쪽 사이드바 하이마트-가전상담*/
+    .fade {
+     opacity: 1;
+     transition: opacity 0.5s ease-in-out;
+   }
+
+   .fade-out {
+     opacity: 0;
+   }
+   
+   #himartText {
+     opacity: 1;
+     transition: opacity 0.5s ease-in-out;
+   }
+
+   #himartText.fade-out {
+     opacity: 0;
+   }
+   
+   /*상단 돋보기, 장바구니*/
+   .tooltip {
+  position: absolute;
+  top: 120%; /* 아이콘 아래 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;    /* 흰 배경 */
+  color: #000;                /* 검정 글씨 */
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.icon-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Container for menu items */
+.menu-container {
+  width: 50%;  /* Set container width to 50% of the parent */
+  height: 300px;  /* Set a fixed height */
+  margin: 0 auto;  /* Center the container horizontally */
+  overflow-y: auto;  /* Allow scrolling if content exceeds height */
+  border: 1px solid #ddd;  /* Optional: for visual boundary */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Initially hide all menu items */
+.menu-item {
+  display: none;
+}
+
+/* Display all menu items when "all" is selected */
+.menu-item.all {
+  display: block;
+}
+
+/* Style for the active button */
+.filter-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+   
+    
+    
+  </style>
+</head>
+<body>
+<div class="header" align="left">
+  <div class="logo">HIMART</div>
+  <div class="toggle-buttons">
+    <span class="active" onclick="toggleTab(this)">쇼핑</span>
+    <span onclick="toggleTab(this)">안심케어</span>
+  </div>
+  <div class="icons">
+    <div class="icon-item">
+      <img src="https://img.icons8.com/ios-filled/50/000000/search--v1.png" alt="돋보기" />
+      <span class="tooltip">돋보기</span>
+    </div>
+    <div class="icon-item">
+      <img src="https://img.icons8.com/ios-glyphs/30/000000/shopping-bag.png" alt="장바구니" />
+      <span class="tooltip">장바구니</span>
+    </div>
+  </div>
+</div>
+
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="setActive(this, 'all')">전체</button>
+    <button class="filter-btn" onclick="setActive(this, 'general')">일반노트북</button>
+    <button class="filter-btn" onclick="setActive(this, 'gaming')">게이밍노트북</button>
+    <button class="filter-btn" onclick="setActive(this, 'refurbished')">리퍼노트북</button>
+  </div>
+
+
+
+
+  <div class="slider-container">
+
+    <div class="slider" id="slider">
+      <div class="slide">
+        <h2>리퍼 상품 대개방!<br>빠른 품절 주의</h2>
+        <p><a href="#">혜택 바로가기 ></a></p>
+        <img src="https://mstatic2.e-himart.co.kr/contents/content/display/specialCat/11648/specialDisplayBanner_1740359544229.jpg"/>
+      </div>
+      <div class="slide">
+        <h2>ASUS 추천 노트북<br>하이마트 단독 특가</h2>
+        <p><a href="#">혜택 바로가기 ></a></p>
+        <img src="https://mstatic2.e-himart.co.kr/contents/content/display/specialCat/7662/specialDisplayBanner_1740466750903.jpg"/>
+      </div>
+      <div class="slide">
+        <h2>신학기 프로모션<br>인텔 evo 에디션</h2>
+        <p><a href="#">혜택 바로가기 ></a></p>
+        <img src="https://mstatic2.e-himart.co.kr/contents/content/display/specialCat/10775/specialDisplayBanner_1736325925999.jpg"/>
+      </div>
+    </div>
+    <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+    <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+  </div>
+
+  <div class="image-container">
+    <img src="img/img1.PNG" alt="가운데 이미지"/>
+  </div>
+  <div class="menu-container">
+    <div class="menu-item all">전체 메뉴 아이템</div>
+    <div class="menu-item general">일반노트북 메뉴 아이템</div>
+    <div class="menu-item gaming">게이밍노트북 메뉴 아이템</div>
+    <div class="menu-item refurbished">리퍼노트북 메뉴 아이템</div>
+  </div>
+  <!-- 왼쪽 둥근 사이드바 -->
+  <div class="sidebar">
+    <div class="sidebar-item">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="홈 아이콘"/>
+      <span>홈</span>
+    </div>
+    <div class="sidebar-item">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/menu.png" alt="카테고리 아이콘"/>
+      <span>카테고리</span>
+    </div>
+    <div class="sidebar-item">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/shop.png" alt="매장 소식"/>
+      <span style="font-size:10px">내 매장소식</span>
+    </div>
+    <div class="sidebar-item">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="마이"/>
+      <span>마이</span>
+    </div>
+    <div class="sidebar-item himart">
+      <span id="himartText">하이마트</span>
+    </div>
+  </div>
+
+  
+
+
+  <script>
+    function toggleTab(el) {
+      document.querySelectorAll('.toggle-buttons span').forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function setActive(btn, category) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Hide all menu items
+      document.querySelectorAll('.menu-item').forEach(item => item.style.display = 'none');
+        
+      // Show menu items based on category
+      if (category === 'all') {
+          document.querySelectorAll('.menu-item').forEach(item => item.style.display = 'block');
+      } else {
+          document.querySelectorAll('.menu-item.' + category).forEach(item => item.style.display = 'block');
+      }
+
+    }
+
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(i) {
+      index = (i + slides.length) % slides.length;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(index + 1);
+    }
+
+    function prevSlide() {
+      showSlide(index - 1);
+    }
+
+    setInterval(nextSlide, 3000);
+    
+   /*왼쪽사이드 하이마트-가전상담*/
+
+  const textEl = document.getElementById('himartText');
+  const messages = ['하이마트', '가전상담'];
+  let textindex = 0;
+
+  setInterval(() => {
+    textEl.classList.add('fade-out'); // 글자 서서히 사라짐
+
+    setTimeout(() => {
+      index = (index + 1) % messages.length;
+      textEl.textContent = messages[index]; // 텍스트 교체
+      textEl.classList.remove('fade-out'); // 다시 나타남
+    }, 500); // transition 시간과 일치
+  }, 2000); // 반복 주기
+
+
+
+
+  </script>
+</body>
+</html>

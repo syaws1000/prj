@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{border:1px solid green;}
+/*
+
+*/
+body{ width:80%;}
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-btn, .scan-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+
+.category-filter {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.category-filter button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.category-filter button.active {
+  background: #ddd;
+  font-weight: bold;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  margin-top: 10px;
+}
+.brand-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.brand-text {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.brand-text p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.brand-text span {
+  font-size: 13px;
+  color: gray;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #999;
+}
+
+/* 스위치 영역 */
+.switch-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* 스위치 스타일 */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #444;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.filter-group {
+  margin-bottom: 10px;
+}
+
+.filter-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-options button {
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.filter-tags button {
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-tags .blue {
+  background-color: #e6f1ff;
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.filter-tags .green {
+  background-color: #e7f7ef;
+  color: #1a8e4c;
+  font-weight: bold;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.left .compare-btn {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.compare-btn .plus-icon {
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.filter-icon img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<!-- 
+-->
+<div class="search-bar">
+  <input type="text" placeholder="노트북" />
+  <button class="search-btn">🔍</button>
+  <button class="scan-btn">📷</button>
+</div>
+
+<div class="category-filter">
+  <button class="active">연관</button>
+  <button>맥북</button>
+  <button>레노버노트북</button>
+  <button>LG노트북</button>
+  <button>베이직스</button>
+  <button>게이밍노트북</button>
+  <button>HP노트북</button>
+  <button>ASUS노트북</button>
+  <button>델노트북</button>
+  <button>3060노트북</button>
+  <button>17인치</button>
+</div>
+
+<div class="banner">
+  <img src="https://himart.flavedo.io/citrus/6qhRm_U_5_543m3bDzHwznbzdkOpxrh1NtkzmRgRfLI=" alt="NVIDIA Studio 광고" />
+</div>
+
+<div class="brand-list">
+  <div class="brand-item">
+    <img src="https://mstatic1.e-himart.co.kr/contents/brand/LG.png" alt="LG" class="brand-logo" />
+    <div class="brand-text">
+      <p><strong>'LG전자'</strong> 제품을 만나보세요.</p>
+      <span>브랜드관 바로가기</span>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+
+  <div class="brand-item">
+    <img src="https://mstatic1.e-himart.co.kr/contents/brand/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90.png" alt="Samsung" class="brand-logo" />
+    <div class="brand-text">
+      <p><strong>'삼성전자'</strong> 제품을 만나보세요.</p>
+      <span>브랜드관 바로가기</span>
+    </div>
+    <div class="arrow">›</div>
+  </div>
+</div>
+
+<!-- 스위치 -->
+<div class="switch-wrapper">
+  <span>HOT 인기상품 추천</span>
+  <label class="switch">
+    <input type="checkbox" checked />
+    <span class="slider"></span>
+  </label>
+</div>
+
+<!-- 브랜드 필터 -->
+<div class="filter-group">
+  <div class="filter-label">브랜드</div>
+  <div class="filter-options">
+    <button>HP</button>
+    <button>좀비베리어</button>
+    <button>LG전자</button>
+    <button>Apple</button>
+    <button>삼성전자</button>
+    <button>오피스넥스</button>
+    <button>ASUS</button>
+    <button>TS퍼니처</button>
+    <button>넥스트유</button>
+    <button>Lenovo</button>
+    <button>고부기</button>
+  </div>
+</div>
+
+<!-- 화면크기 필터 -->
+<div class="filter-group">
+  <div class="filter-label">화면크기</div>
+  <div class="filter-options">
+    <button>11인치</button>
+    <button>12인치</button>
+    <button>13인치</button>
+    <button>14인치</button>
+    <button>15인치</button>
+    <button>16인치</button>
+    <button>17인치</button>
+  </div>
+</div>
+
+<!-- CPU 필터 -->
+<div class="filter-group">
+  <div class="filter-label">CPU</div>
+  <div class="filter-options">
+    <button>인텔 코어i3</button>
+    <button>인텔 코어i5</button>
+    <button>인텔 코어i7</button>
+    <button>인텔 코어i9</button>
+    <button>AMD 라이젠5</button>
+    <button>AMD 라이젠7</button>
+    <button>AMD 라이젠9</button>
+    <button>애플 M1</button>
+  </div>
+</div>
+
+<!-- 특성 필터 -->
+<div class="filter-tags">
+  <button class="blue">써치ZERO</button>
+  <button class="green">가전 전문가 간편상담</button>
+  <button>고장, 파손 걱정 NO 안심케어</button>
+  <button>초특가 한정수량 미개봉새상품</button>
+  <button>국내 최대규모 전시상품</button>
+  <button>내일 도착 상품 내일도착</button>
+  <button>구매하고 바로 받는 2시간컷</button>
+  <button>매장에서 픽업 스마트픽</button>
+</div>
+
+<div class="toolbar">
+  <div class="left">
+    <button class="compare-btn">
+      <span class="plus-icon">+</span> 상품비교
+    </button>
+  </div>
+  <div class="right">
+    <div class="sort">
+      추천순 ▼
+    </div>
+    <div class="filter-icon">
+      <img src="filter-icon.svg" alt="필터" />
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
