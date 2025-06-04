@@ -1,0 +1,249 @@
+### 1. **`@ModelAttribute`의 역할은 무엇인가요?**
+
+* A. 요청 파라미터를 모델에 자동으로 추가한다.
+* B. 뷰에서만 데이터를 전달할 수 있도록 한다.
+* C. 컨트롤러에서 뷰로 데이터를 전달하는 역할을 한다.
+* D. HTTP 응답을 직접 처리한다.
+
+---
+
+### 2. **Spring MVC에서 `Model` 객체의 주요 역할은 무엇인가요?**
+
+* A. 데이터베이스와의 연결을 관리한다.
+* B. 클라이언트로부터 받은 요청을 처리한다.
+* C. 컨트롤러에서 뷰로 전달할 데이터를 저장한다.
+* D. 서버에서 클라이언트로 전송할 HTTP 응답을 생성한다.
+
+---
+
+### 3. **`@RequestParam`을 사용하여 HTTP 요청에서 데이터를 받을 때, 기본값을 설정하는 방법으로 옳은 것은 무엇인가요?**
+
+* A. `@RequestParam(value="param", defaultValue="0")`
+* B. `@RequestParam("param", default="0")`
+* C. `@RequestParam(value="param", default="0")`
+* D. `@RequestParam(defaultValue="0", value="param")`
+
+---
+
+### 4. **Spring Boot에서 `Model` 객체에 데이터를 추가할 때 사용하는 메서드는 무엇인가요?**
+
+* A. `addData()`
+* B. `setAttribute()`
+* C. `addAttribute()`
+* D. `putAttribute()`
+
+---
+
+### 5. **`@ModelAttribute`가 설정한 객체는 기본적으로 무엇을 기준으로 모델에 바인딩되나요?**
+
+* A. 객체의 클래스 이름
+* B. 요청 파라미터
+* C. HTTP 요청의 경로
+* D. HTTP 응답의 상태 코드
+
+---
+
+### 6. **Spring Boot에서 `@RequestParam`을 사용하여 쿼리 파라미터를 받아 처리하는 방식에 대한 설명으로 올바른 것은 무엇인가요?**
+
+* A. `@RequestParam`은 HTTP 요청에서 쿼리 파라미터를 자동으로 객체에 매핑한다.
+* B. `@RequestParam`은 요청 파라미터의 값을 자동으로 JSON 형태로 변환한다.
+* C. `@RequestParam`은 HTTP 요청에서 쿼리 파라미터 값을 모델에 자동으로 추가한다.
+* D. `@RequestParam`은 서버에서 클라이언트로 전달된 데이터를 필터링하는 데 사용된다.
+
+---
+
+### 7. **Spring MVC에서 `@RequestParam`의 `defaultValue` 속성의 역할은 무엇인가요?**
+
+* A. 요청 파라미터의 값이 없을 경우 기본값을 제공한다.
+* B. 요청 파라미터가 반드시 포함되어야 함을 강제한다.
+* C. 요청 파라미터의 값을 JSON 형식으로 반환한다.
+* D. 요청 파라미터가 없으면 해당 파라미터를 자동으로 삭제한다.
+
+---
+
+### 8. **`@ModelAttribute`가 자동으로 모델에 데이터를 설정하는 경우는 언제인가요?**
+
+* A. 요청 파라미터와 일치하는 객체를 자동으로 바인딩할 때
+* B. 데이터베이스에서 데이터를 조회할 때
+* C. 클라이언트의 쿠키를 처리할 때
+* D. 페이지 로딩 후 자동으로 데이터를 렌더링할 때
+
+---
+
+### 9. **`@RequestParam`을 사용하여 HTTP 요청에서 데이터를 받을 때 기본값을 설정하는 방식으로 올바른 코드는 무엇인가요?**
+
+* A. `@RequestParam("param", defaultValue="0")`
+* B. `@RequestParam("param", default=0)`
+* C. `@RequestParam(value="param", default="0")`
+* D. `@RequestParam("param", defaultValue="default")`
+
+---
+
+### 10. **Spring MVC에서 `Model` 객체에 데이터를 추가한 후 이를 뷰에서 사용하기 위해서 어떤 형식으로 접근해야 하나요?**
+
+* A. `${modelName}`
+* B. `${modelName.value}`
+* C. `${modelName.getValue()}`
+* D. `${modelName}`
+
+
+
+
+### 1. **`icecreamShopController`**
+
+* **이야기:** 아이스크림 가게의 점원 역할을 맡게 된 주인공은 손님에게 제공할 수 있는 아이스크림 종류를 모델에 담아 고객에게 전달하려고 한다. 요청된 아이스크림 종류를 화면에 표시하세요.
+* **파일명:** `a01_icecream_shop.jsp`
+* **힌트:** `icecream` 속성에 아이스크림 종류를 추가하고, 모델로 반환
+
+---
+
+### 2. **`sumOfApplesAndBananasController`**
+
+* **이야기:** 주인공이 시장에서 사온 사과와 바나나의 수를 받아서 총합을 계산하여 화면에 표시하는 프로그램을 만들어 보자.
+* **파일명:** `a02_sum_apples_bananas.jsp`
+* **힌트:** `apples`, `bananas` 요청 파라미터로 받아 `total`을 계산하여 모델로 전달
+
+
+### 3. **`productPurchaseController`**
+
+* **이야기:** 쇼핑몰에서 물건을 구매한 주인공은 물건의 가격과 개수를 받아 총액을 계산해 결제 화면에 표시하려고 한다.
+* **파일명:** `a03_product_purchase.jsp`
+* **힌트:** `price`와 `count`로 총액을 계산하고 `totalCost`로 모델에 추가
+
+---
+
+### 4. **`userProfileController`**
+
+* **이야기:** 주인공은 사용자의 이름, 나이, 주소를 입력받아 사용자의 프로필을 생성하고 화면에 표시하는 프로그램을 만들어 보자.
+* **파일명:** `a04_user_profile.jsp`
+* **힌트:** `name`, `age`, `location`을 받아서 `userProfile` 모델에 추가
+
+---
+
+### 5. **`employeeDetailsController`**
+
+* **이야기:** 주인공은 회사의 직원 정보를 받아 직원의 이름, 직급, 급여를 화면에 표시하려고 한다. 직원 정보를 모델에 담아 전달하자.
+* **파일명:** `a05_employee_details.jsp`
+* **힌트:** `name`, `position`, `salary`를 받아 `employee` 모델에 담기
+
+---
+
+### 6. **`icecreamOrderController`**
+
+* **이야기:** 주인공은 고객이 주문한 아이스크림의 종류와 개수를 받아서 총 주문 금액을 계산해 출력하려고 한다.
+* **파일명:** `a06_icecream_order.jsp`
+* **힌트:** `icecreamType`, `quantity`를 받아 총 금액을 계산하여 `totalPrice`로 모델에 추가
+
+---
+
+### 7. **`cartCheckoutController`**
+
+* **이야기:** 주인공은 장바구니에 담긴 상품들의 총 가격을 계산하여 결제 화면에 표시하려고 한다.
+* **파일명:** `a07_cart_checkout.jsp`
+* **힌트:** `productPrice`, `productCount`로 총액을 계산하고 `cartTotal`로 모델에 담기
+
+---
+
+### 8. **`productRatingController`**
+
+* **이야기:** 주인공은 고객이 남긴 상품의 별점을 받아 해당 상품의 평균 별점을 계산하여 화면에 표시하려고 한다.
+* **파일명:** `a08_product_rating.jsp`
+* **힌트:** `rating` 값을 받아 평균을 계산하여 `averageRating`으로 모델에 담기
+
+---
+
+### 9. **`customerSurveyController`**
+
+* **이야기:** 주인공은 고객의 설문조사 결과를 받아 만족도를 분석하여 결과를 화면에 표시하려고 한다.
+* **파일명:** `a09_customer_survey.jsp`
+* **힌트:** `satisfaction`, `feedback`을 받아 분석 후 모델에 추가
+
+---
+
+### 10. **`bookInventoryController`**
+
+* **이야기:** 도서관에서 주인공은 대출할 수 있는 책의 제목과 저자를 받아서 책의 정보를 화면에 표시하려고 한다.
+* **파일명:** `a10_book_inventory.jsp`
+* **힌트:** `title`, `author`를 받아 `bookInfo`로 모델에 담기
+
+---
+
+### 11. **`movieTicketBookingController`**
+
+* **이야기:** 영화 예매를 하려는 주인공은 영화의 이름과 좌석 수를 입력받고 총 가격을 계산하여 결제 화면을 출력하려고 한다.
+* **파일명:** `a11_movie_ticket_booking.jsp`
+* **힌트:** `movieName`, `seatCount`로 가격 계산 후 `totalAmount`로 모델에 추가
+
+---
+
+### 12. **`schoolEventController`**
+
+* **이야기:** 학교 행사를 위해 주인공은 참석자 수와 행사 비용을 받아 총 비용을 계산하여 행사 예산을 작성하려고 한다.
+* **파일명:** `a12_school_event.jsp`
+* **힌트:** `attendees`, `costPerPerson`으로 총 비용 계산하여 `totalEventCost`로 모델에 추가
+
+---
+
+### 13. **`shoppingListController`**
+
+* **이야기:** 주인공은 쇼핑 리스트를 만들어 가격과 수량을 받아 총 금액을 계산하려고 한다.
+* **파일명:** `a13_shopping_list.jsp`
+* **힌트:** `itemPrice`, `itemQuantity`로 총액을 계산하여 `shoppingTotal`로 모델에 담기
+
+---
+
+### 14. **`onlineQuizController`**
+
+* **이야기:** 주인공은 온라인 퀴즈의 점수를 계산하여 결과를 화면에 표시하려고 한다. 점수는 각 질문의 맞춘 개수에 비례한다.
+* **파일명:** `a14_online_quiz.jsp`
+* **힌트:** `correctAnswers` 값을 받아서 점수 계산 후 `totalScore`로 모델에 추가
+
+---
+
+### 15. **`customerLoyaltyController`**
+
+* **이야기:** 주인공은 고객의 구매 금액을 받아서 적립된 포인트를 계산하여 화면에 표시하려고 한다.
+* **파일명:** `a15_customer_loyalty.jsp`
+* **힌트:** `purchaseAmount`로 적립 포인트 계산하여 `loyaltyPoints`로 모델에 담기
+
+---
+
+### 16. **`vehicleInfoController`**
+
+* **이야기:** 주인공은 차량의 정보를 받아 모델에 담고, 해당 차량의 세부 사항을 화면에 표시하려고 한다.
+* **파일명:** `a16_vehicle_info.jsp`
+* **힌트:** `make`, `model`, `year`를 받아 `vehicleDetails`로 모델에 추가
+
+---
+
+### 17. **`mealOrderController`**
+
+* **이야기:** 주인공은 레스토랑에서 주문받은 음식을 바탕으로 총 결제 금액을 계산하고 화면에 표시하려고 한다.
+* **파일명:** `a17_meal_order.jsp`
+* **힌트:** `mealPrice`, `mealCount`로 총액 계산하여 `totalMealCost`로 모델에 담기
+
+---
+
+### 18. **`classroomActivityController`**
+
+* **이야기:** 학교에서 교사는 학생들의 활동 점수를 받아서 클래스별 평균 점수를 계산하고 결과를 화면에 표시하려고 한다.
+* **파일명:** `a18_classroom_activity.jsp`
+* **힌트:** `activityScores`를 받아 평균 계산 후 `classAverage`로 모델에 추가
+
+---
+
+### 19. **`travelExpenseController`**
+
+* **이야기:** 주인공은 여행 경비를 계산하여 각 항목에 대한 비용을 화면에 표시하려고 한다.
+* **파일명:** `a19_travel_expense.jsp`
+* **힌트:** `flightCost`, `hotelCost`, `mealCost` 등을 받아 `totalTravelCost`로 모델에 담기
+
+---
+
+### 20. **`giftShopController`**
+
+* **이야기:** 주인공은 선물 가게에서 구매한 상품들의 가격과 개수를 받아 총액을 계산하고 결제 화면에 표시하려고 한다.
+* **파일명:** `a20_gift_shop.jsp`
+* **힌트:** `itemPrice`, `itemCount`로 총액 계산 후 `totalGiftCost`로 모델에 담기
+
+
