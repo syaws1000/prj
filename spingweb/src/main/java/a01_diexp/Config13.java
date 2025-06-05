@@ -4,7 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import a01_diexp.vo.GroupPerson;
+import a01_diexp.vo.Mart;
 import a01_diexp.vo.Person;
+import a01_diexp.vo.Pet;
+import a01_diexp.vo.PetOwner;
 import a01_diexp.vo.Product;
 
 // 객체들을 선언하여 할당하는 컨테이너(스프링부트에서 처리되는 형식)
@@ -34,7 +37,16 @@ public class Config13 {
 		
 		return p;
 	}
-	
-	
-	
+	@Bean("mart")
+	public Mart getMart() {
+		Mart m = new Mart("행복한 마트");
+		m.setProduct(new Product("사과",2000,5));
+		return m;
+	}
+	@Bean("pet")
+	public Pet getPet() {
+		Pet p = new Pet("귀염야옹이");
+		p.setPetOwner(new PetOwner("야옹이주인",27));
+		return p;
+	}
 }
