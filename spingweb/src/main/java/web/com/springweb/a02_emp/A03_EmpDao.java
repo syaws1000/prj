@@ -10,5 +10,5 @@ import web.com.springweb.a02_emp.vo.Emp;
 @Mapper
 public interface A03_EmpDao {
 	@Select("SELECT * FROM EMP")
-	List<Emp> empList();  // public 생략..
+	List<Emp> empList(Emp sch);  // public 생략..
 }

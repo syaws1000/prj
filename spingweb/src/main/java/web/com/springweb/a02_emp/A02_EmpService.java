@@ -12,9 +12,12 @@ public class A02_EmpService {
 	@Autowired
 	private A03_EmpDao dao;
 	
-	public List<Emp> empList(){
+	public List<Emp> empList(Emp sch){
 		// 비지니스(알고리즈 처리시 해야할 코드)...
+		// 초기화면에 전체 키워드검색
+		if(sch.getEname()==null) sch.setEname("");
+		if(sch.getJob()==null) sch.setJob("");
 		
-		return dao.empList();
+		return dao.empList(sch);
 	}
 }

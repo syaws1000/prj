@@ -34,10 +34,10 @@
 	<h2>데이터 건수:${empList.size()}</h2>
 </div>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" class="form"  method="post"> <%-- post 요청 body ename=@@&job=@@ --%>
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="사원명" name="ename"  class="form-control mr-sm-2" />
+	    <input placeholder="직책명" name="job"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
