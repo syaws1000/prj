@@ -1,0 +1,112 @@
+### 객관식 문제 (15문제)
+
+1. **Spring MVC에서 `Model` 객체를 사용하는 이유는 무엇인가요?**
+	d.addAttribute("key", "value")
+   * A) 데이터를 HTTP 요청에 직접 전달하기 위해
+   # B) 데이터를 HTTP 응답에 담아 뷰에 전달하기 위해
+   * C) 데이터를 서버에 저장하기 위해
+   * D) 데이터를 클라이언트 측에만 전달하기 위해
+
+2. **다음 중 JSP에서 모델 속성을 출력하는 방법으로 올바른 것은 무엇인가요?**
+
+   # A) `${modelAttribute}`
+   * B) `#modelAttribute`
+   * C) `{{modelAttribute}}`
+   * D) `{{modelAttribute}}` in `Model`
+
+3. **Spring MVC에서 배열 데이터를 `Model`에 추가할 때 사용하는 메소드는 무엇인가요?**
+
+   * A) `addObject()`
+   # B) `addAttribute("arr", new int[]{1000,2000,3000})`  ${arr[0]} ${arr[1]} ${arr[2]}   
+   * C) `addArray()`
+   * D) `addList()`
+
+4. **다음 중 `Model` 객체에 객체 데이터를 추가할 때 필요한 조건은 무엇인가요?**
+
+   * A) 객체에 `get()` 메소드가 반드시 있어야 한다.
+   * B) 객체는 반드시 `Serializable` 인터페이스를 구현해야 한다.
+   # C) 객체는 반드시 `public` 클래스여야 한다.
+   * D) 객체는 반드시 `final`이어야 한다.
+
+5. **Spring MVC에서 `Model`에 배열을 추가하고 JSP에서 이를 출력하려면 어떻게 해야 하나요?**
+
+   # A) `Model.addAttribute("prices", prices)`로 데이터를 추가하고, JSP에서 `${prices[0]}`으로 접근한다.
+   * B) `Model.addObject("prices", prices)`로 데이터를 추가하고, JSP에서 `${prices[1]}`으로 접근한다.
+   * C) `Model.addAttribute("prices", prices)`로 데이터를 추가하고, JSP에서 `#prices[0]`으로 접근한다.
+   * D) `Model.addList("prices", prices)`로 데이터를 추가하고, JSP에서 `${prices[0]}`으로 접근한다.
+
+6. **JSP에서 객체의 필드를 출력하려면 무엇을 사용해야 하나요?**
+	controller
+	d.addAttribute("person", new Person("홍길동",25,"서울"));
+	==>
+	view
+	${person.name}
+	
+   # A) `${person.name}`
+   * B) `#{person.name}`
+   * C) `${person.getName()}`
+   * D) `#{person.getName()}`
+
+7. **Spring MVC에서 `Model`에 데이터를 추가할 때 객체 데이터를 어떻게 전달할 수 있나요?**
+
+   * A) `addObject()` 메소드를 사용
+   # B) `addAttribute()` 메소드를 사용
+   * C) `addProduct()` 메소드를 사용
+   * D) `addData()` 메소드를 사용
+
+8. **다음 중 Spring MVC에서 `Model`에 추가한 데이터를 JSP에서 출력할 때의 올바른 방법은 무엇인가요?**
+
+   # A) `${fruit}`
+   * B) `${fruit.get()}`
+   * C) `#{fruit}`
+   * D) `${fruit.getFruit()}`
+
+9. **`String[]` 배열을 `Model`에 추가한 후, JSP에서 데이터를 출력하려면 어떻게 해야 하나요?**
+
+   # A) `${names[0]}`
+   * B) `#names[0]`
+   # C) `${names[1]}`
+   * D) `#names[1]`
+
+10. **다음 중 Spring MVC에서 모델 속성을 사용하여 데이터를 전달하는 올바른 방식은 무엇인가요?**
+
+    # A) `d.addAttribute("key", value)`
+    * B) `d.addData("key", value)`
+    * C) `d.addObject("key", value)`
+    * D) `d.setData("key", value)`
+
+11. **Spring MVC에서 `Person` 클래스에 이름, 나이, 위치를 담은 객체를 `Model`에 추가할 때, JSP에서 `Person` 객체의 `name`을 출력하려면 어떻게 해야 하나요?**
+
+    # A) `${person.name}`
+    * B) `${person.getName()}`
+    * C) `#{person.name}`
+    * D) `#person.getName()`
+
+12. **다음 중 `Product` 객체를 `Model`에 추가할 때 올바른 방법은 무엇인가요?**
+
+    # A) `d.addAttribute("product", new Product("오렌지", 3000, 2))`
+    * B) `d.addObject("product", new Product("오렌지", 3000, 2))`
+    * C) `d.addItem("product", new Product("오렌지", 3000, 2))`
+    * D) `d.addProduct("product", new Product("오렌지", 3000, 2))`
+
+13. **Spring MVC에서 `Model`에 데이터를 전달하는 방식에서 `Model.addAttribute()`와 `Model.addObject()`의 차이점은 무엇인가요?**
+
+    * A) `addObject()`는 `Model`에 데이터를 추가할 수 없다.
+    * B) `addAttribute()`는 `JSP`에서 데이터를 사용할 수 없고, `addObject()`는 가능하다.
+    # C) `addObject()`는 객체를 전달할 때 사용하고, `addAttribute()`는 기본 데이터 타입을 전달할 때 사용한다.
+    * D) 두 메소드는 완전히 동일하게 작동한다.
+
+14. **다음 중 Spring MVC에서 `Product` 객체를 JSP에서 출력하기 위해 `Model`에 추가하는 방법은 무엇인가요?**
+
+    * A) `d.addAttribute("product", new Product("오렌지", 3000, 2))`
+    * B) `d.addProduct("product", new Product("오렌지", 3000, 2))`
+    # C) `d.addObject("product", new Product("오렌지", 3000, 2))`
+    * D) `d.addItem("product", new Product("오렌지", 3000, 2))`
+
+15. **Spring MVC에서 `Model` 객체에 여러 데이터를 추가할 때, 하나의 모델에서 여러 개의 속성을 추가하는 방법은 무엇인가요?**
+
+    # A) `model.addAttribute("key", value)`를 여러 번 호출한다.
+    * B) `model.addAttributes()` 메소드를 사용한다.
+    * C) `model.addMultipleAttributes()` 메소드를 사용한다.
+    * D) `model.setAttributes()` 메소드를 사용한다.
+

@@ -80,7 +80,12 @@ public class A05_RequestObjectController {
 		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
 	}
 	@PostMapping("call01")
-	public String call02(Person p01) {
+	public String call02(Person p01) { // 모델어트리뷰트로 ${person.name}
+		System.out.println("# post방식으로 처리되는 메서드 #");
+		System.out.println("이름:"+p01.getName());
+		System.out.println("나이:"+p01.getAge());
+		System.out.println("사는곳:"+p01.getLoc());
+		
 		return "WEB-INF\\views\\a01_begin\\a16_view.jsp";
 	}
 	// 요청객체 + 모델 객체..(모델어트리뷰터)
