@@ -1,8 +1,8 @@
-package a01_diexp.vo2;
+package a01_diexp.vo3;
 
 import org.springframework.stereotype.Component;
 
-@Component("prod")   // 이름을 지정..
+@Component
 public class Product {
 	private String name;
 	private int price;
