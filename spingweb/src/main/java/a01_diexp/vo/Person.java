@@ -1,5 +1,8 @@
 package a01_diexp.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Person {
 	private String name;
 	private int age;
