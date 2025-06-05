@@ -2,6 +2,9 @@ package web.com.springweb.a01_start.a01_controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import web.com.springweb.vo.Product;
 
 @Controller
 public class A06_GetPostController {
@@ -12,8 +15,10 @@ public class A06_GetPostController {
 	public String call02() {
 		return "WEB-INF\\views\\a01_begin\\a18_getpostView.jsp";
 	}
-	
-	
 	// post방식으로 요청값 전달  Product (모델어트리뷰터 처리)
+	@PostMapping("call02")
+	public String call02Post(Product pro) {
+		return "WEB-INF\\views\\a01_begin\\a18_getpostView.jsp";
+	}
 	
 }
