@@ -17,6 +17,8 @@ public class A02_EmpService {
 		// 초기화면에 전체 키워드검색
 		if(sch.getEname()==null) sch.setEname("");
 		if(sch.getJob()==null) sch.setJob("");
+		sch.setEname("%"+sch.getEname()+"%");
+		sch.setJob("%"+sch.getJob()+"%");
 		
 		return dao.empList(sch);
 	}
