@@ -28,6 +28,9 @@ public class A06_GetPostController {
 	public String call03(Music m) {
 		return "WEB-INF\\views\\a01_begin\\a19_View.jsp";
 	}
+	// ex) http://localhost:5050/call04
+	//     a20_View.jsp
+	//     자동차 이름(name),  자동차 배기량(cc) ==> VO(Car)
 	
 	
 	
