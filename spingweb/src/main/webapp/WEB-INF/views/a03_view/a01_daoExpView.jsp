@@ -30,15 +30,17 @@
 
 <body>
 <div class="jumbotron text-center">
-  	<h2>사원정보리스트</h2>
-	<h2>데이터 건수:${empList.size()}</h2>
+  <h2>단일행, 단일열 데이터</h2>
+
 </div>
+<%-- 
+		
+--%>
 <div class="container">
-	<form id="frm01" class="form"  method="post"> <%-- post 요청 body ename=@@&job=@@ --%>
-	<%--주의) action 속성을 생략하면 default로 이 jsp를 호출한 controller 메서드를 호출한다. --%>
+	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="사원명" name="ename" value="${param.ename}"  class="form-control mr-sm-2" />
-	    <input placeholder="직책명" name="job"  value="${param.job}"   class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -46,24 +48,25 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
     <thead>
+    
       <tr class="table-success text-center">
-        <th>사원번호</th>
-        <th>사원명</th>
-        <th>직책명</th>
-        <th>급여</th>
-        <th>부서번호</th>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="emp" items="${empList}">
-    	<tr><td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
-    	</c:forEach>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     

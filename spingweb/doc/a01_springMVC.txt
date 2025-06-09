@@ -18,4 +18,17 @@
 	7) Controller : 스프링에서 controller 역할을 하는 파일로
 		@GettingMapping("요청url")를 메서드별로 선언하고,
 		return "" : 특정한 view를 호출한다.
+3. spring MVC 진행 프로세스		
+	1) 참고 파일 A01_Controller, A02_Service, A03_Dao
+	2) 처리되는 순서
+ 		1. 순차로 호출시는 요청값 전달(매개변수로 전달) :  controller ==> service ==> dao
+		2. 역순으로 결과값을 전달(리턴값으로 전달 ) : dao ==> service ==> controller
+		3. 결과내용을 model로 설정하여, view단에 전달한다.
+		
+		
+		
+		
+		
+		
+		
 		
