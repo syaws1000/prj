@@ -3,6 +3,7 @@ package a01_diexp.vo;
 public class Pet {
 	private String name;
 	private PetOwner petOwner;
+	
 	public Pet() {
 		super();
 		// TODO Auto-generated constructor stub

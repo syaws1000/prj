@@ -1,11 +1,19 @@
 package a01_diexp.vo4;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import a01_diexp.vo.Food;
 
 @Component
 public class Pet {
 	private String name;
+	@Autowired
 	private PetOwner petOwner;
+	// 선언은 가능하나, 해당 컴포넌트에는 Food 객체가 없다..
+	@Autowired
+	private Food food;
+	
 	public Pet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -36,6 +44,14 @@ public class Pet {
 
 	public void setPetOwner(PetOwner petOwner) {
 		this.petOwner = petOwner;
+	}
+
+	public Food getFood() {
+		return food;
+	}
+
+	public void setFood(Food food) {
+		this.food = food;
 	}
 	
 	
