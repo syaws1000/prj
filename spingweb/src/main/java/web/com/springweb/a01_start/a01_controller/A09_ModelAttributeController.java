@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import a01_diexp.vo.Person;
+// ex) A10_ModelAttrController
+//     ModelAttribute Product 클래스로 객체를 생성해서 처리하고..
+//     show13, show14, show15 ==> a13_show.jsp a14_show.jsp a15_show.jsp
+
 
 @Controller
 public class A09_ModelAttributeController {
@@ -29,7 +33,7 @@ public class A09_ModelAttributeController {
 	// http://localhost:5050/show12
 	@GetMapping("show12")
 	public String show12() {
-		return "WEB-INF\\views\\a02_view\\a11_show.jsp";
+		return "WEB-INF\\views\\a02_view\\a12_show.jsp";
 	}
 	
 	
