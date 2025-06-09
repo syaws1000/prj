@@ -1,10 +1,14 @@
 package a01_diexp.vo4;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Mart {  // 1:1관계 설정..
 	private String name;
+	
+	
+	@Autowired
 	private Product product;
 	public Mart() {
 	}
