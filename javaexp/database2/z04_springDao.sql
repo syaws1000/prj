@@ -24,15 +24,61 @@ int getCountByDeptno(@Param("deptno") int deptno);
 
 ==> @Param("변수명")은 sql에서 pstmt로 매핑할 변수명을 지정할 때, 사용된다. 이 메서드에 
 부서번호과 정수로 전달하면 #{deptno}에 할당 처리..
+ * */
+-- 20번 부서의 최대 급여 출력..
+SELECT MAX(SAL) FROM EMP10 WHERE DEPTNO = 20;
+/*
+dao 메서드 선언..
 
+@Select("SELECT MAX(SAL) FROM EMP10 WHERE DEPTNO = #{deptno}")
+double getMxSalByDeptno(@Param("deptno") int deptno);
+ * */
+
+-- 직책 SALESMAN의 최저 급여 출력..
+SELECT MIN(SAL) FROM EMP10 WHERE JOB = 'SALESMAN';
+/*
+결과 : 1,250 ==> java로 double sal;
+입력 : 'SALESMAN' ==> java  String job;
+
+@Select("SELECT MIN(SAL) FROM EMP10 WHERE JOB = #{job1}")
+double getSalByJob(@Param("job1") String job);
 
  * */
 
+SELECT AVG(SAL) FROM EMP10 WHERE MGR = 7698;
+/*
+결과 : 1310 ==> double avSal
+입력 : 7698 ==> int mgr
+기능 메서드 선언..
+@Select("SELECT AVG(SAL) FROM EMP10 WHERE MGR = #{mgr}")
+double getAvSalByMgr(@Param("mgr") int mgr);
 
--- 20번 부서의 최대 급여 출력..
-SELECT MAX(SAL) FROM EMP10 WHERE DEPTNO = 20;
--- 직책 SALESMAN의 최저 급여 출력..
-SELECT MIN(SAL) FROM EMP10 WHERE JOB = 'SALESMAN';
+ **/
+
+
+ -- 	 	2단계 출력 : 다수행 1열, 입력 : 변수형데이터(2개 시작/마지막)
+SELECT * FROM EMP10;
+SELECT ENAME FROM EMP10 WHERE SAL BETWEEN 1000 AND 3000;
+-- 출력 
+/*
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+TURNER
+FORD
+MILLER
+	String[] enames;
+	List<String> enames;
+
+입력 : 1000 AND 3000  ==> double start, double end
+                         int start, int end
+                         
+@Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{start} AND #{end}")                         
+List<String> getEnamesByStartEnd(int start, int end);
+                         
 
 
 
