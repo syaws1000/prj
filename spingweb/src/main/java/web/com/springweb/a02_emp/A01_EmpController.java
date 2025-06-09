@@ -9,7 +9,9 @@ import web.com.springweb.a02_emp.vo.Emp;
 
 @Controller
 public class A01_EmpController {
-	
+	/*
+	 Dao ===> Service ==> Controller 객체가 자동을 할당되어 처리된다..
+	*/
 	
 	@Autowired
 	private A02_EmpService service;

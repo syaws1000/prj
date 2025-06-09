@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 public class Config14 {
 	// 해당 패키지에 있는 모든 클래스는 객체로 생성하여 현재 컨테이너에 할당
 	// 컨테이너 안에 하나의 객체를 할당.
+	// 위 패키지 하위에 있는 모든 클래스는 @ - annotation으로 설정하면 모두다
+	// 객체를 만들어져서 할당 처리된다..
 	@Bean
 	public Object obj() {
 		return new Object();
