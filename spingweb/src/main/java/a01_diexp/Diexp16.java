@@ -21,6 +21,14 @@ public class Diexp16 {
 		Engine e1 = ctx.getBean("engine", Engine.class);
 		e1.setEngineType("V6");
 		System.out.println(e1.getEngineType());
+		
+		Engine e2 = c1.getEngine(); // Car 객체 안에 있는 Engine 객체 호출..
+		// e2.setEngineType("V5");    // 에러 발생.. (Autowiring 전)...
+		//System.out.println(e2.getEngineType());  에러 발생.. (Autowiring 전)...
+		e2.setEngineType("V5");    /// 코드에 의해서 자동으로 container에 할당되었기 때문에 할당 가능
+		System.out.println(e2.getEngineType());  // autowring 이후..
+		
+		
 		ctx.close();
 	}
 

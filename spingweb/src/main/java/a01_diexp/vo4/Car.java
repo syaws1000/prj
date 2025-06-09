@@ -9,7 +9,7 @@ public class Car {
 	
 	
 	// 같은 컨테이너에 객체가 있으면 자동으로 여기에 객체가 할당하게 처리..
-	// Autowired
+	@Autowired
 	private Engine engine;
 	public Car() {
 		super();
