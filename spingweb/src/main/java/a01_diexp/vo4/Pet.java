@@ -11,7 +11,8 @@ public class Pet {
 	@Autowired
 	private PetOwner petOwner;
 	// 선언은 가능하나, 해당 컴포넌트에는 Food 객체가 없다..
-	@Autowired
+	// Pet 객체 안에 컨테이너에 Food객체가 없기에 발생함
+	@Autowired(required = false)  //객체가 없더라도 일단 에러는 방지 
 	private Food food;
 	
 	public Pet() {

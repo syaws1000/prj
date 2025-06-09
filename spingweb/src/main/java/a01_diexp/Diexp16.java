@@ -2,9 +2,12 @@ package a01_diexp;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import a01_diexp.vo.Food;
 import a01_diexp.vo4.Car;
 import a01_diexp.vo4.Engine;
 import a01_diexp.vo4.Mart;
+import a01_diexp.vo4.Pet;
+import a01_diexp.vo4.PetOwner;
 import a01_diexp.vo4.Product;
 
 
@@ -36,6 +39,16 @@ public class Diexp16 {
 		Product p01 = m1.getProduct();
 		p01.setName("마트안에 있는 사과 객체");
 		System.out.println(p01.getName());
+		
+		Pet p1 = ctx.getBean("pet", Pet.class);
+		PetOwner po01 = p1.getPetOwner();
+		po01.setName("펫주인 홍길동");
+		System.out.println(po01.getName());
+		// Pet 객체 안에 컨테이너에 Food객체가 없기에 발생함
+		Food f1 = p1.getFood();
+		System.out.println(f1); // 
+		// 만약에 컨테이너 안에 객체가 없을 수 있는 것을 대비해서 required = false 옵션을
+		// 설정하면 컨테이너에 객체가 생성되지 않는 객체도 에러는 없이 처리된다..
 		
 		
 		
