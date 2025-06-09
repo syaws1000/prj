@@ -61,7 +61,7 @@
     </thead>	
     <tbody>
     	<c:forEach var="emp" items="${empList}">
-    	<tr><td>${emp.no}</td><td>${emp.ename}</td><td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
+    	<tr><td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    

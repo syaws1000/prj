@@ -29,6 +29,10 @@ public class A04_ModelController {
 	// http://localhost:5050/reqModelExp01
 	// http://localhost:5050/reqModelExp01?no1=10&no2=20
 	//                                     모델데이터 sum   no1+no2
+	//  requestParam(value="no1", defaultValue="0") int no1, 
+	// 요청값은 일단 문자열형식이고 그 문자열이 숫자형이면 no1에 자동으로 형변환되어 할당 처리하여
+	// 데이터를 가질 수 있다.
+	
 	@GetMapping("reqModelExp01")
 	public String reqModelExp01( 
 				@RequestParam(value="no1", defaultValue="0") int no1, 
