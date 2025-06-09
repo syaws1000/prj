@@ -30,8 +30,8 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>단일행, 단일열 데이터</h2>
-  <h3>부서의 건수:${count}</h3>
+  <h2>DAO 연습</h2>
+  <h3>데이터는 log로 확인!!</h3>
 </div>
 <%-- 
 		

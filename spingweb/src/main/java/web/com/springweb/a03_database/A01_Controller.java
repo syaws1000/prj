@@ -23,6 +23,13 @@ public class A01_Controller {
 	public String getCountByDeptno(@RequestParam(value="deptno", defaultValue = "0") int deptno, Model d) {
 		d.addAttribute("count", service.getCountByDeptno(deptno));
 		return "WEB-INF\\views\\a03_view\\a01_daoExpView.jsp";
+	}	
+	// http://localhost:5050/daoExpCtrl
+	@GetMapping("daoExpCtrl")
+	public String daoExpCtrl() {
+		service.test();
+		return "WEB-INF\\views\\a03_view\\a02_daoExpView.jsp";
 	}
+
 	
 }
