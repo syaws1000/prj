@@ -19,6 +19,7 @@ public class A07_Req_VariablesController {
 		
 		
 		d.addAttribute("userId", userId+"님!!");
+		// webapp 하위를 default경로 설정해서 view단을 호출 할 때, 가능한 방식..
 		return "/user/a20_variablesExp.jsp";
 	}
 	// http://localhost:5050/page/page01

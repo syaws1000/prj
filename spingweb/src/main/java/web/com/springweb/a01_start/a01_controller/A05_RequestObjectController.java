@@ -15,6 +15,7 @@ import web.com.springweb.vo.Product;
 public class A05_RequestObjectController {
 	
 	// http://localhost:5050/reqOb01
+	// http://localhost:5050/reqOb01?name=홍길동&age=25&loc=서울
 	@GetMapping("reqOb01")
 	public String reqOb01(
 				@RequestParam(value="name", defaultValue = "") String name,
@@ -24,6 +25,7 @@ public class A05_RequestObjectController {
 				) {
 		// 요청값을 받아서, 모델객체 p01로 설정하여 view단으로 전송..
 		d.addAttribute("p01", new Person(name,age,loc));
+		// ${p01.name} ==> ${p01.getName()}
 		return "WEB-INF\\views\\a01_begin\\a10_modelAttr.jsp";
 	}
 	// http://localhost:5050/reqOb02
@@ -37,6 +39,15 @@ public class A05_RequestObjectController {
 	}	
 	// http://localhost:5050/reqOb03
 	/// 모델 명을 지정하지 않은 객체 소문자 시작으로 자동으로 설정 person
+	//  요청값을 받을 요청키의 이름과 타입을 반드시 맞추어야 한다.
+	// http://localhost:5050/reqOb03
+	// http://localhost:5050/reqOb03?name=홍길동
+	// http://localhost:5050/reqOb03?age=25
+	// http://localhost:5050/reqOb03?loc=서울
+	// http://localhost:5050/reqOb03?name=홍길동&age=25&loc=서울
+	// http://localhost:5050/reqOb03?name=&age=25&loc=서울 (o)
+	// http://localhost:5050/reqOb03?name=홍길동&age=&loc=서울  (x) 공백 "" 숫자형으로 안됨
+	// http://localhost:5050/reqOb03?name=홍길동&age=이십&loc=서울 (x)
 	@GetMapping("reqOb03")
 	public String reqOb03(Person p01) { // ${person.name}
 		

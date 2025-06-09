@@ -11,11 +11,31 @@ ex) 충돌시는 클래스명을 다르게 하든지, Controller("starCtrl") 식
 	단, PostMapping("start") 으로 선언하면 요청 형식이 다르기때문에 선언이 가능하다.
 
 3. jsp
+	1)
 	el태그  setXXX  getXXX 이름을 제대로 설정하지 않으면 에러 발생한다.
 	The class 'web.com.springweb.a02_emp.vo.Emp' does not have the property 'no'.
 	jakarta.el.PropertyNotFoundException: The class 'web.com.springweb.a02_emp.vo.Emp' does not have the property 'no'.
 	위와 같은 경우 해당 객체에 no라는 getNo()메서드가 없어서 발생한다. VO 클래스에 선언형식이 제대로 되어 있는지 확인한다.
 	${emp.no} ==> ${emp.empno}
+	2)
+	The class 'web.com.springweb.vo.Person' does not have a readable property 'name'.
+	필드값이 변경되면 반드시, get/set메서드로 다시 변경하여야 한다.
+	el/mybatis의 내용은 getXXX로 호출하는 것이다.
+4. 요청값 VO 객체 처리
+	1) 요청값은 요청 property ###set이름과 함께 매개변수 해당 ###타입을 할당할 수 없을 때는 에러 발생
+	A05_RequestObjectController.reqOb01(web.com.springweb.vo.Person): 
+		[Field error in object 'p01' on field 'age': rejected value [이십오]; codes
+		
+		public void setAge(int age)   "이십오" ==> 형변환하더라도 int age에 할당이 불가..
+		필드값에 하나라도 맞지 않지 않으면 요청 처리가 안되어 에러 발생..
+		 
+		
+		 	
+	
+	
+	
+	
+	
 	
 	
 	
