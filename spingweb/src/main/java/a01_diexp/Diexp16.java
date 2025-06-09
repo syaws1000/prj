@@ -2,6 +2,9 @@ package a01_diexp;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import a01_diexp.vo4.Engine;
+import a01_diexp.vo4.Car;
+
 
 public class Diexp16 {
 
@@ -11,6 +14,13 @@ public class Diexp16 {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(Config16.class);
 		Object ob = ctx.getBean("obj"); // Bean으로 설정된 이름으로 호출..
 		System.out.println("컨테이너 안에 있는 객체 :"+ob);
+		// 단일 객체 호출..
+		Car c1 = ctx.getBean("car", Car.class);
+		c1.setModel("그랜저");
+		System.out.println(c1.getModel());
+		Engine e1 = ctx.getBean("engine", Engine.class);
+		e1.setEngineType("V6");
+		System.out.println(e1.getEngineType());
 		ctx.close();
 	}
 
