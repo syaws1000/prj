@@ -62,6 +62,9 @@ double getAvSalByMgr(@Param("mgr") int mgr);
 
  -- 	 	2단계 출력 : 다수행 1열, 입력 : 변수형데이터(2개 시작/마지막)
 SELECT * FROM EMP10;
+
+
+
 SELECT ENAME FROM EMP10 WHERE SAL BETWEEN 1000 AND 3000;
 -- 출력 
 /*
@@ -74,11 +77,15 @@ CLARK
 TURNER
 FORD
 MILLER
-	String[] enames;
-	List<String> enames;
+	String[] 
+	List<String>  ===> 메서드의 리턴유형 설정.
 
 입력 : 1000 AND 3000  ==> double start, double end
                          int start, int end
+                         
+@Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{start} AND #{end} ")
+List<String> getEnames(@Param("start") int start, @Param("end") int end);                    
+                         
                          
 @Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{start} AND #{end}")                         
 List<String> getEnamesByStartEnd(@Param("start")int start, @Param("end")int end);
@@ -87,6 +94,28 @@ List<String> getEnamesByStartEnd(@Param("start")int start, @Param("end")int end)
 
 @Select("")
 List<String>  getEnames(int start, int end);
+*/
+SELECT * FROM EMP10;
+--- 특정 범위에 있는 사원번호의 급여
+SELECT SAL FROM EMP10 WHERE EMPNO BETWEEN 1300 AND 1700;
+/*
+1. 결과 값 유형 : List<Double>  
+	실수형리스트 : List<Double>
+	정수형리스트 : List<Integer>
+	날짜형리스트 : List<Date>
+	문자열리스트 : List<String>
+	객체형  : List<Object>
+
+2. 입력 값 선언 : int start, int end
+3. 메서드 선언.
+List<Double>
+4. service단 호출.
+
+ * */
+
+
+
+
 
 
 
