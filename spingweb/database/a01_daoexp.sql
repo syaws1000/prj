@@ -19,7 +19,7 @@ Emp getEmp(@Param("empno") int empno);
 		  
  * */
 
-SELECT * FROM MOVIES WHERE MOVIE_ID=2;
+SELECT movie_id movieId, movie_title movieTitle, genre, release_year releaseYear, rating FROM MOVIES WHERE MOVIE_ID=2;
 /*
 1. 출력  int movieId; String movieTitle; String genre; int releaseYear; double rating;
 2. 입력  int movieId;

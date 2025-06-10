@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.springweb.a03_database.vo.Emp;
+import web.com.springweb.a03_database.vo.Movie;
 
 @Service
 public class A02_Service {
@@ -33,6 +34,16 @@ public class A02_Service {
 		System.out.println(e.getEmpno());
 		System.out.println(e.getEname());
 		System.out.println(e.getJob());
+		Movie m = getMovie(2);
+		System.out.println("영화 아이디 2의 정보");
+		System.out.println(m.getMovieId());
+		System.out.println(m.getMovieTitle());
+		System.out.println(m.getGenre());
+		System.out.println(m.getReleaseYear());
+		System.out.println(m.getRating());
+	}
+	public Movie getMovie(int movieId) {
+		return dao.getMovie(movieId);
 	}
 	public Emp getEmp(int empno) {
 		return dao.getEmp(empno);
