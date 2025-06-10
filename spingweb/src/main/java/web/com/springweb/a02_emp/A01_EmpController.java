@@ -13,14 +13,17 @@ public class A01_EmpController {
 	 Dao ===> Service ==> Controller 객체가 자동을 할당되어 처리된다..
 	*/
 	
-	@Autowired
+	@Autowired(required=false)
 	private A02_EmpService service;
 	
 	// http://localhost:5050/empList
 	@RequestMapping("empList")  // get/post 요청값..
 	public String empList(Emp sch, Model d) {
+		// 1. 요청값 받기 : Emp sch
 		// 리스트형 데이터를 view단 전달..
+		// 2. 모델데이터 설정..empList : DB 로딩
 		d.addAttribute("empList", service.empList(sch));
+		// 3. view단 호출..
 		return "WEB-INF\\views\\a02_emp\\a01_empList.jsp";
 	}
 }

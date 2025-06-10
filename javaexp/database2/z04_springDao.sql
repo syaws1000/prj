@@ -17,6 +17,10 @@ SELECT * FROM EMP10;
 -- 1단계 출력 : 1행 1열, 입력 : 단일데이터
 SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = 10;
 /*
+@Select("SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = #{deptno}")
+int xxxx(@Param("deptno")int deptno);
+ 
+ * 
 메서드 선언  :  입력값을 JAVA의 매개변수로 처리,  출력 JAVA 리턴유형으로 처리..
 
 @Select("SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = #{deptno} ")
@@ -77,8 +81,12 @@ MILLER
                          int start, int end
                          
 @Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{start} AND #{end}")                         
-List<String> getEnamesByStartEnd(int start, int end);
+List<String> getEnamesByStartEnd(@Param("start")int start, @Param("end")int end);
                          
+
+
+@Select("")
+List<String>  getEnames(int start, int end);
 
 
 

@@ -1,5 +1,7 @@
 package web.com.springweb.a03_database;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,17 @@ public class A02_Service {
 		//System.out.println("첫번째 - 입력값 deptno, 출력값 사원건수");
 		//System.out.println("사원건수:"+ getCountByDeptno(10) );
 		//System.out.println("부서(10)별 최대급여:"+getMxSalByDeptno(10));		
-		System.out.println("관리자(7698)인 사원의 평균급여:"+getAvSalByMgr(7698));		
+		//System.out.println("관리자(7698)인 사원의 평균급여:"+getAvSalByMgr(7698));
+		System.out.println("급여 1000~3000사이 사원명의 갯수:"+getEnamesByStartEnd(1000,3000));
+		for(String ename: getEnamesByStartEnd(1000,3000)) {
+			System.out.println(ename);
+		}
 	}
+	public List<String> getEnamesByStartEnd(int start,int end){
+		return dao.getEnamesByStartEnd(start, end);
+	}
+	
+	
 	public double getMxSalByDeptno(int deptno) {
 		return dao.getMxSalByDeptno(deptno);
 	}

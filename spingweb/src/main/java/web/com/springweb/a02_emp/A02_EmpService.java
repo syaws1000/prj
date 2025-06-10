@@ -9,7 +9,7 @@ import web.com.springweb.a02_emp.vo.Emp;
 
 @Service
 public class A02_EmpService {
-	@Autowired   // 자동을 객체를 붙여주는 역할...(컨테이너에 해당 타입이 있으면 할당)
+	@Autowired(required=false)   // 자동을 객체를 붙여주는 역할...(컨테이너에 해당 타입이 있으면 할당)
 	private A03_EmpDao dao;  // spring 컨테이너 객체끼리 자동 할당하기 new XXXX() 필요없음
 	// DI(dependency injection) - 제어권을 사람/개발자가 new XXX()로 생성해서 할당하는 것이 아니라 컨테이너에 맡김
 	
