@@ -108,11 +108,21 @@ SELECT SAL FROM EMP10 WHERE EMPNO BETWEEN 1300 AND 1700;
 
 2. 입력 값 선언 : int start, int end
 3. 메서드 선언.
-List<Double>
+@Select("SELECT SAL FROM EMP10 WHERE EMPNO BETWEEN #{start} AND #{end}")
+List<Double> getSals(@Param("start")int start, @Param("end")int end);
 4. service단 호출.
 
  * */
+SELECT * FROM EMP10;
+SELECT HIREDATE FROM EMP10 WHERE JOB = 'SALESMAN' OR DEPTNO = 20;
+/*
+출력 유형: List<Date>
+입력 유형: String job, int deptno
+기능 메서드 선언:
+@Select("SELECT HIREDATE FROM EMP10 WHERE JOB = #{job} OR DEPTNO = #{deptno}")
+List<Date> getHiredate(@Param("job")String job, @Param("deptno")int deptno)
 
+ * */
 
 
 
