@@ -21,5 +21,7 @@ public interface A03_Dao {
 	@Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{start} AND #{end}")                         
 	List<String> getEnamesByStartEnd(@Param("start")int start, @Param("end")int end);
 	
+	@Select("SELECT SAL FROM EMP10 WHERE EMPNO BETWEEN #{start} AND #{end}")
+	List<Double> getSals(@Param("start")int start, @Param("end")int end);	
 	
 }

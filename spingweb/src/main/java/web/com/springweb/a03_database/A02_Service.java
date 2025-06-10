@@ -18,10 +18,15 @@ public class A02_Service {
 		//System.out.println("사원건수:"+ getCountByDeptno(10) );
 		//System.out.println("부서(10)별 최대급여:"+getMxSalByDeptno(10));		
 		//System.out.println("관리자(7698)인 사원의 평균급여:"+getAvSalByMgr(7698));
-		System.out.println("급여 1000~3000사이 사원명의 갯수:"+getEnamesByStartEnd(1000,3000));
+		//System.out.println("급여 1000~3000사이 사원명의 갯수:"+getEnamesByStartEnd(1000,3000));
+		/*
 		for(String ename: getEnamesByStartEnd(1000,3000)) {
 			System.out.println(ename);
-		}
+		} */
+		System.out.println("사원 1500~1700 사이 급여:"+getSals(1500,1700));
+	}
+	public List<Double> getSals(@Param("start")int start, @Param("end")int end){
+		return dao.getSals(start, end);
 	}
 	public List<String> getEnamesByStartEnd(int start,int end){
 		return dao.getEnamesByStartEnd(start, end);
