@@ -1,5 +1,6 @@
 package web.com.springweb.a03_database;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -23,7 +24,11 @@ public class A02_Service {
 		for(String ename: getEnamesByStartEnd(1000,3000)) {
 			System.out.println(ename);
 		} */
-		System.out.println("사원 1500~1700 사이 급여:"+getSals(1500,1700));
+		//System.out.println("사원 1500~1700 사이 급여:"+getSals(1500,1700));
+		System.out.println("직책 SALESMAN 또는 부서번호 30의 입사일:"+getHiredate("SALESMAN", 30));
+	}
+	public List<Date> getHiredate(String job, int deptno){
+		return dao.getHiredate(job,deptno);
 	}
 	public List<Double> getSals(@Param("start")int start, @Param("end")int end){
 		return dao.getSals(start, end);

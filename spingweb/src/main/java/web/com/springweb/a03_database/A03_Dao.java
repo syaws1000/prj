@@ -1,5 +1,6 @@
 package web.com.springweb.a03_database;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -23,5 +24,8 @@ public interface A03_Dao {
 	
 	@Select("SELECT SAL FROM EMP10 WHERE EMPNO BETWEEN #{start} AND #{end}")
 	List<Double> getSals(@Param("start")int start, @Param("end")int end);	
+
+	@Select("SELECT HIREDATE FROM EMP10 WHERE JOB = #{job} OR DEPTNO = #{deptno}")
+	List<Date> getHiredate(@Param("job")String job, @Param("deptno")int deptno);	
 	
 }
