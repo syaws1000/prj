@@ -7,6 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import web.com.springweb.a03_database.vo.Emp;
+import web.com.springweb.a03_database.vo.Movie;
+
 @Mapper
 public interface A03_Dao {
 	
@@ -27,5 +30,11 @@ public interface A03_Dao {
 
 	@Select("SELECT HIREDATE FROM EMP10 WHERE JOB = #{job} OR DEPTNO = #{deptno}")
 	List<Date> getHiredate(@Param("job")String job, @Param("deptno")int deptno);	
+	
+	@Select("SELECT * FROM EMP10 WHERE empno = #{empno}")
+	Emp getEmp(@Param("empno") int empno);
+	
+	@Select("SELECT * FROM MOVIES WHERE MOVIE_ID=#{movieId}")
+	Movie getMovie(@Param("movieId") int movieId);
 	
 }

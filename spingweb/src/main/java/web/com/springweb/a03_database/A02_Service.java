@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import web.com.springweb.a03_database.vo.Emp;
+
 @Service
 public class A02_Service {
 
@@ -25,7 +27,15 @@ public class A02_Service {
 			System.out.println(ename);
 		} */
 		//System.out.println("사원 1500~1700 사이 급여:"+getSals(1500,1700));
-		System.out.println("직책 SALESMAN 또는 부서번호 30의 입사일:"+getHiredate("SALESMAN", 30));
+		//System.out.println("직책 SALESMAN 또는 부서번호 30의 입사일:"+getHiredate("SALESMAN", 30));
+		Emp e = getEmp(1369);
+		System.out.println("사원번호 1369의 객체 정보");
+		System.out.println(e.getEmpno());
+		System.out.println(e.getEname());
+		System.out.println(e.getJob());
+	}
+	public Emp getEmp(int empno) {
+		return dao.getEmp(empno);
 	}
 	public List<Date> getHiredate(String job, int deptno){
 		return dao.getHiredate(job,deptno);
