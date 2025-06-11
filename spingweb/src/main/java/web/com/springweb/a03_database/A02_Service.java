@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.springweb.a03_database.vo.Emp;
+import web.com.springweb.a03_database.vo.GameCharacter;
 import web.com.springweb.a03_database.vo.Movie;
 import web.com.springweb.vo.Emp09;
 
@@ -42,14 +43,22 @@ public class A02_Service {
 //		System.out.println(m.getGenre());
 //		System.out.println(m.getReleaseYear());
 //		System.out.println(m.getRating());
-		System.out.println("10번부서의 사원정보 갯수:"+getdeptno(10).size());
-		for(Emp09 e:getdeptno(10)) {
-			System.out.print(e.getEname()+"\t");
-			System.out.print(e.getJob()+"\t");
-			System.out.print(e.getSal()+"\n");
+//		System.out.println("10번부서의 사원정보 갯수:"+getdeptno(10).size());
+//		for(Emp09 e:getdeptno(10)) {
+//			System.out.print(e.getEname()+"\t");
+//			System.out.print(e.getJob()+"\t");
+//			System.out.print(e.getSal()+"\n");
+//		}
+		System.out.println("캐릭터 전체 검색:"+getGameCharacters("", "").size());
+		for(GameCharacter gc : getGameCharacters("","")) {
+			System.out.print(gc.getName()+"\t");
+			System.out.print(gc.getGame()+"\n");
 		}
-		
 	}
+	public List<GameCharacter> getGameCharacters(String name, String game){
+		return dao.getGameCharacters("%"+name+"%", "%"+game+"%");
+	}
+	
 	public List<Emp09> getdeptno(int deptno){
 		return dao.getdeptno(deptno);
 	}

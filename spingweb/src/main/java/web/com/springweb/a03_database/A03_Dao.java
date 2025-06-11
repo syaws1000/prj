@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.a03_database.vo.Emp;
+import web.com.springweb.a03_database.vo.GameCharacter;
 import web.com.springweb.a03_database.vo.Movie;
 import web.com.springweb.vo.Emp09;
 
@@ -41,5 +42,11 @@ public interface A03_Dao {
 	@Select("SELECT ENAME, JOB, SAL FROM EMP10 WHERE DEPTNO = #{deptno}")
 	List<Emp09> getdeptno(@Param("deptno")int deptno);
 	
+	@Select("SELECT * FROM EMP WHERE ENAME LIKE #{ename} AND JOB LIKE #{job}")	  
+	List<Emp> getEmpList(@Param("ename") String ename, @Param("job") String job);	  						
+	
+	@Select("SELECT * FROM game_characters WHERE NAME LIKE #{name} AND GAME LIKE #{game}")
+	List<GameCharacter> getGameCharacters(@Param("name")String name, @Param("game")String game);
+		
 	
 }
