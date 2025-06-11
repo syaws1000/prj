@@ -15,8 +15,16 @@ SELECT * FROM EMP10;
  * */
 SELECT * FROM EMP10;
 -- 1단계 출력 : 1행 1열, 입력 : 단일데이터
-SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = 10;
+SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = 20;
 /*
+입력(자바) : int deptno
+출력(자바) : int
+
+@Select("SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = #{deptno}")
+int getCount(@Param("deptno") int deptno);
+  
+
+
 @Select("SELECT COUNT(*) FROM EMP10 WHERE DEPTNO = #{deptno}")
 int xxxx(@Param("deptno")int deptno);
  
@@ -32,6 +40,13 @@ int getCountByDeptno(@Param("deptno") int deptno);
 -- 20번 부서의 최대 급여 출력..
 SELECT MAX(SAL) FROM EMP10 WHERE DEPTNO = 20;
 /*
+ * */
+
+
+
+
+
+/*
 dao 메서드 선언..
 
 @Select("SELECT MAX(SAL) FROM EMP10 WHERE DEPTNO = #{deptno}")
@@ -40,6 +55,22 @@ double getMxSalByDeptno(@Param("deptno") int deptno);
 
 -- 직책 SALESMAN의 최저 급여 출력..
 SELECT MIN(SAL) FROM EMP10 WHERE JOB = 'SALESMAN';
+/*
+입력: String job
+출력: double
+
+@Select("SELECT MIN(SAL) FROM EMP10 WHERE JOB = #{job}")
+double getMaxSal(@Param("job") String job);
+
+ * */
+
+
+
+
+
+
+
+
 /*
 결과 : 1,250 ==> java로 double sal;
 입력 : 'SALESMAN' ==> java  String job;
