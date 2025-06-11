@@ -49,12 +49,18 @@ public class A02_Service {
 //			System.out.print(e.getJob()+"\t");
 //			System.out.print(e.getSal()+"\n");
 //		}
+		/*
 		System.out.println("캐릭터 전체 검색:"+getGameCharacters("", "").size());
 		for(GameCharacter gc : getGameCharacters("","")) {
 			System.out.print(gc.getName()+"\t");
 			System.out.print(gc.getGame()+"\n");
-		}
+		}*/
+		System.out.println("등록 갯수:"+insertDept("인사3"));
 	}
+	public int insertDept(@Param("dname") String dname) {
+		return dao.insertDept(dname);
+	}
+	
 	public List<GameCharacter> getGameCharacters(String name, String game){
 		return dao.getGameCharacters("%"+name+"%", "%"+game+"%");
 	}

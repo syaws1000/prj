@@ -3,6 +3,7 @@ package web.com.springweb.a03_database;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -47,6 +48,11 @@ public interface A03_Dao {
 	
 	@Select("SELECT * FROM game_characters WHERE NAME LIKE #{name} AND GAME LIKE #{game}")
 	List<GameCharacter> getGameCharacters(@Param("name")String name, @Param("game")String game);
-		
+
+	@Insert("INSERT INTO DEPT01(DNAME) VALUES(#{dname})")
+	int insertDept(@Param("dname") String dname);
+	
+	@Insert("INSERT INTO EMP01(JOB) VALUES(#{job})")
+	int insertEmp01(@Param("job") String job);
 	
 }
