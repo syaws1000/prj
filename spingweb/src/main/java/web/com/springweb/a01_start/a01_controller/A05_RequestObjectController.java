@@ -22,6 +22,7 @@ public class A05_RequestObjectController {
 				@RequestParam(value="age", defaultValue = "0") int age,
 				@RequestParam(value="loc", defaultValue = "") String loc,
 				Model d
+				// int age = 0;  String name = "";
 				) {
 		// 요청값을 받아서, 모델객체 p01로 설정하여 view단으로 전송..
 		d.addAttribute("p01", new Person(name,age,loc));
@@ -71,7 +72,7 @@ public class A05_RequestObjectController {
 	}	
 	// http://localhost:5050/reqOb13
 	@GetMapping("reqOb13")
-	public String reqOb13( Product prod ) {
+	public String reqOb13( Product prod ) { // ${product.name}
 		return "WEB-INF\\views\\a01_begin\\a15_modelAttr.jsp";
 	}	
 	

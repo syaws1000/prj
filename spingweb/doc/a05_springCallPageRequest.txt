@@ -1,0 +1,33 @@
+# 요청값 처리
+1. 페이지 호출  url ==> view(jsp)
+
+2. 페이지 호출 url + 요청값 ==> view(jsp)
+	@@@@?key=val            ${param.key}
+
+3. 페이지 호출 url + 요청값(유/무상관없이 호출) ==> view(jsp)	
+
+4. 페이지 호출 url + 모델데이터 처리 ==> view(jsp)
+	1) 문자열 데이터 처리 d.addAttribute("name", "홍길동"); ==> ${name} 
+	2) 숫자형 데이터 처리 d.addAttribute("cnt", 30); ==> ${cnt}
+	3) 배열 데이터 처리 
+		d.addAttribute("arr", new int[]{1000,2000,3000}); ==> ${arr[0]} ${arr[1]} ${arr[2]}
+	4) 객체 데이터 처리
+		d.addAttribute("person", new Person("홍길동",25,"서울"));
+		==> ${person.name},${person.age},${person.loc}	
+	5) 객체 배열형 데이터 처리
+		List<Emp> list = new ArrayList<Emp>();
+		list.add(new Emp(1000,"홍길동", "사원")); ===> ${empList.get(0).empno}
+		list.add(new Emp(1001,"김길동", "대리")); ===> ${empList.get(1).job}
+		list.add(new Emp(1002,"신길동", "과장")); ===>  ${empList.get(2)}
+		d.addAttribute("empList", list);		
+
+		<c:forEach var="emp" items="${empList}">
+		<tr>
+			<td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td>
+		</tr>
+		
+5. 페이지 호출 url + 요청값 처리 + 모델데이터 ==> view(jsp)
+	
+
+
+
