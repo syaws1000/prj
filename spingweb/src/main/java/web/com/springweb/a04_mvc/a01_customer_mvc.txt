@@ -16,3 +16,26 @@
 3. DB 	
 	customers 테이블, customer_seq 시퀀스
 	
+4. 프로세스흐름
+	1) 브라우저에 url  http://localhost:5050/customerList ==> controller에 있는 특정 기능 메서드 호출
+	2) controller안에 @RequstMapping("customerList") 호출,  public customerList(Customer sch, Model d)
+	3) d.addAttribute("customerList", service.getCustomerList(sch)); 
+	4) service단애 getCustomerList를 호출 하면서 Customer sch 받은 내용으로 null여부를 확인해서 null, 공백을 처리.
+	5) dao 호출 해서 검색된 내용을  List<Customer>로 리턴하여 service ==> controller단에 넘기면
+		SELECT * FROM customers WHERE customer_name  LIKE '%%' AND customer_address LIKE '%%';
+	6) 	d.addAttribute("customerList", service.getCustomerList(sch));  모델 데이터 설정하고.
+	7) view단 호출 a01_customerList.jsp
+	8) view단에서 는 customerList 모델 값을
+		<c:forEach var="cus" items="${customerList}">
+			<tr>
+					<td>${cus.customerId}</td>
+					<td>${cus.customerName}</td>
+	9) <form>
+		<inpu name="customerName"									
+		<inpu name="customerAddress"	
+		통해서 controller를 요청하면 해당 내용을 키워드 검색해서 처리된다.
+
+5. 개발 순서
+	
+	
+	
