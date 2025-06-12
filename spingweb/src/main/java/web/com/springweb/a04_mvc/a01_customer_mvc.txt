@@ -55,9 +55,23 @@
 		service단 autowire
 		
 		getCustomerList(Customer sch, Model d){
-			d.addAttributer("customerList", service.getCustomerList(sch));
+			d.addAttributer("cuList", service.getCustomerList(sch));
 			return "view단 호출"
 		}	
+	5) 화면단(view jsp)
+		검색할 요청값 처리..
+		form 
+			name="customerName" 
+			name="customerAddress"	
+		
+		검색된 내용 리스트
+		<c:forEach var="cu" items="${cuList}">
+			<tr><td>${cu.customerId}</td><td>${cu.customerName}</td>
+				<td>${cu.customer}</td><td>${cu.customerId}</td>
+	
+		
+			
+		
 		
 
 

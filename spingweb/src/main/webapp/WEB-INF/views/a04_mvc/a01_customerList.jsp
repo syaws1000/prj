@@ -33,14 +33,12 @@
   <h2>고객 리스트</h2>
 
 </div>
-<%-- 
-		
---%>
+
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="고객 명" name="customerName"  value="${param.customerName}" class="form-control mr-sm-2" />
+	    <input placeholder="고객 주소" name="customerAddress"  value="${param.customerAddress}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -48,25 +46,27 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>고객아이디</th>
+        <th>고객명</th>
+        <th>메일</th>
+        <th>전화번호</th>
+        <th>주소</th>
       </tr>
-    </thead>	
+    </thead>
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	
+    	<c:forEach var="cu" items="${cuList}" >
+    	<tr><td>${cu.customerId}</td><td>${cu.customerName}</td><td>${cu.customerEmail}</td>
+    		<td>${cu.customerPhone}</td><td>${cu.customerAddress}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     
