@@ -1,0 +1,18 @@
+# 고객정보처리 MVC - CRUD 처리.
+1. 개요
+	CRM에서 고객정보를 관리하는 프로그램으로 전체리스트, 등록, 상세조회, 수정, 삭제처리를 한다.
+2. 파일 및 내용
+	main\java\web\com\springweb\a04_mvc
+	
+	A01_CustomerController.java
+	A01_CustomerSerivce.java
+	A01_CustomerDao.java
+	Customer.java
+	
+	webapp\WEB-INF\views\a04_mvc
+	a01_customerList.jsp
+	a02_customerInsert.jsp
+	a03_customerDetail.jsp	
+3. DB 	
+	customers 테이블, customer_seq 시퀀스
+	

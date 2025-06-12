@@ -50,13 +50,56 @@ INSERT INTO EMP01(EMPNO, ENAME, JOB, DEPTNO, SAL) VALUES(8000,'홍길동','사�
 리턴 : int
 메서드 선언
 @Insert("INSERT INTO EMP01(EMPNO, ENAME, JOB, DEPTNO, SAL) VALUES(#{empno},#{ename},#{job},#{deptno},#{sal})")
-int insertEmp01(@Param("empno")int deptno, @Param("ename")String ename, @Param("job")String job, 
+int insertEmp01(@Param("empno")int empno, @Param("ename")String ename, @Param("job")String job, 
 				@Param("deptno")int deptno, @Param("sal")double sal);
 				
 
  * */
 
 
+-- 고객 정보 테이블 생성 (한글 데이터 입력 예시)
+CREATE TABLE customers (
+    customer_id NUMBER PRIMARY KEY,
+    customer_name VARCHAR2(100),
+    customer_email VARCHAR2(100) UNIQUE,
+    customer_phone VARCHAR2(20),
+    customer_address VARCHAR2(200)
+);
+CREATE SEQUENCE customer_seq;
 
+-- 데이터 입력 예제 (한글 데이터)
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '김민수', 'kim.minsu@example.com', '010-1234-5678', '서울특별시 강남구 역삼동 123-45');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '박지은', 'park.jieun@example.com', '010-2345-6789', '부산광역시 해운대구 좌동 56-78');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '이현수', 'lee.hyunsoo@example.com', '010-3456-7890', '대구광역시 달서구 월배동 89-10');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '최진영', 'choi.jinyoung@example.com', '010-4567-8901', '인천광역시 부평구 부평동 101-12');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '홍길동', 'hong.gildong@example.com', '010-5678-9012', '경기도 수원시 장안구 정자천로 200-25');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '김영희', 'kim.younghee@example.com', '010-6789-0123', '서울특별시 마포구 합정동 312-46');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '이수정', 'lee.sujung@example.com', '010-7890-1234', '광주광역시 북구 대촌로 67-89');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '정우성', 'jung.woosung@example.com', '010-8901-2345', '울산광역시 남구 삼산로 23-45');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '임지은', 'lim.jieun@example.com', '010-9012-3456', '세종특별자치시 한솔로 12-34');
+
+INSERT INTO customers (customer_id, customer_name, customer_email, customer_phone, customer_address)
+VALUES (customer_seq.nextval, '강하늘', 'kang.haneul@example.com', '010-0123-4567', '대전광역시 서구 둔산로 91-21');
+
+
+
+SELECT * FROM customers;
 
 
