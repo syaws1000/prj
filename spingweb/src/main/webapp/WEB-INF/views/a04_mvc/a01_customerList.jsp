@@ -46,15 +46,15 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
+   	<col width="10%">
    	<col width="20%">
    	<col width="20%">
    	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
+   	<col width="30%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>고객아이디</th>
+        <th>아이디</th>
         <th>고객명</th>
         <th>메일</th>
         <th>전화번호</th>
