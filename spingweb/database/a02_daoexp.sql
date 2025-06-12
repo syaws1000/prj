@@ -102,7 +102,7 @@ VALUES (customer_seq.nextval, '강하늘', 'kang.haneul@example.com', '010-0123-
 
 SELECT * FROM customers WHERE customer_name  LIKE '%%' AND customer_address LIKE '%%';
 
-SELECT * FROM EMP WHERE ename LIKE '%%' AND job LIKE '%%';
+SELECT * FROM EMP WHERE ename LIKE '%A%' AND job LIKE '%A%';
 /*
 입력 String ename, String job ==> Emp sch
 출력 int empno, String ename .... ==> Emp
@@ -111,7 +111,19 @@ SELECT * FROM EMP WHERE ename LIKE '%%' AND job LIKE '%%';
 List<Emp> getEmpList(Emp sch);
 	
  * */
+SELECT * FROM CUSTOMERS;
+-- CUSTOMER_NAME, CUSTOMSER_ADDRESS를 키워드 검색되게..
+---입력값 String customerName, String customerAddress ==> Customer sch
+-- 리턴값 int customerId, String customerName, String customerEmail, ..... ==> Customer ==> List<Customer
+-- VO/DTO  class Customer
+-- 메서드선언..
+/* 
+@Select("SELECT * FROM customers WHERE customer_name  LIKE #{customerName} AND customer_address LIKE #{customerAddress}") 
+List<Customer> getCustomerList(  Customer sch );
 
+ * 
+
+ * */
 
 
 
