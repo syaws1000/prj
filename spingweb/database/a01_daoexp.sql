@@ -104,7 +104,9 @@ SELECT * FROM game_characters WHERE NAME LIKE '%%' AND GAME LIKE '%%';
 
  * */
 
-
+  SELECT ENAME, JOB, SAL
+  FROM EMP
+  ORDER BY SAL DESC;
 
 
 CREATE TABLE game_characters (

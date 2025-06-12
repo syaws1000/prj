@@ -11,11 +11,15 @@ INSERT INTO DEPT01(DNAME) VALUES('인사2');
 int insertDept(@Param("dname") String dname);
 
  * */
+SELECT 'AB'|| seq_01.nextval FROM dual;
+
+
 SELECT * FROM EMP01;
 INSERT INTO EMP01(JOB) VALUES('사원');
 /*
 EMP01의 JOB 만 입력하고, 기능메서드 선언.
-
+@Insert("INSERT INTO DEPT01(DNAME) VALUES(#{dname})")
+int insertDept(@Param("dname") String dname);
 @Insert("INSERT INTO EMP01(JOB) VALUES(#{job})")
 int insertEmp01(@Param("job") String job);
 
