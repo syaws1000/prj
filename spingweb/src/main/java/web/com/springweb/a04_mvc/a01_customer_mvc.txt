@@ -47,6 +47,17 @@
 		리턴
 		객체(dto/vo)
 		메서드 선언
+	3) service 단
+		dao단 autowirie
+		요청값: null ==> "", 키워드 "%"+메서드명+"%"
+	4) controller 단
+		요청 객체 매개변수로 선언, Model 선언
+		service단 autowire
+		
+		getCustomerList(Customer sch, Model d){
+			d.addAttributer("customerList", service.getCustomerList(sch));
+			return "view단 호출"
+		}	
 		
 
 
