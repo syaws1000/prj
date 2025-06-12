@@ -1,14 +1,26 @@
 package web.com.springweb.a04_mvc.a01_controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import web.com.springweb.a04_mvc.a02_service.A01_CustomerService;
+import web.com.springweb.a04_mvc.a04_vo.Customer;
 
 @Controller
 public class A01_CustomerController {
+	@Autowired(required = false)
+	private A01_CustomerService service;
+	
+	
 	// http://localhost:5050/customerList
 	// 초기화면 호출 메서드 선언..
 	@RequestMapping("customerList")
-	public String customerList() {
+	public String customerList(Customer sch, Model d) {
+		
+		d.addAttribute("cuList", service.getCustomerList(sch));
+		
 		return "WEB-INF\\views\\a04_mvc\\a01_customerList.jsp";
 	}
 	// http://localhost:5050/customerInsert
