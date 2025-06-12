@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import web.com.springweb.a03_database.vo.Dept;
 import web.com.springweb.a03_database.vo.Emp;
 import web.com.springweb.a03_database.vo.GameCharacter;
 import web.com.springweb.a03_database.vo.Movie;
@@ -57,7 +58,11 @@ public class A02_Service {
 		}*/
 		//System.out.println("등록 갯수:"+insertDept("인사3"));
 		//System.out.println("전체 부서정보 등록:"+insertDept01(11, "총무", "제주"));
-		System.out.println("전체 사원정보 등록:"+insert2Emp01(8001,"마길동","대리",20,4000.0));
+		//System.out.println("전체 사원정보 등록:"+insert2Emp01(8001,"마길동","대리",20,4000.0));
+		System.out.println("전체 부서정보 등록:"+insert2Dept01(new Dept(12,"아이티","LA")));
+	}
+	public int insert2Dept01(Dept ins) {
+		return dao.insert2Dept01(ins);
 	}
 	public int insert2Emp01(int empno, String ename, String job, int deptno, double sal) {
 		return dao.insert2Emp01(empno, ename, job, deptno, sal);
