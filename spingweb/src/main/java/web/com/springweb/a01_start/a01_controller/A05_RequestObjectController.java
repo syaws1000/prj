@@ -108,6 +108,29 @@ public class A05_RequestObjectController {
 	public String call03(Music m) { // ${music.title} ${music.singer}
 		return "WEB-INF\\views\\a01_begin\\a17_view.jsp";
 	}
+	// 요청값  객체에 의해서 할당을 할 수 있다..
+	// http://localhost:5050/reqOb16
+	// http://localhost:5050/reqOb16?name=홍길동&age=25&loc=서울
+	// http://localhost:5050/reqOb16
+	//      <input name="name" value="홍길동"
+	//      <input name="age" value="25"
+	//      <input name="loc" value="서울"
+	//      <input type="submit">
+	// client(브라우저)  ===> server(톰캣-java) 페이지호출(view) + 요청값.. ==> service/dao ==> Model(view단에 넘겨줄 핵심데이터)
+	//     Person안에 setName(), setAge(int age), setLoc() 자동으로 요청값 객체로 할당.
+	
+	@GetMapping("reqOb16")
+	public String call16(Person p) { // 요청값 ==> 객체 ==> 모델데이터 ${person.name} ${person.age}  ${person.loc}   View단에서 받을 수 있는 형태
+		System.out.println("# 요청값 받은 person 객체 #");
+		System.out.println(p.getName());
+		System.out.println(p.getAge());
+		System.out.println(p.getLoc());
+		return "WEB-INF\\views\\a01_begin\\a22_view.jsp";
+	}	
+	// http://localhost:5050/reqOb17
+	// http://localhost:5050/reqOb17?name=사과&price=3000&cnt=5
+	//   a23_view.jsp
+	
 	
 	
 	
