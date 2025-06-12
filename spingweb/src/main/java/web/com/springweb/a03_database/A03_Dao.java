@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import web.com.springweb.a03_database.vo.Dept;
 import web.com.springweb.a03_database.vo.Emp;
 import web.com.springweb.a03_database.vo.GameCharacter;
 import web.com.springweb.a03_database.vo.Movie;
@@ -54,5 +55,19 @@ public interface A03_Dao {
 	
 	@Insert("INSERT INTO EMP01(JOB) VALUES(#{job})")
 	int insertEmp01(@Param("job") String job);
+	
+	@Insert("INSERT INTO DEPT01(DEPTNO, DNAME, LOC) VALUES(#{deptno},#{dname},#{loc})")
+	int insertDept01(@Param("deptno")int deptno, @Param("dname")String dname, @Param("loc")String loc );
+
+	@Insert("INSERT INTO DEPT01(DEPTNO, DNAME, LOC) VALUES(#{deptno},#{dname},#{loc})")
+	int insert2Dept01(Dept ins);	
+	
+	@Insert("INSERT INTO EMP01(EMPNO, ENAME, JOB, DEPTNO, SAL) VALUES(#{empno},#{ename},#{job},#{deptno},#{sal})")
+	int insert2Emp01(@Param("empno")int empno, @Param("ename")String ename, @Param("job")String job, 
+					@Param("deptno")int deptno, @Param("sal")double sal);
+	
+	@Insert("INSERT INTO EMP01(EMPNO, ENAME, JOB, DEPTNO, SAL) VALUES(#{empno},#{ename},#{job},#{deptno},#{sal})")
+	int insert3Emp01(Emp ins);
+	
 	
 }

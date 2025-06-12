@@ -55,7 +55,16 @@ public class A02_Service {
 			System.out.print(gc.getName()+"\t");
 			System.out.print(gc.getGame()+"\n");
 		}*/
-		System.out.println("등록 갯수:"+insertDept("인사3"));
+		//System.out.println("등록 갯수:"+insertDept("인사3"));
+		//System.out.println("전체 부서정보 등록:"+insertDept01(11, "총무", "제주"));
+		System.out.println("전체 사원정보 등록:"+insert2Emp01(8001,"마길동","대리",20,4000.0));
+	}
+	public int insert2Emp01(int empno, String ename, String job, int deptno, double sal) {
+		return dao.insert2Emp01(empno, ename, job, deptno, sal);
+	}
+	
+	public int insertDept01(int deptno, String dname, String loc ) {
+		return dao.insertDept01(deptno, dname, loc);
 	}
 	public int insertDept(@Param("dname") String dname) {
 		return dao.insertDept(dname);
