@@ -16,10 +16,15 @@ public class A02_EmpService {
 	public List<Emp> empList(Emp sch){
 		// 비지니스(알고리즈 처리시 해야할 코드)...
 		// 초기화면에 전체 키워드검색
+		
 		if(sch.getEname()==null) sch.setEname("");
 		if(sch.getJob()==null) sch.setJob("");
 		sch.setEname("%"+sch.getEname()+"%");
 		sch.setJob("%"+sch.getJob()+"%");
+		//  Emp( ename="%A%", job="%A%")
+		//ename  like '%%'  ename like #{ename}
+		//job  like '%%'   ename like #{job}
+		// Emp( ename="%%", job="%%")
 		
 		return dao.empList(sch);
 	}

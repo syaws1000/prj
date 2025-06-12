@@ -18,7 +18,9 @@
 	
 4. 프로세스흐름
 	1) 브라우저에 url  http://localhost:5050/customerList ==> controller에 있는 특정 기능 메서드 호출
+	
 	2) controller안에 @RequstMapping("customerList") 호출,  public customerList(Customer sch, Model d)
+		- url을 통해서 특정 view(jsp)를 호출
 	3) d.addAttribute("customerList", service.getCustomerList(sch)); 
 	4) service단애 getCustomerList를 호출 하면서 Customer sch 받은 내용으로 null여부를 확인해서 null, 공백을 처리.
 	5) dao 호출 해서 검색된 내용을  List<Customer>로 리턴하여 service ==> controller단에 넘기면
@@ -36,6 +38,20 @@
 		통해서 controller를 요청하면 해당 내용을 키워드 검색해서 처리된다.
 
 5. 개발 순서
+	1) 초기화면 구현
+		controller 메서드 추가 url customerList, view a01_customerList.jsp
+		http://localhost:5050/customerList( 고객리스트 )(
+	2) dao
+		sql 
+		입력
+		리턴
+		객체(dto/vo)
+		메서드 선언
+		
+
+
+
+
 	
 	
 	

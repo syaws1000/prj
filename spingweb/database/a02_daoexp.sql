@@ -100,6 +100,18 @@ VALUES (customer_seq.nextval, '강하늘', 'kang.haneul@example.com', '010-0123-
 
 
 
-SELECT * FROM customers;
+SELECT * FROM customers WHERE customer_name  LIKE '%%' AND customer_address LIKE '%%';
+
+SELECT * FROM EMP WHERE ename LIKE '%%' AND job LIKE '%%';
+/*
+입력 String ename, String job ==> Emp sch
+출력 int empno, String ename .... ==> Emp
+	Emp하나가 아니고 여러개 행단위이기에 ==> List<Emp>
+@Select("SELECT * FROM EMP WHERE ename LIKE #{ename} AND job LIKE #{job}")	
+List<Emp> getEmpList(Emp sch);
+	
+ * */
+
+
 
 
