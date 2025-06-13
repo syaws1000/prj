@@ -54,8 +54,8 @@ customerId customerName customerEmail customerPhone customerAddress
                 <label for="customerAddress">주소</label>
                 <textarea class="form-control" id="content" name="customerAddress" rows="5" placeholder="주소를 입력하세요" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">등록</button>
-            <button type="button" class="btn btn-success" id="mainBtn">메인화면</button>
+            <button type="submit" class="btn btn-success">등록</button>
+            <button type="button" class="btn btn-info" id="mainBtn">메인화면</button>
             <script type="text/javascript">
             	$("#mainBtn").click(function(){
 					location.href="customerList"
