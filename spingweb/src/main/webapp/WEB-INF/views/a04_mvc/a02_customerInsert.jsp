@@ -23,7 +23,16 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		let msg = "${msg}"
+		if(msg!=""){
+			if(confirm(msg+"\n조회화면으로 이동하시겠습니까?")){
+				location.href="customerList"
+			}
+		}
+		
+    	$("#mainBtn").click(function(){
+			location.href="customerList"
+    	})		
 	});
 </script>
 </head>
@@ -56,11 +65,6 @@ customerId customerName customerEmail customerPhone customerAddress
             </div>
             <button type="submit" class="btn btn-success">등록</button>
             <button type="button" class="btn btn-info" id="mainBtn">메인화면</button>
-            <script type="text/javascript">
-            	$("#mainBtn").click(function(){
-					location.href="customerList"
-            	})
-            </script>
         </form>
       </div>  
 </body>

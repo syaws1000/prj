@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.com.springweb.a04_mvc.a02_service.A01_CustomerService;
@@ -27,8 +28,16 @@ public class A01_CustomerController {
 	// http://localhost:5050/customerInsert
 	@GetMapping("customerInsert")
 	public String customerInsert() {
+		
 		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
 	}
+	// http://localhost:5050/customerInsert
+	@PostMapping("customerInsert")
+	public String customerInsertPost(Customer ins, Model d) {
+		d.addAttribute("msg", service.insertCustomer(ins));
+		
+		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
+	}	
 	// http://localhost:5050/customerDetail
 	@RequestMapping("customerDetail")
 	public String customerDetail() {

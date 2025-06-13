@@ -22,7 +22,15 @@ public class A01_CustomerService {
 		// "%" + get XXX "%"
 		sch.setCustomerName("%"+sch.getCustomerName()+"%");
 		sch.setCustomerAddress("%"+sch.getCustomerAddress()+"%");
-	
 		return dao.getCustomerList(sch);
 	}
+	public String insertCustomer(Customer ins) {
+				// 등록되면 row단위로 리턴..
+		return dao.insertCustomer(ins)>0?"등록성공":"등록실패";
+	}
+	
 }
+
+
+
+
