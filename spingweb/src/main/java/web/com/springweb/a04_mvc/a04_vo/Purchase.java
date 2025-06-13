@@ -10,6 +10,8 @@ public class Purchase {
 	private String prodName;
 	private int start;
 	private int end;
+	// prodName start end
+	// purchaseId, customerId,  purchaseDate, purchaseAmount, prodName
 	public Purchase() {
 		super();
 		// TODO Auto-generated constructor stub

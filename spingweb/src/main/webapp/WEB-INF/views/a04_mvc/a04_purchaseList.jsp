@@ -33,14 +33,13 @@
   <h2>구매리스트</h2>
 
 </div>
-<%-- 
-		
---%>
+
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="물건명" name="prodName"  value="${param.prodName}" class="form-control mr-sm-2" />
+	    <input placeholder="구매가격(시작)" name="start" value="${purchase.start}" class="form-control mr-sm-2"/>
+	    <input placeholder="구매가격(마지막)" name="end" value="${purchase.end}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -48,25 +47,29 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
-    
+  <%-- 
+	// prodName start end
+	// prodName purchaseId, customerId,  purchaseDate, purchaseAmount, 		
+--%> 
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>물건명</th>
+        <th>구매아이디</th>
+        <th>구매자아이디</th>
+        <th>구매일</th>
+        <th>구매량</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="pc" items="${list}">
+    	<tr><td>${pc.prodName}</td><td>${pc.purchaseId}</td><td>${pc.customerId}</td>
+    		<td><fmt:formatDate value="${pc.purchaseDate}"/> </td><td>${pc.purchaseAmount}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     
