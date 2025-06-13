@@ -52,7 +52,7 @@ customerId customerName customerEmail customerPhone customerAddress
             </div>
              <div class="form-group">
                 <label for="customerAddress">주소</label>
-                <textarea class="form-control" id="content" name="customerAddress" rows="5" placeholder="주소를 입력하세요" required></textarea>
+                <textarea class="form-control" id="customerAddress" name="customerAddress" rows="5" placeholder="주소를 입력하세요" required></textarea>
             </div>
             <button type="submit" class="btn btn-success">등록</button>
             <button type="button" class="btn btn-info" id="mainBtn">메인화면</button>
