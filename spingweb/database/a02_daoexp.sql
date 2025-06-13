@@ -124,6 +124,42 @@ List<Customer> getCustomerList(  Customer sch );
  * 
 
  * */
+INSERT INTO customers VALUES (customer_seq.nextval, '홍길동', 'hong@example.com', '010-1234-5678', '서울특별시 강남구 역삼동 33-555');
+SELECT * FROM CUSTOMERS;
+/*
+입력 : int customerId; String customerName; String customerEmail; String customerPhone;  String customerAddress;
+리턴 : int
+@Insert("INSERT INTO customers VALUES (customer_seq.nextval, #{customerName}, #{customerEmail},#{customerPhone}, #{customerAddress})")
+int insertCustomer(Customer ins);
+ * */
 
+
+-- 구매 테이블 생성
+CREATE TABLE purchases (
+    purchase_id NUMBER PRIMARY KEY,
+    customer_id NUMBER,
+    purchase_date DATE,
+    purchase_amount NUMBER(10, 2),
+    CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- 데이터 입력
+INSERT INTO purchases VALUES (1, 1, TO_DATE('2025-06-13', 'YYYY-MM-DD'), 120000);
+INSERT INTO purchases VALUES (2, 2, TO_DATE('2025-06-12', 'YYYY-MM-DD'), 55000);
+INSERT INTO purchases VALUES (3, 3, TO_DATE('2025-06-11', 'YYYY-MM-DD'), 78000);
+INSERT INTO purchases VALUES (4, 4, TO_DATE('2025-06-10', 'YYYY-MM-DD'), 99000);
+INSERT INTO purchases VALUES (5, 5, TO_DATE('2025-06-09', 'YYYY-MM-DD'), 45000);
+INSERT INTO purchases VALUES (6, 6, TO_DATE('2025-06-08', 'YYYY-MM-DD'), 67000);
+INSERT INTO purchases VALUES (7, 7, TO_DATE('2025-06-07', 'YYYY-MM-DD'), 88000);
+INSERT INTO purchases VALUES (8, 8, TO_DATE('2025-06-06', 'YYYY-MM-DD'), 110000);
+INSERT INTO purchases VALUES (9, 9, TO_DATE('2025-06-05', 'YYYY-MM-DD'), 33000);
+INSERT INTO purchases VALUES (10, 10, TO_DATE('2025-06-04', 'YYYY-MM-DD'), 77000);
+INSERT INTO purchases VALUES (11, 11, TO_DATE('2025-06-03', 'YYYY-MM-DD'), 99000);
+
+SELECT * FROM purchases ;
+
+ALTER TABLE PURCHASES 
+ADD PROD_NAME VARCHAR2(50);
+SELECT * FROM PURCHASES WHERE PROD_NAME LIKE '%%' AND PURCHASE_AMOUNT BETWEEN 30000 AND 1200000;
 
 
