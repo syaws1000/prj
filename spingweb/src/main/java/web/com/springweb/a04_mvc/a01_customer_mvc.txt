@@ -139,7 +139,30 @@
 		public String insertCustomer01(){
 			return "........ insertCustomer.jsp"
 		}			
-		
+	4) 데이터베이스 처리
+		1) sql 문 작성
+			INSERT INTO CUSTOMERS VALUES(CUSTOMER_SEQ.NEXTVAL, ..... );
+		2) 입력  .... ==> DTO ==> 매개변수 선언
+		   리턴값 int		
+		3) dao
+			int inserCustomers(Customers ins);
+	5) service단..
+		1) dao autowiring
+		2) public String inserCustomers(Customers ins){
+				return dao.inserCustomers(ins)>0?"등록성공":"등록실패";
+		   }	
+	6) controller
+		1) service autowiring
+		2) d.addAttribute("msg", serivce.inserCustomers(ins));
+	7) view(jsp)
+		var msg = "${msg}"
+		if(msg!=""){
+			if(!confirm(msg+"\n메인리스트로 이동하시겠습니까?")){
+				location.href="customerList"
+			}
+		}	   
+		   
+		   
 		
 		
 				
