@@ -3,6 +3,8 @@ package web.com.springweb.a04_mvc.a01_controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.com.springweb.a04_mvc.a02_service.A02_PurchaseService;
@@ -19,5 +21,15 @@ public class A02_PurchaseController {
 		d.addAttribute("list", service.getPurchaseList(sch));
 		return "WEB-INF\\views\\a04_mvc\\a04_purchaseList.jsp";
 	}
-
+	// http://localhost:5050/purchaseInsert
+	// WEB-INF\views\a04_mvc\a05_purchaseInsert.jsp
+	@GetMapping("purchaseInsert")
+	public String purchaseInsert() {
+		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
+	}
+	@PostMapping("purchaseInsert")
+	public String purchaseInsertPost(Purchase ins, Model d) {
+		d.addAttribute("msg", service.insertPurchase(ins));
+		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
+	}
 }

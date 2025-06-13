@@ -2,9 +2,12 @@ package web.com.springweb.a04_mvc.a04_vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Purchase {
 	private int purchaseId; 
 	private int customerId; 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date purchaseDate; 
 	private int purchaseAmount; 
 	private String prodName;
