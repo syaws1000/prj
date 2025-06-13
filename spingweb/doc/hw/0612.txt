@@ -1,0 +1,89 @@
+## 🧩 \[1] spring MVC 연습문제 
+
+### 1 특정 고객의 주문 내역 조회
+
+> 고객 ID를 기준으로 해당 고객이 주문한 모든 주문 내역을 리스트로 출력하세요.
+
+* `/orderList` 요청 시, `customerId` 파라미터를 받아 해당 고객의 주문 출력
+* SQL 예:
+
+  ```sql
+  SELECT * FROM orders WHERE customer_id = ?;
+  ```
+
+---
+
+
+### 2 주문일자를 기준으로 특정 기간 주문 리스트 출력
+
+> 시작일과 종료일을 입력받아 그 사이 주문 내역을 출력하세요.
+
+* `/orderListByDate` 요청 시, `startDate`, `endDate` 파라미터 처리
+* SQL 예:
+
+  ```sql
+  SELECT * FROM orders WHERE order_date BETWEEN ? AND ?;
+  ```
+
+
+### 3 고객 등급별(VIP, 일반) 고객 리스트 출력
+
+> 고객 등급에 따라 필터링된 고객 리스트를 출력하세요.
+
+* `/customerGradeList` 요청 시, `grade` 파라미터 처리
+* SQL 예:
+
+  ```sql
+  SELECT * FROM customers WHERE grade = ?;
+  ```
+
+---
+
+## 🧩 \[2] ERD 연습문제 
+### 4
+
+다음 속성을 가진 **상품(products)** 테이블을 ERD로 작성해보세요.
+
+* 속성: product\_id(PK), product\_name, price, stock
+
+---
+
+### 5
+
+하나의 주문에는 여러 상품이 들어갈 수 있습니다. **주문상세(order\_items)** 테이블을 만들어 ERD에 반영해보세요.
+
+* 속성: order\_id(FK), product\_id(FK), quantity, unit\_price
+
+---
+
+### 6
+
+**직원(employees)** 테이블을 ERD로 작성하세요.
+
+* 속성: emp\_id(PK), emp\_name, position, department\_id(FK)
+
+---
+
+### 7
+
+**부서(departments)** 테이블을 만들고, 직원과 부서 간의 관계를 ERD로 표현하세요.
+
+* 속성: dept\_id(PK), dept\_name
+
+---
+
+### 8
+
+\*\*고객이 관심 있는 상품을 즐겨찾기(favorites)\*\*에 저장하는 M\:N 관계를 설계하고 ERD를 작성해보세요.
+
+* 중간 테이블: customer\_id(FK), product\_id(FK)
+
+---
+
+### 9
+
+**회원(users)** 테이블과 **게시글(posts)** 테이블 간의 관계를 1\:N으로 설정하고 ERD를 그려보세요.
+
+* 게시글 속성: post\_id(PK), title, content, user\_id(FK)
+
+
