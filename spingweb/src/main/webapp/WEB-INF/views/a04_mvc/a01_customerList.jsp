@@ -23,7 +23,9 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="customerInsert"
+		})
 	});
 </script>
 </head>
@@ -40,8 +42,7 @@
 	    <input placeholder="고객 명" name="customerName"  value="${param.customerName}" class="form-control mr-sm-2" />
 	    <input placeholder="고객 주소" name="customerAddress"  value="${param.customerAddress}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
+	    <button class="btn btn-success" id="regBtn"
 	        type="button">등록</button>
  	</nav>
 	</form>

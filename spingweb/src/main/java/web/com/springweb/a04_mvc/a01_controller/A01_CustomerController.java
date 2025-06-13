@@ -3,6 +3,7 @@ package web.com.springweb.a04_mvc.a01_controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.com.springweb.a04_mvc.a02_service.A01_CustomerService;
@@ -24,7 +25,7 @@ public class A01_CustomerController {
 		return "WEB-INF\\views\\a04_mvc\\a01_customerList.jsp";
 	}
 	// http://localhost:5050/customerInsert
-	@RequestMapping("customerInsert")
+	@GetMapping("customerInsert")
 	public String customerInsert() {
 		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
 	}
