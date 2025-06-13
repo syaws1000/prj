@@ -160,6 +160,22 @@ SELECT * FROM purchases ;
 
 ALTER TABLE PURCHASES 
 ADD PROD_NAME VARCHAR2(50);
-SELECT * FROM PURCHASES WHERE PROD_NAME LIKE '%%' AND PURCHASE_AMOUNT BETWEEN 30000 AND 1200000;
+SELECT * FROM PURCHASES WHERE PROD_NAME LIKE '%%' AND PURCHASE_AMOUNT BETWEEN 0 AND 999999999;
 
-
+--# 구매정보 처리
+--1. 구매리스트
+--	1) sql
+--		SELECT * FROM PURCHASES WHERE PROD_NAME LIKE '%%' AND PURCHASE_AMOUNT BETWEEN 30000 AND 1200000;
+--		입력 : String prodName, int start, int end
+--		출력 : int purchaseId; int customerId; Date purchageDate; int purchaseAmount; String prodName;
+-- 			  int start, int end  ==> Purchase ==> List<Purchase>
+--	2) dto/vo
+--	3) dao
+/*
+@Select("SELECT * FROM PURCHASES WHERE PROD_NAME LIKE #{prodName} AND PURCHASE_AMOUNT BETWEEN #{start} AND #{end}")
+List<Purchase> getPurchaseList(Purchase sch);
+ * */
+--	--------------------------------
+--	4) service
+--	5) controller
+--	6) jsp
