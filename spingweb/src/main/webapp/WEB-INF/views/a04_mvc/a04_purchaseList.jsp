@@ -60,20 +60,24 @@
 	// prodName purchaseId, customerId,  purchaseDate, purchaseAmount, 		
 --%> 
       <tr class="table-success text-center">
+      	<th>구매아이디</th>
         <th>물건명</th>
-        <th>구매아이디</th>
-        <th>구매자아이디</th>
+        <th>구매자</th>
         <th>구매일</th>
         <th>구매량</th>
       </tr>
     </thead>	
     <tbody>
     	<c:forEach var="pc" items="${list}">
-    	<tr><td>${pc.prodName}</td><td>${pc.purchaseId}</td><td>${pc.customerId}</td>
+    	<tr><td>${pc.purchaseId}</td><td>${pc.prodName}</td><td>${pc.customerName}</td>
     		<td><fmt:formatDate value="${pc.purchaseDate}"/> </td><td>${pc.purchaseAmount}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<%--
+	+ "ORDER BY PURCHASE_ID DESC ")   : DAO 부분..
+	
+	 --%>
 </div>
 </body>
 </html>
