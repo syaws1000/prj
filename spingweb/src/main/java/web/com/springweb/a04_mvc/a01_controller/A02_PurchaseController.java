@@ -49,10 +49,9 @@ public class A02_PurchaseController {
 		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
 	}
 	// http://localhost:5050/purchaseDetail
-	// WEB-INF\views\a04_mvc\a05_purchaseInsert.jsp
 	@GetMapping("purchaseDetail")
 	public String purchaseDetail() {
-		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
+		return "WEB-INF\\views\\a04_mvc\\a06_purchaseDetail.jsp";
 	}	
 	
 }
