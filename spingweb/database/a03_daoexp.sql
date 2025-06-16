@@ -43,4 +43,20 @@ int insertPurchase(Purchase ins);
 
 
 
+SELECT * FROM CUSTOMERS;
+SELECT * FROM purchases;
+/*
+# foreign key 관계에 있기 때문에 customers테이블에 없는 customer_id를 등록할 수 없다..
+사용자 ui의 효율성과 데이터의 일관성을 보장하기 위해서, 이런 경우에 customer_id와 customer_name을 
+연결한 공통 모델데이터를 설정하여 처리하는 경우도 많다.
+그리고, 리스트 화면에 CUSTOMERS와 조인 하여, 구매자아이디를 구매자명으로 출력하면 보다 효과적인
+처리를 가능하다.
+# 위 내용을 반영하여 처리 내용..
+1. 공통 모델어트리뷰터 설정 (CUSTOMER_ID/CUSTOMER_NAME)으로 DAO ==> SERVICE ==> 공통 모델 설정.
+2. 등록시, 콤보박스로 (고객아이디 대신에 고객명을 선택하게 처리하고, 실제 입력되는 데이터를 고객아이디로
+	처리하게 한다)
+3. 구매리스트에 DTO로 customerName을 설정하고, dao 구문에 sql로 customer와 purchase를 조인하여
+	구매자아이디 대신 구매자명이 화면에 출력하게 설정하고,
+4. 마지막 view(jsp)에서 customerId ==> customerName으로 설정처리한다.
+ * */
 
