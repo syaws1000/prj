@@ -25,6 +25,9 @@
 	$(document).ready(function(){
 	
 	});
+    $("#mainBtn").click(function(){
+		location.href="purchaseList"
+    })		
 </script>
 </head>
 
@@ -58,7 +61,8 @@
                 <label for="purchaseAmount">구매수량</label>
                 <input type="text" class="form-control" id="purchaseAmount" name="purchaseAmount" placeholder="구매수량 입력하세요" required>
             </div>           
-            <button type="submit" class="btn btn-success">등록</button>
+            <button type="button" id="uptBtn" class="btn btn-primary">수정</button>
+            <button type="button" id="delBtn" class="btn btn-warning">삭제</button>
             <button type="button" class="btn btn-info" id="mainBtn">메인화면</button>
         </form>
       </div>  
