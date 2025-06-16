@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.a04_mvc.a04_vo.Customer;
@@ -30,6 +31,9 @@ public interface A02_PurchaseDao {
 	
 	@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID")
 	List<Map<String, String>> getCustomerMap();
-	/* Map<key, val> */
+
+	@Select("SELECT * FROM PURCHASES WHERE purchase_id = #{purchase_id}")
+	Purchase getPurchase(@Param("purchase_id")int purchase_id);	
+	
 	
 }

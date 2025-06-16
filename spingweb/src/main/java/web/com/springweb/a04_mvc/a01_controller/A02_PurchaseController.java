@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.a04_mvc.a02_service.A02_PurchaseService;
 import web.com.springweb.a04_mvc.a04_vo.Customer;
@@ -50,7 +51,10 @@ public class A02_PurchaseController {
 	}
 	// http://localhost:5050/purchaseDetail
 	@GetMapping("purchaseDetail")
-	public String purchaseDetail() {
+	public String purchaseDetail(@RequestParam("purchaseId") int purchaseId, Model d) {
+		Purchase c = service.getPurchase(purchaseId);
+		System.out.println(c.getCustomerId());
+		d.addAttribute("pu", service.getPurchase(purchaseId));
 		return "WEB-INF\\views\\a04_mvc\\a06_purchaseDetail.jsp";
 	}	
 	

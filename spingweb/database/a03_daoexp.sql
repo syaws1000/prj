@@ -90,9 +90,19 @@ AND PROD_NAME LIKE #{prodName} AND PURCHASE_AMOUNT BETWEEN #{start} AND #{end}
 SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = 1;
 /*
 dao 선언할 interface 메서드..
-Customer getCustomer(@Param("customerId") int customerId)
+
+@Select("SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
+Customer getCustomer(@Param("customerId") int customerId);
 
  * */
+SELECT * FROM PURCHASES WHERE purchase_id = 1;
+/*
+dao interface 메서드 선언.
+
+ * */
+
+
+
 
 
 
