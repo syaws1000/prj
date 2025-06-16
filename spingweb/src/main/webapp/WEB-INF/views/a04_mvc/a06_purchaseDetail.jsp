@@ -26,6 +26,8 @@
 		// combo box의 내용 중에 하나를 선택하게 합니다.
 
 		$("#customerId").val("${pu.customerId}")
+		
+		
 	    $("#mainBtn").click(function(){
 			location.href="purchaseList"
 	    })		
@@ -60,11 +62,13 @@
             <div class="form-group">
                 <label for="purchaseDate">구매일</label>
                 
-                <input type="date" value='<fmt:formatDate value="${pu.purchaseDate}" pattern="yyyy-MM-dd"/>' class="form-control"  id="purchaseDate" name="purchaseDate" placeholder="구매일을 입력하세요" required>
+                <input type="date" 
+                value='<fmt:formatDate value="${pu.purchaseDate}" pattern="yyyy-MM-dd"/>' class="form-control"  id="purchaseDate" name="purchaseDate" placeholder="구매일을 입력하세요" required>
+                <%--날짜데이터를 화면에 yyyy-MM-dd 출력.. --%>
             </div>
              <div class="form-group">
                 <label for="purchaseAmount">구매수량</label>
-                <input type="text" value="${cu.purchaseAmount}" class="form-control" id="purchaseAmount" name="purchaseAmount" placeholder="구매수량 입력하세요" required>
+                <input type="text" value="${pu.purchaseAmount}" class="form-control" id="purchaseAmount" name="purchaseAmount" placeholder="구매수량 입력하세요" required>
             </div>           
             <button type="button" id="uptBtn" class="btn btn-primary">수정</button>
             <button type="button" id="delBtn" class="btn btn-warning">삭제</button>

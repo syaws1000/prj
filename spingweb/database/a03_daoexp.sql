@@ -99,8 +99,23 @@ SELECT * FROM PURCHASES WHERE purchase_id = 1;
 /*
 dao interface 메서드 선언.
 
+@Select("SELECT * FROM PURCHASES WHERE purchase_id = #{purchase_id}")
+Purchase getPurchase(@Param("purchase_id")int purchase_id);
+
  * */
 
+SELECT * FROM MOVIE WHERE TITLE LIKE '%%' AND GENRE LIKE '%%';
+-- class Movie   int movieId; String title; String genre;
+CREATE SEQUENCE movie_seq
+START WITH 106;
+
+INSERT INTO movie values(movie_seq.nextval,'재미있는영화','코미디');
+
+SELECT * FROM MOVIE WHERE movie_id = 101;
+/*
+각각 dao 메서드 선언해주세요..
+
+ * */
 
 
 
