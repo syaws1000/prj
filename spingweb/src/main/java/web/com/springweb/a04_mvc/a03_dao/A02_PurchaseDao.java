@@ -15,7 +15,9 @@ public interface A02_PurchaseDao {
 			+ "AND PURCHASE_AMOUNT BETWEEN #{start} AND #{end} "
 			+ "ORDER BY purchase_id DESC")
 	List<Purchase> getPurchaseList(Purchase sch);
-	
-	@Insert("INSERT INTO purchases VALUES (purchase_seq.nextval, #{customerId}, #{purchaseDate}, #{purchaseAmount}, #{prodName})")
+	// 자바의 날짜형태를  mybatis 프레임워크는 자동으로 데이터의 날짜형태로 변환을 해서 아래와 같이 purchaseDate로 선언하여
+	// 자동으로 날짜 데이터를 등록을 해준다.
+	@Insert("INSERT INTO purchases VALUES (purchase_seq.nextval, #{customerId}, "
+			+ "#{purchaseDate}, #{purchaseAmount}, #{prodName})")
 	int insertPurchase(Purchase ins);
 }

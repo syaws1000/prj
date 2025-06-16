@@ -24,15 +24,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		let msg = "${msg}"
-			if(msg!=""){
-				if(confirm(msg+"\n조회화면으로 이동하시겠습니까?")){
-					location.href="purchaseList"
-				}
-			}
-			
-	    	$("#mainBtn").click(function(){
+		if(msg!=""){
+			if(confirm(msg+"\n조회화면으로 이동하시겠습니까?")){
 				location.href="purchaseList"
-	    	})		
+			}
+		}
+			
+	    $("#mainBtn").click(function(){
+			location.href="purchaseList"
+	    })		
 	});
 </script>
 </head>
