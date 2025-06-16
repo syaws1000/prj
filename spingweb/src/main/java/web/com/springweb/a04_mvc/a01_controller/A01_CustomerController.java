@@ -36,7 +36,7 @@ public class A01_CustomerController {
 	public String customerInsertPost(Customer ins, Model d) {
 		d.addAttribute("msg", service.insertCustomer(ins));
 		
-		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
+		return "/redirect:customerList";
 	}	
 	// http://localhost:5050/customerDetail
 	@RequestMapping("customerDetail")

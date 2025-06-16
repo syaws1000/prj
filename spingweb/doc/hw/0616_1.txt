@@ -1,0 +1,60 @@
+### ✅ [객관식 문제 15문항]
+
+1. 다음 중 개념적 데이터 모델링에 해당하는 작업은 무엇인가?
+   A. 테이블 생성  B. 인덱스 설정  C. ER 다이어그램 작성  D. SQL 튜닝
+
+2. 다음 중 논리적 모델링 단계에서 수행되는 작업이 아닌 것은?
+   A. 정규화  B. 상세 속성 정의  C. 테이블 공간 설정  D. 관계 정의
+
+3. 다음 중 물리적 모델링에 포함되는 활동은 무엇인가?
+   A. 개체 정의  B. 관계 도출  C. 테이블 및 인덱스 생성  D. 요구사항 분석
+
+4. 1:1 관계를 사용하는 주요 목적은 무엇인가?
+   A. 데이터 중복을 늘리기 위해
+   B. 조인 성능을 낮추기 위해
+   C. 밀접한 정보 분리를 통해 효율적으로 관리하기 위해
+   D. 모든 정보를 하나의 테이블에 넣기 위해
+
+5. 다음 중 외래키(Foreign Key)가 위치해야 할 테이블은?
+   A. 1 쪽 테이블  B. 다 쪽 테이블  C. 공통 테이블  D. 어느 곳에도 위치하지 않음
+
+6. 다음 중 1:다 관계의 예로 가장 적절한 것은?
+   A. 주민등록증 – 이름
+   B. 고객 – 주문
+   C. 직원 – 주민번호
+   D. 국가 – 수도
+
+7. 다음 중 Spring MVC에서 등록 요청 시 주로 사용하는 방식은?
+   A. GET  B. POST  C. PUT  D. DELETE
+
+8. Spring MVC에서 등록 처리를 위한 Controller 메서드에 가장 적절한 어노테이션은?
+   A. @GetMapping  B. @RequestParam  C. @PostMapping  D. @PathVariable
+
+9. `@Autowired`의 사용 목적은 무엇인가?
+   A. 데이터를 저장하기 위해
+   B. JSP에 데이터 출력하기 위해
+   C. 의존성 주입을 위해
+   D. 자바 객체를 JSON으로 변환하기 위해
+
+10. DAO에서 데이터를 삽입할 때 주로 사용하는 리턴 타입은?
+    A. boolean  B. int  C. String  D. void
+
+11. 다음 중 JSP에서 Controller로부터 전달받은 메시지를 출력하는 방법으로 적절한 것은?
+    A. `${msg}`  B. `{{msg}}`  C. `<%=msg%>`  D. `#msg`
+
+12. 다음 중 등록 성공 여부에 따라 처리 결과를 문자열로 반환하는 계층은?
+    A. Controller  B. JSP  C. DAO  D. Service
+
+13. 구매 테이블에서 제품명과 구매금액 조건으로 리스트를 조회할 때 적절한 SQL 조건은?
+    A. WHERE purchase_amount IN (...)
+    B. WHERE prod_name = '%'
+    C. WHERE prod_name LIKE '%' AND purchase_amount BETWEEN x AND y
+    D. WHERE prod_name IN ('x', 'y') AND purchase_amount IS NOT NULL
+
+14. Spring MVC에서 등록 화면으로 이동하기 위해 사용하는 HTTP 메서드는?
+    A. DELETE  B. PUT  C. GET  D. POST
+
+15. 다음 중 1:1 관계로 설계하는 것이 가장 적절한 예는?
+    A. 고객 – 구매  B. 도서 – 출판사
+    C. 직원 – 직원상세정보  D. 학생 – 수업
+

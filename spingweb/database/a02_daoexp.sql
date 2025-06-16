@@ -179,3 +179,12 @@ List<Purchase> getPurchaseList(Purchase sch);
 --	4) service
 --	5) controller
 --	6) jsp
+-- 2. 구매 등록
+--   1) sql INSERT INTO purchases VALUES (11, 11, TO_DATE('2025-06-03', 'YYYY-MM-DD'), 99000, '사과');
+/*
+
+ * */
+
+
+CREATE SEQUENCE purchase_seq;
+

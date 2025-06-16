@@ -32,6 +32,19 @@ public class A01_StartController {
 		// view단 호출..
 		return "WEB-INF\\views\\a01_start.jsp";
 	}
+	// http://localhost:5050/start01
+	// WEB-INF\views\z01_exp\a01_start.jsp
+	@GetMapping("start01")
+	public String start0122222() { // 요청값.
+		// 모델 데이터 설정
+		
+		
+		// view단 호출..
+		return "WEB-INF\\views\\z01_exp\\a01_start.jsp";
+	}	
+	
+	
+	
 	// http://localhost:5050/second
 	@GetMapping("second")
 	public String second() {
