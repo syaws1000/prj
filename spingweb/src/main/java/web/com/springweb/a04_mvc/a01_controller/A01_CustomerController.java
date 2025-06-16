@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.a04_mvc.a02_service.A01_CustomerService;
 import web.com.springweb.a04_mvc.a04_vo.Customer;
@@ -40,7 +41,8 @@ public class A01_CustomerController {
 	}	
 	// http://localhost:5050/customerDetail
 	@GetMapping("customerDetail")
-	public String customerDetail() {
+	public String customerDetail(@RequestParam("customerId") String customerId) {
+		System.out.println("컨트롤에 온 customerId:"+customerId);
 		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
 	

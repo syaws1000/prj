@@ -48,4 +48,11 @@ public class A02_PurchaseController {
 		d.addAttribute("msg", service.insertPurchase(ins));
 		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
 	}
+	// http://localhost:5050/purchaseDetail
+	// WEB-INF\views\a04_mvc\a05_purchaseInsert.jsp
+	@GetMapping("purchaseDetail")
+	public String purchaseDetail() {
+		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
+	}	
+	
 }

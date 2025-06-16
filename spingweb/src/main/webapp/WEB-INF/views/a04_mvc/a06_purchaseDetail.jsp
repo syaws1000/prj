@@ -30,74 +30,37 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>구매 상세${param.purchaseId}</h2>
 </div>
-<%-- 
-		
---%>
-<div class="container">
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>    
-    
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
-	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
-	      </div>
-	     </div>
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+   <div class="container">
+        <form  method="post">
+            <div class="form-group">
+                <label for="purchaseId">구매아이디</label>
+                <input type="text" class="form-control" id="purchaseId" name="purchaseId" readOnly placeholder="구매 아이디 입력하세요" required>
+            </div>       
+            <div class="form-group">
+                <label for="prodName">물건명</label>
+                <input type="text" class="form-control" id="prodName" name="prodName" placeholder="물건명을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="customerId">고객명</label>
+                <select  class="form-control" id="customerId" name="customerId">
+                	<c:forEach var="c" items="${custCombo}" >
+                	<option value="${c.customerId}">${c.customerName} [ ${c.customerId} ]</option>
+                	</c:forEach>
+                </select>           
+            </div>
+            <div class="form-group">
+                <label for="purchaseDate">구매일</label>
+                <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" placeholder="구매일을 입력하세요" required>
+            </div>
+             <div class="form-group">
+                <label for="purchaseAmount">구매수량</label>
+                <input type="text" class="form-control" id="purchaseAmount" name="purchaseAmount" placeholder="구매수량 입력하세요" required>
+            </div>           
+            <button type="submit" class="btn btn-success">등록</button>
+            <button type="button" class="btn btn-info" id="mainBtn">메인화면</button>
+        </form>
+      </div>  
 </body>
 </html>
