@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Purchase {
 	private int purchaseId; 
 	private int customerId; 
+	private String customerName; 
 	// 화면에서 yyyy-MM-dd 형식이면 날짜데이터 자동할당.
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date purchaseDate; 
@@ -31,6 +32,19 @@ public class Purchase {
 		this.start = start;
 		this.end = end;
 	}
+	
+	public Purchase(int purchaseId, int customerId, String customerName, Date purchaseDate, int purchaseAmount,
+			String prodName, int start, int end) {
+		super();
+		this.purchaseId = purchaseId;
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.purchaseDate = purchaseDate;
+		this.purchaseAmount = purchaseAmount;
+		this.prodName = prodName;
+		this.start = start;
+		this.end = end;
+	}
 	public int getPurchaseId() {
 		return purchaseId;
 	}
@@ -42,6 +56,13 @@ public class Purchase {
 	}
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
+	}
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	public Date getPurchaseDate() {
 		return purchaseDate;

@@ -60,6 +60,13 @@
                 	<option value="${c.customerId}">${c.customerName} [ ${c.customerId} ]</option>
                 	</c:forEach>
                 </select>
+                <%-- custComboMap 
+				<select  class="form-control" id="customerId" name="customerId">
+                	<c:forEach var="c" items="${custComboMap}" >
+                	<option value="${c['CUSTOMER_ID']}">${c['CUSTOMER_NAME']} [ ${c['CUSTOMER_ID']} ]</option>
+                	</c:forEach>
+                </select>
+                --%>               
             </div>
             <div class="form-group">
                 <label for="purchaseDate">구매일</label>
