@@ -1,19 +1,35 @@
 package web.com.springweb.a04_mvc.a01_controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.com.springweb.a04_mvc.a02_service.A02_PurchaseService;
+import web.com.springweb.a04_mvc.a04_vo.Customer;
 import web.com.springweb.a04_mvc.a04_vo.Purchase;
 
 @Controller
 public class A02_PurchaseController {
 	@Autowired(required=false)
 	private A02_PurchaseService service;
+	
+	
+	// controller의 모든 뷰에서 사용할 공통 모델 어트리뷰터..
+	@ModelAttribute("custCombo")
+	public List<Customer> getCustomerInfo(){
+		return service.getCustomerInfo();
+	}
+	@ModelAttribute("custComboMap")
+	public List<Map<String, String>> getCustomerMap(){
+		return service.getCustomerMap();
+	}	
 	
 	// http://localhost:5050/purchaseList
 	@RequestMapping("purchaseList")

@@ -54,8 +54,12 @@
                 <input type="text" class="form-control" id="prodName" name="prodName" placeholder="물건명을 입력하세요" required>
             </div>
             <div class="form-group">
-                <label for="customerId">고객아이디</label>
-                <input type="text" class="form-control" id="customerId" name="customerId" placeholder="고객아이디를 입력하세요" required>
+                <label for="customerId">고객명</label>
+                <select  class="form-control" id="customerId" name="customerId">
+                	<c:forEach var="c" items="${custCombo}" >
+                	<option value="${c.customerId}">${c.customerName}[${c.customerId}]</option>
+                	</c:forEach>
+                </select>
             </div>
             <div class="form-group">
                 <label for="purchaseDate">구매일</label>

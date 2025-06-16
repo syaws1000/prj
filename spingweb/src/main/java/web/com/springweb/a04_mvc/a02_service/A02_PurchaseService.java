@@ -1,11 +1,13 @@
 package web.com.springweb.a04_mvc.a02_service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.springweb.a04_mvc.a03_dao.A02_PurchaseDao;
+import web.com.springweb.a04_mvc.a04_vo.Customer;
 import web.com.springweb.a04_mvc.a04_vo.Purchase;
 
 @Service
@@ -29,5 +31,11 @@ public class A02_PurchaseService {
 	}
 	public String insertPurchase(Purchase ins) {
 		return dao.insertPurchase(ins)>0?"등록성공":"등록실패";
+	}
+	public List<Map<String, String>> getCustomerMap(){
+		return dao.getCustomerMap();
+	}
+	public List<Customer> getCustomerInfo(){
+		return dao.getCustomerInfo();
 	}
 }

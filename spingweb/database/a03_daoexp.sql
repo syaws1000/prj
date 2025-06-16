@@ -59,4 +59,14 @@ SELECT * FROM purchases;
 	구매자아이디 대신 구매자명이 화면에 출력하게 설정하고,
 4. 마지막 view(jsp)에서 customerId ==> customerName으로 설정처리한다.
  * */
+SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID;
+/*
+@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID")
+List<Customer> getCustomerInfo();
 
+@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID")
+Map<String, String> getCustomerInfo2();
+
+
+ * 
+ * */
