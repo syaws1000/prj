@@ -57,7 +57,7 @@
                 <label for="customerId">고객명</label>
                 <select  class="form-control" id="customerId" name="customerId">
                 	<c:forEach var="c" items="${custCombo}" >
-                	<option value="${c.customerId}">${c.customerName}[${c.customerId}]</option>
+                	<option value="${c.customerId}">${c.customerName} [ ${c.customerId} ]</option>
                 	</c:forEach>
                 </select>
             </div>
