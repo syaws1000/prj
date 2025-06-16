@@ -41,8 +41,9 @@ public class A01_CustomerController {
 	}	
 	// http://localhost:5050/customerDetail
 	@GetMapping("customerDetail")
-	public String customerDetail(@RequestParam("customerId") String customerId) {
+	public String customerDetail(@RequestParam("customerId") int customerId, Model d) {
 		System.out.println("컨트롤에 온 customerId:"+customerId);
+		d.addAttribute("cus", service.getCustomer(customerId));
 		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
 	

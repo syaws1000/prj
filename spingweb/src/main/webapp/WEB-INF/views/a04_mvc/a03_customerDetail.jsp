@@ -33,29 +33,30 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>고객 상세(${param.customerId})</h2>
+  <h2>고객 상세(${cus.customerName} - ${param.customerId})</h2>
 </div>
    <div class="container">
         <form  method="post">
              <div class="form-group">
                 <label for="customerId">고객아이디</label>
-                <input type="text" class="form-control" id="customerId" name="customerId"  readOnly required>
+                <input type="text" value="${cus.customerId}" class="form-control" id="customerId" name="customerId"  readOnly required>
             </div>       
             <div class="form-group">
                 <label for="customerName">이름</label>
-                <input type="text" class="form-control" id="customerName" name="customerName" placeholder="이름을 입력하세요" required>
+                <input type="text" value="${cus.customerName}"  class="form-control" id="customerName" name="customerName" placeholder="이름을 입력하세요" required>
             </div>
             <div class="form-group">
                 <label for="customerEmail">메일</label>
-                <input type="text" class="form-control" id="customerEmail" name="customerEmail" placeholder="메일를 입력하세요" required>
+                <input type="text" value="${cus.customerEmail}"  class="form-control" id="customerEmail" name="customerEmail" placeholder="메일를 입력하세요" required>
             </div>
             <div class="form-group">
                 <label for="customerPhone">전화번호</label>
-                <input type="text" class="form-control" id="customerPhone" name="customerPhone" placeholder="전화번호를 입력하세요" required>
+                <input type="text" value="${cus.customerPhone}"  class="form-control" id="customerPhone" name="customerPhone" placeholder="전화번호를 입력하세요" required>
             </div>
              <div class="form-group">
                 <label for="customerAddress">주소</label>
-                <textarea class="form-control" id="customerAddress" name="customerAddress" rows="5" placeholder="주소를 입력하세요" required></textarea>
+                <textarea class="form-control" id="customerAddress" name="customerAddress"
+                 rows="5" placeholder="주소를 입력하세요" required>${cus.customerAddress}</textarea>
             </div>
             <button type="button" id="uptBtn" class="btn btn-primary">수정</button>
             <button type="button" id="delBtn" class="btn btn-warning">삭제</button>
