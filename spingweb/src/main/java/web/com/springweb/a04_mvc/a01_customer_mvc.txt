@@ -176,7 +176,24 @@
 	5) controller
 	6) jsp
 	
-			
+# 고객 정보 상세 처리
+1. 요구사항 정의 및 프로세스 
+	1) 고객 리스트화면에서 특정 고객(행)단위를 더블 클릭시, 상세화면이 로딩되어,
+		해당 고객정보를 수정/삭제할 수 있는 버튼과 form형식(입력형식)과 함께 데이터가 표현된다.
+2. 개발 순서
+	1) 기본 상세정보 출력(form) view단 만들기(화면UI) - a03_customerDetail.jsp
+	2) controller에서 요청키로 해당 view화면이 호출되게 선언
+	3) list 화면에서 클릭시, 해당 화면으로 처리되게 dblclick로 요청값과 함께, 상세 controller 메서드 호출..
+	4) 상세 dao 처리
+		sql 작성
+		메서드 선언
+		service 단 처리
+		controller에 상세 요청시 처리할 내용에 model데이터로 설정..
+	5) jsp로 controller단에서 온 단일 객체로 value="${c.customerId}" 형태로 항목별로 처리..
+
+
+# 고객 정보 상세[수정] 처리			
+# 고객 정보 상세[삭제] 처리			
 		
 				
 		

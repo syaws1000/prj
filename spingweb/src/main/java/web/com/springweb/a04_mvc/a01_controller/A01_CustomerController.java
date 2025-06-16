@@ -39,7 +39,7 @@ public class A01_CustomerController {
 		return "/redirect:customerList";
 	}	
 	// http://localhost:5050/customerDetail
-	@RequestMapping("customerDetail")
+	@GetMapping("customerDetail")
 	public String customerDetail() {
 		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}

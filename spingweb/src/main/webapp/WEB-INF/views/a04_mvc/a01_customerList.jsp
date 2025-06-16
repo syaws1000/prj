@@ -65,11 +65,16 @@
     <tbody>
     	
     	<c:forEach var="cu" items="${cuList}" >
-    	<tr><td>${cu.customerId}</td><td>${cu.customerName}</td><td>${cu.customerEmail}</td>
+    	<tr ondblclick="goDetail(${cu.customerId})"><td>${cu.customerId}</td><td>${cu.customerName}</td><td>${cu.customerEmail}</td>
     		<td>${cu.customerPhone}</td><td>${cu.customerAddress}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goDetail(id){
+			location.href="/customerDetail?customerId="+id
+		}
+	</script>
     
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
