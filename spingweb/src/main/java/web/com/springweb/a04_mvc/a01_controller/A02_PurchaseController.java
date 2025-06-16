@@ -52,8 +52,6 @@ public class A02_PurchaseController {
 	// http://localhost:5050/purchaseDetail
 	@GetMapping("purchaseDetail")
 	public String purchaseDetail(@RequestParam("purchaseId") int purchaseId, Model d) {
-		Purchase c = service.getPurchase(purchaseId);
-		System.out.println(c.getCustomerId());
 		d.addAttribute("pu", service.getPurchase(purchaseId));
 		return "WEB-INF\\views\\a04_mvc\\a06_purchaseDetail.jsp";
 	}	
