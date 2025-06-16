@@ -28,6 +28,9 @@
 		})
 	
 	});
+	function goDetail(id){
+		location.href="purchaseDetail?purchaseId="+id
+	}	
 </script>
 </head>
 
@@ -69,15 +72,12 @@
     </thead>	
     <tbody>
     	<c:forEach var="pc" items="${list}">
-    	<tr><td>${pc.purchaseId}</td><td>${pc.prodName}</td><td>${pc.customerName}</td>
+    	<tr ondblclick="goDetail(${pc.purchaseId})"><td>${pc.purchaseId}</td><td>${pc.prodName}</td><td>${pc.customerName}</td>
     		<td><fmt:formatDate value="${pc.purchaseDate}"/> </td><td>${pc.purchaseAmount}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
-	<%--
-	+ "ORDER BY PURCHASE_ID DESC ")   : DAO 부분..
-	
-	 --%>
+
 </div>
 </body>
 </html>
