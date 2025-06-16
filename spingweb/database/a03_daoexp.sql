@@ -79,5 +79,20 @@ SELECT P.*, C.CUSTOMER_NAME
 FROM PURCHASES P,  CUSTOMERS C
 WHERE P.CUSTOMER_ID = C.CUSTOMER_ID   
 AND PROD_NAME LIKE #{prodName} AND PURCHASE_AMOUNT BETWEEN #{start} AND #{end}
+
+
+	4) 상세 dao 처리
+		sql 작성
+		메서드 선언
+		service 단 처리
+		controller에 상세 요청시 처리할 내용에 model데이터로 설정..
  * */
+SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = 1;
+/*
+dao 선언할 interface 메서드..
+Customer getCustomer(@Param("customerId") int customerId)
+
+ * */
+
+
 

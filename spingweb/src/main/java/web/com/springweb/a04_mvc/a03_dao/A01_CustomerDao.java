@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.a04_mvc.a04_vo.Customer;
@@ -19,4 +20,8 @@ public interface A01_CustomerDao {
 	@Insert("INSERT INTO customers VALUES (customer_seq.nextval, "
 			+ "#{customerName}, #{customerEmail},#{customerPhone}, #{customerAddress})")
 	int insertCustomer(Customer ins);
+	
+	@Select("SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
+	Customer getCustomer(@Param("customerId") int customerId);
+	
 }

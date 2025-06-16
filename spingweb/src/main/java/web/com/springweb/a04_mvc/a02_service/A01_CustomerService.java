@@ -2,6 +2,7 @@ package web.com.springweb.a04_mvc.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,10 @@ public class A01_CustomerService {
 	public String insertCustomer(Customer ins) {
 				// 등록되면 row단위로 리턴..
 		return dao.insertCustomer(ins)>0?"등록성공":"등록실패";
+	}
+	
+	public Customer getCustomer(int customerId) {
+		return dao.getCustomer(customerId);
 	}
 	
 }
