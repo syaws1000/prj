@@ -23,6 +23,19 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		let msg = "${msg}"
+		if(msg!=""){
+			if(confirm(msg+"\n조회화면으로 이동하시겠습니까?")){
+				location.href="purchaseList"
+			}
+		}
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				$("form").attr("action","purchaseUpdate")
+				$("form").submit()
+			}
+		})
+		
 		// combo box의 내용 중에 하나를 선택하게 합니다.
 
 		$("#customerId").val("${pu.customerId}")
