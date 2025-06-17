@@ -28,8 +28,13 @@
 		- url을 통해서 특정 view(jsp)를 호출
 	3) d.addAttribute("customerList", service.getCustomerList(sch)); 
 	4) service단애 getCustomerList를 호출 하면서 Customer sch 받은 내용으로 null여부를 확인해서 null, 공백을 처리.
+		if(sch.getCustomName()==null) sch.setCustomName("")
+		if(sch.getCustomAddress()==null) sch.setCustomAddress("")
+		sch.sch.setCustomName("%"+sch.getCustomName()+"%")
+		sch.sch.setCustomAddress("%"+sch.getCustomAddress()+"%")
 	5) dao 호출 해서 검색된 내용을  List<Customer>로 리턴하여 service ==> controller단에 넘기면
-		SELECT * FROM customers WHERE customer_name  LIKE '%%' AND customer_address LIKE '%%';
+		SELECT * FROM customers WHERE customer_name  LIKE #{customeName} AND customer_address LIKE #{customAddress};
+		List<Customer> getCustomerList(Customer sch);
 	6) 	d.addAttribute("customerList", service.getCustomerList(sch));  모델 데이터 설정하고.
 	7) view단 호출 a01_customerList.jsp
 	8) view단에서 는 customerList 모델 값을
@@ -76,8 +81,46 @@
 # 등록처리
 1. 프로세스 흐름
 	1) 리스트 화면(메인화면)에서 조회버튼 옆에 있는 등록 버튼을 클릭시, 등록 폼화면으로 이동한다.
+		<button type="button" id="regBtn">
+		$("#regBtn").click(function(){
+			location.href="customerInsert"
+		})
+		@GetMapping("customerInsert")  // 초기 화면을 로딩처리 처리되는 요청값..
+		@PostMapping("customerInsert") // 실제 입력할 데이터를 전송하여 DB 입력 처리..
+		
+		<form method="post"> ==> 데이터가 전송이 가능하게 처리된다.
+		
 	2) 등록할 내용(고객명, 이메일, 핸드폰, 주소)을 입력하고, 등록 버튼을 클릭시, 등록 요청 controller단에
 		데이터를 객체(모델어트리뷰터- Customer객체)로 전달한다.
+		<input name="customerName" value=""
+		<input name="customerEmail" value=""
+		&customerName=홍길동&customerEmail=zzzz@hanmail.net
+		==> post방식의 메서드  Customer ins 객체 메서드 setCustomerName(String ...)
+												   setCustomerEmail(...)
+		customerInsertPost(Customer ins, Model d)  아래 Customer 객체에 데이터를
+		요청값으로 등록하여 실제 service.insertCustomer(ins) service ==> dao로
+		전송되어 데이터를 등록 처리한다.										   
+		@PostMapping("customerInsert")
+		public String customerInsertPost(Customer ins, Model d) {
+		d.addAttribute("msg", service.insertCustomer(ins));	"등록성공"/"등록실패" 리턴 처리..
+	
+		@Insert("INSERT INTO customers VALUES (customer_seq.nextval, "
+					+ "#{customerName}, #{customerEmail},#{customerPhone}, #{customerAddress})")
+		int insertCustomer(Customer ins);
+		
+		등록되면 등록된 건수를 int로 리턴해준다. dao ==> service (0이상일 때 등록성공/등록실패로 문자열로 리턴 
+												 public String insertCustomer(Customer ins)
+												 	return dao.insertCustomer(int)>0?"등록성공":"등록실패"	
+		view(jsp) javascript
+		let msg = "${msg}"
+		if(msg!=""){   // 입력처리한 결과..
+			if(confirm(msg+"\t"+"메인페이지이동하시겠습니까?"){
+				location.href="customerList"
+			}
+		}										 	
+												 	
+												 	
+		
 	3) 위 입력된 데이터를 가지고 있는 Customer객체는 service/dao단을 거져서, 실제 insert sql 구문에 의해서
 		데이터를 등록하고,
 	4) 등록건수에 따라, 리턴값을 전달하여 service단에서는 1이상 여부에 따라 등록성공/등록실패를 controller의
@@ -184,6 +227,13 @@
 	1) 기본 상세정보 출력(form) view단 만들기(화면UI) - a03_customerDetail.jsp
 	2) controller에서 요청키로 해당 view화면이 호출되게 선언
 	3) list 화면에서 클릭시, 해당 화면으로 처리되게 dblclick로 요청값과 함께, 상세 controller 메서드 호출..
+		<tr ondblclick = "goDetail(${cu.customerId})"   tr 행단위로 더블 클릭시, 전달할 함수를 지정..
+		
+		function goDetail(customerId){
+			location.href="customerDetail?customerId="+customerId
+		}
+	
+	
 	ex) 구매리스트에서 구매상세로 요청값을 전달하고, 화면이 로딩되는데까지 처리하세요..
 		1) a06_purchaseDetail.jsp 등록 가능한 화면을 전환.. a05_purchaseInsert.jsp참고
 		2) controller단에서 연결 처리 확인
@@ -200,7 +250,35 @@
 	5) jsp로 controller단에서 온 단일 객체로 value="${c.customerId}" 형태로 항목별로 처리..
 
 
-# 고객 정보 상세[수정] 처리			
+# 고객 정보 상세[수정] 처리		
+1. 프로세스
+	1) 상세조회화면에서, 변경할 데이터를 수정한 후, 수정 버튼을 클릭시, 해당 수정 버튼에 따라 처리할 
+		정의된 controller단의 요청 메서드를 호출하여, 요청값으로 현재 입력되는 form의 데이터를 객체(Customer)에게
+		전달한다. 이렇게 전달된 객체는 service, dao단에 전달되어 sql문(update 구분에 의해서 수정 처리를 한다)
+	2) dao에서 수정된 결과(0또는 1이상)값을 int로 리턴하면 service단에서 3항연산자에 의해서 수정 성공/실패를 문자열로
+		리턴하고, 다시 controller에서는 모델데이터를 d.addAttribute("msg", service.updateCustomer(ins))
+		에 의해서 화면단(jsp)에 문자열로 전달한다. 그리고, 다시 상세정보에 의해, 다시 로딩 하여, 모델 데이터로 가지고 
+		있다가 화면으로 새로 수정된 데이터를 전달한다. d.addAttribute("cu", service.getCustomer(ins.getCutomerId());
+	3) msg로 전달된 데이터는 javascript에 의해서 받은 데이터를 
+		let msg = "${msg}"
+		if(msg!=''){
+			if(confirm(msg+"\n리스트 화면으로 이동하시겠습니까?"){
+				location.href="customerList"
+			}
+		}
+		그리고, form 하위의 value값으로 수정된 데이터를 다시 출력하게 된다. value="${cu.customerName}"....
+2. 개발순서
+	1) dao
+		sql 메서드 선언
+	2) service  수정성공/수정 실패
+	3) controller
+		msg
+		상세내용을 가져오는 모델 처리..
+	4) view단
+		수정 버튼 클릭시, $("form").attr("action","updateCutomer") 선언  $("form").submit()
+					 ==> 상세화면에서 수정과 삭제 두가지 프로세스가 다 처리되게에 구분하여 처리한다..
+
+	
 # 고객 정보 상세[삭제] 처리	
 
 		
