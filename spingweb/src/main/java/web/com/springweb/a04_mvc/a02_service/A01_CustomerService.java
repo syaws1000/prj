@@ -38,7 +38,9 @@ public class A01_CustomerService {
 	public Customer getCustomer(int customerId) {
 		return dao.getCustomer(customerId);
 	}
-	
+	public String deleteCustomer(int customerId) {
+		return dao.deleteCustomer(customerId)>0?"삭제성공":"삭제실패";
+	}
 }
 
 

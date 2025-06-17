@@ -57,5 +57,12 @@ public class A01_CustomerController {
 		d.addAttribute("cus", service.getCustomer(customerId));
 		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
+	// http://localhost:5050/customerDelete
+	@PostMapping("customerDelete")
+	public String customerDelete(@RequestParam("customerId") int customeId, Model d) {
+		d.addAttribute("msg", service.deleteCustomer(customeId));
+		
+		return "";
+	}
 	
 }

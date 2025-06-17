@@ -2,6 +2,7 @@ package web.com.springweb.a04_mvc.a03_dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -19,14 +20,11 @@ public interface A01_CustomerDao {
 	List<Customer> getCustomerList(  Customer sch );
 
 	@Insert("INSERT INTO customers VALUES (customer_seq.nextval, "
-			+ "#{customerName}, #{customerEmail},#{customerPhone}, #{customerAddress})")
+			+ "#{customerName}, #{customerEmail}, #{customerPhone}, #{customerAddress})")
 	int insertCustomer(Customer ins);
 	
 	@Select("SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
 	Customer getCustomer(@Param("customerId") int customerId);
-	
-	
-	
 	
 	@Update("UPDATE CUSTOMERS \r\n"
 			+ " SET CUSTOMER_NAME = #{customerName},\r\n"
@@ -35,6 +33,10 @@ public interface A01_CustomerDao {
 			+ "     CUSTOMER_ADDRESS = #{customerAddress}\r\n"
 			+ "WHERE CUSTOMER_ID = #{customerId}")
 	int updateCustomer(Customer upt);
+	
+	@Delete("DELETE FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
+	int deleteCustomer(@Param("customerId") int customerid);
+	
 	
 	
 }

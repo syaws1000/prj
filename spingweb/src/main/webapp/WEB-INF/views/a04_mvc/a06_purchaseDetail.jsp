@@ -34,12 +34,9 @@
 				$("form").attr("action","purchaseUpdate")
 				$("form").submit()
 			}
-		})
-		
+		})	
 		// combo box의 내용 중에 하나를 선택하게 합니다.
-
 		$("#customerId").val("${pu.customerId}")
-		
 		
 	    $("#mainBtn").click(function(){
 			location.href="purchaseList"
