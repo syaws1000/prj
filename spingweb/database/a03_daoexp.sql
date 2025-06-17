@@ -116,8 +116,25 @@ SELECT * FROM MOVIE WHERE movie_id = 101;
 각각 dao 메서드 선언해주세요..
 
  * */
-
-
+SELECT * FROM CUSTOMERS;
+UPDATE CUSTOMERS 
+   SET CUSTOMER_NAME ='오길동(변경)',
+       CUSTOMER_EMAIL = 'ZZZ@gmail.com(변경)',
+       CUSTOMER_PHONE = '010-9999-9999',
+       CUSTOMER_ADDRESS = '경기도 부천'
+ WHERE CUSTOMER_ID = 12;     
+/*
+UPDATE CUSTOMERS 
+   SET CUSTOMER_NAME = #{customerName},
+       CUSTOMER_EMAIL = #{customerEmail},
+       CUSTOMER_PHONE = #{customerPhone},
+       CUSTOMER_ADDRESS = #{customerAddress}
+ WHERE CUSTOMER_ID = #{customerId}
+ 
+ dao 메서드.
+ 
+ 
+ * */
 
 
 

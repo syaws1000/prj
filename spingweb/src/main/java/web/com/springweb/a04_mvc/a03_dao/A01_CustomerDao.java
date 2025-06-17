@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import web.com.springweb.a04_mvc.a04_vo.Customer;
 
@@ -23,5 +24,17 @@ public interface A01_CustomerDao {
 	
 	@Select("SELECT * FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
 	Customer getCustomer(@Param("customerId") int customerId);
+	
+	
+	
+	
+	@Update("UPDATE CUSTOMERS \r\n"
+			+ " SET CUSTOMER_NAME = #{customerName},\r\n"
+			+ "     CUSTOMER_EMAIL = #{customerEmail},\r\n"
+			+ "     CUSTOMER_PHONE = #{customerPhone},\r\n"
+			+ "     CUSTOMER_ADDRESS = #{customerAddress}\r\n"
+			+ "WHERE CUSTOMER_ID = #{customerId}")
+	int updateCustomer(Customer upt);
+	
 	
 }

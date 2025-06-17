@@ -30,6 +30,14 @@ public class A01_CustomerService {
 		return dao.insertCustomer(ins)>0?"등록성공":"등록실패";
 	}
 	
+	public String updateCustomer(Customer upt) {
+		
+		
+		
+		return dao.updateCustomer(upt)>0?"수정성공":"수정실패";
+	}
+	
+	
 	public Customer getCustomer(int customerId) {
 		return dao.getCustomer(customerId);
 	}

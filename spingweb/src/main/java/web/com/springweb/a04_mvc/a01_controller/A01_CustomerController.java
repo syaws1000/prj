@@ -37,8 +37,19 @@ public class A01_CustomerController {
 	public String customerInsertPost(Customer ins, Model d) {
 		d.addAttribute("msg", service.insertCustomer(ins));
 		
-		return "/redirect:customerList";
+		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
 	}	
+	@PostMapping("customerUpdate")
+	public String customerUpdate(Customer upt, Model d) {
+		// 1. 수정 처리..
+		d.addAttribute("msg", service.updateCustomer(upt));
+		
+		// 2. 수정 후, 상세 모델 데이터 설정..
+		d.addAttribute("cus", service.getCustomer(upt.getCustomerId()));
+		
+		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
+	}
+	
 	// http://localhost:5050/customerDetail
 	@GetMapping("customerDetail")
 	public String customerDetail(@RequestParam("customerId") int customerId, Model d) {
