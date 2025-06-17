@@ -39,6 +39,6 @@
 	2) "forward://empList" :선언된 메서드 url 호출..
 		요청값 전달(post방식의 body의 요청값을 전달을 하지 않는다)
 		모델데이터도 전달한다..
-
+	ps) 세션값을 redirct, forward 둘다 전달 된다..
 
 

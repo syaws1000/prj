@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import web.com.springweb.a04_mvc.a02_service.A01_CustomerService;
 import web.com.springweb.a04_mvc.a04_vo.Customer;
@@ -57,12 +58,13 @@ public class A01_CustomerController {
 		d.addAttribute("cus", service.getCustomer(customerId));
 		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
+	
 	// http://localhost:5050/customerDelete
 	@PostMapping("customerDelete")
-	public String customerDelete(@RequestParam("customerId") int customeId, Model d) {
-		d.addAttribute("msg", service.deleteCustomer(customeId));
+	public String customerDelete(@RequestParam("customerId") int customeId,RedirectAttributes redirectAttrs) {
 		
-		return "";
+		redirectAttrs.addFlashAttribute("msg", service.deleteCustomer(customeId));
+		
+		return "redirect:/customerList";
 	}
-	
 }

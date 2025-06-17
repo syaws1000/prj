@@ -33,7 +33,10 @@
 			$("form").attr("action","customerUpdate")
 			$("form").submit()
 		})	
-		
+		$("#delBtn").click(function(){
+			$("form").attr("action","customerDelete")
+			$("form").submit()
+		})
 		
     	$("#mainBtn").click(function(){
 			location.href="customerList"

@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import web.com.springweb.a04_mvc.a04_vo.Customer;
-
+// customerName customerAddress
 @Mapper
 public interface A01_CustomerDao {
 	@Select("SELECT * FROM customers "

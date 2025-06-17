@@ -23,6 +23,11 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		let msg = "${msg}"
+		if(msg!=""){
+			alert(msg)
+		}
+		
 		$("#regBtn").click(function(){
 			location.href="customerInsert"
 		})
