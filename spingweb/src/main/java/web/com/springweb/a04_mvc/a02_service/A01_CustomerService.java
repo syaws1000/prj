@@ -31,9 +31,6 @@ public class A01_CustomerService {
 	}
 	
 	public String updateCustomer(Customer upt) {
-		
-		
-		
 		return dao.updateCustomer(upt)>0?"수정성공":"수정실패";
 	}
 	

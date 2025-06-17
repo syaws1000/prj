@@ -46,7 +46,7 @@ public class A02_PurchaseController {
 	}
 	@PostMapping("purchaseInsert")
 	public String purchaseInsertPost(Purchase ins, Model d) {
-		d.addAttribute("msg", service.insertPurchase(ins));
+		d.addAttribute("msg", service.purchaseInsert(ins));
 		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
 	}
 	// http://localhost:5050/purchaseDetail

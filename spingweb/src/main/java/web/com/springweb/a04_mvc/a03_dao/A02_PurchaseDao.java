@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import web.com.springweb.a04_mvc.a04_vo.Customer;
 import web.com.springweb.a04_mvc.a04_vo.Purchase;
@@ -23,7 +24,16 @@ public interface A02_PurchaseDao {
 	// 자동으로 날짜 데이터를 등록을 해준다.
 	@Insert("INSERT INTO purchases VALUES (purchase_seq.nextval, #{customerId}, "
 			+ "#{purchaseDate}, #{purchaseAmount}, #{prodName})")	
-	int insertPurchase(Purchase ins);
+	int purchaseInsert(Purchase ins);
+	
+	@Update("UPDATE PURCHASES\r\n"
+			+ "	SET CUSTOMER_ID = #{customerId},\r\n"
+			+ "	    PURCHASE_DATE = #{purchaseDate},\r\n"
+			+ "	    PURCHASE_AMOUNT = #{purchaseAmount},\r\n"
+			+ "	    PROD_NAME = #{prodName}\r\n"
+			+ "WHERE PURCHASE_ID = #{purchaseId}")
+	int purchaseUpdate(Purchase upt);
+	
 	
 	
 	@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID")
