@@ -49,6 +49,17 @@ public class A02_PurchaseController {
 		d.addAttribute("msg", service.purchaseInsert(ins));
 		return "WEB-INF\\views\\a04_mvc\\a05_purchaseInsert.jsp";
 	}
+	// purchaseUpdate
+	// 1. msg
+	// 2. pu 객체로 단일 객체 처리..
+	@PostMapping("purchaseUpdate")
+	public String purchaseUpdate(Purchase upt, Model d) {
+		d.addAttribute("msg", service.purchaseUpdate(upt));
+		d.addAttribute("pu", service.getPurchase(upt.getPurchaseId()));
+		return "WEB-INF\\views\\a04_mvc\\a06_purchaseDetail.jsp";
+	}	
+	
+	
 	// http://localhost:5050/purchaseDetail
 	@GetMapping("purchaseDetail")
 	public String purchaseDetail(@RequestParam("purchaseId") int purchaseId, Model d) {

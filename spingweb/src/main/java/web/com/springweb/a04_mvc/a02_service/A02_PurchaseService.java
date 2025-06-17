@@ -32,7 +32,7 @@ public class A02_PurchaseService {
 	public String purchaseInsert(Purchase ins) {
 		return dao.purchaseInsert(ins)>0?"등록성공":"등록실패";
 	}
-	public String updatePurchase(Purchase upt) {
+	public String purchaseUpdate(Purchase upt) {
 		return dao.purchaseUpdate(upt)>0?"수정성공":"수정실패";
 	}
 	public List<Map<String, String>> getCustomerMap(){
