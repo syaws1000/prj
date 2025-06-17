@@ -23,6 +23,17 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		let msg = "${msg}"
+		if(msg!=""){
+			if(confirm(msg+"\n조회화면으로 이동하시겠습니까?")){
+				location.href="customerList"
+			}
+		}
+		$("#uptBtn").click(function(){
+			$("form").attr("action","customerUpdate")
+			$("form").submit()
+		})	
+		
 		
     	$("#mainBtn").click(function(){
 			location.href="customerList"
