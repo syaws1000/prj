@@ -176,4 +176,29 @@ SELECT * FROM PURCHASES  p, CUSTOMERS c
 WHERE p.CUSTOMER_ID  = c.CUSTOMER_ID;
 ALTER TABLE PURCHASES
 DROP CONSTRAINT FK_CUSTOMER_ID;
+SELECT * FROM PURCHASES; 
+DELETE FROM PURCHASES WHERE PURCHASE_ID = 13;
+/*
+DAO 메서드 선언..
+@Delete("DELETE FROM PURCHASES WHERE PURCHASE_ID = #{purchaseId}")
+int purchageDelete(@Param("purchaseId") int purchaseId);
+
+
+ * 
+ * */
+
+
+
+/*
+ * 
+ * */
+
+
+
+
+
+
+
+
+
 

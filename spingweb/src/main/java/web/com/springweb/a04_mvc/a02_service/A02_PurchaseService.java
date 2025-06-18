@@ -3,6 +3,7 @@ package web.com.springweb.a04_mvc.a02_service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,9 @@ public class A02_PurchaseService {
 	}
 	public String purchaseUpdate(Purchase upt) {
 		return dao.purchaseUpdate(upt)>0?"수정성공":"수정실패";
+	}
+	public String purchageDelete( int purchaseId) {
+		return dao.purchageDelete(purchaseId)>0?"삭제성공":"삭제실패";
 	}
 	public List<Map<String, String>> getCustomerMap(){
 		return dao.getCustomerMap();

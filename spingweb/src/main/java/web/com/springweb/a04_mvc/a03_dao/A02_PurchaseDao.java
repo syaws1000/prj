@@ -3,6 +3,7 @@ package web.com.springweb.a04_mvc.a03_dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -34,6 +35,8 @@ public interface A02_PurchaseDao {
 			+ "WHERE PURCHASE_ID = #{purchaseId}")
 	int purchaseUpdate(Purchase upt);
 	
+	@Delete("DELETE FROM PURCHASES WHERE PURCHASE_ID = #{purchaseId}")
+	int purchageDelete(@Param("purchaseId") int purchaseId);
 	
 	
 	@Select("SELECT CUSTOMER_ID, CUSTOMER_NAME FROM CUSTOMERS ORDER BY CUSTOMER_ID")
