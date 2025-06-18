@@ -188,3 +188,5 @@ List<Purchase> getPurchaseList(Purchase sch);
 
 CREATE SEQUENCE purchase_seq;
 
+
+SELECT * FROM USERS WHERE  ID = #{} AND PWD

@@ -36,6 +36,11 @@ public class A01_CustomerController {
 	// http://localhost:5050/customerInsert
 	@PostMapping("customerInsert")
 	public String customerInsertPost(Customer ins, Model d) {
+		
+		
+		
+		
+		
 		d.addAttribute("msg", service.insertCustomer(ins));
 		
 		return "WEB-INF\\views\\a04_mvc\\a02_customerInsert.jsp";
@@ -61,10 +66,16 @@ public class A01_CustomerController {
 	
 	// http://localhost:5050/customerDelete
 	@PostMapping("customerDelete")
-	public String customerDelete(@RequestParam("customerId") int customeId,RedirectAttributes redirectAttrs) {
+	public String customerDelete(@RequestParam("customerId") int customeId
+								,Model d
+								,RedirectAttributes redirectAttrs
+								
+								) {
+		d.addAttribute("msg", service.deleteCustomer(customeId));
+		//redirectAttrs.addFlashAttribute("msg", service.deleteCustomer(customeId));
 		
-		redirectAttrs.addFlashAttribute("msg", service.deleteCustomer(customeId));
-		
-		return "redirect:/customerList";
+		//return "forward:/customerList";
+		//return "redirect:/customerList";
+		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
 }

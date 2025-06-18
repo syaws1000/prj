@@ -130,11 +130,50 @@ UPDATE CUSTOMERS
        CUSTOMER_PHONE = #{customerPhone},
        CUSTOMER_ADDRESS = #{customerAddress}
  WHERE CUSTOMER_ID = #{customerId}
- 
  dao 메서드.
- 
- 
+@Update("")
+int updateCustomer(Customer upt);
+ * */
+SELECT * FROM PURCHASES;
+
+UPDATE PURCHASES
+	SET CUSTOMER_ID = 2,
+	    PURCHASE_DATE = TO_DATE('2025-07-01', 'YYYY-MM-DD'),
+	    PURCHASE_AMOUNT=999,
+	    PROD_NAME = '망고'
+WHERE PURCHASE_ID = 13;	    
+/*
+UPDATE PURCHASES
+	SET CUSTOMER_ID = #{customerId},
+	    PURCHASE_DATE = #{purchaseDate},
+	    PURCHASE_AMOUNT=#{purchaseAmount},
+	    PROD_NAME = #{prodName}
+WHERE PURCHASE_ID = #{purchaseId}
+DAO
+@Update("")
+int customerUpdate(Customer upt);
+
+
+SERVICE
+
+CONTROLLER
+
+VIEW
+ * 
+ * */
+SELECT * FROM CUSTOMERS;
+DELETE FROM CUSTOMERS WHERE CUSTOMER_ID = 12;
+/*
+dao. 메서드 선언.
+
+@Delete("DELETE FROM CUSTOMERS WHERE CUSTOMER_ID = #{customerId}")
+int deleteCustomer(@Param("customerId") int customerid);
+
+
  * */
 
-
+SELECT * FROM PURCHASES  p, CUSTOMERS c
+WHERE p.CUSTOMER_ID  = c.CUSTOMER_ID;
+ALTER TABLE PURCHASES
+DROP CONSTRAINT FK_CUSTOMER_ID;
 

@@ -30,12 +30,16 @@
 			}
 		}
 		$("#uptBtn").click(function(){
-			$("form").attr("action","customerUpdate")
-			$("form").submit()
+			if(confirm("수정하시겠습니까?")){
+				$("form").attr("action","customerUpdate")
+				$("form").submit()
+			}
 		})	
 		$("#delBtn").click(function(){
-			$("form").attr("action","customerDelete")
-			$("form").submit()
+			if(confirm("삭제하시겠습니까?")){
+				$("form").attr("action","customerDelete")
+				$("form").submit()
+			}
 		})
 		
     	$("#mainBtn").click(function(){
