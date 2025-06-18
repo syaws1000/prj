@@ -11,4 +11,10 @@ public class A01_AjaxStartController {
 	public String showFront() {
 		return "a01_show.html";
 	}
+	// http://localhost:5050/showFront2
+	@GetMapping("showFront2")
+	public String showFront2() {
+		return "a02_bootStrap.html";
+	}
+	
 }
