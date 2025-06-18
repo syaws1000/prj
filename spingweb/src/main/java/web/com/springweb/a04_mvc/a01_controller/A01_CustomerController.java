@@ -71,11 +71,11 @@ public class A01_CustomerController {
 								,RedirectAttributes redirectAttrs
 								
 								) {
-		d.addAttribute("msg", service.deleteCustomer(customeId));
-		//redirectAttrs.addFlashAttribute("msg", service.deleteCustomer(customeId));
+		//d.addAttribute("msg", service.deleteCustomer(customeId));
+		redirectAttrs.addFlashAttribute("msg", service.deleteCustomer(customeId));
 		
 		//return "forward:/customerList";
-		//return "redirect:/customerList";
-		return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
+		return "redirect:/customerList";
+		//return "WEB-INF\\views\\a04_mvc\\a03_customerDetail.jsp";
 	}
 }
