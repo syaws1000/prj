@@ -35,6 +35,12 @@
 				$("form").submit()
 			}
 		})	
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				$("form").attr("action","purchaseDelete")
+				$("form").submit()
+			}
+		})
 		// combo box의 내용 중에 하나를 선택하게 합니다.
 		$("#customerId").val("${pu.customerId}")
 		
