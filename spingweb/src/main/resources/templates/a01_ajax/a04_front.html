@@ -22,6 +22,22 @@
 				}
 			})
 		})
+		// 점수를 ajax로 출력되게 ajax10
+		$("h4").click(function(){
+			$.ajax({
+				url:"ajax10",
+				dataType:"json",
+				success:function(arr){
+					alert(arr)
+					// append() : 추가 처리(키존 코드에서 누적 처리..)
+					// $(배열변수).each(function(index번호, 단위데이터){})
+					$(arr).each(function(idx, pt){
+						$(".jumbotron").append(`<h5>${idx+1}) ${pt}</h5`)
+					})
+					
+				}
+			})
+		})
 	});
 </script>
 </head>
@@ -30,6 +46,7 @@
 <div class="jumbotron text-center">
   <h2>객체연습</h2>
   <h3>배열 처리(click)</h3>
+  <h4>점수 호출 처리(click)</h4>
 
 </div>
 <div class="container">
