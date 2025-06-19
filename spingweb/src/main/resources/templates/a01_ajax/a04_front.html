@@ -38,6 +38,21 @@
 				}
 			})
 		})
+		let cnt = 1;
+		// tbody 추가 처리.. 회원명 배열..
+		$("#callMem").click(function(){
+			$.ajax({
+				url:"ajax11",
+				dataType:"json",
+				success:function(mems){
+					$(mems).each(function(idx, mem){
+						// $("지정한 DOM객체").append("추가할 html코드.")
+						$("tbody").append(`<tr><td>${cnt++}</td><td>${mem}</td></tr>`)
+
+					})
+				}
+			})
+		})
 	});
 </script>
 </head>
@@ -47,7 +62,7 @@
   <h2>객체연습</h2>
   <h3>배열 처리(click)</h3>
   <h4>점수 호출 처리(click)</h4>
-
+  <button id="callMem" class="btn btn-success" type="button">등록된 회원명단 출력</button>  
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
@@ -61,25 +76,15 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
+   	<col width="20%">
+   	<col width="80%">
+    <thead> 
       <tr class="table-success text-center">
         <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>이름</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     

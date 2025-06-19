@@ -54,7 +54,13 @@ public class A03_AjaxController {
 	public String front04() {
 		return "a01_ajax\\a04_front.html";
 	}
-	
+	// http://localhost:5050/ajax11 
+	// 회원명 배열을 가져오는 ajax
+	@GetMapping("ajax11")
+	public ResponseEntity<?> ajax11(){
+		String arr[] = {"홍길동","김길동","신길동"};
+		return ResponseEntity.ok(arr);
+	}	
 	
 	
 	
