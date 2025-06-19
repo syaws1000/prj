@@ -1,5 +1,8 @@
 package web.com.springweb.a05_ajax.a01_controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,6 +84,22 @@ public class A03_AjaxController {
 	@GetMapping("front05")
 	public String front05() {
 		return "a01_ajax\\a05_front.html";
+	}	
+	// http://localhost:5050/ajax14
+	// Product 객체 ==> json데이터 출력..
+	@GetMapping("ajax14")
+	public ResponseEntity<?> ajax14(){
+		List<Product> plist = new ArrayList<Product>();
+		plist.add(new Product("사과",3000,2));
+		plist.add(new Product("바나나",4000,3));
+		plist.add(new Product("딸기",12000,5));
+		
+		return ResponseEntity.ok(plist);
+	}
+	// http://localhost:5050/front06
+	@GetMapping("front06")
+	public String front06() {
+		return "a01_ajax\\a06_front.html";
 	}	
 	
 	
