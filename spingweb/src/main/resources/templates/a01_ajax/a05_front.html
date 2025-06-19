@@ -15,6 +15,7 @@
 				url:"ajax12",
 				dataType:"json",
 				success:function(person){
+					console.log(person)
 					$("[name=name]").val(person.name)
 					$("[name=age]").val(person.age)
 					$("[name=loc]").val(person.loc)
