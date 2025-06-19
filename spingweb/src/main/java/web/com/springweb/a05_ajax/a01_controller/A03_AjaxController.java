@@ -52,7 +52,7 @@ public class A03_AjaxController {
 	// http://localhost:5050/front04
 	@GetMapping("front04")
 	public String front04() {
-		return "";
+		return "a01_ajax\\a04_front.html";
 	}
 	
 	

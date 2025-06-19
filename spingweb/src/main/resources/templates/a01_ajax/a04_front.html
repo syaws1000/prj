@@ -10,7 +10,18 @@
 <script src="/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("h3").click(function(){
+			$.ajax({
+				url:"ajax09",
+				dataType:"json", // object(배열포함)에서는 선언하여야 해당 유형으로 가져온다.
+				success:function(obj){
+					console.log("#서버에서 온 데이터 #")
+					console.log(obj)
+					console.log(typeof(obj))
+					alert(obj)
+				}
+			})
+		})
 	});
 </script>
 </head>
