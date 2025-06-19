@@ -10,15 +10,24 @@
 <script src="/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#callBtn01").click(function(){
+			alert("ajax 호출할 까요??")
+			$.ajax({
+				url:"ajax01",  // controller단에 호출할 url
+				type:"get",
+				success:function(msg){
+					alert("서버에서 비동기로 받은 데이터:"+msg)  // controller단에서 전송받은 데이터
+				}
+			})
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>ajax 시작을 위한 html 화면 로딩</h2>
+  <button id="callBtn01" class="btn btn-info" type="button">ajax01 호출</button>
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
