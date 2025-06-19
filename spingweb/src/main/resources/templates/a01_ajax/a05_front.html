@@ -10,47 +10,14 @@
 <script src="/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h3").click(function(){
+		$("#regBtn").click(function(){
 			$.ajax({
-				url:"ajax09",
-				dataType:"json", // object(배열포함)에서는 선언하여야 해당 유형으로 가져온다.
-				success:function(obj){
-					console.log("#서버에서 온 데이터 #")
-					console.log(obj)
-					console.log(typeof(obj))
-					alert(obj)
-				}
-			})
-		})
-		// 점수를 ajax로 출력되게 ajax10
-		$("h4").click(function(){
-			$.ajax({
-				url:"ajax10",
+				url:"ajax12",
 				dataType:"json",
-				success:function(arr){
-					alert(arr)
-					// append() : 추가 처리(키존 코드에서 누적 처리..)
-					// $(배열변수).each(function(index번호, 단위데이터){})
-					$(arr).each(function(idx, pt){
-						$(".jumbotron").append(`<h5>${idx+1}) ${pt}</h5`)
-					})
-					
-				}
-			})
-		})
-		let cnt = 1;
-		// tbody 추가 처리.. 회원명 배열..
-		$("#callMem").click(function(){
-			$.ajax({
-				url:"ajax11",
-				dataType:"json",
-				success:function(mems){
-					$(mems).each(function(idx, mem){
-						// $("지정한 DOM객체").append("추가할 html코드.")
-						$("tbody").append(`<tr><td>${cnt++}</td>
-						     <td>${mem}</td></tr>`)
-
-					})
+				success:function(person){
+					$("[name=name]").val(person.name)
+					$("[name=age]").val(person.age)
+					$("[name=loc]").val(person.loc)
 				}
 			})
 		})
@@ -60,10 +27,8 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>객체연습</h2>
-  <h3>배열 처리(click)</h3>
-  <h4>점수 호출 처리(click)</h4>
-  <button id="callMem" class="btn btn-success" type="button">등록된 회원명단 출력</button>  
+  <h2>객체형 처리</h2>
+
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
@@ -71,21 +36,31 @@
 	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
 	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
+	    <button class="btn btn-success" id="regBtn"
 	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	        type="button">사람정보 확인</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="80%">
-    <thead> 
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
       <tr class="table-success text-center">
         <th>번호</th>
-        <th>이름</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
       </tr>
     </thead>	
     <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
@@ -94,7 +69,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">사람정보</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -103,11 +78,14 @@
 		<form id="frm02" class="form"  method="post">
 	     <div class="row">
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	        <input type="text" class="form-control" name="name">
 	      </div>
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
+	        <input type="text" class="form-control" name="age">
 	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" name="loc">
+	      </div>	      
 	     </div>
 	    </form> 
       </div>

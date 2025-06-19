@@ -4,6 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import web.com.springweb.vo.Person;
+import web.com.springweb.vo.Product;
+
 @Controller
 public class A03_AjaxController {
 		
@@ -61,6 +64,26 @@ public class A03_AjaxController {
 		String arr[] = {"홍길동","김길동","신길동"};
 		return ResponseEntity.ok(arr);
 	}	
+	// http://localhost:5050/ajax12 
+	// 회원명 배열을 가져오는 ajax
+	@GetMapping("ajax12")
+	public ResponseEntity<?> ajax12(){
+		return ResponseEntity.ok(new Person("홍길동",25,"성남"));
+	}		
+	// http://localhost:5050/ajax13
+	// Product 객체 ==> json데이터 출력..
+	@GetMapping("ajax13")
+	public ResponseEntity<?> ajax3(){
+		
+		return ResponseEntity.ok(new Product("사과",3000,2));
+	}
+	// http://localhost:5050/front05
+	@GetMapping("front05")
+	public String front05() {
+		return "a01_ajax\\a05_front.html";
+	}	
+	
+	
 	
 	
 	
