@@ -5,6 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import web.com.springweb.vo.Music;
+import web.com.springweb.vo.Product;
+import web.com.springweb.vo.Student;
+
 @Controller
 public class A04_AjaxReqController {
 
@@ -48,6 +52,42 @@ public class A04_AjaxReqController {
 	public String front10() {
 		return "a01_ajax\\a10_front.html";
 	}		
+	
+	// http://localhost:5050/ajax19?name=사과price=3000&cnt=2
+	// 해당 객체  setName() setPrice setCnt()가 있으면 객체에 데이터 할당이 되어 매개변수로 사용가능하다.
+	// 요청값 client ==> server에 특정한 데이터 전송시 사용하는 방법(get)
+	@GetMapping("ajax19")
+	public ResponseEntity<?> ajax19( Product pro
+									){
+		return ResponseEntity.ok("물건명은:"+pro.getName()+", 물건가격은 :"+pro.getPrice()+
+								", 물건갯수:"+pro.getCnt()+", 총계:"+(pro.getPrice()*pro.getCnt()));
+	}	
+	// http://localhost:5050/front11
+	@GetMapping("front11")
+	public String front11() {
+		return "a01_ajax\\a11_front.html";
+	}	
+	// http://localhost:5050/ajax20?title=사계&singer=오수미     Music
+	@GetMapping("ajax20")
+	public ResponseEntity<?> ajax20( Music m
+									){
+		return ResponseEntity.ok("음악타이틀:"+m.getTitle()+", 가수명 :"+m.getSinger());
+	}	
+	// http://localhost:5050/front12
+	@GetMapping("front12")
+	public String front12() {
+		return "a01_ajax\\a12_front.html";
+	}		
+	// http://localhost:5050/ajax21?studentId=10&name=홍길동&math=70&eng=80
+	@GetMapping("ajax21")
+	public ResponseEntity<?> ajax21( Student s ){
+		return ResponseEntity.ok("학생의 이름:"+s.getName()+", 평균성적:"+((s.getMath()+s.getEng())/2));
+	}	
+	// http://localhost:5050/front13
+	@GetMapping("front13")
+	public String front13() {
+		return "a01_ajax\\a13_front.html";
+	}	
 	
 	
 }
