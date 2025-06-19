@@ -12,30 +12,27 @@
 	$(document).ready(function(){
 		$("#schBtn").click(function(){
 			$.ajax({
-				url:"ajax14",
-				dataType:"json", // 문자열된 json ==> 객체
+				url:"ajax15",
+				dataType:"json",
 				success:function(plist){
-					// let plist =[{"name":"사과","price":3000,"cnt":2},{"name":"...
-					var addHTML = "";
-					$(plist).each(function(idx, prod){ //let prod ={"name":"사과","price":3000,"cnt":2}
-						addHTML += `<tr><td>${idx+1}</td><td>${prod.name}</td>
-										<td>${prod.price}</td><td>${prod.cnt}</td></tr>`
+					let addHTML = ""
+					$(plist).each(function(idx, person){
+						addHTML+=`<tr><td>${idx+1}</td>
+									<td>${person.name}</td>
+									<td>${person.age}</td>
+									<td>${person.loc}</td>`
 					})
-					// 서버에 있는 데이터를 html코드로 테이블 행단위 만들어서, 최종적을 tbody에 할당..
 					$("tbody").html(addHTML)
 				}
 			})
 		})
 	});
-	// ex) ajax15  List<Person> 사람 3명 정보 등록 호출
-	//     front07   a07_front.html  버튼 클릭시, 사람 정보 출력..
-	
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>ajax(List형 객체 가져오기)</h2>
+  <h2>사람 정보 ajax 처리</h2>
 
 </div>
 <div class="container">
@@ -54,12 +51,12 @@
    	<col width="25%">
    	<col width="25%">
    	<col width="25%">
-    <thead>
+    <thead> 
       <tr class="table-success text-center">
         <th>번호</th>
-        <th>물건명</th>
-        <th>가격</th>
-        <th>갯수</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>사는곳</th>
       </tr>
     </thead>	
     <tbody>

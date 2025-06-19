@@ -101,8 +101,21 @@ public class A03_AjaxController {
 	public String front06() {
 		return "a01_ajax\\a06_front.html";
 	}	
-	
-	
+	// http://localhost:5050/ajax15
+	@GetMapping("ajax15")
+	public ResponseEntity<?> ajax15(){
+		List<Person> plist = new ArrayList<Person>();
+		plist.add(new Person("홍길동",25,"서울"));
+		plist.add(new Person("김길동",27,"부산"));
+		plist.add(new Person("마길동",32,"제주"));
+		
+		return ResponseEntity.ok(plist);
+	}
+	// http://localhost:5050/front07
+	@GetMapping("front07")
+	public String front07() {
+		return "a01_ajax\\a07_front.html";
+	}		
 	
 	
 	
