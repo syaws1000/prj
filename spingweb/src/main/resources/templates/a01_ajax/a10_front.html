@@ -11,35 +11,31 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#schBtn").click(function(){
-			//alert("name="+$("[name=name]").val())
+			let width = $("[name=width]").val()
+			let height = $("[name=height]").val()
 			$.ajax({
-				url:"ajax16",
-				data:"name="+$("[name=name]").val(),  // 요청값 key=value 형식으로 설정
+				url:"ajax18",
+				data:"width="+width+"&height="+height,
 				success:function(msg){
 					$("h3").text(msg)
-				}
+				}	
 			})
 		})
-		// ajax17       price=3000&cnt=2
-		// a09_front.html   
-		//      물건가격과 갯수를 입력해서 클릭시, 출력되게 하세요..
-		
-		
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>ajax 요청값 처리 연습</h2>
-  <h3></h3>
-
+  	<h2>면적구하기</h2>
+	<h3></h3>
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="이름 입력" name="name"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="button" id="schBtn">Search</button>
+	    <input placeholder="밑변" name="width"  class="form-control mr-sm-2" />
+	    <input placeholder="높이" name="height"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="button" id="schBtn">직사각형면적</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>

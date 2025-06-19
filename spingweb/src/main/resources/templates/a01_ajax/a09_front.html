@@ -11,35 +11,33 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#schBtn").click(function(){
-			//alert("name="+$("[name=name]").val())
+			let price = $("[name=price]").val()
+			let cnt = $("[name=cnt]").val()
 			$.ajax({
-				url:"ajax16",
-				data:"name="+$("[name=name]").val(),  // 요청값 key=value 형식으로 설정
+				url:"ajax17",
+				data:"price="+price+"&cnt="+cnt,
 				success:function(msg){
 					$("h3").text(msg)
 				}
 			})
 		})
-		// ajax17       price=3000&cnt=2
-		// a09_front.html   
-		//      물건가격과 갯수를 입력해서 클릭시, 출력되게 하세요..
-		
-		
 	});
+	// ajax18?width=300&height=100   직사각형의 밑변과 높이 입력받아.. 넓이를 출력하세요..
+	// a10_front.html    넓이출력 ==>  직사각형의 면적은 @@@ 입니다.
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>ajax 요청값 처리 연습</h2>
+  <h2>물건 정보 처리</h2>
   <h3></h3>
-
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="이름 입력" name="name"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="button" id="schBtn">Search</button>
+	    <input placeholder="가격" name="price"  class="form-control mr-sm-2" />
+	    <input placeholder="갯수" name="cnt"  class="form-control mr-sm-2"/>
+	    <button id="schBtn" class="btn btn-info" type="button">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
