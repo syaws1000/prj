@@ -94,6 +94,14 @@
 		}	
 	   })
 			 
+# data처리하는 ajax
+1. SELECT 주로 get방식
+
+2. INSERT 주로 post방식
+
+3. UPDATE 주로 put 방식
+
+4. DELETE 주로 delete 방식
 
 
 
