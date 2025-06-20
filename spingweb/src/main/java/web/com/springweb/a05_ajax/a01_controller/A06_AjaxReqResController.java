@@ -38,6 +38,21 @@ public class A06_AjaxReqResController {
 		return ResponseEntity.ok("총계:"+price*cnt);
 	}	
 	// http://localhost:5050/ajax34?base=10&height=20    // 삼각형의 면적 : 밑면*높이/2
+	@GetMapping("ajax34")
+	public ResponseEntity<?> ajax34(@RequestParam("base") int base,
+									@RequestParam("height") int height
+            						){
+	
+		return ResponseEntity.ok("삼각형의 면적:"+(base*height/2));
+	}	
+	// http://localhost:5050/ajax35?id=himan&pwd=7777
+	@GetMapping("ajax35")
+	public ResponseEntity<?> ajax35(@RequestParam("id") String id,
+									@RequestParam("pwd") String pwd
+            						){
+	
+		return ResponseEntity.ok("로그인 여부:"+((id.equals("himan")&& pwd.equals("7777"))?"로그인 성공":"로그인실패"));
+	}		
 	
 	
 }
