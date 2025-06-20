@@ -29,6 +29,15 @@ public class A06_AjaxReqResController {
 		
 		return ResponseEntity.ok(point>=80?"합격":"불합격");
 	}		
+	// http://localhost:5050/ajax33?price=3000&cnt=2
+	@GetMapping("ajax33")
+	public ResponseEntity<?> ajax33(@RequestParam("price") int price,
+									@RequestParam("cnt") int cnt
+			                        ){
+		
+		return ResponseEntity.ok("총계:"+price*cnt);
+	}	
+	// http://localhost:5050/ajax34?base=10&height=20    // 삼각형의 면적 : 밑면*높이/2
 	
 	
 }
