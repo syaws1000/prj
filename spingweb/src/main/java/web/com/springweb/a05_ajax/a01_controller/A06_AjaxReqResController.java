@@ -28,7 +28,13 @@ public class A06_AjaxReqResController {
 	public ResponseEntity<?> ajax32(@RequestParam("point") int point){
 		
 		return ResponseEntity.ok(point>=80?"합격":"불합격");
-	}		
+	}	
+	// http://localhost:5050/front32
+	@GetMapping("front32")
+	public String front32() {
+		return "a01_ajax\\front32.html";
+	}
+	
 	// http://localhost:5050/ajax33?price=3000&cnt=2
 	@GetMapping("ajax33")
 	public ResponseEntity<?> ajax33(@RequestParam("price") int price,
