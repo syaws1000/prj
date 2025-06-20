@@ -47,6 +47,53 @@ String getEnameByEmpno(@Param("empno") int empno);
 
 
 ***/
+-- --  2) 다수행 1열 : 배열형(List) 데이터    여러매개변수
+SELECT EMPNO FROM EMP10 WHERE DEPTNO = 10;
+-- 결과 : 1782, 1839, 1934... 자바로 담을 수 있는 데이터 유형..   int[]     List<Integer>  ==> 리턴유형..
+-- 입력 : DEPTNO = 10  자바로 담을 수 데이터 유형  int deptno  ==> @Param("deptno") int deptno
+/*
+@Select("SELECT EMPNO FROM EMP10 WHERE DEPTNO = #{deptno}")
+List<Integer> getEmpnosByDeptno( @Param("deptno") int deptno );
+ * */
+SELECT ENAME FROM EMP10 WHERE SAL BETWEEN 1000 AND 3000;
+-- 결과 : allen, ward, jones  자바로 담을 수 있는 데이터 유형  String[]   List<String> ==> 리턴유형..
+-- 입력 : 1000, 3000  자바로 담을 수 있는 데이터 유형   double var1, double var2 // int start, int end
+---                                             @Param("var1") double var1, @Param("var2") double var2 
+/*
+@Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{var1} AND #{var2}")
+List<String> getEnamesBySal( @Param("var1") double var1, @Param("var2") double var2  ); 
+ * */
+-- List<Double>
+SELECT SAL FROM EMP10 WHERE JOB = 'SALESMAN';
+/*
+@Select("SELECT SAL FROM EMP10 WHERE JOB = #{job}")
+List<Double getSalsByJob(@Param("job")int job);
+*/
+
+SELECT * FROM EMP10;
+
+SELECT ENAME FROM EMP10 WHERE MGR IN(7902, 7698);
+-- 출력  smith, ward, allen    List<String>
+-- 입력  7902, 7698    int mgr1, int mgr2  ==> @Param("mgr1") int mgr1, @Param("mgr2") int mgr2
+/*
+@Select("SELECT EMPNO FROM EMP10 WHERE DEPTNO = #{deptno}")
+List<Integer> getEmpnosByDeptno( @Param("deptno") int deptno );
+
+@Select("SELECT ENAME FROM EMP10 WHERE SAL BETWEEN #{var1} AND #{var2}")
+List<String> getEnamesBySal( @Param("var1") double var1, @Param("var2") double var2  ); 
+
+@Select("SELECT SAL FROM EMP10 WHERE JOB = #{job}")
+List<Double getSalsByJob(@Param("job")int job);
+
+@Select("SELECT ENAME FROM EMP10 WHERE MGR IN(#{mgr1}, #{mgr2})")
+List<String> getEnamesByMgr( @Param("mgr1") int mgr1, @Param("mgr2") int mgr2 );
+ * */
+
+
+
+
+
+
 
 SELECT * FROM EMP10;
 --  2) 다수행 1열 : 배열형(List) 데이터    여러매개변수
