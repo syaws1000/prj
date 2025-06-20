@@ -10,22 +10,33 @@
 <script src="/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#loginBtn").click(function(){
+			$.ajax({
+				url:"ajax35",
+				data:$("form").serialize(),
+				success:function(msg){
+					$("h3").text(msg)
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>로그인</h2>
-
+  	<h2>로그인</h2>
+	<h3></h3>
 </div>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input placeholder="아이디입력" name="id"  class="form-control mr-sm-2" />
+	    <input placeholder="패스워드입력" name="pwd" type="password" class="form-control mr-sm-2"/>
+	    <button id="loginBtn" class="btn btn-info" type="button">로그인</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
