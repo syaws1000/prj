@@ -6,12 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import web.com.springweb.a05_ajax.a02_service.A01_Service;
+import web.com.springweb.a05_ajax.a02_service.A11_Service;
 
 @Controller
 public class A11_DBController {
 	@Autowired(required = false)
-	private A01_Service service;
+	private A11_Service service;
 	
 	// 기본화면호출
 	// http://localhost:5050/dbAjax01View

@@ -4,12 +4,12 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import web.com.springweb.a05_ajax.a03_dao.A01_Dao;
+import web.com.springweb.a05_ajax.a03_dao.A11_Dao;
 
 @Service
-public class A01_Service {
+public class A11_Service {
 	@Autowired(required=false)
-	private A01_Dao dao;
+	private A11_Dao dao;
 	
 	public int getCountByDeptno(int deptno) {
 		return dao.getCountByDeptno(deptno);

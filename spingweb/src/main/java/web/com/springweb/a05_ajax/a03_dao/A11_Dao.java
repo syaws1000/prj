@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface A01_Dao {
+public interface A11_Dao {
 	@Select("SELECT COUNT(*) FROM EMP10")
 	int getCountAllEmp();
 
