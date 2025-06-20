@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import web.com.springweb.vo.Person;
 
@@ -28,5 +29,18 @@ public class A07_AjaxTypeController {
 		return ResponseEntity.ok("이름"+p.getName()+", 나이는 "+
 						p.getAge()+", 사는곳"+p.getLoc());
 	}	
+	// 3. put 방식은 주로 전달하는 데이터를 수정할 때, 주로 활용된다.
+	// http://localhost:5050/front42
+	@GetMapping("front42")
+	public String front42() {
+		return "a01_ajax\\front42.html";
+	}	
 	
+	@PutMapping("ajax42")
+	public ResponseEntity<?> ajax42(Person p) { // 객체로 요청값을 받아서 처리..
+		p.setName(p.getName()+"[수정]");
+		
+		return ResponseEntity.ok("이름"+p.getName()+", 나이는 "+
+						p.getAge()+", 사는곳"+p.getLoc()+"수정 처리");
+	}		
 }
