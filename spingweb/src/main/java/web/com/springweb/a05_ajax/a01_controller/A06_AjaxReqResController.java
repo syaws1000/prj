@@ -58,7 +58,14 @@ public class A06_AjaxReqResController {
             						){
 	
 		return ResponseEntity.ok("로그인 여부:"+((id.equals("himan")&& pwd.equals("7777"))?"로그인 성공":"로그인실패"));
-	}		
+	}	
+	// 화면단 front35.html 추가하고 아이디 패스워드를 입력시, 성공/실패를 출력하세요..
+	// http://localhost:5050/front35
+	@GetMapping("front35")
+	public String front35() {
+		return "a01_ajax\\front35.html";
+	}
+	
 	
 	
 }
