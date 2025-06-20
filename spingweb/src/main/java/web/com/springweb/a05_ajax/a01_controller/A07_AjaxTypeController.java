@@ -57,4 +57,18 @@ public class A07_AjaxTypeController {
 		
 		return ResponseEntity.ok(id+" 삭제 처리완료!!");
 	}		
+	
+	// http://localhost:5050/front44
+	@GetMapping("front44")
+	public String front44() {
+		return "a01_ajax\\front44.html";
+	}	
+
+	// empno로 사원번호를 delete 방식으로 입력받아, 사원번호 @@@ 삭제 완료!! 출력..
+	@DeleteMapping("ajax44")
+	public ResponseEntity<?> ajax44(@RequestParam("empno") String empno) { // 객체로 요청값을 받아서 처리..
+		
+		return ResponseEntity.ok("사원번호:"+empno+" 삭제 처리완료!!");
+	}		
+	
 }
