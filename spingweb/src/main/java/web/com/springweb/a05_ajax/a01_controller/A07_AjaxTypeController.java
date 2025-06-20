@@ -2,9 +2,11 @@ package web.com.springweb.a05_ajax.a01_controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.vo.Person;
 
@@ -42,5 +44,17 @@ public class A07_AjaxTypeController {
 		
 		return ResponseEntity.ok("이름"+p.getName()+", 나이는 "+
 						p.getAge()+", 사는곳"+p.getLoc()+"수정 처리");
+	}		
+	// 4. delete는 주로 삭제시 사용된다..
+	// http://localhost:5050/front43
+	@GetMapping("front43")
+	public String front43() {
+		return "a01_ajax\\front43.html";
+	}	
+
+	@DeleteMapping("ajax43")
+	public ResponseEntity<?> ajax43(@RequestParam("id") String id) { // 객체로 요청값을 받아서 처리..
+		
+		return ResponseEntity.ok(id+" 삭제 처리완료!!");
 	}		
 }
