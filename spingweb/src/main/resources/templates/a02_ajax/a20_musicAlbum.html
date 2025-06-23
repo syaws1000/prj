@@ -59,7 +59,7 @@
 			success:function(albumList){
 				let addHTML = ""
 				$(albumList).each(function(idx, album){
-					addHTML+=`<tr><td>${album.albumId}</td><td>${album.albumTitle}</td>
+					addHTML+=`<tr ondblclick="goDetail(${album.albumId})"><td>${album.albumId}</td><td>${album.albumTitle}</td>
 								<td>${album.artist}</td><td>${album.genre}</td></tr>`
 
 				})
@@ -70,9 +70,40 @@
 			}
 		})
 	}
+	function goDetail(albumIdVal){
+		//alert(albumIdVal)
+		$("#regLoadBtn").click() // 모달창을 로딩하는 버튼을 강제 수행..
+		$("#modalTitle").text("앨범 상세")
+		$("#regBtn").hide()
+		$("#uptBtn").show()
+		$("#delBtn").show()
+		$.ajax({
+			url:"getAlbum",
+			data:{albumId:albumIdVal},
+			dataType:"json",
+			success:function(album){
+				$("#frm02 [name=albumId]").val(album.albumId)
+				$("#frm02 [name=albumTitle]").val(album.albumTitle)
+				let date = new Date(album.releaseDate)
+				$("#frm02 [name=releaseDate]").val(formatDate(date))
+				$("#frm02 [name=genre]").val(album.genre)
+				$("#frm02 [name=price]").val(album.price)
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})
+	}
+	function formatDate(date) {
+	    let year = date.getFullYear();
+	    let month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
+	    let day = String(date.getDate()).padStart(2, '0');       // 일자를 2자리로 보장
+	    return `${year}-${month}-${day}`;
+	}			
+	
 </script>
 </head>
-
+  
 <body>
 <div class="jumbotron text-center">
   <h2>음악 앨범 리스트</h2>
