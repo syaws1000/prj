@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import web.com.springweb.a05_ajax.a02_service.A20_MusicService;
 import web.com.springweb.a05_ajax.dto.MusicAlbums;
@@ -23,5 +24,9 @@ public class A20_MusicController {
 	public String getMusicAlumsView() {
 		return "a02_ajax\\a20_musicAlbum.html";
 	}
-	
+	// http://localhost:5050/insertAlbum
+	@PostMapping("insertAlbum")
+	public ResponseEntity<?> insertAlbum(MusicAlbums ins){
+		return ResponseEntity.ok(service.insertAlbum(ins));
+	}	
 }

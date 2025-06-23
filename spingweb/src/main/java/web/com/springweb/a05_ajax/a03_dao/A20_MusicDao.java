@@ -2,6 +2,7 @@ package web.com.springweb.a05_ajax.a03_dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,4 +15,9 @@ public interface A20_MusicDao {
 			+ "FROM MUSIC_ALBUMS \r\n"
 			+ "WHERE ALBUM_TITLE LIKE #{albumTitle} AND ARTIST LIKE #{artist} AND GENRE LIKE #{genre}")
 	List<MusicAlbums> getMusicAlums(MusicAlbums sch);
+	
+	@Insert("INSERT INTO music_albums VALUES (album_seq.nextval, "
+			+ "#{albumTitle}, #{artist}, #{releaseDate},#{genre}, #{price})")
+	int insertAlbum(MusicAlbums ins);
+	
 }

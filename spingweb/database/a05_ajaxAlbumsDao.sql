@@ -62,7 +62,22 @@ WHERE ALBUM_TITLE LIKE '%%' AND ARTIST LIKE '%%' AND GENRE LIKE '%%';
 @Select("WHERE ALBUM_TITLE LIKE #{albumTitle} AND ARTIST LIKE #{artist} AND GENRE LIKE #{genre}")
 MusicAlbums getMusicAlums(MusicAlbums sch);
  * */
+--	1) dao
+--		sql
+INSERT INTO music_albums VALUES (album_seq.nextval, '꽃갈피 셋', '아이유', TO_DATE('2025-05-30', 'YYYY-MM-DD'), 'K-Pop', 20.99);
+CREATE SEQUENCE album_seq;
+--		메서드
+SELECT album_seq.nextval FROM dual;
+SELECT * FROM music_albums;
+/*
+	private int albumId;
+	private String albumTitle;
+	private String artist;
+	private Date releaseDate;
+	private String genre;
+	private int price;
+@Insert("INSERT INTO music_albums VALUES (album_seq.nextval, #{albumTitle}, #{artist}, #{releaseDate},#{genre}, #{price})")
+int insertAlbum(MusicAlbums ins);
 
-
-
+ * */
 

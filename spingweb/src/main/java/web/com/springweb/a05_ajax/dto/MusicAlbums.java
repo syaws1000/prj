@@ -2,10 +2,13 @@ package web.com.springweb.a05_ajax.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class MusicAlbums {
 	private int albumId;
 	private String albumTitle;
 	private String artist;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date releaseDate;
 	private String genre;
 	private int price;
