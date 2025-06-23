@@ -28,6 +28,7 @@ public class A20_MusicService {
 	}
 	
 	public String insertAlbum(MusicAlbums ins) {
+		
 		return dao.insertAlbum(ins)>0?"등록성공":"등록실패";
 	}
 }

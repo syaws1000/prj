@@ -20,6 +20,22 @@
 		$("#schBtn").on("click",function(){
 			search()
 		})
+		$("#regBtn").on("click",function(){
+			if(confirm("등록하시겠습니까?")){
+				$.ajax({
+					url:"insertAlbum",
+					type:"post",
+					data:$("#frm02").serialize(),
+					success:function(msg){
+						search() // 기존 리스트 화면 재검색
+						alert(msg)
+						$("#frm02")[0].reset()
+						
+					}
+				})
+			}
+		})
+		
 		// input 중에 클래스가 sch로 선언된 것은 enter키를 입력시 검색 처리..
 		$(".sch").on("keydown",function(e){
 			if(e.key === "Enter"){
