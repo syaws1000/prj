@@ -18,5 +18,10 @@ public class A20_MusicController {
 	public ResponseEntity<?> getMusicAlums(MusicAlbums sch){
 		return ResponseEntity.ok(service.getMusicAlums(sch));
 	}
+	// http://localhost:5050/getMusicAlumsView
+	@GetMapping("getMusicAlumsView")
+	public String getMusicAlumsView() {
+		return "a02_ajax\\a20_musicAlbum.html";
+	}
 	
 }

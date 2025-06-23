@@ -10,47 +10,85 @@
 <script src="/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		search()	
+		// form input에서 enter키 입력시 submit 자동처리 방지..
+	    $("#frm01").on("keydown", "input", function(e) {
+	        if (e.key === "Enter") {
+	            e.preventDefault();  // Enter 키에 의한 자동 submit 방지
+	        }
+	    });	
+		$("#schBtn").on("click",function(){
+			search()
+		})
+		// input 중에 클래스가 sch로 선언된 것은 enter키를 입력시 검색 처리..
+		$(".sch").on("keydown",function(e){
+			if(e.key === "Enter"){
+				search()
+			}
+		})
+		
 	});
+	function search(){
+		$.ajax({
+			url:"getMusicAlums",
+			data:$("#frm01").serialize(),  // 조회하는 form의 데이터 key=val형식 자져오기
+			dataType:"json",
+			success:function(albumList){
+				let addHTML = ""
+				$(albumList).each(function(idx, album){
+					addHTML+=`<tr><td>${album.albumId}</td><td>${album.albumTitle}</td>
+								<td>${album.artist}</td><td>${album.genre}</td></tr>`
+
+				})
+				$("tbody").html(addHTML);
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})
+	}
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>음악 앨범 리스트</h2>
 
 </div>
+<!-- 
+	private int albumId;
+	private String albumTitle;
+	private String artist;
+	private Date releaseDate;
+	private String genre;
+	private int price;
+ -->
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input placeholder="제목" name="albumTitle"  class="form-control mr-sm-2 sch" />
+	    <input placeholder="가수" name="artist"  class="form-control mr-sm-2 sch"/>
+	    <input placeholder="쟝르" name="genre"  class="form-control mr-sm-2 sch"/>
+	    <button id="schBtn" class="btn btn-info" type="button">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
+        <th>엘범아이디</th>
         <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>가수</th>
+        <th>장르</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
