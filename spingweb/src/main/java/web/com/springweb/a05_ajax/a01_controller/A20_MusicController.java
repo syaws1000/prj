@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.a05_ajax.a02_service.A20_MusicService;
 import web.com.springweb.a05_ajax.dto.MusicAlbums;
@@ -28,5 +29,10 @@ public class A20_MusicController {
 	@PostMapping("insertAlbum")
 	public ResponseEntity<?> insertAlbum(MusicAlbums ins){
 		return ResponseEntity.ok(service.insertAlbum(ins));
+	}	
+	// http://localhost:5050/getAlbum?albumId=1
+	@GetMapping("getAlbum")
+	public ResponseEntity<?> getAlbum(@RequestParam("albumId") int albumId){
+		return ResponseEntity.ok(service.getAlbum(albumId));
 	}	
 }

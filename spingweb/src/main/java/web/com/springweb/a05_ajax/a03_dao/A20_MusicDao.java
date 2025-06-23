@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.a05_ajax.dto.MusicAlbums;
@@ -21,4 +22,6 @@ public interface A20_MusicDao {
 			+ "#{albumTitle}, #{artist}, #{releaseDate},#{genre}, #{price})")
 	int insertAlbum(MusicAlbums ins);
 	
+	@Select("SELECT * FROM music_albums WHERE album_id = #{albumId}")	
+	MusicAlbums getAlbum(@Param("albumId") int albumId);	
 }

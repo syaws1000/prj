@@ -63,8 +63,22 @@
 		모달창에 있는 등록 버튼 클릭시, 등록 ajax 처리하는 함수를 호출,
 		ajax로 등록 후, 등록 성공 처리, 입력된 form 내용을 초기화 처리한다.
 		
-	
-	
+# 상세 처리
+1. 리스트된 내용을 더블 클릭시, 입력 form화면에서 상세 데이터를 처리되어 출력된다.
+2. 처리 순서
+	1) dao 	
+		sql SELECT * FROM music_albums WHERE album_id = 1;
+		@Select("SELECT * FROM music_albums WHERE album_id = #{albumId}")	
+		MusicAlbums getAlbum(@Param("albumId") int albumId);
+	2) service
+		public MusicAlbums getAlbum(int albumId){
+			return dao.getAlbum(albumId);
+		}	
+	3) controller
+		@GetMapping("getAlbum")
+		public ResponseEntity<?> getAlbum(@RequestParam("albumId") int albumId){
+			return ResponseEntity.ok(service.getAlbum(albumId);
+		}
 	
 	
 

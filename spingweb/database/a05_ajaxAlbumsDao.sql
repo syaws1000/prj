@@ -81,3 +81,6 @@ int insertAlbum(MusicAlbums ins);
 
  * */
 
+
+SELECT * FROM music_albums WHERE album_id = 1;
+

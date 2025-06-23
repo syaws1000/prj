@@ -2,6 +2,7 @@ package web.com.springweb.a05_ajax.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +31,8 @@ public class A20_MusicService {
 	public String insertAlbum(MusicAlbums ins) {
 		
 		return dao.insertAlbum(ins)>0?"등록성공":"등록실패";
+	}
+	public MusicAlbums getAlbum(int albumId) {
+		return dao.getAlbum(albumId);
 	}
 }
