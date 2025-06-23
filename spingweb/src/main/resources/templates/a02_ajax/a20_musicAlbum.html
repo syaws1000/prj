@@ -35,6 +35,36 @@
 				})
 			}
 		})
+		$("#uptBtn").on("click",function(){
+			if(confirm("수정하시겠습니까?")){
+				$.ajax({
+					url:"updateAlbum",
+					type:"put",
+					data:$("#frm02").serialize(),
+					success:function(msg){
+						search()
+						alert(msg)
+					}
+				})
+			}
+		})
+		$("#delBtn").on("click",function(){
+			if(confirm("삭제하시겠습니까?")){
+				$.ajax({
+					url:"deleteAlbum",
+					type:"delete",
+					data:{albumId:$("[name=albumId]").val()},
+					success:function(msg){
+						search() // 기존 리스트 화면 재검색
+						alert(msg)
+						$("#frm02")[0].reset()
+						$(".close").click() // 모달창 닫기 처리.
+						
+					}
+				})
+			}
+		})		
+		
 		
 		// input 중에 클래스가 sch로 선언된 것은 enter키를 입력시 검색 처리..
 		$(".sch").on("keydown",function(e){
@@ -83,6 +113,7 @@
 			dataType:"json",
 			success:function(album){
 				$("#frm02 [name=albumId]").val(album.albumId)
+				$("#frm02 [name=artist]").val(album.artist)
 				$("#frm02 [name=albumTitle]").val(album.albumTitle)
 				let date = new Date(album.releaseDate)
 				$("#frm02 [name=releaseDate]").val(formatDate(date))
