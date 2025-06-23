@@ -19,6 +19,13 @@ public class A12_Controller {
 		
 		return ResponseEntity.ok(service.getEmpnosByDeptno(deptno));
 	}
+	//  http://localhost:5050/getEnamesBySalView
+	@GetMapping("getEnamesBySalView")
+	public String getEnamsBySalView() {
+		return "a02_ajax\\getEnamesBySalView.html";
+	}
+	
+	
 	// http://localhost:5050/getEnamesBySal?var1=1000&var2=2000
 	@GetMapping("getEnamesBySal")
 	public ResponseEntity<?> getEnamesBySal(  @RequestParam("var1") double var1, @RequestParam("var2")  double var2  ){
