@@ -13,7 +13,8 @@ public interface A20_MusicDao {
 	
 	@Select("SELECT ALBUM_ID, ALBUM_TITLE, ARTIST, GENRE \r\n"
 			+ "FROM MUSIC_ALBUMS \r\n"
-			+ "WHERE ALBUM_TITLE LIKE #{albumTitle} AND ARTIST LIKE #{artist} AND GENRE LIKE #{genre}")
+			+ "WHERE ALBUM_TITLE LIKE #{albumTitle} AND ARTIST LIKE #{artist} AND GENRE LIKE #{genre} "
+			+ "ORDER BY ALBUM_ID DESC")
 	List<MusicAlbums> getMusicAlums(MusicAlbums sch);
 	
 	@Insert("INSERT INTO music_albums VALUES (album_seq.nextval, "

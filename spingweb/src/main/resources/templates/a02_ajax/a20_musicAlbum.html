@@ -26,6 +26,13 @@
 				search()
 			}
 		})
+		$("#regLoadBtn").on("click",function(){
+		      $("#modalTitle").text("앨범 등록")
+		      $("#regBtn").show()
+		      $("#uptBtn").hide()
+		      $("#delBtn").hide()
+		      $("#frm02")[0].reset() // 초기화 - 등록/수정시 그대로 남아 있는 경우가 있기에..
+		})
 		
 	});
 	function search(){
@@ -55,14 +62,7 @@
   <h2>음악 앨범 리스트</h2>
 
 </div>
-<!-- 
-	private int albumId;
-	private String albumTitle;
-	private String artist;
-	private Date releaseDate;
-	private String genre;
-	private int price;
- -->
+
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -70,7 +70,7 @@
 	    <input placeholder="가수" name="artist"  class="form-control mr-sm-2 sch"/>
 	    <input placeholder="쟝르" name="genre"  class="form-control mr-sm-2 sch"/>
 	    <button id="schBtn" class="btn btn-info" type="button">Search</button>
-	    <button class="btn btn-success" 
+	    <button class="btn btn-success" id="regLoadBtn"
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
@@ -97,26 +97,60 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
+        <h5 class="modal-title" id="modalTitle">타이틀</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+<!-- 
+	private int albumId;
+	private String albumTitle;
+	private String artist;
+	private Date releaseDate;
+	private String genre;
+	private int price;
+ -->      
       <div class="modal-body">
 		<form id="frm02" class="form"  method="post">
 	     <div class="row">
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	        <input type="text" readonly value="0" class="form-control" name="albumId">
 	      </div>
 	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
+	        <input  name="albumTitle" placeholder="앨범 타이틀 입력" type="text" class="form-control" >
 	      </div>
 	     </div>
+	     <div class="row">
+	      <div class="col">
+	         <input  name="artist" placeholder="아티스트 입력" type="text" class="form-control" >
+	      </div>
+	      <div class="col">
+	        <input  name="releaseDate"  placeholder="날짜 선택"  type="date" class="form-control" >
+	      </div>
+	     </div>	     
+		     <div class="row">
+	      <div class="col">
+	         <input  name="genre" placeholder="장르 입력" type="text" class="form-control" >
+	      </div>
+	      <div class="col">
+	        <input  name="price"  placeholder="가격 입력" type="number" class="form-control" >
+	      </div>
+	     </div>	      
 	    </form> 
       </div>
       <div class="modal-footer">
+      <!-- 
+      $("#modalTitle").text("앨범 등록")
+      $("#regBtn").show()
+      $("#uptBtn").hide()
+      $("#delBtn").hide()
+      $("#frm02")[0].reset() // 초기화 - 등록/수정시 그대로 남아 있는 경우가 있기에..
+       -->
+      	<button id="regBtn" type="button" class="btn btn-success">등록</button>
+      	<button id="uptBtn" type="button" class="btn btn-primary">수정</button>
+      	<button id="delBtn" type="button" class="btn btn-warning">삭제</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
