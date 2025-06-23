@@ -82,5 +82,35 @@ int insertAlbum(MusicAlbums ins);
  * */
 
 
-SELECT * FROM music_albums WHERE album_id = 1;
+SELECT * FROM music_albums;
+
+	UPDATE music_albums
+	  SET ALBUM_TITLE = '꼭갈피 셋(수정)',
+	      ARTIST = '아이유(수정)',
+	      RELEASE_DATE = TO_DATE('2025-06-23','YYYY-MM-DD'),
+	      GENRE = 'K-POP2',
+	      PRICE = 999
+	WHERE album_id = 1;
+	DELETE FROM music_albums  WHERE  album_id = 1;
+/*
+	private int albumId;
+	private String albumTitle;
+	private String artist;
+	private Date releaseDate;
+	private String genre;
+	private int price;
+	
+UPDATE music_albums
+  SET ALBUM_TITLE = #{albumTitle},
+      ARTIST = #{artist},
+      RELEASE_DATE = #{releaseDate},
+      GENRE = #{genre},
+      PRICE = #{price}
+WHERE album_id = #{albumId}
+ 
+DELETE FROM music_albums  WHERE  album_id = #{albumId}
+
+ * */	
+	
+
 

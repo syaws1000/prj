@@ -80,6 +80,25 @@
 			return ResponseEntity.ok(service.getAlbum(albumId);
 		}
 	
+# 수정/삭제	
+1. DAO
+	SQL
+		UPDATE music_albums
+		  SET ALBUM_TITLE = #{albumTitle},
+		      ARTIST = #{artist},
+		      RELEASE_DATE = #{releaseDate},
+		      GENRE = #{genre},
+		      PRICE = #{price}
+		WHERE album_id = #{albumId}
+		 
+		DELETE FROM music_albums  WHERE  album_id = #{albumId}
+	@Update("")
+	int updateAlbum(MusicAlbums upt);
+	
+	@Delete("DELETE FROM music_albums  WHERE  album_id = #{albumId}")
+	int deleteAlbum(@Param("albumId") int albumId);
+	
+	
 	
 
 
