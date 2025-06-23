@@ -2,6 +2,7 @@ package web.com.springweb.a05_ajax.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,4 +36,13 @@ public class A20_MusicService {
 	public MusicAlbums getAlbum(int albumId) {
 		return dao.getAlbum(albumId);
 	}
+	
+	public String updateAlbum(MusicAlbums upt) {
+		return dao.updateAlbum(upt)>0?"수정성공":"수정실패";
+	}
+
+	public String deleteAlbum(int albumId) {
+		return dao.deleteAlbum(albumId)>0?"삭제성공":"삭제실패";
+	}
+	
 }
