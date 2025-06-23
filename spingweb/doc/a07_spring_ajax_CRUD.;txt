@@ -1,0 +1,54 @@
+# ajax를 이용한 음악엘범데이터 CRUD 처리
+1. 배운 ajax로 화면과 DAO를 통해서 리스트, 등록, 상세데이터 확인, 수정, 삭제 처리를 한다.
+2. 기본 정보
+	1) 데이터
+		
+		CREATE TABLE music_albums (
+		    album_id NUMBER PRIMARY KEY,
+		    album_title VARCHAR2(100),
+		    artist VARCHAR2(100),
+		    release_date DATE,
+		    genre VARCHAR2(50),
+		    price NUMBER(6,2)
+		);
+		SEQUENCE 
+		
+		CREATE SEQUENCE album_seq;
+		- 기본 조회
+		- 등록 처리
+		- 상세 조회
+		- 수정 처리
+		- 삭제 처리
+	2) 구성 파일
+		기본 Dto
+		class MusicAlbums{
+			private int albumId;
+			private String albumTitle;
+			private String artist;
+			private Date releaseDate;
+			private String genre;
+			private int price;
+		}
+		A20_MusicController.java	
+		A20_MusicService.java	
+		A20_MusicDao.java
+		view
+		resources\templates\a02_ajax\a20_musicAlbum.html	
+		
+# 기본 조회 
+1. 처리 순서
+	1) sql 작성
+		입력값 : 매개변수로 선언
+		출력값 : 리턴 유형으로 설정	
+	2) dto
+	3) dao 메서드 선언
+	4) serivce 단 처리 (기본 데이터 null 처리)
+	5) controller 단 처리
+	6) view단 처리
+	
+	
+	
+		
+		
+		
+			
