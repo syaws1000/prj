@@ -71,7 +71,7 @@ SELECT CITY_SEQ.NEXTVAL FROM DUAL;
 SELECT * FROM cities;	
 -- 조회 리스트
 SELECT * FROM cities WHERE CITY_NAME LIKE '%%' AND COUNTRY LIKE '%%';
--- 출력 : cityId, cityName, country, polulation ==> City ==> List<City>
+-- 출력 : cityId, cityName, country, population ==> City ==> List<City>
 -- 입력 : cityName, country ==> City ==> City sch
 /*
 @Select("SELECT * FROM cities WHERE CITY_NAME LIKE #{cityName} AND COUNTRY LIKE #{country}")
