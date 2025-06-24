@@ -26,8 +26,61 @@
 
 4. 파일 정리
 	1) backend
+		A01_BoardController.java
+		A02_BoardService.java
+		A03_BoardDao.java
+		Board.java
+		BoardSch.java
+		FileDto.java
 		
 	2) frontend
+		a01_boardList.jsp  : 게시글 제목과 작성자로 검색리스트 처리 화면
+		a02_boardInsert.jsp : 게시글 등록/답글 등록 화면
+		a03_boardDetail.jsp : 게시글 상세화면 수정/삭제/답글 달기 처리 기능
+
+5. 개발 순서
+	1) 기본 테이블/sequence 만들기
+		게시글 : board - 번호, 답글번호, 제목, 내용, 작성자, 읽은수,등록일, 수정일
+		파일관리 : boardfile	- 번호, 파일명, 기타사항, 등록일, 수정일
+		CREATE TABLE BOARD(
+			NO NUMBER PRIMARY KEY,  -- 글번호(기본키)
+			REFNO NUMBER,  - 답글번호
+			SUBJECT VARCHAR2(100),  -- 제목
+			CONTENT VARCHAR2(1000), -- 내용
+			WRITER VARCAHR2(50), -- 작성자
+			READCNT NUMBER, -- 조회수
+			REGDTE DATE, -- 등록일
+			UPTDTE DATE  -- 수정일
+		);
+		CREATE TABLE BOARDFILE(
+			NO NUMBER,
+			FNAME VARCHAR2(100),
+			ETC VARCAHR2(500),
+			REGDTE DATE,
+			UPTDTE DATE
+		);
+		CREATE SEQUENCE BOARD_SEQ;
+		INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,0,'첫번째글','내용없음','홍길동',0,SYSDATE, SYSDATE);
+		
+		SELECT * FROM BOARD;
+		
+	2) 기본 dto
+		- 리스트위한 dto
+			Board
+		- 검색을 위한 dto
+			BoardSch
+	3) 조회리스트 화면 구현
+		sql
+		dao
+		service
+		controller
+		뷰(jsp)
+				
+	
+	
+	
+	
+		
 
 
 	
