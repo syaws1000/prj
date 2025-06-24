@@ -71,6 +71,9 @@
 			BoardSch
 	3) 조회리스트 화면 구현
 		sql
+		
+		
+		
 		dao
 		service
 		controller

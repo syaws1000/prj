@@ -153,8 +153,24 @@ VALUES (10, '헐크', '어벤져스', '슈퍼히어로', 100, '강력한 육체'
 
 
 
+CREATE TABLE imgboard(
+	NO NUMBER,
+	title varchar2(1000),
+	imgsrc varchar2(100)
+);
+INSERT INTO imgboard values(2,'이제 할 수 있죠.. 이 정도까지 해드렸는데.. 참 너무하다', 'img10.jpg');
+SELECT * FROM imgboard WHERE NO = 1;
+/*
+class ImgDto{
+	private int no;
+	private String title;
+	private String imgsrc;
+	
+}
+@Select("SELECT * FROM imgboard WHERE NO = #{no}")
+ImgDto getImg(@Param("no") int no);
 
-
+ * */
 
 
 

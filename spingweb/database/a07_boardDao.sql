@@ -19,3 +19,14 @@
 		INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,0,'첫번째글','내용없음','홍길동',0,SYSDATE, SYSDATE);
 		
 		SELECT * FROM BOARD;
+		
+		SELECT * FROM BOARD WHERE SUBJECT LIKE '%%' AND WRITER LIKE '%%';
+		/*
+		입력 : String subject, String writer ==> class BoardSch
+		출력값 : int no; int refno; String subject; String content, String writer; int readcnt;
+		       Date regdte; Date uptdte; ==> class Board ==> List<Board>
+		@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer}")
+		List<Board> getBoardList(@Param("subject")String subject, @Param("writer") String writer);       
+		       
+		 * */
+		
