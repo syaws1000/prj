@@ -98,7 +98,27 @@
 	@Delete("DELETE FROM music_albums  WHERE  album_id = #{albumId}")
 	int deleteAlbum(@Param("albumId") int albumId);
 	
-	
+# 도시 정보 관리 프로그램
+1. 처리 순서
+	0) db : cities
+	   파일	
+	   DTO : class City 
+	   DAO : A21_CityDao
+	   Service : A21_CityService
+	   Controller : A21_CityController
+	   view : a21_cityView 
+	  
+	1) dao단 처리
+	   sql
+	   1) 조회
+	   2) 등록
+	   3) 상세내역
+	   4) 수정
+	   5) 삭제
+	2) service
+	3) controller
+	4) 화면단 처리   
+	   	
 	
 
 
