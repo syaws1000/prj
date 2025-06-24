@@ -2,12 +2,15 @@ package web.com.springweb.a05_ajax.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class City {
 	private int cityId;
 	private String cityName;
 	private String country;
 	private int population;
 	private double area;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date foundedDate;
 	
 	

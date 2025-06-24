@@ -13,7 +13,8 @@ import web.com.springweb.a05_ajax.dto.City;
 
 @Mapper
 public interface A21_CityDao {
-	@Select("SELECT * FROM cities WHERE CITY_NAME LIKE #{cityName} AND COUNTRY LIKE #{country}")
+	@Select("SELECT * FROM cities WHERE CITY_NAME LIKE #{cityName} AND COUNTRY LIKE #{country} "
+			+ "ORDER BY CITY_ID DESC ")
 	List<City> getCityList(City sch);
 	
 	@Insert("INSERT INTO cities VALUES (CITY_SEQ.NEXTVAL,#{cityName}, #{country}, #{population}, #{area}, #{foundedDate} )")

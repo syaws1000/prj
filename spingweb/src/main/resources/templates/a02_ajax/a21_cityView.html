@@ -73,7 +73,7 @@
 			}
 		})
 		$("#regLoadBtn").on("click",function(){
-		      $("#modalTitle").text("앨범 등록")
+		      $("#modalTitle").text("도시관리 등록")
 		      $("#regBtn").show()
 		      $("#uptBtn").hide()
 		      $("#delBtn").hide()
@@ -104,7 +104,7 @@
 	function goDetail(cityIdVal){
 		//alert(albumIdVal)
 		$("#regLoadBtn").click() // 모달창을 로딩하는 버튼을 강제 수행..
-		$("#modalTitle").text("앨범 상세")
+		$("#modalTitle").text("도시관리 상세")
 		$("#regBtn").hide()
 		$("#uptBtn").show()
 		$("#delBtn").show()
@@ -211,13 +211,7 @@
 	    </form> 
       </div>
       <div class="modal-footer">
-      <!-- 
-      $("#modalTitle").text("앨범 등록")
-      $("#regBtn").show()
-      $("#uptBtn").hide()
-      $("#delBtn").hide()
-      $("#frm02")[0].reset() // 초기화 - 등록/수정시 그대로 남아 있는 경우가 있기에..
-       -->
+
       	<button id="regBtn" type="button" class="btn btn-success">등록</button>
       	<button id="uptBtn" type="button" class="btn btn-primary">수정</button>
       	<button id="delBtn" type="button" class="btn btn-warning">삭제</button>
