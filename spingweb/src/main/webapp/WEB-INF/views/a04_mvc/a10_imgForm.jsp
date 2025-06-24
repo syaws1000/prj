@@ -15,12 +15,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script:400" rel="stylesheet">
+
 <link rel="stylesheet" href="${path}/com/bootstrap.min.css" >
-<link href="https://fonts.googleapis.com/css2?family=Spoqa+Han+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 
 <style>
 	td{text-align:center;}
-	span{ font-family: 'Spoqa Han Sans', sans-serif;;font-size:15pt;}
+	span{ font-family: 'Nanum Brush Script', cursive;font-size:50pt;}
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
