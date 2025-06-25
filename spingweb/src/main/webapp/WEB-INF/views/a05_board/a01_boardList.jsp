@@ -37,14 +37,12 @@
 		
 --%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" class="form" >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name="subject" value="${param.subject}" class="form-control mr-sm-2" />
+	    <input placeholder="작성자" name="writer" value="${param.writer}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <button class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
@@ -54,19 +52,20 @@
    	<col width="15%">
    	<col width="10%">
     <thead>
-    
       <tr class="table-success text-center">
         <th>번호</th>
         <th>제목</th>
         <th>작성자</th>
         <th>작성일</th>
-        <th>조회</th>
+        <th>조회수</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="b" items="${blist}">
+    	<tr><td>${b.no}</td><td>${b.subject}</td><td>${b.writer}</td>
+    		<td><fmt:formatDate value="${b.regdte}" /></td>
+    		<td>${b.readcnt}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>       
 </div>
