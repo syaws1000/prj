@@ -29,11 +29,11 @@
 		A01_BoardController.java
 		A02_BoardService.java
 		A03_BoardDao.java
-		Board.java
-		BoardSch.java
-		FileDto.java
+		Board.java : List<Board>(조회리스트), Board(상세화면)
+		BoardSch.java : 조회, 페이징처리(현재페이지번호, 총페이지수, 페이지의 시작번호, 마지막번호,...)
+		FileDto.java : 첨부파일 정보 List<FileDto>
 		
-	2) frontend
+	2) frontend(view단)
 		a01_boardList.jsp  : 게시글 제목과 작성자로 검색리스트 처리 화면
 		a02_boardInsert.jsp : 게시글 등록/답글 등록 화면
 		a03_boardDetail.jsp : 게시글 상세화면 수정/삭제/답글 달기 처리 기능
