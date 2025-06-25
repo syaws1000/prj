@@ -91,7 +91,8 @@
 				$(cityList).each(function(idx, city){
 					addHTML+=`<tr ondblclick="goDetail(${city.cityId})"><td>${city.cityId}</td>
 								<td>${city.cityName}</td>
-								<td>${city.country}</td><td class='text-right pr-5'>${city.population.toLocaleString()}</td></tr>`
+								<td>${city.country}</td>
+								<td class='text-right pr-5'>${city.population.toLocaleString()}</td></tr>`
 
 				})
 				$("tbody").html(addHTML);
@@ -102,7 +103,7 @@
 		})
 	}
 	function goDetail(cityIdVal){
-		//alert(albumIdVal)
+
 		$("#regLoadBtn").click() // 모달창을 로딩하는 버튼을 강제 수행..
 		$("#modalTitle").text("도시관리 상세")
 		$("#regBtn").hide()
