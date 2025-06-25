@@ -26,7 +26,13 @@
 		출력값 : int no; int refno; String subject; String content, String writer; int readcnt;
 		       Date regdte; Date uptdte; ==> class Board ==> List<Board>
 		@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer}")
-		List<Board> getBoardList(@Param("subject")String subject, @Param("writer") String writer);       
+		List<Board> getBoardList(@Param("subject")String subject, @Param("writer") String writer);   
+		INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,0,'첫번째글','내용없음','홍길동',0,SYSDATE, SYSDATE);
+		
+		등록 처리
+		@Insert("INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,#{refno},#{subject},#{content},#{writer},0,SYSDATE, SYSDATE)")
+		int insertBoard(Board ins);    
+		            
 		       
 		 * */
 		
