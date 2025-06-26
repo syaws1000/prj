@@ -1,0 +1,4 @@
+customer_id,name,age,gender,email,total_spent,last_purchase_date,customer_since
+1,Alice,30,F,alice@example.com,500,2023-06-10,2021-01-05
+2,Bob,45,M,bob@example.com,1200,2023-05-22,2020-11-01
+3,Charlie,25,M,charlie@example.com,800,2023-04-15,2022-03-22

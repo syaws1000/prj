@@ -1,0 +1,4 @@
+customer_id,interaction_type,interaction_date,feedback_score
+1,Email,2023-06-10,5
+2,Phone,2023-05-22,4
+3,Web Visit,2023-04-15,3
