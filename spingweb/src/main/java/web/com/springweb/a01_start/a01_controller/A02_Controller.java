@@ -10,6 +10,7 @@ public class A02_Controller {
 	@GetMapping("forth")
 	public String forthaaa() {
 		return "WEB-INF\\views\\a02_view\\a01_forth.jsp";
+		
 	}
 }
 // A03_Controller.java
