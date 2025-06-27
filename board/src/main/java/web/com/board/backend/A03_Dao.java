@@ -8,6 +8,9 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface A03_Dao {
+
+	
+	
 	@Select("SELECT * FROM ANNOUNCE "
 			+ "WHERE TITLE LIKE #{title} AND AUTHOR LIKE #{author} "
 			+ "ORDER BY BOARD_ID DESC ")

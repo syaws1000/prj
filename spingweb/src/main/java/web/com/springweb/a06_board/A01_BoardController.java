@@ -5,6 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import jakarta.servlet.http.HttpSession;
+import web.com.springweb.vo.Member;
 
 @Controller
 public class A01_BoardController {
@@ -13,8 +17,16 @@ public class A01_BoardController {
 	
 	
 	// http://localhost:5050/login
-	@GetMapping("login")
-	public String login() {
+	@RequestMapping("login")
+	public String login(Member mem, HttpSession sess, RedirectAttributes ra) {
+		if(mem.getId()!=null) {
+			Member smem = service.login(mem);
+			if(smem!=null) {
+				sess.setAttribute("mem", smem); // 세션으로 설정.
+				ra.addFlashAttribute("msg","로그인 성공");
+				return "redirect:/boardList";
+			}
+		}
 		return "login.html";
 	}
 	

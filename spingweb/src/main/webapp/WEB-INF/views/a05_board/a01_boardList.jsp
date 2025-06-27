@@ -26,6 +26,9 @@
 		$("#regBtn").click(function(){
 			location.href="boardInsert"
 		})
+		let msg = "${mem.name}님 ${msg}"
+		if(msg!="")
+			alert(msg)
 	});
 </script>
 </head>
@@ -33,12 +36,14 @@
 <body>
 <div class="jumbotron text-center">
   <h2>게시판리스트</h2>
+ 
 
 </div>
 <%-- 
 		
 --%>
 <div class="container">
+ <h6 class="text-right">${mem.name} 로그인중</h6>
 	<form id="frm01" class="form" >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name="subject" value="${param.subject}" class="form-control mr-sm-2" />

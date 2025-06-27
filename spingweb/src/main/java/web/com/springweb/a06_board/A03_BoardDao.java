@@ -6,8 +6,13 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import web.com.springweb.vo.Member;
+
 @Mapper
 public interface A03_BoardDao {
+	@Select("SELECT * FROM MEMBER WHERE ID=#{id} AND PWD = #{pwd}")
+	Member login(Member sch);
+	
 	
 	@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer}")
 	List<Board> getBoardList(BoardSch sch);   

@@ -60,3 +60,24 @@ SELECT BOARD_SEQ.CURRVAL FROM DUAL;
 SELECT * FROM BOARDFILE;
 
 
+
+SELECT * FROM MEMBER WHERE ID='himan' AND PWD = '7777';
+/*
+class Memeber
+	private String id;
+	private String pwd;
+	private String name;
+	private String auth;
+	private int point;
+	
+@Select("SELECT * FROM MEMBER WHERE ID=#{id} AND PWD = #{pwd}")
+Member login(Member sch);	
+
+	
+ * */
+
+
+
+
+
+
