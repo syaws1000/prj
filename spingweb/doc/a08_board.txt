@@ -81,7 +81,31 @@
 				
 	
 	
-	
+# 게시판에서 첨부파일 처리..
+1. DB구성 : 첨부 파일정보를 저장하고 있어야 된다.
+		CREATE TABLE BOARDFILE(
+			NO NUMBER,
+			FNAME VARCHAR2(100),
+			ETC VARCAHR2(500),
+			REGDTE DATE,
+			UPTDTE DATE
+		);
+	INSERT INTO BOARDFILE VALUES(해당게시물과 동일한 번호, '파일명', 게시판제목, SYSDATE, SYSDATE);
+2. DTO
+	class BoardFile{}
+3. 파일 첨부하는 service단에러 위 내용을 함께 처리하여야, 해당 게시물의 상세 내역에서 첨부파일 내역을 
+	확인할 수 있다.
+				
+# 개발 순서
+1. 파일 첨부 dao 구성
+	sql
+
+2. 게시물 등록시, 파일정보도 등록되게 처리
+	Dto(Board 안  MultiPartFile[] mfs 로 선언하여 처리한다)
+3. service단 처리
+4. view단( form encType="mutipart/form-data")
+	첨부파일 항목 추가 <input type="file" multiple="multiple"					
+			
 	
 		
 

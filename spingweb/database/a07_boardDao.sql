@@ -35,4 +35,11 @@
 		            
 		       
 		 * */
+SELECT * FROM BOARD;		
+INSERT INTO BOARDFILE VALUES(1, 'img01.jpg', '첫번째글', SYSDATE, SYSDATE);		
+SELECT * FROM BOARDFILE;
 		
+
+
+
+
