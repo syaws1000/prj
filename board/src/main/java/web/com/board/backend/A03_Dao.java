@@ -16,7 +16,7 @@ public interface A03_Dao {
 	@Insert("INSERT INTO announce  VALUES (ANNOUNCE_SEQ.NEXTVAL, #{title}, #{content}, #{parentId}, #{author}, SYSDATE, SYSDATE, #{status}, 0, 0)")
 	int insertAnnounce(Announce ins);
 
-	@Insert("INSERT INTO ANNOUNCE_FILE VALUES(ANNOUNCE_SEQ.CURRVAL, 'img10.jpg', '두번째글', SYSDATE, SYSDATE)")
+	@Insert("INSERT INTO ANNOUNCE_FILE VALUES(ANNOUNCE_SEQ.CURRVAL, #{fname}, #{etc}, SYSDATE, SYSDATE)")
 	int insertFile(AnnFileDto ins);	
 	
 

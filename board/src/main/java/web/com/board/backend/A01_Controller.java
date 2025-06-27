@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class A01_Controller {
@@ -15,6 +16,14 @@ public class A01_Controller {
 	public String boardList(AnnounceSch sch, Model d ) {
 		d.addAttribute("list", service.getAnnounceList(sch));
 		return "WEB-INF\\views\\a01_BoardList.jsp";
+	}
+	// http://localhost:5051/boardInsert
+	@RequestMapping("boardInsert")
+	public String boardInsert(Announce ins, Model d) {
+		if(ins.getTitle()!=null) {
+			d.addAttribute("msg", service.insertAnnounce(ins));
+		}
+		return "WEB-INF\\views\\a02_BoardInsert.jsp";
 	}
 
 }

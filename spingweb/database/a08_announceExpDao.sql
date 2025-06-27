@@ -79,6 +79,7 @@ int insertAnnounce(Announce ins);
 int insertFile(AnnFileDto ins);
 
 
+
 ` * */
 
 -- 
@@ -109,5 +110,5 @@ int insertFile(AnnFileDto ins);
 
  * */
 
-
+select * from ANNOUNCE_FILE;
 
