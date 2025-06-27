@@ -51,8 +51,7 @@ INSERT INTO announce (board_id, title, content, parent_id, author, created_at, u
 VALUES (ANNOUNCE_SEQ.NEXTVAL, '네 번째 게시글', '네 번째 게시글의 내용입니다.', NULL, '이수연', SYSDATE, SYSDATE, '공개', 120, 10);
 
 -- 다섯 번째 게시글 삽입 (삭제된 상태)
-INSERT INTO announce (board_id, title, content, parent_id, author, created_at, updated_at, status, views, comment_count)
-VALUES (ANNOUNCE_SEQ.NEXTVAL, '다섯 번째 게시글 (삭제)', '삭제된 상태의 게시글입니다.', NULL, '정현우', SYSDATE, SYSDATE, '삭제', 0, 0);
+INSERT INTO announce  VALUES (ANNOUNCE_SEQ.NEXTVAL, '다섯 번째 게시글 (삭제)', '삭제된 상태의 게시글입니다.', NULL, '정현우', SYSDATE, SYSDATE, '삭제', 0, 0);
 
 COMMIT;
 SELECT * FROM ANNOUNCE;
@@ -61,4 +60,54 @@ SELECT * FROM ANNOUNCE WHERE TITLE LIKE '%%' AND AUTHOR LIKE '%%';
 @Select("SELECT * FROM ANNOUNCE WHERE TITLE LIKE #{title} AND AUTHOR LIKE #{author}")
 List<Announce> getAnnounceList(AnnounceSch sch);
  * */
+		CREATE TABLE ANNOUNCE_FILE(
+			NO NUMBER,
+			FNAME VARCHAR2(100),
+			ETC VARCHAR2(500),
+			REGDTE DATE,
+			UPTDTE DATE
+		);
+SELECT ANNOUNCE_SEQ.NEXTVAL, ANNOUNCE_SEQ.CURRVAL FROM DUAL;
+-- class AnnFileDto
+-- 기본 등록, 파일 등록
+/*
+INSERT INTO announce  VALUES (ANNOUNCE_SEQ.NEXTVAL, '다섯 번째 게시글 (삭제)', '삭제된 상태의 게시글입니다.', NULL, '정현우', SYSDATE, SYSDATE, '삭제', 0, 0)
+@Insert("INSERT INTO announce  VALUES (ANNOUNCE_SEQ.NEXTVAL, #{title}, #{content}, #{parentId}, #{author}, SYSDATE, SYSDATE, #{status}, 0, 0)")
+int insertAnnounce(Announce ins);
+
+@Insert("INSERT INTO ANNOUNCE_FILE VALUES(ANNOUNCE_SEQ.CURRVAL, 'img10.jpg', '두번째글', SYSDATE, SYSDATE)")
+int insertFile(AnnFileDto ins);
+
+
+` * */
+
+-- 
+/*
+1 dao 처리
+	ANNOUNCE, ANNOUNCE_FILE 등록 처리
+    private int boardId;
+    private String title;
+    private String content;
+    private int parentId;
+    private String author;
+    private Date createAt;
+    private Date updatedAt;
+    private String status;
+    private int  views;
+    private int commentCount;	
+	
+2. service 처리
+	기본 데이터 등록
+	DB 등록
+3. controller
+
+4. jsp 
+	form 화면구형..
+	
+
+
+
+ * */
+
+
 

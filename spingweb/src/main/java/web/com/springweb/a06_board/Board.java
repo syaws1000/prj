@@ -1,6 +1,9 @@
 package web.com.springweb.a06_board;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Board {
 	private int no; 
@@ -11,6 +14,9 @@ public class Board {
 	private int readcnt;
 	private Date regdte; 
 	private Date uptdte;
+	private List<MultipartFile> reports;
+	
+	
 	public Board() {
 		// TODO Auto-generated constructor stub
 	}
@@ -73,6 +79,12 @@ public class Board {
 	}
 	public void setUptdte(Date uptdte) {
 		this.uptdte = uptdte;
+	}
+	public List<MultipartFile> getReports() {
+		return reports;
+	}
+	public void setReports(List<MultipartFile> reports) {
+		this.reports = reports;
 	}
 	
 }

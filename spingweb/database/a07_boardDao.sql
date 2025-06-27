@@ -8,7 +8,8 @@
 			REGDTE DATE, -- 등록일
 			UPTDTE DATE  -- 수정일
 		);
-		CREATE TABLE BOARDFILE(
+		
+		CREATE TABLE ANNOUNCEFILE(
 			NO NUMBER,
 			FNAME VARCHAR2(100),
 			ETC VARCHAR2(500),
@@ -36,10 +37,26 @@
 		       
 		 * */
 SELECT * FROM BOARD;		
-INSERT INTO BOARDFILE VALUES(1, 'img01.jpg', '첫번째글', SYSDATE, SYSDATE);		
+INSERT INTO BOARDFILE VALUES(2, 'img10.jpg', '두번째글', SYSDATE, SYSDATE);		
+INSERT INTO BOARDFILE VALUES(3, 'img11.jpg', '세번째글', SYSDATE, SYSDATE);		
 SELECT * FROM BOARDFILE;
-		
+/*
+class FileDto{
+	private int no;
+	private String fname;
+	private String etc;
+	private Date regdte;
+	private Date uptdte;
+	
+}
+@Insert("INSERT INTO BOARDFILE VALUES(#{no}, #{fname}, #{etc}, SYSDATE, SYSDATE)")
+int insertFile(FileDto ins);
+ * */
+SELECT BOARD_SEQ.NEXTVAL FROM DUAL;		
+
+SELECT BOARD_SEQ.CURRVAL FROM DUAL;
 
 
+SELECT * FROM BOARDFILE;
 
 

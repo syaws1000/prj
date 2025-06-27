@@ -1,21 +1,21 @@
-package web.com.springweb.a06_board;
+package web.com.board.backend;
 
 import java.util.Date;
 
-public class FileDto {
+public class AnnFileDto {
 	private int no;
 	private String fname;
 	private String etc;
 	private Date regdte;
 	private Date uptdte;
-	public FileDto() {
+	public AnnFileDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public FileDto(String fname, String etc) {
+	public AnnFileDto(String fname, String etc) {
 		this.fname = fname;
 		this.etc = etc;
 	}
-	public FileDto(int no, String fname, String etc, Date regdte, Date uptdte) {
+	public AnnFileDto(int no, String fname, String etc, Date regdte, Date uptdte) {
 		this.no = no;
 		this.fname = fname;
 		this.etc = etc;
@@ -52,6 +52,5 @@ public class FileDto {
 	public void setUptdte(Date uptdte) {
 		this.uptdte = uptdte;
 	}
-	
 	
 }

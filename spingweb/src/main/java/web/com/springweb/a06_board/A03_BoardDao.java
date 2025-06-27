@@ -14,5 +14,9 @@ public interface A03_BoardDao {
 	// refno subject content writer
 	@Insert("INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,"
 			+ "#{refno},#{subject},#{content},#{writer},0,SYSDATE, SYSDATE)")
-	int insertBoard(Board ins);   
+	int insertBoard(Board ins); 
+	
+	@Insert("INSERT INTO BOARDFILE VALUES(BOARD_SEQ.CURRVAL, #{fname}, #{etc}, SYSDATE, SYSDATE)")
+	int insertFile(FileDto ins);	
+	
 }

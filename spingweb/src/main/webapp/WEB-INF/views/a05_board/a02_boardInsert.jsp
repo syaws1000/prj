@@ -47,7 +47,7 @@
 		refno subject content writer
 --%>
    <div class="container">
-        <form  method="post">
+        <form  method="post" enctype="multipart/form-data" >
         	<input type="hidden" name="refno" value="0"/>
             <div class="form-group">
                 <label for="title">제목</label>
@@ -61,6 +61,10 @@
                 <label for="writer">작성자</label>
                 <input type="text" class="form-control" id="writer" name="writer" placeholder="작성자를 입력하세요" required>
             </div>
+              <div class="form-group">
+                <label for="reports">첨부파일</label>
+                <input type="file" class="form-control" id="reports" name="reports" multiple="multiple" placeholder="파일을 첨부하세요" >
+            </div>          
             <button id="regBtn" type="button" class="btn btn-primary">등록</button>
         </form>
       </div>  

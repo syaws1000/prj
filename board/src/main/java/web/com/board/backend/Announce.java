@@ -1,6 +1,9 @@
 package web.com.board.backend;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class Announce {
 	
@@ -14,6 +17,9 @@ public class Announce {
     private String status;
     private int  views;
     private int commentCount;
+    private List<MultipartFile> reports;
+    
+    
 	public Announce() {
 		// TODO Auto-generated constructor stub
 	}
@@ -89,6 +95,12 @@ public class Announce {
 	}
 	public void setCommentCount(int commentCount) {
 		this.commentCount = commentCount;
+	}
+	public List<MultipartFile> getReports() {
+		return reports;
+	}
+	public void setReports(List<MultipartFile> reports) {
+		this.reports = reports;
 	}
 
 }

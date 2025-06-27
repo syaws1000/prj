@@ -92,7 +92,7 @@
 		);
 	INSERT INTO BOARDFILE VALUES(해당게시물과 동일한 번호, '파일명', 게시판제목, SYSDATE, SYSDATE);
 2. DTO
-	class BoardFile{}
+	class FileDto{}
 3. 파일 첨부하는 service단에러 위 내용을 함께 처리하여야, 해당 게시물의 상세 내역에서 첨부파일 내역을 
 	확인할 수 있다.
 				
@@ -103,8 +103,13 @@
 2. 게시물 등록시, 파일정보도 등록되게 처리
 	Dto(Board 안  MultiPartFile[] mfs 로 선언하여 처리한다)
 3. service단 처리
+    서버에 특정한 경로로 업로드 폴드 선언
+    파일업로드 처리..
+    파일정보 등록(Dao 등록된 내용)
+
+
 4. view단( form encType="mutipart/form-data")
-	첨부파일 항목 추가 <input type="file" multiple="multiple"					
+	첨부파일 항목 추가 <input type="file" name="reports" multiple="multiple"					
 			
 	
 		
