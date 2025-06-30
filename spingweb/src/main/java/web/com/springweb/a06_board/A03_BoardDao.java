@@ -15,7 +15,7 @@ public interface A03_BoardDao {
 	Member login(Member sch);
 	
 	
-	@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer}")
+	@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer} ORDER BY NO DESC")
 	List<Board> getBoardList(BoardSch sch);   
 	// refno subject content writer
 	@Insert("INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,"
