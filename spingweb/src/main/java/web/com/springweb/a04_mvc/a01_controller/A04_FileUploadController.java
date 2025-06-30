@@ -29,6 +29,8 @@ public class A04_FileUploadController {
 	public String upload(@RequestParam("report") MultipartFile mf, Model d) {
 		System.out.println("업로드한 파일명:"+mf.getOriginalFilename());
 		d.addAttribute("msg", service.upload(mf));
+		d.addAttribute("fnames", service.getFnames());
+		
 		return "WEB-INF\\views\\a04_mvc\\a07_fileUpload.jsp";
 	}
 }

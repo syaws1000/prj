@@ -45,7 +45,7 @@ public class A04_FileService {
 		
 		return msg;
 	}
-	public List<String> getFname(){
+	public List<String> getFnames(){
 		List<String> fnames = new ArrayList<String>();
 		File dir = new File(path); // 파일 객체는 경로 정보도 설정할 수 있다.
 		File[] files = dir.listFiles(); // 해당 경로에 있는 파일 객체를 배열로 설정..
