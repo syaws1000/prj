@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class A02_AnimalController {3
+public class A02_AnimalController {
 
 	// http://localhost:5052/getLocation
 	// http://localhost:5052/getLocation?animalName=물소
