@@ -50,60 +50,64 @@
   <h2>게시물 상세</h2>
 </div>
 
-    <div class="container">
-
-        
-        <form action="등록처리Servlet" method="post">
+ <div class="container">
+    <form  method="post">
+    <div class="row">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="no">번호</label>
                 <input type="text" readonly class="form-control" id="no" name="no" value="${board.no}" required>
             </div>
             <div class="form-group">
+                <label for="subject">제목</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="${board.subject}" required>
+            </div>
+            <div class="form-group">
+                <label for="writer">작성자</label>
+                <input type="text" class="form-control" id="writer" readonly name="writer" value="${board.writer}" required>
+            </div>              
+        
+            <div class="form-group">
+                <label for="no">첨부파일</label><br>
+                <c:forEach var="bfile" items="${bfiles}">
+                    <button type="button" class="btn btn-info">${bfile.fname}</button> 
+                </c:forEach>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
                 <label for="refno">상위번호</label>
                 <input type="text" readonly class="form-control" id="refno" name="refno" value="${board.refno}" required>
             </div>
             <div class="form-group">
-                <label for="subject">제목</label>
-                <input type="text"  class="form-control" id="subject" name="subject" value="${board.subject}" required>
-            </div>
-            <div class="form-group">
-                <label for="content">내용</label>
-                <textarea class="form-control" id="content" name="content" rows="5" 
-                	placeholder="내용을 입력하세요" >${board.content}</textarea>
-            </div>
-<%-- 
-//${board.no} ${board.refno} ${board.subject} 
-	${board.content} ${board.writer} ${board.readcnt} ${board.regdte} ${board.uptdte}
-//${bfiles} ${bfile.fname}
---%>                        
-            <div class="form-group">
-                <label for="writer">작성자</label>
-                <input type="text"  class="form-control" id="writer" name="writer" value="${board.writer}" required>
-            </div>
-             <div class="form-group">
-                <label for="readcnt">조회수</label>
-                <input type="text"  class="form-control" value="${board.readcnt}" >
-            </div>           
-            <div class="form-group">
                 <label for="regdte">등록일</label>
-                <input type="text"  class="form-control" value="<fmt:formatDate value='${board.regdte}'/>" >
-            </div>
+                <input type="text" class="form-control" readonly value="<fmt:formatDate value='${board.regdte}'/>">
+            </div>      
+
+
             <div class="form-group">
                 <label for="uptdte">수정일</label>
-                <input type="text"  class="form-control" value="<fmt:formatDate value='${board.uptdte}'/>" >
+                <input type="text" class="form-control" readonly value="<fmt:formatDate value='${board.uptdte}'/>">
             </div>
-             <div class="form-group">
-                <label for="no">첨부파일</label>
-                <c:forEach var="bfile" items="${bfiles}">
-                <span  class="badge bg-info">${bfile.fname}</span>,
-                </c:forEach>
-            </div>
-			
-            <button id="uptBtn" type="button" class="btn btn-primary">수정</button>
-            <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
-            <button id="repBtn" type="button" class="btn btn-warning">답글</button>
-            <button id="lstBtn" type="button" class="btn btn-info">메인</button>
-        </form>
-      </div>  
+
+            <div class="form-group">
+                <label for="readcnt">조회수</label>
+                <input type="text" class="form-control" readonly id="readcnt" value="${board.readcnt}">
+            </div>            
+        </div>
+        <div class="col-md-12">
+                <div class="form-group">
+                <label for="content">내용</label>
+                <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력하세요">${board.content}</textarea>
+        </div>
+	    <button id="uptBtn" type="button" class="btn btn-primary">수정</button>
+	    <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
+	    <button id="repBtn" type="button" class="btn btn-warning">답글</button>
+	    <button id="lstBtn" type="button" class="btn btn-info">메인</button>        
+    </div>
+
+   </form>	
+</div>
 </body>
 </html>
