@@ -1,0 +1,17 @@
+# 데이터베이스 연동 처리
+1. 단계별 내용
+	1) sql 구문
+		기본적인 sql 구문 정의 및 처리 방법
+	2) sql 구분에서 자바프로그램으로 처리할 내용 기술
+		- 입력값 - 매개변수 처리할 부분
+		- 출력값 - 결과 처리할 내용
+	3) Dto 클래스 선언 기준과 방법
+	4) dao 선언처리
+	5) service단 처리
+	6) controller단에서 database 로딩된 내용 처리 방법
+		- 요청값 ==> dto ==> 매개변수
+		- 결과값 ==> dto/List<dto> ==> 리턴값 처리
+	7) 화면단에서 처리하는 내용
+		- 화면 form(input/select) ==> ?요청값 ==> controller ==> service ==> dao
+		- dao ==> service ==> controller ==> 모델데이터 ==> 화면(리스트 처리)
+		

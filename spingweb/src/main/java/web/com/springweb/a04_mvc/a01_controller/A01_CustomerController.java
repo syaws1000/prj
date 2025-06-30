@@ -16,7 +16,7 @@ import web.com.springweb.a04_mvc.a04_vo.Customer;
 public class A01_CustomerController {
 	@Autowired(required = false)
 	private A01_CustomerService service;
-	
+
 	
 	// http://localhost:5050/customerList
 	// 초기화면 호출 메서드 선언..
