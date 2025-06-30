@@ -81,6 +81,13 @@ SELECT * FROM BOARD WHERE NO = 8;
 -- 파일 dao 처리
 SELECT * FROM BOARDFILE WHERE NO = 8;
 /*
+@Select("SELECT * FROM BOARD WHERE NO = #{no}")
+Board getBoard(@Param("no") int no);
+
+@Select("SELECT * FROM BOARDFILE WHERE NO = #{no}")
+List<FileDto> getFile(@Param("no") int no);
+
+
 
 **/
 
