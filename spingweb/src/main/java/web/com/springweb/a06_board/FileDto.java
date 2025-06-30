@@ -2,6 +2,8 @@ package web.com.springweb.a06_board;
 
 import java.util.Date;
 
+
+
 public class FileDto {
 	private int no;
 	private String fname;

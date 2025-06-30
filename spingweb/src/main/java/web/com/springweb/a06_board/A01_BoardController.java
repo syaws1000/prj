@@ -55,9 +55,9 @@ public class A01_BoardController {
 	// http://localhost:5050/boardDetail?no=8
 	@GetMapping("boardDetail")
 	public String boardDetail(@RequestParam("no") int no, Model d) {
-		
+
 		d.addAttribute("board", service.getBoard(no));
-		d.addAttribute("bfile", service.getFile(no));
+		d.addAttribute("bfiles", service.getFile(no));
 		
 		return "WEB-INF\\views\\a05_board\\a03_boardDetail.jsp";
 	}	
