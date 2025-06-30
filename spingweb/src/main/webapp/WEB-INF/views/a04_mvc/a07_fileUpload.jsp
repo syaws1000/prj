@@ -45,8 +45,22 @@
 	    <button class="btn btn-info" type="submit">파일업로드</button>
  	</nav>
 	</form>
- 
+   <table class="table table-hover table-striped">
+   	<col width="20%">
+   	<col width="80%">
+    <thead>
     
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>파일명</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<c:forEach var="fname" items="${fnames}" varStatus="sts">
+    	<tr><td>${sts.count}</td><td>${fname}</td></tr>
+    	</c:forEach>
+    </tbody>
+	</table>  	
 </div>
 
 </body>

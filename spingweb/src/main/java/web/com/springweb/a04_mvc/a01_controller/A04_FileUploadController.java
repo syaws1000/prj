@@ -19,7 +19,8 @@ public class A04_FileUploadController {
 	
 	// http://localhost:5050/fileUp
 	@GetMapping("fileUp")
-	public String fileUp() {
+	public String fileUp(Model d) {
+		d.addAttribute("fnames", service.getFnames());
 		return "WEB-INF\\views\\a04_mvc\\a07_fileUpload.jsp";
 	}
 	
