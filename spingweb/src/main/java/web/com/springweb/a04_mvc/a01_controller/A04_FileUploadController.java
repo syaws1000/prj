@@ -17,7 +17,7 @@ public class A04_FileUploadController {
 	private A04_FileService service;
 	
 	
-	// http://localhost:5050/fileUp
+	// http://192.168.0.135:5050/fileUp
 	@GetMapping("fileUp")
 	public String fileUp(Model d) {
 		d.addAttribute("fnames", service.getFnames());
