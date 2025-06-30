@@ -60,7 +60,7 @@
             <div class="form-group">
                 <label for="writer">작성자</label>
                 <input type="hidden" id="writer" name="writer" value="${mem.id}"/>
-                <input type="text" class="form-control" value="${mem.name}[${mem.id}]" readonly>
+                <input type="text" class="form-control" value="${mem.name} [ ${mem.id} ] " readonly>
             </div>
               <div class="form-group">
                 <label for="reports">첨부파일</label>
