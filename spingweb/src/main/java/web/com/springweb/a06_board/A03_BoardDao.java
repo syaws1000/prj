@@ -30,4 +30,6 @@ public interface A03_BoardDao {
 
 	@Select("SELECT * FROM BOARDFILE WHERE NO = #{no}")
 	List<FileDto> getFile(@Param("no") int no);	
+
+	
 }
