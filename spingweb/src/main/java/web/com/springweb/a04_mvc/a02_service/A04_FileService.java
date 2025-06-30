@@ -2,6 +2,8 @@ package web.com.springweb.a04_mvc.a02_service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -43,5 +45,21 @@ public class A04_FileService {
 		
 		return msg;
 	}
+	public List<String> getFname(){
+		List<String> fnames = new ArrayList<String>();
+		File dir = new File(path); // 파일 객체는 경로 정보도 설정할 수 있다.
+		File[] files = dir.listFiles(); // 해당 경로에 있는 파일 객체를 배열로 설정..
+		if(files!=null) {
+			for(File file:files) {
+				if(file.isFile()) { // 파일인지 여부를 확인( 경로로 처리될 수 있으므로)
+					fnames.add(file.getName()); // 파일 정보를 추가하여 처리된다..
+				}
+			}
+		}
+		
+		return fnames;
+	}
+	
+	
 
 }
