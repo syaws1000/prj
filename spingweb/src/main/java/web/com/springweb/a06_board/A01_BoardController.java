@@ -18,16 +18,19 @@ public class A01_BoardController {
 	
 	// http://localhost:5050/login
 	@RequestMapping("login")
-	public String login(Member mem, HttpSession sess, RedirectAttributes ra) {
+	public String login(Member mem, HttpSession sess, Model d, RedirectAttributes ra) {
 		if(mem.getId()!=null) {
 			Member smem = service.login(mem);
 			if(smem!=null) {
 				sess.setAttribute("mem", smem); // 세션으로 설정.
 				ra.addFlashAttribute("msg","로그인 성공");
 				return "redirect:/boardList";
+			}else {
+				d.addAttribute("msg","로그인 실패");
 			}
+			
 		}
-		return "login.html";
+		return "WEB-INF\\views\\a05_board\\a00_login.jsp";
 	}
 	
 	// http://localhost:5050/boardList

@@ -35,6 +35,7 @@ public class A02_BoardService {
 	private String path;
 	public String insertBoard(Board ins) {
 		String msg = "";
+		// 0. 등록시 기본 정보를 저장..
 		msg = dao.insertBoard(ins)>0?"등록성공\\n":"등록실패\\n";
 		// 1. 파일업로드
 		try {
