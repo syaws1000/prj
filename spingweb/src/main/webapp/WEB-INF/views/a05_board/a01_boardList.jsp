@@ -27,8 +27,8 @@
 			location.href="boardInsert"
 		})
 		let msg = "${mem.name}님 ${msg}"
-		if(msg!="")
-			alert(msg)
+		//if(msg!="")
+		//	alert(msg)
 	});
 </script>
 </head>
