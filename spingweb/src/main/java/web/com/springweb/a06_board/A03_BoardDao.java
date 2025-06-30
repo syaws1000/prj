@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.vo.Member;
@@ -23,5 +24,10 @@ public interface A03_BoardDao {
 	
 	@Insert("INSERT INTO BOARDFILE VALUES(BOARD_SEQ.CURRVAL, #{fname}, #{etc}, SYSDATE, SYSDATE)")
 	int insertFile(FileDto ins);	
-	
+
+	@Select("SELECT * FROM BOARD WHERE NO = #{no}")
+	Board getBoard(@Param("no") int no);
+
+	@Select("SELECT * FROM BOARDFILE WHERE NO = #{no}")
+	List<FileDto> getFile(@Param("no") int no);	
 }

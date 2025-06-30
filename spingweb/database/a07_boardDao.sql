@@ -76,8 +76,13 @@ Member login(Member sch);
 	
  * */
 
+-- 상세 dao 처리
+SELECT * FROM BOARD WHERE NO = 8;
+-- 파일 dao 처리
+SELECT * FROM BOARDFILE WHERE NO = 8;
+/*
 
-
+**/
 
 
 
