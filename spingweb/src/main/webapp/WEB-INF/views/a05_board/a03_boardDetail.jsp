@@ -70,12 +70,14 @@
             <div class="form-group">
                 <label for="no">첨부파일</label><br>
                 <c:forEach var="bfile" items="${bfiles}">
-                    <button type="button" 
+                    <button ondblclick="download('${bfile.fname}')" type="button" 
                     class="btn btn-info">${bfile.fname}</button> 
                 </c:forEach>
             </div>
             <script type="text/javascript">
-            
+            function download(fname){
+            	location.href="download?fileName="+fname
+            }           
             </script>
 
         </div>
