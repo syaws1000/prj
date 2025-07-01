@@ -30,22 +30,19 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>동물이름으로 사는 곳 확인</h2>
-  <h3>입력한 동물명:${param.animalName}</h3>  
-  <h3>사는곳:${location}</h3>  
-  
-
+  <h2>주문내용</h2>
+  <h3>주문자:${param.customerName}</h3>
+  <h3>주문내역(모델):${itemOrdered}</h3>
 </div>
 <%-- 
-animalName		
+요청값: customerName, 모델데이터: itemOrdered		
 --%>
 <div class="container">
 	<form id="frm01" class="form" >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="동물이름을 입력하세요" name="animalName"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="submit">사는곳 확인</button>
+	    <input placeholder="주문자" name="customerName"  class="form-control mr-sm-2" />
+	    <button class="btn btn-info" type="submit">주문내역확인</button>
  	</nav>
 	</form>
-
 </body>
 </html>

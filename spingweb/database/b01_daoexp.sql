@@ -95,11 +95,20 @@ INSERT INTO game_rank (player_id, player_name, game_score) VALUES (1, '앨리스
 INSERT INTO game_rank (player_id, player_name, game_score) VALUES (2, '밥', 600);
 INSERT INTO game_rank (player_id, player_name, game_score) VALUES (3, '찰리', 450);
 INSERT INTO game_rank (player_id, player_name, game_score) VALUES (4, '데이빗', 700);
-
+SELECT * FROM GAME_RANK;
 -- EX) 앨리스의 게임스코어 를 확인하고자 한다 SQL을 작성해보세요..
-SELECT GAME_SCORE
-FROM GAME_RANK
-WHERE PLAYER_NAME = '앨리스';
+SELECT NVL( MAX(GAME_SCORE),0 ) FROM GAME_RANK WHERE PLAYER_NAME = '';
+;
+/*
+입력 : "앨리스" ==> String playerName ==> @Param("playerName") String playerName  (요청값으로 전달될 내용 설정)
+출력 : 500 ==> int  (메서드의 리턴유형)
+@Select("SELECT GAME_SCORE FROM GAME_RANK WHERE PLAYER_NAME = #{playerName}")
+int getScore(@Param("playerName") String playerName);
+
+ex) 다되었으면 바로밑 동물명으로 사는 곳 처리하는 dao 처리하고, 처리한 소스코드 전달해주세요..
+
+ * */
+
 /*
 위 내용을 웹화면에서 처리할려면
 게이머이름[    ] [게임스코어확인] ==> 게임이름을 입력한 후, 게임스코어확인을 클릭하면
@@ -155,6 +164,18 @@ SELECT * FROM zoo_animals;
 -- 동물의 이름(animalName)을 입력 했을 때, 사는 곳(location)의 화면을 처리하는 controller/view 요청 처리를 해보세요.
 -- A02_AnimalController.java   a02_animal.jsp
 
+-- ex) 다되었으면 바로밑 동물명으로 사는 곳 처리하는 dao 처리하고, 처리한 소스코드 전달해주세요..
+-- sql
+SELECT * FROM zoo_animals;
+SELECT LOCATION FROM ZOO_ANIMALS WHERE ANIMAL_NAME='사자';
+
+-- dao에 들어갈 메서드 선언
+/*
+@Select("SELECT LOCATION FROM ZOO_ANIMALS WHERE ANIMAL_NAME=#{animalName}")
+String getLocation(@Param("animalName") String animalName);
+
+
+ * */
 
 
 -- 음식 주문 테이블 생성
@@ -166,7 +187,13 @@ CREATE TABLE food_orders (
     quantity NUMBER,
     total_price NUMBER
 );
-
+--
+SELECT item_ordered FROM food_orders WHERE customer_name = '이브';
+-- 이름:[    ] [주문내역확인]
+-- A03_FoodController.java   a03_food.jsp
+-- 요청값: customerName, 모델데이터: itemOrdered
+-- 1. Controller 생성..
+-- 2. View 단 처리..
 -- 데이터 입력
 INSERT INTO food_orders (order_id, customer_name, order_date, item_ordered, quantity, total_price) 
 VALUES (1, '이브', TO_DATE('2025-06-30', 'YYYY-MM-DD'), '피자', 2, 30);
@@ -174,7 +201,15 @@ INSERT INTO food_orders (order_id, customer_name, order_date, item_ordered, quan
 VALUES (2, '밥', TO_DATE('2025-06-29', 'YYYY-MM-DD'), '버거', 3, 25);
 INSERT INTO food_orders (order_id, customer_name, order_date, item_ordered, quantity, total_price) 
 VALUES (3, '앨리스', TO_DATE('2025-06-28', 'YYYY-MM-DD'), '샐러드', 1, 15);
-
+SELECT item_ordered FROM food_orders WHERE customer_name = '이브';
+/*
+입력: "이브" ==> String customerName ==> @Param("customerName") String customerName
+출력: "파자" ==> String
+메서드 선언..
+@Select("SELECT item_ordered FROM food_orders WHERE customer_name = #{customerName}")
+String getItemOrdered(@Param("customerName") String customerName );
+ * 
+ * */
 
 
 
