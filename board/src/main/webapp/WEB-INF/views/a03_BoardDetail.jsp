@@ -23,8 +23,15 @@ td {
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		let sessCk = "${mem.id}"==""
+		if(sessCk){
+			alert("현재화면은 로그인 하여야 합니다.\n로그인 페이지 이동")
+			location.href="login"
+		}	
 	});
+	function download(fname){
+		location.href="download?fileName="+fname
+	}	
 </script>
 </head>
 
@@ -105,11 +112,11 @@ td {
 					
 						<label for="no">첨부파일</label><br>
 						<c:forEach var="bfile" items="${bfiles}">
-							<button  type="button" class="btn btn-info" >${bfile}</button>
+							<button ondblclick="download('${bfile}')" type="button" class="btn btn-info" >${bfile}</button>
 						</c:forEach>
 					</div>	
+					
 				</div>
-
 			</div>
 		    <button id="uptBtn" type="button" class="btn btn-primary">수정</button>
 		    <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
