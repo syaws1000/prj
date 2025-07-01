@@ -23,6 +23,11 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		let sessCk = "${mem.name}"==""
+			if(sessCk){
+				alert("로그인 하셔야 합니다.")
+				location.href="login"
+			}
 		// uptBtn delBtn repBtn lstBtn
 		$("#uptBtn").click(function(){ 
 			if(confirm("수정하시겠습니까?")){

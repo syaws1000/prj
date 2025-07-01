@@ -16,8 +16,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${path}/com/bootstrap.min.css" >
+<link rel="stylesheet" href="${path}/css/com.css" >
+
 <style>
 	td{text-align:center;}
+	
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
@@ -26,7 +29,13 @@
 		$("#regBtn").click(function(){
 			location.href="boardInsert"
 		})
+		let sessCk = "${mem.name}"==""
+		if(sessCk){
+			alert("로그인 하셔야 합니다.")
+			location.href="login"
+		}
 		let msg = "${mem.name}님 ${msg}"
+		
 		//if(msg!="")
 		//	alert(msg)
 	});

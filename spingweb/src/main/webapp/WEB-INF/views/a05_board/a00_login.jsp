@@ -34,8 +34,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		let msg = "${msg}"
-		if(msg!="")
+		if(msg!=""){
 			alert(msg)
+			if(msg == "로그인 성공"){
+				location.href="boardList"
+			}
+		}
 	});
 </script>
 

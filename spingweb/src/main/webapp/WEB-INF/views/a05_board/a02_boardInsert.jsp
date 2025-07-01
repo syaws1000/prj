@@ -23,6 +23,11 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		let sessCk = "${mem.name}"==""
+			if(sessCk){
+				alert("로그인 하셔야 합니다.")
+				location.href="login"
+			}
 		let msg = "${msg}"
 		if(msg!=""){
 			if(!confirm(msg+"\n계속 등록하시겠습니까?")){
@@ -34,6 +39,9 @@
 				$("form").submit();
 			}
 		})
+		$("#lstBtn").click(function(){ 
+			location.href="boardList"
+		})		
 	});
 </script>
 </head>
@@ -67,6 +75,7 @@
                 <input type="file" class="form-control" id="reports" name="reports" multiple="multiple" placeholder="파일을 첨부하세요" >
             </div>          
             <button id="regBtn" type="button" class="btn btn-primary">등록</button>
+	    	<button id="lstBtn" type="button" class="btn btn-info">메인</button>              
         </form>
       </div>  
 </body>
