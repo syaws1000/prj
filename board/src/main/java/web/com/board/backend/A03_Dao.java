@@ -9,7 +9,8 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface A03_Dao {
 
-	
+	@Select("SELECT * FROM MEMBER10 WHERE ID = #{id} AND PWD = #{pwd}")
+	Member login(Member sch);	
 	
 	@Select("SELECT * FROM ANNOUNCE "
 			+ "WHERE TITLE LIKE #{title} AND AUTHOR LIKE #{author} "

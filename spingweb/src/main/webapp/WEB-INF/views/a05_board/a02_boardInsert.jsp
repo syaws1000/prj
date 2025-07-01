@@ -24,10 +24,10 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		let sessCk = "${mem.name}"==""
-			if(sessCk){
-				alert("로그인 하셔야 합니다.")
-				location.href="login"
-			}
+		if(sessCk){
+			alert("로그인 하셔야 합니다.")
+			location.href="login"
+		}
 		let msg = "${msg}"
 		if(msg!=""){
 			if(!confirm(msg+"\n계속 등록하시겠습니까?")){

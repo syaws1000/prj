@@ -24,10 +24,10 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		let sessCk = "${mem.name}"==""
-			if(sessCk){
-				alert("로그인 하셔야 합니다.")
-				location.href="login"
-			}
+		if(sessCk){
+			alert("로그인 하셔야 합니다.")
+			location.href="login"
+		}
 		// uptBtn delBtn repBtn lstBtn
 		$("#uptBtn").click(function(){ 
 			if(confirm("수정하시겠습니까?")){
@@ -45,7 +45,9 @@
 		$("#lstBtn").click(function(){ 
 			location.href="boardList"
 		})
-	
+        function download(fname){
+        	location.href="download?fileName="+fname
+        }    	
 	});
 </script>
 </head>
@@ -79,12 +81,6 @@
                     class="btn btn-info">${bfile.fname}</button> 
                 </c:forEach>
             </div>
-            <script type="text/javascript">
-            function download(fname){
-            	location.href="download?fileName="+fname
-            }           
-            </script>
-
         </div>
         <div class="col-md-6">
             <div class="form-group">

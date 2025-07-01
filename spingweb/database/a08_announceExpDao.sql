@@ -112,3 +112,21 @@ int insertFile(AnnFileDto ins);
 
 select * from ANNOUNCE_FILE;
 
+--
+--1. dao 처리
+--	1) sql 
+--		select * from member10 where id = 'himan' and pwd='7777'
+--		login
+--	2) DTO 완성..
+--	3) 메서드 선언..
+--------------------------------------	
+CREATE TABLE MEMBER10
+AS SELECT * FROM MEMBER;
+SELECT * FROM MEMBER10 WHERE ID = 'himan' AND PWD = '7777';
+/*
+
+@Select("SELECT * FROM MEMBER10 WHERE ID = #{id} AND PWD = #{pwd}")
+Member login(Member sch);
+ * */
+
+

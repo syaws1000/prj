@@ -1,2 +1,25 @@
-
 # 게시판 글 등록..
+
+
+# 게시판 session 처리..
+1. dao 처리
+	1) sql 
+		select * from member10 where id = 'himan' and pwd='7777'
+		login
+	2) DTO 완성..
+	3) 메서드 선언..
+------------------------------------	
+		
+2. service
+3. controller
+	1) session 처리
+	2) 로그인 화면 호출..
+4. view(jsp) 	
+	1) 로그인 화면 추가..
+5. 등록화면에 로그인 아이디 추가..
+
+# 상세화면 로딩
+1. dao 처리
+
+
+# 상세화면에서 파일 다운로드 처리..
