@@ -21,8 +21,8 @@ public interface A03_Dao {
 	@Select("SELECT * FROM announce WHERE  board_id= #{boardId}")
 	Announce getAnnounce(@Param("boardId") int boardId);
 
-	@Select("SELECT * FROM ANNOUNCE_FILE WHERE  NO= #{no}")
-	AnnFileDto getFile(@Param("no") int no);	
+	@Select("SELECT FNAME FROM ANNOUNCE_FILE WHERE  NO= #{no}")
+	List<String> getFile(@Param("no") int no);	
 	
 	@Insert("INSERT INTO announce  VALUES (ANNOUNCE_SEQ.NEXTVAL, #{title}, #{content}, #{parentId}, #{author}, SYSDATE, SYSDATE, #{status}, 0, 0)")
 	int insertAnnounce(Announce ins);

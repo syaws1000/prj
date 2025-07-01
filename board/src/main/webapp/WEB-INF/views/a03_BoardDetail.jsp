@@ -107,7 +107,11 @@ td {
 					</div>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">등록</button>
+		    <button id="uptBtn" type="button" class="btn btn-primary">수정</button>
+		    <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
+		    <button id="repBtn" type="button" class="btn btn-warning">답글</button>
+		    <button id="lstBtn" type="button" class="btn btn-info">메인</button>        
+
 		</form>
 	</div>
 </body>

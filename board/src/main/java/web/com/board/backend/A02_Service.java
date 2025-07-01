@@ -29,7 +29,7 @@ public class A02_Service {
 	public Announce getAnnounce(int boardId) {
 		return dao.getAnnounce(boardId);
 	}
-	public AnnFileDto getFile( int no) {
+	public List<String> getFile( int no) {
 		return dao.getFile(no);
 	}
 	
