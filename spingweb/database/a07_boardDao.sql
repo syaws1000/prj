@@ -90,6 +90,42 @@ List<FileDto> getFile(@Param("no") int no);
 
 
 **/
+SELECT * FROM board;
+-- 읽을 때 마다, READCNT 변경
+UPDATE BOARD SET READCNT = READCNT+1 WHERE NO = 1;
+/*
+@Update("UPDATE BOARD SET READCNT = READCNT+1 WHERE NO = #{no}")
+int uptReadCnt(@Param("no")int no)
+ * */
+-- 수정처리
+UPDATE BOARD
+	SET SUBJECT = '수정합니다.',
+	    CONTENT = '내용 변경',
+	    UPTDTE = SYSDATE
+WHERE NO = 1;
+/*
+@Update("UPDATE BOARD SET READCNT = READCNT+1 WHERE NO = #{no}")
+int uptReadCnt(@Param("no")int no)
+UPDATE BOARD
+	SET SUBJECT = #{subject},
+	    CONTENT = #{content},
+	    UPTDTE = SYSDATE
+WHERE NO = #{no}
+@Update("")
+int updateBoard(Board upt) 
+@Delete("DELETE FROM BOARD WHERE NO = #{no}")
+int deleteBoard(@Param("no") int no);
+
+ * */
+-- 삭제처리
+DELETE FROM BOARD WHERE NO = #{no}
+;
+/*
+
+위 SQL DAO 작성    uptReadCnt(),   updateBoard(),  deleteBoard()
+
+ * */
+
 
 
 

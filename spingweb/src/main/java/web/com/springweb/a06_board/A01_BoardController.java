@@ -20,7 +20,7 @@ public class A01_BoardController {
 	// http://localhost:5050/logout
 	@GetMapping("logout")	
 	public String logout( HttpSession sess) {
-		sess.removeAttribute("mem");
+		sess.removeAttribute("mem"); // mem 세션 삭제, 다시 로그인 화면 이동 처리..
 		return "redirect:/login";
 	}
 	
