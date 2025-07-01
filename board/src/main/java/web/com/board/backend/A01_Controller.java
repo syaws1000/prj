@@ -6,10 +6,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class A01_Controller {
 	@Autowired(required=false)
 	private A02_Service service;
+	
+	
+	// http://localhost:5051/login
+	@RequestMapping("login")
+	public String login(Member login, HttpSession session, Model d) {
+		Member mem = service.login(login);
+		if(mem!=null) {
+			d.addAttribute("msg", "로그인 성공");
+			session.setAttribute("mem", mem);
+		}else {
+			d.addAttribute("msg", "로그인 실패");
+		}
+		return "WEB-INF\\views\\a00_login.jsp";
+	}
+	
+	
 	
 	// http://localhost:5051/boardList
 	@GetMapping("boardList")
