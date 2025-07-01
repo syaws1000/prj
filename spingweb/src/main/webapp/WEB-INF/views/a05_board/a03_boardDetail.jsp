@@ -28,15 +28,27 @@
 			alert("로그인 하셔야 합니다.")
 			location.href="login"
 		}
+		let sessId = "${mem.id}"	
+		let writer = $("[name=writer]").val()
+		//alert("세션아이디:"+sessId+",작성자:"+writer)
 		// uptBtn delBtn repBtn lstBtn
 		$("#uptBtn").click(function(){ 
+
 			if(confirm("수정하시겠습니까?")){
-	
+				if(writer != sessId){
+					alert("수정 권한을 작성자에게만 있습니다.")
+				}else{
+					alert("수정 수행")
+				}
 			}
 		})
 		$("#delBtn").click(function(){ 
 			if(confirm("삭제하시겠습니까?")){
-				
+				if(writer != sessId){
+					alert("삭제 권한을 작성자에게만 있습니다.")
+				}else{
+					alert("삭제 수행")
+				}				
 			}
 		})
 		$("#repBtn").click(function(){ 
