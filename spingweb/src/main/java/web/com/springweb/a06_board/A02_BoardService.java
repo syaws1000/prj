@@ -61,11 +61,24 @@ public class A02_BoardService {
 		}		
 		return msg;
 	}
+	public Board getDetail(int no) {
+		// 상세조회시, 조회수 카운트 업
+		dao.uptReadCnt(no);
+		return dao.getBoard(no);
+	}		
 	public Board getBoard(int no) {
+		// 상세조회시, 조회수 카운트 업
 		return dao.getBoard(no);
 	}		
 	public List<FileDto> getFile(int no){
 		return dao.getFile(no);
 	}	
+	public String  updateBoard(Board upt) {
+		return dao.updateBoard(upt)>0?"수정성공":"수정실패";
+	}
+	public String deleteBoard(int no) {
+		return dao.deleteBoard(no)>0?"삭제성공":"삭제실패";
+	}
+	
 	
 }
