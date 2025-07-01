@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -37,6 +38,17 @@ public class A01_Controller {
 		d.addAttribute("list", service.getAnnounceList(sch));
 		return "WEB-INF\\views\\a01_BoardList.jsp";
 	}
+	// http://localhost:5051/boardDetail?boardId = 7
+	@GetMapping("boardDetail")
+	public String boardDetail(@RequestParam("boardId") int boardId, Model d ) {
+		
+		d.addAttribute("board", service.getAnnounce(boardId));
+		d.addAttribute("bfiles", service.getFile(boardId));
+		return "WEB-INF\\views\\a03_BoardDetail.jsp";
+	}
+	
+	
+	
 	// http://localhost:5051/boardInsert
 	@RequestMapping("boardInsert")
 	public String boardInsert(Announce ins, Model d) {
