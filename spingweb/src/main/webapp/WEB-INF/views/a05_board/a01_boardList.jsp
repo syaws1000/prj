@@ -50,8 +50,6 @@
 <body>
 <div class="jumbotron text-center">
   <h2>게시판리스트</h2>
- 
-
 </div>
 <%-- 
 		
