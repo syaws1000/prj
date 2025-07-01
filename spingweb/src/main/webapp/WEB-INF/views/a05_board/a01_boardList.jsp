@@ -39,6 +39,11 @@
 		//if(msg!="")
 		//	alert(msg)
 	});
+	function logout(){
+		if(confirm("로그아웃하시겠습니까?")){
+			location.href="logout"
+		}
+	}
 </script>
 </head>
 
@@ -52,7 +57,7 @@
 		
 --%>
 <div class="container">
- <h6 class="text-right">${mem.name} 로그인중</h6>
+ <h6 class="text-right" ondblclick="logout()">${mem.name} 로그인중</h6>
 	<form id="frm01" class="form" >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name="subject" value="${param.subject}" class="form-control mr-sm-2" />

@@ -30,8 +30,10 @@
 		}
 		let sessId = "${mem.id}"	
 		let writer = $("[name=writer]").val()
-		//alert("세션아이디:"+sessId+",작성자:"+writer)
-		// uptBtn delBtn repBtn lstBtn
+		if(sessId!=writer){
+			$("#uptBtn").hide()
+			$("#delBtn").hide()
+		}
 		$("#uptBtn").click(function(){ 
 
 			if(confirm("수정하시겠습니까?")){

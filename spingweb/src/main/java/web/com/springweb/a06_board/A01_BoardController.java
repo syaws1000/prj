@@ -15,7 +15,14 @@ import web.com.springweb.vo.Member;
 public class A01_BoardController {
 	@Autowired(required=false)
 	private A02_BoardService service;	
+
 	
+	// http://localhost:5050/logout
+	@GetMapping("logout")	
+	public String logout( HttpSession sess) {
+		sess.removeAttribute("mem");
+		return "redirect:/login";
+	}
 	
 	// http://localhost:5050/login
 	@RequestMapping("login")
