@@ -135,7 +135,7 @@ Member login(Member sch);
 dao 작성..
 **/
 SELECT * FROM announce WHERE  board_id= 7;
-SELECT * FROM ANNOUNCE_FILE; WHERE NO =7;
+SELECT FNAME  FROM ANNOUNCE_FILE WHERE NO =7;
 /*
 @Select("SELECT * FROM announce WHERE  board_id= #{boardId}")
 Announce getAnnounce(@Param("boardId") int boardId);

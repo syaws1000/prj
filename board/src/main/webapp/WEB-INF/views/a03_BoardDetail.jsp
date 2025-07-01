@@ -51,15 +51,11 @@ td {
 							value="${board.title}" required>
 					</div>
 					<div class="form-group">
-						<label for="content">내용</label>
-						<textarea class="form-control" id="content" name="content"
-							rows="5" placeholder="내용을 입력하세요">${board.content}</textarea>
-					</div>
-					<div class="form-group">
 						<label for="author">작성자</label> <input type="text"
 							class="form-control" id="author" name="author"
 							value="${board.author}" required>
 					</div>
+					
 					<div class="form-group">
 						<label for="status">상태</label>
 							<select class="form-control" id="status" name="status">
@@ -72,7 +68,13 @@ td {
 						$("#status").val("${board.status}")	
 						</script>	
 					</div>					
-					
+					<div class="form-group">
+						<label for="content">내용</label>
+						<textarea class="form-control" id="content" name="content"
+								rows="5" placeholder="내용을 입력하세요">${board.content}</textarea>
+					</div>	
+											
+				
 				</div>
 				<%--
 					// boardId parentId  title   author content  createAt updatedAt status
@@ -86,32 +88,33 @@ td {
 							value="${board.parentId}" required>
 					</div>
 					<div class="form-group">
-						<label for="commentCount">답글수</label> <input type="text"
+						<label for="commentCount">답글수</label> <input type="text"  readonly
 							class="form-control" id="commentCount" value="${board.commentCount}">
 					</div>
 					<div class="form-group">
-						<label for="createAt">등록일</label> <input type="text"
-							class="form-control"
-							value="<fmt:formatDate value='${board.createAt}'/>">
+						<label for="createAt">등록일</label> 
+							<input type="text" class="form-control"  readonly
+								value="<fmt:formatDate value='${board.createdAt}'/>">
 					</div>
 					<div class="form-group">
 						<label for="uptdte">수정일</label> <input type="text"
-							class="form-control"
+							class="form-control"  readonly
 							value="<fmt:formatDate value='${board.updatedAt}'/>">
 					</div>
 					<div class="form-group">
-						<label for="no">첨부파일</label>
+					
+						<label for="no">첨부파일</label><br>
 						<c:forEach var="bfile" items="${bfiles}">
-							<span class="badge bg-info">${bfile.fname}</span>,
+							<button  type="button" class="btn btn-info" >${bfile}</button>
 						</c:forEach>
-					</div>
+					</div>	
 				</div>
+
 			</div>
 		    <button id="uptBtn" type="button" class="btn btn-primary">수정</button>
 		    <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
 		    <button id="repBtn" type="button" class="btn btn-warning">답글</button>
 		    <button id="lstBtn" type="button" class="btn btn-info">메인</button>        
-
 		</form>
 	</div>
 </body>
