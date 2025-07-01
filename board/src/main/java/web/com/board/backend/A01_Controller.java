@@ -14,15 +14,17 @@ public class A01_Controller {
 	private A02_Service service;
 	
 	
-	// http://localhost:5051/login
+	// http://localhost:5051/login    (GET방식/POST방식)
 	@RequestMapping("login")
 	public String login(Member login, HttpSession session, Model d) {
-		Member mem = service.login(login);
-		if(mem!=null) {
-			d.addAttribute("msg", "로그인 성공");
-			session.setAttribute("mem", mem);
-		}else {
-			d.addAttribute("msg", "로그인 실패");
+		if(login.getId()!=null) {
+			Member mem = service.login(login);
+			if(mem!=null) {
+				d.addAttribute("msg", "로그인 성공");
+				session.setAttribute("mem", mem);
+			}else {
+				d.addAttribute("msg", "로그인 실패");
+			}
 		}
 		return "WEB-INF\\views\\a00_login.jsp";
 	}
