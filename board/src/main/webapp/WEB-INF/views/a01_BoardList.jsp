@@ -40,6 +40,7 @@
 		
 --%>
 <div class="container">
+	<h6 class="text-right">${mem.name}님 로그인중</h6>
 	<form id="frm01" class="form"  >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name="title" value="${param.title}" class="form-control mr-sm-2" />
