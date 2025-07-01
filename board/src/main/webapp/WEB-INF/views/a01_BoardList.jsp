@@ -26,6 +26,12 @@
 		$("#regBtn").click(function(){
 			location.href="boardInsert"
 		})
+		let sessCk = "${mem.id}"==""
+		if(sessCk){
+			alert("현재화면은 로그인 하여야 합니다.\n로그인 페이지 이동")
+			location.href="login"
+		}
+		
 
 	});
 </script>

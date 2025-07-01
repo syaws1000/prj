@@ -29,6 +29,11 @@
 				location.href="boardList"
 			}
 		}	
+		let sessCk = "${mem.id}"==""
+		if(sessCk){
+			alert("현재화면은 로그인 하여야 합니다.\n로그인 페이지 이동")
+			location.href="login"
+		}		
 	});
 </script>
 </head>
@@ -55,7 +60,8 @@
              --%>
             <div class="form-group">
                 <label for="author">작성자</label>
-                <input type="text" class="form-control" id="author" name="author" placeholder="작성자를 입력하세요" required>
+                <input type="hidden" name="author" value="${mem.id}"/>
+                <input type="text" readonly value="${mem.name} [ ${mem.id} ]" class="form-control" >
             </div>
             <div class="form-group">
                 <label for="status">상태</label>
