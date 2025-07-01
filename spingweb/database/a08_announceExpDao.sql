@@ -129,4 +129,23 @@ SELECT * FROM MEMBER10 WHERE ID = 'himan' AND PWD = '7777';
 Member login(Member sch);
  * */
 
+--	1) 기본 내용 SELECT * FROM announce WHERE NO = 1;
+--	2) 첨부 파일 SELECT * FROM ANNOUNCE_FILE WHERE NO = 1;
+/*
+dao 작성..
+**/
+SELECT * FROM announce WHERE  board_id= 7;
+SELECT * FROM ANNOUNCE_FILE; WHERE NO =7;
+/*
+@Select("SELECT * FROM announce WHERE  board_id= #{boardId}")
+Announce getAnnounce(@Param("boardId") int boardId);
+
+@Select("SELECT * FROM ANNOUNCE_FILE WHERE  NO= #{no}")
+AnnFileDto getFile(@Param("no") int no);
+
+
+
+ * */
+
+
 

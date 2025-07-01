@@ -20,6 +20,15 @@
 
 # 상세화면 로딩
 1. dao 처리
+	1) 기본 내용 SELECT * FROM ANNOUCE WHERE NO = 1;
+	2) 첨부 파일 SELECT * FROM ANNOUCE WHERE NO = 1;
+	메서드 선언
+2. SERVICE
+	1) 기본 조회
+	2) 첨부파일 정보 조회..
+3. controller
+	모델 데이터 설정.
+
 
 
 # 상세화면에서 파일 다운로드 처리..
