@@ -40,7 +40,8 @@ public class A01_Controller {
 	}
 	// http://localhost:5051/boardDetail?boardId = 7
 	@GetMapping("boardDetail")
-	public String boardDetail(@RequestParam("boardId") int boardId, Model d ) {
+	public String boardDetail(@RequestParam("boardId") int boardId, 
+							  Model d ) {
 		
 		d.addAttribute("board", service.getAnnounce(boardId));
 		d.addAttribute("bfiles", service.getFile(boardId));
