@@ -223,6 +223,73 @@ String getItemOrdered(@Param("customerName") String customerName );
 
 
 
+-- 음식 레시피 테이블
+CREATE TABLE Food_Recipe (
+    recipe_id NUMBER PRIMARY KEY,
+    food_name VARCHAR2(50),
+    ingredients VARCHAR2(200),
+    cooking_time NUMBER, -- 요리 시간 (분 단위)
+    difficulty_level VARCHAR2(20) -- 요리 난이도
+);
+
+-- 데이터 입력 예시
+INSERT INTO Food_Recipe (recipe_id, food_name, ingredients, cooking_time, difficulty_level)
+VALUES (1, '김치찌개', '김치, 돼지고기, 두부, 양파, 마늘, 대파', 30, '중간');
+
+INSERT INTO Food_Recipe (recipe_id, food_name, ingredients, cooking_time, difficulty_level)
+VALUES (2, '불고기', '소고기, 양파, 마늘, 간장, 설탕, 참기름, 깨', 20, '쉬움');
+
+INSERT INTO Food_Recipe (recipe_id, food_name, ingredients, cooking_time, difficulty_level)
+VALUES (3, '비빔밥', '밥, 고추장, 시금치, 계란, 당근, 오이, 참기름', 15, '쉬움');
+
+
+-- 음식명을 입력하면 재료를 출력
+-- 음식명:[    ]
+
+-- 모험 여행 정보 테이블
+-- 모험 여행 정보 테이블
+CREATE TABLE Adventure_Trip (
+    trip_id NUMBER PRIMARY KEY,
+    destination VARCHAR2(100),
+    days NUMBER, -- 여행 기간 (일수)
+    difficulty VARCHAR2(20), -- 난이도 (쉬움, 중간, 어려움)
+    special_activity VARCHAR2(100) -- 여행 중 특별한 활동
+);
+
+-- 데이터 입력 예시
+INSERT INTO Adventure_Trip (trip_id, destination, days, difficulty, special_activity)
+VALUES (1, '에베레스트 산', 14, '어려움', '등반');
+
+INSERT INTO Adventure_Trip (trip_id, destination, days, difficulty, special_activity)
+VALUES (2, '그랜드 캐년', 7, '중간', '래프팅');
+
+INSERT INTO Adventure_Trip (trip_id, destination, days, difficulty, special_activity)
+VALUES (3, '그레이트 배리어 리프', 5, '쉬움', '스노클링');
+
+-- 산이름을 입력하면  난이도 출력.
+-- 산이름:[     ]
+
+
+-- 시간 여행 정보 테이블
+CREATE TABLE Time_Travel (
+    trip_id NUMBER PRIMARY KEY,
+    era VARCHAR2(50),
+    destination VARCHAR2(100),
+    travel_date DATE,
+    notable_event VARCHAR2(200)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Time_Travel (trip_id, era, destination, travel_date, notable_event)
+VALUES (1, '선사 시대', '공룡 공원', TO_DATE('1000-10-15', 'YYYY-MM-DD'), '발견된 최초의 공룡');
+
+INSERT INTO Time_Travel (trip_id, era, destination, travel_date, notable_event)
+VALUES (2, '미래', '화성 식민지', TO_DATE('2050-10-15', 'YYYY-MM-DD'), '인류 최초의 화성 이주');
+
+INSERT INTO Time_Travel (trip_id, era, destination, travel_date, notable_event)
+VALUES (3, '중세 시대', '아서왕의 궁전', TO_DATE('1000-10-15', 'YYYY-MM-DD'), '성배의 탐험');
+-- 시대를 입력하면 목적지 출력
+-- 시대 :[      ]
 
 
 
