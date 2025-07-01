@@ -41,14 +41,14 @@ td {
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="no">번호</label> <input type="text" readonly
-							class="form-control" id="no" name="no" value="${board.no}"
+						<label for="boardId">번호</label> <input type="text" readonly
+							class="form-control" id="boardId" name="boardId" value="${board.boardId}"
 							required>
 					</div>
 					<div class="form-group">
-						<label for="subject">제목</label> <input type="text"
-							class="form-control" id="subject" name="subject"
-							value="${board.subject}" required>
+						<label for="title">제목</label> <input type="text"
+							class="form-control" id="title" name="title"
+							value="${board.title}" required>
 					</div>
 					<div class="form-group">
 						<label for="content">내용</label>
@@ -56,30 +56,48 @@ td {
 							rows="5" placeholder="내용을 입력하세요">${board.content}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="writer">작성자</label> <input type="text"
-							class="form-control" id="writer" name="writer"
-							value="${board.writer}" required>
+						<label for="author">작성자</label> <input type="text"
+							class="form-control" id="author" name="author"
+							value="${board.author}" required>
 					</div>
+					<div class="form-group">
+						<label for="status">상태</label>
+							<select class="form-control" id="status" name="status">
+								<option value="">선택하세요</option>
+								<option>공개</option>
+								<option>비공개</option>
+								<option>삭제</option>
+							</select>
+						<script>
+						$("#status").val("${board.status}")	
+						</script>	
+					</div>					
+					
 				</div>
+				<%--
+					// boardId parentId  title   author content  createAt updatedAt status
+	//    commentCount
+				
+				 --%>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="refno">상위번호</label> <input type="text" readonly
-							class="form-control" id="refno" name="refno"
-							value="${board.refno}" required>
+						<label for="parentId">상위번호</label> <input type="text" readonly
+							class="form-control" id="parentId" name="parentId"
+							value="${board.parentId}" required>
 					</div>
 					<div class="form-group">
-						<label for="readcnt">조회수</label> <input type="text"
-							class="form-control" id="readcnt" value="${board.readcnt}">
+						<label for="commentCount">답글수</label> <input type="text"
+							class="form-control" id="commentCount" value="${board.commentCount}">
 					</div>
 					<div class="form-group">
-						<label for="regdte">등록일</label> <input type="text"
+						<label for="createAt">등록일</label> <input type="text"
 							class="form-control"
-							value="<fmt:formatDate value='${board.regdte}'/>">
+							value="<fmt:formatDate value='${board.createAt}'/>">
 					</div>
 					<div class="form-group">
 						<label for="uptdte">수정일</label> <input type="text"
 							class="form-control"
-							value="<fmt:formatDate value='${board.uptdte}'/>">
+							value="<fmt:formatDate value='${board.updatedAt}'/>">
 					</div>
 					<div class="form-group">
 						<label for="no">첨부파일</label>

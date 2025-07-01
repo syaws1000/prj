@@ -6,7 +6,8 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Announce {
-	
+	// boardId parentId  title  content author createAt updatedAt status
+	//    commentCount
     private int boardId;
     private String title;
     private String content;
