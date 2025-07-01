@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,13 @@ public class A02_Service {
 		sch.setAuthor("%"+sch.getAuthor()+"%");
 		return dao.getAnnounceList(sch);
 	}
+	public Announce getAnnounce(int boardId) {
+		return dao.getAnnounce(boardId);
+	}
+	public AnnFileDto getFile( int no) {
+		return dao.getFile(no);
+	}
+	
 	@Value("${user.upload}")
 	private String path;
 	
