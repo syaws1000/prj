@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class Config10 {
 	
 	// 컨테이너 안에 하나의 객체를 할당.
+	
 	@Bean
 	public Object obj() {
 		return new Object();

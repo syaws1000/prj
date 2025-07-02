@@ -17,6 +17,49 @@
 
 ### 📌 학습 연결
 
+
+
+
+
+
+# 파일업로드
+1. 파일업로드를 위한 환경 설정.
+	1) application.properties
+		파일을 업로드 할 경로를 만들고, 해당 경로를 복사하서 이름을 지정해서 설정한다.
+		user.upload=C:\\Users\\USER\\git\\prj\\spingweb\\src\\main\\webapp\\WEB-INF\\z03_upload	
+		user.upload3=C:\Users\USER\git\prj\spingweb\src\main\webapp\WEB-INF\z03_upload\\
+2. 파일업로드를 위한 backend(java) 처리 내용
+	1) 요청값 MultipartFile
+	2) 경로 설정 @Value
+	3) MultipartFile ==> File 객체 변환처리
+		메모리를 물리적 파일로 저장 처리
+3. 파일업로드를 위하 frontend(jsp/html) 처리 내용
+	1) form encType="multipart/form-data"
+	2) type="file" name="report" multiple = "multiple"
+	
+
+# 파일다운로드
+# 게시판 파일업로드와 다운로드 처리
+# 세션 처리
+1. backend
+2. frontend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * 기본 게시판 CRUD는 완료했으니, 이제 **계층형 게시판(답글)** 기능을 통해 실무형 스킬을 업그레이드합니다!
 
 ---
