@@ -9,6 +9,7 @@ public class SpingwebApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpingwebApplication.class, args);
 	}
+	
 
 	
 }
