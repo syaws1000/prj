@@ -126,6 +126,72 @@ DELETE FROM BOARD WHERE NO = #{no}
 
  * */
 
+/*
+1. 게시판 기본 정보 등록..
+2. 파일첨부 테이블 정보 등록
+
+ * */
+SELECT * FROM board;
+SELECT * FROM boardFile;
+
+CREATE TABLE boardexp01
+AS SELECT * FROM board WHERE 1=0;
+
+CREATE TABLE boardFileexp01
+AS SELECT * FROM boardFile WHERE 1=0;
+
+SELECT * FROM boardexp01;
+SELECT * FROM boardFileexp01;
+CREATE SEQUENCE boardexp01_seq;
+
+INSERT INTO boardexp01 values(boardexp01_seq.nextval, 0,'첫글등록','내용','홍길동',0,sysdate,sysdate);
+INSERT INTO boardFileexp01 values(boardexp01_seq.currval,'aaa.jpg','첫글등록 첨부파일', sysdate, sysdate);
+/*
+# 게시판 등록화면을 통해서 첨부파일도 함께 등록 처리되는 내용..
+@Insert("INSERT INTO boardexp01 values(boardexp01_seq.nextval, #{refno},#{subject},#{content},#{writer},0,sysdate,sysdate)")
+int insertBoardexp01(Board ins);
+
+@Insert("INSERT INTO boardFileexp01 values(boardexp01_seq.currval,#{fname},#{etc}, sysdate, sysdate)")
+int insertBoardFileepx01(BoardFile ins);
+
+
+
+	private int no; 
+	private int refno; 
+	private String subject; 
+	private String content;
+	private String writer;
+	private int readcnt;
+	private Date regdte; 
+	private Date uptdte;
+# 개발 순서
+1. dao
+	기본 정보 등록 
+		등록 sql 
+		메서드 선언
+    파일 정보 등록 
+    	등록 sql
+    	메서드 선언
+    
+    
+    
+2. service
+	1) 기본 정보 등록
+	2) 파일 업로드 처리
+	3) 파일 정보 등록 처리
+3. controller
+    0) 등록 화면 로딩
+	1) 요청으로 Board로 
+		기본 정보등록 처리..
+4. view
+	1) 등록 화면  처리...
+	
+
+ * */
+
+
+
+
 
 
 

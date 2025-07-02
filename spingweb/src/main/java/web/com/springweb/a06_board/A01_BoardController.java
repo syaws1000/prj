@@ -28,9 +28,9 @@ public class A01_BoardController {
 	@RequestMapping("login")
 	public String login(Member mem, HttpSession sess, Model d//, RedirectAttributes ra
 						) {
-		if(mem.getId()!=null) {
+		if(mem.getId()!=null) { // 입력값에 따라서 로그인 데이터 여부 확인 처리..
 			Member smem = service.login(mem);
-			if(smem!=null) {
+			if(smem!=null) { // 해당 데이터가 있는 경우..
 				sess.setAttribute("mem", smem); // 세션으로 설정.
 				//ra.addFlashAttribute("msg","로그인 성공");
 				d.addAttribute("msg","로그인 성공");
@@ -70,8 +70,9 @@ public class A01_BoardController {
 	// http://localhost:5050/boardDetail?no=8
 	@GetMapping("boardDetail")
 	public String boardDetail(@RequestParam("no") int no, Model d) {
-
+		// 기본 정보	
 		d.addAttribute("board", service.getDetail(no));
+		// 파일 리스트 정보..
 		d.addAttribute("bfiles", service.getFile(no));
 		
 		return "WEB-INF\\views\\a05_board\\a03_boardDetail.jsp";

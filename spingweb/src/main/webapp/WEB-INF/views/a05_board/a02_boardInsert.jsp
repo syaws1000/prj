@@ -73,7 +73,8 @@
             </div>
               <div class="form-group">
                 <label for="reports">첨부파일</label>
-                <input type="file" class="form-control" id="reports" name="reports" multiple="multiple" placeholder="파일을 첨부하세요" >
+                <input type="file"  multiple="multiple"  class="form-control" id="reports" name="reports" placeholder="파일을 첨부하세요" >
+                <%-- 한개가 아닌 여러개의 파일을 등록시 활용하는 속성(ctrl 선택) --%>
             </div>          
             <button id="regBtn" type="button" class="btn btn-primary">등록</button>
 	    	<button id="lstBtn" type="button" class="btn btn-info">메인</button>              

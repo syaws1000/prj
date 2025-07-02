@@ -14,6 +14,7 @@ public class Board {
 	private int readcnt;
 	private Date regdte; 
 	private Date uptdte;
+	// 게시판 등록시, 첨부파일이 여러개일 때, 설정하는 속성..
 	private List<MultipartFile> reports;
 	
 	
