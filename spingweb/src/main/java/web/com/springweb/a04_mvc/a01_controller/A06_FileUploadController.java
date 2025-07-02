@@ -19,30 +19,12 @@ public class A06_FileUploadController {
 	public String uploadexp100() {
 		return "WEB-INF\\views\\a04_mvc\\a11_fileUploadExp.jsp";
 	}
-	@Value("${user.upload3}")
-	private String path;
-	
+
 	@PostMapping("uploadexp100")
 	public String uploadexp101(@RequestParam("report") MultipartFile report, Model d) {
 		System.out.println("업로드한 파일:"+report.getOriginalFilename());
-		String fname = report.getOriginalFilename();
-		File f = new File(path,fname);
-		String msg = "";
-		try {
-			report.transferTo(f);
-			System.out.println("파일 등록 성공");
-			msg = "파일 등록 성공";
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			msg = "[에러]상태:"+ e.getMessage();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			msg = "[에러]업로드:"+ e.getMessage();
-		} catch (Exception e) {
-			msg = "[에러]일반:"+ e.getMessage();
-		}
-		d.addAttribute("msg", msg);
+
+		d.addAttribute("msg", "");
 		return "WEB-INF\\views\\a04_mvc\\a11_fileUploadExp.jsp";
 	}
 	
