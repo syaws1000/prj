@@ -11,8 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class A06_FileUploadService {
 	
 	@Value("${user.upload3}")
-	private String path;
-		
+	private String path;		
 	public String upload(MultipartFile mf) {
 		String fname = mf.getOriginalFilename();
 		File f = new File(path,fname);
