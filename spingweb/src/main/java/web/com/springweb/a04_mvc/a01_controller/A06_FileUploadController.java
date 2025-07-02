@@ -30,3 +30,18 @@ public class A06_FileUploadController {
 	}
 	
 }
+// A07_FileUploadController.java
+// A07_FileUploadService.java
+// WEB-INF\views\a04_mvc\a12_fileUploadExp.jsp
+
+// webapp\WEB-INF\z04_upload  : 대상 폴드
+// 환경설정 : user.upload4
+// 초기 화면 로딩 .controler/view
+// view단에 파일 업로드위한 처리.
+// service 파일 업로드 처리..
+// controller
+
+
+
+
+
