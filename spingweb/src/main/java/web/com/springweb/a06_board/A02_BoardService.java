@@ -47,7 +47,9 @@ public class A02_BoardService {
 					File file = new File(path,fname);
 					mf.transferTo(file);
 					// 2. 파일정보 저장.
-					cnt += dao.insertFile(new FileDto(fname,"게시판파일업로드:"+ins.getSubject()));
+					cnt += dao.insertFile(
+				    new FileDto(fname,"게시판파일업로드:"+
+					            ins.getSubject()));
 				}
 				
 			}

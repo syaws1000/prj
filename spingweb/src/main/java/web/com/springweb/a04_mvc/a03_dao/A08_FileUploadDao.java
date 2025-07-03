@@ -17,5 +17,7 @@ public interface A08_FileUploadDao {
 	@Insert("INSERT INTO boardFileexp01 values(boardexp01_seq.currval,"
 			+ "#{fname}, #{etc}, sysdate, sysdate)")
 	int insertBoardFileepx01(FileDto ins);
+	
+	
 
 }
