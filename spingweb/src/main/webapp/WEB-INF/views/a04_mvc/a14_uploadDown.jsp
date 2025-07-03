@@ -52,10 +52,17 @@
     </thead>	
     <tbody>
     	<c:forEach var="fname" items="${flist}" varStatus="sts">
-    		<tr><td>${sts.count}</td><td>${fname}</td></tr>
+    		<tr ondblclick="download('${fname}')"><td>${sts.count}</td><td>${fname}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function download(fname){
+			if(confirm(fname+" 다운하시겠습니까?")){
+				location.href="download4?fName="+fname
+			}
+		}
+	</script>
 </div>
 </body>
 </html>
