@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.a04_mvc.a02_service.A08_FileUploadDBService;
 import web.com.springweb.a06_board.Board;
@@ -29,5 +30,13 @@ public class A08_FileUploadDBController {
 		return "WEB-INF\\views\\a04_mvc\\a13_insertFileDB.jsp";
 	}	
 	// "WEB-INF\\views\\a04_mvc\\a08_fileUpload.jsp"
+	// http://localhost:5050/detailUpFile01?no=1
+	@GetMapping("detailUpFile01")
+	public String detailUpFile01(@RequestParam("no") int no) {
+		return "WEB-INF\\views\\a04_mvc\\a16_detailFileDB.jsp";
+	}
+	
+	
+	
 	
 }

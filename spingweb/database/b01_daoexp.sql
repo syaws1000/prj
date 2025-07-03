@@ -293,6 +293,157 @@ VALUES (3, '중세 시대', '아서왕의 궁전', TO_DATE('1000-10-15', 'YYYY-M
 
 
 
+-- 슈퍼히어로 능력 테이블
+CREATE TABLE Superhero_Ability (
+    superhero_id NUMBER PRIMARY KEY,
+    superhero_name VARCHAR2(50),
+    superpower VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Superhero_Ability (superhero_id, superhero_name, superpower)
+VALUES (1, '아이언맨', '고급 기술 갑옷');
+
+INSERT INTO Superhero_Ability (superhero_id, superhero_name, superpower)
+VALUES (2, '스파이더맨', '벽을 기어 오를 수 있음');
+
+INSERT INTO Superhero_Ability (superhero_id, superhero_name, superpower)
+VALUES (3, '헐크', '초인적인 힘');
+
+INSERT INTO Superhero_Ability (superhero_id, superhero_name, superpower)
+VALUES (4, '캡틴 아메리카', '슈퍼 솔져 혈청');
+
+INSERT INTO Superhero_Ability (superhero_id, superhero_name, superpower)
+VALUES (5, '토르', '천둥의 신');
+
+-- '초인적인 힘' 능력을 가진 슈퍼히어로 이름 출력
+SELECT superhero_name 
+FROM Superhero_Ability
+WHERE superpower = '초인적인 힘';
+/*
+1. controller ==> view
+	요청값 superpower
+	모델데이터 superhero_name
+2. dao 메서드
+   service
+   controller 모델 데이터
+3. 화면 처리 결과 확인..
+ * */
+
+
+-- 픽션 속 우주선 테이블
+CREATE TABLE Spaceship (
+    spaceship_id NUMBER PRIMARY KEY,
+    spaceship_name VARCHAR2(50),
+    spaceship_type VARCHAR2(50)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Spaceship (spaceship_id, spaceship_name, spaceship_type)
+VALUES (1, '밀레니엄 팔콘', '화물선');
+
+INSERT INTO Spaceship (spaceship_id, spaceship_name, spaceship_type)
+VALUES (2, '엔터프라이즈', '우주선');
+
+INSERT INTO Spaceship (spaceship_id, spaceship_name, spaceship_type)
+VALUES (3, '타르디스', '시간 여행 기계');
+
+INSERT INTO Spaceship (spaceship_id, spaceship_name, spaceship_type)
+VALUES (4, 'X-Wing', '전투기');
+
+INSERT INTO Spaceship (spaceship_id, spaceship_name, spaceship_type)
+VALUES (5, '디스커버리 원', '탐사선');
+
+-- '전투기' 유형의 우주선 이름 출력
+SELECT spaceship_name 
+FROM Spaceship
+WHERE spaceship_type = '전투기';
+
+
+-- 마법 아이템 테이블
+CREATE TABLE Magic_Item (
+    item_id NUMBER PRIMARY KEY,
+    item_name VARCHAR2(50),
+    effect VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Magic_Item (item_id, item_name, effect)
+VALUES (1, '엑스칼리버', '소지자에게 무적의 힘을 부여');
+
+INSERT INTO Magic_Item (item_id, item_name, effect)
+VALUES (2, '투명 망토', '착용자를 투명하게 만든다');
+
+INSERT INTO Magic_Item (item_id, item_name, effect)
+VALUES (3, '불의 지팡이', '강력한 불을 쏘아낸다');
+
+INSERT INTO Magic_Item (item_id, item_name, effect)
+VALUES (4, '비행 망토', '착용자가 하늘을 날 수 있게 해준다');
+
+INSERT INTO Magic_Item (item_id, item_name, effect)
+VALUES (5, '시간의 부적', '시간을 조종할 수 있게 해준다');
+
+-- '소지자에게 무적의 힘을 부여' 효과를 가진 아이템 이름 출력
+SELECT item_name 
+FROM Magic_Item
+WHERE effect = '소지자에게 무적의 힘을 부여';
+
+
+-- 멸종된 동물 테이블
+CREATE TABLE Extinct_Animal (
+    animal_id NUMBER PRIMARY KEY,
+    animal_name VARCHAR2(50),
+    extinction_period VARCHAR2(50)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Extinct_Animal (animal_id, animal_name, extinction_period)
+VALUES (1, '매머드', '플라이스토세');
+
+INSERT INTO Extinct_Animal (animal_id, animal_name, extinction_period)
+VALUES (2, '도도새', '홀로세');
+
+INSERT INTO Extinct_Animal (animal_id, animal_name, extinction_period)
+VALUES (3, '검치호랑이', '플라이스토세');
+
+INSERT INTO Extinct_Animal (animal_id, animal_name, extinction_period)
+VALUES (4, '승객 비둘기', '20세기 초');
+
+INSERT INTO Extinct_Animal (animal_id, animal_name, extinction_period)
+VALUES (5, '타즈마니아 호랑이', '1930년대');
+
+-- '플라이스토세' 멸종 시기를 가진 동물 이름 출력
+SELECT animal_name 
+FROM Extinct_Animal
+WHERE extinction_period = '플라이스토세';
+
+-- 비디오 게임 테이블
+CREATE TABLE Video_Game (
+    game_id NUMBER PRIMARY KEY,
+    game_name VARCHAR2(50),
+    game_genre VARCHAR2(50)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Video_Game (game_id, game_name, game_genre)
+VALUES (1, '젤다의 전설', '어드벤처');
+
+INSERT INTO Video_Game (game_id, game_name, game_genre)
+VALUES (2, '마인크래프트', '샌드박스');
+
+INSERT INTO Video_Game (game_id, game_name, game_genre)
+VALUES (3, '리그 오브 레전드', 'MOBA');
+
+INSERT INTO Video_Game (game_id, game_name, game_genre)
+VALUES (4, '오버워치', 'FPS');
+
+INSERT INTO Video_Game (game_id, game_name, game_genre)
+VALUES (5, '파이널 판타지', 'RPG');
+
+-- 'RPG' 장르의 게임 이름 출력
+SELECT game_name 
+FROM Video_Game
+WHERE game_genre = 'RPG';
 
 
 
