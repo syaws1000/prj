@@ -51,7 +51,9 @@
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td></tr>
+    	<c:forEach var="fname" items="${flist}" varStatus="sts">
+    		<tr><td>${sts.count}</td><td>${fname}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
 </div>
