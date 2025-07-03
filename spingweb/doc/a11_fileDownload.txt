@@ -24,7 +24,7 @@
 		return ResponseEntity.noFound().build();
 		요청한 파일이 존재하지 않으면 404 not Found 응답을 반환한다.
 	9) String contentType = Files.probeContentType(filePath);
-		파일의 확장자를 기반으로 파일의 MIME타입을 결정한다. 만약 MIME 타입을 찾을 수 ㅇ벗으면 application/octet-steam으로 기본설정한다.
+		파일의 확장자를 기반으로 파일의 MIME타입을 결정한다. 만약 MIME 타입을 찾을 수 없으면 application/octet-stream으로 기본설정한다.
 	10) return ResponseEntity.ok()...
 		파일이 존재하면 ResponseEntity를 생성하여 HTTP 200 ok 응답을 반환하고,
 		파일의 contentType을 MediaType.parseMediaType(contentType)로 설정하고, 다운로드할 파일 이름을 Content-Dispositon
