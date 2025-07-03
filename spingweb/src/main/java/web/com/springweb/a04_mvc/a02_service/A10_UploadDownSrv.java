@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class A09_UploadDownService {
+public class A10_UploadDownSrv {
 	
-	@Value("${user.upload4}")
+	@Value("${user.upload5}")
 	private String path;
 	public String upload4(List<MultipartFile> mpfs) {
 		String msg = "파일이 ";
@@ -42,11 +42,11 @@ public class A09_UploadDownService {
 		File dir = new File(path);  // 경로 설정..
 		// dir.listFiles() 해당 경로에 있는 파일/폴드를 리스트..
 		File[] files = dir.listFiles();
-		Arrays.sort(files, Comparator.comparingLong(File::lastModified));
-		
-		for(File file:dir.listFiles()) {
-			if(file.isFile()) { 
-				fnames.add(file.getName());
+		if(files!=null) {	
+			for(File file:dir.listFiles()) {
+				if(file.isFile()) { 
+					fnames.add(file.getName());
+				}
 			}
 		}
 		return fnames;
