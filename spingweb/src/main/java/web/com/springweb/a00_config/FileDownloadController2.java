@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FileDownloadController2 {
 	
 	// 업로된 폴드명 지정.
-	@Value("${user.upload4")
+	@Value("${user.upload4}")
 	private String path;
 	
-	// http://localhost:5050/download4?fName=transaction (2).csv
+	// http://localhost:5050/download4?fName=churn_data  (11).csv
 	@GetMapping("download4")
 	public ResponseEntity<Resource> downloadFile(@RequestParam("fName") String fName) throws IOException{
 		// 1. 다운로드할 파일 설정

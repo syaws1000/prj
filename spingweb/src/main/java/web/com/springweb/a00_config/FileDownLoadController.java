@@ -1,6 +1,8 @@
 package web.com.springweb.a00_config;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,6 +37,7 @@ public class FileDownLoadController {
 		if(!resource.exists()) { // 요청한 파일이 조재하지 않으면 404 Not Found응답을 처리
 			return ResponseEntity.notFound().build();
 		}
+		fileName = URLEncoder.encode(resource.getFilename(), StandardCharsets.UTF_8).replaceAll("\\+", "%20");// 공백처리
 		// 파일 타입 결정 - 파일의 형식(gif, jpg, doc 등 여러 유형에 따른 파일을 전송할 타입을 지정)
 		String contentType = Files.probeContentType(filePath); // IO 발생예외가 나올 때, 웹서버에 전달하여 처리 하도록
 		if(contentType==null) {
