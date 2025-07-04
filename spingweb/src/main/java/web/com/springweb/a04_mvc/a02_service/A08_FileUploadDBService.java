@@ -28,6 +28,7 @@ public class A08_FileUploadDBService {
 		String msg = null;
 		// 1. 기본 정보 등록 하기..(DB처리)
 		msg = dao.insertBoardexp01(ins)>0?"등록 성공\\n":"등록 실패\\n";
+		ins.setNo(dao.getNo());
 		// 2. 파일 업로드 처리.. ins.getReports()
 		int cnt = 0;
 		try {		

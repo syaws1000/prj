@@ -24,8 +24,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		let msg = "${msg}"
-		if(msg!="")
-			alert(msg)
+		if(msg!=""){
+			alert("등록된 번호[${board.no}]:"+msg)
+			location.href="detailUpFile01?no=${board.no}"
+		}
+			
 	});
 </script>
 </head>

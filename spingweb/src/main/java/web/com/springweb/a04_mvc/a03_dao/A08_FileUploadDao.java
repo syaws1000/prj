@@ -23,6 +23,10 @@ public interface A08_FileUploadDao {
 			+ "#{fname}, #{etc}, sysdate, sysdate)")
 	int insertBoardFileepx01(FileDto ins);
 	
+	@Select("SELECT boardexp01_seq.currval FROM dual")
+	int getNo();
+	
+	
 	@Select("SELECT * FROM boardexp01 WHERE NO = #{no}")
 	Board getBoardExp01(@Param("no") int no);
 

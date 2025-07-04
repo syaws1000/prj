@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class FileDownloadController2 {
+public class FileDownloadController4 {
 	
 	// 업로된 폴드명 지정.
 	@Value("${user.upload4}")
 	private String path;
 	
 	// http://localhost:5050/download4?fName=churn_data  (11).csv
-	@GetMapping("download4")
+	@GetMapping("download6")
 	public ResponseEntity<Resource> downloadFile(@RequestParam("fName") String fName) throws IOException{
 		String msg = "";
 		// 1. 다운로드할 파일 설정

@@ -5,8 +5,8 @@
 // boardexp01
 // boardFileexp01
  * */
-SELECT * FROM boardexp01; WHERE NO = 2;
-SELECT fname FROM boardFileexp01; WHERE NO = 2;
+SELECT * FROM boardexp01; WHERE NO = 4;
+SELECT fname FROM boardFileexp01 WHERE NO = 4;
 /*
 dao 기능 메서드
 @Select("SELECT * FROM boardexp01 WHERE NO = #{no}")
