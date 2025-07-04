@@ -257,3 +257,23 @@ SELECT * FROM Happy_Vacation WHERE destincation='파리';
 
 --
 
+SELECT * FROM Animal_Friends WHERE friendship_type= '토끼와 친구';
+/* 
+1. 초기 화면  friendshipType
+A04_AnimalFriendsController.java	
+A04_AnimalFriendsService.java	
+A04_AnimalFriendsDao.java	
+AnimalFriend.java
+a04_animalFriend.jsp
+ * */
+
+SELECT * FROM Funny_Movie WHERE laugh_points = '귀여운 미니언들';
+/*
+A05_FunnyMovieController.java	
+A05_FunnyMovieService.java	
+A05_FunnyMovieDao.java	
+FunnyMovie.java
+a05_funnyMovie.jsp
+
+ * 
+ * */
