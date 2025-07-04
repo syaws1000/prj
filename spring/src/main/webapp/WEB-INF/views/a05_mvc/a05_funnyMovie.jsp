@@ -30,28 +30,35 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>동물 친구들</h2>
-  <h3>요청값:${param.friendshipType}</h3>
+  <h2>웃긴 영화!!</h2>
+
 </div>
 <%-- 
- friendshipType  요청값,   animal 모델 처리..		
+		
 --%>
 <div class="container">
-	<form id="frm01" class="form" >
+	<form id="frm01" class="form"  >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="친구 타입" name="friendshipType"  class="form-control mr-sm-2" />
+	    <input placeholder="웃음 요소" name="laughPoints" value="${param.laughPoints}" class="form-control mr-sm-2" />
 	    <button class="btn btn-info" type="submit">Search</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
+   	<col width="33%">
+   	<col width="34%">
+   	<col width="33%">
+    <thead>
       <tr class="table-success text-center">
         <th>아이디</th>
-        <th>동물 친구이름</th>
-        <th>친구유형</th>
-      </tr>   
+        <th>영화제목</th>
+        <th>웃음포인트</th>
+      </tr>
+    </thead>	
+    <%--	private int movieId;
+	private String moviename;
+	private String laughPoints; --%>
     <tbody>
-    	<tr><td>${ani.animalId}</td><td>${ani.animalName}</td>
-    	    <td>${ani.friendshipType}</td></tr>
+    	<tr><td>${movie.movieId}</td><td>${movie.moviename}</td><td>${movie.laughPoints}</td></tr>
     </tbody>
 	</table>    
     

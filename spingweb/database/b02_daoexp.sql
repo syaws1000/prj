@@ -257,8 +257,21 @@ SELECT * FROM Happy_Vacation WHERE destincation='파리';
 
 --
 
-SELECT * FROM Animal_Friends WHERE friendship_type= '토끼와 친구';
+SELECT * FROM Animal_Friends; WHERE friendship_type= '토끼와 친구';
 /* 
+입력 : 요청(param.friendshipType), 매개변수   토끼와 친구 ==> String friendshipType 
+		==> @Param("friendshipType") String friendshipType
+출력 :  모델데이터(), 리턴유형
+	db ANIMAL_ID 1,  ANIMAL_NAME 호랑이, FRIENDSHIP_TYPE 토끼와 친구
+	==> JAVA  int animalId; String animalName; String friendshipType
+	class AnimalFriend{
+		private int animalId; 
+		private String animalName; 
+		private String friendshipType;
+	}
+	@Select("SELECT * FROM Animal_Friends WHERE friendship_type= #{friendshipType}")
+	AnimalFriend getAnmialFriend(@Param("friendshipType") String friendshipType);
+	
 1. 초기 화면  friendshipType
 A04_AnimalFriendsController.java	
 A04_AnimalFriendsService.java	
@@ -267,8 +280,18 @@ AnimalFriend.java
 a04_animalFriend.jsp
  * */
 
-SELECT * FROM Funny_Movie WHERE laugh_points = '귀여운 미니언들';
+SELECT * FROM Funny_Movie; WHERE laugh_points = '귀여운 미니언들';
 /*
+
+@Select("SELECT * FROM Funny_Movie; WHERE laugh_points = #{laughPoints}")
+FunnyMovie getFunnyMovie(@Param("laughPoints") String laughPoints);
+
+class FunnyMovie{
+	private int movieId;
+	private String moviename;
+	private String laughPoints;
+	
+}
 A05_FunnyMovieController.java	
 A05_FunnyMovieService.java	
 A05_FunnyMovieDao.java	
