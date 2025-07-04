@@ -78,9 +78,17 @@
             <div class="form-group">
                 <label for="reports">첨부파일</label>
                 <c:forEach var="fname" items="${fnames}">
-                <button class="btn btn-info" >${fname}</button>
+                <button type="button" ondblclick="download('${fname}')" class="btn btn-info" >${fname}</button>
                 </c:forEach>
-            </div>                     
+            </div>    
+            <script type="text/javascript">
+            	function download(fname){
+					if(confirm(fname+" 파일다운 하시겠습니까?")){
+						location.href="download4?fName="+fname
+					}
+            	}
+            </script>
+                             
             <button type="button" class="btn btn-primary">수정</button>
             <button type="button" class="btn btn-danger">삭제</button>
             <button type="button" class="btn btn-info">메인</button>
