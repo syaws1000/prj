@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class Board {
+public class Board { 
+	// no refno  subject content writer readcnt regdte uptdte
 	private int no; 
 	private int refno; 
 	private String subject; 

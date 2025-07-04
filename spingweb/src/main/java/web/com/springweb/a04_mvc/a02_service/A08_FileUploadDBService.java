@@ -2,7 +2,9 @@ package web.com.springweb.a04_mvc.a02_service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -47,5 +49,16 @@ public class A08_FileUploadDBService {
 		}				
 		return msg;
 	}
+	/*
+	Board getBoardExp01(@Param("no") int no);
+	List<String> getFnames(@Pa@ram("no") int no);
+	*/
+	public Board getBoardExp01(@Param("no") int no) {
+		return dao.getBoardExp01(no);
+	}
+	public List<String> getFnames(@Param("no") int no){
+		return dao.getFnames(no);
+	}
+	
 	
 }

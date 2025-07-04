@@ -30,9 +30,12 @@ public class A08_FileUploadDBController {
 		return "WEB-INF\\views\\a04_mvc\\a13_insertFileDB.jsp";
 	}	
 	// "WEB-INF\\views\\a04_mvc\\a08_fileUpload.jsp"
-	// http://localhost:5050/detailUpFile01?no=1
+	// http://localhost:5050/detailUpFile01?no=2
 	@GetMapping("detailUpFile01")
-	public String detailUpFile01(@RequestParam("no") int no) {
+	public String detailUpFile01(@RequestParam("no") int no, Model d) {
+		d.addAttribute("board", service.getBoardExp01(no));
+		d.addAttribute("fnames", service.getFnames(no));
+		
 		return "WEB-INF\\views\\a04_mvc\\a16_detailFileDB.jsp";
 	}
 	
