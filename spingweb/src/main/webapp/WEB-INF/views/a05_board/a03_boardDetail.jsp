@@ -35,23 +35,33 @@
 			$("#uptBtn").hide()
 			$("#delBtn").hide()
 		}
+		let msg = "${msg}"
+		if(msg!=""){
+			alert(msg)
+			if(msg.indexOf("삭제")>=0){ // 삭제라는 키워드가 시작되는 index리턴, 즉, 삭제 성공/삭제 실패일 시, 리스트로 바로 이동
+				location.href="boardList"
+			}
+		}
 		$("#uptBtn").click(function(){ 
-
 			if(confirm("수정하시겠습니까?")){
-				if(writer != sessId){
-					alert("수정 권한을 작성자에게만 있습니다.")
-				}else{
-					alert("수정 수행")
-				}
+				//if(writer != sessId){
+				//	alert("수정 권한을 작성자에게만 있습니다.")
+				//}else{
+					//alert("수정 수행")
+					//  boardUpdate boardDelete
+					$("form").attr("action","boardUpdate")
+					$("form").submit()
+				//}
 			}
 		})
 		$("#delBtn").click(function(){ 
 			if(confirm("삭제하시겠습니까?")){
-				if(writer != sessId){
-					alert("삭제 권한을 작성자에게만 있습니다.")
-				}else{
-					alert("삭제 수행")
-				}				
+				//if(writer != sessId){
+				//	alert("삭제 권한을 작성자에게만 있습니다.")
+				//}else{
+					$("form").attr("action","boardDelete")
+					$("form").submit()
+				//}				
 			}
 		})
 		$("#repBtn").click(function(){ 
