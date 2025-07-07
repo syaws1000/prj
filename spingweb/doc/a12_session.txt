@@ -1,0 +1,28 @@
+# 세션 처리.
+1. 세션은 web에 있어서 중요한 처리 개념으로 로그인이나 로그아웃, 페이지별로 접근, 권한에 따른 기능 처리등
+	다양한 방법으로 처리하고 있다.
+2. 세션을 기본적으로 웹 서버와의 관계 속에서 브라우저(client)와 연결 여부에 따라 임시 메모리를 설정하기에
+	DB를 계속적으로 접근해서 사용하는 것보다 부하를 줄여주는 역할을 한다.
+3. 세션 처리시 주요 핵심 코드
+	1) backend(자바 코드)
+	HttpSession  : 세션을 처리하는 핵심 객체
+	sess.setAttribute("key", 할당할변수/객체) : 세션을 설정하는 메서드
+	sess.removeAttribute("key") : 세션을 삭제하는 메서드(특정 세션만 삭제)
+	sess.invalidate() : 전체 세션을 삭제 처리..
+	2) frontend(javascript)
+	let memId = "${mem.userId}" : 세션을 설정했을 때, 객체에 대한 속성값 설정..
+	- 세션아이디를  등록시 세션 아이디를 강제로 등록 하게 처리
+	<input name="user" value="${mem.userId}" />
+	
+ 	- 세션 즉, 로그인이 되어 해당 값이 있는 경우만 로딩이 되고, 그렇지 않으면 로그인으로 이동되게 처리
+ 	if(memId == "" ){
+ 		alert("로그인 하여야 됩니다")
+ 		location.href="login"
+ 	}
+	
+	- 권한에 따른 기능 버튼의 처리..(상세화면에서 처리 내용)
+	if(memId != $("[name=memId]").val()){   // 현재 세션아이디와 기능버튼의 show/hide 처리
+		$("#uptBtn").hide()
+		$("#delBtn").hide()
+	}
+	
