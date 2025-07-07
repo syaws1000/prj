@@ -576,7 +576,34 @@ VALUES (5, '토마토 초콜릿', '먹으면 모든 음식을 토마토 맛으�
 
 -- '파워 퀴노아'의 웃긴 효과 출력
 SELECT * FROM Super_Foods
-WHERE food_name = '파워 퀴노아';
+WHERE food_name LIKE  '%%'
+AND funny_effect LIKE '%%';
+/*
+입력: String foodName; String funnyEffect; ==> SuperFood sch    <input name="foodName" value="${param.foodName}"
+출력: int  foodId; String foodName; String funnyEffect; ==> SuperFood(1행) ==> List<SuperFood>(다중행)
+	
+class  SuperFood{
+	private int  foodId;
+	private String foodName; 
+	private String funnyEffect; 
+}
+dao
+SELECT * FROM Super_Foods
+WHERE food_name LIKE  #{foodName}
+AND funny_effect LIKE #{funnyEffect}
+@Select("")
+List<SuperFood> getFoodList(SuperFood sch); 
+ 
+A02_SuperFoodController.java
+A02_SuperFoodService.java
+A02_SuperFoodDao.java
+
+SuperFood.java
+
+a02_superFoodList.jsp
+
+ * 
+ * */
 
 
 -- 상상 속 유니콘 동물원 테이블
@@ -605,6 +632,37 @@ VALUES (5, '환희', '모든 꽃을 피우게 만드는 능력');
 -- '모든 사람에게 행복을 주는 미소' 능력을 가진 유니콘 출력
 SELECT * FROM Unicorn_Zoo
 WHERE unicorn_special_ability = '모든 사람에게 행복을 주는 미소';
+SELECT * FROM unicorn_zoo;
+
+SELECT * FROM unicorn_zoo 
+WHERE unicorn_name LIKE '%빛%' 
+AND unicorn_special_ability LIKE '%%';
+/*
+입력 : "%빛%", "%%" ==> String unicornName, String unicornSpecialAbility ==> UnizornZoo(클래스형 객체) sch
+출력 : 3 별빛 밤하늘에서 별을 떨어뜨리면 춤추기 ==> UnicornZoo(객체)  ==> 다중 행 ==> List<UnicornZoo>
+      4 빛나는 불을 피우며 노리부르기..
+      
+입력/출력 class 형 객체 필요
+class UnicornZoo{
+	private int unicornId;
+	private String unicornName;
+	private String unicornSpecialAbility;
+	
+	생성자..
+	
+	set/get메서드
+
+}                        
+dao.
+SELECT * FROM unicorn_zoo 
+WHERE unicorn_name LIKE #{unicornName} 
+AND unicorn_special_ability LIKE #{unicornSpecialAbility}
+@Select("")
+List<UnicornZoo> unicornZooList(UnicornZoo sch);
+                                                            
+ * */
+
+
 
 
 
