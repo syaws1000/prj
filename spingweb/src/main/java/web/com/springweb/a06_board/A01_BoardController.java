@@ -61,12 +61,19 @@ public class A01_BoardController {
 		}
 		return "WEB-INF\\views\\a05_board\\a02_boardInsert.jsp";
 	}
+	// boardUpdate boardDelete
 	@PostMapping("boardUpdate")
 	public String boardUpdate(Board upt, Model d) {
 		d.addAttribute("msg", service.updateBoard(upt));
 		d.addAttribute("board", service.getBoard(upt.getNo()));
 		return "WEB-INF\\views\\a05_board\\a03_boardDetail.jsp";
 	}	
+	@PostMapping("boardDelete")
+	public String boardDelete(@RequestParam("no") int no, Model d) {
+		d.addAttribute("msg", service.deleteBoard(no));
+		return "WEB-INF\\views\\a05_board\\a03_boardDetail.jsp";
+	}		
+	
 	// http://localhost:5050/boardDetail?no=8
 	@GetMapping("boardDetail")
 	public String boardDetail(@RequestParam("no") int no, Model d) {
