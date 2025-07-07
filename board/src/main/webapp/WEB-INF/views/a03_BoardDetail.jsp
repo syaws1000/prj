@@ -100,7 +100,7 @@ td {
 					</div>
 					<div class="form-group">
 						<label for="author">작성자</label> <input type="text"
-							class="form-control" id="author" name="author"
+							readonly class="form-control" id="author" name="author"
 							value="${board.author}" required>
 					</div>
 					

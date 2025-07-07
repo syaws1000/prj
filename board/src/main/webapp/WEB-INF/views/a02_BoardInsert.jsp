@@ -34,6 +34,10 @@
 			alert("현재화면은 로그인 하여야 합니다.\n로그인 페이지 이동")
 			location.href="login"
 		}		
+		// 메인 화면 이동 버트
+		$("#lstBtn").click(function(){
+			location.href="boardList"
+		})			
 	});
 </script>
 </head>
@@ -77,6 +81,8 @@
                 <input type="file" multiple="multiple" class="form-control" id="reports" name="reports" placeholder="파일을 선택 하세요" >
             </div>           
             <button type="submit" class="btn btn-primary">등록</button>
+		    <button id="lstBtn" type="button" class="btn btn-info">메인</button>        
+            
         </form>
       </div>  
 </body>
