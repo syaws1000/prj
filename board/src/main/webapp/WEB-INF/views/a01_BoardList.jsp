@@ -34,6 +34,11 @@
 		
 
 	});
+	function logout(){
+		if(confirm("로그아웃 하시겠습니까?")){
+			location.href="login"
+		}
+	}
 </script>
 </head>
 
@@ -46,7 +51,7 @@
 		
 --%>
 <div class="container">
-	<h6 class="text-right">${mem.name}님 로그인중</h6>
+	<h6 ondblclick="logout()" class="text-right">${mem.name}님 로그인중</h6>
 	<form id="frm01" class="form"  >
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name="title" value="${param.title}" class="form-control mr-sm-2" />

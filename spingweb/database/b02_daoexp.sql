@@ -466,5 +466,146 @@ SELECT * FROM Future_Music;
 
 
 
+DROP TABLE Funny_Superheroes;
+-- 엉뚱한 슈퍼히어로 테이블
+CREATE TABLE Funny_Superheroes (
+    hero_id NUMBER PRIMARY KEY,
+    hero_name VARCHAR2(50),
+    superpower VARCHAR2(100),
+    humor_style VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Funny_Superheroes (hero_id, hero_name, superpower, humor_style)
+VALUES (1, '에너지맨', '전기를 방출하며 춤추기', '엉뚱한 춤과 율동');
+
+INSERT INTO Funny_Superheroes (hero_id, hero_name, superpower, humor_style)
+VALUES (2, '핸드폰맨', '핸드폰을 무한히 충전시키는 능력', '핸드폰으로 대화만 하기');
+
+INSERT INTO Funny_Superheroes (hero_id, hero_name, superpower, humor_style)
+VALUES (3, '슬로우보이', '시간을 천천히 흐르게 만드는 능력', '느린 말투로 웃긴 농담하기');
+
+INSERT INTO Funny_Superheroes (hero_id, hero_name, superpower, humor_style)
+VALUES (4, '플라밍고맨', '플라밍고처럼 다리 하나로 서기', '불필요한 순간에 플라밍고 자세 취하기');
+
+INSERT INTO Funny_Superheroes (hero_id, hero_name, superpower, humor_style)
+VALUES (5, '버섯파워', '버섯으로 사람들을 변장시키는 능력', '버섯을 먹고 갑자기 변신하기');
+
+-- '슬로우보이'의 능력과 유머 스타일 출력
+SELECT * FROM Funny_Superheroes
+WHERE hero_name = '슬로우보이';
+
+-- 심박한 음료수 테이블
+CREATE TABLE Funny_Beverages (
+    beverage_id NUMBER PRIMARY KEY,
+    beverage_name VARCHAR2(50),
+    effect VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Funny_Beverages (beverage_id, beverage_name, effect)
+VALUES (1, '웃음콜라', '한 모금 마시면 10분 동안 웃음이 멈추지 않음');
+
+INSERT INTO Funny_Beverages (beverage_id, beverage_name, effect)
+VALUES (2, '잠깨는 커피', '마시면 2시간 동안 춤을 춤');
+
+INSERT INTO Funny_Beverages (beverage_id, beverage_name, effect)
+VALUES (3, '스파이시 쥬스', '마시면 입에서 불이 나옴');
+
+INSERT INTO Funny_Beverages (beverage_id, beverage_name, effect)
+VALUES (4, '블루베리 소다', '마시면 모든 말을 블루베리 맛으로 들림');
+
+INSERT INTO Funny_Beverages (beverage_id, beverage_name, effect)
+VALUES (5, '초코포션', '마시면 몸이 초콜릿으로 변함');
+
+-- '웃음콜라'의 효과 출력
+SELECT * FROM Funny_Beverages
+WHERE beverage_name = '웃음콜라';
+
+-- 웃긴 직업 테이블
+CREATE TABLE Funny_Jobs (
+    job_id NUMBER PRIMARY KEY,
+    job_name VARCHAR2(50),
+    job_scenario VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Funny_Jobs (job_id, job_name, job_scenario)
+VALUES (1, '변기 관리 전문가', '하루 종일 변기만 닦기');
+
+INSERT INTO Funny_Jobs (job_id, job_name, job_scenario)
+VALUES (2, '냉장고 안 청소부', '냉장고 속 과거 음식을 찾아내어 이야기하기');
+
+INSERT INTO Funny_Jobs (job_id, job_name, job_scenario)
+VALUES (3, '휴대폰 뒷면 스티커 교환맨', '사람들이 다 떨어진 스티커를 교환하게 하기');
+
+INSERT INTO Funny_Jobs (job_id, job_name, job_scenario)
+VALUES (4, '전봇대 올라가기 전문가', '전봇대 위에서 춤추기');
+
+INSERT INTO Funny_Jobs (job_id, job_name, job_scenario)
+VALUES (5, '슬리퍼 관리자', '슬리퍼가 옳게 착용되었는지 검사하기');
+
+-- '변기 관리 전문가'의 직업 상황 출력
+SELECT * FROM Funny_Jobs
+WHERE job_name = '변기 관리 전문가';
+
+
+-- 기발한 수퍼푸드 테이블
+CREATE TABLE Super_Foods (
+    food_id NUMBER PRIMARY KEY,
+    food_name VARCHAR2(50),
+    funny_effect VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Super_Foods (food_id, food_name, funny_effect)
+VALUES (1, '파워 퀴노아', '먹으면 10분 동안 날아다닐 수 있음');
+
+INSERT INTO Super_Foods (food_id, food_name, funny_effect)
+VALUES (2, '우주 마카로니', '먹으면 순간이동 가능');
+
+INSERT INTO Super_Foods (food_id, food_name, funny_effect)
+VALUES (3, '치킨 케일', '먹으면 3배 더 빨리 뛸 수 있음');
+
+INSERT INTO Super_Foods (food_id, food_name, funny_effect)
+VALUES (4, '바나나 피자', '먹으면 바나나만으로도 피자처럼 보임');
+
+INSERT INTO Super_Foods (food_id, food_name, funny_effect)
+VALUES (5, '토마토 초콜릿', '먹으면 모든 음식을 토마토 맛으로 느끼게 됨');
+
+
+-- '파워 퀴노아'의 웃긴 효과 출력
+SELECT * FROM Super_Foods
+WHERE food_name = '파워 퀴노아';
+
+
+-- 상상 속 유니콘 동물원 테이블
+CREATE TABLE Unicorn_Zoo (
+    unicorn_id NUMBER PRIMARY KEY,
+    unicorn_name VARCHAR2(50),
+    unicorn_special_ability VARCHAR2(100)
+);
+
+-- 데이터 입력 예시
+INSERT INTO Unicorn_Zoo (unicorn_id, unicorn_name, unicorn_special_ability)
+VALUES (1, '반짝이', '모든 사람에게 행복을 주는 미소');
+
+INSERT INTO Unicorn_Zoo (unicorn_id, unicorn_name, unicorn_special_ability)
+VALUES (2, '구름이', '구름을 타고 하늘을 나는 능력');
+
+INSERT INTO Unicorn_Zoo (unicorn_id, unicorn_name, unicorn_special_ability)
+VALUES (3, '별빛', '밤하늘에서 별을 떨어뜨리며 춤추기');
+
+INSERT INTO Unicorn_Zoo (unicorn_id, unicorn_name, unicorn_special_ability)
+VALUES (4, '빛나는', '불을 피우며 노래 부르기');
+
+INSERT INTO Unicorn_Zoo (unicorn_id, unicorn_name, unicorn_special_ability)
+VALUES (5, '환희', '모든 꽃을 피우게 만드는 능력');
+
+-- '모든 사람에게 행복을 주는 미소' 능력을 가진 유니콘 출력
+SELECT * FROM Unicorn_Zoo
+WHERE unicorn_special_ability = '모든 사람에게 행복을 주는 미소';
+
+
 
 

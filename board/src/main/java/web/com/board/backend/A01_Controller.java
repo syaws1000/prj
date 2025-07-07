@@ -19,6 +19,10 @@ public class A01_Controller {
 	// http://localhost:5051/login    (GET방식/POST방식)
 	@RequestMapping("login")
 	public String login(Member login, HttpSession session, Model d) {
+		
+		session.removeAttribute("mem");
+		
+		
 		if(login.getId()!=null) {
 			Member mem = service.login(login);
 			if(mem!=null) {
