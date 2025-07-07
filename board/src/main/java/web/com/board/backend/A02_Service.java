@@ -28,7 +28,7 @@ public class A02_Service {
 	}
 	public Announce detailAnnount(int boardId) {
 		// 상세 조회시만, 조회수 증가 처리..
-		dao.readCount(boardId);
+		int cnt = dao.readCount(boardId);
 		return dao.getAnnounce(boardId);
 	}
 	public Announce getAnnounce(int boardId) {

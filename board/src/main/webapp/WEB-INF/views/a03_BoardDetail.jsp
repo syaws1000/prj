@@ -46,14 +46,14 @@ td {
 		// 수정 버튼 클릭시
 		$("#uptBtn").click(function(){
 			if(confirm("수정하시겠습니까?")){
-				$("form").attr("action","updateBoard")
+				$("form").attr("action","boardUpdate")
 				$("form").submit()
 			}
 		})
 		// 삭제 버튼 클릭시.
 		$("#delBtn").click(function(){
 			if(confirm("삭제하시겠습니까?")){
-				$("form").attr("action","deleteBoard")
+				$("form").attr("action","boardDelete")
 				$("form").submit()
 			}
 		})			

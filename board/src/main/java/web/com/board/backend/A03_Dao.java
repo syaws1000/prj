@@ -32,7 +32,7 @@ public interface A03_Dao {
 	@Insert("INSERT INTO ANNOUNCE_FILE VALUES(ANNOUNCE_SEQ.CURRVAL, #{fname}, #{etc}, SYSDATE, SYSDATE)")
 	int insertFile(AnnFileDto ins);	
 
-	@Select("UPDATE announce SET views = views + 1 WHERE board_id = #{boardId}")
+	@Update("UPDATE announce SET views = views + 1 WHERE board_id = #{boardId}")
 	int readCount(@Param("boardId") int boardId);
 
 	@Update("	UPDATE announce\r\n"
