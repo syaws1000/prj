@@ -72,14 +72,18 @@
     </thead>	
     <tbody>
     	<c:forEach var="a" items="${list}">
-    	<tr ondblclick="goDetail(${a.boardId})"><td>${a.boardId}</td><td>${a.title}</td><td>${a.author}</td>
+    	<tr ondblclick="goDetail(${a.boardId}, '${a.status}')"><td>${a.boardId}</td><td>${a.title}</td><td>${a.author}</td>
     		<td>${a.status}</td><td>${a.commentCount}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>  
 	<script>
-		function goDetail(boardId){
-			location.href="boardDetail?boardId="+boardId
+		function goDetail(boardId, status){
+			if(status=="공개"){
+				location.href="boardDetail?boardId="+boardId
+			}else{
+				alert("공개항목만 상세 조회 가능 합니다.")
+			}
 		}
 	</script>  
     
