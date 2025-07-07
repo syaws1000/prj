@@ -26,6 +26,11 @@ public class A02_Service {
 		sch.setAuthor("%"+sch.getAuthor()+"%");
 		return dao.getAnnounceList(sch);
 	}
+	public Announce detailAnnount(int boardId) {
+		// 상세 조회시만, 조회수 증가 처리..
+		dao.readCount(boardId);
+		return dao.getAnnounce(boardId);
+	}
 	public Announce getAnnounce(int boardId) {
 		return dao.getAnnounce(boardId);
 	}
@@ -64,6 +69,10 @@ public class A02_Service {
 		
 		return msg;
 	}
-	//int insertFile(AnnFileDto ins);	
-	
+	public String updateBoard(Announce upt) {
+		return dao.updateBoard(upt)>0?"수정 성공":"수정 실패";
+	}
+	public String deleteBoard(int boardId) {
+		return dao.deleteBoard(boardId)>0?"삭제 성공":"삭제 실패";
+	}	
 }

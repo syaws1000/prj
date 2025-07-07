@@ -146,6 +146,51 @@ AnnFileDto getFile(@Param("no") int no);
 
 
  * */
+SELECT * FROM announce;
+-- 조회수 증가
+UPDATE announce SET views = views + 1 WHERE board_id = 7 ;
+/*
+@Select("UPDATE announce SET views = views + 1 WHERE board_id = #{boardId}")
+int readCount(@Param("boardId") int boardId);
+ * */
+-- 수정 처리 
+UPDATE announce
+   SET title = '수정',
+       content = '수정',
+       updated_at = sysdate,
+       status = '비공개'
+where board_id = 7;       
+/*
+UPDATE announce
+   SET title = #{title},
+       content = #{content},
+       updated_at = sysdate,
+       status = #{status}
+where board_id = #{boardId}
+@Update("")
+int updateBoard(Announce upt);
+
+ * */
+DELETE FROM announce WHERE board_id = 7;
+-- 삭제 처리..
+/*
+@Select("UPDATE announce SET views = views + 1 WHERE board_id = #{boardId}")
+int readCount(@Param("boardId") int boardId);
+
+UPDATE announce
+   SET title = #{title},
+       content = #{content},
+       updated_at = sysdate,
+       status = #{status}
+where board_id = #{boardId}
+@Update("")
+int updateBoard(Announce upt);
+
+@Delete("DELETE FROM announce WHERE board_id = #{boardId}")
+int deleteBoard(@Param("boardId") int boardId);
+
+
+ * */
 
 
 

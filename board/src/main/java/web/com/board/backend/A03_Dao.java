@@ -2,10 +2,12 @@ package web.com.board.backend;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface A03_Dao {
@@ -29,6 +31,22 @@ public interface A03_Dao {
 
 	@Insert("INSERT INTO ANNOUNCE_FILE VALUES(ANNOUNCE_SEQ.CURRVAL, #{fname}, #{etc}, SYSDATE, SYSDATE)")
 	int insertFile(AnnFileDto ins);	
+
+	@Select("UPDATE announce SET views = views + 1 WHERE board_id = #{boardId}")
+	int readCount(@Param("boardId") int boardId);
+
+	@Update("	UPDATE announce\r\n"
+			+ "	   SET title = #{title},\r\n"
+			+ "	       content = #{content},\r\n"
+			+ "	       updated_at = sysdate,\r\n"
+			+ "	       status = #{status}\r\n"
+			+ "	where board_id = #{boardId}")
+	int updateBoard(Announce upt);
+
+
+	
+	@Delete("DELETE FROM announce WHERE board_id = #{boardId}")
+	int deleteBoard(@Param("boardId") int boardId);	
 	
 
 }

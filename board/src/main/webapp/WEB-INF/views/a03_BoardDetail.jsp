@@ -28,10 +28,51 @@ td {
 			alert("현재화면은 로그인 하여야 합니다.\n로그인 페이지 이동")
 			location.href="login"
 		}	
+		// 메시지 처리
+		let msg = "${msg}"
+		if(msg!=""){
+			alert(msg)
+			if(msg.indexOf("삭제")>=0){
+				location.href="boardList"
+			}
+		}
+		
+		// 권한에 따른 버튼 show() hide() 처리
+		if("${mem.id}"!="${board.author}"){
+			$("#uptBtn").hide()
+			$("#delBtn").hide()
+		}
+		
+		// 수정 버튼 클릭시
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				$("form").attr("action","updateBoard")
+				$("form").submit()
+			}
+		})
+		// 삭제 버튼 클릭시.
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				$("form").attr("action","deleteBoard")
+				$("form").submit()
+			}
+		})			
+		// 메인 화면 이동 버트
+		$("#lstBtn").click(function(){
+			location.href="boardList"
+		})			
+		
+		// 답글 버튼 클릭시
+		$("#repBtn").click(function(){
+			
+		})			
 	});
 	function download(fname){
 		location.href="download?fileName="+fname
 	}	
+	
+	
+	
 </script>
 </head>
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -43,7 +44,7 @@ public class A01_Controller {
 	public String boardDetail(@RequestParam("boardId") int boardId, 
 							  Model d ) {
 		
-		d.addAttribute("board", service.getAnnounce(boardId));
+		d.addAttribute("board", service.detailAnnount(boardId));
 		d.addAttribute("bfiles", service.getFile(boardId));
 		return "WEB-INF\\views\\a03_BoardDetail.jsp";
 	}
@@ -58,5 +59,21 @@ public class A01_Controller {
 		}
 		return "WEB-INF\\views\\a02_BoardInsert.jsp";
 	}
+	// http://localhost:5051/boardUpdate
+	@PostMapping("boardUpdate")
+	public String boardUpdate(Announce upt, Model d) {
+		d.addAttribute("msg", service.updateBoard(upt));
+		d.addAttribute("board", service.getAnnounce(upt.getBoardId()));
+		d.addAttribute("bfiles", service.getFile(upt.getBoardId()));		
+		return "WEB-INF\\views\\a03_BoardDetail.jsp";
+	}	
+	
+	// http://localhost:5051/boardDelete
+	@PostMapping("boardDelete")
+	public String boardDelete(@RequestParam("boardId") int boardId, Model d) {
+		d.addAttribute("msg", service.deleteBoard(boardId));	
+		return "WEB-INF\\views\\a03_BoardDetail.jsp";
+	}	
 
+	
 }
