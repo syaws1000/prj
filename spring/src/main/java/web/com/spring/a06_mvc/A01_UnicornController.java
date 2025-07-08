@@ -15,9 +15,19 @@ public class A01_UnicornController {
 	// http://localhost:5052/unicornList
 	@RequestMapping("unicornList")
 	public String unicornList(UnicornZoo sch, Model d) {
+	
 		d.addAttribute("list", service.unicornZooList(sch));
 		
 		return "WEB-INF\\views\\a06_mvc\\a01_unicornList.jsp";
+	}
+	// http://localhost:5052/unicornInsert
+	@RequestMapping("unicornInsert")
+	public String unicornInsert(UnicornZoo ins, Model d) {
+		if(ins.getUnicornName()!=null) {
+			d.addAttribute("msg", service.insertUnicornZoo(ins));
+		}
+		// // unicornName unicornSpecialAbility
+		return "WEB-INF\\views\\a06_mvc\\a01_unicornInsert.jsp";
 	}
 	
 

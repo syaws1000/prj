@@ -23,7 +23,9 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="unicornInsert"
+		})
 	});
 </script>
 </head>
@@ -40,6 +42,7 @@
 	    <input placeholder="유니콘명" name="unicornName"  value="${param.unicornName}" class="form-control mr-sm-2" />
 	    <input placeholder="유니콘특별능력" name="unicornSpecialAbility" value="${param.unicornSpecialAbility}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
+	    <button id="regBtn" class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

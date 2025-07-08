@@ -55,3 +55,34 @@ a03_gameCharacterList.jsp
 3. controller
 4. view(jsp)
  * */
+
+
+/*
+	1) dao
+	   등록 SQL 작성
+	   입력 실제 등록될 데이터..
+	   출력 등록된 건수(행단위 건수 리턴) int 
+ * */
+SELECT * FROM unicorn_zoo;
+CREATE SEQUENCE unicorn_seq;
+SELECT unicorn_seq.nextval FROM dual; -- 5번 반복..
+INSERT INTO unicorn_zoo values(unicorn_seq.nextval,'기쁨', '사람들에게 행복한 기쁨을 주는 능력');
+-- 입력 : String unicornName; String unicornSpecialAbility ==> UnicornZoo
+-- 출력 : int  : 등록한 건수..
+/*
+@Insert("INSERT INTO unicorn_zoo values(unicorn_seq.nextval,#{unicornName}, #{unicornSpecialAbility})")
+int insertUnicornZoo(UnicornZoo ins);
+
+ * */
+
+
+
+
+
+
+
+
+
+
+
+

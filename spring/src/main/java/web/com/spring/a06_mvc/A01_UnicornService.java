@@ -24,4 +24,8 @@ public class A01_UnicornService {
 		
 		return dao.unicornZooList(sch);
 	}
+	
+	public String insertUnicornZoo(UnicornZoo ins) {
+		return dao.insertUnicornZoo(ins)>0?"등록성공":"등록실패";
+	}
 }
