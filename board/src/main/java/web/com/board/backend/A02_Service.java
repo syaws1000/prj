@@ -45,6 +45,10 @@ public class A02_Service {
 	public String insertAnnounce(Announce ins) {
 		String msg="";
 		msg = dao.insertAnnounce(ins)>0?"등록성공\\n":"등록실패\\n";
+		if(ins.getParentId()!=0) { // 답글일 때, 상위 글번호를 기준으로 답글수를 증가 처리..
+			dao.updateCommentCnt(ins.getParentId());
+		}
+		
 		
 		int cnt = 0;
 		try {		

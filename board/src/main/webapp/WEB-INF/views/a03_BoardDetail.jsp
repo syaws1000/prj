@@ -144,6 +144,10 @@ td {
 							class="form-control" id="commentCount" value="${board.commentCount}">
 					</div>
 					<div class="form-group">
+						<label for="views">조회수</label> <input type="text"  readonly
+							class="form-control" id="views" value="${board.views}">
+					</div>					
+					<div class="form-group">
 						<label for="createAt">등록일</label> 
 							<input type="text" class="form-control"  readonly
 								value="<fmt:formatDate value='${board.createdAt}'/>">

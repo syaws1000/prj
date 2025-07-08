@@ -48,5 +48,9 @@ public interface A03_Dao {
 	@Delete("DELETE FROM announce WHERE board_id = #{boardId}")
 	int deleteBoard(@Param("boardId") int boardId);	
 	
+	@Update("	UPDATE ANNOUNCE\r\n"
+			+ "	   SET COMMENT_COUNT = COMMENT_COUNT+1\r\n"
+			+ "	 WHERE board_id = #{boardId}")
+	int updateCommentCnt(@Param("boardId") int boardId);	
 
 }

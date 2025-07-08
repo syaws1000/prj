@@ -39,7 +39,7 @@
 			location.href="boardList"
 		})		
 		$("#regBtn").click(function(){
-			$("form").attr("action","boardReply");
+			$("form").attr("action","boardInsert");
 			$("form").submit();
 		})
 	});

@@ -191,6 +191,25 @@ int deleteBoard(@Param("boardId") int boardId);
 
 
  * */
+-- 답글수 수정처리..
+SELECT * FROM ANNOUNCE;
+UPDATE ANNOUNCE
+   SET COMMENT_COUNT = COMMENT_COUNT+1
+ WHERE board_id = 22;
+/*
+UPDATE ANNOUNCE
+   SET COMMENT_COUNT = COMMENT_COUNT+1
+ WHERE board_id = #{boardId};
+@Update("")
+int updateCommentCnt(@Param("boardId") int boardId);
+ * */
+
+
+
+
+
+
+
 
 
 
