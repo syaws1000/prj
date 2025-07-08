@@ -181,12 +181,14 @@
 		6   1       RE:첫번째글에 대한 답글..
 		==> 화면에서 답글을 메인글의 바로 밑에 위치하여 해당 글에 대한 하위 글인 것을 표현하여야 한다.
 			oracle 에서 지원하는 계층형 sql이 필요로 한다..
-		1   0     첫번째글
-		6   1     RE:첫번째글에 대한 답글..
-		2   0     두번째글
-		4   2     RE:두번째글에 대한 답글
 		3   0     세번째글
 		5   3     RE:세번째글에 대한 답글
+		2   0     두번째글
+		4   2     RE:두번째글에 대한 답글					
+		1   0     첫번째글
+		6   1     RE:첫번째글에 대한 답글..
+
+
 		
 		계층형 sql 처리..
 		select * from board
@@ -200,7 +202,18 @@
 		no			==> refno
 		subject     ==> "RE:"+subject
 		content     ===> \n\n\n\n\n\n======= 이전글 =====\n + content
-			
+	3) 답글 달기 처리 프로세스
+		답글 클릭시, $("form").attr("action", "boardReply")
+		controller
+			@PostMapping("boardReply")
+				@ModelAttribute("re") Board ins   : board를 모델 데이터로 쓰면 초기 화면에서 답글을 단 모델데이터 충돌발생..
+				
+				ins.setRefno(ins.getNo())
+				ins.setSubject("RE:"+ins.getSubject());
+				ins.setContent("\n\n\n\n\n\n======= 이전글 =====\n" + ins.getContent());
+				
+				
+				
 		
 		
 						
