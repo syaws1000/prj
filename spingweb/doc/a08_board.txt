@@ -212,7 +212,10 @@
 				ins.setSubject("RE:"+ins.getSubject());
 				ins.setContent("\n\n\n\n\n\n======= 이전글 =====\n" + ins.getContent());
 				
-				
+	4) 등록 부분 처리할 내용
+		<input name="refno" value="${(empty re.refno)?0:re.refno}"
+		<input name="subject"  value="${re.subject}"
+		<textarea>${re.content}</textarea>			
 				
 		
 		

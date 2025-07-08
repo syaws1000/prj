@@ -64,6 +64,10 @@ td {
 		
 		// 답글 버튼 클릭시
 		$("#repBtn").click(function(){
+			if(confirm("답글을 처리하겠습니까?")){
+				$("form").attr("action","boardReply")
+				$("form").submit()
+			}
 			
 		})			
 	});

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,6 +79,17 @@ public class A01_Controller {
 		d.addAttribute("msg", service.deleteBoard(boardId));	
 		return "WEB-INF\\views\\a03_BoardDetail.jsp";
 	}	
-
+	// boardId parentId  title  content
+	@PostMapping("boardReply")
+	public String boardReply(@ModelAttribute("re") Announce re) {
+		
+		re.setParentId(re.getBoardId());
+		re.setTitle("RE:"+re.getTitle());
+		re.setContent("\n\n\n\n======= 이전글 =======\n"+re.getContent());
+		
+		return "WEB-INF\\views\\a02_BoardInsert.jsp";
+	}
+	
+	
 	
 }

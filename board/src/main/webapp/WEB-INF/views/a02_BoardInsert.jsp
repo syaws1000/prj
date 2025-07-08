@@ -37,27 +37,29 @@
 		// 메인 화면 이동 버트
 		$("#lstBtn").click(function(){
 			location.href="boardList"
-		})			
+		})		
+		$("#regBtn").click(function(){
+			$("form").attr("action","boardReply");
+			$("form").submit();
+		})
 	});
 </script>
 </head>
-
 <body>
    <div class="jumbotron text-center">
         <h2>게시글 등록</h2>
     </div>
     <div class="container">
-
-        
         <form enctype="multipart/form-data" method="post">
-        	<input type="hidden" name="parentId" value="0"/>
+        	<input type="hidden" name="parentId" value="${(empty re.parentId)?0:re.parentId}"/>
             <div class="form-group">
                 <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
+                <input type="text" value="${re.title}" class="form-control" id="title" name="title" placeholder="제목을 입력하세요" required>
             </div>
             <div class="form-group">
                 <label for="content">내용</label>
-                <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력하세요" required></textarea>
+                <textarea class="form-control" id="content" name="content" rows="5" 
+                placeholder="내용을 입력하세요" required>${re.content}</textarea>
             </div>
             <%--
             #{title}, #{content}, #{parentId}, #{author}, #{status} reports
@@ -80,7 +82,7 @@
                 <label for="reports">파일첨부</label>
                 <input type="file" multiple="multiple" class="form-control" id="reports" name="reports" placeholder="파일을 선택 하세요" >
             </div>           
-            <button type="submit" class="btn btn-primary">등록</button>
+            <button type="button" id="regBtn" class="btn btn-primary">등록</button>
 		    <button id="lstBtn" type="button" class="btn btn-info">메인</button>        
             
         </form>
