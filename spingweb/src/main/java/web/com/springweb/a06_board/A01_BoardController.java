@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,6 +85,15 @@ public class A01_BoardController {
 		
 		return "WEB-INF\\views\\a05_board\\a03_boardDetail.jsp";
 	}	
+	@PostMapping("boardReply")
+	public String boardReply(@ModelAttribute("re") Board ins) {
+		ins.setRefno(ins.getNo());
+		ins.setSubject("RE:"+ins.getSubject());
+		ins.setContent("\n\n\n\n\n======= 이전글 ======\n"+ins.getContent());
+		
+		return "WEB-INF\\views\\a05_board\\a02_boardInsert.jsp";
+	}
+	
 	
 	
 }

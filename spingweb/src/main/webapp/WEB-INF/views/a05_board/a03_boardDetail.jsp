@@ -65,6 +65,10 @@
 			}
 		})
 		$("#repBtn").click(function(){ 
+			if(confirm("답글을 달겠습니까?")){
+				$("form").attr("action","boardReply")
+				$("form").submit()
+			}
 
 		})
 		$("#lstBtn").click(function(){ 
