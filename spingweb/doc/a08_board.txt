@@ -188,6 +188,20 @@
 		3   0     세번째글
 		5   3     RE:세번째글에 대한 답글
 		
+		계층형 sql 처리..
+		select * from board
+		start with refno = 0    위와 같은 상위글아래에 sql을 처리하기 위해 처리되는 내용
+		connect by prior no = refno  상위글번호와 하위 글번호 연결 처리..
+		order by siblings by no desc  가장 마지막에 올린글이 가장 위로 올라오게 처리..
+		
+	2) 답글 달기 처리 프로세스
+		상세화면에서 답글 달기 ==> 등록화면으로 아래와 같이 기본데이터 처리로 이동 ==> 글등록 처리
+		상세화면 속성		등록화면 속성
+		no			==> refno
+		subject     ==> "RE:"+subject
+		content     ===> \n\n\n\n\n\n======= 이전글 =====\n + content
+			
+		
 		
 						
 	
