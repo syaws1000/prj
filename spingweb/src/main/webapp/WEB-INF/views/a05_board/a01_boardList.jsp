@@ -20,11 +20,7 @@
 
 <style>
 	td{text-align:center;}
-	/* 제목에 들여쓰기를 위한 css 변수 설정*/
-	.subject{
-		padding-left:var(--level-padding,0); /* 기본 padding-left 설정*/
-	}
-	
+
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
@@ -89,11 +85,16 @@
      --%>
     	<c:forEach var="b" items="${blist}">
     	<tr ondblclick="goDetail(${b.no})"><td>${b.cnt}</td>
-    		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 --%>
-    		<%-- <td class="text-left subject" style="--level-padding:${b.level*20}px;}">${b.subject}</td> --%>
+    		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 
+                     <td style="text-align:left;margin-left:50px;">
+                        ${b.subject}
+                    </td>   		
+    		--%>
+    		
     		<td class="text-left" >
     			<c:forEach var="i" begin="0" end="${b.level-1}">&nbsp;&nbsp;&nbsp;</c:forEach>
     			${b.subject}</td>
+    			
     		<td>${b.writer}</td>
     		<td><fmt:formatDate value="${b.regdte}" /></td>
     		<td>${b.readcnt}</td></tr>
