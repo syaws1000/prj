@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Board { 
 	// no refno  subject content writer readcnt regdte uptdte
+	private int cnt;
+	private int level;
 	private int no; 
 	private int refno; 
 	private String subject; 
@@ -87,6 +89,18 @@ public class Board {
 	}
 	public void setReports(List<MultipartFile> reports) {
 		this.reports = reports;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 }

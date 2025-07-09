@@ -217,7 +217,12 @@
 		<input name="subject"  value="${re.subject}"
 		<textarea>${re.content}</textarea>			
 				
-		
+# 계층적 리스트 처리하기
+1. sql 변경 : 위 내용에 의해 계층적 데이터가 쌓여지면 계층적 sql에 의해 처리하면,
+	화면에서 답글이 바로 밑에 처리된다.
+	sql 확인 및 속성값 추가 level(계층적 level을 표현 ==> 계층 레벨로 간격을 설정시 필요/dto에 속성 추가)
+2. 화면단 : 제목 부분을 왼쪽 정렬 처리하고, 위 level에 의해 간격 정렬 처리..
+  		
 		
 						
 	

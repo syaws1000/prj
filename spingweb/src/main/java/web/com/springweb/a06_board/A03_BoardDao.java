@@ -17,7 +17,13 @@ public interface A03_BoardDao {
 	Member login(Member sch);
 	
 	
-	@Select("SELECT * FROM BOARD WHERE SUBJECT LIKE #{subject} AND WRITER LIKE #{writer} ORDER BY NO DESC")
+	@Select("SELECT ROWNUM CNT, LEVEL, B.* \r\n"
+			+ "FROM BOARD B\r\n"
+			+ "WHERE SUBJECT LIKE #{subject}\r\n"
+			+ "AND WRITER LIKE #{writer}\r\n"
+			+ "START WITH refno = 0\r\n"
+			+ "CONNECT BY PRIOR NO = refno\r\n"
+			+ "ORDER SIBLINGS BY NO DESC ")
 	List<Board> getBoardList(BoardSch sch);   
 	// refno subject content writer
 	@Insert("INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,"

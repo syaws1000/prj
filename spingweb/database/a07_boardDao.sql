@@ -188,6 +188,35 @@ int insertBoardFileepx01(BoardFile ins);
 	
 
  * */
+-- 계층적 sql 처리  ROWNUM : 번호를 순차적으로 표현하기 위해 데이터의 고유 행번호 출력
+-- LEVEL : 계층 레벨을 표현 기본이 1레벨 하위 계층이면 2레벨 등으로 표현..
+-- 
+SELECT ROWNUM CNT, LEVEL, B.* 
+FROM BOARD B
+WHERE SUBJECT LIKE '%%' 
+AND WRITER LIKE '%%'
+START WITH refno = 0
+CONNECT BY PRIOR NO = refno
+ORDER SIBLINGS BY NO DESC
+;
+/*
+SELECT ROWNUM CNT, LEVEL, B.* 
+FROM BOARD B
+WHERE SUBJECT LIKE #{subject}
+AND WRITER LIKE #{writer}
+START WITH refno = 0
+CONNECT BY PRIOR NO = refno
+ORDER SIBLINGS BY NO DESC
+ * */
+
+
+
+
+
+
+
+
+
 
 
 
