@@ -25,5 +25,7 @@ public class A04_BookSubjectService {
 		
 		return dao.getBookSubject(sch);
 	}
-
+	public String insertBookSubject(BookSubject ins) {
+		return dao.insertBookSubject(ins)>0?"등록성공":"등록실패";
+	}
 }

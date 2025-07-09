@@ -26,7 +26,7 @@ td {
 		let msg = "${msg}"
 		if (msg != "") {
 			if (!confirm(msg + "\n계속 등록하시겠습니까?")) {
-				location.href = "superFoodList"
+				location.href = "bookSubject"
 			}
 		}
 	});
@@ -35,21 +35,27 @@ td {
 
 <body>
 	<div class="jumbotron text-center">
-		<h2>슈퍼푸드 등록</h2>
-	</div>
+		<h2>도서  등록</h2>
+	</div><%-- // bookTitle subject author --%>
 	<div class="container">
 		<form method="post">
 			<div class="form-group">
-				<label for="foodName">슈퍼푸드명</label> 
+				<label for="bookTitle">도서명</label> 
 				<input type="text"
-					class="form-control" id="foodName" name="foodName"
-					placeholder="슈퍼푸드명 입력하세요" required>
+					class="form-control" id="bookTitle" name="bookTitle"
+					placeholder="도서명 입력하세요" required>
 			</div>
 			<div class="form-group">
-				<label for="funnyEffect">재미있는 효과</label> 
+				<label for="subject">주제</label> 
 				<input type="text"
-					class="form-control" id="funnyEffect" name="funnyEffect"
-					placeholder="재미있는 효과 입력하세요" required>
+					class="form-control" id="subject" name="subject"
+					placeholder="주제 입력하세요" required>
+			</div>			
+			<div class="form-group">
+				<label for="author">저자</label> 
+				<input type="text"
+					class="form-control" id="author" name="author"
+					placeholder="저자를 입력하세요" required>
 			</div>
 			<button type="submit" class="btn btn-primary">등록</button>
 		</form>

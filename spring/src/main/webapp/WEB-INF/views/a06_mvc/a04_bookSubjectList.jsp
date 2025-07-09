@@ -23,7 +23,9 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="insertBookSubject"
+		})
 	});
 </script>
 </head>
@@ -43,7 +45,7 @@ bookId bookTitle subject author
 	    <input placeholder="저자" name="author" value="${param.author}"    class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
-	        type="button">등록</button>
+	       id="regBtn" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

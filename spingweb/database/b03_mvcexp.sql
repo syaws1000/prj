@@ -122,8 +122,19 @@ VALUES (5, '소설로 배우는 인문학', '인문학', '이영주');
 
 -- '기술' 주제의 책 중에서 '박준형' 저자 출력
 SELECT * 
-FROM Book_Subject
+FROM Book_Subject ORDER BY book_id desc;
 WHERE subject LIKE '%기술%' AND author LIKE  '%박준형%'
+
+CREATE SEQUENCE book_seq;
+SELECT book_seq.nextval FROM dual;
+INSERT INTO book_subject values(book_seq.nextval, '자바프로그래밍 완성','기술','홍길동');
+/*
+bookId bookTitle subject author
+
+@Insert("INSERT INTO book_subject values(book_seq.nextval, #{bookTitle},#{subject},#{author})")
+int insertBookSubject(BookSuejct ins);
+ * */
+
 /*
 @Select("");
 List<BookSubject> getBookSubject(BookSubject sch);

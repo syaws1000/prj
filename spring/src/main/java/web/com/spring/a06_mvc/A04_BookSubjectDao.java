@@ -2,6 +2,7 @@ package web.com.spring.a06_mvc;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,5 +16,9 @@ public interface A04_BookSubjectDao {
 			+ "	FROM Book_Subject\r\n"
 			+ "	WHERE subject LIKE #{subject} AND author LIKE  #{author}")
 	List<BookSubject> getBookSubject(BookSubject sch);
+	// bookTitle subject author
+	@Insert("INSERT INTO book_subject values(book_seq.nextval, #{bookTitle},#{subject},#{author})")
+	int insertBookSubject(BookSubject ins);
+	
 	
 }

@@ -20,7 +20,15 @@ public class A04_BookSubjectController {
 		
 		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectList.jsp";
 	}
-	
+	// http://localhost:5052/insertBookSubject
+	@RequestMapping("insertBookSubject")  // get방식   post 방식 둘다 처리
+	public String insertBookSubject(BookSubject ins, Model d) {
+		if(ins.getSubject()!=null) {
+			d.addAttribute("msg", service.insertBookSubject(ins));
+		}
+		
+		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectInsert.jsp";
+	}	
 	
 
 }
