@@ -22,4 +22,7 @@ public class A02_SuperFoodService {
 
 	       return dao.getFoodList(sch);
 	   }	
+	public String insertFood(SuperFood ins) {
+		return dao.insertFood(ins)>0?"등록 성공":"등록 실패";
+	}
 }

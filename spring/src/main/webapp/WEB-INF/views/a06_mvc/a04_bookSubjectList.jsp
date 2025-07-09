@@ -23,51 +23,49 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#regBtn").click(function(){
-			location.href="insertSuperFood"
-		})
+	
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>슈퍼푸드리스트</h2>
+  <h2>도서 검색</h2>
 
 </div>
-
+<%-- 
+bookId bookTitle subject author		
+--%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="음식명" name="foodName"  value="${param.foodName}" class="form-control mr-sm-2" />
-	    <input placeholder="재미있는 효과" name="funnyEffect"   value="${param.funnyEffect}"  class="form-control mr-sm-2"/>
+	    <input placeholder="주제" name="subject" value="${param.subject}"  class="form-control mr-sm-2" />
+	    <input placeholder="저자" name="author" value="${param.author}"    class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" type="button" id="regBtn">등록</button>
+	    <button class="btn btn-success" 
+	        type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="30%">
-   	<col width="50%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>음식아이디</th>
-        <th>음식명</th>
-        <th>재미있는효과</th>
+        <th>도서아이디</th>
+        <th>도서명</th>
+        <th>주제</th>
+        <th>저자</th>
       </tr>
-    </thead>	
- <%-- 
-//foodName funnyEffect
-//list foodId foodName funnyEffect		
---%>   
+    </thead>
     <tbody>
-    	<c:forEach var="food" items="${list}">
-    		<tr><td>${food.foodId}</td><td>${food.foodName}</td><td>${food.funnyEffect}</td></tr>
+    	<c:forEach var="bk" items="${books}">
+    	<tr><td>${bk.bookId}</td><td>${bk.bookTitle}</td><td>${bk.subject}</td><td>${bk.author}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
-    
 </div>
 </body>
 </html>

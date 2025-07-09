@@ -17,4 +17,16 @@ public class A02_SuperFoodController {
 		d.addAttribute("list", service.superFoodList(sch));
 		return "WEB-INF\\views\\a06_mvc\\a02_superFoodList.jsp";
 	}
+	// 수퍼 등록 화면 구현..
+	// http://localhost:5052/insertSuperFood
+	@RequestMapping("insertSuperFood")
+	public String insertSuperFood(SuperFood ins, Model d) {
+		if(ins.getFoodName()!=null) {
+			d.addAttribute("msg", service.insertFood(ins));
+		}
+		
+		return "WEB-INF\\views\\a06_mvc\\a02_superFoodInsert.jsp";
+	}	
+	
+	
 }

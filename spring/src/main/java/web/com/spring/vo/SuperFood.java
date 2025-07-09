@@ -4,7 +4,7 @@ package web.com.spring.vo;
 
 public class SuperFood {
 	private int  foodId;
-	private String foodName; 
+	private String foodName; // foodName funnyEffect
 	private String funnyEffect;
 	public int getFoodId() {
 		return foodId;
