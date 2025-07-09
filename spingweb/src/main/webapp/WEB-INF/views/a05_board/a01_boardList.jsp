@@ -60,7 +60,7 @@
 	    <button class="btn btn-success" id="regBtn" type="button">등록</button>
  	</nav>
 	</form>
-   <table class="table table-hover table-striped">
+   <table class="table table-hover table-striped" >
    	<col width="10%">
    	<col width="50%">
    	<col width="15%">
@@ -85,16 +85,15 @@
      --%>
     	<c:forEach var="b" items="${blist}">
     	<tr ondblclick="goDetail(${b.no})"><td>${b.cnt}</td>
-    		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 
-                     <td style="text-align:left;margin-left:50px;">
-                        ${b.subject}
-                    </td>   		
-    		--%>
-    		
+    		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 --%>
+            <td  style="text-align:left;padding-left:${(b.level-1)*20}px;">
+                 ${b.subject}
+            </td>  
+    		<%--
     		<td class="text-left" >
     			<c:forEach var="i" begin="0" end="${b.level-1}">&nbsp;&nbsp;&nbsp;</c:forEach>
     			${b.subject}</td>
-    			
+    		--%>	
     		<td>${b.writer}</td>
     		<td><fmt:formatDate value="${b.regdte}" /></td>
     		<td>${b.readcnt}</td></tr>
