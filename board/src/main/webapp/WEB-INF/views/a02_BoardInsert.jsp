@@ -72,7 +72,6 @@
             <div class="form-group">
                 <label for="status">상태</label>
                 <select class="form-control" id="status" name="status" >
-                	<option value="">상태를 선택하세요</option>
                 	<option>공개</option>
                 	<option>비공개</option>
                 	<option>삭제</option>
