@@ -20,6 +20,10 @@
 
 <style>
 	td{text-align:center;}
+	/* 제목에 들여쓰기를 위한 css 변수 설정*/
+	.subject{
+		padding-left:var(--level-padding,0); /* 기본 padding-left 설정*/
+	}
 	
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
@@ -34,10 +38,6 @@
 			alert("로그인 하셔야 합니다.")
 			location.href="login"
 		}
-		let msg = "${mem.name}님 ${msg}"
-		
-		//if(msg!="")
-		//	alert(msg)
 	});
 	function logout(){
 		if(confirm("로그아웃하시겠습니까?")){
@@ -80,8 +80,21 @@
       </tr>
     </thead>	
     <tbody>
+    <%--
+    css 설정
+ 	.subject{
+ 	
+		padding-left:var(--level-padding,0); /* 기본 padding-left 설정*/
+	}   
+     --%>
     	<c:forEach var="b" items="${blist}">
-    	<tr ondblclick="goDetail(${b.no})"><td>${b.no}</td><td>${b.subject}</td><td>${b.writer}</td>
+    	<tr ondblclick="goDetail(${b.no})"><td>${b.cnt}</td>
+    		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 --%>
+    		<%-- <td class="text-left subject" style="--level-padding:${b.level*20}px;}">${b.subject}</td> --%>
+    		<td class="text-left" >
+    			<c:forEach var="i" begin="0" end="${b.level-1}">&nbsp;&nbsp;&nbsp;</c:forEach>
+    			${b.subject}</td>
+    		<td>${b.writer}</td>
     		<td><fmt:formatDate value="${b.regdte}" /></td>
     		<td>${b.readcnt}</td></tr>
     	</c:forEach>
