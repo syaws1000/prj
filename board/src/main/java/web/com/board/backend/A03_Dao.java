@@ -15,9 +15,13 @@ public interface A03_Dao {
 	@Select("SELECT * FROM MEMBER10 WHERE ID = #{id} AND PWD = #{pwd}")
 	Member login(Member sch);	
 	
-	@Select("SELECT * FROM ANNOUNCE "
-			+ "WHERE TITLE LIKE #{title} AND AUTHOR LIKE #{author} "
-			+ "ORDER BY BOARD_ID DESC ")
+	@Select(" SELECT ROWNUM CNT, LEVEL, B.*\r\n"
+			+ "FROM ANNOUNCE B\r\n"
+			+ "WHERE TITLE  LIKE #{title}\r\n"
+			+ "AND AUTHOR  LIKE #{author}\r\n"
+			+ "START WITH PARENT_ID =0\r\n"
+			+ "CONNECT BY PRIOR BOARD_ID = PARENT_ID \r\n"
+			+ "ORDER SIBLINGS BY BOARD_ID DESC ")
 	List<Announce> getAnnounceList(AnnounceSch sch);
 
 	@Select("SELECT * FROM announce WHERE  board_id= #{boardId}")

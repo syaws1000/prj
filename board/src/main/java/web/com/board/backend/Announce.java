@@ -8,6 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class Announce {
 	// boardId parentId  title  content author createAt updatedAt status
 	//    commentCount
+	private int cnt;
+	private int level;
     private int boardId;
     private String title;
     private String content;
@@ -23,6 +25,26 @@ public class Announce {
     
 	public Announce() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getCnt() {
+		return cnt;
+	}
+
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+
+	public int getLevel() {
+		return level;
+	}
+
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 

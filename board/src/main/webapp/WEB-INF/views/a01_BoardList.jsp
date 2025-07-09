@@ -45,11 +45,7 @@
 <body>
 <div class="jumbotron text-center">
   <h2>게시판연습 시작</h2>
-
 </div>
-<%-- 
-		
---%>
 <div class="container">
 	<h6 ondblclick="logout()" class="text-right">${mem.name}님 로그인중</h6>
 	<form id="frm01" class="form"  >
@@ -77,7 +73,10 @@
     </thead>	
     <tbody>
     	<c:forEach var="a" items="${list}">
-    	<tr ondblclick="goDetail(${a.boardId}, '${a.status}', '${a.author}')"><td>${a.boardId}</td><td>${a.title}</td><td>${a.author}</td>
+    	<tr ondblclick="goDetail(${a.boardId}, '${a.status}', '${a.author}')">
+    		<td>${a.cnt}</td>
+    		<td style="text-align:left;padding-left:${(a.level-1)*20}px;">${a.title}</td>
+    		<td>${a.author}</td>
     		<td>${a.status}</td><td>${a.commentCount}</td></tr>
     	</c:forEach>
     </tbody>
