@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import jakarta.servlet.http.HttpSession;
 import web.com.springweb.vo.Member;
@@ -16,6 +18,7 @@ import web.com.springweb.vo.Member;
 public class A01_BoardController {
 	@Autowired(required=false)
 	private A02_BoardService service;	
+	
 
 	
 	// http://localhost:5050/logout
@@ -46,8 +49,8 @@ public class A01_BoardController {
 	
 	// http://localhost:5050/boardList
 	@GetMapping("boardList")
-	public String boardList(@ModelAttribute("sch") BoardSch sch, Model d) {
-		
+	public String boardList(@ModelAttribute("sch") BoardSch sch, Model d, HttpSession sess ) {
+
 		d.addAttribute("blist", service.getBoardList(sch));
 		
 		return "WEB-INF\\views\\a05_board\\a01_boardList.jsp";

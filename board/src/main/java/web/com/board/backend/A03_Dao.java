@@ -15,13 +15,24 @@ public interface A03_Dao {
 	@Select("SELECT * FROM MEMBER10 WHERE ID = #{id} AND PWD = #{pwd}")
 	Member login(Member sch);	
 	
-	@Select(" SELECT ROWNUM CNT, LEVEL, B.*\r\n"
+	@Select("SELECT COUNT(*)\r\n"
 			+ "FROM ANNOUNCE B\r\n"
 			+ "WHERE TITLE  LIKE #{title}\r\n"
 			+ "AND AUTHOR  LIKE #{author}\r\n"
 			+ "START WITH PARENT_ID =0\r\n"
+			+ "CONNECT BY PRIOR BOARD_ID = PARENT_ID")
+	int getTotCount(AnnounceSch sch);
+	
+	@Select("SELECT * FROM\r\n"
+			+ "(\r\n"
+			+ "SELECT ROWNUM CNT, LEVEL, B.*\r\n"
+			+ "FROM ANNOUNCE B\r\n"
+			+ "WHERE TITLE  LIKE #{title}\r\n"
+			+ "AND AUTHOR  LIKE  #{author}\r\n"
+			+ "START WITH PARENT_ID =0\r\n"
 			+ "CONNECT BY PRIOR BOARD_ID = PARENT_ID \r\n"
-			+ "ORDER SIBLINGS BY BOARD_ID DESC ")
+			+ "ORDER SIBLINGS BY BOARD_ID DESC )\r\n"
+			+ "WHERE CNT BETWEEN #{start} AND #{end}\r\n")
 	List<Announce> getAnnounceList(AnnounceSch sch);
 
 	@Select("SELECT * FROM announce WHERE  board_id= #{boardId}")

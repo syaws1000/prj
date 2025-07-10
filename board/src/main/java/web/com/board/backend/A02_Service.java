@@ -24,6 +24,11 @@ public class A02_Service {
 		if(sch.getAuthor()==null) sch.setAuthor("");
 		sch.setTitle("%"+sch.getTitle()+"%");
 		sch.setAuthor("%"+sch.getAuthor()+"%");
+		
+		
+		
+		
+		
 		return dao.getAnnounceList(sch);
 	}
 	public Announce detailAnnount(int boardId) {

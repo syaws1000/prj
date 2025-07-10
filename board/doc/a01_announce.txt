@@ -47,10 +47,10 @@
 1. dao의 총페이지 수 처리..
    AnnounceSch.java ==> 페이징 처리를 위한 속성값 설정
    dao 페이징 처리를 위한 sql 변경 start, end
-======================  
 2. service 
-	1) 속성값 설정.
+	1) 속성값 설정.(AnnounceSch)
 	
+=============================	
 3. jsp(화면)
 	1) 하단에 페이지 리스트 처리
 	2) <input type="hidden" name="curPage">
