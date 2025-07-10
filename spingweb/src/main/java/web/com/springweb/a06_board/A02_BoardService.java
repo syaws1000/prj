@@ -23,11 +23,57 @@ public class A02_BoardService {
 	
 	
 	public List<Board> getBoardList(BoardSch sch){
+		
 		if(sch.getSubject()==null) sch.setSubject("");
 		if(sch.getWriter()==null) sch.setWriter("");
 		
 		sch.setSubject("%"+sch.getSubject()+"%");
 		sch.setWriter("%"+sch.getWriter()+"%");
+		
+		// 1. 검색한 데이터의 총건수 설정.  BoardSch(모델어트리뷰터-요청+모델)
+		sch.setCount(dao.getBoardTot(sch));
+		// 2. 한번에 보일 페이지 : 요청  select 3/5/10/20/50
+		//    default 요청값이 없더라도 설정처리(초기화면)
+		if(sch.getPageSize()==0) {
+			sch.setPageSize(5);
+		}
+		//
+		// 3. 총페이지 수..   [1][2]...[4][5]  21~25   사이에 데이터 경우..
+		//     24/5 ==> 4
+		//     20/5 ==> 4,  
+		//     21~25  ==> 5
+		//    1) 방법1
+		/*
+		sch.setPageCount( sch.getCount()/sch.getPageSize() );
+		if(sch.getCount()%sch.getPageSize()!=0) {
+			sch.setPageCount(sch.getPageCount()+1);
+		}
+		*/
+		//    2) 방법2   Math.ceil(실수데이터) : 올림 처리를 해준다.. Math.floor(실수데이터) 해당 값을 내림 처리해준다.
+		//  //     21~25  ==> 4.2......
+		//         21/5.0 ==> 4.2 ==> 5
+		//         22,23,24, 25 ==> 5.0
+		
+		// sch.setPageCount( (int)( Math.ceil( sch.getCount() / (double)sch.getPageSize() ) ) );
+		//    3) 방법3
+		//         (20 + 5 - 1)/5 ==> 4
+		//         (21 + 5 - 1)/5 ==> 5
+		//         (25 + 5 - 1)/5 ==> 5
+		sch.setPageCount((sch.getCount() + sch.getPageSize()-1) / sch.getPageSize());
+		//     [1][2].... [5]  ==> 클릭시.. 시작번호, 마지막번호 도출
+		// 4. 현재 클릭한 페이지번호
+		//    초기 화면에는 없음
+		if(sch.getCurPage()==0) {
+			sch.setCurPage(1);
+		}
+		
+		// 5. 시작번호
+		//    마지막번호
+		
+		
+		
+		
+		
 		
 		return dao.getBoardList(sch);
 	}

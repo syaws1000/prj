@@ -15,15 +15,26 @@ import web.com.springweb.vo.Member;
 public interface A03_BoardDao {
 	@Select("SELECT * FROM MEMBER WHERE ID=#{id} AND PWD = #{pwd}")
 	Member login(Member sch);
+
+
+	@Select("	SELECT COUNT(*)\r\n"
+			+ "	FROM BOARD B\r\n"
+			+ "	WHERE SUBJECT LIKE #{subject}\r\n"
+			+ "	AND WRITER LIKE #{writer}\r\n"
+			+ "	START WITH refno = 0\r\n"
+			+ "	CONNECT BY PRIOR NO = refno")
+	int getBoardTot(BoardSch sch);	
 	
-	
-	@Select("SELECT ROWNUM CNT, LEVEL, B.* \r\n"
+	@Select(" SELECT *\r\n"
+			+ "FROM (\r\n"
+			+ "SELECT ROWNUM CNT, LEVEL, B.* \r\n"
 			+ "FROM BOARD B\r\n"
 			+ "WHERE SUBJECT LIKE #{subject}\r\n"
 			+ "AND WRITER LIKE #{writer}\r\n"
 			+ "START WITH refno = 0\r\n"
 			+ "CONNECT BY PRIOR NO = refno\r\n"
-			+ "ORDER SIBLINGS BY NO DESC ")
+			+ "ORDER SIBLINGS BY NO DESC )\r\n"
+			+ "WHERE CNT BETWEEN #{start} AND #{end}")
 	List<Board> getBoardList(BoardSch sch);   
 	// refno subject content writer
 	@Insert("INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL,"
