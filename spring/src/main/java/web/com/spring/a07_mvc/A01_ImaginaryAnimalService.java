@@ -2,6 +2,7 @@ package web.com.spring.a07_mvc;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,8 @@ public class A01_ImaginaryAnimalService {
 	
 	public String insertImaginaryAnimal(ImaginaryAnimal ins) {
 		return dao.insertImaginaryAnimal(ins)>0?"등록성공":"등록실패";
+	}
+	public ImaginaryAnimal getImaginaryAnimal(int animalId) {
+		return dao.getImaginaryAnimal(animalId);
 	}
 }

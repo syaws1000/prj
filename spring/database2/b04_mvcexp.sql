@@ -124,6 +124,17 @@ class ImaginaryAnimal{
 }
  * */
 
+SELECT * FROM Imaginary_Animals WHERE animal_id=1;
+/*
+@Select("SELECT * FROM Imaginary_Animals WHERE animal_id=#{animalId}")
+ImaginaryAnimal getImaginaryAnimal(@Param("animalId") animalId);
+
+
+ * */
+
+
+
+
 
 
 

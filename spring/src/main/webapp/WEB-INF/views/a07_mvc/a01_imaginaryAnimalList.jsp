@@ -64,10 +64,15 @@
     </thead>	
     <tbody>
     	<c:forEach var="ani" items="${list}">
-    		<tr><td>${ani.animalId}</td><td>${ani.animalName}</td><td>${ani.animalAbility}</td><td>${ani.habitat}</td></tr>
+    		<tr ondblclick="goDetail(${ani.animalId})"><td>${ani.animalId}</td><td>${ani.animalName}</td><td>${ani.animalAbility}</td><td>${ani.habitat}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goDetail(animalId){
+			location.href="imaginaryAnimalDetail?animalId="+animalId
+		}
+	</script>
     
 </div>
 
