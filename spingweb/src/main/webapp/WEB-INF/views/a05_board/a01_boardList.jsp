@@ -104,11 +104,14 @@
     	</c:forEach>
     </tbody>
 	</table>       
+	<%--  //  count  pageSize  curPage pageCount  startBlock endBlock --%>
 	<ul class="pagination">
 	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	  <li class="page-item"><a class="page-link" href="#">1</a></li>
-	  <li class="page-item active"><a class="page-link" href="#">2</a></li>
-	  <li class="page-item"><a class="page-link" href="#">3</a></li>
+	  <c:forEach var="pcnt" begin="1" end="${sch.pageCount}">
+	  	<li class="page-item ${sch.curPage==pcnt?'active':''}"><a class="page-link" href="#">${pcnt}</a></li>
+	  						<%-- 현재 클릭한 페이번호와 출력하는 페이지 번호가 같을 때, active(활성화 css 처리) --%>
+	  </c:forEach>
+	  
 	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
 	</ul>
 	

@@ -5,6 +5,7 @@ public class BoardSch {
 	// 기본 검색
 	private String subject;
 	private String writer;
+	//  count  pageSize  curPage pageCount  startBlock endBlock
 	// 페이징 처리를 위한 속성들
 	private int count; // 전체 건수[DB]
 	private int pageSize;  // 한번에 보일 데이터 건수[요청값]

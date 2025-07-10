@@ -46,7 +46,7 @@ public class A01_BoardController {
 	
 	// http://localhost:5050/boardList
 	@GetMapping("boardList")
-	public String boardList(BoardSch sch, Model d) {
+	public String boardList(@ModelAttribute("sch") BoardSch sch, Model d) {
 		
 		d.addAttribute("blist", service.getBoardList(sch));
 		
