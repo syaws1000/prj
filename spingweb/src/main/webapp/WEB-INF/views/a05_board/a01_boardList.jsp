@@ -40,6 +40,10 @@
 			location.href="logout"
 		}
 	}
+	function goDetail(no){
+		location.href="boardDetail?no="+no
+	}
+			
 </script>
 </head>
 
@@ -100,12 +104,14 @@
     	</c:forEach>
     </tbody>
 	</table>       
-	<script type="text/javascript">
-	function goDetail(no){
-		location.href="boardDetail?no="+no
-	}
-		
-	</script>
+	<ul class="pagination">
+	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+	  <li class="page-item"><a class="page-link" href="#">1</a></li>
+	  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+	  <li class="page-item"><a class="page-link" href="#">3</a></li>
+	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+	</ul>
+	
 </div>
 </body>
 </html>
