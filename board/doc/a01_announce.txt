@@ -43,4 +43,17 @@
 3. controller
 4. 화면단 처리..
 
+# 페이지 처리 순서
+1. dao의 총페이지 수 처리..
+   AnnounceSch.java ==> 페이징 처리를 위한 속성값 설정
+   dao 페이징 처리를 위한 sql 변경 start, end
+======================  
+2. service 
+	1) 속성값 설정.
+	
+3. jsp(화면)
+	1) 하단에 페이지 리스트 처리
+	2) <input type="hidden" name="curPage">
+	3) javascript 특정 페이지 번호 클릭시, curPage 속성값 설정 및 submit()	
+
 
