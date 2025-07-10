@@ -25,6 +25,32 @@ public class A02_Service {
 		sch.setTitle("%"+sch.getTitle()+"%");
 		sch.setAuthor("%"+sch.getAuthor()+"%");
 		
+		// 1. 총데이터 건수
+		sch.setCount(dao.getTotCount(sch));
+		// 2. 한번에 보일 페이지 default 5 설정
+		if(sch.getPageSize()==0) {
+			sch.setPageSize(5);
+		}
+		// 3. 총페이지 수
+		sch.setPageCount((sch.getCount()+sch.getPageSize()+1)/sch.getPageSize());
+		// 4. 현재 클릭한 페이지번호..default 값 선언.
+		if(sch.getCurPage()==0)
+			sch.setCurPage(1);
+		
+		// 5. 시작번호
+		sch.setStart((sch.getCurPage()-1)*sch.getPageSize()+1);
+		// 6. 마지막번호..
+		sch.setEnd(sch.getCurPage()*sch.getPageSize());
+		if(sch.getEnd()>sch.getCount()) {
+			sch.setEnd(sch.getCount());
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
