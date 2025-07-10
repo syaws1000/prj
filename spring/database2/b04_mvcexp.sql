@@ -99,14 +99,22 @@ VALUES (3, '천사의 새', '하늘을 나는 능력', '구름의 궁전');
 INSERT INTO Imaginary_Animals (animal_id, animal_name, animal_ability, habitat)
 VALUES (4, '정글의 거인', '강력한 힘', '밀림');
 
-INSERT INTO Imaginary_Animals (animal_id, animal_name, animal_ability, habitat)
-VALUES (5, '심해의 괴물', '물 속에서 벽을 통과하는 능력', '심해');
+INSERT INTO Imaginary_Animals VALUES (5, '심해의 괴물', '물 속에서 벽을 통과하는 능력', '심해');
 
 
 CREATE SEQUENCE Animals_seq;
 SELECT Animals_seq.nextval FROM dual;
-SELECT * FROM Imaginary_Animals;
+SELECT * FROM Imaginary_Animals WHERE animal_name LIKE '%%' AND habitat LIKE '%%';
+INSERT INTO Imaginary_Animals VALUES (Animals_seq.nextval, '바다 괴물', '물 위에서 나르는 능력', '바다');
 /*
+@Select("SELECT * FROM Imaginary_Animals WHERE animal_name LIKE #{animalName} AND habitat LIKE #{habitat}")
+List<ImaginaryAnimal> getImaginaryAnimalList
+
+
+INSERT INTO Imaginary_Animals VALUES (Animals_seq.nextval, #{animalName}, #{animalAbility}, #{habitat})
+
+ * 
+ * 
 class ImaginaryAnimal{
 	private int animalId;
 	private String animalName;

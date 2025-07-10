@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import web.com.spring.vo.UnicornZoo;
+import web.com.spring.vo.ImaginaryAnimal;
 
 @Mapper
 public interface A01_UnicornDao {
@@ -14,8 +14,8 @@ public interface A01_UnicornDao {
 			+ "	WHERE unicorn_name LIKE #{unicornName} \r\n"
 			+ "	AND unicorn_special_ability LIKE #{unicornSpecialAbility} "
 			+ " ORDER BY UNICORN_ID DESC ")
-	List<UnicornZoo> unicornZooList(UnicornZoo sch);
+	List<ImaginaryAnimal> unicornZooList(ImaginaryAnimal sch);
 	
 	@Insert("INSERT INTO unicorn_zoo values(unicorn_seq.nextval,#{unicornName}, #{unicornSpecialAbility})")
-	int insertUnicornZoo(UnicornZoo ins);	                                                  
+	int insertUnicornZoo(ImaginaryAnimal ins);	                                                  
 }

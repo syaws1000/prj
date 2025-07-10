@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import web.com.spring.vo.UnicornZoo;
+import web.com.spring.vo.ImaginaryAnimal;
 
 @Controller
 public class A01_UnicornController {
@@ -14,7 +14,7 @@ public class A01_UnicornController {
 	
 	// http://localhost:5052/unicornList
 	@RequestMapping("unicornList")
-	public String unicornList(UnicornZoo sch, Model d) {
+	public String unicornList(ImaginaryAnimal sch, Model d) {
 	
 		d.addAttribute("list", service.unicornZooList(sch));
 		
@@ -22,7 +22,7 @@ public class A01_UnicornController {
 	}
 	// http://localhost:5052/unicornInsert
 	@RequestMapping("unicornInsert")
-	public String unicornInsert(UnicornZoo ins, Model d) {
+	public String unicornInsert(ImaginaryAnimal ins, Model d) {
 		if(ins.getUnicornName()!=null) {
 			d.addAttribute("msg", service.insertUnicornZoo(ins));
 		}

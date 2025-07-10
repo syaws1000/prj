@@ -1,6 +1,6 @@
 package web.com.spring.vo;
 
-public class UnicornZoo {
+public class ImaginaryAnimal {
 	// 입력 : unicornName unicornSpecialAbility
 	// 출력 : unicornId unicornName unicornSpecialAbility
 	private int unicornId;
