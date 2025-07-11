@@ -25,10 +25,25 @@
 	$(document).ready(function(){
 		let msg = "${msg}"
 		if(msg!=""){
-			if(!confirm(msg+"\n계속 등록하시겠습니까?")){
-				location.href="unicornList"
+			alert(msg)
+			if(msg.indexOf("삭제")>=0){
+				location.href="carList"
 			}
 		}
+		// carUpdate  carDelete
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				$("form").attr("action","carUpdate")
+				$("form").submit()
+			}
+		})
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				$("form").attr("action","carDelete")
+				$("form").submit()
+			}
+		})		
+		
 	});
 </script>
 </head>
@@ -41,6 +56,10 @@
 <%-- // carName carFeature fuelType releaseDate topSpeed --%>
         
         <form  method="post">
+            <div class="form-group">
+                <label for="carId">차량 이름 </label>
+                <input readonly value="${car.carId}"  type="text" class="form-control" id="carId" name="carId" placeholder="차량 이름을 입력하세요" required>
+            </div>        
             <div class="form-group">
                 <label for="carName">차량 이름 </label>
                 <input value="${car.carName}"  type="text" class="form-control" id="carName" name="carName" placeholder="차량 이름을 입력하세요" required>
@@ -63,8 +82,8 @@
                 <label for="topSpeed">최고속도</label>
                 <input  value="${car.topSpeed}"  type="text" class="form-control" id="topSpeed" name="topSpeed" required>
             </div>
-            <button type="button" class="btn btn-info">수정</button>
-            <button type="button" class="btn btn-warning">삭제</button>
+            <button type="button" id="uptBtn" class="btn btn-info">수정</button>
+            <button type="button" id="delBtn" class="btn btn-warning">삭제</button>
             <button type="button" class="btn btn-success">메인화면</button>
         </form>
       </div>  

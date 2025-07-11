@@ -68,3 +68,40 @@ SELECT Future_Cars_seq.nextval FROM dual;
 INSERT INTO Future_Cars  VALUES (Future_Cars_seq.nextval,'라브로기니', '가장비싼 자동차', '고급연료', TO_DATE('2025-07-11', 'YYYY-MM-DD'), 20000);
 SELECT * FROM Future_Cars;
 
+-- 수정 sql 
+UPDATE Future_Cars
+   SET car_name = '변경1',
+       car_feature='변경2',
+       fuel_type='변경3',
+       release_date = to_date('20001212','YYYYMMDD'),
+       top_speed = 9999
+WHERE car_id = 6;
+
+DELETE FROM Future_Cars WHERE car_id=6;
+
+/*
+	private String carFeature;
+	private String fuelType;
+	private Date releaseDate;
+	private int topSpeed;
+UPDATE Future_Cars
+   SET car_name = #{carName},
+       car_feature=#{carFeature},
+       fuel_type=#{fuelType},
+       release_date = #{releaseDate},
+       top_speed = #{topSpeed}
+WHERE car_id = #{carId}
+ 
+@Update("")
+int updateCar(FutureCar upt);
+
+@Delete("DELETE FROM Future_Cars WHERE car_id=#{carId}")
+ubt deleteCar(@Param("carId") int carId);
+ * */
+
+
+
+
+
+
+

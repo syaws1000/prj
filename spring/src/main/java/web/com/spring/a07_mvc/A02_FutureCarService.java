@@ -27,5 +27,13 @@ public class A02_FutureCarService {
 	public FutureCar getFutureCar(int carId) {
 		return dao.getFutureCar(carId);
 	}
-
+	public String updateCar(FutureCar upt) {
+		return dao.updateCar(upt)>0?"수정성공":"수정실패";
+	}
+	public String deleteCar(int carId) {
+		return dao.deleteCar(carId)>0?"삭제성공":"삭제실패";
+	}
+	
+	
+	
 }
