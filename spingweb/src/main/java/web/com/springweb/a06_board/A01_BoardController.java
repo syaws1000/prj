@@ -50,7 +50,8 @@ public class A01_BoardController {
 	// http://localhost:5050/boardList
 	@GetMapping("boardList")
 	public String boardList(@ModelAttribute("sch") BoardSch sch, Model d, HttpSession sess ) {
-
+		// ModelAttribute 로 설정하면 화면에서 전달한 요청값을 데이터로 가지고 있을 뿐 아니라.
+		// controller, service, dao에서 변경된 데이터 화면단에서 불러서 사용할 수 있기 때문에 활용(요청 + 모델)
 		d.addAttribute("blist", service.getBoardList(sch));
 		
 		return "WEB-INF\\views\\a05_board\\a01_boardList.jsp";
