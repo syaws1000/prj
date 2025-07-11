@@ -2,12 +2,18 @@ package web.com.springweb.a07_calendar;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Calendar2 {
 	
 	private int id;
 	private String title;
 	private String writer;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
 	private Date start;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
 	private Date end;
 	private String content;
 	private String backgroundColor;
