@@ -65,6 +65,31 @@
 	    <button class="btn btn-success" id="regBtn" type="button">등록</button>
  	</nav>
 	</form>
+	<%-- 페이지 크기 설정하는 내용 --%>
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="col-sm-1" style="padding-left:0;">
+			<button type="button" class="btn btn-primary">
+				총 <span class="badge badge-light">${sch.count}</span>건
+			</button>
+	    </div>
+	    <div class="col-sm-10" ></div>
+	    <div class="col-sm-1" style="padding-right:0;">
+			<select class="form-control" id="pageSize" style="padding-right:0;">
+				<option value="3">[ 3 ]</option>
+				<option value="5">[ 5 ]</option>
+				<option value="10">[ 10 ]</option>
+				<option value="20">[ 20 ]</option>
+				<option value="50">[ 50 ]</option>
+			</select>
+			<script type="text/javascript">
+				$("#pageSize").val(${sch.pageSize})
+			</script>
+	    </div>	    
+	  </div>
+	</div>
+	
+	
    <table class="table table-hover table-striped" >
    	<col width="10%">
    	<col width="50%">
