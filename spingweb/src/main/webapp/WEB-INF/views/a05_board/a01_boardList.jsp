@@ -34,6 +34,11 @@
 			alert("로그인 하셔야 합니다.")
 			location.href="login"
 		}
+		$("#pageSize").change(function(){
+			$("[name=pageSize]").val( $(this).val() )
+			$("[name=curPage]").val(1)
+			$("form").submit()
+		})
 	});
 	function logout(){
 		if(confirm("로그아웃하시겠습니까?")){
@@ -57,7 +62,8 @@
 <div class="container">
  <h6 class="text-right" ondblclick="logout()">${mem.name} 로그인중</h6>
 	<form id="frm01" class="form" >
-		<input type="hidden" name="curPage" value="1"/>
+		<input type="hidden" name="curPage" value="${sch.curPage}"/>
+		<input type="hidden" name="pageSize" value="${sch.pageSize}"/>
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name="subject" value="${param.subject}" class="form-control mr-sm-2" />
 	    <input placeholder="작성자" name="writer" value="${param.writer}" class="form-control mr-sm-2"/>
