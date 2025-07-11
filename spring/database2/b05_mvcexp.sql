@@ -64,6 +64,7 @@ FutureCar getFutureCar(@Param("carId") int carId);
  * */
 CREATE SEQUENCE Future_Cars_seq;
 SELECT Future_Cars_seq.nextval FROM dual;
+--                                                       carName carFeature fuelType releaseDate topSpeed
 INSERT INTO Future_Cars  VALUES (Future_Cars_seq.nextval,'라브로기니', '가장비싼 자동차', '고급연료', TO_DATE('2025-07-11', 'YYYY-MM-DD'), 20000);
 SELECT * FROM Future_Cars;
 

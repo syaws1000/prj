@@ -51,11 +51,15 @@
                 	placeholder="차량 특징 입력하세요" required>
             </div>
             <div class="form-group">
+                <label for="fuelType">연료 유형 </label>
+                <input type="text" class="form-control" id="fuelType" name="fuelType" placeholder="연료유형을 입력하세요" required>
+            </div>            
+            <div class="form-group">
                 <label for="releaseDate">등록일</label>
                 <input type="date" class="form-control" id="releaseDate" name="releaseDate" required>
             </div>
             <div class="form-group">
-                <label for="topSpeed">등록일</label>
+                <label for="topSpeed">최고속도</label>
                 <input type="text" class="form-control" id="topSpeed" name="topSpeed" required>
             </div>
              

@@ -50,7 +50,11 @@
                 <input value="${car.carFeature}"  type="text" class="form-control" id="carFeature" name="carFeature" 
                 	placeholder="차량 특징 입력하세요" required>
             </div>
-            <div class="form-group">3
+            <div class="form-group">
+                <label for="fuelType">연료 유형 </label>
+                <input  value="${car.fuelType}"  type="text" class="form-control" id="fuelType" name="fuelType" placeholder="연료유형을 입력하세요" required>
+            </div>                
+            <div class="form-group">
                 <label for="releaseDate">등록일</label>
                 
                 <input  value='<fmt:formatDate value="${car.releaseDate}" pattern="yyyy-MM-dd"/>'  type="date" class="form-control" id="releaseDate" name="releaseDate" required>

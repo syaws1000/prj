@@ -27,7 +27,8 @@ public class A02_FutureCarController {
 	// http://localhost:5052/carInsert
 	@RequestMapping("carInsert")
 	public String insertFutureCar(FutureCar ins, Model d) {
-		d.addAttribute("msg", service.insertFutureCar(ins));
+		if(ins.getCarName()!=null)
+			d.addAttribute("msg", service.insertFutureCar(ins));
 		return "WEB-INF\\views\\a07_mvc\\a02_futureCarInsert.jsp";
 	}
 	// carInsert   getFutureCar?carId=1
