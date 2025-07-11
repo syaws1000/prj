@@ -64,10 +64,15 @@ bookId bookTitle subject author
     </thead>
     <tbody>
     	<c:forEach var="bk" items="${books}">
-    	<tr><td>${bk.bookId}</td><td>${bk.bookTitle}</td><td>${bk.subject}</td><td>${bk.author}</td></tr>
+    	<tr ondblclick="goDetail(${bk.bookId})"><td>${bk.bookId}</td><td>${bk.bookTitle}</td><td>${bk.subject}</td><td>${bk.author}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goDetail(bookId){
+			location.href="detailBookSubject?bookId="+bookId
+		}
+	</script>
 </div>
 </body>
 </html>

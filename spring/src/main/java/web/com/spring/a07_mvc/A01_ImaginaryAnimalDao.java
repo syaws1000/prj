@@ -22,6 +22,7 @@ public interface A01_ImaginaryAnimalDao {
 
 	@Select("SELECT * FROM Imaginary_Animals WHERE animal_id=#{animalId}")
 	ImaginaryAnimal getImaginaryAnimal(@Param("animalId") int animalId);	
+
 	
 	
 	

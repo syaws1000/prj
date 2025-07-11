@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.spring.vo.BookSubject;
@@ -20,5 +21,7 @@ public interface A04_BookSubjectDao {
 	@Insert("INSERT INTO book_subject values(book_seq.nextval, #{bookTitle},#{subject},#{author})")
 	int insertBookSubject(BookSubject ins);
 	
+	@Select("SELECT * FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
+	BookSubject getBook(@Param("bookId") int bookId);
 	
 }

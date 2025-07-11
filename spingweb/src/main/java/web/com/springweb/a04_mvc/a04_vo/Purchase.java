@@ -8,7 +8,7 @@ public class Purchase {
 	private int purchaseId; 
 	private int customerId; 
 	private String customerName; 
-	// 화면에서 yyyy-MM-dd 형식이면 날짜데이터 자동할당.
+	// 화면에서 yyyy-MM-dd 형식이면 날짜데이터 자동할당. <input type="date"
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date purchaseDate; 
 	private int purchaseAmount; 

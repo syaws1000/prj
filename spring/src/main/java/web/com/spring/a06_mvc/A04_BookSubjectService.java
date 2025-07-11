@@ -2,6 +2,7 @@ package web.com.spring.a06_mvc;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,8 @@ public class A04_BookSubjectService {
 	public String insertBookSubject(BookSubject ins) {
 		return dao.insertBookSubject(ins)>0?"등록성공":"등록실패";
 	}
+	public BookSubject getBook(int bookId) {
+		return dao.getBook(bookId);
+	}
+	
 }

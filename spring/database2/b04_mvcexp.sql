@@ -133,6 +133,17 @@ ImaginaryAnimal getImaginaryAnimal(@Param("animalId") animalId);
  * */
 
 
+-- Book_Subject  활용한 도서검색 리스트 화면 
+-- dao - 상세검색
+--------------------
+-- service
+-- controller
+-- view : a04_bookSubjectDetail.jsp
+SELECT * FROM BOOK_SUBJECT WHERE book_id = 7;
+/*
+@Select("SELECT * FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
+BookSubject getBook(@Param("bookId") int bookId);
+ * */
 
 
 
