@@ -49,7 +49,10 @@
 	function goDetail(no){
 		location.href="boardDetail?no="+no
 	}
-			
+	function goPage(pcnt){
+		$("[name=curPage]").val(pcnt)
+		$("form").submit()
+	}			
 </script>
 </head>
 
@@ -141,24 +144,14 @@
 	</table>       
 	<%--  //  count  pageSize  curPage pageCount  startBlock endBlock --%>
 	<ul class="pagination">
-	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.startBlock-1})">Previous</a></li>
 	  <c:forEach var="pcnt" begin="${sch.startBlock}" end="${sch.endBlock}">
 	  	<li class="page-item ${sch.curPage==pcnt?'active':''}">
 	  		<a class="page-link" href="javascript:goPage(${pcnt})">${pcnt}</a></li>
 	  						<%-- 현재 클릭한 페이번호와 출력하는 페이지 번호가 같을 때, active(활성화 css 처리) --%>
-	  </c:forEach>
-	  
-	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+	  </c:forEach>  
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.endBlock+1})">Next</a></li>
 	</ul>
-	<script type="text/javascript">
-		// <input type="hidden" name="curPage" value="1"/>
-		function goPage(pcnt){
-			$("[name=curPage]").val(pcnt)
-			$("form").submit()
-		}
-	
-	</script>
-	
 </div>
 </body>
 </html>

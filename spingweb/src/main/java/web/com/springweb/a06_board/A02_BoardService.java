@@ -66,6 +66,10 @@ public class A02_BoardService {
 		if(sch.getCurPage()==0) {
 			sch.setCurPage(1);
 		}
+		//   이후를 통해서 현재 클릭한 페이지 번호가 총페이지번호보다 크게 되는 것을 방지 처리
+		if(sch.getCurPage()>sch.getPageCount()) {
+			sch.setCurPage(sch.getPageCount());
+		}
 		
 		// 5. 시작번호
 		sch.setStart((sch.getCurPage()-1)*sch.getPageSize()+1);
@@ -76,6 +80,7 @@ public class A02_BoardService {
 		if(sch.getEnd()>sch.getCount()) {
 			sch.setEnd(sch.getCount());
 		}
+		
 		
 		/*
 		한번에 보일 데이턴 건수 5,  
@@ -93,7 +98,9 @@ public class A02_BoardService {
 		// 이전[ 6][ 7][ 8][ 9][10] 이후  ==> 2블럭번호(blockNum)
 		// 이전[11][12][13][14][15] 이후  ==> 3블럭번호(blockNum)
 		// 이전[16][17][18][19][20] 이후  ==> 4블럭번호(blockNum)
-		// 이전[21][22][23][24][25]      ==> 5블럭번호(blockNum)
+		// 이전[21][22][23][24][25] 이후  ==> 5블럭번호(blockNum)
+		// 이전 이후를 클릭시, curPage번호를 1씩 감소/증가하게 하여 전송하되, 마지막 curPage번호를 클릭시, 더이상 증가 되지 않게
+		// 처리하여야 한다..
 		// 블럭사이즈(blockSize - 화면에 보일 페이블럭의 크기)
 		// 각 블럭번호에 해당하는 시작 블럭번호(startBlock)
 		// 각 블럭번호에 해당하는 마지막 블럭번호(endBlock)
