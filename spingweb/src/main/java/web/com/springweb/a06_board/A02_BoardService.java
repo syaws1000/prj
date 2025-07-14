@@ -121,18 +121,7 @@ public class A02_BoardService {
 		//    마지막블럭 번호가 전체 페이지 수보다 크기 못하게 처리..
 		sch.setEndBlock(endBlock>sch.getPageCount()?sch.getPageCount():endBlock);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		return dao.getBoardList(sch);
 	}
 	

@@ -13,6 +13,10 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
+    // 기준날짜를 오늘날짜로 iso형식으로 출력..
+    let toDay = new Date()
+    //alert(toDay.toISOString())
+    var showDate = toDay.toISOString().split("T")[0]  // 날짜만 추출하여 기준 날짜로 오늘 날짜 설정..
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
@@ -20,7 +24,7 @@
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      initialDate: '2025-07-11',
+      initialDate: showDate,
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
@@ -43,66 +47,22 @@
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2025-07-01'
-        },
-        {
-            title: '불타는 금요일인가요?',
-            start: '2025-07-11'
-        },        
-        {
-          title: 'Long Event',
-          start: '2025-07-07',
-          end: '2025-07-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2025-07-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2025-07-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2025-07-11',
-          end: '2025-07-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2025-07-12T10:30:00',
-          end: '2025-07-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2025-07-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2025-07-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2025-07-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2025-07-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2025-07-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2025-07-28'
-        }
-      ]
+      events: function(info, successCallback, failureCallback){
+		$.ajax({
+			url:"calList",
+			dataType:"json",
+			success:function(calList){
+				// 받은 내장 함수의 매개변수를 통해서 서버(backend)에서 받은 일정을 설정 처리
+				successCallback( calList )
+			},
+			error:function(err){
+				console.log(err)
+				failureCallback(err)	
+			}
+			
+		}) 	
+
+      }
     });
 
     calendar.render();
