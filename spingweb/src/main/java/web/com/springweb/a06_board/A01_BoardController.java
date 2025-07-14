@@ -20,18 +20,20 @@ public class A01_BoardController {
 	private A02_BoardService service;	
 	
 
-	
+	/*
 	// http://localhost:5050/logout
 	@GetMapping("logout")	
 	public String logout( HttpSession sess) {
 		sess.removeAttribute("mem"); // mem 세션 삭제, 다시 로그인 화면 이동 처리..
 		return "redirect:/login";
 	}
-	
+	*/
 	// http://localhost:5050/login
 	@RequestMapping("login")
 	public String login(Member mem, HttpSession sess, Model d//, RedirectAttributes ra
 						) {
+		if(sess.getAttribute("mem")!=null)
+			sess.removeAttribute("mem"); 
 		if(mem.getId()!=null) { // 입력값에 따라서 로그인 데이터 여부 확인 처리..
 			Member smem = service.login(mem);
 			if(smem!=null) { // 해당 데이터가 있는 경우..

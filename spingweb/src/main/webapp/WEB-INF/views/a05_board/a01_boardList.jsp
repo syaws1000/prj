@@ -43,7 +43,7 @@
 	});
 	function logout(){
 		if(confirm("로그아웃하시겠습니까?")){
-			location.href="logout"
+			location.href="login"
 		}
 	}
 	function goDetail(no){

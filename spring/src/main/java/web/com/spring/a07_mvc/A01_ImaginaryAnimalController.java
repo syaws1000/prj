@@ -30,7 +30,7 @@ public class A01_ImaginaryAnimalController {
 		}
 		return "WEB-INF\\views\\a07_mvc\\a01_imaginaryAnimalInsert.jsp";
 	}
-    // http://localhost:5052/imaginaryAnimalDetail?animalId=1
+    // http://localhost:5052/imaginaryAnimalDetail?animalId=9
 	@GetMapping("imaginaryAnimalDetail")
 	public String imaginaryAnimalDetail(@RequestParam("animalId") int animalId, Model d) {
 		d.addAttribute("ani", service.getImaginaryAnimal(animalId));
