@@ -28,7 +28,7 @@ public class A01_UnicornService {
 	public String insertUnicornZoo(Unicorn ins) {
 		return dao.insertUnicornZoo(ins)>0?"등록성공":"등록실패";
 	}
-	public Unicorn getImaginaryAnimal(int unicornId) {
+	public Unicorn getUnicorn(int unicornId) {
 		return dao.getImaginaryAnimal(unicornId);
 	}
 	public String updateUnicorn(Unicorn upt) {

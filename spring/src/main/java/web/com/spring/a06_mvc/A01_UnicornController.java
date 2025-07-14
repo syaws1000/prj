@@ -34,7 +34,7 @@ public class A01_UnicornController {
 	@RequestMapping("unicornDetail")
 	public String unicornDetail(@RequestParam("unicornId") int unicornId, Model d) {
 		//   
-		d.addAttribute("uni", service.getImaginaryAnimal(unicornId));
+		d.addAttribute("uni", service.getUnicorn(unicornId));
 		return "WEB-INF\\views\\a06_mvc\\a01_unicornDetail.jsp";
 		
 	}
@@ -42,7 +42,7 @@ public class A01_UnicornController {
 	@RequestMapping("unicornUpdate")
 	public String unicornUpdate(Unicorn upt, Model d) {
 		d.addAttribute("msg", service.updateUnicorn(upt));
-		d.addAttribute("uni", service.getImaginaryAnimal(upt.getUnicornId()));
+		d.addAttribute("uni", service.getUnicorn(upt.getUnicornId()));
 		return "WEB-INF\\views\\a06_mvc\\a01_unicornDetail.jsp";
 	}	
 

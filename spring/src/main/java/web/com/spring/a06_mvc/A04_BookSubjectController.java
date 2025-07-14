@@ -15,6 +15,8 @@ public class A04_BookSubjectController {
 	@Autowired(required = false)
 	private A04_BookSubjectService service;
 	
+	// A02_SuperFoodController A04_BookSubjectController
+	
 	// http://localhost:5052/bookSubject
 	@RequestMapping("bookSubject")  // get방식   post 방식 둘다 처리
 	public String characters(BookSubject sch, Model d) {
