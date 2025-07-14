@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import web.com.spring.vo.ImaginaryAnimal;
+import web.com.spring.a06_mvc.vo.Unicorn;
 
 @Controller
 public class A01_UnicornController {
@@ -15,7 +15,7 @@ public class A01_UnicornController {
 	
 	// http://localhost:5052/unicornList
 	@RequestMapping("unicornList")
-	public String unicornList(ImaginaryAnimal sch, Model d) {
+	public String unicornList(Unicorn sch, Model d) {
 	
 		d.addAttribute("list", service.unicornZooList(sch));
 		
@@ -23,7 +23,7 @@ public class A01_UnicornController {
 	}
 	// http://localhost:5052/unicornInsert
 	@RequestMapping("unicornInsert")
-	public String unicornInsert(ImaginaryAnimal ins, Model d) {
+	public String unicornInsert(Unicorn ins, Model d) {
 		if(ins.getUnicornName()!=null) {
 			d.addAttribute("msg", service.insertUnicornZoo(ins));
 		}
@@ -38,6 +38,12 @@ public class A01_UnicornController {
 		return "WEB-INF\\views\\a06_mvc\\a01_unicornDetail.jsp";
 		
 	}
-	
+	// http://localhost:5052/unicornUpdate
+	@RequestMapping("unicornUpdate")
+	public String unicornUpdate(Unicorn upt, Model d) {
+		d.addAttribute("msg", service.updateUnicorn(upt));
+		d.addAttribute("uni", service.getImaginaryAnimal(upt.getUnicornId()));
+		return "WEB-INF\\views\\a06_mvc\\a01_unicornDetail.jsp";
+	}	
 
 }

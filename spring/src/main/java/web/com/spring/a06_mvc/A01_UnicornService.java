@@ -2,11 +2,10 @@ package web.com.spring.a06_mvc;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import web.com.spring.vo.ImaginaryAnimal;
+import web.com.spring.a06_mvc.vo.Unicorn;
 
 @Service
 public class A01_UnicornService {
@@ -14,7 +13,7 @@ public class A01_UnicornService {
 	@Autowired(required=false)
 	private A01_UnicornDao dao;
 	
-	public List<ImaginaryAnimal> unicornZooList(ImaginaryAnimal sch){
+	public List<Unicorn> unicornZooList(Unicorn sch){
 		// 초기 화면에 요청값이 없을 때는 ""으로 처리
 		if(sch.getUnicornName()==null) sch.setUnicornName("");
 		if(sch.getUnicornSpecialAbility()==null) sch.setUnicornSpecialAbility("");
@@ -26,10 +25,13 @@ public class A01_UnicornService {
 		return dao.unicornZooList(sch);
 	}
 	
-	public String insertUnicornZoo(ImaginaryAnimal ins) {
+	public String insertUnicornZoo(Unicorn ins) {
 		return dao.insertUnicornZoo(ins)>0?"등록성공":"등록실패";
 	}
-	public ImaginaryAnimal getImaginaryAnimal(int unicornId) {
+	public Unicorn getImaginaryAnimal(int unicornId) {
 		return dao.getImaginaryAnimal(unicornId);
+	}
+	public String updateUnicorn(Unicorn upt) {
+		return dao.updateUnicorn(upt)>0?"수정성공":"수정실패";
 	}
 }

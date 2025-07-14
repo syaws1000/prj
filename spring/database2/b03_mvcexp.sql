@@ -67,6 +67,24 @@ SELECT * FROM unicorn_zoo;
 CREATE SEQUENCE unicorn_seq;
 SELECT unicorn_seq.nextval FROM dual; -- 5번 반복..
 INSERT INTO unicorn_zoo values(unicorn_seq.nextval,'기쁨', '사람들에게 행복한 기쁨을 주는 능력');
+
+UPDATE unicorn_zoo
+   SET unicorn_name = '수정1',
+       UNICORN_SPECIAL_ABILITY = '수정2'
+ WHERE UNICORN_ID = 2;
+/*
+UPDATE unicorn_zoo
+   SET unicorn_name = #{unicornName},
+       UNICORN_SPECIAL_ABILITY = #{unicornSpecialAbility}'
+ WHERE UNICORN_ID = #{unicornId}
+@Update("")
+int updateUnicorn();
+ * */
+   
+
+
+
+
 -- 입력 : String unicornName; String unicornSpecialAbility ==> UnicornZoo
 -- 출력 : int  : 등록한 건수..
 /*

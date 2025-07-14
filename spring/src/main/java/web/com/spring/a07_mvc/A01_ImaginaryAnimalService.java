@@ -2,11 +2,11 @@ package web.com.spring.a07_mvc;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.spring.a07_mvc.vo.ImaginaryAnimal;
+
 
 @Service
 public class A01_ImaginaryAnimalService {

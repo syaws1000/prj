@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 
 import web.com.spring.a07_mvc.vo.ImaginaryAnimal;
 
+
 @Mapper
 public interface A01_ImaginaryAnimalDao {
 	@Select("	SELECT * FROM Imaginary_Animals "

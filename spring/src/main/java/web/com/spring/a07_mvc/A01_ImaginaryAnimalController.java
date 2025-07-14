@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.spring.a07_mvc.vo.ImaginaryAnimal;
 
+
 @Controller
 public class A01_ImaginaryAnimalController {
 	@Autowired(required=false)
@@ -25,7 +26,7 @@ public class A01_ImaginaryAnimalController {
 	// http://localhost:5052/imaginaryAnimalInsert
 	@RequestMapping("imaginaryAnimalInsert")
 	public String unicornInsert(ImaginaryAnimal ins, Model d) {
-		if(ins.getAnimalName()!=null) {
+		if(ins.getAnimalAbility()!=null) {
 			d.addAttribute("msg", service.insertImaginaryAnimal(ins));
 		}
 		return "WEB-INF\\views\\a07_mvc\\a01_imaginaryAnimalInsert.jsp";
