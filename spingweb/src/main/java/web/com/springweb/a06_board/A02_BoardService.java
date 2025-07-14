@@ -89,8 +89,33 @@ public class A02_BoardService {
 		 * */
 		
 		// 페이지 블럭..
-		//    [1][2][3][4][5] 이후
-		// 이전[6][7][8][9][10] 이후
+		//    [ 1][ 2][ 3][ 4][ 5] 이후  ==> 1블럭번호(blockNum)
+		// 이전[ 6][ 7][ 8][ 9][10] 이후  ==> 2블럭번호(blockNum)
+		// 이전[11][12][13][14][15] 이후  ==> 3블럭번호(blockNum)
+		// 이전[16][17][18][19][20] 이후  ==> 4블럭번호(blockNum)
+		// 이전[21][22][23][24][25]      ==> 5블럭번호(blockNum)
+		// 블럭사이즈(blockSize - 화면에 보일 페이블럭의 크기)
+		// 각 블럭번호에 해당하는 시작 블럭번호(startBlock)
+		// 각 블럭번호에 해당하는 마지막 블럭번호(endBlock)
+		// 1. 한번에 보일 블럭 크기 설정..
+		sch.setBlockSize(5);
+		// 2. 블럭번호 
+		//int blockNum = (int)Math.ceil(sch.getCurPage()/(double)sch.getBlockSize());
+		int blockNum = (sch.getCurPage()+sch.getBlockSize()-1)/sch.getBlockSize();
+		//                                1/5.0   0.2 =올림=> 1.0
+		//                                2/5.0   0.4 =올림=> 1.0
+		//                                6/5.0   1.2 =올림=> 2.0
+		//                                7/5.0   1.4 =올림=> 2.0
+		// 3. 시작 블럭 번호
+		sch.setStartBlock( (blockNum-1) *sch.getBlockSize() + 1);
+		// 4. 마지막 블럭 번호
+		int endBlock = blockNum*sch.getBlockSize();
+		//    마지막블럭 번호가 전체 페이지 수보다 크기 못하게 처리..
+		sch.setEndBlock(endBlock>sch.getPageCount()?sch.getPageCount():endBlock);
+		
+		
+		
+		
 		
 		
 		
