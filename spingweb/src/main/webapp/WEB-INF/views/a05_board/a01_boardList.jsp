@@ -115,9 +115,9 @@
 		padding-left:var(--level-padding,0); /* 기본 padding-left 설정*/
 	}   
      --%>
-     	<c:set var="listCnt" value="0"/>
+     	<c:set var="restCnt" value="${sch.pageSize}"/>
     	<c:forEach var="b" items="${blist}">
-    		<c:set var="listCnt" value="${listCnt+1 }"/>
+    		<c:set var="restCnt" value="${restCnt-1 }"/>
     	<tr ondblclick="goDetail(${b.no})"><td>${b.cnt}</td>
     		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 --%>
             <td  style="text-align:left;padding-left:${(b.level-1)*20}px;">
@@ -130,11 +130,11 @@
     		--%>	
     		<td>${b.writer}</td>
     		<td><fmt:formatDate value="${b.regdte}" /></td>
-    		<td>${b.readcnt}</td></tr>
+    		<td>${b.readcnt} </td></tr>
     	</c:forEach>
-    	<c:if test="${(pageSize-listCnt) > 0}">
-    	<c:forEach begin="1" end="${pageSize-listCnt}" >
-    		<tr><td>&nbsp;..</td><td></td><td></td><td></td></tr>
+    	<c:if test="${restCnt > 0}">
+    	<c:forEach begin="1" end="${restCnt}" >
+    		<tr class="invisible" ><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
     	</c:forEach>
     	</c:if>
     </tbody>
@@ -142,7 +142,7 @@
 	<%--  //  count  pageSize  curPage pageCount  startBlock endBlock --%>
 	<ul class="pagination">
 	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	  <c:forEach var="pcnt" begin="1" end="${sch.pageCount}">
+	  <c:forEach var="pcnt" begin="${sch.startBlock}" end="${sch.endBlock}">
 	  	<li class="page-item ${sch.curPage==pcnt?'active':''}">
 	  		<a class="page-link" href="javascript:goPage(${pcnt})">${pcnt}</a></li>
 	  						<%-- 현재 클릭한 페이번호와 출력하는 페이지 번호가 같을 때, active(활성화 css 처리) --%>

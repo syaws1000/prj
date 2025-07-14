@@ -101,11 +101,12 @@ public class A02_BoardService {
 		sch.setBlockSize(5);
 		// 2. 블럭번호 
 		//int blockNum = (int)Math.ceil(sch.getCurPage()/(double)sch.getBlockSize());
-		int blockNum = (sch.getCurPage()+sch.getBlockSize()-1)/sch.getBlockSize();
 		//                                1/5.0   0.2 =올림=> 1.0
 		//                                2/5.0   0.4 =올림=> 1.0
 		//                                6/5.0   1.2 =올림=> 2.0
-		//                                7/5.0   1.4 =올림=> 2.0
+		//                                7/5.0   1.4 =올림=> 2.0		
+		int blockNum = (sch.getCurPage()+sch.getBlockSize()-1)/sch.getBlockSize();
+
 		// 3. 시작 블럭 번호
 		sch.setStartBlock( (blockNum-1) *sch.getBlockSize() + 1);
 		// 4. 마지막 블럭 번호
