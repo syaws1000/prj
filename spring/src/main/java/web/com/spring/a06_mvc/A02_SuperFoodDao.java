@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.spring.vo.SuperFood;
@@ -21,4 +22,8 @@ public interface A02_SuperFoodDao {
 	@Insert("INSERT INTO super_foods values(food_seq.nextval,"
 			+ "#{foodName},#{funnyEffect})")
 	int insertFood(SuperFood ins);
+	
+	@Select("SELECT * FROM super_foods WHERE food_id = #{foodId}")
+	SuperFood getSuperFood(@Param("foodId") int foodId);		
+	
 }

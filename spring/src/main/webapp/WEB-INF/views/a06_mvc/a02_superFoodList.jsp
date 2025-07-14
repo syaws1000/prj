@@ -63,10 +63,16 @@
 --%>   
     <tbody>
     	<c:forEach var="food" items="${list}">
-    		<tr><td>${food.foodId}</td><td>${food.foodName}</td><td>${food.funnyEffect}</td></tr>
+    		<tr ondblclick="goDetail(${food.foodId})"><td>${food.foodId}</td><td>${food.foodName}</td><td>${food.funnyEffect}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goDetail(id){
+			location.href="superFoodDetail?foodId="+id
+		}
+	
+	</script>
     
 </div>
 </body>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.spring.vo.SuperFood;
 
@@ -26,6 +27,13 @@ public class A02_SuperFoodController {
 		}
 		
 		return "WEB-INF\\views\\a06_mvc\\a02_superFoodInsert.jsp";
+	}	
+	//http://localhost:5052/superFoodDetail?foodId=3
+	@RequestMapping("superFoodDetail")
+	public String superFoodDetail(@RequestParam("foodId") int foodId, Model d) {
+// WEB-INF\views\a06_mvc\a02_superFoodDetail.jsp
+		d.addAttribute("food", service.getSuperFood(foodId));
+		return "WEB-INF\\views\\a06_mvc\\a02_superFoodDetail.jsp";
 	}	
 	
 	

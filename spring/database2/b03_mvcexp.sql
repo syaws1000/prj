@@ -247,6 +247,13 @@ CREATE TABLE Super_Food (
     food_effect VARCHAR2(100),
     health_benefit VARCHAR2(100)
 );
+SELECT * FROM super_foods WHERE food_id = 1;
+-- int foodId; String foodName; String funnyEffect;
+/*
+@Select("SELECT * FROM super_foods WHERE food_id = #{foodId}")
+SuperFood getSuperFood(@Param("foodId") int foodId);
+ * */
+
 
 -- 데이터 입력 예시
 INSERT INTO Super_Food (food_id, food_name, food_effect, health_benefit)
