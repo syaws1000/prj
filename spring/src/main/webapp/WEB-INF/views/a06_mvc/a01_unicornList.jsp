@@ -59,12 +59,21 @@
         	 --%>
       </tr>
     </thead>	
+    
+    
     <tbody>
     	<c:forEach var="uni" items="${list}">
-    		<tr><td>${uni.unicornId}</td><td>${uni.unicornName}</td><td>${uni.unicornSpecialAbility}</td></tr>
+    	
+    		<tr ondblclick="goDetail(${uni.unicornId})"><td>${uni.unicornId}</td><td>${uni.unicornName}</td><td>${uni.unicornSpecialAbility}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+	function goDetail(id){
+		location.href="unicornDetail?unicornId="+id
+	}
+	
+	</script>
     
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

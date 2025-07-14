@@ -74,6 +74,20 @@ INSERT INTO unicorn_zoo values(unicorn_seq.nextval,'기쁨', '사람들에게 �
 int insertUnicornZoo(UnicornZoo ins);
 
  * */
+SELECT * FROM UNICORN_ZOO WHERE UNICORN_ID = 3;
+/*
+@Select("SELECT * FROM UNICORN_ZOO WHERE UNICORN_ID = #{unicornId}")
+ImaginaryAnimal getImaginaryAnimal(@Param("unicornId") int unicornId);
+
+
+int unicorId;
+String unicornName;
+String unicornSpecialAbility;
+
+ * */
+
+
+
 SELECT * FROM super_foods;
 CREATE SEQUENCE food_seq;
 SELECT food_seq.nextval FROM dual; -- 5번 반복

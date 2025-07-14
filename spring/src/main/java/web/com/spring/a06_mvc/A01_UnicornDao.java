@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.spring.vo.ImaginaryAnimal;
@@ -18,4 +19,8 @@ public interface A01_UnicornDao {
 	
 	@Insert("INSERT INTO unicorn_zoo values(unicorn_seq.nextval,#{unicornName}, #{unicornSpecialAbility})")
 	int insertUnicornZoo(ImaginaryAnimal ins);	                                                  
+	
+	@Select("SELECT * FROM UNICORN_ZOO WHERE UNICORN_ID = #{unicornId}")
+	ImaginaryAnimal getImaginaryAnimal(@Param("unicornId") int unicornId);
+	
 }

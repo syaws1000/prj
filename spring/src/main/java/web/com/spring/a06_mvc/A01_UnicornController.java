@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.spring.vo.ImaginaryAnimal;
 
@@ -28,6 +29,14 @@ public class A01_UnicornController {
 		}
 		// // unicornName unicornSpecialAbility
 		return "WEB-INF\\views\\a06_mvc\\a01_unicornInsert.jsp";
+	}
+	// http://localhost:5052/unicornDetail?unicornId=3
+	@RequestMapping("unicornDetail")
+	public String unicornDetail(@RequestParam("unicornId") int unicornId, Model d) {
+		//   
+		d.addAttribute("uni", service.getImaginaryAnimal(unicornId));
+		return "WEB-INF\\views\\a06_mvc\\a01_unicornDetail.jsp";
+		
 	}
 	
 

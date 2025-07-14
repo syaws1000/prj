@@ -33,6 +33,7 @@ public class A01_ImaginaryAnimalController {
     // http://localhost:5052/imaginaryAnimalDetail?animalId=9
 	@GetMapping("imaginaryAnimalDetail")
 	public String imaginaryAnimalDetail(@RequestParam("animalId") int animalId, Model d) {
+		// ${ani.unicornId} ${uni.unicornName} ${uni,unicornSpecialAbility}
 		d.addAttribute("ani", service.getImaginaryAnimal(animalId));
 		return "WEB-INF\\views\\a07_mvc\\a01_imaginaryAnimalDetail.jsp";
 	}

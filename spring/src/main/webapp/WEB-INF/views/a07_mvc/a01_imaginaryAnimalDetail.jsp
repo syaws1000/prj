@@ -34,6 +34,9 @@
 </div>
     <div class="container">
         <form  method="post">
+        <%--
+        ${ani.unicornId} ${uni.unicornName} ${uni,unicornSpecialAbility}
+         --%>
             <div class="form-group">
                 <label for="animalId">동물아이디</label>
                 <input type="text" readonly value="${ani.animalId}" class="form-control" id="animalId" name="animalId" placeholder="동물명 입력하세요" required>
