@@ -62,7 +62,7 @@ public class A02_BoardService {
 		sch.setPageCount((sch.getCount() + sch.getPageSize()-1) / sch.getPageSize());
 		//     [1][2].... [5]  ==> 클릭시.. 시작번호, 마지막번호 도출
 		// 4. 현재 클릭한 페이지번호
-		//    초기 화면에는 없음
+		//    초기 화면에는 없음 ==> 1로 설정..
 		if(sch.getCurPage()==0) {
 			sch.setCurPage(1);
 		}
@@ -72,6 +72,7 @@ public class A02_BoardService {
 		//    마지막번호
 		sch.setEnd(sch.getCurPage()*sch.getPageSize());
 		
+		//   위 로직에 위해서 만들어진 마지막 번호는 총데이터 건수보다 크기 않게 처리.
 		if(sch.getEnd()>sch.getCount()) {
 			sch.setEnd(sch.getCount());
 		}

@@ -115,7 +115,9 @@
 		padding-left:var(--level-padding,0); /* 기본 padding-left 설정*/
 	}   
      --%>
+     	<c:set var="listCnt" value="0"/>
     	<c:forEach var="b" items="${blist}">
+    		<c:set var="listCnt" value="${listCnt+1 }"/>
     	<tr ondblclick="goDetail(${b.no})"><td>${b.cnt}</td>
     		<%-- 자식의 계층 레벨에 따라 제목에 들여쓰기 적용 --%>
             <td  style="text-align:left;padding-left:${(b.level-1)*20}px;">
@@ -130,6 +132,11 @@
     		<td><fmt:formatDate value="${b.regdte}" /></td>
     		<td>${b.readcnt}</td></tr>
     	</c:forEach>
+    	<c:if test="${(pageSize-listCnt) > 0}">
+    	<c:forEach begin="1" end="${pageSize-listCnt}" >
+    		<tr><td>&nbsp;..</td><td></td><td></td><td></td></tr>
+    	</c:forEach>
+    	</c:if>
     </tbody>
 	</table>       
 	<%--  //  count  pageSize  curPage pageCount  startBlock endBlock --%>
