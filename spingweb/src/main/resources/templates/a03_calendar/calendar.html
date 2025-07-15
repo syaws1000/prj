@@ -93,31 +93,36 @@
 			callAjax("calInsert")
 		}
     })
+
+    function callAjax(loc){
+    	$.ajax({
+    		url:loc,
+    		type:"post",
+    		data:$("#frm").serialize(),
+    		dataType:"json",
+    		success:function(data){
+    			console.log(data)
+    			alert(data.msg)
+    			// 캘린더 재 랜더링(일정을 변경된 것 다시 반영)
+    			
+    			calendar.removeAllEvents()
+    			// 다시 로딩된 일정을 추가 처리..
+    			calendar.addEventSource(data.list)
+    			//console.log(frm)
+    			
+    			//location.reload() // 화면 전체 refresh 처리..
+    			
+    			
+    		},
+    		error:function(err){
+    			console.log(err)
+    		}
+    	})
+      }    
+    
     
   });
-  function callAjax(loc){
-	$.ajax({
-		url:loc,
-		type:"post",
-		data:$("#frm").serialize(),
-		dataType:"json",
-		success:function(data){
-			console.log(data)
-			alert(data.msg)
-			// 캘린더 재 랜더링(일정을 변경된 것 다시 반영)
-			
-			//calendar.removeAllEvents
-			// 다시 로딩된 일정을 추가 처리..
-			//calendar.addEventSource(data.list)
-			location.reload() // 화면 전체 refresh 처리..
-			
-			
-		},
-		error:function(err){
-			console.log(err)
-		}
-	})
-  }
+
   
 
 </script>

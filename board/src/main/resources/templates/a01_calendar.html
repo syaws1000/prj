@@ -27,7 +27,20 @@
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
-      select: function(arg) {
+      select: function(event) {
+		// 모달창 로딩..	
+		$("#showModal").click()
+		$("#frm")[0].reset() // 입력된 내용 초기화 처리.
+		$("[name=start]").val(event.startStr)
+		if(event.end==null){
+			$("[name=end]").val(event.startStr)
+		}else{
+			$("[name=end]").val(event.endStr)
+		}
+		$("[name=allDay]").val(event.allDay?1:0)
+    	// start end allDay  // id title writer  content backgroundColor textColor  urlLink  
+    	  
+		/*
         var title = prompt('Event Title:');
         if (title) {
           calendar.addEvent({
@@ -37,7 +50,9 @@
             allDay: arg.allDay
           })
         }
-        calendar.unselect()
+        */
+        //calendar.unselect()
+        
       },
       eventClick: function(arg) {
         if (confirm('Are you sure you want to delete this event?')) {
@@ -87,6 +102,72 @@
 <body>
 
   <div id='calendar'></div>
-
+	<!-- 모달창을 이벤트로 로딩하기 위한 요소 객체 -->
+	<div id="showModal" data-toggle="modal" data-target="#exampleModalCenter" ></div>  	
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">일정등록</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			<form id="frm" class="form"  method="post">
+				<input type="hidden" name="id" value="0"/>
+		     <div class="row">
+		      <div class="col">
+		        <input name="title" placeholder="일정 입력" type="text" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="writer" placeholder="작성자 입력" type="text"  class="form-control" >
+		      </div>
+		     </div>
+			 <div class="row">
+		      <div class="col">
+		        <input name="start" readonly type="text" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="end"  readonly  type="text"  class="form-control" >
+		      </div>
+		     </div>	    
+		     <!--  id title writer start end content backgroundColor textColor allDay urlLink -->
+			 <div class="row">
+		      <div class="col">
+		        <input name="backgroundColor" data-toggle="tooltip" title="배경색상 선택"  value="#0099cc"   type="color" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="textColor" data-toggle="tooltip" title="글자색상 선택"    value="#ccffff"   type="color"  class="form-control" >
+		      </div>
+		     </div>	 
+		     <div class="row">
+		      <div class="col">
+		        <select name="allDay" class="form-control"  >
+		        	<option value="1">종일</option>  <!--  1 ==> true, 0 ==> false -->
+		        	<option value="0">시간</option>
+		        </select>
+		      </div>
+		      <div class="col">
+		        <input name="urlLink" placeholder="참조 주소 입력" type="text"  class="form-control" >
+		      </div>
+		     </div>		
+		     <div class="row">
+		      <div class="col">
+		      <textarea name="content" placeholder="내용 입력" rows="5"  class="form-control"></textarea>
+		      </div>
+		     </div> 
+		    </form> 
+	      </div>
+	      <div class="modal-footer">
+	        
+	        <button id="regBtn" type="button" class="btn btn-success">등록</button>
+	        <button id="uptBtn"  type="button" class="btn btn-primary">수정</button>
+	        <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>
