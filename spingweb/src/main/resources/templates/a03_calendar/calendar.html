@@ -31,7 +31,9 @@
       select: function(arg) {
 		console.log("일정 등록 내용")
 		console.log(arg)
-
+		$("#showModal").click() // 해당 요소객체를 강제 클릭 ==> 모달창이 로딩(일정을 입력..)
+		
+		/*
         var title = prompt('Event Title:');
 		
         if (title) {
@@ -43,6 +45,7 @@
             allDay: arg.allDay
           })
         }
+        */
         calendar.unselect()
       },
       eventClick: function(arg) {
@@ -91,8 +94,73 @@
 </style>
 </head>
 <body>
-
-  <div id='calendar'></div>
-
+  	<div id='calendar'></div>
+	<!-- 모달창을 이벤트로 로딩하기 위한 요소 객체 -->
+	<div id="showModal" data-toggle="modal" data-target="#exampleModalCenter" ></div>  	
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">일정등록</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			<form id="frm02" class="form"  method="post">
+				<input type="hidden" name="id" value="0"/>
+		     <div class="row">
+		      <div class="col">
+		        <input name="title" placeholder="일정 입력" type="text" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="writer" placeholder="작성자 입력" type="text"  class="form-control" >
+		      </div>
+		     </div>
+			 <div class="row">
+		      <div class="col">
+		        <input name="start" readonly type="text" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="end"  readonly  type="text"  class="form-control" >
+		      </div>
+		     </div>	    
+		     <!--  id title writer start end content backgroundColor textColor allDay urlLink -->
+			 <div class="row">
+		      <div class="col">
+		        <input name="backgroundColor" placeholder="배경색상 선택" value="#0099cc"   type="color" class="form-control"  >
+		      </div>
+		      <div class="col">
+		        <input name="textColor"   placeholder="글자색상 선택"   value="#ccffff"   type="color"  class="form-control" >
+		      </div>
+		     </div>	 
+		     <div class="row">
+		      <div class="col">
+		        <select name="allDay" class="form-control"  >
+		        	<option value="1">종일</option>  <!--  1 ==> true, 0 ==> false -->
+		        	<option value="0">시간</option>
+		        </select>
+		      </div>
+		      <div class="col">
+		        <input name="urlLink" placeholder="참조 주소 입력" type="text"  class="form-control" >
+		      </div>
+		     </div>		
+		     <div class="row">
+		      <div class="col">
+		      <textarea name="content" placeholder="내용 입력" rows="5"  class="form-control"></textarea>
+		      </div>
+		     </div> 
+		    </form> 
+	      </div>
+	      <div class="modal-footer">
+	        
+	        <button id="regBtn" type="button" class="btn btn-success">등록</button>
+	        <button id="uptBtn"  type="button" class="btn btn-primary">수정</button>
+	        <button id="delBtn"  type="button" class="btn btn-danger">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>
