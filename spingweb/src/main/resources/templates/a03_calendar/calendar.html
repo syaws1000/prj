@@ -33,7 +33,7 @@
 		console.log(event)
 		//let event = arg.event
 		$("#showModal").click() // 해당 요소객체를 강제 클릭 ==> 모달창이 로딩(일정을 입력..)
-		$("#frm")[0].reset() // 수정/삭제
+		$("#frm")[0].reset() // 입력 후, 상세 내용(수정/삭제)로 같은 모달창을 사용하기에 초기화 처리.
 		$("[name=start]").val(event.startStr)
 		if(event.end == null){
 			$("[name=end]").val(event.startStr)
@@ -83,7 +83,42 @@
     });
 
     calendar.render();
+    
+    
+    
+    
+    
+    $("#regBtn").click(function(){
+		if(confirm("일정등록하시겠습니까?")){
+			callAjax("calInsert")
+		}
+    })
+    
   });
+  function callAjax(loc){
+	$.ajax({
+		url:loc,
+		type:"post",
+		data:$("#frm").serialize(),
+		dataType:"json",
+		success:function(data){
+			console.log(data)
+			alert(data.msg)
+			// 캘린더 재 랜더링(일정을 변경된 것 다시 반영)
+			
+			//calendar.removeAllEvents
+			// 다시 로딩된 일정을 추가 처리..
+			//calendar.addEventSource(data.list)
+			location.reload() // 화면 전체 refresh 처리..
+			
+			
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})
+  }
+  
 
 </script>
 <style>

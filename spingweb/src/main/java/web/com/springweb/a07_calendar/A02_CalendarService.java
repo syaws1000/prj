@@ -14,7 +14,7 @@ public class A02_CalendarService {
 	public List<Calendar> getCalendarList(){
 		return dao.getCalendarList();
 	}
-	public String insertCalendar(Calendar ins) {
-		return dao.insertCalendar(ins)>0?"등록성공":"등록실패";
+	public CalDTO insertCalendar(Calendar ins) {
+		return new CalDTO(dao.insertCalendar(ins)>0?"등록성공":"등록실패", getCalendarList()) ;
 	}
 }
