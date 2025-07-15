@@ -29,9 +29,14 @@
       selectable: true,
       selectMirror: true,
       select: function(arg) {
+		console.log("일정 등록 내용")
+		console.log(arg)
+
         var title = prompt('Event Title:');
+		
         if (title) {
-          calendar.addEvent({
+		  // title을 입력 했을 때, lib로 calendar에 일정을 등록 처리하는 것을 알 수 있다.
+		  calendar.addEvent({
             title: title,
             start: arg.start,
             end: arg.end,

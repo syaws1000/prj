@@ -52,6 +52,13 @@ SELECT * FROM CALENDAR2;
 List<Calendar> getCalendarList();
 
 
+INSERT INTO CALENDAR VALUES(CALENDAR_SEQ.NEXTVAL, #{title}, #{writer},
+							to_date( #{start},'YYYY-MM-DD'), to_date( #{end},'YYYY-MM-DD'), #{content},
+							 #{backgroundColor},  #{textColor}, #{allDay}, #{urlLink});
+@Insert("")							 
+int insertCalendar(Calendar ins);
+
+
 
 class Calendar{
 	private int id;
