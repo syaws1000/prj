@@ -139,11 +139,34 @@ ImaginaryAnimal getImaginaryAnimal(@Param("animalId") animalId);
 -- service
 -- controller
 -- view : a04_bookSubjectDetail.jsp
-SELECT * FROM BOOK_SUBJECT WHERE book_id = 7;
+SELECT * FROM BOOK_SUBJECT; WHERE book_id = 7;
 /*
 @Select("SELECT * FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
 BookSubject getBook(@Param("bookId") int bookId);
  * */
+update book_subject
+   SET book_title = '도서명(수정)',
+       subject = '기술(수정)',
+       author = '저자(수정)'
+    WHERE book_id = 1;   
+/*
+update book_subject
+   SET book_title = #{bookTitle},
+       subject = #{subject},
+       author = #{author}
+    WHERE book_id = #{bookId}  
+@Update("")
+int updateBookSubject(BookSubject upt);
+
+ * */
+
+
+
+
+
+
+
+
 
 
 

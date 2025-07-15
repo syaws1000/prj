@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import web.com.spring.vo.BookSubject;
 
@@ -23,5 +24,12 @@ public interface A04_BookSubjectDao {
 	
 	@Select("SELECT * FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
 	BookSubject getBook(@Param("bookId") int bookId);
+
+	@Update("	update book_subject\r\n"
+			+ "	   SET book_title = #{bookTitle},\r\n"
+			+ "	       subject = #{subject},\r\n"
+			+ "	       author = #{author}\r\n"
+			+ "	    WHERE book_id = #{bookId}  ")
+	int updateBookSubject(BookSubject upt);	
 	
 }

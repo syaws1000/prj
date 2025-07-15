@@ -25,10 +25,23 @@ td {
 	$(document).ready(function() {
 		let msg = "${msg}"
 		if (msg != "") {
-			if (!confirm(msg + "\n계속 등록하시겠습니까?")) {
-				location.href = "bookSubject"
-			}
+			alert(msg)
 		}
+		$("#uptBtn").click(function(){ 
+			if(confirm("수정하시겠습니까?")){
+				$("form").attr("action","updateBookSubject");
+				$("form").submit()
+			}
+		})
+		$("#delBtn").click(function(){ 
+			if(confirm("삭제하시겠습니까?")){
+				$("form").attr("action","deleteBookSubject");
+				$("form").submit()
+			}
+		})
+		$("#manBtn").click(function(){ 
+			location.href="bookSubject"
+		})
 	});
 </script>
 </head>
@@ -63,9 +76,9 @@ td {
 					class="form-control" id="author" name="author"
 					placeholder="저자를 입력하세요" required>
 			</div>
-			<button type="submit" class="btn btn-info">수정</button>
-			<button type="submit" class="btn btn-warning">삭제</button>
-			<button type="submit" class="btn btn-success">메인</button>
+			<button id="uptBtn" type="button" class="btn btn-info">수정</button>
+			<button id="delBtn" type="button" class="btn btn-warning">삭제</button>
+			<button id="manBtn" type="button" class="btn btn-success">메인</button>
 		</form>
 	</div>
 </body>

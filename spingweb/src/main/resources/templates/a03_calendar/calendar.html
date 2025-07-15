@@ -119,6 +119,16 @@
     	})
       }    
     
+    $('[data-toggle="tooltip"]').tooltip();    
+    
+    // 텍스트 박스에 입력된 색상 코드가 올바른지 확인하여 배경색 적용
+    document.getElementById('backgroundColor').addEventListener('input', function(event) {
+        this.style.backgroundColor = event.target.value;
+    });
+
+    document.getElementById('textColor').addEventListener('input', function(event) {
+        this.style.backgroundColor = event.target.value;
+    });  
     
   });
 
@@ -172,7 +182,7 @@
 		      <div class="col">
 		        <input name="end"  readonly  type="text"  class="form-control" >
 		      </div>
-		     </div>	    
+		     </div>	       
 		     <!--  id title writer start end content backgroundColor textColor allDay urlLink -->
 			 <div class="row">
 		      <div class="col">

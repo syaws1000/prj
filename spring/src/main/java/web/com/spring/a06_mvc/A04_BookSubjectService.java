@@ -32,5 +32,8 @@ public class A04_BookSubjectService {
 	public BookSubject getBook(int bookId) {
 		return dao.getBook(bookId);
 	}
+	public String updateBookSubject(BookSubject upt) {
+		return dao.updateBookSubject(upt)>0?"수정성공":"수정실패";
+	}
 	
 }

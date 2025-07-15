@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,7 +20,7 @@ public class A04_BookSubjectController {
 	
 	// http://localhost:5052/bookSubject
 	@RequestMapping("bookSubject")  // get방식   post 방식 둘다 처리
-	public String characters(BookSubject sch, Model d) {
+	public String bookSubject(BookSubject sch, Model d) {
 		d.addAttribute("books", service.getBookSubject(sch));
 		
 		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectList.jsp";
@@ -40,4 +41,13 @@ public class A04_BookSubjectController {
 		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectDetail.jsp";
 	}
 	// a04_bookSubjectDetail.jsp;
+	// http://localhost:5052/updateBookSubject
+	@PostMapping("updateBookSubject")  // Post
+	public String updateBookSubject(BookSubject upt, Model d) {
+		d.addAttribute("msg", service.updateBookSubject(upt));
+		
+		d.addAttribute("bk", service.getBook(upt.getBookId()));
+		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectDetail.jsp";
+	}	
+	
 }
