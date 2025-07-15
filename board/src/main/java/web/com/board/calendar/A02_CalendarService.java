@@ -13,4 +13,10 @@ public class A02_CalendarService {
 	public List<Calendar> getCalendarList(){
 		return dao.getCalendarList();
 	}
+	// msg와 list을 json 데이터로 처리..
+	public CalDTO getCalendarMsgList(Calendar ins) {
+		
+		return new CalDTO(dao.insertCalendar(ins)>0?"등록성공":"등록실패", getCalendarList());
+	}
+	
 }
