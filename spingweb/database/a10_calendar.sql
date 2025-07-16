@@ -72,6 +72,7 @@ class Calendar{
 	private boolean allDay;
 	private String urlLink;
 }
+id  title writer start end content backgroundColor textColor allDay urlLink
 class Calendar2{
 	private int id;
 	private String title;
@@ -87,5 +88,49 @@ class Calendar2{
 
 
  * */
+SELECT * FROM calendar;
+UPDATE CALENDAR
+  SET TITLE = '일정수정1',
+      WRITER = '작성자수정2',
+      START1 = '2025-07-16',
+      END1 = '2025-07-17',
+      CONTENT = '내용수정3',
+      BACKGROUND_COLOR = '#CCFFFF',
+      TEXT_COLOR = '#0099CC',
+      ALL_DAY = 1,
+      URL_LINK = 'http://navaer.com'
+ WHERE id = 14;     
+/*
+id  title writer start end content backgroundColor textColor allDay urlLink
+UPDATE CALENDAR
+  SET TITLE = #{title},
+      WRITER = #{writer},
+      START1 = #{start},
+      END1 = #{end},
+      CONTENT = #{content},
+      BACKGROUND_COLOR = #{backgroundColor},
+      TEXT_COLOR = #{textColor},
+      ALL_DAY = #{allDay},
+      URL_LINK = #{urlLink}
+ WHERE id = #{id}
+@Update("")
+int calUpdate(Calendar upt); 
+ 
+@Delete("DELETE FROM CALENDAR  WHERE id = #{id}")
+int calDelete(@Param("id") int id);
+ 
+ * */
+DELETE FROM CALENDAR  WHERE id = 14;
+
+
+
+
+
+
+
+
+
+
+
 
 
