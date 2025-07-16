@@ -5,12 +5,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import web.com.spring.vo.GameCharacter;
+import web.com.spring.vo.DreamJob;
 
 @Mapper
 public interface A05_DreamJobDao {
-	@Select("SELECT * FROM GAME_CHARACTERS "
-			+ "WHERE game LIKE #{game} AND ROLE LIKE #{role}")
-	List<GameCharacter> getGameList(GameCharacter sch);	
+	// jobType jobBenefit
+	@Select("SELECT * FROM Dream_Jobs WHERE job_type = #{jobType} AND job_benefit =  #{jobBenefit}")
+	List<DreamJob> getDreamJobs(DreamJob sch);
 	
 }

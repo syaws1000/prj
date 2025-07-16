@@ -49,5 +49,12 @@ public class A04_BookSubjectController {
 		d.addAttribute("bk", service.getBook(upt.getBookId()));
 		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectDetail.jsp";
 	}	
+	// http://localhost:5052/deleteBookSubject
+	@PostMapping("deleteBookSubject")  // Post
+	public String deleteBookSubject(@RequestParam("bookId") int bookId, Model d) {
+		d.addAttribute("msg", service.deleteBookSubject(bookId));
+
+		return "WEB-INF\\views\\a06_mvc\\a04_bookSubjectDetail.jsp";
+	}		
 	
 }

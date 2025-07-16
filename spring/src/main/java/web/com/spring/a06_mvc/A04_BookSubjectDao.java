@@ -2,6 +2,7 @@ package web.com.spring.a06_mvc;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -31,5 +32,10 @@ public interface A04_BookSubjectDao {
 			+ "	       author = #{author}\r\n"
 			+ "	    WHERE book_id = #{bookId}  ")
 	int updateBookSubject(BookSubject upt);	
+	
+	@Delete("delete FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
+	int deleteBookSubject(@Param("bookId") int bookId);
+	
+	
 	
 }

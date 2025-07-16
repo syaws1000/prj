@@ -2,12 +2,10 @@ package web.com.spring.a06_mvc;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.spring.vo.BookSubject;
-import web.com.spring.vo.GameCharacter;
 
 @Service
 public class A04_BookSubjectService {
@@ -34,6 +32,10 @@ public class A04_BookSubjectService {
 	}
 	public String updateBookSubject(BookSubject upt) {
 		return dao.updateBookSubject(upt)>0?"수정성공":"수정실패";
+	}
+	
+	public String deleteBookSubject(int bookId) {
+		return dao.deleteBookSubject(bookId)>0?"삭제성공":"삭제실패";
 	}
 	
 }

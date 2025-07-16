@@ -160,12 +160,16 @@ int updateBookSubject(BookSubject upt);
 
  * */
 
+SELECT * FROM book_subject;
+delete FROM BOOK_SUBJECT WHERE book_id = 7;
+/*
+@Delete("delete FROM BOOK_SUBJECT WHERE book_id = #{bookId}")
+int deleteBookSubject(@Param("bookId") int bookId);
+ * */
 
 
 
-
-
-
+SELECT * FROM GAME_CHARACTERS;
 
 
 

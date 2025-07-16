@@ -223,8 +223,21 @@ INSERT INTO Dream_Jobs (job_id, job_name, job_type, job_benefit)
 VALUES (5, '인터넷 신비로운 창조자', '온라인 직업', '인터넷에서 신비로운 창작물을 만들기');
 
 -- '모험 직업'인 직업 중에서 '외계인과 대화하기'라는 혜택을 가진 직업 출력
-SELECT * FROM Dream_Jobs
-WHERE job_type = '모험 직업' AND job_benefit = '우주에서 외계인과 대화하기';
+SELECT * FROM Dream_Jobs WHERE job_type = #{jobType} AND job_benefit =  #{jobBenefit}
+;
+
+/*
+
+@Select("SELECT * FROM Dream_Jobs WHERE job_type = #{jobType} AND job_benefit =  #{jobBenefit}")
+List<DreamJob> getDreamJobs(DreamJob sch);
+
+class DreamJob
+private int jobId;
+private String jobName;
+private String jobType;
+private String jobBenefit;
+
+ * */
 
 
 -- 인간과 동물의 친절한 교감 테이블

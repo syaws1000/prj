@@ -26,6 +26,9 @@ td {
 		let msg = "${msg}"
 		if (msg != "") {
 			alert(msg)
+			if(msg.indexOf("삭제")>=0){ // 메시지에 삭제라는 키워드가 있으면 메인화면으로 자동 이동처리..
+				location.href="bookSubject"
+			}
 		}
 		$("#uptBtn").click(function(){ 
 			if(confirm("수정하시겠습니까?")){
