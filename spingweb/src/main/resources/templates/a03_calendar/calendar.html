@@ -73,6 +73,16 @@
 			callAjax("calInsert")
 		}
     })
+    $("#uptBtn").click(function(){
+		if(confirm("일정수정하시겠습니까?")){
+			callAjax("calUpdate")
+		}
+    })
+    $("#delBtn").click(function(){
+		if(confirm("일정삭제하시겠습니까?")){
+			callAjax("calDelete")
+		}
+    })    
 
     function addForm(event, proc){
 		$("#frm")[0].reset() // 입력 후, 상세 내용(수정/삭제)로 같은 모달창을 사용하기에 초기화 처리.
