@@ -33,38 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(event)
 		//let event = arg.event
 		$("#showModal").click() // 해당 요소객체를 강제 클릭 ==> 모달창이 로딩(일정을 입력..)
-		$("#frm")[0].reset() // 입력 후, 상세 내용(수정/삭제)로 같은 모달창을 사용하기에 초기화 처리.
-		$("[name=start]").val(event.startStr)
-		if(event.end == null){
-			$("[name=end]").val(event.startStr)
-		}else{
-			$("[name=end]").val(event.endStr)
-		}
-		$("[name=allDay]").val(event.allDay?1:0)  // allDay boolean true/false ==> true이면 1, false이면 0
-		
-		/*
-      var title = prompt('Event Title:');
-		
-      if (title) {
-		  // title을 입력 했을 때, lib로 calendar에 일정을 등록 처리하는 것을 알 수 있다.
-		  calendar.addEvent({
-          title: title,
-          start: arg.start,
-          end: arg.end,
-          allDay: arg.allDay
-        })
-      }
-      */
-      calendar.unselect()
-    },
-    eventClick: function(arg) {
-      if (confirm('Are you sure you want to delete this event?')) {
-        arg.event.remove()
-      }
-    },
-    editable: true,
-    dayMaxEvents: true, // allow "more" link when too many events
-    events: function(info, successCallback, failureCallback){
+		addForm(event, "I")
+        calendar.unselect()
+      },
+      eventClick: function(arg) {
+		console.log("일정상세")
+		console.log(arg.event)
+		$("#showModal").click() // 상세화면을 위한 모달창 로딩..
+		addForm(arg.event, "D")
+      },
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: function(info, successCallback, failureCallback){
 		$.ajax({
 			url:"calList",
 			dataType:"json",
@@ -79,48 +59,75 @@ document.addEventListener('DOMContentLoaded', function() {
 			
 		}) 	
 
-    }
-  });
+      }
+    });
 
-  calendar.render();
-  
-  
-  
-  
-  
-  $("#regBtn").click(function(){
+    calendar.render();
+    
+    
+    
+    
+    
+    $("#regBtn").click(function(){
 		if(confirm("일정등록하시겠습니까?")){
 			callAjax("calInsert")
 		}
-  })
+    })
 
-  function callAjax(loc){
-  	$.ajax({
-  		url:loc,
-  		type:"post",
-  		data:$("#frm").serialize(),
-  		dataType:"json",
-  		success:function(data){
-  			console.log(data)
-  			alert(data.msg)
-  			// 캘린더 재 랜더링(일정을 변경된 것 다시 반영)
-  			
-  			calendar.removeAllEvents()
-  			// 다시 로딩된 일정을 추가 처리..
-  			calendar.addEventSource(data.list)
-  			//console.log(frm)
-  			//location.reload() // 화면 전체 refresh 처리..
-  			$(".close").click()
-  			
-  		},
-  		error:function(err){
-  			console.log(err)
-  		}
-  	})
-    }    
-  
-  
-});
+    function addForm(event, proc){
+		$("#frm")[0].reset() // 입력 후, 상세 내용(수정/삭제)로 같은 모달창을 사용하기에 초기화 처리.
+		$("[name=start]").val(event.startStr)
+		if(event.end == null){
+			$("[name=end]").val(event.startStr)
+		}else{
+			$("[name=end]").val(event.endStr)
+		}
+		$("[name=allDay]").val(event.allDay?1:0)  // allDay boolean true/false ==> true이면 1, false이면 0
+		if(proc=="I"){
+			$("#regBtn").show();$("#uptBtn").hide();$("#delBtn").hide();
+			$("#modalTitle").text("일정 등록")			
+		}else{
+			$("#regBtn").hide();$("#uptBtn").show();$("#delBtn").show();
+			$("#modalTitle").text("일정 상세")
+			//id  title writer start end content backgroundColor textColor allDay urlLink
+			$("[name=id]").val(event.id)
+			$("[name=title]").val(event.title)
+			$("[name=backgroundColor]").val(event.backgroundColor)
+			$("[name=textColor]").val(event.textColor)
+			// 추가 속성.. 
+			$("[name=writer]").val(event.extendedProps.writer)
+			$("[name=content]").val(event.extendedProps.content)
+			$("[name=urlLink]").val(event.extendedProps.urlLink)
+		}		
+
+    }
+    
+    function callAjax(loc){
+    	$.ajax({
+    		url:loc,
+    		type:"post",
+    		data:$("#frm").serialize(),
+    		dataType:"json",
+    		success:function(data){
+    			console.log(data)
+    			alert(data.msg)
+    			// 캘린더 재 랜더링(일정을 변경된 것 다시 반영)
+    			
+    			calendar.removeAllEvents()
+    			// 다시 로딩된 일정을 추가 처리..
+    			calendar.addEventSource(data.list)
+    			//console.log(frm)
+    			//location.reload() // 화면 전체 refresh 처리..
+    			$(".close").click()
+    			
+    		},
+    		error:function(err){
+    			console.log(err)
+    		}
+    	})
+      }    
+    
+  });
 
 </script>
 <style>

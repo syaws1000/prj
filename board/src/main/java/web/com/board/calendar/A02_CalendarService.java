@@ -18,5 +18,10 @@ public class A02_CalendarService {
 		
 		return new CalDTO(dao.insertCalendar(ins)>0?"등록성공":"등록실패", getCalendarList());
 	}
-	
+	public CalDTO calUpdate(Calendar ins) {
+		return new CalDTO(dao.calUpdate(ins)>0?"수정성공":"수정실패", getCalendarList()) ;
+	}
+	public CalDTO calDelete(int id) {
+		return new CalDTO(dao.calDelete(id)>0?"삭제성공":"삭제실패", getCalendarList()) ;
+	}		
 }

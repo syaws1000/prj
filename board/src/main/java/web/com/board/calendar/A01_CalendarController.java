@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class A01_CalendarController {
@@ -27,5 +28,14 @@ public class A01_CalendarController {
 		return ResponseEntity.ok(service.getCalendarMsgList(ins));
 	}	
 	
-	
+	// http://localhost:5051/calUpdate
+	@PostMapping("calUpdate")
+	public ResponseEntity<?> calUpdate(Calendar upt){
+		return ResponseEntity.ok(service.calUpdate(upt));
+	}	
+	// http://localhost:5051/calDelete
+	@PostMapping("calDelete")
+	public ResponseEntity<?> calDelete(@RequestParam("id") int id){
+		return ResponseEntity.ok(service.calDelete(id));
+	}		
 }
