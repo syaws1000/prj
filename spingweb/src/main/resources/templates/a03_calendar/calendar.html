@@ -33,6 +33,11 @@
 		console.log(event)
 		//let event = arg.event
 		$("#showModal").click() // 해당 요소객체를 강제 클릭 ==> 모달창이 로딩(일정을 입력..)
+
+		$("#regBtn").show();$("#uptBtn").hide();$("#delBtn").hide();
+		$("#modalTitle").text("일정 등록")
+		
+		
 		$("#frm")[0].reset() // 입력 후, 상세 내용(수정/삭제)로 같은 모달창을 사용하기에 초기화 처리.
 		$("[name=start]").val(event.startStr)
 		if(event.end == null){
@@ -58,9 +63,35 @@
         calendar.unselect()
       },
       eventClick: function(arg) {
+		console.log(arg)
+		console.log(arg.event)
+		let event = arg.event
+		$("#showModal").click() // 상세화면을 위한 모달창 로딩..
+		$("#regBtn").hide();$("#uptBtn").show();$("#delBtn").show();
+		$("#modalTitle").text("일정 상세")
+		
+		$("[name=start]").val(event.startStr)
+		if(event.end == null){
+			$("[name=end]").val(event.startStr)
+		}else{
+			$("[name=end]").val(event.endStr)
+		}
+		$("[name=allDay]").val(event.allDay?1:0)  // allDay boolean true/false ==> true이면 1, false이면 0
+		//id  title writer start end content backgroundColor textColor allDay urlLink
+		$("[name=id]").val(event.id)
+		$("[name=title]").val(event.title)
+		$("[name=backgroundColor]").val(event.backgroundColor)
+		$("[name=textColor]").val(event.textColor)
+		// 추가 속성.. 
+		$("[name=writer]").val(event.extendedProps.writer)
+		$("[name=content]").val(event.extendedProps.content)
+		$("[name=urlLink]").val(event.extendedProps.urlLink)
+		
+		/*
         if (confirm('Are you sure you want to delete this event?')) {
           arg.event.remove()
         }
+		*/
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
@@ -119,17 +150,6 @@
     	})
       }    
     
-    $('[data-toggle="tooltip"]').tooltip();    
-    
-    // 텍스트 박스에 입력된 색상 코드가 올바른지 확인하여 배경색 적용
-    document.getElementById('backgroundColor').addEventListener('input', function(event) {
-        this.style.backgroundColor = event.target.value;
-    });
-
-    document.getElementById('textColor').addEventListener('input', function(event) {
-        this.style.backgroundColor = event.target.value;
-    });  
-    
   });
 
   
@@ -159,7 +179,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">일정등록</h5>
+	        <h5 class="modal-title" id="modalTitle">일정등록</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
