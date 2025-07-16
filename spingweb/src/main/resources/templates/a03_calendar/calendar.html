@@ -42,6 +42,20 @@
 		$("#showModal").click() // 상세화면을 위한 모달창 로딩..
 		addForm(arg.event, "D")
       },
+      eventDrop:function(arg){
+		console.log("이벤트 드랍")
+		console.log(arg.event)
+		console.log("수정일정:"+arg.event.title)
+		addForm(arg.event, "D")
+		callAjax("calUpdate")
+      },
+      eventResize:function(arg){
+  		console.log("이벤트 리사이즈")
+  		console.log(arg.event)
+  		console.log("수정일정:"+arg.event.title)
+  		addForm(arg.event, "D")
+  		callAjax("calUpdate")
+      },      
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
       events: function(info, successCallback, failureCallback){
