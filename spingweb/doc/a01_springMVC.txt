@@ -32,13 +32,14 @@
 	2) 파일첨부
 	3) 답글 계층형으로 처리되는 내용
 #3. spring 환경에서 ajax 처리
-4. jquery lib(full calendar) - 스프링연동 처리
-   [gantt차트 연동]
+#4. jquery lib(full calendar) - 스프링연동 처리
+   	[gantt차트 연동]
 5. 메일발송처리
 6. 실시간 채팅 처리
-7. aop 처리
-8. batch 처리..
-9. vue(font 단 프레임워크) 스프링과 연동..
+7. 다국어 처리(사용하는 나라에 따라 해당 언어로 웹사이트 구성)
+8. aop 처리
+9. batch 처리..
+10. vue(font 단 프레임워크) 스프링과 연동..
 
 # 빅데이터 분석 연동 처리
 1. 파이썬이 이용한 웹화면처리(flask)
