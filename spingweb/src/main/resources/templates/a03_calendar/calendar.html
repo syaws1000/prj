@@ -114,6 +114,7 @@
 			$("#regBtn").hide();$("#uptBtn").show();$("#delBtn").show();
 			$("#modalTitle").text("일정 상세")
 			//id  title writer start end content backgroundColor textColor allDay urlLink
+			// event : 초기에 전체 데이터를 calendar안에 리스트 객체로 가지고 있음..
 			$("[name=id]").val(event.id)
 			$("[name=title]").val(event.title)
 			$("[name=backgroundColor]").val(event.backgroundColor)
