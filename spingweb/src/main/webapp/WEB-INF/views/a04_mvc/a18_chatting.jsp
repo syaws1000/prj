@@ -46,7 +46,8 @@
 			wsocket.onmessage = function(evt){
 				//alert(evt.data) // evt.data 서버에서 전송된 메시지..
 				console.log(evt.data)
-				$("p").append(evt.data+"<br>")
+				revMsg(evt.data)
+				//$("#chatMessageArea").append(evt.data+"<br>")
 			}
 			
 		})
@@ -67,13 +68,36 @@
 		wsocket.send( $("#id").val()+":"+$("#msg").val() )
 		$("#msg").val("") // 메시지 입력 창 초기화 처리..
 	}
+	// 최대 크기 함수 위에 전역변수로 선언..
+	var mx = 0
+	function revMsg(msg){
+		// 1. 보내는 메시지 오른쪽, 받는 메시지 왼쪽 정렬 처리..
+		var alignOpt = "left"
+		var msgArr = msg.split(":") // 사용자명:메시지  구분하여 처리  ["사용자명","메시지"]
+		var sndId = msgArr[0]// 보내는 사람 메시지 id
+		if($("#id").val() == sndId){
+			// 보내는 사람과 받는 사람의 아이디가 동일 하면 현재 접속한 사람이 보낸 메시지. ==> 정렬 오른쪽
+			alignOpt = "right"
+			msg = msgArr[1]  // 내가 보낸 메시지이기에 id삭제..
+		}
+		// 정렬 처리된 메시지 
+		var msgObj = $("<div></div>").text(msg).attr("align", alignOpt).css("width",$("#chatArea").width()-20)
+		$("#chatMessageArea").append(msgObj)
+		//$("#chatMessageArea").append(msg+"<br>")
+		// 2. 메시지 스크롤 처리..(최하단에 있는 메시지 내용 확인할 수 있게 자동 스크롤 처리..)
+		//   1) 전체 해당 데이터의 높이를 구하기
+		// 	 2) 포함하고 있는 부모 객체(#chatArea)에서 스크롤 기능 메서드로 스크롤되게 처리 scrollTop()
+		var height = parseInt($("#chatMessageArea").height())
+		mx += height + 20
+		$("#chatArea").scrollTop(mx)
+	}	
+	
 </script>
 </head>
 
 <body>
 	<div class="jumbotron text-center">
 		<h2>채팅</h2>
-		<p>받은 메시지<br></p>
 	</div>
 	<div class="container">
 		<div class="input-group mb-3">
@@ -86,6 +110,14 @@
 		<div class="input-group mb-3">
 			<div class="input-group-prepend ">
 				<span class="input-group-text  justify-content-center">메시지</span>
+			</div>
+			<div id="chatArea" style="overflow-x:hidden" class="input-group-append">
+				<div id="chatMessageArea"></div>
+			</div>
+		</div>	
+		<div class="input-group mb-3">
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">메시지 전송</span>
 			</div>
 			<input id="msg" class="form-control" placeholder="전송할 메시지 입력" />
 			<input id="sendBtn"  class="btn btn-success" value="메시지전송"/>
