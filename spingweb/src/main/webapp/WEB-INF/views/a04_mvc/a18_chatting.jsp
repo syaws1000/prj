@@ -44,20 +44,36 @@
 			}
 			// 서버에서 메시지를 전송이 되었을 때, 받는 처리하는 기능 함수..
 			wsocket.onmessage = function(evt){
-				alert(evt.data) // evt.data 서버에서 전송된 메시지..
+				//alert(evt.data) // evt.data 서버에서 전송된 메시지..
 				console.log(evt.data)
 				$("p").append(evt.data+"<br>")
 			}
 			
 		})
+		$("#sendBtn").click(function(){
+			// 버튼을 클릭시, 접속한 아이디명과 입력한 메시지를 전송 처리..
+			sendMsg()
+		})
+		// 입력 후, enter 클릭시 메시지 전송..
+		$("#msg").keyup(function(){
+			if(event.keyCode==13){  // 키보드에 키마다 고유 키코드가 있는데, 13은 enter키를 의미..
+				sendMsg()
+				
+			}
+		})
+		
 	});
+	function sendMsg(){
+		wsocket.send( $("#id").val()+":"+$("#msg").val() )
+		$("#msg").val("") // 메시지 입력 창 초기화 처리..
+	}
 </script>
 </head>
 
 <body>
 	<div class="jumbotron text-center">
 		<h2>채팅</h2>
-		<p>받은 메시지</p>
+		<p>받은 메시지<br></p>
 	</div>
 	<div class="container">
 		<div class="input-group mb-3">
@@ -67,6 +83,13 @@
 			<input id="id" class="form-control" placeholder="접속할 아이디 입력" />
 			<input id="enterBtn"  class="btn btn-primary" value="채팅방입장"/>
 		</div>
+		<div class="input-group mb-3">
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">메시지</span>
+			</div>
+			<input id="msg" class="form-control" placeholder="전송할 메시지 입력" />
+			<input id="sendBtn"  class="btn btn-success" value="메시지전송"/>
+		</div>		
 	</div>
 </body>
 </html>

@@ -10,6 +10,7 @@ public class A02_ChattingController {
 	@Value("${socketServer}")
 	private String socketServer;
 	
+	// http://192.168.0.135:5050/chatting
 	// http://localhost:5050/chatting
 	@GetMapping("chatting")
 	public String chatting(Model d) {
