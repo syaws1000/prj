@@ -23,6 +23,12 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+
+		// f5를 클릭시, 처리할 내용 ajax 처리 ..
+		
+		
+		
+		
 		$("#regBtn").click(function(){
 			location.href="boardInsert"
 		})

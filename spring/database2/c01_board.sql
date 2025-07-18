@@ -1,0 +1,54 @@
+CREATE TABLE NEW_BOARD (
+    POST_ID NUMBER PRIMARY KEY,          -- 게시글 번호 (기본키)
+    TITLE VARCHAR2(100),                 -- 제목
+    CONTENT CLOB,                        -- 내용 (CLOB 사용, 글 길이가 길어지므로)
+    AUTHOR VARCHAR2(50),                 -- 작성자
+    VIEW_COUNT NUMBER DEFAULT 0,         -- 조회수 (기본값 0)
+    CREATE_DATE DATE DEFAULT SYSDATE,    -- 등록일 (기본값 현재 날짜)
+    UPDATE_DATE DATE,                    -- 수정일
+    PARENT_POST_ID NUMBER,               -- 답글의 경우 상위 게시글 번호
+    STATUS VARCHAR2(20) DEFAULT 'ACTIVE' -- 게시글 상태 (예: ACTIVE, DELETED 등)
+);
+CREATE TABLE NEW_COMMENT (
+    COMMENT_ID NUMBER PRIMARY KEY,        -- 댓글 번호 (기본키)
+    POST_ID NUMBER,                       -- 게시글 번호 (외래키)
+    COMMENT_TEXT CLOB,                    -- 댓글 내용
+    AUTHOR VARCHAR2(50),                  -- 댓글 작성자
+    CREATE_DATE DATE DEFAULT SYSDATE,     -- 댓글 등록일
+    PARENT_COMMENT_ID NUMBER,             -- 답글의 경우 상위 댓글 번호
+    FOREIGN KEY (POST_ID) REFERENCES NEW_BOARD (POST_ID) -- 외래키
+);
+
+CREATE TABLE NEW_FILE (
+    FILE_ID NUMBER PRIMARY KEY,           -- 파일 번호 (기본키)
+    POST_ID NUMBER,                       -- 게시글 번호 (외래키)
+    FILE_NAME VARCHAR2(255),              -- 파일 이름
+    FILE_PATH VARCHAR2(255),              -- 파일 경로
+    FILE_SIZE NUMBER,                     -- 파일 크기
+    CREATE_DATE DATE DEFAULT SYSDATE,     -- 파일 등록일
+    FOREIGN KEY (POST_ID) REFERENCES NEW_BOARD (POST_ID) -- 외래키
+);
+
+
+;-- 게시판 시퀀스
+CREATE SEQUENCE NEW_BOARD_SEQ START WITH 1 INCREMENT BY 1;
+
+-- 댓글 시퀀스
+CREATE SEQUENCE NEW_COMMENT_SEQ START WITH 1 INCREMENT BY 1;
+
+-- 파일 시퀀스
+CREATE SEQUENCE NEW_FILE_SEQ START WITH 1 INCREMENT BY 1;
+
+INSERT INTO NEW_BOARD (POST_ID, TITLE, CONTENT, AUTHOR, CREATE_DATE)
+VALUES (NEW_BOARD_SEQ.NEXTVAL, '게시글 제목', '게시글 내용', '작성자명', SYSDATE);
+INSERT INTO NEW_COMMENT (COMMENT_ID, POST_ID, COMMENT_TEXT, AUTHOR, CREATE_DATE)
+VALUES (NEW_COMMENT_SEQ.NEXTVAL, 1, '댓글 내용', '댓글 작성자', SYSDATE);
+INSERT INTO NEW_COMMENT (COMMENT_ID, POST_ID, COMMENT_TEXT, AUTHOR, CREATE_DATE, PARENT_COMMENT_ID)
+VALUES (NEW_COMMENT_SEQ.NEXTVAL, 1, '답글 내용', '답글 작성자', SYSDATE, 1);
+INSERT INTO NEW_FILE (FILE_ID, POST_ID, FILE_NAME, FILE_PATH, FILE_SIZE, CREATE_DATE)
+VALUES (NEW_FILE_SEQ.NEXTVAL, 1, '파일명.jpg', '/path/to/file', 1024, SYSDATE);
+
+
+SELECT * FROM NEW_BOARD;
+
+
