@@ -51,6 +51,14 @@
 			}
 			
 		})
+		$("#exitBtn").click(function(){
+			if(confirm($("#id").val()+"님 채팅방 접속을 종료하시겠습니까?")){
+				wsocket.send($("#id").val()+"님: 접속 종료합니다.")
+				wsocket.close()
+				$("#chatMessageArea").text("") // 입력된 메시치 초기화..
+				$("#id").val("").focus() // 접속한 아이디명 초기화 하고, 해당 아이디입력한 곳에 focus위치 처리..
+			}
+		})
 		$("#sendBtn").click(function(){
 			// 버튼을 클릭시, 접속한 아이디명과 입력한 메시지를 전송 처리..
 			sendMsg()
@@ -106,6 +114,7 @@
 			</div>
 			<input id="id" class="form-control" placeholder="접속할 아이디 입력" />
 			<input id="enterBtn"  class="btn btn-primary" value="채팅방입장"/>
+			<input id="exitBtn"  class="btn btn-danger" value="채팅방나가기"/>
 		</div>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend ">
