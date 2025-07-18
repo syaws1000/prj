@@ -34,6 +34,20 @@
 		$("#enterBtn").click(function(){
 			// 클이언트 단에서 서버와 연결 처리..
 			wsocket = new WebSocket(socketServer)
+			// handler와 연결된 메서드
+			// 접속시 처리할 내용을 처리해주는 메서드
+			wsocket.onopen = function(evt){
+				console.log(evt)
+				// 실제 메시지를 전달할 때, 사용되는 메서드 이것을 호출하면
+				// handler에 있는 handleTextMessage() 호출되어 메시지를 전달한다.
+				wsocket.send($("#id").val()+"님: 입장합니다.")
+			}
+			// 서버에서 메시지를 전송이 되었을 때, 받는 처리하는 기능 함수..
+			wsocket.onmessage = function(evt){
+				alert(evt.data) // evt.data 서버에서 전송된 메시지..
+				console.log(evt.data)
+				$("p").append(evt.data+"<br>")
+			}
 			
 		})
 	});
@@ -43,6 +57,7 @@
 <body>
 	<div class="jumbotron text-center">
 		<h2>채팅</h2>
+		<p>받은 메시지</p>
 	</div>
 	<div class="container">
 		<div class="input-group mb-3">

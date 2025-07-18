@@ -37,7 +37,7 @@ public class A01_ChattingHandler extends TextWebSocketHandler{
 	// 특정한 클라이언트가 접속을 종료했을 때, 처리할 내용
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		System.out.println("[소켑 접속 종료]"+session.getId());
+		System.out.println("[소켓 접속 종료]"+session.getId());
 		users.remove(session.getId()); // 전역변수에 있는 접속자에서 제외 처리..
 	}
 	// 채팅시 에러 발생시 예외 처리 내용
