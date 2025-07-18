@@ -28,9 +28,13 @@
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	let socketServer = "${socketServer}"
+	let wsocket = null
+	
 	$(document).ready(function() {
 		$("#enterBtn").click(function(){
-
+			// 클이언트 단에서 서버와 연결 처리..
+			wsocket = new WebSocket(socketServer)
+			
 		})
 	});
 </script>
