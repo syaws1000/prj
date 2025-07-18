@@ -13,6 +13,7 @@ public class A02_ChattingController {
 	// http://localhost:5050/chatting
 	@GetMapping("chatting")
 	public String chatting(Model d) {
+		d.addAttribute("socketServer", socketServer);
 		return "WEB-INF\\views\\a04_mvc\\a18_chatting.jsp";
 	}
 }

@@ -19,6 +19,8 @@ public class WebSocketConfig implements WebSocketConfigurer{
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 		// backend에서 있는 A01_ChattingHandler를 front에서 chat로 호출 가능 하게 설정..
+		// client에서 javascript로 chat라는 url를 호출하면 handler 객체의 특정 기능
+		// 메서드를 처리하게 하였다..
 		registry.addHandler(chatHandler, "/chat").setAllowedOrigins("*");
 		
 	}
