@@ -52,3 +52,35 @@ VALUES (NEW_FILE_SEQ.NEXTVAL, 1, '파일명.jpg', '/path/to/file', 1024, SYSDATE
 SELECT * FROM NEW_BOARD;
 
 
+-- SEQUENCE 생성
+CREATE SEQUENCE board2_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- 테이블 생성
+CREATE TABLE board2 (
+    board_id NUMBER PRIMARY KEY,
+    title VARCHAR2(100),
+    content CLOB,
+    author VARCHAR2(50),
+    created_at date DEFAULT sysdate
+);
+
+-- 게시물 1 추가
+INSERT INTO board2 (board_id, title, content, author) VALUES (board2_seq.nextval, '첫 번째 게시물', '안녕하세요! 오늘 날씨가 참 좋네요.', 'UserA');
+
+-- 게시물 2 추가
+INSERT INTO board2 (board_id, title, content, author) VALUES (board2_seq.nextval, '두 번째 게시물', '이번 주말에는 여행을 가볼까 고민 중입니다.', 'UserB');
+
+-- 게시물 3 추가
+INSERT INTO board2 (board_id, title, content, author) VALUES (board2_seq.nextval, '세 번째 게시물', '오늘은 공부하기 딱 좋은 날씨네요.', 'UserC');
+SELECT * FROM board2;
+
+
+
+
+
+
+
