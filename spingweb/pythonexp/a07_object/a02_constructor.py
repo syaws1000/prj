@@ -105,3 +105,29 @@ ta2 = TravelAgency('부산')
 print(ta2.departure, ta2.destination, ta2.days)
 ta3 = TravelAgency('인천', '도쿄')
 print(ta3.departure, ta3.destination, ta3.days)
+
+# 생성자를 통한 가변형 데이터 처리
+class Box:
+    def __init__(self, *prods):
+        self.products = prods   # prods : 배열(변경하지않는-튜플)  ("사과","바나나")
+                                #  self.products 객체의 전역변수 = 필드 
+    def showProd(self):
+        print("#박스에 담긴 물건#")    
+        for prod in self.products:  # 위 생성자를 통해서 담겨진 필드 즉 self.products는 반복문을 통해서 단위 데이터를 가져옮
+            print(f'{prod}', end=", ")
+        print()
+b1 = Box('사과','바나나')  
+print(b1.products[0], b1.products[1])
+
+
+
+
+b2 = Box('컴퓨터','핸드폰','TV')
+
+b1.showProd()
+
+b2.showProd()
+
+
+# 클래스를  Students로 선언하고 생성자에 *names라고  가변형 매개변수를 설정하여,
+#          학생들의 이름을 가변적으로 할당하고, self.names에 할당한 후, index번호에 의해 접근해서 출력해보세요..
