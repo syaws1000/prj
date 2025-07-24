@@ -33,7 +33,7 @@
 
 '''
 class Rabbit:
-    shape="" # 속성 : 저장역할
+    shape=None # 속성 : 저장역할   None : 문자열이나 객체를 초기화할 때, 사용하는 키워드 다른 프로그램의 null과 동일.
     def showShape(self):  # 메서드 선언, self 접두어를 통해서 전역변수로 접근 가능
         print(f'토끼 모양은 {self.shape} 입니다!!')
 

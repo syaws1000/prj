@@ -1,7 +1,7 @@
 '''
 # 파이썬에서 사용되는 내장함수
 1. 지금까지 내용
-    print(), input, range(), type():데이터유형 확인, str(), int(), float()
+    print(), input(), range(), type():데이터유형 확인, str(), int(), float(), bool()
 2. len() : 문자열이나 배열의 갯수를 리턴하는 함수 len("hello") ==> 5, len([100,200,300]) ==> 3
 3. range() : 정수 범위를 생성하는 함수  range(4) 0부터 4까지 숫자
 4. max(), min() : 최대값 최소값

@@ -37,6 +37,7 @@ a02 = Apple()
 a03 = Apple()
 
 class Orange:
+    
     def __init__(self):
         self.kind = "맛난 오렌지"  # self.필드 = 필드값을  선언하면 바로 속성으로 객체 생성시 사용가능하다..
         self.price = 3000

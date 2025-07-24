@@ -99,3 +99,52 @@ p1.buy(4000,5)
 p2 = Product()
 p2.buy(3000,3)
 p2.buy(2000,2)
+
+# 3. 매개변수를 필드값에 할당처리(할당 및 누적 처리)
+#    파이썬의 메서드의 매개변수를 통해서 데이터를 전달하여, 필드값의 초기값을 할당 또는 변경할 수 있거나, 누적해서
+#   처리 할 수 있다.
+class Student:
+    def setKor(self, point):
+        self.kor = point  # self. 필드로 선언..
+        print("국어 점수 필드값으로 할당:", self.kor)
+    def setEng(self, point) :
+        self.eng = point
+        print("영어 점수 필드값으로 할당:", self.eng)
+    def tot(self):
+        print(f"국어 점수({self.kor})와 영어 점수({self.eng})의 합산:{self.kor+self.eng}")
+st1 = Student()
+st1.setKor(80)               
+st1.setEng(90)         
+st1.tot()
+# ex) Account 라는 은행계좌를 만들어 save() 메서드를 통해서 입금액 처리, withdraw()메서드를 통해서 출금액 처리
+#     curMoney()를 통해서 현재 금액을 출력하세요 
+class Account:
+    income = 0
+    outcome = 0
+    def save(self, money):
+        self.income += money
+        print(f'입금액{money}')
+    def withdraw(self, money):
+        self.outcome += money
+        print(f'출금액{money}')
+    def curMoney(self):
+        self.tot = self.income - self.outcome
+        print(f'현재 잔액:{self.tot}')        
+acc1 = Account()
+acc1.save(1000)
+acc1.withdraw(500)
+acc1.curMoney()
+
+# 4. 매개변수를 이용하여 조건/반복문 처리(여러가지 기능적인 알고리즘을 처리)
+
+class Calculator:
+    def showGrade(self, point):
+        print(f'입력한 점수:{point}')
+        if point>=70:
+            print("합격!")
+        else :
+            print("불합격!")    
+
+c1 = Calculator()
+c1.showGrade(75)
+# class Shopping에서  buy() 함수에 매개변수로 구매한 금액을 전달하여, 100000이상이면 할인 10%, 그외는 할인 5%로 출력하세요..
