@@ -131,3 +131,26 @@ b2.showProd()
 
 # 클래스를  Students로 선언하고 생성자에 *names라고  가변형 매개변수를 설정하여,
 #          학생들의 이름을 가변적으로 할당하고, self.names에 할당한 후, index번호에 의해 접근해서 출력해보세요..
+class Students:
+    def __init__(self, *names):
+        self.names = names
+
+    def showStudents(self, grpName):
+        print(f"# {grpName}그룹 에 있는 학생들 #")
+        for name in self.names:
+            print(f'{name}', end=", ")
+        print()         
+stGrp1 = Students('홍길동','김길동','신길동')
+print("# 그룹1에 있는 학생들 #")
+for name in stGrp1.names:
+    print(f'{name}', end=", ")
+print()
+stGrp2 = Students('오길동','마길동','하길동','구길동')
+print("# 그룹2에 있는 학생들 #")
+for name in stGrp2.names:
+    print(f'{name}', end=", ")
+print()
+
+stGrp1.showStudents("재미있는 친구들")
+stGrp2.showStudents("행복한 친구들")
+
