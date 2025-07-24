@@ -168,6 +168,21 @@ class Gugu:
         for cnt in range(start, end+1):
             print(f'카운트:{cnt}')
 
+    def showGugu(self, start, end):
+        print(f" {start}단부터 {end}단까지 출력")    
+        for grade in range(start, end+1):
+            print(f"# {grade}단 #")
+            for cnt in range(1, 9+1):
+                print(f"{grade} x {cnt} = {grade*cnt}")
+
+
 g1 = Gugu()
 g1.count(1, 15)
 g1.count(2, 20)
+
+#  showGugu를 통해서 시작 단수와 마지막 단수를 입력 받아..
+#  ##  @@단  ##
+#  @@ x @@ = @@  형식으로 출력하세요..
+g1.showGugu(2, 7)
+g1.showGugu(11, 18)
+
