@@ -148,3 +148,26 @@ class Calculator:
 c1 = Calculator()
 c1.showGrade(75)
 # class Shopping에서  buy() 함수에 매개변수로 구매한 금액을 전달하여, 100000이상이면 할인 10%, 그외는 할인 5%로 출력하세요..
+class Shopping:
+    def buy(self, money):
+        print(f'입금한 금액:{money}')
+        if money>=100000:
+            print("할인 10%")
+            print(f"최종 금액: {int( money-(money*0.1))}")
+        else :
+            print("할인 5%")    
+            print(f"최종 금액: {int( money-(money*0.05))}")
+
+s1 = Shopping()
+s1.buy(5000)
+s1.buy(1005000)
+
+class Gugu:
+    def count(self, start, end):
+        print(f'# 시작:{start}, 마지막:{end} #')
+        for cnt in range(start, end+1):
+            print(f'카운트:{cnt}')
+
+g1 = Gugu()
+g1.count(1, 15)
+g1.count(2, 20)
