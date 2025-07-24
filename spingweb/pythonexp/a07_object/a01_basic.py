@@ -32,6 +32,7 @@
     r1 = 클래스명()   # 생성자를 통해서 호출 객체 생성.
 
 '''
+name='홍길동'
 class Rabbit:
     shape=None # 속성 : 저장역할   None : 문자열이나 객체를 초기화할 때, 사용하는 키워드 다른 프로그램의 null과 동일.
     def showShape(self):  # 메서드 선언, self 접두어를 통해서 전역변수로 접근 가능
@@ -39,7 +40,7 @@ class Rabbit:
 
 r1 = Rabbit()
 r1.shape = "이쁘고 귀여운"
-r1.showShape()
+#r1.showShape()
 
 # ex) Person 클래스에 속성으로 이름, 나이, 사는곳, 메서드로 show()로 선언하여, 위 속성을 출력하게 처리하세요..
 class Person:
@@ -51,9 +52,9 @@ class Person:
         print(f'나이:{self.age}')
         print(f'사는곳:{self.loc}')
 
-p01 = Person()
-p01.name='홍길동'; p01.age = 25; p01.loc='서울'
-p01.show()
-p02 = Person()
-p02.name='김길동'; p02.age = 27; p02.loc='대전'
-p02.show()
+#p01 = Person()
+#p01.name='홍길동'; p01.age = 25; p01.loc='서울'
+#p01.show()
+#p02 = Person()
+#p02.name='김길동'; p02.age = 27; p02.loc='대전'
+#p02.show()
