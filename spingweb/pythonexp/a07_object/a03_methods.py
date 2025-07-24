@@ -186,3 +186,26 @@ g1.count(2, 20)
 g1.showGugu(2, 7)
 g1.showGugu(11, 18)
 
+# 5. 리턴값을 처리(기본적인 리턴값 개념 처리 및 매개변수를 통한 리턴값 설정 및 처리, 필드값 매개변수 리턴값을 통한 처리)
+#    리턴값 : 해당 기능 메서드를 호출되었을 때, 전달되는 값을 의미..
+class Calculator:
+    def add(self, x, y):
+        return x + y
+    # minus  두개의 매개변수를 받아서 뺀값을 리턴하게 처리
+    def minus(self, x, y):
+        return x - y
+    # multi  두개의 매개변수를 받아서 곱한 리턴하게 처리..
+    def multi(self, x, y):
+        return x*y
+
+    
+c1  = Calculator()
+print(f"함수를 통해 리턴된 값:{c1.add(50,20)}")
+tot1 = c1.add(50,70)
+print(f'리턴값을 변수에 할당하여 출력한 값:{tot1}')
+print(f'뺄셈 리턴값 처리 메서드:{c1.minus(7,4)}')
+print(f'곱셈 리턴값 처리 메서드:{c1.multi(3000,3)}')
+
+
+
+
