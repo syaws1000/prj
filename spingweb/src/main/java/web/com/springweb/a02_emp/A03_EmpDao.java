@@ -6,9 +6,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import web.com.springweb.a02_emp.vo.Emp;
+import web.com.springweb.a03_database.vo.Dept;
 
 @Mapper
 public interface A03_EmpDao {
+	@Select("SELECT * FROM DEPT ")
+	List<Dept> deptList();  	
+	
 	@Select("SELECT * FROM EMP "
 			+ "WHERE ENAME LIKE #{ename} "  // sch.getEname()  %%   Emp( ename="%A%", job="%A%")
 			+ "AND JOB LIKE #{job} "        // sch.getJob()   %%

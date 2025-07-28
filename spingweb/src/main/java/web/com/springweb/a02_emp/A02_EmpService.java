@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import web.com.springweb.a02_emp.vo.Emp;
+import web.com.springweb.a03_database.vo.Dept;
 
 @Service
 public class A02_EmpService {
@@ -27,5 +28,8 @@ public class A02_EmpService {
 		// Emp( ename="%%", job="%%")
 		
 		return dao.empList(sch);
+	}
+	public List<Dept> deptList(){
+		return dao.deptList();
 	}
 }

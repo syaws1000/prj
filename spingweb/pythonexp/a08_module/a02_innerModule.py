@@ -66,6 +66,7 @@ import os
 # 현재 작업 디렉토리 확인
 current_dir = os.getcwd()
 print(f"현재 directory:{current_dir}")
+# 
 
 
 

@@ -31,3 +31,47 @@
 
 
 '''
+# 사용1) 패키지명.파일명 import 특정구성요소  
+from a08_module.a01_pkg.a01_module import name
+print(f"외부 패키지하위에 있는 모듈의 변수 호출:{name}")
+from a08_module.a01_pkg.a01_module import name as nm  # 해당 대상 객체 변수를 별칭으로 설정.
+print(f"외부 패키지하위에 있는 모듈의 변수 호출(별칭):{nm}")
+# ex) a01_start 패키지 하위에 a07_obj.py를 넣고, 변수로 no1, no2 설정해 할당 후, 여기서 호출하여
+#     출력하세요.
+from a01_start.a07_obj import no1
+from a01_start.a07_obj import no2 as n2
+print(f"{no1} + {n2} = {no1+n2}")
+
+from a08_module.a01_pkg.a01_module import call
+re1 = call('사과',3000,2)
+print(f"총계1:{re1}")
+from a08_module.a01_pkg.a01_module import call as buy
+re2 = buy('바나나',4000,3)
+print(f"총계2:{re2}")
+
+# ex) a01_start.a07_obj 안에 plus() multi() 함수를 통해서 두개의 매개변수로  덧셈과 곱셈을 선언하고,
+#     현재 파일에서 호출하여 리턴값을 출력하세요..
+
+from a01_start.a07_obj import plus
+from a01_start.a07_obj import multi as mul
+print(f'3 + 4 = {plus(3,4)}')
+print(f'5 x 7 = {mul(5,7)}')
+
+
+from a08_module.a01_pkg.a01_module import Person as Man
+from a08_module.a01_pkg.a01_module import Person as Woman
+m1 = Man("홍길동", 25, '서울')
+w1 = Woman("홍마리", 27, '부산')
+m1.show()
+w1.show()
+# ex) a01_start.a07_obj 모듈에 Product 클래스로 물건명 가격 갯수를 할당하는 클래스와 info()를 통해서
+#     해당 물건의 정보를 출력하되, 현재 코드에서 Product ==> Fruit, Eletron 으로 설정하여 객체 생성과 메서드
+#     호출하세요..
+# Product
+from a01_start.a07_obj import Product as Fruit
+from a01_start.a07_obj import Product as Eletron
+f1 = Fruit("사과",3000,3)
+print(f"합산:{f1.info()}") 
+e1 = Eletron("핸드폰",1500000,1)
+print(f"합산:{e1.info()}") 
+
