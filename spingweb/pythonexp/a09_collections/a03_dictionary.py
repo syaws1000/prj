@@ -35,6 +35,8 @@ print(f'product:{product}')
 del product['cnt']
 print(f'product:{product}')
 # ex) 위 예제 student 속성 age를 삭제 후, student 전체 데이터를 확인하세요..
+del student['age']
+print(f'student:{student}')
 
 
 
