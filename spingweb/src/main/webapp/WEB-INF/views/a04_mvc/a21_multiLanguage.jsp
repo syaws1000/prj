@@ -16,15 +16,24 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${path}/com/bootstrap.min.css">
 <style>
-td {
-	text-align: center;
-}
+	.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+	.input-group-prepend{width:20%;}
+	#chatArea{
+		width:80%;height:200px;overflow-y:auto;text-align:left;
+		border:1px solid green;
+	}
 </style>
 <script src="${path}/com/jquery-3.7.1.js"></script>
 <script src="${path}/com/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		$("#selectLan").val("${param.lang}").change(function(){
+			var chVal = $(this).val()
+			if(chVal!=''){
+				location.href="multilang?lang="+chVal
+			}
+		})
 	});
 </script>
 </head>
@@ -53,14 +62,14 @@ pwd=password
 greet=hi!!!
 regmem=register member!
 chlang=choice language
-kor=korean
+ko=korean
 en=english		
 --%>
 	<div class="container">
-		<div class="text-right">
-			<select class="form-control" id="selectLan">
+		<div>
+			<select class="form-control" id="selectLan" style="width:20%">
 				<option value=""><spring:message code="chlang" /></option>
-				<option value="ko"><spring:message code="kor" /></option>
+				<option value="ko"><spring:message code="ko" /></option>
 				<option value="en"><spring:message code="en" /></option>
 			</select>
 		</div>
@@ -85,5 +94,6 @@ en=english
 				<input type="button" class="btn btn-primary" value='<spring:message code="reg" />' id="regBtn" />
 			</div>
 		</form>
+	</div>	
 </body>
 </html>
