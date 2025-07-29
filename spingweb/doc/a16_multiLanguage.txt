@@ -42,6 +42,36 @@
    	      }
    	  
    	  }
+   	4) controller 을 통해 view 화면 호출
+   	   jsp(view)에서 처리할 내용
+   	   <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+   	   
+   	   <spring:message code="greeting" />
+   	   <a href="?lang=kor">한국어</a>
+   	   <a href="?lang=eng">영어</a>
+
+5. 실행 흐름
+  	1) 사용자가 /greeting?lang=en 요청시 lang 파라이터로 언어 설정
+  	2) localeChangeInterceptor로 언어를 변경
+  	3) SessionLocaleResolver가 해당 언어를 세션에 저장
+  	4) messages_en.properties 파일에서 메시지를 가져와 뷰에 적용
+
+6. 핵심 키워드
+    messages_언어코드.properties  : 언어별 메시지 파일
+    SessionLocaleResolver : 기본 언어 설정
+    LocaleChangeIntercepter : 언어 변경 요청 처리
+    <spring:message />  : 뷰에서 메시지 출력 태그
+    spring.messages.basename 메시지 파일 경로 지정..
+
+
+
+  	   	   
+   	   
+   	   
+   	   
+   	   
+   	   
+   	     
    	
    
    
