@@ -38,5 +38,51 @@ print(f'product:{product}')
 del student['age']
 print(f'student:{student}')
 
+'''
+# 딕션너리 함수활용(keys(), values(), items())
+1. keys() : 해당 딕션너리 데이터의 모든 키값을 가져다 준다.
+   위 product 기준으로 name, price, cnt 키값만 가져오게 처리..
+2. values() : 해당 딕션너리 데이터의 모든 값만 가져다 준다.
+   위 product 기준으로 사과, 3000, 2
+3. items() : 딕션너리 데이터의 key/value값을 가져다 준다.(반복문에서 효율적으로 활용할 수 있다.)
 
+'''
+person = {'name':'김철수','age':26,'email':'chulsu@gmail.com'}
+# 모든 키 출력
+print(f'person의 모든 키:{person.keys()}')
+for key in person.keys():
+    print(key)
+# 모든 값을 출력
+print(f'person의 모든 값:{person.values()}')
+for val in person.values():
+    print(val)
+# 모든 키/값을 출력
+print(f'person의 모든 키/값:{person.items()}')
+for key, val in person.items():
+    print(f'{key} - {val}')
+'''
+ex) movie로 영화제목, 감독, 출시연도를 딕션너리로 선언할당 한 후, 위 기능 메서드와 for으로 출력해보세요..
+    1) 속성들만 2) 값들만  3) 속성과 값
+'''
+movie = {'제목':'인셉션','감독':'크리스토퍼 놀란','개봉연도':2010}
+print("# 속성만 출력 #")
+for key in movie.keys():
+    print(key)
+print("# 값만 출력 #")
+for val in movie.values():
+    print(val)
+print("# 키와 값 출력 #")
+for key, val in movie.items():   # for key, val in 키/값이 있는 객체..
+    print(key, ':',val)
 
+# 키에 있는 값을 가져오는 방식
+# 1. 객체['키']    
+# 2. 객체.get('키')
+print(f" movie객체의 제목키에 있는 값:{movie['제목']}")
+#print(f" movie객체의 없는키에 있는 값:{movie['관객수']}") : 에러 발생 : 없는키에 대하여 바로 호출시
+print(f" movie객체의 감독키에 있는 값:{movie.get('감독')}")
+print(f" movie객체의 없는키에 있는 값:{movie.get('관객수')}") # 없는 키이지만 에러는 발생하지 않고 None로 처리 안정적..~~
+# ex) person에 있는 키가 있는 값을 두가지 형식으로 호출하여 출력하고, 없는 키도 두가지 형식으로 호출하여 출력하세요..
+print(f"person의 name:{person['name']}, age:{person.get('age')}")
+print(f"person의 gender:{person.get('gender')}")
+# print(f"person의 gender:{person['gender']}") 에러발생
