@@ -1,0 +1,52 @@
+# spring AOP
+1. Spring AOP(Aspect Oriented Programming, 관점 지향 프로그래밍)는 공통적인 부가기능(로깅, 트랜잭션,
+보안 등)을 핵심 비즈니스 로직과 분리하여 모듈화하는 방식입니다. 스프링의 AOP를 통해 관심사의 분리
+(Separation of Concerns, Soc)를 실현할 수 있게 합니다.
+2. 개요
+	1) AOP : 횡단 관심사(cross-cutting concern)를 모듈화하기 위한 프로그래밍 패러다임
+	2) 목표 : 중복 제거, 코드 간결화, 유지보수성 향상
+	3) 주요 용도 : 로깅, 보안, 트랜잭션, 성능 모니터링 등
+	4) 스프링 AOP 특징 : 프록시 기반 AOP(JDK proxy, CGLIB 사용), 런타임 기반 적용
+3. 핵심 개념 키워드
+    1) Aspect : 공통 기능 모듈(Advice + Pointcut)
+    2) Advice : 실행할 코드(Before, After, Around 등)
+    3) Pointcut : Advice가 적용될 JoinPoint를 지정하는 표현식
+    4) JoinPoint : 실제 실행 지점(매서드 실행 등)
+    5) Weaving : Advice를 실제 코드에 연결하는 작업(스프링에서는 프록시 생성으로 처리됨)
+4. Spring AOP 구성 단계 및 핵심 코드
+	1) 의존성 주가(lib 다운로드 및 컨테이너에 할당)
+		pom.xml : org.springframework.boot:spring-boot-starter-aop
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-aop</artifactId>
+	    </dependency>
+	2) Aspect 클래스 작성
+		class LogAspect
+		// 실행전
+		@Before("excecution(* 패키지....클래스.메서드**(**)")  
+			*해당 내용 상관없이 공통으로 - 특정한 패키지와 객체, 메서드 및 매개변수를 기준으로 이전에
+		public void 메서드명(JoinPoint joinPoint){
+			// 수행 처리할 내용..
+		}    
+		// 실행후
+		@After("excecution(* 패키지....클래스.메서드**(**)")  *해당 내용 상관없이 공통으로
+		public void 메서드명(JoinPoint joinPoint){
+			// 수행 처리할 내용..
+		}    
+		// 실행 전 후 전체 감싸기
+		@Around("excecution(* 패키지....클래스.메서드**(**)")  *해당 내용 상관없이 공통으로
+		public void 메서드명(JoinPoint joinPoint){
+			// 수행 처리할 내용..
+		}    
+		// 예외가 발생시
+		@AfterThrowing("excecution(* 패키지....클래스.메서드**(**)")  *해당 내용 상관없이 공통으로
+		public void 메서드명(JoinPoint joinPoint){
+			// 수행 처리할 내용..
+		}    		
+		# PointCut 표현시
+		1. execution(* *..*Service.*(..)) : 접근제어자 상관없이(*), 모든 Service키워드가 붙은 객체 실행시
+		2. execution(* com.example..*.*(..)) : 접근제어자 상관없이 com.example 패키지 이하 전체 메서드
+		3. within(com.example.Service..*) : 특정 패키지 내부 클래스들 처리시..
+				
+		
+		
