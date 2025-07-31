@@ -15,9 +15,14 @@ public class LogginAspect {  // 특정 시점에 수행할 Advice 객체 선언 
 	// (..) : 매개변수 상관없이..   -- 시점을 지정 PointCut
 	@Around("execution(* web.com.springweb.a04_mvc.a02_service.*.*(..))") 
 	public Object logExceptionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+		long start = System.currentTimeMillis(); // 해당 시간의 1/1000초단위 시간..
 		
 		Object proceed = joinPoint.proceed(); // 실행되는 시점에  정보를 가져오는 객체
 		
+		long executionTime = System.currentTimeMillis() - start; 
+		//  현재 마지막 수행 시간에서 시작시간을 빼면 해당 메서드의 수행 시간 출력
+		// joinPoint.getSignature() : 해당 객체와 기능 메서드에 대한 정보
+		System.out.println(joinPoint.getSignature()+" 수행시간:"+executionTime+"밀리 세컨드(ms - 1/1000초)");
 		return proceed;
 	}
 	
