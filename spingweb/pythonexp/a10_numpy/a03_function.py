@@ -63,3 +63,43 @@ print(linspace_arr1)
 # ex) 0~100점으로 6으로 균등 처리값을 가진 배열 생성
 linspace_arr2 = np.linspace(0,100,6)
 print(f'0~100 균등 6범위로 나눈 처리:{linspace_arr2}')
+
+'''
+# 기타 함수
+1. np.eye() : 주어진 크기의 단위 행렬(대각선 원소가 1이고 나머지는 0일 정사각형 행렬)을 생성합니다.
+    - 단위 행렬 생성 : 기계 학습 알고지즘에서 선형 대수 연산을 할 때 자주 사용합니다. 예를 들어, 행렬 분해나
+     시스템의 초기 설정에서 사용됩니다.
+    - 대각선 행렬 : 최적화 문제나 시스템 초기 조건을 설정할 때, 유용합니다.
+
+
+'''
+# 3x3/5x5 크기의 단위 행렬 생성
+eye_arr1 = np.eye(3)
+eye_arr2 = np.eye(5)
+print(eye_arr1)
+print(eye_arr2)
+# ex) 2x2, 4x4 단위 행렬 처리 출력하세요..
+eye_arr3 = np.eye(2)
+eye_arr4 = np.eye(4)
+print(eye_arr3)
+print(eye_arr4)
+'''
+# np.random.rand(), np.random.randint()
+1. 무작위 숫자로 채워진 배열을 생성합니다.
+2. 모델 훈련에서 데이터 증감이나 랜덤 샘플링을 통해 훈련 데이터셋을 확장하거나, 무작위 데이터 데이터를 생성할 때 유용
+3. 모델 초기화 : 딥러닝 모델에서 초기 가중치를 무작위로 설정할 때, 사용됩니다.
+4. 시뮬레이션 : 다양한 시뮬레이션에서 무작위 수치를 필요할 때, 사용됩니다.
+
+'''
+# 0~1 사이의 값으로 채워진 2x3 배열 생성
+random_values = np.random.rand(2,3)
+print( random_values )
+# 1부터 10까지 정수 중 무작위로 5개의 값 생성
+random_integers = np.random.randint(1,10+1, 5)
+print( random_integers )
+# ex1) 0~1사이 값으로 3x3 배열 생성
+ran1 = np.random.rand(3,3)
+print(ran1)
+# ex2) 0~100까지 정수 중 무작위로 10개의 값 생성
+ran2 = np.random.randint(0, 100+1, 10)
+print(ran2)

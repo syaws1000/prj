@@ -22,7 +22,7 @@ public interface A03_BoardDao {
 			+ "	WHERE SUBJECT LIKE #{subject}\r\n"
 			+ "	AND WRITER LIKE #{writer}\r\n"
 			+ "	START WITH refno = 0\r\n"
-			+ "	CONNECT BY PRIOR NO = refno")
+			+ "	CONNECT BY PRIOR NO = refno ")
 	int getBoardTot(BoardSch sch);	
 	
 	@Select(" SELECT *\r\n"

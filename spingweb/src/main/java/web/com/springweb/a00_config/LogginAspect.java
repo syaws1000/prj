@@ -1,6 +1,8 @@
 package web.com.springweb.a00_config;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -28,4 +30,19 @@ public class LogginAspect {  // 특정 시점에 수행할 Advice 객체 선언 
 	
 	
 	// 특정한 패키지의 하위에 있는 모든 메서드에서 에러가 발생시 처리할 내용을 구현..
+	// execution(* web.com.springweb..service..*(..) )
+	// execution(* web.com.springweb..*Service..*(..) )
+	@AfterThrowing(pointcut="execution(* web.com.springweb..service..*(..) ) ||  "
+			+ "execution(* web.com.springweb..*Service..*(..) )", throwing="ex")
+	public void logAfterThrowing(JoinPoint joinPoint, Throwable ex) {
+		System.out.println("### 예외 발생 ###");
+		System.out.println("클래스/메서드:"+joinPoint.getSignature());
+		System.out.println("예외 타입:"+ex.getClass().getName());
+		System.out.println("예외 메시지:"+ex.getMessage());
+	}
+	
+	
+	
+	
+	
 }
