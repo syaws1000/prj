@@ -16,7 +16,7 @@ public interface A01_CustomerDao {
 	@Select("SELECT * FROM customers "
 			+ "WHERE customer_name  LIKE #{customerName} "
 			+ "AND customer_address LIKE #{customerAddress} "
-			+ "ORDER BY CUSTOMER_ID DESC") 
+			+ "ORDER BY CUSTOMER_ID DESC ") 
 	List<Customer> getCustomerList(  Customer sch );
 
 	@Insert("INSERT INTO customers VALUES (customer_seq.nextval, "
