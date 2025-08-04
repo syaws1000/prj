@@ -103,3 +103,36 @@ print(ran1)
 # ex2) 0~100까지 정수 중 무작위로 10개의 값 생성
 ran2 = np.random.randint(0, 100+1, 10)
 print(ran2)
+'''
+# diag(배열)
+1. 사선에 있는 데이터를 뽑아주는 역할을 한다.
+   k=1 : 중앙기준으로 한행 위
+   k=-1 : 중앙기준으로 한행 아래
+'''
+arr = np.arange(1,25+1).reshape((5,5)) # 1~25까지 1차원배열을  reshape에 의해서 5행 5열의 배열로 생성
+print("5행 5열 1~25 처리")
+print(arr)
+print("왼쪽 위로부터 오른쪽 아래로 사선 형태로 데이터 추출 내용")
+br = np.diag(arr)
+print(br)
+# ex) randint를 이용해서 0~100사이의 랜덤데이터를 3행3열로 만들어 그 사선으로 된 데이터를 추출하여 출력하세요..
+ranArr = np.random.randint(0,100+1, 9).reshape(3,3)
+print('# 랜덤 데이터 #')
+print(ranArr)
+br2 = np.diag(ranArr)
+print("# 사선으로된 임의의 데이터 #")
+print(br2)
+
+print(arr)
+br3 = np.diag(arr, k=1)
+br4 = np.diag(arr, k=-1)
+print(br)
+print(br3)
+print(br4)
+# ex) ranArr 데이터 기준으로 k=2로 했을 때. 데이터 확인하세요..
+br5 = np.diag(ranArr, k = 2)
+print(ranArr)
+print("# k = 2 옵션 데이터 #")
+print(br5)
+
+
