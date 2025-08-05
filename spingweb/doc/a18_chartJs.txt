@@ -1,0 +1,84 @@
+# chart.js의 핵심: 기본 기능과 속성 마스터하기
+1. chart.js는 웹 페이지에 동적이고 상호작용적인 차트를 손쉽게 추가할 수 있도록 도와주는 인기있는
+오픈소스 자바스트립트 라이브러리입니다. 간편한 사용법과 뛰어난 확장성 덕분에 많은 개발자에게
+사랑받고 있습니다. Chart.js의 기본 기능과 주요 속성을 이해하면 데이터를 효과적으로 시각화하는 데
+큰 도움이 될 것입니다
+2. chart.js의 기본 구조
+	1) chart.js를 사용하여 차트를 생성하는 과정은 매우 직관적입니다. 기본적으로  html에 
+		<canvas>요소를 추가하고, 이 요소를 참조하여 Chart객체를 생성합니다.
+		<canvas id="myChart"></canvas>
+	2) javascript
+	   const ctx = document.getElementById("myChart");
+	   
+	   new Chart(ctx,{
+	   	// 차트의 종류를 지정
+	   	type:"bar",
+	   	// 차트에 표시될 데이터 설정
+	   	data:{
+	   		// 각 데이터 포인트에 대한 라벨
+	   		label:['1월','2월','3월','4월','5월','6월'],
+	   		// 실제 데이터를 담고 있는 배열
+	   		datasets:[{
+	   			label:"월별 판매량",
+	   			data:[12,19,3,5,2,3],
+	   			backgroundColor:'rgb(54,162,235,0.2)',
+	   			borderColor:'rgba(54,162,235,1)',
+	   			borderWidth:1
+	   		}]
+	   	
+	   	},
+	   	// 플러그인 관련 설정을 합니다(예) 범례, 툴팁)
+	   	plugins:{
+	   		legend:{
+	   			position:'top'
+	   		},
+	   		title:{
+	   			display:true,
+	   			text:"월별 판매량 차트"
+	   		},
+	   		tooltip:{
+	   			// 툴팁사용여부
+	   			enabled:true
+	   		}
+	   	
+	   	}
+	   
+	   })
+	3) 속성
+		type:생성할 차트의 종류를 문자열로 지정합니다. 가장 일반적으로 사용되는 유형은 다음과 같습니다.
+			line:선그래프
+			bar:막대그래프
+			pie:파이차트
+			doughnut:도넛차트
+			radar:방사형차트
+			polarArea:극지방형차트
+			bubble:버블차트
+			scatter:산점도
+			mixed:두가지 이상의 차트 유형을 혼합하여 사용할 수 있음.
+		data: 차트에 표시될 데이터를 정의하는 객체
+			labels:차트의 각 데이터 포인트에 해당하는 라벨의 배열(예,x축의 각 항목
+			datasets:실제 데이터를 나타내는 객체들의 배열입니다. 하나의 차트에 여러 데이터셋을 표시할 수 있습니다.
+				각 데이터셋 객체는 다음과 같은 속성을 가집니다.
+				label : 데이터셋의 이름으로, 범례(legend)와 툴팁(tooltip)에 표시됩니다.
+				data : 실제 데이터 값의 배열입니다.
+				backgroundColor : 데이터 포인트의 테두리 색입니다.
+				borderWidth : 테두리의 두께입니다.
+				fill : 선 그래프 아래 영역의 채우기 여부를 설정합니다.
+				tension : 선의 곡률을 조절합니다. (O는 직선)
+		options : 차트의 동작과 모양을 제어하는 다양한 설정을 포함하는 객체입니다.
+			responsive : true로 설정하면 차트가 부모 컨테이너의 크기에 맞춰 자동으로 조절됩니다.
+			maintainAspectRatio : responsive가 true일 때, 캔버스의 원래 가로세로 비율 유지 여부를 설정합니다.
+				기본값을 true입ㄴ디ㅏ.
+			scales : 차트의 축에 대한 설정을 담고 있는 객체
+				x, y : 각 축에 대한 개별 설정
+				beginAtZero : 축의 최소값을 0부터 시작할지 여부를 설정
+				grid : 축의 그리드 라인(격자선)에 대한 설정
+				title : 축의 제목
+			plugins : 차트의 추가 기능을 제어하는 플러그인 관련 설정
+				legend : 범례의 표시 여부(display), 위치(position), 라벨 스타일 등을 설정
+				title : 차트 전체의 제목을 설정
+				tooltip:데이터 포인트의 마우스를 올렸을 때 나타나는 툴틱의 사용 여부 및 스타일을 설정합니다.
+			anmimation:차트가 처음 랜더링될 대의 애니매시션 효과를 설정합니다.
+			
+					   
+	   
