@@ -12,6 +12,13 @@
 			insert into chart01 values(chart01_seq.nextval,'area',80,'4월');
 			insert into chart01 values(chart01_seq.nextval,'area',90,'5월');
 			insert into chart01 values(chart01_seq.nextval,'area',100,'6월');
+			
+			insert into chart01 values(chart01_seq.nextval,'area',80,'7월');
+			insert into chart01 values(chart01_seq.nextval,'area',110,'8월');
+			insert into chart01 values(chart01_seq.nextval,'area',120,'9월');
+			insert into chart01 values(chart01_seq.nextval,'area',90,'10월');
+			insert into chart01 values(chart01_seq.nextval,'area',100,'11월');
+			insert into chart01 values(chart01_seq.nextval,'area',110,'12월');
 SELECT DATA, label 
 FROM chart01
 WHERE TYPE='area';

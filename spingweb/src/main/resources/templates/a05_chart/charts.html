@@ -486,6 +486,38 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+    <script type="text/javascript">
+    //var ctx = $("#myAreaChart")[0].getContext("2d")
+    console.log(ctx)
+    //var myAreaChart = new Chart(ctx,{})
+    charJson('area',myLineChart)
+    
+    
+    function charJson(type,chartOb){
+        $.ajax({
+    		url:"chartJson",
+    		data:"type="+type,
+    		dataType:"json",
+    		success:function(chart){
+    			console.log("# 차트 데이터 로딩 후 #")
+    			console.log(chart)
+    			chartOb.data.datasets[0].data = chart.datas
+    			chartOb.data.labels = chart.labels
+    			chartOb.update() // json데이터에서 받은 내용으로 적용.. 
+    		},
+    		error:function(err){
+    			console.log(err)
+    		}
+        })
+	}
+
+    
+    
+    
+    
+    
+    
+    </script>
 
 </body>
 
