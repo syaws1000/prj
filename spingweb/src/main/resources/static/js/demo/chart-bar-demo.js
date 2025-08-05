@@ -31,6 +31,8 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
+  // ["January", "February", "March", "April", "May", "June"],
+  // data: [4215, 5312, 6251, 7841, 9821, 14984],
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [{

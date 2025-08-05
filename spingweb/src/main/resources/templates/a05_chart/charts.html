@@ -491,6 +491,8 @@
     console.log(ctx)
     //var myAreaChart = new Chart(ctx,{})
     charJson('area',myLineChart)
+    charJson('bar',myBarChart)
+    charJson('pie',myPieChart)
     
     
     function charJson(type,chartOb){
@@ -502,6 +504,7 @@
     			console.log("# 차트 데이터 로딩 후 #")
     			console.log(chart)
     			chartOb.data.datasets[0].data = chart.datas
+    			//chartOb.data.datasets[0].label = '수입금'
     			chartOb.data.labels = chart.labels
     			chartOb.update() // json데이터에서 받은 내용으로 적용.. 
     		},
