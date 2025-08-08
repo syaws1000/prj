@@ -90,8 +90,11 @@ try:
     deptList()
     print("# 부서 정보를 입력 #")
     inDept = Dept( int(input("부서번호를 입력:")), input("부서명을 입력:") , input("부서위치를 입력:")) 
-    sqlIns = "INSERT INTO dept03 values(:1,:2,:3)"
-    cursor.execute(sqlIns,(inDept.deptno, inDept.dname, inDept.loc) )
+#    sqlIns = "INSERT INTO dept03 values(:1,:2,:3)"
+
+#    cursor.execute(sqlIns,(inDept.deptno, inDept.dname, inDept.loc) )
+    sqlIns = "INSERT INTO dept03 values(:deptno,:dname,:loc)"
+    cursor.execute(sqlIns,inDept.__dict__ )
     con.commit()
 
 
