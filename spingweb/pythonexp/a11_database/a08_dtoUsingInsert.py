@@ -69,13 +69,8 @@
 from a11_database.a00_dto import *
 import sys # 여러가지 system 데이터 처리 가능 모듈
 from a11_database.a00_con import *
-try: 
-    # 1. 연결
-    con = dbCon()
-    # 2. 커서객체 생성
-    cursor = con.cursor()
-    # 3. sql 처리 및 실행
-    cursor.execute("SELECT * FROM DEPT")
+def deptList():
+    cursor.execute("SELECT * FROM dept03")
     # 3. 컴프리핸션으로 deptList 객체 생성.
     deptList = [Dept(*row) for row in cursor.fetchall()]
     #print(deptList)
@@ -84,6 +79,24 @@ try:
         print(dept.dname, end='\t')
         print(dept.loc, end='\n')
 
+
+try: 
+    # 1. 연결
+    con = dbCon()
+    # 2. 커서객체 생성
+    cursor = con.cursor()
+    # 3. sql 처리 및 실행
+    #    입력 전 검색 처리
+    deptList()
+    print("# 부서 정보를 입력 #")
+    inDept = Dept( int(input("부서번호를 입력:")), input("부서명을 입력:") , input("부서위치를 입력:")) 
+    sqlIns = "INSERT INTO dept03 values(:1,:2,:3)"
+    cursor.execute(sqlIns,(inDept.deptno, inDept.dname, inDept.loc) )
+    con.commit()
+
+
+    #    입력 후 검색 처리
+    deptList()
     
 except DatabaseError as e:
     print(f"[DB 에러] 데이터 처리 중 오류가 발생했습니다: {e}")
