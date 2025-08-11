@@ -4,13 +4,13 @@ import sys # 여러가지 system 데이터 처리 가능 모듈
 from a11_database.a00_con import *
 try: 
 
-    studDto = Student(int(input("번호입력:")),input("이름입력:"),int(input("국어:")),int(input("영어:")),int(input("수학:")))
+    studDto = Student(0,input("이름입력:"),int(input("국어:")),int(input("영어:")),int(input("수학:")))
     # 1. 연결
     con = dbCon()
     # 2. 커서객체 생성
     cursor = con.cursor()
     # 3. 커서를 통해서 sql 문 실행
-    insSql = "INSERT INTO student values(:no,:name,:kor,:eng,:math)"
+    insSql = "INSERT INTO student values(:no+student_seq.nextval,:name,:kor,:eng,:math)"
     # {name:"홍길동",kor:70,...} 로 key:val 형식으로 데이터를 입력 처리할 수 있다.
     # obj.__dic__  : 객체의 속성:속성값을 위 dictionary형식을 변환해준다.
     print(studDto.__dict__)

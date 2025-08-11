@@ -31,6 +31,7 @@ class Student:
 
 @dataclass
 class Product:
+    no : int
     name : str
     price : int
     cnt : int
