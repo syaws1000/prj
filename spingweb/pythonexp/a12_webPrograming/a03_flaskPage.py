@@ -8,4 +8,11 @@ app = Flask(__name__, static_folder=".", static_url_path="") # static 폴드 지
 @app.route("/start")
 def start():
     return render_template("a01_page01.html") # templates 폴드하에 특정 페이지 호출..
+
+# http://localhost:8888/boottmp
+@app.route("/boottmp")
+def boottmp():
+    return render_template("a00_template.html") # templates 폴드하에 특정 페이지 호출..
+
+
 app.run(port=8888, debug=True)
