@@ -1,0 +1,13 @@
+# 파이썬에서 웹 화면 처리..
+1. 요청값 처리 : 클라이언트의 데이터를 서버에서 받기
+    사용자가 웹 브라우저(클라이언트)에서 보낸 정보를 서버로 받아서 처리하는 과정입니다. 정보는 URL에 붙여
+    보내거나(GET), 폼(form) 데이터를 숨겨서 보낼 수 있습니다.(POST)
+    1) get방식(url 데이터 노출)
+        // http://localhost:8888/req_ex?name=홍길동&age=25
+        @app.route("/req_ex")
+        def req_ex():
+            name = request.args.get("name")  # 받은 요청값
+            age = int(request.args.get("age","0"))  # age요청값을 받아서 형변환하여 처리, default 데이터는 "0"
+            print("요청값 처리:", name)
+            print("요청값 처리:", age)
+

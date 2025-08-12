@@ -17,18 +17,17 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>부트스트랩템플릿페이지</h2>
+  <h2>요청값처리</h2>
+  <h3>이름:{{name}}</h3>
+  <h3>나이:{{age}}</h3>
 
 </div>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" class="form">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="이름" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="나이" name="age"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">요청값 호출</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

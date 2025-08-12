@@ -38,7 +38,7 @@
 			// 접속시 처리할 내용을 처리해주는 메서드
 			wsocket.onopen = function(evt){
 				console.log(evt)
-				// 실제 메시지를 전달할 때, 사용되는 메서드 이것을 호출하면
+				// 실제 메시지를 전달달할 때, 사용되는 메서드 이것을 호출하면
 				// handler에 있는 handleTextMessage() 호출되어 메시지를 전달한다.
 				wsocket.send($("#id").val()+"님: 입장합니다.")
 			}

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>템플릿 내 변수 선언</title>
 </head>
 <body>
-    <h2>초기 웹 페이지 호출(template)</h2>
+    <h1>템플릿 내 변수 선언 예제</h1>
+
+    {% set name = "홍길동" %}
+    {% set age = 25 %}
     
+    <p>이름: {{ name }}</p>
+    <p>나이: {{ age }}</p>
+
+    {% set greeting = "Hello, " + name %}
+    <p>{{ greeting }}! 나이는 {{ age }}세입니다.</p>
+
 </body>
 </html>
