@@ -40,7 +40,9 @@ def person():
 # post방식으로 데이터 전송 처리..
 @app.route("/person", methods=['post'])
 def personPost():
-    # request.values.get("ename") : request.form.get("ename"), request.args.get("ename") 포함..
+    # request.values.get("ename") :
+    # 1. get방식으로 요청값 받을 때: request.form.get("ename"), 
+    # 2. post방식으로 요청값 받을 때: request.args.get("ename") 포함..
     nameVal = request.values.get("name","")
     ageVal = int(request.values.get("age","0"))
     locVal = request.values.get("loc","")
