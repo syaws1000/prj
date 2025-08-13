@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#regBtn").click(function(){
+			location.href="empInsert" 
+
+		})
+	});
+</script>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h2>사원정보리스트</h2>
+
+</div>
+<div class="container">
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="사원명" name="ename" value="{{sch.ename}}" class="form-control mr-sm-2" />
+	    <input placeholder="직책명" name="job"  value="{{sch.job}}"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success"  id="regBtn" type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="10%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>직책명</th>
+        <th>입사일</th>
+        <th>급여</th>
+        <th>부서번호</th>
+      </tr>
+    </thead>	
+    <tbody>
+        {% for emp in list %}
+    	<tr>
+			<td>{{emp.empno}}</td>
+			<td>{{emp.ename}}</td>
+			<td>{{emp.job}}</td>
+			<td>{{ emp.hiredate.strftime('%Y-%m-%d') }}</td>
+			<td>{{emp.sal}}</td><td>{{emp.deptno}}</td>
+		</tr>
+        {% endfor %}
+    </tbody>
+	</table>    
+</div>
+</body>

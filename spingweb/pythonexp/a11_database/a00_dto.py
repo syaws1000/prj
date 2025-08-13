@@ -11,9 +11,6 @@ class Emp:
     sal : float
     comm : float
     deptno : int
-    
-
-
 
 @dataclass
 class Dept:

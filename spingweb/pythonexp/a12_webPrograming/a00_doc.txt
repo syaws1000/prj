@@ -11,3 +11,59 @@
             print("요청값 처리:", name)
             print("요청값 처리:", age)
 
+
+# 부서정보 검색 처리 개발 순서
+1. dao(dao, service - 자바)
+    1) def deptListFun(sch) :  검색하여 그 검색 결과 deptList를 리턴하는 처리
+    2) 검색 sql 처리    
+        params = {
+            'dname':f'%{sch.dname or ''}%'   # sch.dname이 값이 없을 때는 '' , 양 옆에 %% 처리
+            'loc':f'%{sch.loc or ''}%'
+        }
+        sql = "SELECT * FROM DEPT01 WHERE DNAME LIKE :dname AND LOC LIKE :loc"
+        cursor.execute(sql, params)
+    3) 리스트리턴
+        deptList = [Dept(*row) for row in cursor.fetchAll()]
+        return deptList
+2. a01_deptManager.py( controller - 자바)
+    1) 요청값을 검색 Dto에 할당
+       schOb = Dept(0, request.values.get("dname",""), request.values.get("loc",""))
+    2) dpartlist = deptListFun(schOb)  # 함수를 통해 결과값 리스트 리턴..
+    3) 모델데이터 설정.
+        return render_template("@@@.html", sch=schOb, dlist = dpartlist)
+
+# 부서 정보 등록 처리
+1. dao 함수  detpInsertFun(insOb): 등록할 함수 정의
+   msg = "등록실패"
+   sql = f'INSERT INTO DEPT01 VALUES(:deptno, :dname, :loc)'
+   cursor.execute(sql, insOb.__dict__)
+   con.commit()
+   msg = "등록성공"
+2. controller단(a01_deptManager.py)
+    1) 요청값 처리 
+      msgStr = ""
+      if request.method=="POST":
+         dept = Dept(int(request.values.get("deptno)), request.values.get("dname"), request.values.get("loc","")))
+         msgStr = deptInsertFun(dept)
+    2) 리턴값 처리
+       return render_template("a03_deptInsert.html", msg = msgStr)      
+3. a01_deptList.html
+   $("#insertBtn").click(function(){
+       location.href="/deptInsert"
+
+   })
+
+
+# 빅데이터 분석 처리..
+1. 스프링부트 웹 화면/분석을 위한 기반 DB 처리
+
+2. CRM(예측을 위한 데이터)
+
+3. 스프링부트 웹 화면(분석 예측) 이벤트 클릭 ===> flask 웹 화면 호출
+
+4. flask 웹 화면에서 요청된 화면 호출 파이썬 분석/예측 처리 및 ==> DB 입력
+
+5. 스프링부트 웹 화면(분석 결과 차트 처리)
+
+
+

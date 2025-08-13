@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+	.input-group-prepend{width:20%;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		let msg = "{{msg}}"
+		if(msg!=""){
+			if(!confirm(msg+"\n"+"계속 등록하시겠습니까?")){
+				location.href="deptList"
+			}
+		}
+	});
+</script>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h2>부서정보등록</h2>
+</div>
+    <div class="container">
+		<form method="post">
+		<div class="input-group mb-3">	
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">부서번호</span>
+			</div>
+			<input name="deptno" class="form-control" value="" />	
+		</div>	
+		<div class="input-group mb-3">	
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">부서명</span>
+			</div>
+			<input name="dname" class="form-control" value="" />	
+		</div>	
+		<div class="input-group mb-3">	
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">부서위치</span>
+			</div>
+			<input name="loc" class="form-control" value="" />	
+		</div>	
+
+		<div style="text-align:right;">
+				<input type="submit" class="btn btn-success" value="등록" />
+				<input type="button" class="btn btn-info" onclick="location.href='deptList'" value="조회리스트" id="mainBtn"/>
+		</div>	
+		</form>		
+	 
+    </div>  
+</body>
