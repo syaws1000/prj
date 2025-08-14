@@ -76,10 +76,13 @@ model = LinearRegression()
 model.fit(temperature, ice_cream_sales)
 
 # 3. 예측하기 : 내일 기온이 27라면, 아이스크림은 몇 개 팔릴까?
-tomorrow_temp = np.array([[27]]) # 27도를 2차원 배열로 만들어 줘야 해요..
+tomorrow_temp = np.array([[27],[35]]) # 27도를 2차원 배열로 만들어 줘야 해요..
+#tomorrow_temp = np.array([[27],[35]]) # 27,35도를 2차원 배열로 만들어 줘야 해요..
 predicted_sales = model.predict(tomorrow_temp)
 
 print(f"기온이 27일 때, 예측되는 아이스크림 판매량은 약 {predicted_sales[0]:.0f}개 입니다")
+#print(f"기온이 35일 때, 예측되는 아이스크림 판매량은 약 {predicted_sales[1]:.0f}개 입니다")
+
 
 plt.rc('font', family='Malgun Gothic')
 
