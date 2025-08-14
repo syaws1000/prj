@@ -45,7 +45,7 @@
   예측하는 방법입니다.
 
   우리 주변에도 선형 회귀로 예측할 수 있는 것들이 아주 많죠?
-  - 키가 클수록 몸무게는 얼나나 늘어날까요?
+  - 키가 클수록 몸무게는 얼마나 늘어날까요?
   - 공부시간이 늘어나면 시험점수는 얼마나 오를까요?
   - 유튜브 영상 길이가 길어지면 조회는 어떻게 변할까요?
 
@@ -76,7 +76,7 @@ model = LinearRegression()
 model.fit(temperature, ice_cream_sales)
 
 # 3. 예측하기 : 내일 기온이 27라면, 아이스크림은 몇 개 팔릴까?
-tomorrow_temp = np.array([[27],[35]]) # 27도를 2차원 배열로 만들어 줘야 해요..
+tomorrow_temp = np.array([[27]]) # 27도를 2차원 배열로 만들어 줘야 해요..
 #tomorrow_temp = np.array([[27],[35]]) # 27,35도를 2차원 배열로 만들어 줘야 해요..
 predicted_sales = model.predict(tomorrow_temp)
 
@@ -99,4 +99,6 @@ plt.ylabel("아이스크림 판매량(개)") # y축 이름
 plt.legend() # 어떤 선이 무엇인지 설명
 plt.grid(True) # 격자무늬 추가
 plt.show() # 그래프 보여주기
-
+# a03_LinearExp.py   
+#  공부량에 따른 시험 점수  독립변수  [2,3,5,7,8,10], 종속 변수[55,60,70,80,85,95]
+#     12시간 했을 때, 시험 결과 점수 처리..
