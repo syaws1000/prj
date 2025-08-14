@@ -1,4 +1,13 @@
+SELECT * FROM DEPT01;
 SELECT * FROM EMP10;
+SELECT * FROM EMP01;
+DROP TABLE emp01;
+CREATE TABLE emp01
+AS SELECT * FROM emp;
+ALTER TABLE emp01
+modify( ename varchar2(50), job varchar2(50));
+
+
 /*
 3단계 출력 : 1행, 다수열,  입력 : 객체형데이터 처리(여러가지 변수 설정)
  * */

@@ -1,0 +1,49 @@
+# 사용자별 구매 예측 및 고객 등급 설정
+1. 스프링부트 처리
+	1) a30_predict(backend)
+		A01_PredictControler.java
+		A02_PredictService.java
+		A03_PredictDao.java
+		
+		Z01_ProdictDto.java
+			private String userId;
+			private int buyTot;
+			private int buyCnt;
+			private int age;
+		create table predict(
+			user_id varchar2(50) primary key,
+			buy_tot number,
+			buy_cnt number,
+			age number
+		);
+		create sequence predict_seq;
+		insert into predict(predict_seq.nextval,1000,10,5);
+		insert into predict(predict_seq.nextval,1500,12,3);
+		insert into predict(predict_seq.nextval,1200,8,4);
+		insert into predict(predict_seq.nextval,2000,15,2);
+		insert into predict(predict_seq.nextval,1700,11,6);
+		
+    '고객_ID': [1, 2, 3, 4, 5],
+    '총_구매금액': [1000, 1500, 1200, 2000, 1700],
+    '구매횟수': [10, 12, 8, 15, 11],
+    '고객_연령': [5, 3, 4, 2, 6] # 회사와 거래한 기간(년)		
+		
+	2) a30_predict(frontend)	
+		a01_insertBuyInfo.html   : 예측을 위한 사용자 구매 정보 등록	
+		a02_predictByUser.html   : 사용자별 예측 구매 내용
+			ax.set_xlabel('고객 ID')
+			ax.set_ylabel('예상 구매 금액')
+			ax.legend(title='예측 기간')
+			예측 아이디:[    ][여러아이디입력]
+			예측 기간 :[   ][개월]
+			==> ajax로 flask에 요청..결과 받은 json데이터를 출력 처리
+2. flask 처리
+	1) a30_predict	
+		a01_predictMng.py
+			http://localhost:8888/predict		
+			
+			
+
+
+
+		

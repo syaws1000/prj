@@ -3,8 +3,6 @@ from a13_webProject.z01_dto import *
 import sys # 여러가지 system 데이터 처리 가능 모듈
 from a11_database.a00_con import *
 
-
-
 try: 
     # 1. 연결
     con = dbCon()
