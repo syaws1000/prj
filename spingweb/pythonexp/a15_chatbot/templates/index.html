@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1:1 Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>1:1 Chat</h1>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" id="username"><br>
+        <label for="room">Room: </label>
+        <input type="text" id="room">
+        <button onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <div id="chatbox" style="margin-top: 20px;">
+        <textarea id="messages" rows="10" cols="30" readonly></textarea><br>
+        <input type="text" id="message" placeholder="Type a message">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        var username = '';
+        var room = '';
+
+        // 방에 참여
+        function joinRoom() {
+            username = document.getElementById("username").value;
+            room = document.getElementById("room").value;
+            socket.emit('join', {username: username, room: room});
+        }
+
+        // 메시지 전송
+        function sendMessage() {
+            var msg = document.getElementById("message").value;
+            socket.send(msg);
+            document.getElementById("message").value = '';
+        }
+
+        // 서버로부터 메시지 수신
+        socket.on('message', function(msg) {
+            document.getElementById("messages").value += msg + '\n';
+        });
+
+        // 사용자가 채팅방을 떠날 때
+        window.onbeforeunload = function() {
+            socket.emit('leave', {username: username, room: room});
+        };
+    </script>
+</body>
+</html>
