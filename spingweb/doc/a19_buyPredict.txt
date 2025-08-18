@@ -29,7 +29,7 @@
     '고객_연령': [5, 3, 4, 2, 6] # 회사와 거래한 기간(년)		
 		
 	2) a30_predict(frontend)	
-		a01_insertBuyInfo.html   : 예측을 위한 사용자 구매 정보 등록	
+		//a01_insertBuyInfo.html   : 예측을 위한 사용자 구매 정보 등록	
 		a02_predictByUser.html   : 사용자별 예측 구매 내용
 			ax.set_xlabel('고객 ID')
 			ax.set_ylabel('예상 구매 금액')
