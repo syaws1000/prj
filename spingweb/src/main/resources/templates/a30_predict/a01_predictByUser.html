@@ -4,26 +4,146 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/com/bootstrap.min.css" >
 <style>
-	td{text-align:center;}
+        .navbar .form-control {
+            max-width: 200px;
+        }
+        .data-card {
+            margin-bottom: 15px;
+        }
+        #sch1, #sch2{
+        	width:100%;
+        }
 </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // 등록된 데이터를 저장할 배열
+        const registeredData = {id:[],month:[]};
+
+        // 🟡 등록 버튼 클릭 이벤트 처리
+        $("#regBtn").on("click", function() {
+            // 아이디와 개월 수를 각각의 입력 필드에서 독립적으로 가져옴
+            const id = $("#regId").val().trim();
+            const month = $("#regMonth").val().trim();
+
+            if (id === '' && month === '') {
+                alert('아이디 또는 개월 수를  입력해주세요.');
+                return;
+            }else{
+				if(id!==''){
+					registeredData.id.push(id)
+				}
+				if(month!==''){
+					registeredData.month.push(parseInt(month))
+				}
+				
+            }
+
+            // HTML 카드 템플릿 생성
+            const cardHtml1 = `
+                <div class="col-md-4 data-card">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <span class="card-title">예측할 아이디: ${id}</span>
+                            <button class="btn btn-sm btn-danger remove-btn">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            // #sch에 카드 추가
+            if(id!=='')
+            	$("#sch1").append(cardHtml1);            
+            // HTML 카드 템플릿 생성
+            const cardHtml2 = `
+                <div class="col-md-4 data-card">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <span class="card-text">예측 개월 수: ${month}</span>
+                            <button class="btn btn-sm btn-danger remove-btn">삭제</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            // #sch에 카드 추가
+            if(month!=='')
+            	$("#sch2").append(cardHtml2);
+
+            // 입력 필드 초기화
+            $("#regId").val("");
+            $("#regMonth").val("");
+        });
+
+        // 🟡 동적으로 생성된 삭제 버튼에 대한 이벤트 위임
+        $("#sch").on("click", ".remove-btn", function() {
+            const card = $(this).closest(".data-card");
+            
+            // 카드에서 아이디와 개월 수를 독립적으로 가져옴
+            const cardId = card.find(".card-title").text().replace("예측할 아이디: ", '');
+            const cardMonth = card.find(".card-text").text().replace('예측 개월 수: ', '');
+            
+            console.log("## 삭제할 id ##"+ cardId)
+            console.log("## 삭제할 개월수 ##"+ cardMonth)
+            
+            // registeredData 배열에서 해당 데이터 객체 제거
+            const idIdx = registeredData.id.findIndex(item => item == cardId );
+            console.log("## 현재 등록된  id의 index들 ##"+ registeredData.id)
+            console.log("## 삭제할 id의 index ##"+ idIdx)
+
+            const mnIdx = registeredData.month.findIndex(item => item == cardMonth);
+            console.log("## 삭제할 개월수  index##"+ mnIdx)
+                        
+            if (idIdx > -1) {
+                registeredData.id.splice(idIdx, 1);
+            }
+            if (mnIdx > -1) {
+                registeredData.month.splice(mnIdx, 1);
+            }           
+            
+            // 화면에서 카드 제거
+            card.remove();
+        });
+
+        // Search 버튼 클릭 이벤트 처리
+        $("#searchBtn").on("click", function() {
+            const jsonData = JSON.stringify(registeredData, null, 2);
+            console.log(jsonData);
+            charJson('bar',registeredData, myBarChart)
+            //alert('JSON 데이터가 콘솔에 출력되었습니다.\n\n' + jsonData);
+        });
+    });
+</script>
+    </script>
+
 </head>
 
 <body>
 <div class="jumbotron text-center">
   <h2>차트 조회</h2>
-
+  <div class="container mt-4">
+      <h5 class="mb-3">예측할 데이터</h5>     
+      <div id="sch" >
+	      <div id="sch1" class="row"></div>
+	      <div id="sch2" class="row"></div>
+      </div>
+  </div>
 </div>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
- 	</nav>
-	</form>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-3">
+        <div class="container-fluid">
+            <div class="d-flex flex-grow-1">
+                <input placeholder="확인할 아이디" id="regId" class="form-control me-2" type="text" />
+                <input placeholder="예측할 개월 수" id="regMonth" class="form-control me-2" type="number" />
+                <button class="btn btn-success me-2" id="regBtn" type="button">등록</button>
+                <button class="btn btn-info" id="searchBtn" type="button">Search</button>
+            </div>
+        </div>
+    </nav>
+
+
+
+	
+
 
               <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -111,23 +231,55 @@
      
     <script src="js/demo/chart-pie-demo.js"></script>
     
+    
      -->   
     <script> 	
     //charJson('area',myLineChart)
-    charJson('bar',myBarChart)
+    myBarChart.options.scales.yAxes[0].ticks.max=300
+    charJson('bar',{'id':['1', '3', '5'], 'month':[1, 2, 6, 12]}, myBarChart)
     //charJson('pie',myPieChart)       
-
-    function charJson(type,chartOb){
+    // http://localhost:8888/predict
+    
+    function charJson(type, json,chartOb){
         $.ajax({
-    		url:"chartJson",
-    		data:"type="+type,
+    		url:"http://localhost:8888/predict",
+    		//url:"chartJson",
+    		//data:"type="+type,
+    		type:"post",
+            data: JSON.stringify(json), // 2. JavaScript 배열을 JSON 문자열로 변환
+            contentType: 'application/json; charset=utf-8', // 3. 보내는 데이터가 JSON 형식임을 서버에 알림
     		dataType:"json",
     		success:function(chart){
     			console.log("# 차트 데이터 로딩 후 #")
     			console.log(chart)
-    			chartOb.data.datasets[0].data = chart.datas
-    			//chartOb.data.datasets[0].label = '수입금'
-    			chartOb.data.labels = chart.labels
+    			let ids = []
+    			console.log("# 차트 데이터만 #")
+				console.log(chart.data)
+				console.log("# 차트 데이터만 ###")
+				let dataSet = []
+    			
+    			$.each(chart.data, function(idx, user){
+    				//ids.push(user.shift())
+    				
+    				let us = {}
+    				us.label = "id:"+user.shift()
+    				us.data = user
+    				let colors=[parseInt(Math.random()*255), parseInt(Math.random()*255),parseInt(Math.random()*255)]
+    				us.backgroundColor =  'rgba('+colors[0]+', '+colors[1]+', '+colors[2]+', 0.5)'
+    				dataSet.push(us)
+        			//chartOb.data.datasets[idx].data = user
+        			//chartOb.data.datasets[idx].backgroundColor = 'rgba('+(255-(idx*20))+', 99, 132, 0.5)'
+        				
+    				
+				})
+				console.log("### 입력전(datasets) ###")
+				console.log(dataSet)
+				chartOb.data.datasets = dataSet
+
+
+    			chart.columns.shift()
+    			chartOb.data.labels = chart.columns
+    			
     			chartOb.update() // json데이터에서 받은 내용으로 적용.. 
     		},
     		error:function(err){

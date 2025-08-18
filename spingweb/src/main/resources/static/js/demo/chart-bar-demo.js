@@ -53,6 +53,7 @@ var myBarChart = new Chart(ctx, {
         bottom: 0
       }
     },
+	//  //options.scales.yAxes[0].ticks.max=300
     scales: {
       xAxes: [{
         time: {
@@ -67,10 +68,11 @@ var myBarChart = new Chart(ctx, {
         },
         maxBarThickness: 25,
       }],
+	  // yAxes[0].ticks.max=300
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 300,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
