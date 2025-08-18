@@ -239,8 +239,10 @@
     charJson('bar',{'id':['1', '3', '5'], 'month':[1, 2, 6, 12]}, myBarChart)
     //charJson('pie',myPieChart)       
     // http://localhost:8888/predict
-    
+
     function charJson(type, json,chartOb){
+        let mx =0
+        let mi =999999999
         $.ajax({
     		url:"http://localhost:8888/predict",
     		//url:"chartJson",
@@ -269,7 +271,10 @@
     				dataSet.push(us)
         			//chartOb.data.datasets[idx].data = user
         			//chartOb.data.datasets[idx].backgroundColor = 'rgba('+(255-(idx*20))+', 99, 132, 0.5)'
-        				
+    				const maxValue = Math.max(...user);
+    				const minValue = Math.min(...user);     
+    				if(mx<maxValue) mx = maxValue
+    				if(mi>minValue) mi = minValue
     				
 				})
 				console.log("### 입력전(datasets) ###")
@@ -279,6 +284,8 @@
 
     			chart.columns.shift()
     			chartOb.data.labels = chart.columns
+    			chartOb.options.scales.yAxes[0].ticks.max=mx
+    			chartOb.options.scales.yAxes[0].ticks.min=mi
     			
     			chartOb.update() // json데이터에서 받은 내용으로 적용.. 
     		},
