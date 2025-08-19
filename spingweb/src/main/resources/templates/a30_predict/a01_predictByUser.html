@@ -241,6 +241,8 @@
     // http://localhost:8888/predict
 
     function charJson(type, json,chartOb){
+		console.log("##요청 데이터##")
+		console.log(json)
         let mx =0
         let mi =999999999
         $.ajax({
@@ -280,12 +282,11 @@
 				console.log("### 입력전(datasets) ###")
 				console.log(dataSet)
 				chartOb.data.datasets = dataSet
-
-
     			chart.columns.shift()
     			chartOb.data.labels = chart.columns
-    			chartOb.options.scales.yAxes[0].ticks.max=mx
-    			chartOb.options.scales.yAxes[0].ticks.min=mi
+    			chartOb.options.scales.yAxes[0].ticks.max=Math.ceil(mx/500000)*500000
+    			
+    			chartOb.options.scales.yAxes[0].ticks.min=Math.floor(mi/100000)*100000
     			
     			chartOb.update() // json데이터에서 받은 내용으로 적용.. 
     		},

@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, jsonify, redirect
 from a13_webProject.d01_dao import *
 from a13_webProject.z01_dto import *
-from a30_predict.a02_predictService import *
+from a31_predict.a02_predictService import *
 from flask_cors import CORS
 # pip install flask-cors
 
@@ -34,14 +34,13 @@ def post_data():
             "roles": ["admin", "user"]
         }
     }
-    
-    # jsonify 함수를 사용하여 딕셔너리를 JSON 응답 객체로 변환하여 반환
-    #return jsonify(userBuyListService( ['1', '3', '5'], [1, 2, 6, 12]))
-    #    #return userBuyListService( ['1', '3', '5'], [1, 2, 6, 12]) #jsonify(response_data)
     print("## 요청된 데이터 ##")
     print(received_data['id'])
     print("## 요청된 데이터 ##")
-    print( received_data['month'])
+    print( received_data['month'])    
+    # jsonify 함수를 사용하여 딕셔너리를 JSON 응답 객체로 변환하여 반환
+    #return jsonify(userBuyListService( ['1', '3', '5'], [1, 2, 6, 12]))
+    #    #return userBuyListService( ['1', '3', '5'], [1, 2, 6, 12]) #jsonify(response_data)
     return userBuyListService( received_data['id'], received_data['month'] ) #jsonify(response_data)
    
 
