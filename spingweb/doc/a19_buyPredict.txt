@@ -2,6 +2,9 @@
 1. 스프링부트 처리
 	1) a30_predict(backend)
 		A01_PredictControler.java
+			
+		
+		
 		A02_PredictService.java
 		A03_PredictDao.java
 		
@@ -38,9 +41,57 @@
 			예측 기간 :[   ][개월]
 			==> ajax로 flask에 요청..결과 받은 json데이터를 출력 처리
 2. flask 처리
-	1) a30_predict	
-		a01_predictMng.py
+	1) a31_predict	
+		a01_predictController.py : 
+			요청값(검색할 id들, 예측할 월을 배열로 받기)
+			json데이터로 예측되는 데이터를 아이디별/월별로 처리해준다(ajax)
 			http://localhost:8888/predict		
+		a02_predictService.py
+			요청값으로 dao에 전달하고, 다시 dao에서 검색한 데이터를
+			빅데이터 알고리즘에 의해서 처리하여, 예측치를 json데이터로 리턴 처리
+		a03_predictDao.py
+			요청값(id) 받아서 DB를 검색하여 결과데이터를 service단에 전송
+		a04_predictDto.py
+			사용할 데이터를 담는 객체..	
+		    userId: str
+		    age : int
+		    join_date : datetime
+		    buyCnt : int
+		    buyTot : int
+		    last_purchase_date : datetime
+		    actual_future_3m_purchase : int
+		    
+# 프로세스 순서..
+1. 스프링 부트 서버에서 해당 화면 로딩되면서 기본 데이터를 ajax로 호출 처리..
+	// http://localhost:5050/predict
+	@GetMapping("predict")
+	public String predictChart() {
+		return "a30_predict\\a01_predictByUser.html";		
+		
+2. view화면에서 ajax로 기본 데이터를 아이디, 개월을 flask웹 서버에 요청한다.
+	url:"http://localhost:8888/predict",
+	
+3. flask 웹서버(파이썬)
+	controller ==> service ==> dao
+	dao ==> service ==> controller(json 데이터를 호출하는 곳으로 전달)
+	
+
+4. a01_predictByUser.html 
+	ajax 의 success 함수 안에서 받은 json데이터 사용할 차트와 함께 처리 해준다.
+	
+	
+
+
+
+
+	
+	
+
+
+
+	
+			
+			
 			
 			
 
