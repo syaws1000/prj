@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript">
+/*
+# Vue.js 시작
+1. Vue.js는 사용자 인터페이스를 만들기 위한 프로그레시브 자바스크립트 프레임워크입니다. vue의 핵심은
+MVVM(Model-View-ViewModel 패턴)을 기반으로 한 세가지 주요 구성요소로 이루어져 있습니다.
+2. Vue의 핵심 구성요소
+	1) Model(모델) : 애플리케이션의 원본 데이터를 의미합니다. 순수한 자바스크립트 객체(Plain JavaScript Object)로,
+		화면에 표시하고 조작하려는 정보를 담고 있습니다. 제공된 코드에서 var model = { msg:"안녕하세요! Vue 세계!!"}부분이
+		바로 모델입니다. 이 데이터 자체는 화면과 직접적인 관련이 없습니다.
+	2) View(뷰) : 사용자가 보는 화면, 즉 DOM(Document Object Model)입니다. View는 HTML 구조로 이루어져 있으며,
+		모델의 데이터를 사용자에게 보여주는 역할을 합니다. 예제 코드의 <div id="app">과 그 안에 {{msg}}표현식이 뷰에 해당합니다.
+	3) ViewModel(뷰모델) : 모델(데이터)과 뷰(화면)을 연결하는 다리 역할을 합니다. vue.js에서는 Vue인스턴스(Vue-createApp(...)으로
+		생성)가 뷰모델입니다. 뷰모델의 데이터가 변경되면 자동으로 뷰를 업데이터하고, 반대로 사용자 입력 등으로 뷰에서 변경이 일어나면
+		모델을 업데이터할 수 있습니다. 이처럼 데이터와 화면을 자동으로 동기화하는 것을 반응형(Reactivity)이라고 하며, 이는 Vue의
+		가장 중요한 특징입니다.
+3. 기본 환경 설정
+	1) vue framework 선언
+		script src="https://unpkg.com/vue"
+	2) 모델 선언
+	3) 뷰모델 선언
+	4) view 범위위 설정..
+ */
+	$(document).ready(function(){
+		// 1. 모델(Model) 선언 : 처리할 핵심 데이터
+		var model = {msg:"안녕하세요 vue세계에 오신 것을 환영합니다.!!", greet:"hello", age:25}
+		// 2. 뷰모델(ViewModel) 선언 및 마운팅
+		var vm = Vue.createApp({
+			name:"App",
+			data(){   // 모델데이터를 호출하는 메서드
+				return model;
+			}
+		}).mount("#app") // view단위 범위를 설정..
+	});
+/*
+# 처리과정
+1. 초기화 : 브라우저 html 문서를 로드한 후, 자바스크립트 코드를 실행합니다.
+2. 모델 생성 : model이라는 이름의 순수 자바스크립트 객체가 생성됩니다. 이 객체는 msg라는 속성과 그 값을 가지고 있습니다.
+3. 뷰모델 생성 : Vue.createApp()을 통해 새로운 Vue 애플리케이션 인스턴스(뷰모델)가 생성됩니다.
+	이 때, data()함수가 model 객체를 반환합니다. Vue는 이 data객체 안의 모든 속성(msg)을 반응형(reactive)으로
+	만듭니다. 즉, 데이터의 변경을 감지하고 추적할 수 있는 상태로 만듭니다.
+4. 마운팅(mounting): .mount("#app")메소드는 생성된 vue인스턴스를 특정 html DOM요소에 연결(부착)합니다.
+	이 코드에서 id가 app인 <div> 요소에 연결했습니다. 이제 이 <div>와 그 안의 모든 내용은 Vue 인스턴스가 제어하게 됩니다.
+5. 랜더링(Rendering) : Vue는 마운팅된 #app  요소 내부의 템플릿을 분석합니다. 그리고, 이중 중괄호 문법 {{msg}} (보간법,
+		interpolation)을 반경합니다.
+6. 데이터바인딩(data binding): Vue는 자신의 data 객체에서 msg라는 속성을 찾습니다. 해당 값을 찾은 뒤, HTML 템플릿의
+	{{msg}} 부분을 실제 데이터 값인 "안녕하세요 view세계에 오신 것을 환영합니다"로 교체하여 화면에 그려줍니다.
+7. 반응성 유지 : 이 모든 과정이 끝나면 데이터와 화면의 연결이 완료됩니다. 만약 이후에 자바스크립트 코드로 vm.msg(또는 model.msg)
+	의 값을 변경하면, Vue의 반응성 시스템이 이 변경을 자동으로 감지하여 별도의 DOM 조작 코드 없이도 화면의 내용을 즉시 업데이트
+	합니다.
+
+ex) a02_vue_person.html
+	이름 : @@@
+	나이 : @@@
+	사는 곳 : @@@
+	을 vue형식으로 출력하세요..
+	
+ */
+</script>
+</head>
+
+<body>
+<div id="app" class="jumbotron text-center">
+
+  <h2>{{msg}}</h2> <!-- view단에서 모델 데이터를 선언하는 형식 - directive -->
+  <h3>{{greet}}, {{age}}</h3>
+
+</div>
+<div class="container">
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form id="frm02" class="form"  method="post">
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
+	      </div>
+	     </div>
+	    </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
