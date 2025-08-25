@@ -9,37 +9,52 @@
 <script src="/com/jquery-3.7.1.js"></script>
 <script src="/com/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
-	
-	
 <script type="text/javascript">
 	$(document).ready(function(){
-		// http://localhost:5050/b01_vue/a03_vue_directive.html
+		// http://localhost:5050/b01_vue/a04_vue_diretiveDec.html
+		// - mustach형식으로 선언 : 디지털 명함으로 - 이름 회사, 이메일
+		// - 비밀암호문 전송(v-text) : <p>작전 개시: <strong>Eagel</strong></p>
+		// - 오늘의 명언표시(v-html) : 인생에서 가능 큰 영광은 <br><srong>결코 넘어지지 않는 것</strong>에 있는 것일 아니라
+		//                          <em>넘어질 때마다 일어서는 것</em>에 있다
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
 				return {
-					show:"mustach형식 directive",
-					show1:"<h2>v-text형식 directive</h2>",
-					show2:"<h2>v-html형식 directive</h2>"
+					name:"홍길동", company:"좋은 회사", email:"abc.gmail.com",
+					sendEnText:"<p>작전 개시: <strong>Eagel</strong></p>",
+					wiseSaying:"인생에서 가능 큰 영광은 <br><srong>결코 넘어지지 않는 것</strong>에 있는 것일 아니라 <em>넘어질 때마다 일어서는 것</em>에 있다"
 				}
 			}
 		}).mount(".container")
+		
 	});
-	// a04_vue_diretiveDec.html
-	// - mustach형식으로 선언 : 디지털 명함으로 - 이름 회사, 이메일
-	// - 비밀암호문 전송(v-text) : <p>작전 개시: <strong>Eagel</strong></p>
-	// - 오늘의 명언표시(v-html) : 인생에서 가능 큰 영광은 <br><srong>결코 넘어지지 않는 것</strong>에 있는 것일 아니라
-	//                          <em>넘어질 때마다 일어서는 것</em>에 있다
 </script>
 </head>
-
 <body>
-
 <div class="container">
 	<div class="jumbotron text-center">
-  	<h2>{{show}}</h2> <!-- mustach형식 directive -->
-  	<div v-text="show1"></div> <!-- v-text 속성 directive -->
-  	<div v-html="show2"></div> <!-- v-html 속성 directive -->
+    <div class="card text-center">
+        <div class="card-header">
+            <h2>{{ name }}</h2>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ company }}</h5>
+            <p class="card-text">{{ email }}</p>
+        </div>
+    </div>
+    <div class="card-body">
+    	<p v-text="sendEnText"></p>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+            <h2>오늘의 명언</h2>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote" v-html="wiseSaying"></blockquote>
+        </div>
+    </div>    
+    
+    
 
 	</div>
 	<form id="frm01" class="form"  method="post">
