@@ -124,4 +124,4 @@ def userBuyListService(id_list, time_horizons):
 
 
 #print( "# 최종 리턴할 예측 데이터 #")
-print( userBuyListService( ['1', '3', '5'], [1, 2, 6, 12]))
+print( userBuyListService( ['1', '2', '5'], [1, 2, 6, 12]))
