@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a08_multiDirective.html	
+	// ex) a08_multiDirective.html
+	//     모델데이터로 memberId1, memberName1, memberId2, memberName2로 설정하고,
+	//     회원 등록 정보로 아이디와 이름을 등록 하게 하며(2명)  아래 테이블에 해당 등록되 회원 정보를 입력하자 마자 출력되게 하세요..		
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {
+					members:[], mem:{id:"",name:""}
+				}
+			},
+			methods:{
+				addReg(){
+					members.push(mem)
+				}
+			}
+		}).mount(".container")	
+	
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>타이틀</h2>
+
+	</div>
+
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="mem.id"  placeholder="회원아이디1"  class="form-control mr-sm-2" />
+	    <input v-model="mem.name" @keyup.enter="addReg()" placeholder="회원이름1"  class="form-control mr-sm-2" />
+	    	    
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success"  type="button">등록</button>
+ 	</nav>
+
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="45%">
+   	<col width="45%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>회원아이디</th>
+        <th>회원명</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(mem, idx )in members"><td>{{idx+1}}</td><td>{{mem.id}}</td><td>{{mem.name}}</td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>

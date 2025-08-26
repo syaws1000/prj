@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+/*
+# 양방향 directive v-model
+1. v-model은 폼요소와 Vue 데이터 모델을 실시간으로 동기화하는 양방향 데이터 바인딩(two-way data binding)
+	을 위한 핵심 디렉티브입니다.
+2. 쉽게 말해 마법 거울과 같습니다. 사용자가 입력창에 글자를 쓰면(View ==> Model), 데이터가 즉시 업데이터되고,
+	반대로 데이터가 다른 요인(예. 버튼 클릭)에 의해 바뀌면(Model ==> View), 입력창의 내용도 그에 맞게 즉시
+	변경됩니다. 이처름 데이터가 양쪽 방향으로 실시간 변동되어 "양방향"이라고 부릅니다.
+ */
+
+
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a07_multiDirective.html
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {
+					msg:"양방향 directive v-model",
+					textdata:"초기데이터", align01:"center"
+				}
+			}
+		}).mount(".container")
+	});
+	// ex) a08_multiDirective.html
+	//     모델데이터로 memberId1, memberName1, memberId2, memberName2로 설정하고,
+	//     회원 등록 정보로 아이디와 이름을 등록 하게 하며(2명)  아래 테이블에 해당 등록되 회원 정보를 입력하자 마자 출력되게 하세요..
+	
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+  	<h3 :align="align01">{{textdata}}</h3>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="textdata" placeholder="제목" name="" class="form-control mr-sm-2" />
+	    <select v-model="align01" class="form-control mr-sm-2">
+	    	<option>left</option>
+	    	<option>center</option>
+	    	<option>right</option>
+	    </select>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
