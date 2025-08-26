@@ -13,7 +13,7 @@
 	
 <script type="text/javascript">
 	$$(document).ready(function(){
-		// // http://localhost:5050/b01_vue/####.html
+		// http://localhost:5050/b01_vue/####.html
 		Vue.createApp({
 			name:"App",
 			data(){
