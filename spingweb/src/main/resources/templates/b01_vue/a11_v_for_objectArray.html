@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a11_v_for_objectArray.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"v-for 객체형 배열리스트", 
+					deptList:[
+						{deptno:10, dname:'인사', loc:'서울'},
+						{deptno:20, dname:'재무', loc:'대구'},
+						{deptno:30, dname:'회계', loc:'부산'},
+						{deptno:40, dname:'기획', loc:'광주'}
+					],  // 객체형 배열 리스트..
+					movies:[
+					    { id: 1, title: '범죄도시3', director: '이상용', year: 2023 },
+					    { id: 2, title: '아바타: 물의 길', director: '제임스 카메론', year: 2022 },
+					    { id: 3, title: '탑건: 매버릭', director: '조셉 코신스키', year: 2022 },
+					    { id: 4, title: '헤어질 결심', director: '박찬욱', year: 2022 }
+					]
+				}
+			}
+		}).mount(".container")
+	});
+	// 올해의 영화를 v-for문을 이용해서 테이블로 출력하세요..
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+	</div>
+	<h2>올해의 영화</h2>
+   <table class="table table-hover table-striped">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>아이디</th>
+        <th>제목</th>
+        <th>감독</th>
+        <th>개봉</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(movie, idx) in movies" :key="idx">
+    		<td>{{movie.id}}</td><td>{{movie.title}}</td><td>{{movie.director}}</td><td>{{movie.year}}</td></tr>
+    </tbody>
+	</table>    
+		
+	
+   <table class="table table-hover table-striped">
+   	<col width="33%">
+   	<col width="34%">
+   	<col width="33%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>부서명</th>
+        <th>부서위치</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(dept, idx) in deptList" :key="idx">
+    		<td>{{dept.deptno}}</td><td>{{dept.dname}}</td><td>{{dept.loc}}</td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
