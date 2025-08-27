@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a13_v_for_checkbox.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"v-for와 checkbox 처리", 
+						 items:["사과","바나나","오렌지","포도"], // check할 항목들
+						 selectedItems:[] // 선택되어지 항목들
+				       }
+			}
+		}).mount(".container")
+		
+		// http://localhost:5050/b01_vue/a14_v_for_checkbox.html
+		// todos : 해야할 목록을 배열로 선언하고, 해당 내용을 check했을 때, 테이블 리스트로 출력하세요
+		
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+	</div>
+  	<div v-for="(item, index) in items" class="form-check form-check-inline">	
+	   	<input type="checkbox" class="form-control mr-sm-2" :value="item" v-model="selectedItems"/> 
+	   	<button class="btn btn-info" type="button">{{item}}</button>
+	</div>
+   <table class="table table-hover table-striped">
+   	<col width="20%">
+   	<col width="80%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>과일명</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(fruit, idx) in selectedItems"><td>{{idx+1}}</td><td>{{fruit}}</td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
