@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a14_v_for_checkbox.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"todo리스트", 
+						todos:["프로그래밍 회의","화면설계","개발 진행","테스트"], 
+						cktodos:[]}
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+
+	</div>
+  	<div v-for="(todo, index) in todos" class="form-check form-check-inline">	
+	   	<input type="checkbox" class="form-control mr-sm-2" :value="todo" v-model="cktodos"/> 
+	   	<button class="btn btn-info" type="button">{{todo}}</button>
+	</div>
+   <table class="table table-hover table-striped">
+   	<col width="20%">
+   	<col width="80%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>완료된 일과</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(cktodo, idx) in cktodos"><td>{{idx+1}}</td><td>{{cktodo}}</td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
