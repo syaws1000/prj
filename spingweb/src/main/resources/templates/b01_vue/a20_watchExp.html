@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a20_watchExp.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"아이디 유효성 검사!!", userId:"",validMsg:"아이디를 입력해주세요", messageColor:"gray"}
+			},
+			watch:{
+				userId(newId, oldId){
+					if(newId === ""){
+						this.validMsg = "아이디를 입력해주세요"
+						this.messageColor="gray"
+						return;
+					}				
+					this.validMsg="확인 중"
+					this.messageColor="black"
+					
+					setTimeout(()=>{
+						if(newId.length<5){
+							this.validMsg = "아이디는 5자 이상이어야 합니다."
+							this.messageColor="red"
+						}else{
+							this.validMsg = "사용 가능한 아이디입니다."
+							this.messageColor="green"
+						}
+					},1000)
+				}
+			}
+		
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  		<h2>{{msg}}</h2>
+  		<input v-model="userId" placeholder="아이디를 입력하세요">
+  		<p :style="{color:messageColor}">{{validMsg}}</p> 
+
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
