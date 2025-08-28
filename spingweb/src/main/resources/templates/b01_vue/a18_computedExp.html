@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a18_computedExp.html
+		// a18_computedExp.html
+		// 김밥구매단가:[    ] - v-model
+		// 구매수량:[ ] -v-model
+		// 갯수:@@ 개
+		// 총비용: @@@ 원 ==> computed기능메서드에 의해 리턴된 결과..		
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"김밥구매!!", price:0,cnt:0}
+			},
+			computed:{
+				totalPay(){
+					console.log("총 비용 계산")
+					return this.price*this.cnt
+				}
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+  	<div>
+  		<label>구매단가</label><input type="number" v-model="price"/>		
+  	</div>
+  	<div>
+  		<label>구매갯수</label><input type="number" v-model="cnt"/>		
+  	</div>
+  	<h3>구매 단가:{{price.toLocaleString()}}원</h3>
+  	<h3>구매 갯수:{{cnt}}개</h3>
+  	<h3>총비용:{{totalPay.toLocaleString()}}원</h3>
+
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>

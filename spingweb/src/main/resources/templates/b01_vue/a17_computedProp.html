@@ -1,0 +1,128 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+/*
+# computed 속성
+1. 기존 데이터를 가공하여 새로운 값을 만들어내는 똑똑한 계산기와 같습니다. 이 계산기는 한 번 계산한
+	결과를 임시 저장해 두었다가, 계산에 사용된 원본 데이터가 바뀔 때만 새로 계산을 수행합니다. 
+	덕분에 불필요한 반복 계산을 피하여 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
+2. 함수처럼 호출하는 것이 아니라, data에 있는 일반 변수처럼 간편하게 사용할 수 있다는 점이 큰 특징입니다.
+3. methos와 비교
+	1) methods
+		사용자의 행동 등 특정 로직 실행
+		호출될 때마다 항상 실행
+		methods:{
+			함수명(){}
+		}
+	2) computed
+		데이터 기반의 계산 및 가공
+		캐싱으로 종속 데이터 변경 시에만 재계산
+		computed:{
+			함수명(){}
+		}
+	3) 예를 들어, 사용자의 firstName, lastName을 합쳐 fullName을 보여주고 싶다고 가정해 봅시다.
+		methods로 만들면 fullName을 호출할 때마다 매번 두 문자열을 더하는 계산을 반복합니다.
+		computed로 만들면, 최초에 한번만 계산해서 fullName을 저장해 둡니다. 그 후 firstName이나 lastName이 바뀌지 않는 한,
+		몇 번을 불러도 저장된 값을 즉시 반환합니다.
+		이러한 캐싱 기능 덕분에 computed는 복잡한 연산이나 배열을 처리하여 화면에 보여줄 때 매우 효율적입니다.
+	
+
+*/
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a17_computedProp.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"computed 속성(실시간 할인율 계산기)", originalPrice:50000, discountPercent:10} // 원가와 할인율
+			},
+			computed:{
+				// 1. 할인 금액 계산
+				discountedAmount(){
+					console.log("할인 금액 재계산!")
+					return this.originalPrice * (this.discountPercent/100)
+				},
+				// 2. 최종 가격 계산
+				finalPrice(){
+					console.log("최종 가격 재계산!!")
+					return this.originalPrice - this.discountedAmount
+				}
+			}
+		}).mount(".container")
+		// a17_computedExp.html
+		// 김밥구매단가:[    ] - v-model
+		// 구매수량:[ ] -v-model
+		// 갯수:@@ 개
+		// 총비용: @@@ 원 ==> computed기능메서드에 의해 리턴된 결과..
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  	<h2>{{msg}}</h2>
+	  	<div>
+	  		<label>원가:{{originalPrice}}원</label>
+	  		<input type="range" v-model.number="originalPrice" min="10000" max="200000" step="1000">
+	  	</div>
+	   	<div>
+	  		<label>할인율:{{discountPercent}}%</label>
+	  		<input type="range" v-model.number="discountPercent" min="0" max="100" >
+	  	</div> 	
+	  	<div>
+	  		<span>할인 금액</span>
+	  		<span style="color:red">- {{discountedAmount.toLocaleString()}}원</span>
+	  	</div>
+ 	  	<div>
+	  		<span>최종 금액</span>
+	  		<span > {{finalPrice.toLocaleString()}}원</span>
+	  	</div> 	
+
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
