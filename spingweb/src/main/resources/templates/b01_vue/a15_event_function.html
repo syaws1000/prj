@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+	
+	
+<script type="text/javascript">
+/*
+# Vue의 기능 함수들
+1. vue에서 메서드(methods)는 컴포넌트가 수행할 수 있는 동작이나 기능들을 정의해놓은 함수들의 집합입니다.
+	사용자가 버튼을 클릭하거나, 입력 필드에 값을 입력하는 등의 이벤트를 발생시켰을 때, 이에 반응하여 데이터를 변경하거나 특정 로직을
+	실행하는 역할을 합니다.
+	이 함수들은 컴포넌트의 methods라는 속성 안에 객체 형태로 선언되기 때문에 메서드라고 불리면, 컴포넌트의 템플릿 부분에서
+	v-on 또는 @디렉티브를 통해 쉽게 호출하여 사용할 수 있습니다.
+2. methods 속성에 의한 이벤트 처리
+	1) 기본 형식
+		methods:{
+			함수명 : function(){
+				처리할 내용
+				this : Vue의 객체 전체를 이야기 하고, this.모델명, this.메서드명() 등으로 선언된
+				모델과 메서드를 접근하여 사용할 수 있다.
+			}
+		}
+	2) 이벤트 처리
+		- 일반 코드의 이벤트 : <요소객체 onclick="함수명()"
+		- vue에서 이벤트 : 
+				<요소객체 v-on:click="함수명"
+				<요소객체 @click="함수명"   @이벤트명으로 생략해서 사용할 수 있다...
+		- 위 코드와 같이 methods 속성에 함수를 정의하고, 특정한 요소 객체에 v-on:이벤트명이나 @이벤트명에 의해서
+			함수를 호출하여 해당 함수의 내용으로 모델값을 변경하는 여러가지 작업을 한다.
+ */
+	$(document).ready(function(){
+		// http://localhost:5050/b01_vue/a15_event_function.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"methods 속성에 의함 함수/이벤트 처리", cnt:0, price:3000}
+			},
+			methods:{
+				countUp(){
+					// 현재 객체의 cnt 즉, 모델데이터를 1씩 증가 처리
+					this.cnt = parseInt(this.cnt)+1
+					console.log("카운트 업")
+				},
+				dblPrice(){
+					this.price*=2
+					console.log("더블 가격!!")
+				}
+			}
+		}).mount(".container")
+		// ex) 모델데이터로 국어/영어/수학/합산/평균을 설정하고 
+		//    [  ][  ][  ] [합산][평균]  해당 버튼을 클릭시, 함수를 호출하여 합산과 평균을 출력하세요
+		//    국어 : @@
+		//    영어 : @@
+		//    수학 : @@
+		//    합산 : @@
+		///   평균 : @@
+		//   a16_eventMethods.html
+		
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+  	<button class="btn btn-info" v-on:click="countUp" type="button">카운트업</button>
+  	<h3 v-text="cnt"></h3>
+  	<button class="btn btn-info" @click="dblPrice" type="button">더블가격</button>
+  	<h3 >{{price}}</h3>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="초기 카운트" v-model="cnt"  class="form-control mr-sm-2" />
+	    <input placeholder="초기 가격" v-model="price"  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>
