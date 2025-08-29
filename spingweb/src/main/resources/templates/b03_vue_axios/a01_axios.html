@@ -72,13 +72,24 @@
 			config : 요청시 axios에 전달했던 설정
  */
 	$(document).ready(function(){
-		// http://localhost:5050/b03_vue/a01_axios.html
-		Vue.createApp({
+		// http://localhost:5050/b03_vue_axios/a01_axios.html
+		const app = Vue.createApp({
 			name:"App",
 			data(){
-				return { msg:"vue시작!"}
+				return { msg:"axios를 통한 ajax 처리"}
+			},
+			methods:{
+				callServer(){
+					alert("서버 호출")
+					axios.get("/ajax04").then( function(response){
+						alert(response.data)
+					}).catch(function(err){
+						console.log(err)	
+					})
+				}
 			}
-		}).mount(".container")
+		})
+		app.mount(".container")
 	});
 </script>
 </head>
@@ -88,7 +99,7 @@
 <div class="container">
 	<div class="jumbotron text-center">
   	<h2>{{msg}}</h2>
-
+	<button class="btn btn-info" @click="callServer()" type="button">axios로 서버 호출</button>
 	</div>
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
