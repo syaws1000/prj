@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/com/jquery-3.7.1.js"></script>
+<script src="/com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+	
+<script type="text/javascript">
+/*
+# axios
+1. vue.js 애플리케이션에서 외부 api와 통신하기 위해 가장 널리 사용되는 http 클라이언트 라이브러리인 Axios의
+	사용법을 확인합니다. 서버에 데이털르 요청하고(get), 보내고(post), 수정하고(put/patch), 삭제하는(delete)
+	방법을 학습합니다. 비동기 통신의 기본 개념인 promise를 이해하고, 이를 통해 서버로부터 받은 데이터를
+	vue 컴포넌트의 상태에 반영하여 동적인 웹 애플리케이션을 만들는 과정을 익힙니다.
+2. 비동기 http 통신이란?
+	1) 웹 애플리케이션은 종종 화면을 로딩한 후에도 서버와 데이터를 주고받아야 합니다. 예를 들어, 최신 뉴스 기사를 불러오거나,
+		새로운 댓글을 등록하는 경우가 그렇습니다. 이 때 웹페이지 전체를 새로고침하지 않고, 필요한 데이터만 서버에 요청하고
+		받아오는 방식을 비동기 http 통신이라고 합니다.
+		- 동기(Synchronous):한 작업이 끝날 때까지 다음 작업은 멈춰서 기다립니다. 만약 서버에서 데이터를 가져오는데 5초가
+		걸린다면, 사용자는 5초 동안 아무것도 클릭할 수 없는 먹통 상태를 경험하게 됩니다.
+		- 비동기(Asynchronous):작업을 요청한 후, 응답을 기다리지 않고 바로 다음 작업을 수행합니다. 서버에 데이터를 요청해
+		놓고, 응답이 오면 그 때 약속된 처리를 하는 방식입니다. 이 덕분에 사용자는 데이터를 불러오는 중에도 다른 UI를 조작할
+		수 있어 더 나은 사용자 경험을 제공합니다.
+3. Promise 기반의 Axios
+	1) 과거에는 비동기 처리를 위해 콜백 함수를 중첩해서 사용하는 콜백 지옥 문제가 있었습니다. 이를 해결하기 위해
+		등장한 것이 promise 객체입니다. promise은 언제가 완료될 작업를 나타내는 객체로, 세 가지 상태를 가집니다.
+		- Pending(대기) : 아직 결과가 나오지 않은 상태
+		- Fulfilled(이행) : 작업이 성공적으로 완료된 상태(데이터를 받아왔음)
+		- Rejected(거부) : 작업이 실패한 상태(에러 발생)
+	2) Axios는 바로 이 Promise를 기반으로 만들어진 http통신 라이브러리입니다. axios로 api를 호출하면 즉시 promise 객체가
+		반환됩니다. 우리는 이 promise 객체에 .then()과 catch()를 연경하여 성공했을 때와 실패했을 때의 처리를 각각 정의할 수 
+		있습니다.
+	3) 기본 형식
+		axios.get("API 주소")
+			.then(function(response){
+				// 성공했을 때 실행될 코드
+				// reponse 객체 안에 서버가 노낸 데이터가 들어있어요
+			})
+			.catch(function(err){
+				// 실패(에러가) 발생했을 때, 실행될 코드...
+			})
+4. 속성과 메서드
+	1) axios는 다양한 설정과 메서드를 제공하여 유연한 통신을 가능하게 합니다.
+		- 요청 메서드
+			axios.get(url,[config]) : 서버로부터 데이터를 조회할 때 사용합니다.(게시글 목록 보기)
+			axios.post(url, data,[config]) : 서버에 새로운 데이터를 생성할 때 사용합니다. data 부분에 보낼 데이터를 객체형태(json)
+			axios.put(url, data,[config]) : 서버의 데이터를 전체 수정할 때 사용합니다.
+			axios.delete(url,[config]) : 서버의 데이터를 삭제할 때 사용합니다.
+		- 응답 처리
+			.then(callback)
+			.catch(callback)
+			.finally(callback)
+		- 설정(config) 
+			baseURL : 모든 url앞에 공통으로 붙일 주소를 설정합니다.
+			headers : 모든 요청에 포함될 공통 헤더를 설정합니다.(인증 토큰)
+			params : get요청시 URL에 붙일 쿼리 스트링을 객체형태로 설정합니다.
+	2) response 객체 구조
+		axios가 성공적으로 응답을 받으면 .then() 으로 response 객체를 전달합니다. 이 중 우리가 실제로 필요한 데이터는 보통
+		response.data안에 들어있습니다.
+		1) 속성들
+			data : 서버가 실제로 보낸 데이터
+			status :200, http 상태 코드(200 성공)
+			statusText : OK, 상태 메시지
+			headers : 응답헤더
+			config : 요청시 axios에 전달했던 설정
+ */
+	$(document).ready(function(){
+		// http://localhost:5050/b03_vue/a01_axios.html
+		Vue.createApp({
+			name:"App",
+			data(){
+				return { msg:"vue시작!"}
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+  	<h2>{{msg}}</h2>
+
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>    
+    
+</div>
+</body>

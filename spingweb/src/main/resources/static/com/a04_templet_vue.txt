@@ -9,17 +9,20 @@
 <script src="/com/jquery-3.7.1.js"></script>
 <script src="/com/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	
 	
 <script type="text/javascript">
 	$$(document).ready(function(){
-		// http://localhost:5050/b01_vue/####.html
-		Vue.createApp({
+		// http://localhost:5050/b03_vue/####.html
+		const app = Vue.createApp({
 			name:"App",
 			data(){
 				return { msg:"vue시작!"}
 			}
-		}).mount(".container")
+		})
+		
+		app.mount(".container")
 	});
 </script>
 </head>
