@@ -17,20 +17,48 @@
 1. 웹페이지의 script 태그를 통해 vue.js라이브러리를 직접 가져와 사용하는 방식입니다.
 	마치 jquey를 사용하던 것처럼, html 파일에 vue 라이브러리 링크 한 줄만 추가하면 vue의 기능을 활용할 수 있습니다.
 2. 이 방식의 가장 큰 장점은 단순함과 신속합입니다. 복잡한 개발 환경 설정 없이도 vue의 핵심 기능인 데이터 바인딩, 이벤트 처리,
-	컴포넌느 기반 개발을 모두 활용할 수 있어 프로토타이핑이나 간단한 웹 페이지 제작에 적합합니다.
+	컴포넌트 기반 개발을 모두 활용할 수 있어 프로토타이핑이나 간단한 웹 페이지 제작에 적합합니다.
 	쉡게 비유하자면, 전문 요리 도구세트 없이도 기본적인 재료(html, css, js)를 처리해주는 것과 갔습니다.
-	
+3. 기본형식..
+	1) 컴포넌트 선언
+		뷰기본인스턴스.component("컴포넌트명",{
+			// 고유데이터
+			data(){},
+			// 컴포넌트 html 구조
+			template:`
+				<button @이벤트=""
+			`
+		})
+	2) 컴포넌트 호출
+		<컴포넌트명></컴포넌트명>
 
 
  */
 	$(document).ready(function(){
-		// http://localhost:5050/b01_vue/####.html
-		Vue.createApp({
+		// http://localhost:5050/b02_vue/a01_component.html
+		const app = Vue.createApp({
 			name:"App",
 			data(){
 				return { msg:"vue시작!"}
 			}
-		}).mount(".container")
+		})
+		
+		// 1. button-counter 이름의 전역 컴포넌트 정의
+		app.component("button-counter",{
+			// 2. 각 컴포넌트는 고유의 데이터를 가짐
+			data(){
+				return{
+					count:0
+				}
+			},
+			// 3. 컴포넌트의 html 구조(주의:최상의 태그는 하나만 선언하여야 한다.)
+			template: `
+				<button @click="count++" class="btn btn-info" >
+					이 버튼을 {{ count }}번 클릭했습니다.
+				</button>
+			`
+		})
+		app.mount(".container")
 	});
 </script>
 </head>
@@ -40,6 +68,9 @@
 <div class="container">
 	<div class="jumbotron text-center">
   	<h2>{{msg}}</h2>
+  	<button-counter></button-counter><br>
+  	<button-counter></button-counter><br>
+  	<button-counter></button-counter><br>
 
 	</div>
 	<form id="frm01" class="form"  method="post">
