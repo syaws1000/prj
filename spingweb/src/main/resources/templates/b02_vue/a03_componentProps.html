@@ -41,7 +41,8 @@
 		const app = Vue.createApp({
 			name:"App",
 			data(){
-				return { msg:"맛있는 간식 자판기"}
+				return { msg:"맛있는 간식 자판기",title:"나만의 플레이리스트", 
+					music:{title:"Love wins all",  artist:"아이유" }}
 			}
 		})
 		app.component("snack-item",{
@@ -55,6 +56,13 @@
 			`
 		})
 		// 컴포넌트 추가..
+		app.component("youtube-item",{
+			props:["title","artist"],
+			template:`
+				<h4>🎵 [{{title}}] - [{{artist}}]</h4>
+			`
+		
+		})
 		
 		
 		app.mount(".container")
@@ -72,6 +80,12 @@
   	<snack-item :name="'🍿 팝콘'" :cnt="2"></snack-item>
   	<snack-item :name="'🍩 도넛'" :cnt="3"></snack-item>
   	<snack-item :name="'🍫 초콜릿'" :cnt="4"></snack-item>
+  	<h2>{{title}}</h2>
+  	<youtube-item title="밤양갱" artist="비비"></youtube-item>
+  	<youtube-item title="첫 만남은 계획대로 되지 않아" artist="TWS(튜어스)"></youtube-item>
+  	<youtube-item :title="music.title" :artist="music.artist"></youtube-item>
+  	<!-- 주의 모델데이터를 속성값으로 지정 할 때는 :속성 ="모델명"으로 반드시 선언하여야 한다. -->
+  	
 
 	</div>
 	<form id="frm01" class="form"  method="post">
