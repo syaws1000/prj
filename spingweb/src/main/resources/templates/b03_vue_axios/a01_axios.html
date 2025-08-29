@@ -76,13 +76,17 @@
 		const app = Vue.createApp({
 			name:"App",
 			data(){
-				return { msg:"axios를 통한 ajax 처리"}
+				return { msg:"axios를 통한 ajax 처리", revMsg:""}
 			},
 			methods:{
 				callServer(){
-					alert("서버 호출")
-					axios.get("/ajax04").then( function(response){
-						alert(response.data)
+					//var vm = this
+					//alert("서버 호출")
+					axios.get("/ajax04").then( response =>{  // this의 전역변수를 사용하기 위해서 화살표함수 사용..
+						//alert(response.data)
+						// 서버단에서 받은 ajax 데이터를 모델데이터에 할당하여 출력 처리..
+						this.revMsg = response.data
+						//alert(this.revMsg)
 					}).catch(function(err){
 						console.log(err)	
 					})
@@ -90,6 +94,8 @@
 			}
 		})
 		app.mount(".container")
+		// a02_axiosexp.html를 만들고.. 버튼 클릭시, /ajax12 를 호출해서..
+		// 해당 데이터를 출력 처리하세요..
 	});
 </script>
 </head>
@@ -100,6 +106,7 @@
 	<div class="jumbotron text-center">
   	<h2>{{msg}}</h2>
 	<button class="btn btn-info" @click="callServer()" type="button">axios로 서버 호출</button>
+	<h3>{{revMsg}}</h3>
 	</div>
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
