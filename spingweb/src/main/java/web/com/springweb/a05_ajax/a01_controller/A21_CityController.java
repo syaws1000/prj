@@ -21,6 +21,13 @@ public class A21_CityController {
 	public String cityList() {
 		return "a02_ajax\\a21_cityView.html";
 	}
+	// http://localhost:5050/cityListVue
+	@GetMapping("cityListVue")
+	public String cityListVue() {
+		return "b03_vue_axios\\a03_cityManager.html";
+	}	
+	// a05_ajax\a01_controller\A21_CityController.java
+	// /getCityList /insertCity  /getCity /updateCity /deleteCity
 	// http://localhost:5050/getCityList
 	@GetMapping("getCityList")
 	public ResponseEntity<?> getCityList(City sch) {

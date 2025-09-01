@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class City {
+	// cityName country
+	// cityId cityName country population area foundedDate
 	private int cityId;
 	private String cityName;
 	private String country;
