@@ -35,9 +35,17 @@ public class A21_CityController {
 
 		return ResponseEntity.ok(service.getCityList(sch));
 	}
+	// insertCityVue
+	// http://localhost:5050/insertCityVue
+	@PostMapping("insertCityVue")
+	public ResponseEntity<?>  insertCityVue(@RequestBody City ins) {
+		return  ResponseEntity.ok(service.insertCity(ins));
+	}
+	
+	
 	// http://localhost:5050/insertCity
 	@PostMapping("insertCity")
-	public ResponseEntity<?>  insertCity(@RequestBody City ins) {
+	public ResponseEntity<?>  insertCity(City ins) {
 		return  ResponseEntity.ok(service.insertCity(ins));
 	}
 	// http://localhost:5050/getCity
@@ -50,6 +58,11 @@ public class A21_CityController {
 	public ResponseEntity<?> updateCity(City upt) {
 		return ResponseEntity.ok(service.updateCity(upt)) ;
 	}
+	// http://localhost:5050/updateCity
+	@PutMapping("updateCityVue")
+	public ResponseEntity<?> updateCityVue(@RequestBody City upt) {
+		return ResponseEntity.ok(service.updateCity(upt)) ;
+	}	
 	// http://localhost:5050/deleteCity
 	@DeleteMapping("deleteCity")
 	public ResponseEntity<?> deleteCity(int cityId) {

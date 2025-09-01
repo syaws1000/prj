@@ -24,7 +24,7 @@
 	1) backend
 	 	a05_ajax\a01_controller\A21_CityController.java
 	 	
-	 	/getCityList /insertCity  /getCity /updateCity /deleteCity					
+	 	/getCityList /insertCityVue  /getCity /updateCityVue /deleteCity					
 	2) frontend
 		b03_vue_axios\a03_cityManager.html
 		
@@ -72,6 +72,7 @@
 				},
 				// 모달창으로 등록 form을 로딩하는 메서드
 				registerFrm(){
+					this.city = {cityId:0}  // 입력된 내용 초기화
 					// cityRegBtn cityUptBtn cityDelBtn modalTitle
 					$("#modalTitle").text("도시 정보 등록")
 					$("#cityRegBtn").show()
@@ -82,9 +83,10 @@
 				// 입력 후, 등록 버튼 클릭사 vue axio ajax 처리..
 				insertCity(){
 					if(confirm("도시 정보 등록 하시겠습니까?")){
+						
 						console.log("도시 정보 등록")
 						console.log(this.city)
-						axios.post("/insertCity", this.city).then(response=>{
+						axios.post("/insertCityVue", this.city).then(response=>{
 							console.log(response.data)
 							alert(response.data)
 							this.city = {cityId:0}  // 입력된 내용 초기화
@@ -94,6 +96,36 @@
 						})
 					}
 				},
+				updateCity(){
+					if(confirm("도시 정보 수정 하시겠습니까?")){
+						console.log("도시 수정 ")
+						console.log(this.city)
+						axios.put("/updateCityVue", this.city).then(response=>{
+							console.log(response.data)
+							alert(response.data)
+							//this.city = {cityId:0}  // 입력된 내용 초기화
+							this.search()  // 재 검색 처리
+						}).catch(err=>{
+							console.log(err)
+						})
+					}
+				},
+				deleteCity(){
+					if(confirm("도시 정보 삭제 하시겠습니까?")){
+						console.log("도시 정보 삭제")
+						console.log(this.city)
+						axios.delete("/deleteCity", {params:{cityId:this.city.cityId} }).then(response=>{
+							console.log(response.data)
+							alert(response.data)
+							this.city = {cityId:0}  // 입력된 내용 초기화
+							this.search()  // 재 검색 처리#closeclose")
+							$(".close").click()
+							
+						}).catch(err=>{
+							console.log(err)
+						})
+					}
+				},				
 				// 상세 데이터 로딩
 				getCity(cityId){
 					$("#loadFrm").click()
@@ -103,7 +135,7 @@
 					$("#cityDelBtn").show()
 					axios.get("/getCity",{params:{cityId:cityId}}).then(response=>{
 						this.city = response.data
-						//console.log(this.city.foundedDate)
+						console.log(this.city.foundedDate)
 						var dte = new Date(this.city.foundedDate)
 						this.city.foundedDate = formatDate(dte)
 						console.log(this.city.foundedDate)
@@ -226,8 +258,8 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" @click="insertCity" id="cityRegBtn" class="btn btn-success">등 록</button>
-	        <button type="button" id="cityUptBtn" class="btn btn-primary">수 정</button>
-	        <button type="button" id="cityDelBtn" class="btn btn-warning">삭 제</button>
+	        <button type="button" @click="updateCity"  id="cityUptBtn" class="btn btn-primary">수 정</button>
+	        <button type="button" @click="deleteCity"  id="cityDelBtn" class="btn btn-warning">삭 제</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	        
 	      </div>
