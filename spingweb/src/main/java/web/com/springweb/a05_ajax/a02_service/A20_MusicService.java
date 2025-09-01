@@ -14,7 +14,7 @@ import web.com.springweb.a05_ajax.dto.MusicAlbums;
 public class A20_MusicService {
 	@Autowired(required=false)
 	private A20_MusicDao dao;
-	
+	// price
 	public List<MusicAlbums> getMusicAlums(MusicAlbums sch) {
 		// 초기화면에서 null 시, "" 처리
 		if(sch.getAlbumTitle()==null) sch.setAlbumTitle("");

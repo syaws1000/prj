@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import web.com.springweb.a05_ajax.a02_service.A20_MusicService;
@@ -27,11 +28,22 @@ public class A20_MusicController {
 	public String getMusicAlumsView() {
 		return "a02_ajax\\a20_musicAlbum.html";
 	}
+	// http://localhost:5050/getMusicAlumsViewVue
+	@GetMapping("getMusicAlumsViewVue")
+	public String getMusicAlumsViewVue() {
+		return "b03_vue_axios\\a04_albumManager.html";
+	}	
+	
 	// http://localhost:5050/insertAlbum
 	@PostMapping("insertAlbum")
 	public ResponseEntity<?> insertAlbum(MusicAlbums ins){
 		return ResponseEntity.ok(service.insertAlbum(ins));
 	}	
+	// http://localhost:5050/insertAlbumVue
+	@PostMapping("insertAlbumVue")
+	public ResponseEntity<?> insertAlbumVue(@RequestBody MusicAlbums ins){
+		return ResponseEntity.ok(service.insertAlbum(ins));
+	}		
 	// http://localhost:5050/getAlbum?albumId=1
 	@GetMapping("getAlbum")
 	public ResponseEntity<?> getAlbum(@RequestParam("albumId") int albumId){
@@ -43,6 +55,11 @@ public class A20_MusicController {
 	// http://localhost:5050/updateAlbum
 	@PutMapping("updateAlbum")
 	public ResponseEntity<?> updateAlbum(MusicAlbums upt){
+		return ResponseEntity.ok(service.updateAlbum(upt));
+	}		
+	// http://localhost:5050/updateAlbumVue
+	@PutMapping("updateAlbumVue")
+	public ResponseEntity<?> updateAlbumVue(@RequestBody MusicAlbums upt){
 		return ResponseEntity.ok(service.updateAlbum(upt));
 	}		
 	// http://localhost:5050/deleteAlbum

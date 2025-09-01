@@ -5,6 +5,8 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class MusicAlbums {
+	// albumTitle artist genre 
+	// albumId  albumTitle artist releaseDate genre price
 	private int albumId;
 	private String albumTitle;
 	private String artist;
