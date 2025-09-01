@@ -87,7 +87,7 @@
 						axios.post("/insertCity", this.city).then(response=>{
 							console.log(response.data)
 							alert(response.data)
-							this.city = {}  // 입력된 내용 초기화
+							this.city = {cityId:0}  // 입력된 내용 초기화
 							this.search()  // 재 검색 처리
 						}).catch(err=>{
 							console.log(err)
