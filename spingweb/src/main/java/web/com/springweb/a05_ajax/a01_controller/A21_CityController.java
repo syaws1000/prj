@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import web.com.springweb.a05_ajax.a02_service.A21_CityService;
 import web.com.springweb.a05_ajax.dto.City;
@@ -36,7 +37,7 @@ public class A21_CityController {
 	}
 	// http://localhost:5050/insertCity
 	@PostMapping("insertCity")
-	public ResponseEntity<?>  insertCity(City ins) {
+	public ResponseEntity<?>  insertCity(@RequestBody City ins) {
 		return  ResponseEntity.ok(service.insertCity(ins));
 	}
 	// http://localhost:5050/getCity
